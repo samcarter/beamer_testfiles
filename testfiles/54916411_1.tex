@@ -1,0 +1,24 @@
+% https://stackoverflow.com/a/54916411
+\documentclass{beamer}
+
+\setbeamertemplate{footline}[frame number]
+
+
+\begin{document}
+
+\begin{frame}
+normal frame
+\end{frame}
+
+\begingroup
+\setbeamertemplate{footline}{}
+\begin{frame}
+without footline
+\end{frame}
+\endgroup
+
+\begin{frame}
+normal frame
+\end{frame}
+
+\end{document}

@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/134129
+\documentclass{beamer}
+
+\usepackage[comma,numbers,sort&compress]{natbib}
+\bibliographystyle{plain}
+
+\hypersetup{
+    colorlinks,
+    citecolor=green,
+    linkcolor=red,
+    backref=true
+}
+
+\let\oldbibitem=\bibitem
+\renewcommand{\bibitem}[2][]{\label{#2}\oldbibitem[#1]{#2}}
+\let\oldcite=\cite
+\renewcommand\cite[1]{\hypersetup{linkcolor=green} \hyperlink{#1}{\oldcite{#1}}}
+\let\oldcitep=\citep
+\renewcommand\citep[1]{\hypersetup{linkcolor=green}\hyperlink{#1}{\oldcitep{#1}}}
+\let\oldciteauthor=\citeauthor
+\renewcommand\citeauthor[1]{\hypersetup{linkcolor=green}\hyperlink{#1}{\oldciteauthor{#1}}} 
+
+\begin{document}
+\begin{frame}
+    Dummy referefence to~\cite{article-full}
+    \bibliography{xampl}
+\end{frame}
+\end{document}

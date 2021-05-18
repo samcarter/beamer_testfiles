@@ -1,0 +1,23 @@
+% https://tex.stackexchange.com/a/139763
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}[t]{Title}
+\begin{itemize}
+    \item item outside columns
+    \item item outside columns
+\end{itemize}
+
+\begin{columns}[totalwidth=\textwidth]
+    \column{.6\textwidth}
+    \begin{itemize}
+        \item item in first column
+    \end{itemize}
+
+    \column{.4\textwidth}
+    text in second column
+\end{columns}
+\end{frame}
+
+\end{document}

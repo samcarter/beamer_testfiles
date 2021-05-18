@@ -1,0 +1,35 @@
+% https://stackoverflow.com/a/54923653
+\documentclass{beamer}
+
+\defbeamertemplate{background canvas}{mydefault}{%
+  \includegraphics[width=1cm]{example-image-duck}
+}
+\defbeamertemplate{background canvas}{fullimage}{%
+  \includegraphics[width=\paperwidth]{example-image-duck}
+}
+
+\BeforeBeginEnvironment{frame}{%
+  \setbeamertemplate{background canvas}[mydefault]%
+}
+
+\makeatletter
+\define@key{beamerframe}{fullimage}[true]{%
+  \setbeamertemplate{background canvas}[fullimage]%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+  left
+\end{frame} 
+
+\begin{frame}[fullimage]
+  right
+\end{frame}
+
+\begin{frame}
+  is left again
+\end{frame}
+
+\end{document}

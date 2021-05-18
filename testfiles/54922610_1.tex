@@ -1,0 +1,22 @@
+% https://stackoverflow.com/a/54922610
+%\documentclass{article}
+\documentclass{beamer}
+
+\newcommand{\longauthorname}{foo}
+\newcommand{\shortauthorname}{bar}
+
+
+\makeatletter
+\@ifclassloaded{beamer}{%
+    \author[\shortauthorname]{\longauthorname}
+}{
+ \author{\longauthorname}
+}
+\makeatother
+
+
+\begin{document}
+
+test
+
+\end{document}

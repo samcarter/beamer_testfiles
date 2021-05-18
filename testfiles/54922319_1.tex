@@ -1,0 +1,58 @@
+% https://stackoverflow.com/a/54922319
+\documentclass[xcolor={table}]{beamer}
+
+\usepackage{pgf}
+
+%new color
+\definecolor{Gray}{gray}{0.9}
+\def\textboxcolor{Gray}
+%----------------------------------------------------------------------
+%----------------------------------------------------------------------
+\setbeamertemplate{headline}{%
+\hspace{0.01\textwidth}\begin{minipage}[t]{0.88\textwidth}
+\vspace{0.1cm}
+\begin{tabular}{p{0.5\textwidth}p{0.4\textwidth}p{0.1\textwidth}}
+Organisation - Institution&%
+&%
+\includegraphics[width=1cm]{example-image-duck}\\
+\hline\\
+\end{tabular}
+\end{minipage}}
+%%----------------------------------------------------------------------
+\setbeamertemplate{footline}{%
+\hspace{0.01\textwidth}\begin{minipage}[t]{0.88\textwidth}%
+\begin{tabular}{p{0.3\textwidth}p{0.35\textwidth}p{0.2\textwidth}p{0.1\textwidth}}%
+\rowcolor[rgb]{0.8,0.8,0.8}\hline%
+\raggedright\begin{minipage}{0.3cm}\includegraphics[width=0.30cm]{example-image}\end{minipage}\ \insertauthor &%
+\centering \    \usebeamerfont{date in head/foot}\insertshortdate{}& &%
+Seite \insertframenumber{}/\inserttotalframenumber\\
+\hline\\
+\end{tabular}
+\end{minipage}}
+
+\begin{document}
+
+\begin{frame}{Normal Frame}
+    \begin{block}{Blocktitle}
+    Text
+  \end{block}
+\end{frame}
+
+\begingroup
+    \setbeamertemplate{navigation symbols}{%
+        \color{black}%
+      \tiny%
+      \setbeamertemplate{page number in head/foot}[totalpagenumber]%
+      \usebeamertemplate{page number in head/foot}%
+    }
+    \begin{frame}[plain]{Frame with Images}
+        \centering
+        \includegraphics[height=0.5\textheight]{example-image}%
+        \includegraphics[height=0.5\textheight]{example-image}
+
+        \includegraphics[height=0.5\textheight]{example-image}%
+        \includegraphics[height=0.5\textheight]{example-image}
+    \end{frame}
+\endgroup
+
+\end{document}

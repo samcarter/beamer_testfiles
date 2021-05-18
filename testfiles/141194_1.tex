@@ -1,0 +1,30 @@
+% https://tex.stackexchange.com/a/141194
+\documentclass{beamer}
+\usepackage{pgfpages}
+
+\setbeameroption{show notes on second screen} 
+
+\pgfpagesuselayout{8 on 1}
+
+\setbeamercolor{background canvas}{bg=gray}
+
+\begin{document}
+
+    \fontsize{60}{64}\selectfont
+
+    \begin{frame}
+         Slide 1
+        \note{\fontsize{60}{64}\selectfont Note 1}
+    \end{frame}
+
+    \begin{frame}
+        Slide 2
+        \note{\fontsize{60}{64}\selectfont Note 2}
+    \end{frame}
+
+    \begin{frame}
+        Slide 3
+        \note{\fontsize{60}{64}\selectfont Note 3}
+    \end{frame}
+
+\end{document}

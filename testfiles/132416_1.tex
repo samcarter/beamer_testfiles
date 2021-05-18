@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/132416
+\RequirePackage[demo]{graphicx}
+\documentclass{beamer}
+\begin{document}
+
+\begin{frame}
+    \begin{columns}
+        \begin{column}{.4\textwidth}
+            \begin{center}
+                \includegraphics[width=\textwidth]{../Figs/fig1}
+            \end{center}
+        \end{column}
+        \hspace*{-2cm}
+        \begin{column}{.6\textwidth}
+            \begin{description}
+                \item[$E_{t,i}$] The $i$th transmitted signal vector
+                \item[$E_{r,i}$] The $i$th received signal vector
+                \item[$E_{err,i}$] The $i$th error vector
+            \end{description}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\end{document}

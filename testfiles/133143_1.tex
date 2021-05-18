@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/133143
+\documentclass{beamer}
+
+\setbeamertemplate{section in toc}{
+    \leavevmode\leftskip=2ex%
+    \llap{%
+        \usebeamerfont*{section number projected}%
+        \usebeamercolor{section number projected}%
+        \begin{pgfpicture}{-1ex}{0ex}{1ex}{2ex}
+            \color{bg}
+            \pgfpathcircle{\pgfpoint{0pt}{.75ex}}{1.4ex}
+            \pgfusepath{stroke}
+            \pgftext[base]{\color{bg}\inserttocsectionnumber}
+        \end{pgfpicture}\kern1.25ex%
+    }%
+    \inserttocsection\par
+}
+
+\begin{document}
+
+    \section{some really long title some really long title some really long title
+        some really long title}
+
+    \begin{frame}{Contents}
+        \tableofcontents[currentsection,hideallsubsections,subsubsectionstyle=hide]
+    \end{frame}
+
+\end{document}

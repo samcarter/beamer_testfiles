@@ -1,0 +1,27 @@
+% https://stackoverflow.com/a/54894575
+\documentclass{beamer}
+
+\setbeamertemplate{headline}{%
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=\paperwidth,ht=3ex,dp=1.125ex]{palette tertiary}%
+        \insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+        \end{beamercolorbox}%
+    }
+}
+
+\setbeamertemplate{section in head/foot}{\insertsectionhead\hspace{0.5cm}}
+
+\begin{document}
+
+\section{title}
+\begin{frame}
+content...
+\end{frame}
+
+\section{title}
+\begin{frame}
+content...
+\end{frame}
+
+\end{document}

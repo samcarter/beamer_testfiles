@@ -1,0 +1,27 @@
+% https://stackoverflow.com/a/54906408
+\documentclass[t]{beamer}
+
+\setbeamertemplate{footline}{
+  \hfill%
+  \usebeamercolor[fg]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \setbeamertemplate{page number in head/foot}[appendixframenumber]%
+  \usebeamertemplate*{page number in head/foot}\kern1em\vskip2pt%
+}
+
+\begin{document}
+
+    \begin{frame}
+        slide in the main part
+        \only<2>{blub}
+    \end{frame}
+
+    \appendix
+    \section*{Backup}
+
+    \begin{frame}
+        \frametitle{backup}
+        not counting in the total frame number
+    \end{frame}
+
+\end{document}

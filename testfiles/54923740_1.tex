@@ -1,0 +1,15 @@
+% https://stackoverflow.com/a/54923740
+\documentclass{beamer}
+
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage[style=verbose,backend=biber]{biblatex}
+\addbibresource{biblatex-examples.bib}
+
+\begin{document}
+ \begin{frame}
+    \frametitle{R: Literature Review}
+    \setbeamerfont{footnote}{size=\tiny}
+    Huo et al. \footfullcite{knuth:ct}
+    \end{frame}
+\end{document}

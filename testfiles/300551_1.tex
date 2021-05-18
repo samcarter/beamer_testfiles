@@ -1,0 +1,86 @@
+% https://tex.stackexchange.com/a/300551
+\documentclass{beamer}
+
+\definecolor{msl}{RGB}{27,145,165}
+\usetheme{PaloAlto}
+
+\usecolortheme[RGB={27,145,165}]{structure}
+
+\setbeamersize{sidebar width left=2cm}
+
+\setbeamercolor{frametitle}{bg=msl!20!msl}
+\setbeamercolor{sidebar}{bg=msl}
+\setbeamercolor{title in sidebar}{fg=white}
+
+\makeatletter
+\setlength\beamer@sidebarwidth{2cm}
+\makeatother
+
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+\title{How to shade in PaloAlto} 
+\author{Buzz} 
+\institute{TEST}
+\date{29 mars 2016} 
+
+\colorlet{titleright}{white}
+\colorlet{titlemid}{msl}
+\colorlet{titleleft}{msl}
+
+\makeatletter
+
+\pgfdeclarehorizontalshading[titleleft,titleright]{beamer@frametitleshade}{\paperheight}{%
+    color(\beamer@sidebarwidth)=(titlemid);%
+    color(\paperwidth)=(titleright)%
+}
+
+\pgfdeclareverticalshading[titleleft,titleright]{beamer@sidebar}{\beamer@sidebarwidth}{%
+    color(0pt)=(titleright);%
+    color(\sidebarheight)=(titleleft)%
+}
+
+\setbeamertemplate{headline}{%
+    \begin{beamercolorbox}[wd=\paperwidth]{frametitle}%
+        \ifx\beamer@sidebarside\beamer@lefttext%
+        \else%
+        \hfill%
+        \fi%
+        \ifdim\beamer@sidebarwidth>0pt%  
+        \usebeamercolor[bg]{logo}%
+        \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@headheight}%
+            \usebeamercolor{frametitle right}%
+            \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@headheight}}%
+            \pgfusepath{clip}%
+            \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}%
+        \end{pgfpicture}%
+        \vskip-\beamer@headheight%
+        \vrule width\beamer@sidebarwidth height \beamer@headheight%
+        \hskip-\beamer@sidebarwidth%
+        \hbox to \beamer@sidebarwidth{\hss\vbox to
+            \beamer@headheight{\vss\hbox{\color{fg}\insertlogo}\vss}\hss}%
+        \else%
+        \vrule width0pt height \beamer@headheight%  
+        \fi%
+    \end{beamercolorbox}%
+ }
+
+\setbeamertemplate{sidebar canvas left}{%
+    \pgfuseshading{beamer@sidebar}%
+}
+
+\makeatother
+
+\begin{document}
+
+\hspace*{-1.5cm}
+\begin{frame}[plain]
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{TOC} 
+test
+\end{frame}
+
+\end{document} 

@@ -1,0 +1,27 @@
+% https://stackoverflow.com/a/54923043
+% !TeX program = txs:///arara
+% arara: pdflatex: {synctex: on, interaction: nonstopmode, shell: yes}
+
+\documentclass{beamer}
+\usepackage[most]{tcolorbox}
+
+\begin{document}
+
+\begin{frame}[fragile]
+
+\begin{tcblisting}{
+    comment only,
+  pdf comment,
+  compilable listing,
+  run pdflatex,
+}
+\documentclass{article}
+\begin{document}
+\section{Section Title}
+test
+\end{document}
+\end{tcblisting}
+
+\end{frame}
+
+\end{document}

@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/135042
+\documentclass{beamer}
+\usetheme{Berlin}
+
+\begin{document}
+
+\begin{frame}{My Frame}
+    \begin{block}{Block}
+        Foo Bar  Foo Bar  Foo Bar  Foo Bar  Foo Bar  Foo Bar  Foo Bar  Foo Bar 
+    \end{block}
+
+    \begin{columns}[totalwidth=1.02\textwidth]
+        \begin{column}{.47\textwidth}
+            \begin{exampleblock}{Block}
+            Foo Bar
+            \end{exampleblock}
+        \end{column}
+        \begin{column}{.47\textwidth}
+            \begin{block}{Block}
+              Foo Bar
+            \end{block} 
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\end{document}

@@ -1,0 +1,16 @@
+% https://tex.stackexchange.com/a/143102
+\documentclass{beamer}
+
+\makeatletter
+\newlength\beamerleftmargin
+\setlength\beamerleftmargin{\Gm@lmargin}
+\makeatother
+
+\begin{document}
+
+\begin{frame}[plain]
+    \hspace*{-\beamerleftmargin}%
+    \includegraphics[width=\paperwidth,width=\paperwidth]{example-image}
+\end{frame} 
+
+\end{document}

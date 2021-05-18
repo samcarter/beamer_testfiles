@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/133175
+\documentclass[t]{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{footline}{%
+    \begin{picture}(54,12.5)(0,0)
+    \put(0.9,0.52){%
+        \begin{minipage}[b][12.5mm][c]{112.5mm}
+        \raggedleft
+        \insertpagenumber/\insertpresentationendpage
+        \end{minipage}
+    }
+    \end{picture}
+}
+
+
+\begin{document}
+
+    \begin{frame}
+        slide in the main part
+    \end{frame}
+
+    \appendix
+    \section*{Backup}
+
+    \begin{frame}
+        \frametitle{backup}
+        not counting in the total frame number
+    \end{frame}
+
+\end{document}

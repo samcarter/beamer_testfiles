@@ -1,0 +1,33 @@
+% https://stackoverflow.com/a/54907882
+\documentclass{beamer}
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>{Gliederung}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+
+\begin{document}
+
+\section{section with toc}  
+\begin{frame}
+    abc
+\end{frame} 
+
+\begingroup
+    \AtBeginSection[]{}
+    \section{section without toc}   
+    \begin{frame}
+        abc
+    \end{frame} 
+\endgroup
+
+\section{section with toc}  
+\begin{frame}
+    abc
+\end{frame} 
+
+\end{document}

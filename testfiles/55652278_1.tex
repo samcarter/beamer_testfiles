@@ -1,0 +1,43 @@
+% https://stackoverflow.com/a/55652278
+\documentclass[10pt]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{ifthen}
+\usepackage{animate}
+
+\newcounter{i}    % Outer counter
+\setcounter{i}{0}   
+\newcounter{j}    % Inner counter
+\def\ilimit{3}    % Outer iteration limit
+\def\jlimit{5}    % Inner iteration limit, rescaling doesn't happen if this is 1
+
+\begin{document}
+
+\begin{frame}[fragile]{Nested animated loops}
+\begin{center}%
+\begin{animateinline}[loop, poster = first, controls]{2}
+    \whiledo{\thei<\ilimit} {%       % Starting outer loop
+        \setcounter{j}{0}%           % Resetting inner counter
+        \whiledo{\thej<\jlimit} {%   % Starting inner loop
+        \begin{tikzpicture}%
+            \draw [color=black] (-0.5,-1.5) rectangle (4.5, 0.5);   % Draw a bounding rectangle
+            \node[shift={(\thei,0)}] at (0,0) {\Large $\downarrow$};% Draw the first level
+            \node[shift={(\thej,0)}] at (0,-1) {\Large $\uparrow$}; % Draw the second level
+        \end{tikzpicture}%
+        \stepcounter{j}%                        % Increase the inner counter
+        \ifthenelse{\thej<\jlimit} {%
+            \newframe%                          % Draw a new inner frame
+        }{}%
+    }%
+    \stepcounter{i}%                            % Increase the outer counter
+    \ifthenelse{\thei<\ilimit} {%
+        \newframe%                              % Draw a new outer frame
+    }{%
+            \end{animateinline}\relax% % BREAK  % End the animation
+    }%
+  }%
+\end{center}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,38 @@
+% https://stackoverflow.com/a/18790178
+\documentclass[t]{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+\setbeamertemplate{navigation symbols}{}
+
+\def\insertpresentationendframe{\inserttotalframenumber}
+\makeatletter
+\g@addto@macro{\appendix}{\immediate\write\@auxout{\string\@writefile{nav}{\noexpand\headcommand{\noexpand\def\noexpand\insertpresentationendframe{\the\c@framenumber}}}}}
+\makeatother
+
+\setbeamertemplate{footline}{%
+    \begin{picture}(54,12.5)(0,0)
+    \put(0.9,0.52){%
+        \begin{minipage}[b][12.5mm][c]{112.5mm}
+        \raggedleft
+        \insertframenumber/\insertpresentationendframe
+        \end{minipage}
+    }
+    \end{picture}
+}
+
+\begin{document}
+
+    \begin{frame}
+        slide in the main part
+        \only<2>{blub}
+    \end{frame}
+
+    \appendix
+    \section*{Backup}
+
+    \begin{frame}
+        \frametitle{backup}
+        not counting in the total frame number
+    \end{frame}
+
+\end{document}

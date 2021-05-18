@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/136116
+\documentclass[leqno,mathserif]{beamer} 
+\usepackage{graphics,bm}
+\usetheme{Luebeck} 
+\setbeamercovered{transparent}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage[english,french]{babel} 
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{matrix}
+\begin{document}
+
+\begin{frame}
+    \begin{figure}
+      \scalebox{.8}{
+        \begin{tikzpicture}
+            \matrix (magic) [matrix of nodes,ampersand replacement=\&, column sep=7mm, row sep=5mm]{
+                \node (se) [draw,shape=rectangle] {Existence Forte}; \&
+                \node (yw) [draw,shape=circle] {Yamada-watanab}; \&
+                \node (ul) [draw,shape=rectangle] {Unicité en Loi}; \\
+                \node (d1) [draw,shape=circle] {Définition}; \& 
+                \&   
+                \node (d2) [draw, shape=circle] {Définition}; \\
+                \node (we) [draw, shape=rectangle] {Existence Faible}; \&
+                \node (ec) [draw, shape=circle] {Engelbert-Cherny}; \& 
+                \node (pu) [draw, shape=rectangle] {Unicité Trajectorielle}; \\
+            };
+            \draw[->, thick] (se) -- (d1); \draw[->, thick] (d1) -- (we);
+            \draw[->, thick] (we) -- (yw); \draw[->, thick] (yw) -- (se);
+            \draw[->, thick] (se) -- (ec); \draw[->, thick] (ul) -- (ec);
+            \draw[->, thick] (ec) -- (pu); \draw[->, thick] (pu) -- (yw);
+            \draw[->, thick] (pu) -- (d2); \draw[->, thick] (d2) -- (ul);
+        \end{tikzpicture}
+      }
+    \end{figure}
+\end{frame}
+
+\end{document}
