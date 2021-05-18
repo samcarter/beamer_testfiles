@@ -1,47 +1,7 @@
 #!/usr/bin/env texlua
-module = "document"
+module = "beamer_testfiles"
 checkruns    = 2
 checkengines = { "pdftex" }
-
-
-function save(names)
-  checkinit()
-  local engines = options["engine"] or {stdengine}
-  if names == nil then
-    print("Arguments are required for the save command")
-    return 1
-  end
-  for _,name in pairs(names) do
-    local test_filename, kind = testexists(name)
-    if not test_filename then
-      print('Test "' .. name .. '" not found')
-      return 1
-    end
-    local test_type = test_types[kind]
-    if test_type.expectation and locate({unpackdir, testfiledir}, {name .. test_type.expectation}) then
-      print("Saved " .. test_type.test .. " file would override a "
-        .. test_type.expectation .. " file of the same name")
-      return 1
-    end
-    for _,engine in pairs(engines) do
-      local testengine = engine == stdengine and "" or ("." .. engine)
-      local out_file = name .. testengine .. test_type.reference
-      local gen_file = name .. "." .. engine .. test_type.generated
-      print("Creating and copying " .. out_file)
-      runtest(name, engine, false, test_type.test, test_type)
-      ren(testdir, gen_file, out_file)
-      cp(out_file, testdir, testfiledir)
-      if fileexists(unpackdir .. "/" .. test_type.reference) then
-        print("Saved " .. test_type.reference
-          .. " file overrides unpacked version of the same name")
-        return 1
-      end
-    end
-  end
-  print("Quack")
-  return 0
-end
-
 
 extracmds    = '\\input regression-test.tex \\loggingoutput \\START'
 
@@ -165,5 +125,45 @@ function runtest(name, engine, hide, ext, test_type, breakout)
   end
   return 0
 end
+
+function save(names)
+  checkinit()
+  local engines = options["engine"] or {stdengine}
+  if names == nil then
+    print("Arguments are required for the save command")
+    return 1
+  end
+  for _,name in pairs(names) do
+    os.execute("cp ./" .. testfiledir .. "/" .. name .. ".tex ./" .. testfiledir .. "/" .. name .. ".lvt" )    -- hack to automatically copy .tex to .lvt
+    local test_filename, kind = testexists(name)
+    if not test_filename then
+      print('Test "' .. name .. '" not found')
+      return 1
+    end
+    local test_type = test_types[kind]
+    if test_type.expectation and locate({unpackdir, testfiledir}, {name .. test_type.expectation}) then
+      print("Saved " .. test_type.test .. " file would override a "
+        .. test_type.expectation .. " file of the same name")
+      return 1
+    end
+    for _,engine in pairs(engines) do
+      local testengine = engine == stdengine and "" or ("." .. engine)
+      local out_file = name .. testengine .. test_type.reference
+      local gen_file = name .. "." .. engine .. test_type.generated
+      print("Creating and copying " .. out_file)
+      runtest(name, engine, false, test_type.test, test_type)
+      ren(testdir, gen_file, out_file)
+      cp(out_file, testdir, testfiledir) 
+      cp(name .. ".pdf", testdir, testfiledir) --      <--- Added to copy the pdf to the test dir
+      if fileexists(unpackdir .. "/" .. test_type.reference) then
+        print("Saved " .. test_type.reference
+          .. " file overrides unpacked version of the same name")
+        return 1
+      end
+    end
+  end
+  return 0
+end
+target_list["save"].func = save -- Update save in the target_list
 
 
