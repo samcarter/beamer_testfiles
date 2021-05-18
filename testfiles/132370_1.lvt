@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/132370
+\documentclass[t]{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\pifoot}[1]{
+    \begin{textblock*}{120mm}(0mm,84.3mm)
+        \raggedleft #1
+    \end{textblock*}
+}
+
+\begin{document}
+
+    \begin{frame}
+        \pifoot{3}
+    \end{frame}
+
+    \begin{frame}
+        \pifoot{3.1}
+    \end{frame}
+
+    \begin{frame}
+        \pifoot{3.14}
+    \end{frame}
+
+\end{document}

@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/132370
+\documentclass[t]{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+\setbeamertemplate{navigation symbols}{}
+\usepackage{xstring}
+
+\setbeamertemplate{footline}{%
+    \begin{picture}(54,12.5)(0,0)
+        \put(0.9,0.52){%
+            \begin{minipage}[b][12.5mm][c]{112.5mm}
+                 \raggedleft
+                 3\StrLeft{.141592653589793238462643383279502884197169399375105820974944592307816406286 208998628034825342117067982148086513282306647093844609550582231725359408128481}{\arabic{framenumber}}
+            \end{minipage}
+        }
+    \end{picture}
+}
+
+\begin{document}
+    \begin{frame}
+    \end{frame}
+
+    \begin{frame}
+    \end{frame}
+\end{document} 
