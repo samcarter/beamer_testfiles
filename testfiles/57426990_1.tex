@@ -1,0 +1,57 @@
+% https://stackoverflow.com/a/57426990
+\documentclass[c, 10pt]{beamer}
+
+%\usepackage{polyglossia}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{tabularx}
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{siunitx}
+%\usepackage{placeins}
+\usepackage{multirow}
+\usepackage{booktabs}
+%\usepackage{verbatim}
+%\usepackage{fancyvrb}
+\usepackage{nicefrac}
+\usepackage{array}
+
+
+%\setdefaultlanguage{english}
+
+\usetheme{JuanLesPins}
+\usecolortheme{seahorse}
+
+\newcolumntype{Y}{>{\centering\arraybackslash} X}
+
+\setbeamerfont{block title}{size=\large}
+
+\begin{document}
+
+\begin{frame}
+    \frametitle{Symbols and Commands}
+    \begin{block}{\centering Division}
+        \begin{table}
+%            \centering
+%            \renewcommand\baselinestretch{0.01}\selectfont
+            \begin{tabularx}{\textwidth}{Y Y Y}
+                \toprule
+                 Code & \multicolumn{2}{c}{Examples}\\
+                \midrule 
+                \verb|\dfrac{a}{b}| & 
+                $\displaystyle\dfrac{a}{b}$ & 
+                $\displaystyle\mathrm{e}^{\dfrac{1}{k_BT}}$ \\\addlinespace
+                \verb|\frac{a}{b}| &
+                $\displaystyle\frac{a}{b}$ &
+                $\displaystyle\mathrm{e}^{\frac{1}{k_BT}}$ \\\addlinespace
+                \verb|\nicefrac{a}{b}| &
+                $\displaystyle\nicefrac{a}{b}$ &
+                $\displaystyle\mathrm{e}^{\nicefrac{1}{k_BT}}$ \\
+                \bottomrule
+            \end{tabularx}
+        \end{table}
+    \end{block}
+\end{frame}    
+
+\end{document}

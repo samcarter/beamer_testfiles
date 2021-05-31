@@ -1,0 +1,14 @@
+% https://stackoverflow.com/a/56456783
+\documentclass{beamer}
+
+\usepackage{tikz}
+\usepackage{tikzpeople}
+
+\begin{document}
+\begin{frame}
+
+\foreach \x in {0,1,...,17}{\tikz{\node[person,shirt=red,scale=2] (B) at (0,0) {};} }%
+\foreach \x in {0,1,...,10}{\tikz{\node[person,shirt=blue,scale=2] (B) at (0,0) {};} }
+
+\end{frame}
+\end{document}

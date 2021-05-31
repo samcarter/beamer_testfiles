@@ -1,0 +1,66 @@
+% https://stackoverflow.com/a/57834150
+\documentclass[14pt,aspectratio=169]{beamer}
+\usetheme{Marburg}
+\graphicspath{{Arquivos/}}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{graphicx}
+
+\title{Image and Audio Hybrid Watermarking against Synchronization Attacks}
+\author[]{Bhavneet Sharma (31703102)\\[\baselineskip] {\small {Supervised By}
+  \and\\Prof. Dr. Mayank Dave}}
+%\setbeamercovered{transparent} 
+\institute{\includegraphics[width=2cm, height=1cm,keepaspectratio]{example-image-duck}
+\\National Institute of Technology, Kurukshetra
+}
+\date{September 22, 2019} 
+%\subject{} 
+
+\makeatletter
+\setbeamertemplate{sidebar right}
+  {
+    \beamer@tempdim=\beamer@sidebarwidth%
+    \advance\beamer@tempdim by -6pt%
+    {\usebeamerfont{title in sidebar}%
+      \vskip1.5em%
+      \hskip3pt%
+      \usebeamercolor[fg]{title in sidebar}%
+      \insertshorttitle[width=\beamer@tempdim,center,respectlinebreaks]\par%
+      \vskip1.25em%
+    }%
+%    {%
+%      \hskip3pt%
+%      \usebeamercolor[fg]{author in sidebar}%
+%      \usebeamerfont{author in sidebar}%
+%      \insertshortauthor[width=\beamer@tempdim,center,respectlinebreaks]\par%
+%      \vskip1.25em%
+%    }%
+    \insertverticalnavigation{\beamer@sidebarwidth}%
+    \vfill
+    \ifx\beamer@sidebarside\beamer@lefttext%
+    \else%
+      \usebeamercolor{normal text}%
+      \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+      \vskip2pt%
+    \fi%
+  }%
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}
+content...
+\end{frame}
+
+
+\end{document}

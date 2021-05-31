@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/147990
+\documentclass{beamer}
+\usetheme{Madrid}
+
+\defbeamertemplate*{footline}{my footline}
+{
+    \ifnum \insertpagenumber=1
+      \leavevmode%
+      \hbox{%
+      \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,center]{}%
+        % empty environment to raise height
+      \end{beamercolorbox}}%
+      \vskip0pt%
+    \else
+      \leavevmode%
+      \hbox{%
+      \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+        \usebeamerfont{title in head/foot}\insertshorttitle
+      \end{beamercolorbox}}%
+      \vskip0pt%
+    \fi
+}
+
+\setbeamertemplate{footline}[my footline]
+
+\AtBeginDocument{\fontsize{20}{24}\selectfont}
+
+\title{Some Title}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Frame 1}
+This is a normal frame.
+\end{frame}
+\end{document}
