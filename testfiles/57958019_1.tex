@@ -1,0 +1,105 @@
+% https://stackoverflow.com/a/57958019
+\documentclass{beamer}
+\makeatletter
+\def\beamer@@@@frame<#1>[#2]{%
+  \framewidth\textwidth
+  \beamer@savemode%
+  \gdef\beamer@mode{\mode<all>}%
+  \def\beamer@frametemplate{}%
+  \def\beamer@againname{}%
+  \def\beamer@undolabels{}%
+  \def\beamer@cramped{}%
+  \def\beamer@displaybreak{}%
+  \setbox\beamer@footins=\box\voidb@x%
+  \beamer@autobreakcount=0\relax%
+  \beamer@autobreaklastheight=16000pt%
+  \beamer@zoomcount=0\relax%
+  \beamer@noframenumberingfalse%
+  \beamer@containsverbatimfalse%
+  \beamer@isfragilefalse%
+  \beamer@autobreakfalse%
+  \beamer@shrinkfalse%
+  \beamer@plainframefalse%
+  \global\advance\beamer@zoomframecount by1\relax%
+  \csname beamer@dosecondmode\beamer@defaultdosecondmode\endcsname%
+  \ifbeamer@centered\setkeys{beamerframe}{c}\else\setkeys{beamerframe}{t}\fi%
+  \setkeys{beamerframe}{environment=frame}%
+  \setkeys{beamerframe}{#2}%
+  \beamer@frametemplate%
+  \ifbeamer@noframenumbering%
+    \ifbeamer@isfragile%Fragile frames will be processed twice
+      \stepcounter{framenumber}%
+    \fi%
+  \else%
+    \stepcounter{framenumber}%do not set \label here - it interferes with AtBegin*
+  \fi%
+  {\let\@elt\beamer@savecounter\beamer@overlaycounterresets}
+  \gdef\beamer@framestartpage{}%
+  \gdef\beamer@whichframes{#1}%
+  \ifx\beamer@framerestriction\@undefined\else% restriction stuff
+    \expandafter\beamer@checkifinlist\beamer@framerestriction\relax%
+  \fi%
+  \ifbeamer@inlecture%
+  \else%
+    \gdef\beamer@whichframes{all:0}%
+  \fi%
+  \ifx\beamer@againname\@empty%
+    \beamer@slideinframe=0\relax%
+    \beamer@anotherslidefalse%
+    \beamer@masterdecode{\beamer@whichframes}%
+    \ifbeamer@anotherslide%
+        \let\beamer@howtotreatframe\beamer@doseveralframes%
+      \ifbeamer@containsverbatim%
+        \let\beamer@howtotreatframe\beamer@dosingleframe%
+      \fi%
+      \ifbeamer@autobreak%
+        \let\beamer@howtotreatframe\beamer@autobreakframe%
+      \fi%
+      \ifbeamer@isfragile%
+        \let\beamer@howtotreatframe\beamer@doexternalframe%
+      \fi%
+    \else% no slides in frame
+      \let\beamer@howtotreatframe\beamer@donoframe%
+    \fi%
+  \else% again mode
+    \let\beamer@howtotreatframe\beamer@doseveralframes%
+    \ifbeamer@isfragile%
+      \let\beamer@howtotreatframe\beamer@doexternalframe%
+    \fi%
+    \ifbeamer@containsverbatim
+      \let\beamer@howtotreatframe\beamer@dosingleframe
+    \fi
+    \beamer@slideinframe=0\relax%
+    \beamer@anotherslidefalse%
+    {\beamer@masterdecode{\beamer@whichframes}}%
+    \message{^^J^^J \beamer@againname:\beamer@whichframes ^^J^^J}
+    \ifbeamer@anotherslide%
+      \message{^^J^^J \beamer@againname:I am Here ^^J^^J}
+      \ifbeamer@autobreak%
+        \let\beamer@howtotreatframe\beamer@autobreakframe%
+      \fi%
+    \fi    
+  \fi%
+  \beamer@howtotreatframe}
+\makeatother
+
+\includeonlyframes{both,long}
+
+
+\begin{document}
+
+\begin{frame}[allowframebreaks,label=both]   
+\nocite{*} 
+\frametitle{References}
+
+%\tiny    
+    \bibliographystyle{apalike}    
+    \bibliography{\jobname}
+
+\end{frame}
+
+\begin{frame}[label=long]
+content...
+\end{frame}
+
+\end{document}

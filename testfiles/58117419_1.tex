@@ -1,0 +1,20 @@
+% https://stackoverflow.com/a/58117419
+\documentclass[10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usefonttheme[onlymath]{serif}
+\usepackage{amsmath,bm,amsthm,
+%graphicx,
+skmath}
+\begin{document}
+\begin{frame}
+    \frametitle{Function $g$}
+\[
+g(x)=\begin{pmatrix} 
+g_1(x)\\ \vdots \\ g_n(x) \\ g_{n+1}(x) \\ \vdots \\ g_{2n}(x) \\ g_{2n+1}(x)\\ \vdots \\ g_{3n}(x) 
+\end{pmatrix} 
+\visible<2->{ = \begin{pmatrix} 
+x_1^2 + x_{n+1}^2 - 1 \\ \vdots \\ x_n^2 + x_{2n}^2 - 1\\ \visible<3->{ -x_{2n+1}}\\ \visible<3->{\vdots} \\ \visible<3->{-x_{3n}} \\ \visible<4->{x_{2n+1}-L} \\ \visible<4->{\vdots} \\\visible<4->{x_{3n}-L}
+\end{pmatrix}}
+\]
+\end{frame}
+\end{document}

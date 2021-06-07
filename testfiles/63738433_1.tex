@@ -1,0 +1,36 @@
+% https://stackoverflow.com/a/63738433
+\documentclass{beamer}
+
+\usetheme{Warsaw}
+
+\makeatletter
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+\setbeamertemplate{footline}
+{%
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}
+  \end{beamercolorbox}%  
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}Word I choose
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{title in head/foot}%
+    \hfill\usebeamercolor[fg]{page number in head/foot}\usebeamerfont{page number in head/foot}\usebeamertemplate{page number in head/foot}\hspace*{2ex}
+  \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+\makeatother
+
+
+\title{text}
+\author{names}
+
+\begin{document}
+    
+\begin{frame}
+    abc
+\end{frame} 
+    
+\end{document}

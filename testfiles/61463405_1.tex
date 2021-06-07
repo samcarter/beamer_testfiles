@@ -1,0 +1,51 @@
+% https://stackoverflow.com/a/61463405
+\documentclass{beamer} 
+
+% Theme and sub theme 
+%--------------------------------------------------------------
+\usetheme{Berlin}                             
+\usecolortheme{beaver}       
+
+% Global color settings
+%--------------------------------------------------------------
+\definecolor{Maroon}{cmyk}{0, 0.87, 0.68, 0.32}
+
+\setbeamercolor{author in head/foot}{fg=Maroon}     
+\setbeamercolor{institute in head/foot}{fg=Maroon}  
+\setbeamercolor*{title}{fg=white, bg=Maroon}          
+
+% Modified title page template
+%--------------------------------------------------------------
+\setbeamertemplate{title page}{
+
+\insertauthor
+
+\insertinstitute
+
+\inserttitle
+
+}
+
+\makeatletter
+\def\ps@navigation@titlepage{%
+\setbeamercolor{author in head/foot}{use=palette secondary, fg=palette secondary.bg} 
+\setbeamercolor{title in head/foot}{use=palette tertiary, fg=palette tertiary.bg} 
+\setbeamercolor{institute in head/foot}{use=palette secondary, fg=palette secondary.bg} 
+  \@nameuse{ps@navigation}}
+\addtobeamertemplate{title page}{\thispagestyle{navigation@titlepage}}{}
+\makeatother
+
+\title{presentation-title}
+\author{my-name}
+\date{\today}
+
+\begin{document}
+
+\frame{\titlepage}
+
+
+\begin{frame}
+    frame content
+\end{frame}
+
+\end{document}

@@ -1,0 +1,21 @@
+% https://stackoverflow.com/a/64521914
+\documentclass[xcolor=dvipsnames,aspectratio=1610,handout]{beamer} 
+\usetheme[block=fill,progressbar=frametitle]{metropolis}
+\usepackage[sort&compress,numbers]{natbib} % citations
+
+\renewcommand{\bibsection}{}
+
+\begin{document}
+
+\begin{frame}
+  \frametitle{title}
+  \cite{test}
+\end{frame}
+
+\begin{frame}
+    \frametitle{References}
+    \bibliographystyle{ieeetr} 
+    \bibliography{\jobname}    
+\end{frame}
+
+\end{document}

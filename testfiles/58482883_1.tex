@@ -1,0 +1,96 @@
+% https://stackoverflow.com/a/58482883
+\documentclass[9pt,trans]{beamer}
+\usefonttheme[onlymath]{serif}
+\usetheme[shownavsym,right]{Aalborg}
+\setbeamertemplate{blocks}[rounded][shadow=true] 
+
+\definecolor{dgreen}{rgb}{0.,0.6,0.} 
+
+\usepackage[english,danish]{babel}
+
+\definecolor{aaublue}{RGB}{33,26,82}% dark blue
+\usepackage{etoolbox} % In order to still use an outdated beamer  version
+
+\mode<presentation>
+
+\setbeamercolor*{example text}{fg=green!0!white}
+
+\uselanguage{danish}
+\languagepath{danish}
+\deftranslation[to=danish]{Example}{Eksempel}
+\deftranslation[to=danish]{Theorem}{Sætning}
+
+\usepackage{etoolbox}
+\undef{\example}
+\theoremstyle{example}
+\newtheorem{example}{\translate{Example}}
+
+\setbeamercolor{block title example}{bg=cyan,fg=white}
+\addtobeamertemplate{block example begin}{}{
+  \setbeamertemplate{itemize items}[circle]                    % Shape of bullet-points
+  \setbeamercolor{itemize item}{fg=cyan!100!white}%
+  \setbeamercolor{itemize item}{fg=cyan!100!white}%
+  \setbeamercolor{itemize subitem}{fg=cyan!100!white}%
+  \setbeamercolor{itemize subsubitem}{fg=cyan!100!white}%
+  \setbeamercolor{enumerate item}{fg=cyan!100!black}%
+  \setbeamercolor{enumerate subitem}{fg=cyan!100!black}%
+  \setbeamercolor{enumerate subsubitem}{fg=cyan!100!black}%
+}
+
+\setbeamertemplate{theorem begin}{%
+  \setbeamertemplate{itemize items}[circle]                    % Shape of bullet-points
+  \setbeamercolor{block title}{bg=dgreen!100!white}%
+  \setbeamercolor{itemize item}{fg=dgreen!100!white}%
+  \setbeamercolor{itemize subitem}{fg=dgreen!100!white}%
+  \setbeamercolor{itemize subsubitem}{fg=dgreen!100!white}%
+  \setbeamercolor{enumerate item}{fg=dgreen!100!black}%
+  \setbeamercolor{enumerate subitem}{fg=dgreen!100!black}%
+  \setbeamercolor{enumerate subsubitem}{fg=dgreen!100!black}%
+  \begin{\inserttheoremblockenv}
+    {%
+      \inserttheoremname
+      \inserttheoremnumber
+      \ifx\inserttheoremaddition\@empty\else\ \inserttheoremaddition\fi%
+    }%
+    \normalfont%
+}
+
+\setbeamertemplate{theorem end}{%
+    \end{\inserttheoremblockenv}%
+}
+
+
+\setbeamercolor*{block body}{bg=black!10!white,fg=black} 
+\setbeamercolor*{block body alerted}{bg=normal text.bg!90!black,fg=black} 
+\setbeamercolor*{block body example}{bg=normal text.bg!90!black,fg=black} 
+\setbeamercolor*{block title}{parent=structure2,bg=normal text.bg!0!blue}
+\setbeamercolor*{block title alerted}{use={normal text,alerted text},fg=alerted text.fg!0!white,bg=normal text.bg!10!red}
+\setbeamercolor*{block title example}{use={normal text,example text},fg=white,bg=cyan}
+\setbeamercolor*{block title theorem}{use={normal text,example text},fg=example text.fg!100!normal text.fg,bg=normal text.bg!0!dgreen}
+
+\makeatletter
+\pgfdeclareverticalshading[lower.bg,upper.bg]{bmb@transition}{200cm}{color(0pt)=(lower.bg); color(4pt)=(lower.bg); color(4pt)=(upper.bg)}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+    \begin{example}%
+    \begin{itemize}
+        \item Item 1
+    \end{itemize}
+    \begin{enumerate}
+        \item Item 1
+    \end{enumerate}
+    \end{example}
+
+        \begin{theorem}
+    \begin{itemize}
+        \item Item 1
+    \end{itemize}
+    \begin{enumerate}
+        \item Item 1
+    \end{enumerate}
+\end{theorem}
+\end{frame}
+\end{document}

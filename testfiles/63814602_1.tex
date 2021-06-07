@@ -1,0 +1,20 @@
+% https://stackoverflow.com/a/63814602
+\documentclass{beamer}
+
+\usepackage{lipsum}
+
+\usepackage{tikz} 
+\usetikzlibrary{tikzmark}
+
+
+\begin{document}
+\begin{frame}
+\tikzmark{start}\lipsum[2]\tikzmark{end}
+
+
+\begin{tikzpicture}[remember picture, overlay]
+\draw[red,thick,->] (pic cs:start) -- (pic cs:end);
+\end{tikzpicture}
+
+\end{frame}
+\end{document}

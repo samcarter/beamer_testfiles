@@ -1,0 +1,56 @@
+% https://stackoverflow.com/a/58157554
+\documentclass{beamer}
+
+\usetheme{Aalborg}
+
+\uselanguage{danish}
+\languagepath{danish}
+\deftranslation[to=danish]{Theorem}{Saetning}
+
+\makeatletter
+\setbeamertemplate{theorem begin}{%
+  \setbeamercolor{block title}{bg=cyan!100!white}%
+  \setbeamercolor{itemize item}{fg=cyan!100!white}%
+  \setbeamercolor{itemize subitem}{fg=cyan!100!white}%
+  \setbeamercolor{itemize subsubitem}{fg=cyan!100!white}%
+  \setbeamercolor{enumerate item}{fg=cyan!100!black}%
+  \setbeamercolor{enumerate subitem}{fg=cyan!100!black}%
+  \setbeamercolor{enumerate subsubitem}{fg=cyan!100!black}%
+  \begin{\inserttheoremblockenv}
+    {%
+      \inserttheoremname
+      \inserttheoremnumber
+      \ifx\inserttheoremaddition\@empty\else\ \inserttheoremaddition\fi%
+    }%
+    \normalfont%
+}
+
+\setbeamertemplate{theorem end}{%
+    \end{\inserttheoremblockenv}%
+}
+
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+    \begin{theorem}[Pythagoras]
+            text
+        $a^2+b^2=c^2$ 
+        \begin{itemize}
+        \item test
+        \end{itemize}
+        \label{pytagoras}
+    \end{theorem}
+
+    Theorem \ref{pytagoras}
+
+    \begin{block}{Title Pythagoras}
+        content...
+        \begin{itemize}
+        \item test
+        \end{itemize}
+    \end{block}
+\end{frame} 
+
+\end{document}

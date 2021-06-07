@@ -1,0 +1,143 @@
+% https://stackoverflow.com/a/58159846
+\documentclass{beamer}
+
+\usetheme{Aalborg}
+
+\uselanguage{danish}
+\languagepath{danish}
+\deftranslation[to=danish]{Example}{Eksempel}
+\deftranslation[to=danish]{Theorem}{Saetning}
+
+\undef{\example}
+\theoremstyle{example}
+\newtheorem{example}{\translate{Example}}
+
+
+\makeatletter
+\setbeamercolor{block title example}{bg=orange,fg=black}
+\addtobeamertemplate{block example begin}{}{
+  \setbeamercolor{itemize item}{fg=orange!100!white}%
+  \setbeamercolor{itemize item}{fg=orange!100!white}%
+  \setbeamercolor{itemize subitem}{fg=orange!100!white}%
+  \setbeamercolor{itemize subsubitem}{fg=orange!100!white}%
+  \setbeamercolor{enumerate item}{fg=orange!100!black}%
+  \setbeamercolor{enumerate subitem}{fg=orange!100!black}%
+  \setbeamercolor{enumerate subsubitem}{fg=orange!100!black}%  
+}
+
+\setbeamertemplate{theorem begin}{%
+  \setbeamercolor{block title}{bg=cyan!100!white}%
+  \setbeamercolor{itemize item}{fg=cyan!100!white}%
+  \setbeamercolor{itemize subitem}{fg=cyan!100!white}%
+  \setbeamercolor{itemize subsubitem}{fg=cyan!100!white}%
+  \setbeamercolor{enumerate item}{fg=cyan!100!black}%
+  \setbeamercolor{enumerate subitem}{fg=cyan!100!black}%
+  \setbeamercolor{enumerate subsubitem}{fg=cyan!100!black}%
+  \begin{\inserttheoremblockenv}
+    {%
+      \inserttheoremname
+      \inserttheoremnumber
+      \ifx\inserttheoremaddition\@empty\else\ \inserttheoremaddition\fi%
+    }%
+    \normalfont%
+}
+
+\setbeamertemplate{theorem end}{%
+    \end{\inserttheoremblockenv}%
+}
+
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+
+\begin{theorem}[test]
+content...
+\begin{itemize}
+\item test
+\end{itemize}
+\end{theorem}
+
+\begin{example}[test]
+content...
+\begin{itemize}
+\item test
+\end{itemize}
+\end{example}
+
+
+\end{frame} 
+
+\end{document}
+\documentclass{beamer}
+
+\usetheme{Aalborg}
+
+\uselanguage{danish}
+\languagepath{danish}
+\deftranslation[to=danish]{Example}{Eksempel}
+\deftranslation[to=danish]{Theorem}{Saetning}
+
+\undef{\example}
+\theoremstyle{example}
+\newtheorem{example}{\translate{Example}}
+
+
+\makeatletter
+\setbeamercolor{block title example}{bg=orange,fg=black}
+\addtobeamertemplate{block example begin}{}{
+  \setbeamercolor{itemize item}{fg=orange!100!white}%
+  \setbeamercolor{itemize item}{fg=orange!100!white}%
+  \setbeamercolor{itemize subitem}{fg=orange!100!white}%
+  \setbeamercolor{itemize subsubitem}{fg=orange!100!white}%
+  \setbeamercolor{enumerate item}{fg=orange!100!black}%
+  \setbeamercolor{enumerate subitem}{fg=orange!100!black}%
+  \setbeamercolor{enumerate subsubitem}{fg=orange!100!black}%  
+}
+
+\setbeamertemplate{theorem begin}{%
+  \setbeamercolor{block title}{bg=cyan!100!white}%
+  \setbeamercolor{itemize item}{fg=cyan!100!white}%
+  \setbeamercolor{itemize subitem}{fg=cyan!100!white}%
+  \setbeamercolor{itemize subsubitem}{fg=cyan!100!white}%
+  \setbeamercolor{enumerate item}{fg=cyan!100!black}%
+  \setbeamercolor{enumerate subitem}{fg=cyan!100!black}%
+  \setbeamercolor{enumerate subsubitem}{fg=cyan!100!black}%
+  \begin{\inserttheoremblockenv}
+    {%
+      \inserttheoremname
+      \inserttheoremnumber
+      \ifx\inserttheoremaddition\@empty\else\ \inserttheoremaddition\fi%
+    }%
+    \normalfont%
+}
+
+\setbeamertemplate{theorem end}{%
+    \end{\inserttheoremblockenv}%
+}
+
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+
+\begin{theorem}[test]
+content...
+\begin{itemize}
+\item test
+\end{itemize}
+\end{theorem}
+
+\begin{example}[test]
+content...
+\begin{itemize}
+\item test
+\end{itemize}
+\end{example}
+
+
+\end{frame} 
+
+\end{document}

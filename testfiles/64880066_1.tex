@@ -1,0 +1,21 @@
+% https://stackoverflow.com/a/64880066
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}<1-2>[label=foo]
+\begin{itemize}
+  \item<1-> item 1 % this should appear in frame 1 slide 1 and frame 2 slide 1-2
+  \item<2-> item 2 % this should appear in frame 1 slide 2 and frame 2 slide 1-2
+  \item<3-> item 3 % this should appear in frame 2 slide 1
+  \item<4-> item 4 % this should appear in frame 2 slide 2
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+Some kind of intermediate distraction.
+\end{frame}
+
+\againframe<3-4>{foo}
+
+\end{document}

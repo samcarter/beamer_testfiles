@@ -1,0 +1,27 @@
+% https://stackoverflow.com/a/64919070
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{lipsum}
+
+%\usetheme{Singapore}
+
+\useoutertheme[subsection=false]{miniframes}
+\setbeamertemplate{frametitle}[default][center]
+\beamertemplatedotitem
+
+
+\begin{document}
+\usebackgroundtemplate{
+  \begin{tikzpicture}
+    \path [outer color = blue!5, inner color = blue!1]
+      (0,0) rectangle (\paperwidth,\paperheight);
+  \end{tikzpicture}
+}
+
+\section{Section}
+\begin{frame}
+\lipsum[1]   
+\end{frame}
+
+\end{document}

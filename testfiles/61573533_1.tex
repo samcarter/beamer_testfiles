@@ -1,0 +1,15 @@
+% https://stackoverflow.com/a/61573533
+\documentclass{beamer}
+
+\mode<presentation>{\usetheme{Madrid}}
+\usepackage[style=verbose]{biblatex}
+\addbibresource{biblatex-examples.bib}
+
+\begin{document}
+    \begin{frame}
+        \begin{itemize}[<+->]
+            \item ABC \only<.->{\footcite{knuth:ct:a}}
+            \item XYZ \only<.->{\footcite{knuth:ct:b}}
+        \end{itemize}
+    \end{frame}
+\end{document}

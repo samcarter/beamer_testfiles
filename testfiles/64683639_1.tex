@@ -1,0 +1,46 @@
+% https://stackoverflow.com/a/64683639
+\documentclass[9pt]{beamer}
+\mode<presentation> {
+\usefonttheme{serif}
+\usetheme{Madrid}
+\definecolor{BlueGreen}{cmyk}{0.85,0,0.33,0}
+\makeatletter
+\colorlet{beamer@blendedblue}{BlueGreen!120}
+\makeatother
+}
+
+\usepackage{booktabs} 
+%\usepackage{caption}
+
+
+\hypersetup{pdfnewwindow}
+\setbeamertemplate{caption}[numbered]
+\setbeamerfont{frametitle}{size=\footnotesize}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{postit}{bg=violet!110}
+\usepackage{ragged2e}   %new code
+
+\addtobeamertemplate{block begin}{}{\justifying} 
+
+
+\usepackage{natbib}
+
+\usepackage{textpos}
+
+\begin{document}
+
+\begin{frame} \frametitle{\textbf{{\Large Objective}}}
+    \begin{itemize}
+        \justifying
+            \item This package gives you easy access to the Lorem Ipsum dummy text; an option is available to separate the paragraphs of the dummy text. This text \cite{kumar2015method}.
+        
+        \item The long equation is:                        
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\bibliography{ref}
+\bibliographystyle{plainnat}
+\end{frame}
+
+\end{document}
