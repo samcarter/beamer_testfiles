@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/a/163631
+\documentclass{beamer}
+\usepackage{xstring,ifthen,catchfile,forloop}
+
+%% Show page number 
+\addtobeamertemplate{navigation symbols}{}{%
+  \usebeamerfont{footline}%
+  \usebeamercolor[fg]{footline}%
+  \vspace{0.5em}%
+  \hspace{1em}%
+  \insertframenumber/\inserttotalframenumber
+}
+
+\newcommand{\mypart}[1]{
+    \part{#1}
+    \ifthenelse{\isodd{\arabic{framenumber}}}{ \frame{\partpage} }{ \frame{intentionally left blank} \frame{\partpage} }
+}
+
+\begin{document}
+
+\mypart{test 1}
+\frame{1.1}
+
+\mypart{test 2}
+\frame{2.1}
+\frame{2.2}
+
+\mypart{test 3}
+\frame{3.1}
+
+\end{document}

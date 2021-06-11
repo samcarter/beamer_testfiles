@@ -1,0 +1,105 @@
+% https://tex.stackexchange.com/a/177407
+\documentclass{beamer}
+
+\mode<presentation> {
+
+    \usetheme{Madrid}
+
+    %\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+    \setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+    \setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\makeatletter
+\setbeamertemplate{footline}
+{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+            \usebeamerfont{author in head/foot}\insertshortauthor
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+            \usebeamerfont{title in head/foot}\insertshorttitle
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+            \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+            \insertframenumber\hspace*{2ex} 
+        \end{beamercolorbox}}%
+        \vskip0pt%
+    }
+    \makeatother
+
+    \usepackage{graphicx} % Allows including images
+    \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+    \usepackage{pgfpages}
+
+\makeatletter
+\defbeamertemplate{note page}{infolines}
+{%
+    {%
+        \scriptsize
+        \insertvrule{.25\paperheight}{white!90!black}
+        \vskip-.25\paperheight
+        \nointerlineskip
+        \vbox{
+            \hfill\insertslideintonotes{0.25}\hskip-\Gm@rmargin\hskip0pt%
+            \vskip-0.25\paperheight%
+            \nointerlineskip
+            \begin{pgfpicture}{0cm}{0cm}{0cm}{0cm}
+                \begin{pgflowlevelscope}{\pgftransformrotate{90}}
+                    {\pgftransformshift{\pgfpoint{-2cm}{0.2cm}}%
+                        \pgftext[base,left]{\footnotesize\the\year-\ifnum\month<10\relax0\fi\the\month-\ifnum\day<10\relax0\fi\the\day}}
+                \end{pgflowlevelscope}
+            \end{pgfpicture}}
+            \nointerlineskip
+            \vbox to .25\paperheight{\vskip0.5em
+                \hbox{\insertshorttitle[width=8cm]}%
+                \setbox\beamer@tempbox=\hbox{\insertsection}%
+                \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip4pt\raise3pt\hbox{\vrule
+                            width0.4pt height7pt\vrule width 9pt
+                            height0.4pt}}\hskip1pt\hbox{\begin{minipage}[t]{7.5cm}\def\breakhere{}\insertsection\end{minipage}}\fi%
+                }%
+                \setbox\beamer@tempbox=\hbox{\insertsubsection}%
+                \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip17.4pt\raise3pt\hbox{\vrule
+                            width0.4pt height7pt\vrule width 9pt
+                            height0.4pt}}\hskip1pt\hbox{\begin{minipage}[t]{7.5cm}\def\breakhere{}\insertsubsection\end{minipage}}\fi%
+                }%
+                \setbox\beamer@tempbox=\hbox{\insertshortframetitle}%
+                \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip30.8pt\raise3pt\hbox{\vrule
+                            width0.4pt height7pt\vrule width 9pt
+                            height0.4pt}}\hskip1pt\hbox{\insertshortframetitle[width=7cm]}\fi%
+                }%
+                \vfil}%
+        }%
+        \vskip.25em
+        \nointerlineskip
+        \begin{minipage}{\textwidth} % this is an addition
+            \insertnote
+        \end{minipage}               % this is an addition
+    }
+    \makeatother
+
+    \setbeamertemplate{note page}[infolines]
+\setbeameroption{show notes on second screen}
+
+    \begin{document}
+
+        \begin{frame}
+            \frametitle{Test}
+            Blah blah\\~\\
+            \begin{itemize}
+                \setlength{\itemsep}{10pt}
+                \item Item 1
+                \item Item 2
+                \item Item 3
+            \end{itemize}
+        \end{frame}
+
+        \note[itemize]{
+            \item Some long long long long long long long long long long long long long Text
+            \item Some short text
+        }
+
+    \end{document}

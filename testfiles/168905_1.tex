@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/168905
+\documentclass{beamer}
+
+\usepackage{geometry}
+\geometry{paperwidth=254mm,paperheight=190.5mm,left=0mm,right=0mm,top=0mm,bottom=0mm} 
+\setbeamersize{text margin left=17.4mm,text margin right=10.6mm}
+
+\newcommand{\myendpage}[1]{
+    \begin{frame}[plain]
+       \setlength{\unitlength}{1mm}
+        \begin{picture}(254,190.5)(17.4,0)
+            \put(0,0){\color{blue}\rule{.5\paperwidth}{200mm}}
+            \put(140,110.7){%
+                \begin{minipage}[b][45mm][t]{226mm}
+                \usebeamerfont{title}{\raggedright {#1} \par}
+                \end{minipage}
+            }   
+        \end{picture}
+    \end{frame}
+}
+
+\begin{document}
+    \myendpage{test \\[1cm] test \\[1cm] test}
+\end{document}

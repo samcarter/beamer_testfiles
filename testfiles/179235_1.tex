@@ -1,0 +1,32 @@
+% https://tex.stackexchange.com/a/179235
+\documentclass[t]{beamer}
+
+% Fonts
+\setbeamerfont{title}{series=\bfseries,size=\fontsize{16}{24}}
+
+% Headline
+\setbeamertemplate{headline}{%
+    \begin{minipage}[b][0mm][t]{85mm}%
+        \usebeamerfont{title}{%
+            \inserttitle
+        }%
+    \end{minipage}%     
+}
+
+\title{Really long title to test all the three possible lines is not yet long enough but know}
+
+  \begin{document}
+
+    \begin{frame}[t]
+    \end{frame}
+
+    \setbeamertemplate{headline}{}
+    \begin{frame}[t]
+            \begin{minipage}[b][0mm][t]{85mm}%
+                \usebeamerfont{title}{%
+                    \inserttitle
+                }%
+            \end{minipage}% 
+    \end{frame}
+
+  \end{document}

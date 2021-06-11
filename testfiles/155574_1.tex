@@ -1,0 +1,47 @@
+% https://tex.stackexchange.com/a/155574
+\documentclass{beamer}
+
+\usepackage[latin1]{inputenc}
+
+\usepackage[absolute,overlay]{textpos}
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{footline}{%
+    \begin{picture}(54,12.5)(0,0)
+        \put(0.9,0.52){%
+            \begin{minipage}[b][12.5mm][c]{112.5mm}
+                \raggedleft
+                \insertpagenumber/\insertpresentationendpage
+            \end{minipage}
+        }
+    \end{picture}
+}
+
+\begin{document}
+
+    \frame{
+        \titlepage
+    }
+
+    \AtBeginSection[]{
+        \begin{frame}[plain]
+            \frametitle{Overview}
+            \tableofcontents[currentsection]
+            \addtocounter{page}{-1}
+        \end{frame}
+    }
+
+\section{test1}
+
+    \begin{frame}
+        test
+    \end{frame}
+
+\section{test2}
+
+    \begin{frame}
+        test
+    \end{frame}
+
+
+\end{document}

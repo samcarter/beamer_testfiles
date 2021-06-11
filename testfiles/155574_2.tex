@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/155574
+\documentclass{beamer}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\AtBeginSection[]{
+    \begin{frame}[noframenumbering, plain]
+        \frametitle{Overview}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
+\begin{document}
+
+    \frame{
+        \titlepage
+    }
+
+    \section{test1}
+
+    \begin{frame}
+        test
+    \end{frame}
+
+    \section{test2}
+
+    \begin{frame}
+        test
+    \end{frame}
+
+
+\end{document} 

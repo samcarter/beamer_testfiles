@@ -1,0 +1,53 @@
+% https://tex.stackexchange.com/a/180440
+\documentclass{beamer}
+\usetheme{Warsaw}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\tcbset{breakable}
+
+\setbeamertemplate{bibliography item}{}
+
+\begin{document}
+
+    \begin{frame}[allowframebreaks]{References}
+    \begin{thebibliography}{}
+
+        \begin{tcolorbox}[beamer, skin=beamerfirst, colback=blue!5!white, colframe=blue!50!black, title=Bibliography]
+
+          \bibitem[{Alpher} et~al.(1948) {Alpher}, {Bethe}, \& {Gamow}]{paper}
+          Alpher, R. A., Bethe, H. \& Gamow, G. 
+          \newblock{The Origin of Chemical Elements}.
+          \newblock{\emph{Phys. Rev.}, 73:\penalty0 803--804, Apr. 1948.}
+          \newblock{http://dx.doi.org/10.1103/PhysRev.73.803}     
+
+          \bibitem[{Alpher} et~al.(1948) {Alpher}, {Bethe}, \& {Gamow}]{paper2}
+          Alpher, R. A., Bethe, H. \& Gamow, G. 
+          \newblock{The Origin of Chemical Elements}.
+          \newblock{\emph{Phys. Rev.}, 73:\penalty0 803--804, Apr. 1948.}
+          \newblock{http://dx.doi.org/10.1103/PhysRev.73.803}
+
+          \bibitem[{Alpher} et~al.(1948) {Alpher}, {Bethe}, \& {Gamow}]{paper3}
+          Alpher, R. A., Bethe, H. \& Gamow, G. 
+          \newblock{The Origin of Chemical Elements}.
+          \newblock{\emph{Phys. Rev.}, 73:\penalty0 803--804, Apr. 1948.}
+          \newblock{http://dx.doi.org/10.1103/PhysRev.73.803}
+
+          \newpage
+
+          \bibitem[{Alpher} et~al.(1948) {Alpher}, {Bethe}, \& {Gamow}]{paper4}
+          Alpher, R. A., Bethe, H. \& Gamow, G. 
+          \newblock{The Origin of Chemical Elements}.
+          \newblock{\emph{Phys. Rev.}, 73:\penalty0 803--804, Apr. 1948.}
+          \newblock{http://dx.doi.org/10.1103/PhysRev.73.803}
+
+            \end{tcolorbox}
+
+    \end{thebibliography}
+
+        \vfill
+
+    \end{frame} 
+
+
+\end{document}

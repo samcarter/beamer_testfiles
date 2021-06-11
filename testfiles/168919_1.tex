@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/a/168919
+\documentclass{beamer}
+\usepackage{tikz}
+
+\setbeamertemplate{footline}{\insertframenumber{}}
+\usepackage{tikz}
+
+\begin{document}
+
+    \begin{frame}[b]{test}
+        \begin{tikzpicture}[overlay]
+            \node at (0,1) {all slides};
+            \onslide<2->{
+                \node at (0.17,5.45) {slide 2};
+            }
+        \end{tikzpicture}
+    \end{frame}
+
+\end{document}

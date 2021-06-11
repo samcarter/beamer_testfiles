@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/a/185128
+\documentclass{beamer}
+\usetheme{Warsaw}
+
+\setbeamertemplate{part page}{
+        \begin{beamercolorbox}[sep=8pt,center,wd=\textwidth]{part title}
+            \usebeamerfont{part title}\insertpart\par
+        \end{beamercolorbox}
+}
+
+\begin{document}
+
+    \part{eqrfv}
+
+    \begin{frame}
+        \partpage
+    \end{frame}
+
+\end{document}

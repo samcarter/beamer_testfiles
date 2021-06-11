@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/171482
+\documentclass{beamer}
+
+\usepackage{pgf}
+\usepackage{pgffor}
+
+\pgfmathsetseed{\number\pdfrandomseed} % seed for random generator
+
+\setbeamertemplate{background canvas}{%
+    \pgfmathsetmacro{\R}{random(0,10000)/10000}%
+    \pgfmathsetmacro{\G}{random(0,10000)/10000}%
+    \pgfmathsetmacro{\B}{random(0,10000)/10000}%
+    \definecolor{bgcolor}{rgb}{\R,\G,\B}%
+    \color{bgcolor!40}\rule{\paperwidth}{\paperheight}
+}
+
+\begin{document}
+
+    \foreach \n in {1,...,100}{
+        \begin{frame}
+            test
+        \end{frame}
+    }
+
+\end{document}

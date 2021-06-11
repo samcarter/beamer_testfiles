@@ -1,0 +1,27 @@
+% https://stackoverflow.com/a/66679039
+\documentclass{beamer}
+
+\AtBeginEnvironment{table}{\setlength\belowcaptionskip{0pt}}
+
+\begin{document}
+    
+\begin{frame}
+\begin{table}
+\caption{content...}
+\begin{tabular}{cc}
+\hline
+c & d\\
+\hline
+\end{tabular}
+\end{table}
+\end{frame} 
+
+\begin{frame}
+\begin{figure}
+\includegraphics[width=.5\textwidth]{example-image-duck}
+\caption{content...}
+\end{figure}
+text
+\end{frame} 
+    
+\end{document}

@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/a/170937
+\documentclass{beamer}
+
+\defbeamertemplate{footline}{higher page number}
+{%
+  \hfill%
+  \usebeamercolor[fg]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \insertframenumber\,/\,\inserttotalframenumber\kern1em\vskip20pt%
+}
+\setbeamertemplate{footline}[higher page number]
+
+\begin{document}
+
+    \begin{frame}
+        test
+    \end{frame}
+
+\end{document}

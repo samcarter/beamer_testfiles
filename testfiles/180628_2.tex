@@ -1,0 +1,79 @@
+% https://tex.stackexchange.com/a/180628
+\documentclass[t,compress,10pt,xcolor=dvipsnames]{beamer}
+
+\usepackage{lmodern}
+\usepackage[labelformat=empty,labelsep=none]{subfig}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{wrapfig}
+
+\newcommand*\oldmacro{}%
+\let\oldmacro\insertshorttitle% 
+\renewcommand*\insertshorttitle{%
+    \oldmacro\hfill%
+
+    \insertframenumber\,/\,\inserttotalframenumber}
+
+\definecolor{UniDunkel}{RGB}{73,142,137}
+\definecolor{UniHell}{RGB}{142,184,182}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamercolor{structure}{fg=UniDunkel}
+
+\setbeamercolor{block body}{parent=normal text,use=block title,
+    bg=block title.bg!10!bg}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title 
+    alerted,bg=block title alerted.bg!10!bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title 
+    example,bg=block title example.bg!10!bg}
+
+\setbeamercolor*{palette primary}{use=structure,fg=white,bg=UniDunkel!115}
+\setbeamercolor*{palette secondary}{use=structure, fg=UniHell,  bg=UniHell}
+\setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=UniDunkel!115}
+\setbeamercolor*{palette quaternary}{fg=Orange}
+
+\setbeamercolor*{sidebar}{use=structure,bg=structure.fg}
+\setbeamercolor*{palette sidebar primary}{use=structure,fg=structure.fg!10}
+\setbeamercolor*{palette sidebar secondary}{fg=white}
+\setbeamercolor*{palette sidebar quaternary}{fg=white}
+\setbeamercolor*{titlelike}{parent=palette primary}
+
+\setbeamercolor*{fine separation line}{}
+
+\setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!0!red}
+\setbeamercolor{block title alerted}{use=alerted text,fg=white,bg=alerted text.fg!0!white}
+\setbeamercolor{block title example}{use=example text,fg=white,bg=example text.fg!0!white}
+
+\useoutertheme{miniframes}
+\useinnertheme{circles}
+\setbeamertemplate{footline}[frame number]
+
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{textpos} 
+
+\addtobeamertemplate{frametitle}{}{%
+    \begin{textblock*}{100mm}(\textwidth,-1cm)
+        \includegraphics[height=1cm,width=1cm]{example-image-a}
+    \end{textblock*}}
+
+
+
+\begin{document}
+
+    \section{Section1}
+    \subsection{Subsection1}
+    \frame
+    {
+        \frametitle{Frame1}
+    }
+
+    \section{Section2}
+    \subsection{Subsection2}
+    \frame
+    {
+        \frametitle{Frame2}
+    }
+
+
+\end{document} 

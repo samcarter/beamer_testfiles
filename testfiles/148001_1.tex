@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/148001
+\documentclass{beamer}
+
+\setbeameroption{show notes}
+
+% notepage for every slide, even if empty
+\makeatletter 
+\def\beamer@framenotesbegin{%   
+    \gdef\beamer@noteitems{}%   
+    \gdef\beamer@notes{{}}%  
+}
+\makeatother
+
+% section page
+\newcommand{\mysection}[2]{%
+        \section{#1}
+    \begin{frame}
+        \insertsection
+        \note{#2}
+    \end{frame}
+}
+
+\usepackage{pgfpages}
+\pgfpagesuselayout{8 on 1}
+
+\begin{document}
+
+    \begin{frame}
+        slide with note
+        \note{testnote}
+    \end{frame}
+
+    \begin{frame}
+        test with empty note
+    \end{frame}
+
+    \mysection{Section with note}{notes to section page}
+
+    \mysection{Section without notes}
+
+\end{document}

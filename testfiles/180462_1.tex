@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/180462
+\documentclass{beamer}
+\usetheme{Warsaw}
+
+\newenvironment<>{varblock}[2][.9\textwidth]{%
+    \setlength{\textwidth}{#1}
+    \begin{actionenv}#3%
+        \def\insertblocktitle{#2}%
+        \par%
+        \usebeamertemplate{block begin}}
+    {\par%
+        \usebeamertemplate{block end}%
+    \end{actionenv}}
+
+\begin{document}
+    \begin{frame}
+        \begin{center}
+            \begin{minipage}{4cm}
+                \begin{varblock}[4cm]{New block}
+                    Variable width, here 4cm
+                \end{varblock}
+            \end{minipage}
+        \end{center}
+    \end{frame}
+\end{document}

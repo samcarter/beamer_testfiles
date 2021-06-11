@@ -1,0 +1,15 @@
+% https://tex.stackexchange.com/a/186151
+\documentclass{beamer}
+\usepackage{tcolorbox}
+
+\definecolor{mycolor}{RGB}{255,255,255}
+
+\tcbset{colframe=white,colback=white,nobeforeafter}
+
+\begin{document}
+    \begin{frame}
+        This is 
+        \only<2>{\definecolor{mycolor}{RGB}{5,61,245}}
+        \tcbox[colback=white,colframe=mycolor,nobeforeafter,tcbox raise base]{a test}
+    \end{frame}
+\end{document}

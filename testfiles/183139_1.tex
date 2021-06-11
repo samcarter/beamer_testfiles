@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/183139
+\documentclass{beamer}
+\setbeamertemplate{footline}[frame number]
+\setbeameroption{show notes} 
+
+\setbeamertemplate{note page}{%
+    \addtocounter{page}{-1}
+    \begin{minipage}{2.1\textwidth}
+        \normalfont 
+        \fontsize{20}{34}
+        \selectfont 
+        \insertnote
+    \end{minipage}
+
+}
+\begin{document}
+
+    \begin{frame}
+        test
+        \note{testnote}
+    \end{frame}
+
+    \begin{frame}
+        test2
+    \end{frame}
+
+\end{document}

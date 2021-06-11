@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/181248
+\documentclass[t]{beamer}
+
+\setbeamercolor{frametitle}{fg=white, bg=blue}
+\setbeamercolor{block body}{fg=white, bg=red}
+\setbeamercolor{block title}{fg=white, bg=green}
+\setbeamertemplate{frametitle}{%
+\begin{beamercolorbox}[wd=\textwidth, ht=0.5cm, dp=0.2cm]{frametitle}
+\usebeamerfont{frametitle}\insertframetitle
+\end{beamercolorbox}
+}
+\begin{document}
+
+
+\setbeamertemplate{block begin}{
+    \begin{beamercolorbox}[wd=\textwidth, ht=0.5cm, dp=0.2cm]{block title}%
+    \usebeamerfont*{block title}%
+        {\rule[-0.4ex]{0mm}{2ex}\insertblocktitle}%
+            \end{beamercolorbox}%
+    {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+    \usebeamerfont{block body}%
+    \begin{beamercolorbox}[wd=\textwidth, ht=0.5cm, dp=0.2cm]{block body}%
+        \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+    }
+    \setbeamertemplate{block end}{
+    \end{beamercolorbox}
+    \vspace*{.25cm}
+}
+
+\begin{frame}{This is the frame title}
+\begin{block}{Block title}
+This is the block content
+\end{block}
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus
+elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur
+dictum gravida mauris. 
+\end{frame}
+
+\end{document}

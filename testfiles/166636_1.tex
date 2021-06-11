@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/166636
+\documentclass{beamer}
+\usepackage{tikz}
+\setbeamertemplate{footline}{\insertframenumber{}}
+
+\begin{document}
+    \begin{frame}
+        \begin{tikzpicture}
+            \draw node[] at (0, 0) {$s_0$};
+
+            \onslide<2->{
+                \draw node[] at (1, 1) {$s_1$};
+            }
+
+            \onslide<3->{
+                \draw node[] at (2, 2) {$s_2$};
+            }
+        \end{tikzpicture}
+    \end{frame}
+\end{document}
