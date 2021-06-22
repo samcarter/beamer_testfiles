@@ -1,0 +1,63 @@
+% https://tex.stackexchange.com/a/244033
+\documentclass[slidestop,compress,mathserif,10pt,xcolor=dvipsnames]{beamer}
+
+\usetheme{Ilmenau}
+\usepackage[bars]{beamerthemetree}
+\addtobeamertemplate{block begin}{}{\justifying}
+\useoutertheme[subsection=true]{smoothbars}
+
+\usepackage{ifthen}
+\newboolean{doublelogo}%Double logo after a certain slide
+\setboolean{doublelogo}{true}
+\logo{%
+    \vspace*{-0.3cm}
+    \makebox[0.99\paperwidth]{%
+        \includegraphics[width=0.6cm,keepaspectratio]{cern_logo}
+    }%
+}
+
+\makeatletter
+\setbeamertemplate{headline}
+{%
+    \pgfuseshading{beamer@barshade}%
+    \ifbeamer@sb@subsection%
+    \vskip-9.75ex%
+    \else%
+    \vskip-7ex%
+    \fi%
+    \begin{beamercolorbox}[ignorebg,ht=2.75ex,dp=3.75ex]{section in head/foot}
+        \insertnavigation{\paperwidth}
+    \end{beamercolorbox}%
+    \ifbeamer@sb@subsection%
+    \begin{beamercolorbox}[ignorebg,ht=2.125ex,dp=1.125ex,%
+        leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+        \usebeamerfont{subsection in head/foot}\insertsubsectionhead
+    \end{beamercolorbox}%
+    \fi%
+}%
+\makeatother
+
+
+\title{Title}
+\author{author}
+\date{}
+
+\begin{document}
+
+    \begin{frame}
+            \titlepage
+    \end{frame}
+
+    \section{test}
+
+    \subsection{testtest}
+
+    \begin{frame}
+        test
+    \end{frame}
+
+    \begin{frame}
+        test
+    \end{frame} 
+
+\end{document}

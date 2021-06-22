@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/285016
+\documentclass{beamer}
+
+\usetheme{Warsaw} 
+\useoutertheme{smoothtree}
+
+\setbeamertemplate{headline}
+{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.125ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}
+        \usebeamerfont{title in head/foot}\insertshorttitle
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.125ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{section in head/foot}
+        \usebeamerfont{section in head/foot}%
+        \hskip6pt\insertsectionhead
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.125ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+        \usebeamerfont{subsection in head/foot}%
+        \hskip12pt\insertsubsectionhead
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.125ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{section in head/foot}
+        \usebeamerfont{subsubsection in head/foot}%
+        \hskip18pt\insertsubsubsectionhead
+    \end{beamercolorbox}
+}
+
+\title{test}
+
+\begin{document}
+\section{blub}
+\subsection{Propiedades Elctricas}
+\subsubsection{Anlisis de Impedancia}
+\begin{frame}{frametitle}{framesubtitle}
+Hola
+\end{frame}
+\end{document}

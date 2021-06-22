@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/254852
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Copenhagen}
+  \useoutertheme[footline=institutetitle]{miniframes}
+}
+
+\setbeamertemplate{frametitle}{%
+    \nointerlineskip%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.0ex,dp=0.6ex]{frametitle}
+        \hspace*{1ex}\insertframetitle%
+    \end{beamercolorbox}%
+}
+
+\begin{document}
+\section{Foo}
+\subsection{Bar}
+
+\begin{frame}{Baz}
+  Foobar
+\end{frame}
+\end{document}

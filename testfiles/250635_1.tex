@@ -1,0 +1,64 @@
+% https://tex.stackexchange.com/a/250635
+\documentclass{beamer}
+
+\usepackage{pgfpages}
+
+\pgfpagesdeclarelayout{4 on 1 new}
+{
+    \edef\pgfpageoptionheight{\the\paperheight} 
+    \edef\pgfpageoptionwidth{\the\paperwidth}
+    \edef\pgfpageoptionborder{0pt}
+}
+{
+    \pgfpagesphysicalpageoptions
+    {%
+        logical pages=4,%
+        physical height=\pgfpageoptionheight,%
+        physical width=\pgfpageoptionwidth%
+    }
+    \pgfpageslogicalpageoptions{1}
+    {%
+        border shrink=\pgfpageoptionborder,%
+        resized width=.5\pgfphysicalwidth,%
+        resized height=.5\pgfphysicalheight,%
+        center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+    }%
+    \pgfpageslogicalpageoptions{3}
+    {%
+        border shrink=\pgfpageoptionborder,%
+        resized width=.5\pgfphysicalwidth,%
+        resized height=.5\pgfphysicalheight,%
+        center=\pgfpoint{.75\pgfphysicalwidth}{.75\pgfphysicalheight}%
+    }%
+    \pgfpageslogicalpageoptions{2}
+    {%
+        border shrink=\pgfpageoptionborder,%
+        resized width=.5\pgfphysicalwidth,%
+        resized height=.5\pgfphysicalheight,%
+        center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+    }%
+    \pgfpageslogicalpageoptions{4}
+    {%
+        border shrink=\pgfpageoptionborder,%
+        resized width=.5\pgfphysicalwidth,%
+        resized height=.5\pgfphysicalheight,%
+        center=\pgfpoint{.75\pgfphysicalwidth}{.25\pgfphysicalheight}%
+    }%
+}
+
+\pgfpagesuselayout{4 on 1 new}
+
+\begin{document}
+    \begin{frame}
+        \centering\Huge\thepage
+    \end{frame}
+    \begin{frame}
+        \centering\Huge\thepage
+    \end{frame}
+    \begin{frame}
+        \centering\Huge\thepage
+    \end{frame}
+    \begin{frame}
+        \centering\Huge\thepage
+    \end{frame}
+\end{document}

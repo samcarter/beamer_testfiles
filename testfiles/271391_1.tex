@@ -1,0 +1,38 @@
+% https://tex.stackexchange.com/a/271391
+\documentclass[t]{beamer}
+% Set up as beamerposter
+\usepackage[orientation=landscape,size=A2,scale=1.47,debug]{beamerposter}
+
+\begin{document}
+\begin{frame}{}
+
+    \begin{columns}[T, totalwidth=\textwidth]
+        \begin{column}{.49\linewidth}
+            \begin{block}{Section}
+            The block containing text is a little bit taller, and also the vertical padding between the title and the text is reduced (eliminated?).
+          \end{block}
+        \end{column}
+        \begin{column}{.49\linewidth}
+            \begin{block}{Section}
+              \begin{figure}[H]
+                \vspace{60ex}
+                \caption{The block contianing a figure is not the correct height!}
+            \end{figure}
+          \end{block}
+        \end{column}
+    \end{columns}
+
+    \begin{columns}[T, totalwidth=\textwidth]
+        \begin{column}{.49\linewidth}
+            \begin{block}{Section}
+                The block containing text is a little bit taller, and also the vertical padding between the title and the text is reduced (eliminated?).
+            \end{block}
+        \end{column}
+        \begin{column}{.49\linewidth}
+            \begin{block}{Section}
+                The block containing text is a little bit taller, and also the vertical padding between the title and the text is reduced (eliminated?).
+            \end{block}
+        \end{column}
+    \end{columns}
+\end{frame}
+\end{document}

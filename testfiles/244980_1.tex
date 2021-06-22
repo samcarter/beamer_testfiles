@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/244980
+\documentclass{beamer}
+
+\setbeamercolor{framesubtitle}{fg=yellow}%
+
+\setbeamerfont{framesubtitle}{size=\Large}%
+
+\defbeamertemplate*{frametitle}{my theme}
+{%
+    \vskip.2cm
+    \begin{beamercolorbox}[right]{frame title}%
+        \insertframetitle\\\usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle%
+    \end{beamercolorbox}%
+}
+
+\begin{document}
+    \begin{frame}
+        \frametitle{blub}
+        \framesubtitle{test}
+
+    \end{frame}
+\end{document}

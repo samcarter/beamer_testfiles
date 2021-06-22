@@ -1,0 +1,40 @@
+% https://tex.stackexchange.com/a/257300
+\documentclass{beamer}
+\usepackage{etoolbox}
+
+\defbeamertemplate{frametitle}{mydefault}{%
+  \insertframetitle%
+}
+
+\defbeamertemplate{frametitle}{imagetitle}{%
+  \insertframetitle \includegraphics[width=0.1\textwidth]{example-image}%
+}
+
+\BeforeBeginEnvironment{frame}{%
+  \setbeamertemplate{frametitle}[mydefault]%
+}
+
+\makeatletter
+\define@key{beamerframe}{imagetitle}[true]{%
+  \setbeamertemplate{frametitle}[imagetitle]%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+    \frametitle{bla}
+  left
+\end{frame} 
+
+\begin{frame}[imagetitle]
+    \frametitle{bla}
+  right
+\end{frame}
+
+\begin{frame}
+    \frametitle{bla}
+  is left again
+\end{frame}
+
+\end{document}

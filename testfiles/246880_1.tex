@@ -1,0 +1,51 @@
+% https://tex.stackexchange.com/a/246880
+\documentclass{beamer}
+\setbeamertemplate{navigation symbols}{}
+\usetheme{Warsaw}
+\setbeamercovered{transparent}
+
+\let\origaddtocontents=\addtocontents
+\def\dontaddtocontents#1#2{} % or \@gobbletwo if in \makeatletter ... \makeatother
+
+
+\begin{document}
+
+\section{section 1}
+\begin{frame}\end{frame}
+
+\subsection{subsection 1}
+\begin{frame}\end{frame}
+
+\subsection{subsection 2}
+\begin{frame}\end{frame}
+
+\subsection{subsection 3}
+\begin{frame}\end{frame}
+
+\subsection{subsection 4}
+\begin{frame}\end{frame}
+
+\let\addtocontents=\dontaddtocontents
+\subsection{Invisible Section}
+\begin{frame}this\end{frame}
+\let\addtocontents=\origaddtocontents
+
+\section{section 2}
+\begin{frame}\end{frame}
+
+\subsection{subsection 1}
+\begin{frame}\end{frame}
+
+\subsection{subsection 2}
+\begin{frame}\end{frame}
+
+\subsection{subsection 3}
+\begin{frame}\end{frame}
+
+\subsection{subsection 4}
+\begin{frame}\end{frame}
+
+\section{section 3}
+\begin{frame}\end{frame}
+
+\end{document}

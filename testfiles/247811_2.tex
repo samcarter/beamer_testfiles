@@ -1,0 +1,51 @@
+% https://tex.stackexchange.com/a/247811
+\documentclass{beamer}
+\useoutertheme[subsection=false]{smoothbars}
+\setbeamercovered{transparent}
+\setbeamertemplate{navigation symbols}{} %remove navigation symbols
+\setbeamercovered{invisible} %No transparent layers
+
+\usepackage{remreset}
+\makeatletter
+\@removefromreset{subsection}{section}
+\makeatother
+\setcounter{subsection}{1}
+
+\setbeamerfont{headline}{series=\bfseries}
+
+\title{Audition}
+\author[John Doe]{\bfseries John Doe}
+\institute{Université}
+\date[19/05/15]{\today}
+
+\begin{document}
+{
+\setbeamertemplate{section in head/foot shaded}[default][100]
+\setbeamertemplate{mini frame in other subsection}{%
+    \begin{pgfpicture}{0pt}{0pt}{0.1cm}{0.1cm}%
+        \pgfpathcircle{\pgfpoint{0.05cm}{0.05cm}}{0.05cm}%
+        \pgfusepath{fill,stroke}%
+    \end{pgfpicture}%
+}%
+\frame{ % This is the title slide where I'd like to highlight the sections
+  \frametitle{}
+  \setbeamertemplate{footline}{} 
+  \maketitle  
+}
+}
+
+\section{CV}
+\frame{}\frame{}\frame{}
+
+\section{Activités d'enseignement}
+\frame{}\frame{}\frame{}\frame{}
+
+\section{Activités de recherche}
+\frame{}\frame{}\frame{}\frame{}
+
+\section{Intégration}
+\frame{}\frame{}\frame{}\frame{}
+
+\section{Conclusion}
+\frame{}
+\end{document}

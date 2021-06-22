@@ -1,0 +1,12 @@
+% https://tex.stackexchange.com/a/244038
+\documentclass{beamer}
+\usepackage{lmodern}
+\usepackage[style=authortitle,backend=bibtex]{biblatex}
+\addbibresource{lit.bib}
+
+\begin{document}
+    \begin{frame}
+        Here is text\footfullcite{Hillas}.
+        Here is text\footnotemark[1].
+    \end{frame}
+\end{document}

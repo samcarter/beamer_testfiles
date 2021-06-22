@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/275103
+\documentclass[compress]{beamer}
+\usetheme{Warsaw} 
+
+\newcounter{cont}
+
+\makeatletter
+%allowframebreaks numbering in the title
+\setbeamertemplate{frametitle continuation}{%
+    \setcounter{cont}{\beamer@endpageofframe}%
+    \addtocounter{cont}{1}%
+    \addtocounter{cont}{-\beamer@startpageofframe}%
+    (\insertcontinuationcount/\arabic{cont})%
+}
+\makeatother
+
+\title{title}
+\author{author}
+
+%%%%%
+\begin{document}   
+
+\begin{frame}[allowframebreaks]{allowframebreaks title}
+    frame 1
+    \framebreak
+
+    frame 2
+    \framebreak
+
+    frame 3
+    \framebreak
+\end{frame}
+
+\end{document}

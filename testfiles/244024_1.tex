@@ -1,0 +1,40 @@
+% https://tex.stackexchange.com/a/244024
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\def\insertframeratio{%
+    \pgfmathparse{\insertframenumber*100/\inserttotalframenumber}%
+    \pgfmathprintnumber[fixed,precision=2]{\pgfmathresult}\,\% %
+}
+
+\def\insertpageratio{%
+    \pgfmathparse{\insertpagenumber*100/\insertdocumentendpage}%
+    \pgfmathprintnumber[fixed,precision=2]{\pgfmathresult}\,\% %
+}
+
+\begin{document}
+
+\begin{frame}{title 1}
+    \only<1>{
+        Frames: \insertframenumber{} of \inserttotalframenumber: \insertframeratio\\
+        Page: \insertpagenumber{} of \insertdocumentendpage: \insertpageratio
+    }
+    \only<2>{
+        Frames: \insertframenumber{} of \inserttotalframenumber: \insertframeratio\\
+        Page: \insertpagenumber{} of \insertdocumentendpage: \insertpageratio
+    }
+\end{frame}
+
+\begin{frame}{title 2}
+    \only<1>{
+        Frames: \insertframenumber{} of \inserttotalframenumber: \insertframeratio\\
+        Page: \insertpagenumber{} of \insertdocumentendpage: \insertpageratio
+    }
+    \only<2>{
+        Frames: \insertframenumber{} of \inserttotalframenumber: \insertframeratio\\
+        Page: \insertpagenumber{} of \insertdocumentendpage: \insertpageratio
+    }
+\end{frame}
+
+\end{document}

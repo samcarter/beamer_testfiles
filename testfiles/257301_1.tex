@@ -1,0 +1,40 @@
+% https://tex.stackexchange.com/a/257301
+\documentclass{beamer}
+\usepackage{etoolbox}
+
+\defbeamertemplate{frametitle}{mydefault}{%
+  \insertframetitle%
+}
+
+\defbeamertemplate{frametitle}{imagetitle}[1]{%
+  \insertframetitle \includegraphics[width=0.1\textwidth]{#1}%
+}
+
+\BeforeBeginEnvironment{frame}{%
+  \setbeamertemplate{frametitle}[mydefault]%
+}
+
+\makeatletter
+\define@key{beamerframe}{imagetitle}[true]{%
+  \setbeamertemplate{frametitle}[imagetitle]{#1}%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+    \frametitle{bla}
+  left
+\end{frame} 
+
+\begin{frame}[imagetitle=example-grid-100x100bp.pdf]
+    \frametitle{bla}
+  right
+\end{frame}
+
+\begin{frame}
+    \frametitle{bla}
+  is left again
+\end{frame}
+
+\end{document}

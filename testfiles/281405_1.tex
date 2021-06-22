@@ -1,0 +1,55 @@
+% https://tex.stackexchange.com/a/281405
+\documentclass[final]{beamer}
+
+\mode<presentation> {
+  \usetheme{Boadilla}
+}
+
+\usepackage[orientation=landscape, size=a0]{beamerposter}
+
+\begin{document}
+
+\begin{frame}{}
+
+\vfill
+
+\begin{columns}[totalwidth=\textwidth]
+\begin{column}{\textwidth}
+\begin{block}{\centering \vspace{10mm} \Huge{It's a Title}\\\huge{Author\\Institution}\vspace{10mm}}
+\end{block}
+\end{column}
+\end{columns}
+
+\begin{columns}[totalwidth=\textwidth]
+
+\begin{column}{0.31\textwidth}
+  \begin{block}{\centering \vspace{3mm} \LARGE This is a block \vspace{3mm}}
+    There's some text in it
+  \end{block}
+\end{column}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                               MIDDLE COLUMN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{column}{0.31\textwidth}
+  \begin{block}{\centering \vspace{3mm} \LARGE It's a middle block}
+    And it also has text
+  \end{block}
+\end{column}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                           RIGHT COLUMN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{column}{0.31\textwidth}
+  \begin{block}{\centering \vspace{3mm} \LARGE A Cool Thing \vspace{3mm}}
+    Text and stuff  
+  \end{block}
+\end{column}
+
+\end{columns}
+
+\vfill
+
+\end{frame}
+
+\end{document}

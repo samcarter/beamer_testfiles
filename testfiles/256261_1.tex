@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/256261
+\documentclass[t]{beamer}
+
+\setbeamersize{text margin left=0.5em, text margin right=0.5em}
+\setbeamertemplate{frametitle}{\color{black}\bfseries\insertframetitle\par\vskip-6pt\hrulefill}
+
+\newcommand\FourQuad[4]{
+        \vspace*{-0.2cm}
+    \colorbox{yellow}{\begin{minipage}[b][.40\textheight][t]{.49\textwidth}#1\end{minipage}}\hfill
+    \begin{minipage}[b][.40\textheight][t]{.49\textwidth}#2\end{minipage}\\
+    \begin{minipage}[b][.40\textheight][t]{.49\textwidth}#3\end{minipage}\hfill
+    \begin{minipage}[b][.40\textheight][t]{.49\textwidth}#4\end{minipage}
+}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{A frame divided in four quadrants}
+\FourQuad%
+{First quadrant contents and some more text text text text more text text text text more text text text text more text text text text more text text text text more text text text text more text text text text}%
+{
+  \centering
+  \rule{3cm}{2cm}
+  A test figure.
+}%
+{\begin{align*}
+  a &= b \\
+  &= c \\
+  & = d.
+\end{align*}}%
+{Fourth quadrant contents and some more text text text text more text text text text more text text text text more text text text text more text text text text more text text text text more text text text text}
+\end{frame}
+
+\end{document}

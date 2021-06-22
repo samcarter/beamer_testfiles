@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/244037
+\documentclass{beamer}
+
+\usepackage{amsthm}
+\newtheorem{thm}{Theorem}[section]
+
+\begin{document}
+
+    \begin{frame}{One}
+        \begin{thm}\label<1>{thm:one}\end{thm}
+
+        \only<2>{
+            \begin{thm}    % I want to reference this one!
+                \label<2>{thm:onehidden}
+            \end{thm}
+        }
+
+    \end{frame}
+
+    \begin{frame}{Two}
+        See theorem~\ref{thm:one} and~\ref{thm:onehidden}
+        % output:
+        % See theorem 0.1 and ??
+    \end{frame}
+
+\end{document}

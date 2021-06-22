@@ -1,0 +1,42 @@
+% https://tex.stackexchange.com/a/281682
+\documentclass[xcolor=dvipsnames]{beamer} 
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+
+\definecolor{itemizecolor}{rgb}{0.18,0.22,0.60}
+
+\setbeamertemplate{frametitle}{%
+    \textbf{\textcolor{black}{\insertsection}}\\%
+    \insertframetitle \\%
+    \vspace*{-.38cm}%
+    \rule{1.12\textwidth}{0.08ex}%
+    \vspace*{-.5cm}%
+}
+
+\setbeamertemplate{footline}{%
+    \usebeamercolor[fg]{frametitle}
+    \hspace{1cm}
+    \rule{1.12\textwidth}{0.08ex}%
+    \vspace*{0.2cm}
+}
+
+\begin{document}
+
+%----------- titlepage ----------------------------------------------%
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+%----------- slide --------------------------------------------------%
+\begin{frame}{Inhalt}
+\tableofcontents
+\end{frame}
+
+\section{Section}
+
+\begin{frame}{slide title}
+    Test
+    Test
+\end{frame}
+
+\end{document}

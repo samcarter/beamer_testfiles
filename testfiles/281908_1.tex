@@ -1,0 +1,37 @@
+% https://tex.stackexchange.com/a/281908
+\documentclass[11pt]{beamer}
+\usetheme{default}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+\begin{frame}{Results}
+\centering
+\begin{table}\scriptsize
+\begin{tabular}{lllllll}
+\cline{1-7}
+Volatility Indicator & \multicolumn{6}{c}{Returns}\\  \cline{2-7}
+& Market & Manuf. & Const. & Ret. & Serv. & Finan. \\ 
+\cline{1-7}
+Market & 0.02{**} &  &  &  &  & 0.08{*} \\
+(r g-cause vol) & 0.13 &  &  &  &  & 0.10{*}\\
+Manufacturing & 0.00{***} & 0.01{***} &  &  &  & 0.05{**} \\
+(r g-cause vol) & 0.01{***} & 0.04{**} &  &  &  & 0.04{**} \\
+Construction & 0.55 &  & 0.07{*} &  &  & 0.28 \\
+(r g-cause vol) & 0.32 &  & 0.10{*} &  &  & 0.60 \\
+Retail Trade & 0.88 &  &  & 0.16 &  & 0.70 \\
+(r g-cause vol) & 0.01{***} &  &  & 0.01{***} &  & 0.01{***} \\
+Services & 0.10{*} &  &  &  & 0.09{*} & 0.18 \\
+(r g-cause vol)& 0.00{***} &  &  &  & 0.1{*} & 0.01{***} \\
+Services [WT] & 0.46 &  &  &  & 0.12 & 0.81\\
+(r g-cause vol)[WT] & 0.00{***} &  &  &  & 0.03{**} & 0.02{**} \\
+\cline{1-7}\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\end{document}

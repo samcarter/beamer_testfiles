@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/a/281457
+\documentclass{beamer}
+\usetheme{Dresden}
+
+\usepackage{etoolbox}
+
+\defbeamertemplate{footline}{nonum}{%
+    \addtocounter{framenumber}{-1}
+}
+
+\BeforeBeginEnvironment{frame}{%
+\setbeamertemplate{footline}[frame number]{}
+}
+
+\makeatletter
+\define@key{beamerframe}{nonum}[true]{%
+    \setbeamertemplate{footline}[nonum]%
+}
+\makeatother
+
+\begin{document}
+
+    \begin{frame}[nonum]
+        Removeframenumber
+    \end{frame}
+
+    \begin{frame}
+        normal frame
+    \end{frame}
+
+\end{document}

@@ -1,0 +1,61 @@
+% https://tex.stackexchange.com/a/279364
+\documentclass{beamer}
+
+\usepackage{etoolbox}
+\makeatletter
+\newcount\beamer@partstartframe
+\beamer@partstartframe=1
+\apptocmd{\beamer@part}{\addtocontents{nav}{\protect\headcommand{%
+    \protect\beamer@partframes{\the\beamer@partstartframe}{\the\c@framenumber}}}}{}{}
+\apptocmd{\beamer@part}{\beamer@partstartframe=\c@framenumber\advance\beamer@partstartframe by1\relax}{}{}
+\AtEndDocument{\immediate\write\@auxout{\string\@writefile{nav}%
+    {\noexpand\headcommand{\noexpand\beamer@partframes{\the\beamer@partstartframe}{\the\c@framenumber}}}}}{}{}
+\def\beamer@startframeofpart{1}
+\def\beamer@endframeofpart{1}
+\def\beamer@partframes#1#2{%
+    \ifnum\c@framenumber<#1%
+    \else%
+    \ifnum\c@framenumber>#2%
+    \else%
+    \gdef\beamer@startframeofpart{#1}%
+    \gdef\beamer@endframeofpart{#2}%
+    \fi%
+    \fi%
+}
+\newcommand\insertpartstartframe{\beamer@startframeofpart}
+\newcommand\insertpartendframe{\beamer@endframeofpart}
+\makeatother
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\def\inserttotalpartframenumber{%
+    \pgfmathparse{(\insertpartendframe-\insertpartstartframe+1)}%
+    \pgfmathprintnumber[fixed,precision=2]{\pgfmathresult}%
+}
+
+\def\insertpartframenumber{%
+    \pgfmathparse{(\insertframenumber-\insertpartstartframe+1)}%
+    \pgfmathprintnumber[fixed,precision=2]{\pgfmathresult}%
+}
+
+\setbeamertemplate{footline}{\insertpartframenumber/\inserttotalpartframenumber}
+
+\begin{document}
+
+\begin{frame}
+    \tableofcontents
+\end{frame}
+
+\part{Einfuhrung}
+
+\frame{1a}
+\frame{2a}
+
+\part{Grundlagen}
+
+\frame{1b}
+\frame{2b}
+\frame{3b \pause blub}
+
+\end{document}

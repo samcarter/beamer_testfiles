@@ -1,0 +1,82 @@
+% https://tex.stackexchange.com/a/280421
+\documentclass{beamer}
+\let\Tiny=\tiny
+
+
+\title{Title}
+\author{Ricardo Cruz}
+\date{}
+
+\usepackage{tikz}
+
+%% SIDEBAR
+
+\newlength\swidth
+\setlength\swidth{1.2cm}    
+
+\newlength\theight
+\setlength\theight{1.0cm}   
+
+\makeatletter
+\newlength\beamerleftmargin
+\setlength\beamerleftmargin{\Gm@lmargin}
+\makeatother
+
+\newlength\sheight
+
+\setbeamersize{sidebar width right=\swidth}
+\setbeamerfont{sidebar right}{size=\normalsize}
+\setbeamertemplate{sidebar right}{%
+\vspace{\theight}
+\begin{tikzpicture}[y=\sheight]
+    \foreach \i in {2,...,\inserttotalframenumber} {
+        \def\pgnbr{\inserttotalframenumber - \i-1}
+        \ifnum\i=\insertframenumber
+            \filldraw[very thick] (0,\pgnbr) rectangle (\swidth,\pgnbr+1);
+            \node[white,anchor=mid,font=\bfseries] at (\swidth/2,\pgnbr+0.5) {\number\numexpr\i-1};
+        \else
+            \draw[very thick] (0,\pgnbr) rectangle (\swidth-0.07cm,\pgnbr+1);
+            \node[anchor=mid,font=\bfseries] at (\swidth/2,\pgnbr+0.5) {\number\numexpr\i-1};
+        \fi
+    }
+\end{tikzpicture}
+}
+
+%% TITLE
+
+\setbeamercolor{frametitle}{fg=black}
+\setbeamerfont{frametitle}{size=\Large\bfseries}
+\setbeamertemplate{frametitle}{%
+\begin{tikzpicture}
+\hspace{-\beamerleftmargin}
+\draw[very thick] (0,0) rectangle (\paperwidth,\theight);
+\node[anchor=mid] at (\paperwidth/2,\theight/2) {\insertframetitle};
+\end{tikzpicture}
+}
+
+%%
+
+\begin{document}
+
+\setlength\sheight{\dimexpr(\paperheight-\theight)/(\inserttotalframenumber-1) \relax}
+
+{
+\setbeamertemplate{sidebar right}{}
+\begin{frame}
+\titlepage
+\end{frame}
+}
+
+\begin{frame}{First}
+First
+\end{frame}
+
+\begin{frame}{Second}
+Second
+\end{frame}
+
+\begin{frame}{Third}
+Third
+\end{frame}
+
+\end{document}

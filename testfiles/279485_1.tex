@@ -1,0 +1,23 @@
+% https://tex.stackexchange.com/a/279485
+\documentclass{beamer}
+
+\setbeamertemplate{frametitle}{\thesection.~\insertsection~\insertframetitle}
+
+\makeatletter
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+
+\begin{document}
+
+\section{section one} 
+\begin{frame}
+blub
+\end{frame} 
+
+\section{section two} 
+\begin{frame}
+blub
+\end{frame}
+
+\end{document}

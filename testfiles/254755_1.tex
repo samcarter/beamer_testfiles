@@ -1,0 +1,15 @@
+% https://tex.stackexchange.com/a/254755
+\documentclass[xcolor={dvipsnames,table},11pt]{beamer}
+\setbeamersize{text margin left=12 mm, text margin right=8 mm}
+
+\setbeamertemplate{bibliography item}{\hspace{-0.4cm}\lower3pt\hbox{\pgfuseimage{beamericonarticle}}}
+
+\begin{document}
+\begin{frame}
+\begin{thebibliography}{plain}
+\bibitem{} My reference one
+\bibitem{} My reference two![enter image description here][1]
+\bibitem{} All these references have 12 mm left margin, which I do not want. Longer line
+\end{thebibliography}
+\end{frame}
+\end{document}

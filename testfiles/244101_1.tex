@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/244101
+\documentclass{beamer}
+\usepackage{lipsum}
+
+\begin{document}
+
+{   
+    \setbeamertemplate{background}{
+        \begin{picture}(254,190.5)(0,0)%
+            \put(42,72){% Adjust these coordinates
+                \Huge DRAFT%
+            }%
+        \end{picture}
+    }
+
+    \frame{\lipsum[1]}
+
+}
+
+\end{document}

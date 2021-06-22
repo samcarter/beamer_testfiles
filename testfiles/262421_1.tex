@@ -1,0 +1,94 @@
+% https://tex.stackexchange.com/a/262421
+\documentclass{beamer}
+\usetheme[height=9mm]{Rochester} 
+\usecolortheme{beaver}
+\usepackage{tikz}
+\usepackage{etoolbox}
+
+\title{The title}
+\institute[Inst.]{The Institute}
+\date{\today}
+
+\makeatletter
+\defbeamertemplate{frametitle}{mydefault}
+{
+    \vspace*{-1cm}%
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \begin{beamercolorbox}[sep=0.3cm,left,wd=\the\@tempdima]{frametitle}
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-1ex%
+    \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+    \strut\insertframetitle\strut\par%
+    {%
+        \ifx\insertframesubtitle\@empty%
+        \else%
+        {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+        \fi
+    }%
+    \vskip-1ex%
+    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  \end{beamercolorbox}%
+}
+
+\defbeamertemplate{frametitle}{imagetitle}[1]{%
+    \vspace*{-1cm}%
+    \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+    \@tempdima=\textwidth%
+    \advance\@tempdima by\beamer@leftmargin%
+    \advance\@tempdima by\beamer@rightmargin%
+    \begin{beamercolorbox}[sep=0.3cm,left,wd=\the\@tempdima]{frametitle}
+        \usebeamerfont{frametitle}%
+        \vbox{}\vskip-1ex%
+        \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+        \strut\insertframetitle\strut\par%
+        {%
+            \ifx\insertframesubtitle\@empty%
+            \else%
+            {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+            \fi
+        }%
+        \vskip-1ex%
+        \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+    \end{beamercolorbox}%
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=north east,yshift=2pt] at (current page.north east) {\includegraphics[height=0.8cm]{#1}};
+    \end{tikzpicture}   
+}
+
+\BeforeBeginEnvironment{frame}{%
+    \setbeamertemplate{frametitle}[mydefault]%
+}
+
+\define@key{beamerframe}{imagetitle}[true]{%
+    \setbeamertemplate{frametitle}[imagetitle]{#1}%
+}
+\makeatother
+
+\begin{document}
+
+    \begin{frame}
+        \frametitle{bla}
+        no logo
+    \end{frame} 
+
+    \begin{frame}[imagetitle=example-grid-100x100bp.pdf]
+        \frametitle{bla}
+        logo
+    \end{frame}
+
+    \begin{frame}[imagetitle=example-image.pdf]
+        \frametitle{bla}
+        \framesubtitle{blub}
+        another logo
+    \end{frame} 
+
+    \begin{frame}
+        \frametitle{bla}
+        \framesubtitle{blub}
+        no logo
+    \end{frame}
+
+\end{document}

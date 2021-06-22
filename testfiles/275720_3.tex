@@ -1,0 +1,78 @@
+% https://tex.stackexchange.com/a/275720
+\documentclass[table]{beamer} 
+
+\usetheme{Warsaw} 
+
+\usepackage{graphicx}
+\usepackage{color} 
+
+\defbeamertemplate*{footline}{shadow theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\hfill\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle\hfill\insertframenumber\,/\,\inserttotalframenumber%
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\title{Linearized Model}
+\subtitle{Results from Numerical Implementation}
+\author[DA, GC]{\underline{First Author}, Second Author} 
+\date{\today} 
+
+\AtBeginSection[]  
+{
+\begin{frame}
+\frametitle{Presentation Outline} 
+\tableofcontents[currentsection] 
+\end{frame}
+} 
+
+\begin{document}
+
+{
+
+\setbeamertemplate{footline}
+{%
+    \leavevmode%
+    \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}%
+            \usebeamerfont{author in head/foot}\hfill\insertshortauthor
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+            \usebeamerfont{title in head/foot}\insertshorttitle%
+        \end{beamercolorbox}}%
+        \vskip0pt%
+    }
+
+
+\begin{frame}[noframenumbering]
+\titlepage
+\end{frame}
+
+
+}
+
+\section{Overview of VENU Model}
+\begin{frame}
+\frametitle{Motivations for the Modeling\ldots}
+\begin{itemize}
+\item BlaBla
+\item BlaBla
+\item BlaBla
+\item BlaBla
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Original work; 2012}
+\begin{itemize}
+\pause \item BlaBla
+\pause \item BlaBla
+\pause \item BlaBla
+\end{itemize}
+\end{frame}
+
+\end{document}
