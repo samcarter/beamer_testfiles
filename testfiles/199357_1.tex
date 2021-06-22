@@ -1,0 +1,146 @@
+% https://tex.stackexchange.com/a/199357
+\documentclass[compress]{beamer}
+\usetheme{CambridgeUS}
+\useoutertheme{miniframes}
+\useoutertheme{split}
+%\usecolortheme{whale}
+
+
+\makeatletter
+
+\newcount\beamer@xoff
+\newcount\beamer@prev@section
+\newcount\beamer@prev@miniframes
+\beamer@xoff=0
+\beamer@prev@section=0
+\beamer@prev@miniframes=0
+
+\def\insertsubsectionnavigationhorizontalminiframes#1#2#3{%
+    \hbox to #1{{%
+            \usebeamerfont{subsection in head/foot}\usebeamercolor[fg]{subsection in head/foot}%
+            \beamer@currentsubsection=0%
+            \def\sectionentry##1##2##3##4##5{}%
+            \def\slideentry##1##2##3##4##5##6{%
+                \ifnum##1>\beamer@prev@section%
+                \beamer@xoff=##3\relax%
+                \beamer@prev@miniframes=0\relax%
+                \fi
+                \ifnum##6=\c@part\ifnum##1=\c@section%
+                \ifnum##2>\beamer@currentsubsection%
+                \beamer@xoff=0\relax%
+                \beamer@currentsubsection=##2%
+                \box\beamer@sectionbox\hskip1.875ex plus1fill%
+                \ifnum\beamer@prev@miniframes>0\relax%
+                \beamer@tempdim=\beamer@boxsize%
+                \multiply\beamer@tempdim by \beamer@prev@miniframes%
+                \advance\beamer@tempdim by -\beamer@boxsize%
+                \advance\beamer@tempdim by 2pt%
+                \ifnum##2>1%
+                \advance\beamer@tempdim by 1.875ex%
+                \else
+                \advance\beamer@tempdim by -\beamer@boxsize%
+                \fi
+                \else
+                \beamer@tempdim=0pt%
+                \fi
+                \setbox\beamer@sectionbox=
+                \hbox{\def\insertsubsectionhead{\kern\beamer@tempdim##5}%
+                    \def\insertsectionheadnumber{##1}%
+                    \def\insertsubsectionheadnumber{##2}%
+                    \def\insertpartheadnumber{##6}%
+                    \ifnum\c@subsection=##2%
+                    \beamer@link(##4){{\usebeamertemplate{subsection in head/foot}}}\else%
+                    \beamer@link(##4){{\usebeamertemplate{subsection in head/foot shaded}}}\fi}%
+                \ht\beamer@sectionbox=1.875ex%
+                \dp\beamer@sectionbox=0.75ex%
+                \else%
+                \beamer@prev@miniframes=##3%
+                \fi%
+                \setbox0=\hbox{\insertsectionhead\unskip}\ifdim\wd0>0pt\ifnum##3>0%
+                \beamer@xpos=##3\relax%
+                \advance\beamer@xpos by -\beamer@xoff%
+                \hbox to 0pt{%
+                    \beamer@tempdim=0.5pt%
+                    \raise\beamer@tempdim\hbox{%
+                        \ifnum##2>0%
+                        \beamer@tempdim=\beamer@boxsize%
+                        \multiply\beamer@tempdim by\beamer@xpos%
+                        \advance\beamer@tempdim by -\beamer@boxsize%
+                        \advance\beamer@tempdim by 2pt%
+                        \advance\beamer@tempdim by \wd\beamer@sectionbox%
+                        \else%
+                        \beamer@tempdim=\beamer@boxsize%
+                        \multiply\beamer@tempdim by\beamer@xpos%
+                        \advance\beamer@tempdim by 1.875ex%
+                        \fi%
+                        \kern\beamer@tempdim\hbox{\beamer@link(##4){%
+                                \usebeamerfont{mini frame}%
+                                \ifnum\c@section=##1%
+                                \ifnum\c@subsection=##2%
+                                \usebeamercolor[fg]{mini frame}%
+                                \ifnum\c@subsectionslide=##3%
+                                \usebeamertemplate{mini frame}%
+                                \else%
+                                \usebeamertemplate{mini frame in current subsection}%
+                                \fi%
+                                \else%
+                                \usebeamercolor{mini frame}%
+                                \usebeamertemplate{mini frame in other subsection}%
+                                \fi%
+                                \else%
+                                \usebeamercolor{mini frame}%
+                                \usebeamertemplate{mini frame in other subsection}%
+                                \fi%
+                            }}}\hskip-10cm plus 1fil%
+                        }\fi\fi%
+                        \else%
+                        \fakeslideentry{##1}{##2}{##3}{##4}{##5}{##6}%
+                        \fi\fi%
+                        \beamer@prev@section=##1%
+                        \ignorespaces}%
+                    #2\hskip.3cm\setbox\beamer@sectionbox=\hbox{}%
+                    \hskip-1.875ex plus-1fill\dohead%
+                    \box\beamer@sectionbox\hfil\hskip.3cm%
+                    #3}}}
+
+        \setbeamercolor{mini frame}{parent=subsection in head/foot}
+        \setbeamercolor{section in head/foot}{fg=white}
+
+        \ifbeamer@compress
+
+        \defbeamertemplate*{headline}{split theme miniframes}
+        {%
+            \leavevmode%
+            \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex]{palette tertiary}%
+                \usebeamercolor{palette tertiary} \insertsectionnavigationhorizontal{.5\paperwidth}{\hskip0pt plus1filll}{}%
+            \end{beamercolorbox}%
+            \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex]{subsection in head/foot}%
+                \insertsubsectionnavigationhorizontalminiframes{.5\paperwidth}{}{\hskip0pt plus1filll}%
+            \end{beamercolorbox}%
+        }
+
+        \else
+
+        \defbeamertemplatealias{headline}{split theme miniframes}{split theme}
+        \setbeamertemplate{headline}[split theme miniframes]
+
+        \fi
+
+        \makeatother
+
+        % This is to enable the feature
+        \setbeamertemplate{headline}[split theme miniframes]
+        \setbeamertemplate{footline}[infolines theme]
+
+
+\begin{document}
+
+\section{Section1}
+
+\begin{frame}
+\end{frame}
+
+\begin{frame}
+\end{frame}
+
+\end{document}

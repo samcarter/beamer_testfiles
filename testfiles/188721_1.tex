@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/188721
+\documentclass{beamer}
+
+\newcommand\itemshape[1]{%
+  \setbeamertemplate{itemize item}[#1]%
+  \usebeamertemplate{itemize item}%
+}
+
+\begin{document}
+\begin{frame} 
+
+  \begin{description}[align=right]
+    \item[\itemshape{circle} First Item] Description of first item
+    \item[\itemshape{circle} Second Item] Description of second item
+    \item[\itemshape{circle} Third Item] Description of third item
+    \item[\itemshape{circle} Fourth Item] Description of fourth item
+  \end{description}
+
+
+\end{frame}
+\end{document}

@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/196549
+\documentclass{beamer}
+
+\usepackage{remreset}
+\makeatletter
+    \@removefromreset{subsection}{section}
+\makeatother
+\setcounter{subsection}{1}
+
+\usetheme{Singapore}
+\useoutertheme{miniframes}
+
+\begin{document}
+
+    \section{Without bullets}
+
+        \begin{frame}
+            \frametitle{Contenido}
+            Contenido
+        \end{frame}
+
+        \begin{frame}
+          \frametitle{Objetivo}
+          Objetivos 
+        \end{frame}
+
+    \section{With bullets}
+
+        \begin{frame}
+            \frametitle{Contenido}
+            Contenido
+        \end{frame}
+
+        \begin{frame}
+        \frametitle{Objetivo}
+         Objetivos 
+        \end{frame}
+
+\end{document}

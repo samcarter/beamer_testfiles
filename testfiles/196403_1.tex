@@ -1,0 +1,45 @@
+% https://tex.stackexchange.com/a/196403
+\documentclass{beamer}
+\usetheme{Darmstadt}
+\usepackage[citestyle=verbose,backend=biber]{biblatex}
+
+\begin{filecontents}{biblio.bib}
+    @book{Augustin,
+        Author={Augustin},
+        Title={La cite de Dieu}
+    }
+\end{filecontents}
+
+\addbibresource{biblio.bib}
+
+\DeclareCiteCommand{\customcite}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\ifciteindex
+     {\indexnames{labelname}%
+      \indexfield{indextitle}}
+     {}%
+   \printnames{labelname}%
+   \setunit{\labelnamepunct}%
+   \printfield[citetitle]{labeltitle}%
+   \newunit
+   \printfield{year}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+
+\begin{document}
+
+    \begin{frame}
+        \begin{block}{\customcite{Augustin}}
+            blabla \cite{Augustin}
+        \end{block}
+    \end{frame}
+
+    \begin{frame}[t,allowframebreaks]
+        \frametitle{References}
+        \printbibliography
+    \end{frame}
+
+\end{document}

@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/187818
+\documentclass{beamer}
+
+\begin{document}
+\begin{frame}
+
+    \onslide<1->{1}
+
+    \onslide<2->{2}
+
+    \begin{overlayarea}{\textwidth}{0.2\textheight}
+
+        \only<3>{3a} 
+
+        \only<4>{3b}
+
+    \end{overlayarea}
+
+
+\end{frame}
+\end{document}

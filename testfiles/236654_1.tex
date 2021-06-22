@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/236654
+\documentclass{beamer}
+
+\makeatletter
+\def\c@slideinframe{\beamer@slideinframe}
+\def\beamerslideinframe{\beamer@slideinframe}
+\makeatother
+
+\begin{document}
+    \begin{frame}
+        \frametitle{Foo}
+        \only<+>{
+            \framesubtitle{Bar}
+        }
+        \only<+>{
+            \frametitle{Foo \Roman{slideinframe}}
+            \framesubtitle{Baz}
+        }
+    \end{frame}
+\end{document} 

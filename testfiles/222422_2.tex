@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/222422
+\documentclass[presentation,english]{beamer}
+\usepackage[utf8]{inputenc}
+
+\title[Scientific LaTeX]{abc}
+\author{Prof. Sciencemaster}
+\subtitle{Chapter 47} 
+\date{\today}
+
+\defbeamertemplate*{title page}{bla}[1][t]{%
+    \begin{minipage}[t][\paperheight][t]{\dimexpr\paperwidth-1cm\relax}%
+        \vskip1em\par%
+    {\usebeamerfont{title}\color{blue}\inserttitle}%
+    \ifx\insertsubtitle\empty%
+    \else%
+    \par%
+    {\usebeamerfont{subtitle}\color{red}\insertsubtitle}%
+    \fi%
+    \par%
+    {\usebeamerfont{author}\color{green}\insertauthor}%
+  \end{minipage}%
+}
+
+\begin{document}
+
+\setbeamertemplate{footline}[bla]
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\title[Scientific LaTeX]{The science of using LaTeX to present the most awesome stuff in science.}
+\subtitle{Chapter 47: Adjusting the flux capacitor in sub-lightspeed without Fusion-knobs}
+\setbeamertemplate{footline}[bla]
+\begin{frame}
+    \titlepage
+\end{frame}
+
+
+\end{document}

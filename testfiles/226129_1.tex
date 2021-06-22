@@ -1,0 +1,48 @@
+% https://tex.stackexchange.com/a/226129
+\documentclass[xcolor=dvipsnames]{beamer}
+\usetheme{Luebeck}
+\setbeamercolor{structure}{fg=PineGreen}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{graphicx}
+
+\newcommand*\oldmacro{}%
+\let\oldmacro\insertshorttitle%
+\renewcommand*\insertshorttitle{%
+  \oldmacro\hfill%
+  \insertframenumber\,/\,\inserttotalframenumber}
+
+\setbeamertemplate{itemize items}[triangle]
+\setbeamerfont{caption}{size=\tiny}
+
+
+\begin{document}
+
+\begin{frame}{Tresholding - OpenCV-Methoden}
+
+\centering
+\begin{minipage}{.5\textwidth}
+    \centering
+    \begin{figure}
+        \includegraphics[width=.8\linewidth]{example-grid-100x100bp.pdf}
+        \vspace*{-0.3cm}
+        \caption{Otsu Tresholding}
+    \end{figure}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+    \centering
+    \begin{figure}
+        \includegraphics[width=.8\linewidth]{example-grid-100x100bp.pdf}
+        \vspace*{-0.3cm}
+        \caption{Adaptive Tresholding}
+    \end{figure}
+\end{minipage}
+
+\end{frame}
+
+\end{document}

@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/218606
+\documentclass{beamer} 
+\usetheme{Madrid}
+
+\setbeamercolor{back}{fg=black,bg=black}
+
+\makeatletter
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+      \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+        \usebeamerfont{author in head/foot}\insertshortauthor
+      \end{beamercolorbox}%
+      \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+        \usebeamerfont{title in head/foot}\insertshorttitle
+      \end{beamercolorbox}%
+      \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+        \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+        \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+      \end{beamercolorbox}%
+  }%
+
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,center]{back}%
+    \end{beamercolorbox}%
+    }%
+  \vskip0pt%
+}
+\makeatother
+\begin{document}
+
+
+\author{A.U. Thor}
+\institute{The Institute}
+
+\begin{frame}
+Test
+\end{frame}
+
+\end{document}

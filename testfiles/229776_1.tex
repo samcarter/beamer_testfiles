@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/229776
+\documentclass{beamer}
+
+\setbeamertemplate{navigation symbols}{}
+
+\defbeamertemplate*{footline}{my footline}{%
+    \ifnum\insertpagenumber=1
+    \hbox{%
+        \begin{beamercolorbox}[wd=\paperwidth,ht=.8ex,dp=1ex,center]{}%
+            % empty environment to raise height
+        \end{beamercolorbox}%
+    }%
+    \vskip0pt%
+    \else%
+        {%
+            \Tiny
+            \hfill%
+            \insertframenumber/\inserttotalframenumber \hspace*{0.1cm}%
+            \newline%
+            \textcolor{red}{\rule{\paperwidth}{0.4mm}}\newline%
+            \textcolor{black}{\rule{\paperwidth}{0.5mm}}%
+        }%
+    \fi%
+}
+
+\begin{document}
+
+    \frame{a}
+    \frame{d}
+    \frame{c}       
+    \frame{b}   
+
+\end{document}

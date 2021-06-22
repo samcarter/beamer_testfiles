@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/226378
+\documentclass{beamer}
+
+\setbeamercolor{bibliography entry author}{fg=red}
+\setbeamercolor{bibliography entry title}{fg=blue} 
+\setbeamercolor{bibliography entry location}{fg=green} 
+\setbeamercolor{bibliography entry note}{fg=cyan}  
+
+\begin{document}
+
+    \begin{frame}{Example bibliography}
+        \begin{thebibliography}{3}
+            \bibitem[{Alpher} et~al.(1948) {Alpher}, {Bethe}, \& {Gamow}]{paper}
+            Alpher, R. A., Bethe, H. \& Gamow, G. 
+            \newblock{The Origin of Chemical Elements}.
+            \newblock{\emph{Phys. Rev.}, 73:\penalty0 803--804, Apr. 1948.}
+            \newblock{doi: 10.1103/PhysRev.73.803}
+        \end{thebibliography}
+    \end{frame}
+
+\end{document}

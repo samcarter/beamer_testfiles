@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/242327
+\documentclass[11pt]{beamer}
+\usetheme{Warsaw}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,adjustbox,mathtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\begin{document}
+
+    \begin{frame}
+        \frametitle{LU Factorization of A}
+        \begin{equation}
+        \resizebox{\textwidth}{!}{$\displaystyle
+        \mathbf{LU} = \begin{pmatrix} \nonumber
+        \gamma_1   \\
+        -1  & \gamma_2  \\
+        &  -1  & \gamma_3  \\
+        &        & \ddots & \ddots \\
+        &        &        &  -1 & \gamma_{N-2}  \\
+        &        &        &          & -1 & \gamma_{N-1}  \\    
+        \end{pmatrix}
+        \begin{pmatrix}
+        1  & \delta_1            \\
+        & 1        & \delta_2 \\
+        &          & 1        & \delta_3 \\
+        &          &          &  \ddots & \ddots \\
+        &          &          &         & 1     & \delta_{N-2} \\
+        &          &          &         &       &  1
+        \end{pmatrix}
+        $}
+        \end{equation}
+        which is represented as
+        \begin{align} \label{eqn:nonlinear2term}
+        \gamma_1 &= 2+r  \nonumber \\ 
+        \gamma_i &= 2+r-1/\gamma_{i-1},  \hspace{2mm} i=2, \dots ,N-1.
+        \end{align}
+    \end{frame}
+
+\end{document}

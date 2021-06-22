@@ -1,0 +1,48 @@
+% https://tex.stackexchange.com/a/196985
+\documentclass{beamer}
+\let\Tiny=\tiny% http://tex.stackexchange.com/q/58087/5764
+
+\makeatletter
+\setbeamertemplate{footline}{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+            \usebeamerfont{title in head/foot} \hyperlinksectionstart{\insertshorttitle} 
+        \end{beamercolorbox}%
+    }%
+    \vskip0pt%
+}
+\makeatother
+
+\title[shorttest]{test}
+\author{Einstein}
+
+\AtBeginSection[]{%
+    \begin{frame}
+        \tableofcontents[sectionstyle=show/hide,subsectionstyle=hide/show/hide]
+    \end{frame}
+}
+
+\begin{document}
+
+    \begin{frame}
+        \maketitle
+    \end{frame}
+
+    \begin{frame}
+        \tableofcontents
+    \end{frame}
+
+    \section{sec1}
+
+        \begin{frame}
+            test
+        \end{frame}
+
+    \section{sec2}
+
+        \begin{frame}
+            test
+        \end{frame}
+
+\end{document}

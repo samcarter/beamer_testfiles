@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/236654
+\documentclass{beamer}
+
+\makeatletter
+
+\def\c@slideinframe{\beamer@slideinframe}
+\def\beamerslideinframe{\beamer@slideinframe}
+
+\newcommand*{\augmentframetitle}[1]{%
+    \expandafter\frametitle\expandafter
+    {\beamer@frametitle #1 \expandafter\ifnum\beamer@slideinframe>1\relax\Roman{slideinframe}\fi}%
+}
+
+\makeatother
+
+\begin{document}
+
+    \begin{frame}
+        \augmentframetitle{bar}
+        \only<+>{
+            \framesubtitle{Bar}
+        }
+        \only<+>{
+            \framesubtitle{Baz}
+        }
+    \end{frame}
+
+\end{document} 

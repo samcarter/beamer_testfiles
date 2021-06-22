@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/241846
+\documentclass{beamer}
+\usepackage[size = custom, height = 110, width = 81]{beamerposter}
+\definecolor{darkred}{RGB}{175,1,1}
+\setbeamercolor{headline}{fg=black,bg=gray!30}
+
+\setbeamertemplate{headline}{
+    \leavevmode
+    \begin{beamercolorbox}[wd=\paperwidth]{headline}%
+    \begin{columns}
+        \begin{column}{\linewidth}
+            \vskip2cm
+            \centering
+            \usebeamercolor{title in headline}{\color{darkred}\VERYHuge{\textbf{\inserttitle}}\\[1.5ex]}
+            \vskip2cm
+        \end{column}
+        \vspace{1cm}
+    \end{columns}
+    \rule{\paperwidth}{10pt}
+    \end{beamercolorbox}
+}
+\title{A Rhapsody in Foo}
+\begin{document}
+    Foo.
+\end{document}

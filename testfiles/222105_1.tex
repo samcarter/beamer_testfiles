@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/222105
+\documentclass{beamer}
+
+\begin{document}
+
+\section{Section 1}
+
+\begin{frame}<1>[label=frame1]
+    \frametitle{Section 1 - A}
+    \begin{itemize}
+        \item <1-> Blablabla 1:
+        \item <2-> Blablabla 2:
+    \end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Section 1 - B}
+    PHOTO
+\end{frame}
+
+\againframe<2>{frame1}
+
+\end{document}

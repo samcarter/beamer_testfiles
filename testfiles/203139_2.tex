@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/203139
+\documentclass{beamer}
+
+\usepackage{etoolbox}
+\usepackage{lmodern}
+\usepackage{lipsum}
+
+\usepackage{bookmark}
+\makeatletter
+\apptocmd{\beamer@@frametitle}{%
+    \only<1>{\expandafter\ifnum\insertcontinuationcount<2\relax\bookmark[page=\the\c@page,level=3]{#1}\fi}}%
+\makeatother
+
+\begin{document}
+    \begin{frame}
+        \frametitle{Foo}
+    \end{frame}
+    \begin{frame}[allowframebreaks]
+        \frametitle{Baz}
+        \lipsum
+    \end{frame}
+\end{document}

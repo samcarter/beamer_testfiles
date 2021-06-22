@@ -1,0 +1,68 @@
+% https://tex.stackexchange.com/a/187469
+\documentclass[final]{beamer}
+\mode<presentation>{\usetheme{Berlin}}
+\usepackage{multicol}
+\usepackage[orientation=landscape,size=a0,scale=1.4,debug,grid]{beamerposter}
+
+\newsavebox{\squaredblocktext}
+\setbeamertemplate{block begin}{
+    \par\vskip\medskipamount%
+    \makebox[\dimexpr\textwidth-1.5ex\relax][l]{%
+        \begin{beamercolorbox}[colsep*=.75ex]{block title}
+            \usebeamerfont*{block title}\insertblocktitle%
+        \end{beamercolorbox}}%
+        \begin{lrbox}{\squaredblocktext}%
+            \begin{minipage}[t]{\textwidth}%
+                \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+            }
+
+            \setbeamertemplate{block end}{
+            \end{minipage}%
+        \end{lrbox}%
+        {\parskip0pt\par}%
+        \ifbeamercolorempty[bg]{block title}{}
+        {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+        \usebeamerfont{block body}%
+        \makebox[\dimexpr\textwidth-1.5ex\relax][l]{%
+            \begin{beamercolorbox}[colsep*=.75ex,vmode]{block body}%
+                \usebox{\squaredblocktext}
+            \end{beamercolorbox}%
+        }\vskip\smallskipamount%
+    }
+
+\begin{document}
+    \begin{frame}{}
+
+        \begin{columns}[t]
+            \begin{column}{.24\linewidth}
+                \begin{block}{\large First column}
+                    abc
+                \end{block}
+            \end{column}
+            \begin{column}{.48\linewidth}
+                \begin{block}{\large Second (double-span) column}
+                    abc
+                \end{block}
+                \begin{columns}[t, totalwidth=\textwidth]
+                    \begin{column}{.225\linewidth}
+                        \begin{block}{\large First subcolumn}
+                            abc
+                        \end{block}
+                    \end{column}
+                    \begin{column}{.725\linewidth}
+                        \begin{block}{\large Second subcolumn}
+                            abc
+                        \end{block}
+                    \end{column}
+                \end{columns}
+            \end{column}
+            \begin{column}{.24\linewidth}
+                \begin{block}{\large Third column}
+                    abc
+                \end{block}
+            \end{column}
+        \end{columns}
+
+    \end{frame}
+
+\end{document}

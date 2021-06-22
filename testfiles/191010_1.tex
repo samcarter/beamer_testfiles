@@ -1,0 +1,50 @@
+% https://tex.stackexchange.com/a/191010
+\documentclass{beamer}
+
+\newcount\hours
+\newcount\minutes
+
+\def\gettime#1:#2\relax#3#4{\def#3{#1}\def#4{#2}}
+
+\newcommand{\add}[2]{%
+    \expandafter\gettime#1\relax{\hrs}{\mins}%
+    \expandafter\gettime#2\relax{\addhrs}{\addmins}%
+    \hours=\hrs\relax%
+    \advance\hours by \addhrs\relax%
+    \minutes=\mins\relax%
+    \advance\minutes by \addmins\relax%
+    \ifnum\minutes>59\relax%
+    \advance\minutes by -60\relax%
+    \advance\hours by 1\relax%
+    \else%
+    \ifnum\minutes<0\relax%
+    \advance\minutes by 60\relax%
+    \advance\hours by -1\relax%
+    \fi%
+    \fi%
+    \ifnum\hours>23\relax%
+    \advance\hours by -24\relax%
+    \else%
+    \ifnum\hours<0\relax%
+    \advance\hours by 24\relax%
+    \fi%
+    \fi%
+    \ifnum\minutes<10\relax%
+    \xdef#1{\number\hours:0\number\minutes}%
+    \else%
+    \xdef#1{\number\hours:\number\minutes}%
+    \fi%
+    }
+
+\begin{document}
+        \begin{frame}
+            \xdef\startTime{09:30}  
+            \begin{tabular}{l l l}
+                top1 & \startTime{} -- \add\startTime{01:00}\startTime & \textcolor{red}{01:00}\\ 
+                top2 & \startTime{} -- \add\startTime{00:45}\startTime & \textcolor{red}{00:45}\\ 
+                top3 & \startTime{} -- \add\startTime{00:15}\startTime & \textcolor{red}{00:15}\\ 
+                \hline
+                Sum & \textcolor{red}{09:30} -- \startTime
+            \end{tabular} 
+        \end{frame}
+\end{document}

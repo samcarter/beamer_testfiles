@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/237370
+\documentclass{beamer}
+
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{footline}{%
+    \quad\hyperlinkpresentationstart{\beamerreturnbutton{Back to start}}%
+    \quad\hyperlinksectionstart{\beamerreturnbutton{Back to section start}}%
+    \quad\hyperlink{moredetails}{\beamergotobutton{More details}}%
+    \quad\hyperlinksectionstartnext{\beamerskipbutton{Next section}}%
+    \quad\hyperlinkpresentationend{\beamerskipbutton{Contact information}}%
+    \vspace*{0.2cm}%
+}
+
+\begin{document}
+
+    \section{sec1}
+    \frame{1}
+    \frame{2}
+
+    \begin{frame}[label=moredetails]
+        more details
+    \end{frame}
+
+    \section{sec2}
+    \frame{3}
+    \frame{4}
+
+\end{document}
