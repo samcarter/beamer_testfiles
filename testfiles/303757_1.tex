@@ -1,0 +1,91 @@
+% https://tex.stackexchange.com/a/303757
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\setcounter{subsection}{1}
+
+\usetheme{Berkeley}
+\usecolortheme{seahorse}
+\usefonttheme{serif}
+\useinnertheme{rounded}
+
+%%Make desired footline
+\makeatletter
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor~~\beamer@ifempty{\insertshortinstitute}{}{(\insertshortinstitute)}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{subtitle in head/foot}%
+    \usebeamerfont{title in head/foot}\insertsubtitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber/\inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\defbeamertemplate{footline}{page number appendix}
+{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+            \usebeamerfont{author in head/foot}\insertshortauthor~~\beamer@ifempty{\insertshortinstitute}{}{(\insertshortinstitute)}
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{subtitle in head/foot}%
+            \usebeamerfont{title in head/foot}\insertsubtitle
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+            \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+             \Roman{framenumber}\hspace*{2ex} 
+        \end{beamercolorbox}}%
+        \vskip0pt%
+    }
+
+\g@addto@macro\appendix{%
+    \setbeamertemplate{footline}[page number appendix]%
+}
+
+\makeatother
+
+\usepackage{appendixnumberbeamer}
+
+%%No Navigation template
+\beamertemplatenavigationsymbolsempty
+
+%%Title
+\title{My beamer slides}
+\author{Just another guy}
+\institute[ABC]{My famous ABC institute}
+\date{worldwide, \today}
+
+%\logo{\includegraphics[width=1.5cm]{./logo}}
+
+\begin{document}
+
+\section{First Section}
+\begin{frame}{First slide}
+First slide (1/2)
+\end{frame}
+
+\begin{frame}{Second slide}
+Second slide (2/2)
+\end{frame}
+
+
+\appendix
+
+\section{Appendix}
+\begin{frame}
+First appednix (I)
+\end{frame}
+
+\begin{frame}
+    First appednix (II)
+\end{frame}
+
+\end{document}

@@ -1,0 +1,44 @@
+% https://tex.stackexchange.com/a/308252
+\documentclass{beamer}
+\usepackage{etoolbox}
+
+\makeatletter
+\BeforeBeginEnvironment{frame}{%
+    \ifnum\insertframenumber=0%
+        %plain
+        \def\beamer@entrycode{\vspace*{-\headheight}}%
+        \def\beamer@exitcode{\vspace*{-\footheight}\thispagestyle{empty}}%
+        %top
+        \beamer@centeredfalse%
+    \else%
+    \ifnum\insertframenumber=\numexpr\inserttotalframenumber-1\relax%
+            %plain
+            \def\beamer@entrycode{\vspace*{-\headheight}}%
+            \def\beamer@exitcode{\vspace*{-\footheight}\thispagestyle{empty}}%
+            %center
+            \beamer@centeredtrue%
+    \else%      
+            %top
+            \beamer@centeredfalse%      
+    \fi%
+    \fi%
+}
+\makeatother
+
+\usetheme{Berlin}
+
+\begin{document}
+
+  \begin{frame}{First Frame}
+     Top aligned
+  \end{frame}
+
+  \begin{frame}{Second Frame}
+      Top aligned.
+  \end{frame}
+
+  \begin{frame}{Last Frame}
+     Center aligned
+  \end{frame}
+
+ \end{document}

@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/291161
+\documentclass[14pt,handout,t]{beamer}
+\usepackage{lmodern}
+\addtobeamertemplate{frametitle}{\vspace*{2cm}}{\vspace*{1mm}}
+\geometry{paperwidth=297mm,paperheight=210mm}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\setbeamersize{text margin left=100pt,text margin right=100pt}
+\begin{document}
+
+\begin{frame}
+\frametitle{\textbf{Title}}
+  \begin{columns}[T]
+    \begin{column}{0.3\textwidth}
+      \includegraphics[width=\columnwidth]{example-image-1x1}
+    \end{column}
+    \begin{column}{11cm}
+      \begin{itemize}
+        \item \lipsum[2]
+        \item \lipsum[3]
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+\end{document}

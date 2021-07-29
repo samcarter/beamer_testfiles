@@ -1,0 +1,93 @@
+% https://tex.stackexchange.com/a/306780
+\documentclass{beamer}
+\usetheme{default}
+\usecolortheme{default}
+\usefonttheme{professionalfonts}
+\let\familydefault\rmdefault
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{frametitle}[default][center]
+
+\usepackage{tikz}
+\usepackage{textcomp}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{automata,arrows,trees,positioning,shapes,calc,fit}
+
+%\usetikzlibrary{dsp,chains}
+%\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+%\newcommand{\z}{\mathpzc{z}}
+
+\begin{document}
+% Definition of blocks:
+\tikzset{%
+  block/.style    = {draw, thick, rectangle, minimum height = 1em,
+    minimum width = 1em},
+  sum/.style      = {draw, circle, node distance = 1cm}, % Adder
+  input/.style    = {coordinate}, % Input
+  output/.style   = {coordinate}, % Output
+}
+% Defining string as labels of certain blocks.
+\newcommand{\suma}{$+$}
+\newcommand{\inte}{$\displaystyle \int$}
+\newcommand{\derv}{\huge$\frac{d}{dt}$}
+\begin{frame}{\color{blue}{Coordinates+Relative Positioning}}
+\centering
+\begin{tikzpicture}[auto, thick, node distance=2cm, >=triangle 45,scale=0.7]
+\draw
+
+    %node at (02,11)[right=-3mm]{\Large \textopenbullet}
+    node at (01,11)[input] (input) {}
+    node at (06,11)[sum] (s1) {\suma}
+    node at (12,11)[sum] (s2) {\suma}
+    node at (14,11)[output] (output) {\suma}
+
+
+;
+\node(B1)  [block,left of=s1,xshift=+.30cm,yshift=-1.50cm]{\Large $D$};
+\node(B2)  [block,left of=s2,xshift=+0.30cm,yshift=-1.50cm]{\Large $D$};
+\draw[->](input) -- node {}(s1);
+\draw[->](B1) -| node[near start]{$\color{blue}{0.5}\color{black}{x_{k-1}}$} (s1);
+\draw[->](s1) -- node[near start] {$y_{k}$}(s2);
+\draw[->](B2) -| node[near start]{$\color{blue}{0.5}\color{black}{y_{k-1}}$} (s2);
+\draw[->](s2) -- node {$z_k$}(output);
+\draw[->](input) -- node[near end]{$x_k$}(02,11) |- node[near end]{}(B1);
+\draw[->](s1) -- node[near end]{}(08,11) |- node[near end]{}(B2);
+
+\end{tikzpicture}
+
+\begin{columns}[onlytextwidth,T]
+
+\begin{column}{0.5\textwidth}
+\centering
+\begin{table}
+\begin{tabular}{ c | c | c }
+$x_{k-1}$ & $x_{k}$ & $y_{k}$ \\
+\hline 
+\color{white}{-}\color{black}{1} & \color{white}{-}\color{black}{1} & \color{white}{-}\color{black}{1.5} \\ 
+\color{white}{-}\color{black}{1} & \color{black}{-}\color{black}{1} & \color{black}{-}\color{black}{0.5} \\
+\color{black}{-}\color{black}{1} & \color{white}{-}\color{black}{1} & \color{white}{-}\color{black}{0.5} \\
+\color{black}{-}\color{black}{1} & \color{black}{-}\color{black}{1} & \color{black}{-}\color{black}{1.5} 
+\end{tabular}
+\end{table}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\centering
+\begin{table}\flushleft
+\begin{tabular}{ c | c | c }
+$y_{k-1}$ & $y_{k}$ & $z_{k}$ \\
+\hline 
+\color{white}{-}\color{black}{1.5} & \color{white}{-}\color{black}{1.5} & \color{white}{-}\color{black}{2.25} \\ 
+\color{white}{-}\color{black}{1.5} & \color{black}{-}\color{black}{0.5} & \color{white}{-}\color{black}{0.25} \\
+\color{black}{-}\color{black}{0.5} & \color{white}{-}\color{black}{0.5} & \color{white}{-}\color{black}{0.25} \\
+\color{black}{-}\color{black}{0.5} & \color{black}{-}\color{black}{1.5} & \color{black}{-}\color{black}{1.75}\\
+\color{white}{-}\color{black}{0.5} & \color{white}{-}\color{black}{1.5} & \color{white}{-}\color{black}{1.75} \\ 
+\color{white}{-}\color{black}{0.5} & \color{black}{-}\color{black}{0.5} & \color{black}{-}\color{black}{0.25} \\
+\color{black}{-}\color{black}{1.5} & \color{white}{-}\color{black}{0.5} & \color{black}{-}\color{black}{0.25} \\
+\color{black}{-}\color{black}{1.5} & \color{black}{-}\color{black}{1.5} & \color{black}{-}\color{black}{2.25} 
+\end{tabular}
+\end{table}
+\end{column}
+\end{columns}
+\end{frame}
+\end{document}

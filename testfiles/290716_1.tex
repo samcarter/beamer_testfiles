@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/290716
+\documentclass{beamer}
+
+\newcommand{\myitem}{
+    {\leavevmode \usebeamercolor[fg]{itemize item} \usebeamertemplate{itemize item}~~}
+}
+
+\begin{document}
+
+    \frame
+    {
+        \frametitle{Marco Teórico}
+        \begin{equation*}
+        \setbeamertemplate{itemize items}[ball]
+        \begin{array}{l}
+        \left\{
+        \begin{array}{l}
+            \myitem \mbox{Modelo Van Hiele}\\
+            \myitem \mbox{Modelo Vinner}\\
+            \myitem \mbox{Modelo Duval}
+        \end{array}   
+            \right\{        
+        \end{array}
+        \end{equation*}
+
+        \begin{itemize}
+         \item Modelo Van Hiele
+         \item Modelo Vinner
+         \item Modelo Duval
+         \item Visualización y Representación.
+         \item Obstáculos al aprendizaje geométrico.
+                \end{itemize}
+    }
+
+\end{document}

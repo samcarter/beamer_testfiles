@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/a/292513
+\documentclass[t,aspectratio=169]{beamer}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc}
+
+\defbeamertemplate*{title page}{customized}[1][]{
+  \begin{tikzpicture}[remember picture,overlay]
+        \coordinate (SW) at (current page.south west);
+        \coordinate (SE) at (current page.south east);
+        \coordinate (NW) at (current page.north west);
+        \coordinate (NE) at (current page.north east);
+        \draw[draw] (NW) rectangle ($(NE)!0.2!(SE)$);   
+  \end{tikzpicture}
+}
+\begin{document}
+  \begin{frame}
+    \titlepage
+  \end{frame}
+\end{document}

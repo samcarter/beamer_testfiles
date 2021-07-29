@@ -1,0 +1,105 @@
+% https://tex.stackexchange.com/a/305029
+\documentclass{beamer}
+
+\usepackage{beamerthemesplit}
+\usetheme{PaloAlto}
+
+\setbeamertemplate{navigation symbols}{}
+
+\title[]{My Thesis}
+\subtitle{}
+\author[]{H. John}
+
+\date{2016}
+
+\listfiles
+
+\setbeamercolor{author}{fg=blue}
+
+\setbeamerfont{title}{size=\Large, series=\bfseries}
+\setbeamerfont{author}{size=\footnotesize}
+\setbeamerfont{date}{size=\small}
+
+\setbeamertemplate{section page}
+{
+    \begingroup
+    \begin{beamercolorbox}[sep=12pt,center]{section title}
+        \usebeamerfont{section title}\insertsection\par
+    \end{beamercolorbox}
+    \endgroup
+}
+
+\setbeamertemplate{subsection page}
+{
+    \begingroup
+    \begin{beamercolorbox}[sep=12pt,center]{section title}
+        \usebeamerfont{section title}\insertsection\par
+    \end{beamercolorbox}
+    \vspace*{10pt}
+    \begin{beamercolorbox}[sep=8pt,center]{subsection title}
+        \usebeamerfont{subsection title}\insertsubsection\par
+    \end{beamercolorbox}
+    \endgroup
+}
+
+
+\begin{document}
+
+
+    \begin{frame}
+        \titlepage
+    \end{frame} 
+
+    \begin{frame}[t,allowframebreaks]
+        \frametitle{Table of Contents}
+        \tableofcontents
+    \end{frame}
+
+    \setbeamercolor{section title}{bg=cyan!50!black}
+    \setbeamercolor{subsection title}{bg=cyan}
+
+    \section[Int]{Introduction}
+    \frame{\sectionpage}
+
+    \subsection
+    [Scope]{Scope}
+    \frame{\subsectionpage}
+
+    \subsection
+    [Lim]{Limits}
+    \frame{\subsectionpage}
+
+    \setbeamercolor{section title}{bg=green!50!black}
+    \setbeamercolor{subsection title}{bg=green}
+
+    \section
+    [Mats]{Materials}
+    \frame{\sectionpage}
+
+    \subsection
+    [Mat1]{Material1}
+    \frame{\subsectionpage}
+
+
+    \subsection
+    [Mat2]{Material2}
+    \frame{\subsectionpage}
+
+    \setbeamercolor{section title}{bg=yellow!50!black}
+    \setbeamercolor{subsection title}{bg=yellow}    
+
+    \section
+    [Meths]{Methods}
+    \frame{\sectionpage}
+
+    \subsection
+    [Meth1]{Method1}
+    \frame{\subsectionpage}
+
+
+    \subsection
+    [Meth2]{Method2}
+    \frame{\subsectionpage}
+
+
+\end{document} 

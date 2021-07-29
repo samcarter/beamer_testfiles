@@ -1,0 +1,80 @@
+% https://tex.stackexchange.com/a/307147
+\documentclass[t]{beamer}
+\useoutertheme{shadow}
+
+\mode<presentation>
+{
+    \usetheme{Madrid}
+}
+
+\colorlet{titleleft}{blue!50!black}
+\colorlet{titlethreequarter}{blue!50!black}
+\colorlet{titleright}{white}
+\setbeamercolor*{frametitle}{fg=white}
+\makeatletter
+\pgfdeclarehorizontalshading[titleleft,titlethreequarter,titleright]{beamer@frametitleshade}{\paperheight}{
+    color(0pt)=(titleleft);
+    color(0.75\paperwidth)=(titlethreequarter);
+    color(0.9\paperwidth)=(titleright)
+}
+
+\setbeamertemplate{frametitle}
+{%
+    \nointerlineskip%
+    \vskip-2pt%
+    \hbox{\leavevmode
+        \advance\beamer@leftmargin by -12bp%
+        \advance\beamer@rightmargin by -12bp%
+        \beamer@tempdim=\textwidth%
+        \advance\beamer@tempdim by \beamer@leftmargin%
+        \advance\beamer@tempdim by \beamer@rightmargin%
+        \hskip-\Gm@lmargin\hbox{%
+            \setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{\paperwidth}%
+                    \vbox{}\vskip.5ex%%%%%%%%%%% above the font
+                    \leftskip0.3cm%
+                    \rightskip0.3cm plus1fil\leavevmode
+                    \insertframetitle%
+                    \ifx\insertframesubtitle\@empty%
+                    \strut\par%
+                    \else
+                    \par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+                    \fi%
+                    \nointerlineskip
+                    \vskip.65ex%%%%%%%%%%%%%%% below the font
+                    \vbox{}%
+                \end{minipage}}%
+                \beamer@tempdim=\ht\beamer@tempbox%
+                \advance\beamer@tempdim by 2pt%
+                \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
+                    \usebeamercolor{frametitle right}
+                    \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+                    \pgfusepath{clip}
+                    \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+                \end{pgfpicture}
+                \hskip-\paperwidth%
+                \box\beamer@tempbox%
+            }%
+            \hskip-\Gm@rmargin%
+        }%
+        \nointerlineskip
+        \vskip-0.2pt
+        \hbox to\textwidth{\hskip-\Gm@lmargin\pgfuseshading{beamer@topshade}\hskip-\Gm@rmargin}
+        \vskip-2pt
+    }
+
+
+
+
+\makeatother
+
+\begin{document}
+
+    \begin{frame}
+        \frametitle{Frame Title}
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Frame Title}
+    \end{frame} 
+
+\end{document}

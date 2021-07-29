@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/300228
+\documentclass{beamer}
+\usetheme{Antibes}
+
+\makeatletter
+\defbeamertemplate{subsection in toc}{subsections numbered roman}{%
+    \leavevmode\leftskip=1.5em\inserttocsectionnumber\@alph\inserttocsubsectionnumber\ %
+    \inserttocsubsection\par}
+\makeatother
+
+\setbeamertemplate{subsection in toc}[subsections numbered roman]
+
+\begin{document}
+
+    \frame{\tableofcontents}
+
+\section{Test Section One}
+\subsection{blub}
+\begin{frame}
+test
+\end{frame}
+\subsection{blubblub}
+\begin{frame}
+    test
+\end{frame}
+\section{Test Section Two}
+\begin{frame}
+test
+\end{frame}
+\section{Test Section Three}
+\begin{frame}
+test
+\end{frame}
+
+\end{document}

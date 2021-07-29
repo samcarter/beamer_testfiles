@@ -1,0 +1,71 @@
+% https://tex.stackexchange.com/a/307547
+\documentclass[hyperref={pdfpagelabels=false},xcolor=dvipsnames]{beamer}
+
+\usetheme{Boadilla}
+
+\newcommand*\MyPitem{%
+    \item[\color{fg=brown!35!red}\scalebox{1.1}{\textbullet}]}
+\newcommand*\MyCitem{%
+    \item[\color{pink}\scalebox{1.1}{\textbullet}]}
+
+\newenvironment{variableblock}[3]{%
+    \setbeamercolor{block body}{#2}
+    \setbeamercolor{block title}{#3}
+    \begin{block}{#1}}{\end{block}}
+
+\addtobeamertemplate{frametitle}{\vskip1.5ex}{}
+\setbeamercolor{structure}{fg=green!55!blue}
+\setbeamercolor{subsection in toc}{fg=green!70!blue}
+
+\setbeamertemplate{footline}{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.143333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+            \usebeamerfont{author in head/foot}\insertshortauthor
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.593333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+            \usebeamerfont{title in head/foot}\insertshorttitle
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.263333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+            \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+            \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+        \end{beamercolorbox}}%
+        \vskip0pt%
+}
+
+\begin{document}
+
+    \begin{frame}
+        \hspace{3cm}
+        \vspace{2.3cm}
+      \titlepage
+    \end{frame}
+
+    \setbeamertemplate{headline}{%
+        \begin{beamercolorbox}[ht=2ex]{section in head/foot}%
+        \insertsectionnavigationhorizontal{\paperwidth}{\hskip0pt plus1fill}{\hskip0pt plus1fill}%
+    \end{beamercolorbox}%
+    }
+
+    \setbeamertemplate{background}{%
+    \includegraphics[width=\paperwidth,height=2.5cm]{example-grid-100x100bp}%
+  }
+
+  \logo{%
+       \includegraphics[width=1cm]{example-grid-100x100bp}%
+    }
+
+    \begin{frame}
+        \frametitle{Outline}
+        \tableofcontents[subsubsectionstyle=hide]
+    \end{frame}
+
+  \logo{%
+    \includegraphics[width=1cm]{example-image-a}%
+  }
+
+    \begin{frame}
+        another logo
+    \end{frame}
+
+\end{document}

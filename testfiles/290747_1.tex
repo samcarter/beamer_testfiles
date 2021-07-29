@@ -1,0 +1,32 @@
+% https://tex.stackexchange.com/a/290747
+\documentclass[xcolor={dvipsnames}]{beamer}
+
+\usetheme{default}
+\setbeamertemplate{navigation symbols}{}%remove navigation symbols
+
+\setbeamertemplate{logo}{%
+    \setlength{\unitlength}{1mm}
+    % placement: (paperwidth, paperheight)(text margin left, 0)
+    \begin{picture}(127,0)(0,0)%
+    % insert red top rule
+        \put(0,0){% 
+            \color{blue}{%
+                \rule{1.1\paperwidth}{1mm}%
+            }%
+        }%
+        \end{picture}
+    \vspace*{0.6cm}
+}   
+
+\renewcommand\footnoterule{}
+
+\begin{document}
+\begin{frame}
+\frametitle{Beamer example}
+using\footnote{Y LUSPIN, et al} footnotes\footnote{P. GHOSEZ, et al}
+\end{frame}
+\begin{frame}
+\frametitle{Another example}
+without footnotes
+\end{frame}
+\end{document}

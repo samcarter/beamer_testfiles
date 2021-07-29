@@ -1,0 +1,32 @@
+% https://tex.stackexchange.com/a/306287
+\documentclass{beamer}
+
+\setbeamertemplate{navigation symbols}{}
+
+% only for this example, otherwise in .bib file
+\usepackage{filecontents}
+
+\begin{filecontents}{\jobname.bib}
+@article{Huo2002,
+    author = {Zhimin Huo and Maryellen L. Giger and Olufunmilayo I. Olopade and Dulcy E. Wolverton and Barbara L. Weber and Charles E. Metz and Weiming Zhong and Shelly A. Cummings},
+    title = {Computerized Analysis of Digitized Mammograms of BRCA1 and BRCA2 Gene Mutation Carriers},
+    journal = {Radiology},
+    volume = {225},
+    number = {2},
+    pages = {519-526},
+    year = {2002},
+    doi = {10.1148/radiol.2252010845},
+    note ={PMID: 12409590},
+}
+\end{filecontents}
+
+\usepackage[style=verbose,backend=biber]{biblatex}
+\addbibresource{\jobname.bib}
+
+\begin{document}
+ \begin{frame}
+    \frametitle{R: Literature Review}
+    \setbeamerfont{footnote}{size=\tiny}
+    Huo et al. \footfullcite{Huo2002}
+    \end{frame}
+\end{document}

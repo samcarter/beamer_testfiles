@@ -1,0 +1,17 @@
+% https://tex.stackexchange.com/a/304444
+\documentclass{beamer}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{skins} 
+
+\usepackage[tikz]{bclogo}
+
+\begin{document}
+
+\begin{frame}
+    \tcbset{enhanced,colframe=black,colback=white,colupper=black, fonttitle=\bfseries,center title,size=title,arc=4mm,frame style={drop shadow},boxrule=0.1mm}
+    \centering
+    \tcbox{\raisebox{-.25\height}{\bcplume}Title}
+\end{frame}
+
+\end{document}

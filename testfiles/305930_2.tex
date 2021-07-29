@@ -1,0 +1,44 @@
+% https://tex.stackexchange.com/a/305930
+\documentclass{beamer}
+\usetheme{Warsaw}
+\setbeamercovered{transparent}
+\setbeamertemplate{navigation symbols}{}
+\usepackage{beamerthemeshadow}
+\usepackage{tikz}
+
+\setbeamertemplate{qed symbol}{%
+    \includegraphics<-.>[width=0.5cm,height=0.5cm]{example-image}
+    \includegraphics<.(1)->[width=0.5cm,height=0.5cm]{example-grid-100x100bp}
+}
+
+\begin{document}
+
+    \begin{frame}
+
+        \begin{proof}
+            \begin{itemize}
+                \item First item.
+                \item Second item.
+                \item Third item.
+            \end{itemize}
+        \end{proof}     
+        \vfill \pause 
+
+        \begin{proof}
+            \begin{itemize}
+                \item First item.
+                \pause
+                \item Second item.
+                \pause
+            \end{itemize}
+        \end{proof}
+
+        \vfill \pause
+
+        \begin{block}{Corollary}
+            Corollary text here
+        \end{block}        
+
+    \end{frame}
+
+\end{document}

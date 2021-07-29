@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/303059
+\documentclass[xcolor=x11names,table]{beamer}
+% http://tex.stackexchange.com/a/196808/13173
+% http://tex.stackexchange.com/a/303021/13173
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage[TS1,T1]{fontenc}
+\usepackage{fourier, heuristica}
+\usepackage{array, booktabs}
+\usepackage{caption}
+\DeclareCaptionFont{blue}{\color{LightSteelBlue3}}
+
+\newcommand{\foo}{\color{LightSteelBlue3}\makebox[0pt]{\textbullet}\hskip-0.5pt\vrule width 1pt\hspace{\labelsep}}
+
+\begin{document}
+
+    \begin{frame}
+        \begin{table}
+            \renewcommand\arraystretch{1.4}\arrayrulecolor{LightSteelBlue3}
+            \captionsetup{font=blue, labelfont=sc, labelsep=quad}
+            \caption{Timeline}\vskip -1.5ex
+            \begin{tabular}{@{\,}r <{\hskip 2pt} !{\foo} >{\raggedright\arraybackslash}p{5cm}}
+                \toprule
+                \addlinespace[1.5ex]
+                1969 & Lassa virus.
+            \end{tabular}
+
+            \begin{tabular}{@{\,}r <{\hskip 2pt} !{\color{LightSteelBlue3}\makebox[0pt]{\textbullet\textbullet\textbullet}} >{\raggedright\arraybackslash}p{4.4cm}}
+                {} & {}
+            \end{tabular}
+
+            \begin{tabular}{@{\,}r <{\hskip 2pt} !{\foo} >{\raggedright\arraybackslash}p{5cm}}
+                1989 & Guanarito virus, Venezuela. 1993 - Sabia virus (BrHF), Brazil. 2004 - \end{tabular}
+        \end{table}
+    \end{frame}
+
+\end{document} 

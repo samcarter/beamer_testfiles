@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/301799
+\documentclass{beamer}
+
+\usepackage[style=verbose,backend=bibtex]{biblatex}
+
+\makeatother
+\def\insertcont{%
+  \pgfmathparse{\insertpagenumber-\insertframestartpage+1}%
+  (\pgfmathprintnumber{\pgfmathresult})%
+}
+\makeatletter
+
+\begin{document}
+    \begin{frame}
+        \frametitle{Main Slide \insertcont}
+        \begin{itemize} 
+            \item ABC \only<2->{\footfullcite{Tuchler2002}}
+            \item XYZ \only<3>{\footfullcite{Tuchler2002}}
+        \end{itemize}
+    \end{frame}
+\end{document}

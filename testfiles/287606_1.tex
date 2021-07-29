@@ -1,0 +1,17 @@
+% https://tex.stackexchange.com/a/287606
+\documentclass{beamer}
+\usetheme{Warsaw}
+\setbeamercolor{background canvas}{bg=yellow}
+
+\AtBeginDocument{
+    \pgfdeclareverticalshading{beamer@topshade}{\paperwidth}{%
+        color(0pt)=(yellow);
+        color(4pt)=(black!50!bg)    
+    }
+}
+
+\begin{document}
+   \begin{frame}{Nice Title}
+       Stupid Content
+   \end{frame}
+\end{document}

@@ -1,0 +1,18 @@
+% https://tex.stackexchange.com/a/303864
+\documentclass{beamer}
+
+\usepackage{tikz}
+
+\logo{%
+    \begin{tikzpicture}[remember picture,overlay]
+        \draw [line width=2mm,black] (current page.south east) rectangle (current page.north west);
+    \end{tikzpicture}
+}
+
+\begin{document}
+
+    \begin{frame}
+        abc
+    \end{frame} 
+
+\end{document}

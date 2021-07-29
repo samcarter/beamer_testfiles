@@ -1,0 +1,15 @@
+% https://tex.stackexchange.com/a/306290
+\documentclass{beamer}
+\setbeamercovered{transparent}
+\begin{document}
+\begin{frame}{Programming Basics}
+    \texttt{Comments are followed by \underline{\hspace{2cm}}}
+    \begin{enumerate}
+        \item<1> !
+        \item<1> @
+        \item<1> ::
+        \item<1-2> ;
+        \invisible<1>{\item Only show this in second slide, ; I am comment}
+    \end{enumerate}
+\end{frame}
+\end{document}

@@ -1,0 +1,32 @@
+% https://tex.stackexchange.com/a/285389
+\documentclass{beamer}
+\usetheme{Antibes}
+
+\usepackage{etoolbox}
+
+\makeatletter
+\apptocmd{\beamer@@frametitle}{
+    \subsubsection{\insertframetitle}
+}
+\makeatother
+
+\begin{document}
+
+    \begin{frame}
+        \tableofcontents
+    \end{frame}
+
+    \section{Section 1}
+    \subsection{Subsection 1}
+
+    \begin{frame}
+        \frametitle{Slide 1}
+        This is some content
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{Slide 2}
+        This is some content
+    \end{frame} 
+
+\end{document}

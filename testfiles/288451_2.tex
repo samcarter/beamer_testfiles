@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/288451
+\documentclass{beamer}
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen}
+
+\AtBeginSection{
+    \frame{\insertsectionhead}
+}
+
+\makeatletter 
+\def\beamer@framenotesbegin{% at beginning of slide
+     \usebeamercolor[fg]{normal text}
+      \gdef\beamer@noteitems{}% 
+      \gdef\beamer@notes{}% 
+}
+\makeatother
+
+\begin{document}
+    \section{My Section}
+    \begin{frame}{My Frametitle}
+        My Content
+        \note{hgv}
+    \end{frame}
+
+\end{document}

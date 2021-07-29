@@ -1,0 +1,45 @@
+% https://tex.stackexchange.com/a/303242
+\documentclass[t,compress]{beamer}
+
+\usetheme{Szeged}
+\usefonttheme[onlymath]{serif}
+
+\setbeamertemplate{headline}{%
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{palette quaternary}%
+            \insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+        \end{beamercolorbox}%
+    }
+}
+
+\setbeamertemplate{footline}
+{%
+    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+        leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}%
+        \leavevmode{\usebeamerfont{author in head/foot}\insertshortauthor}%
+        \hfill%
+        \leavevmode{\usebeamerfont{title in head/foot}\insertshorttitle}%
+        \hfill%
+        {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertshortinstitute}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+    \end{beamercolorbox}
+}
+
+\title{ZZZZZ}
+\subtitle{QQQQ}
+\author{XXXX}
+\institute{YYYY}
+\date{\today}
+
+
+\begin{document}
+
+    \begin{frame}
+        abc
+    \end{frame}
+
+\end{document}

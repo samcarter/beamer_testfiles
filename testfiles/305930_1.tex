@@ -1,0 +1,32 @@
+% https://tex.stackexchange.com/a/305930
+\documentclass{beamer}
+\usetheme{Warsaw}
+\setbeamercovered{transparent}
+\setbeamertemplate{navigation symbols}{}
+\usepackage{beamerthemeshadow}
+\usepackage{tikz}
+
+\begin{document}
+
+    \begin{frame}
+        \begin{block}{Theorem}
+            Theorem Text Here
+        \end{block}
+
+        \vfill \pause 
+
+        \begin{example} 
+            \centering
+            \includegraphics<-.>[height=0.4\textwidth]{example-image}
+            \includegraphics<.(1)->[height=0.4\textwidth]{example-grid-100x100bp}
+        \end{example}
+
+        \vfill \pause
+
+        \begin{block}{Corollary}
+            Corollary text here
+        \end{block}        
+
+    \end{frame}
+
+\end{document}

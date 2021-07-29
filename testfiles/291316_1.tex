@@ -1,0 +1,88 @@
+% https://tex.stackexchange.com/a/291316
+\documentclass[8pt,handout,t]{beamer}
+\usepackage{pifont} %used inside itemize environment \item[\ding{226}]
+\usepackage{lipsum}
+
+
+\usepackage{ragged2e}
+\usepackage{etoolbox}
+\apptocmd{\frame}{}{\justifying}{}
+
+\apptocmd{\column}{}{\justifying}{}
+
+\makeatletter
+\renewcommand{\itemize}[1][]{%
+    \beamer@ifempty{#1}{}{\def\beamer@defaultospec{#1}}%
+    \ifnum \@itemdepth >2\relax\@toodeep\else
+    \advance\@itemdepth\@ne
+    \beamer@computepref\@itemdepth% sets \beameritemnestingprefix
+    \usebeamerfont{itemize/enumerate \beameritemnestingprefix body}%
+    \usebeamercolor[fg]{itemize/enumerate \beameritemnestingprefix body}%
+    \usebeamertemplate{itemize/enumerate \beameritemnestingprefix body begin}%
+    \list
+    {\usebeamertemplate{itemize \beameritemnestingprefix item}}
+    {\def\makelabel##1{%
+            {%
+                \hss\llap{{%
+                        \usebeamerfont*{itemize \beameritemnestingprefix item}%
+                        \usebeamercolor[fg]{itemize \beameritemnestingprefix item}##1}}%
+            }%
+        }%
+    }
+    \fi%
+    \beamer@cramped%
+    \justifying% NEW
+    %\raggedright% ORIGINAL
+    \beamer@firstlineitemizeunskip%
+}
+
+\renewcommand<>\beamer@columncom[2][\beamer@colmode]{%
+    \beamer@colclose%
+    \def\beamer@colclose{\end{minipage}\hfill\end{actionenv}\ignorespaces}%
+\begin{actionenv}#3%
+    \setkeys{beamer@col}{#1}%
+    \begin{minipage}[\beamer@colalign]{#2}%
+        \leavevmode%
+        %\raggedright
+            \justifying% NEW
+        \beamer@colheadskip\ignorespaces}
+
+\makeatother
+
+
+
+\begin{document}
+
+\begin{frame}
+\begin{columns}[T]
+
+\begin{column}{0.3\textwidth}
+\includegraphics[width=\columnwidth]{example-image-1x1}
+\end{column}
+\begin{column}{0.65\textwidth}
+\begin{itemize}
+\item[\ding{226}] \lipsum[2]
+\item[\ding{226}] \lipsum[3]
+\end{itemize}
+\end{column}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}
+ \lipsum[3]
+ \begin{itemize}
+   \item[\ding{226}] \lipsum[4]
+ \end{itemize}
+\end{frame}
+\begin{frame}
+  \begin{columns}[t]
+\column{0.4\textwidth}{
+\lipsum[3]
+}
+\column{0.4\textwidth}{
+\lipsum[5]
+}
+\end{columns}
+\end{frame}
+\end{document}

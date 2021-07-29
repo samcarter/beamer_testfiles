@@ -1,0 +1,52 @@
+% https://tex.stackexchange.com/a/303968
+\documentclass{beamer}
+
+\usepackage{tikz}
+\usetikzlibrary{mindmap,trees,shadows}
+
+\usepackage{etoolbox}
+\usepackage{totcount}
+
+\newcounter{totalsection}
+\regtotcounter{totalsection}
+
+\setbeamertemplate{section in toc}{\vskip-2.5cm\inserttocsection}
+
+\AtBeginDocument{%
+    \pretocmd{\section}{\refstepcounter{totalsection}}{\typeout{Yes, prepending was successful}}{\typeout{No, prepending was not it was successful}}%
+}%
+
+\title{Some Title}
+
+\newcommand{\mindtoc}{
+    \centering
+    \begin{tikzpicture}[mindmap, concept color=blue!50!black, font=\sf, text=white]
+        \tikzstyle{level 1 concept}+=[font=\sf, sibling angle=360/\number\totvalue{totalsection},level distance = 33mm]
+        \node[concept,scale=0.8] {\inserttitle}
+            [clockwise from=135]
+            child [concept color=lime] foreach \i in {1,...,\number\totvalue{totalsection}}{
+        node[concept,scale=0.8]{\tableofcontents[sections={\i},hidesubsections]}  
+            };
+    \end{tikzpicture}
+}
+
+\begin{document}
+
+\begin{frame}
+    \frametitle{""Table"" of Contents}
+    \mindtoc    
+\end{frame}
+
+\section{Section One~}
+\frame{abc}
+
+\section{Section Two}
+\frame{abc}
+
+\section{Section Three}
+\frame{abc} 
+
+\section{Section Three}
+\frame{abc}         
+
+\end{document}

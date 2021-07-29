@@ -1,0 +1,49 @@
+% https://tex.stackexchange.com/a/296179
+\documentclass[14pt]{beamer}
+\usetheme{Frankfurt}
+\usepackage{etoolbox}
+
+\setbeamersize{sidebar width left=1.75cm}
+
+\defbeamertemplate{sidebar left}{Alternative}{%
+        \vspace*{\headheight}
+        This
+        \vfill
+        Text
+        \vfill
+        Should
+        \vfill
+        Show
+        \vfill
+        In The
+        \vfill
+        Sidebar
+        \vfill
+}
+
+\BeforeBeginEnvironment{frame}{%
+    \setbeamercolor{sidebar left}{bg=white, fg=green}
+    \setbeamertemplate{sidebar left}{}%
+}
+
+\makeatletter
+\define@key{beamerframe}{Alternative}[true]{%
+    \setbeamercolor{sidebar left}{bg=black, fg=green}
+    \setbeamertemplate{sidebar left}[Alternative]%
+}
+\makeatother
+
+\begin{document}
+    \begin{frame}
+        Normal
+    \end{frame}
+
+    \begin{frame}[Alternative]
+        Alternative
+    \end{frame}
+
+    \begin{frame}
+        Normal
+    \end{frame}
+
+\end{document}

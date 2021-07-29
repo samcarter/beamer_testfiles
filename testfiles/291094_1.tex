@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/291094
+\documentclass{beamer}
+
+\begin{document}
+
+\frame
+{
+    \frametitle{Hello}
+    \framesubtitle{Hi}
+
+    {
+    \setbeamercolor{block title}{use=structure,fg=white,bg=black}
+    \setbeamercolor{block body}{use=structure,fg=black,bg=gray!60}
+    \begin{block}{Say you will}
+        \begin{itemize}
+            \item One
+            \item Two
+        \end{itemize}
+        %  HOW TO RESET THE COLORS TO THE ORIGINAL VALUES
+    \end{block}
+    }
+    %
+    %
+    \begin{block}{Actividades}
+        \begin{enumerate}
+            \footnotesize{
+                \item Me and you
+                \item You and me  
+            }
+        \end{enumerate}
+    \end{block}
+}
+
+\end{document}

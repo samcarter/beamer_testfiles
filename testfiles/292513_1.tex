@@ -1,0 +1,17 @@
+% https://tex.stackexchange.com/a/292513
+\documentclass[t,aspectratio=169]{beamer}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning}
+
+\defbeamertemplate*{title page}{customized}[1][]{
+  \begin{tikzpicture}[remember picture,overlay]
+  \begin{scope}[shift={(current page.north west)}] 
+            \draw[draw] (0,0) rectangle (15.95,-1);   
+   \end{scope}
+  \end{tikzpicture}
+}
+\begin{document}
+  \begin{frame}
+    \titlepage
+  \end{frame}
+\end{document}

@@ -1,0 +1,73 @@
+% https://tex.stackexchange.com/a/287003
+\documentclass{beamer}
+\usefonttheme{professionalfonts}
+\usefonttheme{serif}
+\definecolor{blue}{rgb}{0.1,0.3,0.8} 
+\usepackage{amssymb,amsmath,amsfonts,amsthm,mathrsfs}
+\usepackage{version}
+\usepackage{array}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\setbeamertemplate{caption}[numbered]
+\usepackage{ragged2e}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{tikz}
+\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes}
+\usetikzlibrary{arrows,shapes}
+\tikzstyle arrowstyle=[scale=1]
+\tikzstyle directed=[postaction={decorate,decoration={markings,
+mark=at position 0.6 with {\arrow[arrowstyle]{stealth}}}}]
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{bbm}
+\usepackage{subfigure}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\setbeamertemplate{theorems}[numbered]
+\usecolortheme[named=blue]{structure}
+\usetheme{default}
+\setbeamertemplate{footline}[page number]
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,positioning}
+\usetikzlibrary{decorations.markings}
+\tikzstyle arrowstyle=[scale=1]
+\tikzstyle directed=[postaction={decorate,decoration={markings,
+mark=at position 0.6 with {\arrow[arrowstyle]{stealth}}}}]
+\newtheorem{proposition}[theorem]{Proposition}
+\begin{document}
+
+
+\begin{frame}
+\frametitle{\large{New Approach}}
+\small
+\begin{itemize}\addtolength{\itemsep}{1.4\baselineskip}
+\item This is the first text line
+\pause
+\tikzstyle{lb} = [rectangle, draw, fill=blue!20, text width=11em, text centered, rounded corners, minimum height=2.5em]
+\tikzstyle{mb} = [rectangle, draw, fill=blue!20, text width=8em, text centered, rounded corners, minimum height=2.5em]
+\tikzstyle{sb} = [rectangle, draw, fill=blue!20, text width=6em, text centered, rounded corners, minimum height=2.5em]
+\tikzstyle{tb} = [rectangle, draw, fill=blue!20, text width=5em, text centered, rounded corners, minimum height=2.5em]
+\bigskip
+\bigskip
+\begin{figure}
+\begin{center}
+\vspace*{-0.2in}
+\tiny{
+\begin{tikzpicture}[node distance=4.2cm, auto,>=latex', thick]
+\node [tb] (latent) {$F_{X_o\underline X}$};
+\node [mb, right= 2.5cm of latent] (policy) {\tiny{Seller's Expected Profit    $\text{E}[\pi_S(r)]$}};
+\node [mb, below right= 1.2cm and 0.3 cm of latent] (OB) {Bids Data (Bids Distributions)};\pause
+\path[->] (latent) edge[->] (policy);\pause
+\path[->, draw, red, left=1cm of OB] (OB) -- +(-1.2,0) -| node[near start] {} (latent);\pause
+\path[->, draw, green, right=1cm of OB] (OB) -- +(1.2,0) -| node[near start] {} (policy);\pause
+\end{tikzpicture}
+}
+\end{center}
+\end{figure}
+\item<7-> This is the second text line
+\item<8> This is the third text line
+\end{itemize}
+\end{frame}
+\end{document}

@@ -1,0 +1,95 @@
+% https://tex.stackexchange.com/a/296004
+\documentclass[14pt]{beamer}
+\usetheme{Frankfurt}
+
+\makeatletter
+\AtBeginDocument{
+    \colorlet{global.bg}{bg}
+    \usebeamercolor{subsection in head/foot}
+    \usebeamercolor{section in head/foot}
+    \usebeamercolor{frametitle}
+    \usebeamercolor{sidebar left}
+
+    \pgfdeclareverticalshading{beamer@barshade}{\the\paperwidth}{%
+        color(0ex)=(sidebar left.bg);%
+        color(3ex)=(section in head/foot.bg)%
+    }    
+  }
+\makeatother
+
+\setbeamersize{sidebar width left=0.75cm}
+\setbeamercolor{sidebar left}{bg=black, fg=green}
+\setbeamertemplate{sidebar left}{%
+    \vspace{\headheight}
+    Step 1
+    \vfill
+    Step 2
+    \vfill
+    Step 3
+    \vfill
+    Step 4
+    \vfill
+    Step 5
+    \vfill
+    Step 6
+    \vfill
+    Step 7
+    \vfill
+    Step 8
+    \vfill
+    Step 9
+    \vfill
+    Step 10
+    \vfill
+    Step 11
+    \vfill
+    Step 12
+    \vfill
+    Step 13
+    \vfill
+    Step 14
+    \vfill
+    Step 15
+    \vfill
+    Step 16
+    \vfill
+    Step 17
+    \vfill
+    Step 18
+    \vfill
+    Step 19
+    \vfill
+    Step 20
+    \vfill
+}
+
+\begin{document}
+\section{Section 2}
+\subsection{Section 2.1}
+\subsubsection{Section 2.1.1}
+\begin{frame}
+    \frametitle{2.1.1 part A}
+    This would be the start to the problem
+\end{frame}
+\begin{frame}
+    \frametitle{2.1.1 part B}
+    This would start the solution
+\end{frame}
+\begin{frame}
+    \frametitle{2.1.1 part C}
+    This would have the next step
+\end{frame}
+\begin{frame}
+    \frametitle{2.1.1 part D}
+    This next step process would continue here (and to further slides if needed)
+\end{frame}
+
+\subsection{Section 2.2}
+\begin{frame}
+    \frametitle{2.2.1}
+\end{frame}
+\begin{frame}
+    \frametitle{2.2.2}
+\end{frame}
+
+\end{document}

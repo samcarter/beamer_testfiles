@@ -1,0 +1,23 @@
+% https://tex.stackexchange.com/a/287674
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\mode<presentation>
+{
+    \usetheme{Madrid}
+    \usecolortheme{crane}
+    \setbeamercovered{transparent}
+} 
+
+\begin{document}
+    \begin{frame}
+        \frametitle{Test}
+        \begin{itemize}
+            \item one
+            \item two
+        \end{itemize}
+
+        \leavevmode\usebeamertemplate{itemize item} This use the same graphic of the itemize item
+
+    \end{frame}
+\end{document}

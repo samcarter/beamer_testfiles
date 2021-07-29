@@ -1,0 +1,55 @@
+% https://tex.stackexchange.com/a/303251
+\documentclass[xcolor={x11names,table}]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage[TS1,T1]{fontenc}
+\usefonttheme{professionalfonts}% otherwise fourier's font configuration will be partially overridden
+\usepackage{fourier, heuristica}
+\usepackage{array, booktabs}
+
+\newcommand{\foo}{%
+    \color{LightSteelBlue3}%
+    \makebox[0pt]{\textbullet}%
+    \hskip-0.5pt\vrule width 1pt%
+    \hspace{\labelsep}%
+}
+
+\newlength{\CVbreakdotsep}% length to change spacing between dots
+\setlength{\CVbreakdotsep}{0.6mm}
+
+\newcommand{\CVbreakdot}{% command for smaller dots
+    \scalebox{0.6}{\textbullet}%
+}
+
+\newcommand{\CVbreak}{% command for the break itself
+    \multicolumn{2}{l}{%
+        \hspace*{8.715mm}% <--- align dots with vertical line
+        \rotatebox[origin=c]{-90}{%
+            \color{LightSteelBlue3}%
+            \hspace{2mm}% <--- extra vertical space
+            \CVbreakdot\kern\CVbreakdotsep\CVbreakdot\kern\CVbreakdotsep\CVbreakdot
+            \hspace{2mm}% <--- extra vertical space
+        }%
+    } \\%
+}
+
+\begin{document}
+
+    \begin{frame}
+        \begin{table}
+            \renewcommand\arraystretch{1.4}
+            Timeline, really?\linebreak
+            \arrayrulecolor{LightSteelBlue3}
+            \begin{tabular}{@{\,}r <{\hskip 2pt} !{\foo} >{\raggedright\arraybackslash}p{5cm}}
+                \toprule
+                \addlinespace[1.5ex]
+                1969 & Lassa virus. \\
+                \CVbreak
+                1989 & Guanarito virus, Venezuela. \\
+            \end{tabular}
+        \end{table}
+    \end{frame}
+
+\end{document} 

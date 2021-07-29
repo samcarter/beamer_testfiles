@@ -1,0 +1,36 @@
+% https://tex.stackexchange.com/a/306416
+\documentclass{beamer}
+
+\makeatletter
+\setbeamertemplate{frametitle}{
+    \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+    \@tempdima=\textwidth%
+    \advance\@tempdima by\beamer@leftmargin%
+    \advance\@tempdima by\beamer@rightmargin%
+    \hspace*{1cm} %%%%%%%%%%%%% For example insert shift to right
+    \begin{beamercolorbox}[sep=0.3cm,center,wd=\the\@tempdima]{frametitle}
+        \usebeamerfont{frametitle}%
+        \vbox{}\vskip-1ex%
+        \if@tempswa\else\csname beamer@ftecenter\endcsname\fi%
+        \strut\insertframetitle\strut\par%
+        {%
+            \ifx\insertframesubtitle\@empty%
+            \else%
+            {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+            \fi
+        }%
+        \vskip-1ex%
+        \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+    \end{beamercolorbox}%
+}
+\makeatother
+
+\begin{document}
+
+
+    \begin{frame}
+        \frametitle{te}
+        abc
+    \end{frame} 
+
+\end{document}

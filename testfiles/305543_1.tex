@@ -1,0 +1,90 @@
+% https://tex.stackexchange.com/a/305543
+\documentclass{beamer}
+\usetheme{Rochester}
+\usefonttheme[onlysmall]{structurebold}
+\beamertemplatenavigationsymbolsempty
+
+\setbeamertemplate{headline}{
+    \begin{beamercolorbox}{palette secondary}
+        \vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+    \end{beamercolorbox}
+    \begin{beamercolorbox}{palette tertiary}
+        \vskip2pt\insertsubsectionnavigationhorizontal{\paperwidth}{\hfill}{\hfill}\vskip2pt
+    \end{beamercolorbox}
+}
+\setbeamertemplate{footline}{}
+
+\setbeamerfont{section in head/foot}{size=\small}
+
+\setbeamertemplate{section in head/foot shaded}
+{\color{fg!50!bg}\tiny\usebeamertemplate{section in head/foot}}
+
+\begin{document}
+
+    % Title Page
+    {\setbeamercolor{palette tertiary}{fg=white,bg=white}
+    \begin{frame}
+        \titlepage
+    \end{frame}}
+
+    % Content
+    \section{Section 1}
+
+    \subsection{Subsection 1}
+    \frame{}
+    \frame{}
+
+    \subsection{Subsection 2}
+    \frame{}
+    \frame{}
+
+    \subsection{Subsection 3}
+    \frame{}
+    \frame{}
+    \frame{}
+
+    \section{Section 2}
+
+    \subsection{Subsection 1}
+    \frame{}
+    \frame{}
+
+    \subsection{Subsection 2}
+    \frame{}
+    \frame{}
+
+    \subsection{Subsection 3}
+    \frame{}
+    \frame{}
+    \frame{}
+
+    \section{Section 3}
+
+    \subsection{Subsection 1}
+    \frame{}
+    \frame{}
+
+    \subsection{Subsection 2}
+    \frame{}
+    \frame{}
+
+    \subsection{Subsection 3}
+    \frame{}
+    \frame{}
+    \frame{}
+
+    \section{Section 4}
+
+    \subsection{Subsection 1}
+    \frame{}
+    \frame{}
+
+    \subsection{Subsection 2}
+    \frame{}
+    \frame{}
+
+    \subsection{Subsection 3}
+    \frame{}
+    \frame{}
+    \frame{}
+\end{document}

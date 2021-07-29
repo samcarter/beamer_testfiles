@@ -1,0 +1,46 @@
+% https://tex.stackexchange.com/a/294275
+\documentclass{beamer}
+
+\useoutertheme{smoothbars}
+\usepackage{etoolbox}
+
+\makeatletter
+\setbeamertemplate{headline}{%
+\pgfuseshading{beamer@barshade}%
+\ifbeamer@sb@subsection%
+\vskip-9.75ex%
+\else%
+\vskip-7ex%
+\fi%
+\begin{beamercolorbox}[ignorebg,ht=2.25ex,dp=3.75ex]{section in head/foot}
+    \insertnavigation{\paperwidth}
+\end{beamercolorbox}%
+\ifbeamer@sb@subsection%
+\begin{beamercolorbox}[ignorebg,ht=2.125ex,dp=1.125ex,%
+    leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+    \usebeamerfont{subsection in head/foot}
+    \ifx\insertsubsection\empty\else%
+    \ifdefempty{\subsecname}{\relax}{%
+        \thesection.\thesubsection\ \insertsubsectionhead%
+    }%
+    \fi
+\end{beamercolorbox}%
+\fi%
+}%
+\makeatother
+
+\AtBeginSection[]{
+\begin{frame}
+    \tableofcontents[currentsection]
+\end{frame} 
+}
+
+\begin{document}
+\begin{frame}{Summary}
+\tableofcontents%[pausesections]
+\end{frame}
+
+\section{section 1}
+\subsection{sub 1}
+\frame{}
+\end{document}

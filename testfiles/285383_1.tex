@@ -1,0 +1,116 @@
+% https://tex.stackexchange.com/a/285383
+\documentclass{beamer}
+
+\usepackage{etoolbox}
+\makeatletter
+\newcount\beamer@sectionstartframe
+\beamer@sectionstartframe=1
+\apptocmd{\beamer@section}{\addtocontents{nav}{\protect\headcommand{%
+            \protect\beamer@sectionframes{\the\beamer@sectionstartframe}{\the\c@framenumber}}}}{}{}
+\apptocmd{\beamer@section}{\beamer@sectionstartframe=\c@framenumber\advance\beamer@sectionstartframe by1\relax}{}{}
+\AtEndDocument{\immediate\write\@auxout{\string\@writefile{nav}%
+        {\noexpand\headcommand{\noexpand\beamer@sectionframes{\the\beamer@sectionstartframe}{\the\c@framenumber}}}}}{}{}
+\def\beamer@startframeofsection{1}
+\def\beamer@endframeofsection{1}
+\def\beamer@sectionframes#1#2{%
+    \ifnum\c@framenumber<#1%
+    \else%
+    \ifnum\c@framenumber>#2%
+    \else%
+    \gdef\beamer@startframeofsection{#1}%
+    \gdef\beamer@endframeofsection{#2}%
+    \fi%
+    \fi%
+}
+\newcommand\insertsectionstartframe{\beamer@startframeofsection}
+\newcommand\insertsectionendframe{\beamer@endframeofsection}
+\makeatother
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\def\inserttotalsectionframenumber{%
+    \pgfmathparse{(\insertsectionendframe-\insertsectionstartframe+1)}%
+    \pgfmathprintnumber[fixed,precision=2]{\pgfmathresult}%
+}
+
+\def\insertsectionframenumber{%
+    \pgfmathparse{(\insertframenumber-\insertsectionstartframe+1)}%
+    \pgfmathprintnumber[fixed,precision=2]{\pgfmathresult}%
+}
+
+\setbeamertemplate{footline}{\insertsectionframenumber/\inserttotalsectionframenumber}
+
+\title[MATH]{Daily Notes}
+\author{Me}
+\institute{My College}
+\date{\today}
+
+\begin{document}
+{
+\setbeamertemplate{footline}{}
+\begin{frame}[noframenumbering]
+\titlepage
+\end{frame}
+}
+
+{
+\setbeamertemplate{footline}{}
+\begin{frame}[noframenumbering]{Table of Contents}
+\setcounter{tocdepth}{1}
+\label{ToC}
+\tableofcontents
+\end{frame}
+}
+
+\section{The First}
+\subsection{Housekeeping}
+
+{
+    \setbeamertemplate{footline}{}
+    \begin{frame}[noframenumbering]{Announcements}
+        Hello world!
+    \end{frame}
+}
+
+\subsection{Content}
+\begin{frame}
+    First slide
+\end{frame}
+
+\begin{frame}
+    Second slide
+\end{frame}
+
+\begin{frame}
+    Third slide
+\end{frame}
+
+\begin{frame}
+    Fourth slide
+\end{frame}
+
+\section{The Second}
+\subsection{Housekeeping}
+
+{
+    \setbeamertemplate{footline}{}
+    \begin{frame}[noframenumbering]{Announcements}
+        Hello world!
+    \end{frame}
+}
+
+\subsection{Content}
+\begin{frame}
+    First slide
+\end{frame}
+
+\begin{frame}
+    Second slide
+\end{frame}
+
+\begin{frame}
+    Third slide
+\end{frame}
+
+\end{document}

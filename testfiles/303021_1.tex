@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/303021
+\documentclass[xcolor=x11names,table]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage[TS1,T1]{fontenc}
+\usepackage{fourier, heuristica}
+\usepackage{array, booktabs}
+%\usepackage{graphicx}
+%\usepackage[x11names]{xcolor}
+%\usepackage{colortbl}
+\usepackage{caption}
+\DeclareCaptionFont{blue}{\color{LightSteelBlue3}}
+
+\newcommand{\foo}{\color{LightSteelBlue3}\makebox[0pt]{\textbullet}\hskip-0.5pt\vrule width 1pt\hspace{\labelsep}}
+
+\begin{document}
+
+    \begin{frame}
+
+\begin{table}
+\renewcommand\arraystretch{1.4}\arrayrulecolor{LightSteelBlue3}
+\captionsetup{singlelinecheck=false, font=blue, labelfont=sc, labelsep=quad}
+\caption{Timeline}\vskip -1.5ex
+\begin{tabular}{@{\,}r <{\hskip 2pt} !{\foo} >{\raggedright\arraybackslash}p{5cm}}
+\toprule
+\addlinespace[1.5ex]
+1933 & LCMV, aseptic meningitis. Epidemic St. Loius encephalitis. \\
+1956 & Tacaribe virus.  \\
+\end{tabular}
+\end{table}
+\end{frame}
+\end{document} 
