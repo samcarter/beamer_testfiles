@@ -1,0 +1,23 @@
+% https://tex.stackexchange.com/a/354265
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}[label=foo]
+        \frametitle{title}
+    \begin{figure}
+        \only<1>{1}
+        \only<2>{2}
+        \only<3>{3}
+        \only<4>{4}
+        \only<5>{5}
+    \end{figure}
+\end{frame} 
+
+\begin{frame}
+ As seen in frame \ref{foo}
+\end{frame}
+
+
+
+\end{document}

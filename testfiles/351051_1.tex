@@ -1,0 +1,183 @@
+% https://tex.stackexchange.com/a/351051
+\documentclass[]{beamer}
+%% Set up as beamerposter
+%\usepackage{grffile}
+%\usepackage{hyperref}
+\usepackage{calc}
+%\usepackage{tcolorbox}  
+%\usepackage{lmodern}% http://ctan.org/pkg/lm
+
+
+%\ProvidesPackageRCS $Header: /Users/joseph/Documents/LaTeX/beamer/base/themes/theme/beamerthemeSingapore.sty,v d02a7cf4d8ae 2010/06/17 09:11:41 rivanvx $
+\DeclareOptionBeamer{compress}{\beamer@compresstrue}
+\ProcessOptionsBeamer
+\mode<presentation>
+\setbeamercolor{section in head/foot}{use=structure,bg=structure.fg!25!bg}
+\useoutertheme[subsection=false]{miniframes}
+\setbeamertemplate{frametitle}[default][center]
+\AtBeginDocument{%
+  {
+    \usebeamercolor{section in head/foot}
+  } 
+  \pgfdeclareverticalshading{beamer@headfade}{\paperwidth}
+  {%
+    color(0cm)=(bg);
+    color(1.25cm)=(section in head/foot.bg)%
+  }
+  \setbeamercolor{section in head/foot}{bg=}
+}
+\beamertemplatedotitem
+\mode
+<all>
+
+% Template from T has special colors
+\definecolor{TYellow}{RGB}{234,230, 99}
+\definecolor{TBlue}{RGB}{ 29, 23, 96}
+\definecolor{TAzure}{RGB}{151,147,204}
+\definecolor{TWhite}{RGB}{255,255,255}
+\definecolor{TPale}{RGB}{232,229,177}
+\definecolor{VABlue}{RGB}{25,73,128}
+\definecolor{RUST}{HTML}{EB7A59}
+\definecolor{AZURE}{HTML}{5AA0DF}
+\definecolor{OCHRE}{HTML}{EEA300}
+\definecolor{TURQUOISE}{HTML}{00BAC9}
+\definecolor{BLACK}{HTML}{44525C}
+\definecolor{WHITE}{HTML}{F1F0E9}
+
+% Configure the colors for the headline
+\setbeamercolor{headline}{bg=BLACK,fg=OCHRE}
+\setbeamercolor{title in headline}{bg=BLACK,fg=OCHRE}
+\setbeamercolor{author in headline}{bg=BLACK,fg=TWhite}
+\setbeamercolor{institute in headline}{bg=BLACK,fg=TWhite}
+\setbeamercolor{date in headline}{bg=BLACK,fg=TWhite}
+\setbeamercolor{logobox}{bg=BLACK}
+\setbeamercolor{block title}{bg=white,fg=VABlue}
+\setbeamercolor{block body}{bg=WHITE,fg=black}
+\setbeamercolor{block title}{bg=BLACK,fg=TWhite}
+
+% define a new register to hold an intermediate size calculation 
+% that we'll use in defining the headline
+\newlength{\residual}
+
+\setbeamertemplate{headline}{  
+  \leavevmode
+
+  \setlength{\residual}{\paperwidth-20cm}
+
+  \begin{beamercolorbox}[wd=\paperwidth]{headline}
+    \begin{columns}[c]
+      \begin{column}{1cm}
+      \end{column}
+
+      \begin{column}[b]{9cm}
+      %{\large\usebeamercolor[fg]{author in headline}\href{mrule@staffmail.ed.ac.uk}{mrule@staffmail.ed.ac.uk}}
+      \end{column}
+
+      \begin{column}{\residual}
+        \vskip1cm
+        \centering
+        \usebeamercolor{title in headline}{
+            \color{fg}{\Huge\selectfont {\inserttitle}}\\[3ex]}
+        \usebeamercolor{author in headline}{
+            \color{fg}\Large{\insertauthor}\\[1ex]}
+        \usebeamercolor{institute in headline}{
+            \color{fg}\large{\insertinstitute}\\[1ex]}  
+      \end{column}
+
+      \begin{column}[t]{9cm}
+      \end{column}
+
+      \begin{column}{1cm}
+      \end{column}
+    \end{columns}
+    \vskip2ex
+  \end{beamercolorbox}
+
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+    \rule{0pt}{3pt}
+  \end{beamercolorbox}
+}
+
+% Alignment grid
+%\beamertemplategridbackground[1cm]
+
+% no navigation on a poster
+\setbeamertemplate{navigation symbols}{}  
+
+% Make the figure caption labels bold
+%\setbeamerfont{caption}{series=\bfseries}
+% Beamer disables figure numbering by default (it assumes figure numbers on 
+% slides would not make sense). This command restores autonubering
+\setbeamertemplate{caption}[numbered]
+\setbeamerfont{caption name}{series=\bfseries}
+\setbeamertemplate{caption label separator}[period]
+
+\setbeamerfont*{block title}{family=\sffamily,series=\bfseries,size=\large}
+
+% Enable T1 (more modern) fonts
+\usepackage[T1]{fontenc}
+\usepackage[greek,english]{babel}
+\usepackage{textgreek}
+\usepackage[utf8]{inputenc}
+
+\usepackage{grffile}
+\usepackage{ragged2e}
+\usepackage{amsmath,amsthm, amssymb, latexsym}
+
+\title[]{Title}
+\author[]{Authors}
+\date{}
+\institute[]{Institute} 
+
+\newsavebox{\squaredblocktext}
+\setbeamertemplate{block begin}{
+    \par\vskip\medskipamount%
+    \makebox[\dimexpr\textwidth-1.5ex\relax][l]{%
+        \begin{beamercolorbox}[colsep*=.75ex]{block title}
+            \usebeamerfont*{block title}\insertblocktitle%
+        \end{beamercolorbox}}%
+        \begin{lrbox}{\squaredblocktext}%
+            \begin{minipage}[t]{\textwidth}%
+                \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+}
+
+\setbeamertemplate{block end}{
+            \end{minipage}%
+        \end{lrbox}%
+        {\parskip0pt\par}%
+        \ifbeamercolorempty[bg]{block title}{}
+        {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+        \usebeamerfont{block body}%
+        \makebox[\dimexpr\textwidth-1.5ex\relax][l]{%
+        \begin{beamercolorbox}[colsep*=.75ex,vmode]{block body}%
+            \usebox{\squaredblocktext}
+        \end{beamercolorbox}%
+    }\vskip\smallskipamount%
+}
+
+
+\begin{document}
+
+\setlength\columnsep{0pt}
+
+\begin{frame}{}
+
+\begin{block}{}
+I've placed hrules in the columns to show that the spacing error comes from the column environment and not the block environment.\\
+\hrulefill
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.5\textwidth-.5cm}\hrulefill\begin{block}{}\vspace{5em}\end{block}\end{column}
+\begin{column}{.5\textwidth-.5cm}\hrulefill\begin{block}{}\end{block}\end{column}
+\end{columns}
+\end{block}
+
+The problem is not related to Beamer blocks as ""naked"" columns show the same issue:\\
+\hrulefill
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.5\textwidth-.5cm}\hrulefill\begin{block}{}\end{block}\end{column}
+\begin{column}{.5\textwidth-.5cm}\hrulefill\begin{block}{}\end{block}\end{column}
+\end{columns}
+
+
+\end{frame}
+\end{document}

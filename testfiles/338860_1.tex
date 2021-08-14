@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/a/338860
+\documentclass{beamer}
+
+\title{Title}
+\author{Jane Doe}
+\institute{University of Foo}
+\date{\today}
+
+% Beamer setup
+\usetheme{Berlin}
+\usecolortheme{spruce}
+\setbeamertemplate{navigation symbols}{}
+
+\renewcommand*{\slideentry}[6]{} % hide subsection bullets and remove space
+
+\begin{document}
+
+{
+\setbeamercolor{author in head/foot}{use=palette secondary, fg=palette secondary.bg} 
+\setbeamercolor{title in head/foot}{use=palette tertiary, fg=palette tertiary.bg} 
+\setbeamercolor{section in head/foot}{use=palette tertiary, fg=palette tertiary.bg}
+\frame{\titlepage}
+}
+
+%\setbeamertemplate{headline}[headline theme]
+\section{Test}
+\begin{frame}
+  Test
+\end{frame}
+
+\end{document}

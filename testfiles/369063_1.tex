@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/369063
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}<1-2>[label=foo]
+ \begin{itemize}
+  \item<1> foo
+  \item<2> bar
+   \item<3> baz
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{second}
+  Some examples
+\end{frame}
+
+\againframe<3>{foo}
+
+
+\end{document}

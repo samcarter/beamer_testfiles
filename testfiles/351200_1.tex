@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/351200
+\documentclass[handout]{beamer}
+\title{The Title}
+\author{The Author}
+\usetheme{Copenhagen}
+\usepackage{pgfpages}
+
+\mode<handout>{%
+    \pgfpagesuselayout{4 on 1}[a4paper,border shrink=7mm]
+    \setbeameroption{show notes}
+}
+
+
+\mode<beamer>{%
+    \setbeameroption{show notes on second screen=bottom}
+}
+
+
+\begin{document}
+\begin{frame}
+1 Here's some content, with no notes added.
+\note{test}
+\end{frame}
+\begin{frame}
+2 Here's some content, with notes added.
+\end{frame}
+\note{
+Here are things to remember:
+\begin{enumerate}
+\item Stress this first.
+\item Then this.
+\end{enumerate}
+}
+\end{document}

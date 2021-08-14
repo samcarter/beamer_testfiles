@@ -1,0 +1,36 @@
+% https://tex.stackexchange.com/a/352863
+\documentclass[ignorenonframetext, ngerman]{beamer}
+\usetheme{Frankfurt}
+\usepackage{appendixnumberbeamer}
+
+\beamertemplatenavigationsymbolsempty
+\addtobeamertemplate{navigation symbols}{}{
+    \ifnum\insertframenumber>\inserttotalframenumber%
+        \relax
+    \else%
+      \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+  \fi%
+}
+\setbeamercolor{footline}{fg=black}
+
+\title{Awesome project}
+\author{Nomen nescio}
+
+\begin{document}
+    \frame{\titlepage}
+    \frame{\tableofcontents[pausesections]}
+    \section{Test}
+
+    \begin{frame}
+        Stuff!
+    \end{frame}
+
+    \appendix
+    \begin{frame}
+        \Huge
+        Time for questions.
+    \end{frame}
+\end{document}

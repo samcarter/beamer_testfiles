@@ -1,0 +1,64 @@
+% https://tex.stackexchange.com/a/355413
+\documentclass{beamer}
+
+\usepackage{tikz}
+
+\definecolor{UniversityGreen}{RGB}{0, 133, 66}
+\definecolor{UniversityOrange}{RGB}{199, 91, 18}
+\definecolor{UniversityBlue}{RGB}{0, 161, 222}
+
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+  \fill[color=UniversityBlue] (0,2) rectangle (\the\paperwidth,\the\paperheight);
+  \fill[color=UniversityOrange] (0,0) rectangle(2.95,1.9);
+  \node[inner sep=0] at (1.475,0.95) {\includegraphics[width=.2\textwidth]{example-image}};
+  \fill[color=UniversityGreen] (3.05,0) rectangle(\the\paperwidth,1.9);
+  \end{tikzpicture}
+}
+
+
+\defbeamertemplate*{title page}{university}[1][]{% 
+    \begin{minipage}[c][.8\textheight][c]{\textwidth}
+            \usebeamerfont{title}
+            \inserttitle\par
+    \end{minipage}
+    \vskip1pt
+    \hskip.2\paperwidth
+    \begin{minipage}[c][.2\textheight][c]{.75\textwidth}
+            \usebeamerfont{author}
+            \raggedright
+            \insertauthor\par
+            \insertdate\par
+    \end{minipage}
+}
+
+\setbeamertemplate{items}[square]
+\setbeamertemplate{sections/subsections in toc}[square]
+
+
+\mode
+<all>
+
+\title[A Presentation of Great Import]{A Presentation of Great Import:\\Important discoveries in science}
+\author{Bob Smith \and  Sally Johnson}
+\institute{State University}
+
+\date{February 24, 2016}
+
+\begin{document}
+
+\begin{frame}[plain]
+    \titlepage
+\end{frame} 
+
+\title[A Presentation of Great Import]{A Presentation of Great Import:\\Important discoveries in science\\and a further digression on important things}
+\author{Bob~Smith \and  Sally~Johnson \and Uma~Thirugnanasampanthan}
+\institute{State University}
+
+\begin{frame}[plain]
+    \titlepage
+\end{frame} 
+
+\end{document}

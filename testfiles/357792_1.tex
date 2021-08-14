@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/357792
+\documentclass{beamer}
+
+\mode<presentation> {
+\usetheme{Singapore}
+}
+
+\setbeamercolor{itemize/enumerate body}{parent=structure}
+
+\begin{document}
+
+\begin{frame}
+    \frametitle{I-measure}
+    \begin{itemize}[<+->]
+        \item<+-|alert@+-> a
+        \item              b
+        \item<+-|alert@+-> c
+        \item              d
+    \end{itemize}
+\end{frame}
+\end{document} 

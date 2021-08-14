@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/354917
+\documentclass{beamer}
+
+\usepackage[utf8x]{inputenc}
+\usepackage{smartdiagram}
+\usepackage[french]{babel}
+
+\setbeamercolor{background canvas}{bg=brown}
+
+\begin{document}
+\begin{frame}{test} 
+\smartdiagramset{
+    planet text width=2.5cm,
+    satellite font=\scriptsize,
+    bubble text opacity = 1,
+    uniform connection color =true,
+    connection color = bg
+} 
+\begin{center}
+\scalebox{0.8}{
+        \usebeamercolor{background canvas}
+    \smartdiagramanimated[constellation diagram]{
+        Conditions de simulation,
+        Type de tâches,
+        Contraintes temporelles,
+        Test de faisabilité du GEDF,
+        Contraintes systèmes,
+        Contraintes énergétiques
+    }
+}
+\end{center}
+\end{frame}
+\end{document}

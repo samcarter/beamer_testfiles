@@ -1,0 +1,37 @@
+% https://tex.stackexchange.com/a/343273
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}[t]{Title of frame}
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{.4\textwidth}
+            \begin{minipage}{\textwidth}
+                \begin{figure}
+                    \includegraphics[width=\textwidth]{example-image}
+                \end{figure}
+                \footnotetext{Figure left top}
+            \end{minipage}  
+            \begin{onlyenv}<3>
+                \begin{minipage}{\textwidth}
+                    \begin{figure}
+                        \includegraphics[width=\textwidth]{example-image}
+                    \end{figure}
+                \footnotetext{Figure left bottom}
+                \end{minipage}
+            \end{onlyenv}
+        \end{column}
+        \begin{column}{.4\textwidth}
+            \begin{onlyenv}<2->
+                \begin{minipage}{\textwidth}
+                    \begin{figure}
+                        \includegraphics[width=\textwidth, height=.77\textheight]{example-image}
+                    \end{figure}
+                    \footnotetext{Figure right}
+                \end{minipage}
+            \end{onlyenv}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\end{document}

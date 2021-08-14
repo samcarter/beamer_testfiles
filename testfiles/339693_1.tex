@@ -1,0 +1,17 @@
+% https://tex.stackexchange.com/a/339693
+\documentclass[10pt,xcolor=table]{beamer}
+\usetheme{CambridgeUS}
+
+\begin{document}  
+
+{
+    \usebackgroundtemplate{\includegraphics[width=\paperwidth]{example-image-duck}}
+    \addtolength{\headsep}{2cm}
+    \begin{frame}[allowframebreaks]
+      \nocite{*}
+      \bibliographystyle{plain}
+      \tiny\bibliography{test.bib}
+    \end{frame}
+}
+
+\end{document}

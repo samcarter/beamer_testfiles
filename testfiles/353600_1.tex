@@ -1,0 +1,58 @@
+% https://tex.stackexchange.com/a/353600
+\documentclass[leqno,hyperref={pdfpagemode=FullScreen},
+xcolor={dvipsnames,svgnames,table}]{beamer}
+
+\usetheme{Warsaw}
+\usefonttheme[onlymath]{serif}
+\setbeamercovered{transparent}
+\usepackage{amsthm}
+\usepackage{amsmath,amssymb}%      pour les maths
+\usepackage{setspace}
+\usepackage{eulervm}
+
+\usefonttheme[onlymath]{serif}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Expect}{{\rm I\kern-.3em E}}
+\DeclareMathOperator{\Tr}{Tr}
+\newcommand*{\everymodeprime}{\ensuremath{\prime}}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,french]{babel}
+
+%\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{colortbl}
+\tcbuselibrary{skins}
+
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
+
+\tcbset{tab1/.style={fonttitle=\bfseries\large,fontupper=\normalsize\sffamily,
+colback=yellow!10!white,colframe=red!75!black,colbacktitle=Salmon!40!white,
+coltitle=black,center title,freelance,frame code={
+\foreach \n in {north east,north west,south east,south west}
+{\path [fill=red!75!black] (interior.\n) circle (3mm); };},}}
+
+\tcbset{tab2/.style={enhanced,fonttitle=\bfseries,fontupper=\normalsize\sffamily,
+colback=yellow!10!white,colframe=red!50!black,colbacktitle=Salmon!40!white,
+coltitle=black,center title}}
+
+\begin{document}
+\begin{frame}
+\begin{tcolorbox}[tab2,tabularx={X},title=Very Long Développements text ,boxrule=0.9pt, fontupper=\small]
+Processus of something : $X_t={1}_{\{X> t\}},\ t\in I$\\\hline\hline
+theory of something : ${K(s,t)=\Cov(X_{s},X_{t})=\sum_{n\geq 1}\lambda_{n}\psi_{n}(t)\psi_{n}(s)}$   \\\hline
+theory of something : $K(s,t)=\Cov(X_{s},X_{t})=\sum_{n\geq 1}\lambda_{n}\psi_{n}(t)\psi_{n}(s)$   \\\hline
+4 \\\hline\hline
+5  \\\hline
+6  \\\hline
+7  \\\hline
+8 \\\hline
+\end{tcolorbox}
+\end{frame}
+\end{document}
+\end{frame}

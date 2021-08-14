@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/352299
+\documentclass{beamer}
+\usecolortheme{whale}
+
+\setbeamertemplate{headline}{%
+  \begin{beamercolorbox}[colsep=1.5pt, wd=.5\paperwidth]{upper separation line head}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[wd=.5\paperwidth]{section in head/foot}
+    \vskip2pt\insertnavigation{.5\paperwidth}\vskip2pt
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt, wd=.5\paperwidth]{lower separation line head}
+  \end{beamercolorbox}
+}
+
+\begin{document}
+
+\section{1}\begin{frame}\end{frame}
+\section{2}\begin{frame}\end{frame}
+\section{3}\begin{frame}\end{frame}
+\section{4}\begin{frame}\end{frame}
+\section{5}\begin{frame}\end{frame}
+\section{6}\begin{frame}\end{frame}
+\section{7}\begin{frame}\end{frame}
+\section{8}\begin{frame}\end{frame}
+\section{9}\begin{frame}\end{frame}
+\section{10}\begin{frame}\end{frame}
+
+\end{document}

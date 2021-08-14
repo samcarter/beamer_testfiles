@@ -1,0 +1,75 @@
+% https://tex.stackexchange.com/a/358944
+\documentclass{beamer}
+
+\usepackage{tikz}
+\usetheme{CambridgeUS}
+\usepackage{verbatim}
+\usepackage{xcolor}
+
+\begin{document}
+
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+
+\begin{frame}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+
+
+\usetikzlibrary{arrows,shapes}
+\tikzstyle{vertex}=[circle,fill=blue!40,minimum size=20pt,inner sep=0pt]
+\tikzstyle{selected vertex} = [vertex, fill=blue!60]
+\tikzstyle{edge} = [draw,thick,-]
+\tikzstyle{weight} = [font=\small]
+\tikzstyle{edge1} = [draw,line width=5pt,-,blue!40]
+
+\begin{figure}
+\begin{tikzpicture}[scale=1.8, auto,swap]  
+
+\foreach \pos/\name in {{(1,1)/a}, {(2,2)/b}, {(4,2)/c},
+                        {(2,0)/d}, {(4,0)/e}, {(3,1)/f}}
+    \node[vertex] (\name) at \pos {$\name$};
+
+\foreach \source/ \dest /\weight in {b/a/1, c/b/6, d/a/11, f/a/4,
+                                     f/b/6, e/c/3, e/d/1,
+                                     f/d/10, e/f/9, c/f/7}                                       
+    \path[edge] (\source) -- node[weight, sloped] {$\weight$} (\dest);
+
+\foreach \vertex / \fr in {a/1,b/2,c/3,e/3,d/4,f/5}
+    \path<\fr-> node[selected vertex] at (\vertex) {$\vertex$};
+
+\begin{pgfonlayer}{background}
+   \pause
+   \foreach \source / \dest in {b/a}       
+       \path<+->[edge1] (\source.center) -- (\dest.center);
+   \foreach \source / \dest in {c/e,d/e}       
+       \path<+->[edge1] (\source.center) -- (\dest.center);
+   \foreach \source / \dest in {a/f}       
+       \path<+->[edge1] (\source.center) -- (\dest.center);        
+   \foreach \source / \dest in {b/c}       
+       \path<+->[edge1] (\source.center) -- (\dest.center);    
+       \path<+->[edge1] (b) -- (a) (f) -- (a) (e) -- (c) (d) -- (e);
+
+
+\end{pgfonlayer}
+\end{tikzpicture}
+\end{figure}   
+
+\end{column}
+\begin{column}{0.5\textwidth}  
+\begin{flushleft}        
+
+ \begin{itemize}
+    \item<alert@2-> [1.]task1 \\
+    \item [2.]task2 \\
+    \item<alert@3-> [3.]task3 \\
+ \end{itemize}
+\end{flushleft}
+\end{column}
+\end{columns}
+
+
+\end{frame}
+\end{document}

@@ -1,0 +1,66 @@
+% https://tex.stackexchange.com/a/351029
+\documentclass[handout]{beamer}
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[landscape,a4paper,border shrink=5mm]
+\setbeameroption{show notes}
+
+
+\setbeamercolor{background canvas}{bg=pink}
+
+\mode<presentation> {
+    \usetheme{Singapore}
+}
+\begin{document}
+
+
+\begin{frame}[plain]
+    \titlepage  
+\note{
+    Notes for the title page
+}
+\end{frame}
+
+
+\section*{Outline}
+\begin{frame}[plain]
+\frametitle{Outline}
+    \tableofcontents
+
+\note{
+    Notes for the table of contents
+}
+\end{frame}
+
+
+\section{Frame 1}
+\begin{frame}
+\frametitle{Frame with notes 1}
+    FIRST FRAME CONTENTS
+
+\note{
+    Notes for the first frame
+}
+\end{frame}
+
+
+\section{Frame 2}
+\begin{frame}
+\frametitle{Frame with notes 2}
+    SECOND FRAME CONTENTS
+\note{
+    Notes for the second frame
+}
+\end{frame}
+
+
+\section{Frame 3}
+\begin{frame}
+    \frametitle{Frame with notes 3}
+    SECOND FRAME CONTENTS
+    \note{
+        Notes for the third frame
+    }
+\end{frame}
+
+
+\end{document}

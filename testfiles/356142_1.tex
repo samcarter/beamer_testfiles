@@ -1,0 +1,43 @@
+% https://tex.stackexchange.com/a/356142
+\documentclass[9pt]{beamer}
+
+\usetheme{PaloAlto}
+
+\makeatletter
+  \setbeamertemplate{frametitle}{%
+    \nointerlineskip%
+    \vskip-\beamer@headheight%
+    \vbox to \beamer@headheight{%
+      \vfil
+      \leftskip=-\beamer@leftmargin%
+      \advance\leftskip by0.3cm%
+      \rightskip=-\beamer@rightmargin%
+      \advance\rightskip by0.3cm plus1fil%
+      {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle\par}%
+      {\usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}%
+      \strut% NEW
+      \insertframesubtitle\par}%
+      \vbox{}%
+      \vskip-1em%
+      \vfil
+    }%
+  }
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+  \frametitle{Top aligned frame title if subtitle}
+  \framesubtitle{Frame subtitle}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Top aligned frame title if (possibly invisible) subtitle}
+  \framesubtitle{\mbox{}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Vertically centered frame title if no frame subtitle}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/364513
+\documentclass{beamer}
+
+\colorlet{color1}{green!60!blue}
+\colorlet{color2}{blue}
+
+
+\setbeamercolor{structure}{fg=color1}
+\setbeamercolor{section in head/foot}{bg=structure.fg!50!color2}
+\setbeamercolor{subsection in head/foot}{bg=structure.fg!75!color2}
+\usetheme{Berlin}
+
+\title{title}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section{bla}
+\begin{frame}
+\frametitle{title}
+    abc
+\end{frame} 
+
+\end{document}

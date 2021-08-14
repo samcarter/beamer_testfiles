@@ -1,0 +1,13 @@
+% https://tex.stackexchange.com/a/364314
+\documentclass{beamer}
+
+\begin{document}
+\begin{frame}<1>[label=zooms]
+  \frametitle<1>{A Complicated Picture}
+  \framezoom<1><2>[border](0cm,0cm)(2cm,1.5cm)
+  \framezoom<1><3>[border](1cm,3cm)(2cm,1.5cm)
+  \framezoom<1><4>[border](3cm,2cm)(3cm,2cm)
+  \pgfimage[height=8cm]{example-image}
+\end{frame}
+\againframe<2->[plain]{zooms}
+\end{document}

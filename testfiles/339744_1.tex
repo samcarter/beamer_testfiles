@@ -1,0 +1,15 @@
+% https://tex.stackexchange.com/a/339744
+\documentclass{beamer}
+\begin{document}
+    \begin{frame}{Test}
+    Animation with beamer \only<4-5>{:learn}
+        \begin{itemize}[<+(1)- | alert@+>]
+            \only<1-3>{
+                \item First item, uncovered on second slide
+                \item Second item, uncovered on third slide. 
+            }
+            \item<4-5> Third item
+            \item<5> Fourth item
+        \end{itemize}
+    \end{frame}
+\end{document}

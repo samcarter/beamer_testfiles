@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/349510
+\documentclass{beamer}
+\useoutertheme{infolines}
+\begin{document}
+
+%Possibility 1
+{
+\setbeamertemplate{headline}{\vskip-\headheight}
+\begin{frame}
+  \frametitle{Agenda}
+  Here we go...
+\end{frame}
+}
+
+%Possibility 2
+{
+\setbeamertemplate{navigation symbols}{\insertframenumber}
+\begin{frame}[plain]
+  \frametitle{Agenda}
+  Here we go...
+\end{frame}
+}
+
+\end{document}

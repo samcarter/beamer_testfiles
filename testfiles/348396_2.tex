@@ -1,0 +1,61 @@
+% https://tex.stackexchange.com/a/348396
+\documentclass[]{beamer}
+
+\usepackage{tikz}
+\usetikzlibrary{decorations}
+
+% taken from http://tex.stackexchange.com/questions/247742
+% user http://tex.stackexchange.com/users/23215/mark-wibrow
+\makeatletter
+\tikzset{%
+  get path length/.code={%
+    \tikz@addoption{%
+      \pgfgetpath\tikz@tmppath%
+      \pgfprocessround\tikz@tmppath\tikz@tmppath%
+      \pgf@decorate@parsesoftpath\tikz@tmppath\tikz@discard%
+      \global\let#1=\pgf@decorate@totalpathlength%
+    }%
+  }
+}
+\makeatother
+
+% taken from http://tex.stackexchange.com/questions/347336
+% user http://tex.stackexchange.com/users/23215/mark-wibrow
+\tikzset{myOwnStyle/.style={
+  get path length=\pathlength,
+  draw=black,
+  line width=1mm,
+  postaction={
+    draw=red,
+    line width=2mm,
+    dash pattern= on \pathlength/100*#1 off \pathlength/100*(100-#1),
+  }
+}}
+
+% I want to vertically and horizontally center this tikzpicture
+\usebackgroundtemplate%
+{
+%\begin{center}
+\begin{tikzpicture}[remember picture, overlay]
+    \draw[myOwnStyle=\n,color=blue] (current page.center) circle [radius = 10mm] node {\n\,\%};  
+\end{tikzpicture} 
+%\end{center}
+}
+
+\begin{document}
+
+\foreach \n in {0,10,...,100}{
+\begin{frame}
+\frametitle{Frame Number: \n}
+This is the frame with the number \n.
+
+\begin{center}
+\begin{tikzpicture}
+    \draw[myOwnStyle=\n] (0,0) circle [radius = 10mm] node {\n\,\%};  
+\end{tikzpicture} 
+\end{center}
+
+\end{frame}
+}
+
+\end{document}

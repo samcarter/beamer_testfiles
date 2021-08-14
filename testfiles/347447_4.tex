@@ -1,0 +1,59 @@
+% https://tex.stackexchange.com/a/347447
+\documentclass[compress,black]{beamer}
+
+\usetheme{Szeged}
+\useoutertheme[subsection=false]{smoothbars}
+
+% - I need a darkred background color in the sections bar (at the top) on all slides.
+\setbeamercolor{section in head/foot}{bg=red!50!black}
+
+% - Just beneath the sections bar I need a narrow darkblue bar on all slides.
+\makeatletter
+\AtBeginDocument{
+    \usebeamerfont*{headline}
+    \colorlet{global.bg}{bg}
+    \usebeamercolor{subsection in head/foot}
+    \usebeamercolor{section in head/foot}
+    \usebeamercolor{frametitle}
+
+    \pgfdeclareverticalshading{beamer@barshade}{\the\paperwidth}{%
+       color(0ex)=(blue);%
+       color(1ex)=(blue);%
+       color(2ex)=(section in head/foot.bg);%
+       color(7ex)=(section in head/foot.bg)%
+    }
+    \pgfdeclareverticalshading{beamer@aboveframetitle}{\the\paperwidth}{%
+       color(0ex)=(blue);%
+     color(1ex)=(blue);%
+       color(2.5ex)=(section in head/foot.bg)
+     }
+    \pgfdeclareverticalshading{beamer@belowframetitle}{\the\paperwidth}{%
+      color(0ex)=(global.bg);%
+      color(1ex)=(frametitle.bg)
+    }
+}
+\makeatother
+
+% - Nothing should be displayed on the bottom bar of the slides (no authorname, no section, etc)
+\setbeamertemplate{footline}{}
+
+% - All text should be in black.
+\setbeamercolor{title}{fg=black}
+\setbeamercolor{frametitle}{fg=black, bg=white}
+
+\title{Long Title}
+\author{Author}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\section{One}
+\subsection{One}
+\begin{frame}
+    \frametitle{ABC}
+\end{frame}
+
+\end{document} 

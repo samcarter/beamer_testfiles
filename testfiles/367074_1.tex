@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/367074
+\documentclass{beamer}
+
+\useoutertheme{infolines}
+
+\definecolor{NASAred}{RGB}{238, 41, 61}
+\definecolor{NASAblue}{RGB}{26, 93, 173}
+
+\setbeamercolor{title}{bg=NASAblue, fg=white} % title block on first slide
+\setbeamercolor{palette primary}{bg=NASAblue, fg=white} %right-hand side of bottom
+\setbeamercolor{palette secondary}{bg=NASAred, fg=white} % center bottom
+\setbeamercolor{palette tertiary}{bg=NASAblue,fg=white} % left bottom
+\setbeamercolor{palette quaternary}{bg=NASAred,fg=white} %
+\setbeamercolor{structure}{fg=NASAblue} % box headings
+
+
+\setbeamercolor{section in toc}{fg=NASAblue} % TOC sections
+\setbeamercolor{subsection in head/foot}{bg=NASAred,fg=white} %
+\setbeamercolor{item projected}{fg=NASAblue, bg=white} %
+\setbeamercolor{frametitle}{fg=NASAblue,bg=white} %
+\setbeamercolor{local structure}{fg=NASAblue} %
+\setbeamercolor{item projected}{fg=NASAblue,bg=white} %
+\setbeamertemplate{itemize item}{\color{NASAblue}$\bullet$} %
+\setbeamertemplate{itemize subitem}{\color{NASAblue}\scriptsize{$\bullet$}}%
+
+\title{Text}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\centering
+\includegraphics[width=.3\textwidth]{example-image-duck}
+\end{frame}
+\end{document}

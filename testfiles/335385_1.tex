@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/335385
+\documentclass[xcolor={dvipsnames,table},11pt]{beamer}
+\setbeamertemplate{bibliography item}{\makebox[1.5em]{[\theenumiv]\hfill}}
+
+
+\begin{document}
+\begin{frame}[allowframebreaks]
+\begin{thebibliography}{}
+\bibitem{} This is the first line of item 1\\ and this is the second ine. \\ Both of them have the same indentation.
+\bibitem{} The second item \\ also has the same pattern
+\bibitem{} Everything is fine until item 9
+\bibitem{} This is item 10, line one\\ and this is the second line.\\ As you can see, the indentations are not the same.
+\bibitem{} The same is the case for all the \\remaining items in this page
+\bibitem{} But everything comes fine after that\\ All the remaining pages are fine.
+\bibitem{} This is the first line of item 1\\ and this is the second ine. \\ Both of them have the same indentation.
+\bibitem{} The second item \\ also has the same pattern
+\bibitem{} Everything is fine until item 9
+\bibitem{} This is item 10, line one\\ and this is the second line.\\ As you can see, the indentations are not the same.
+\bibitem{} The same is the case for all the \\remaining items in this page
+\bibitem{} But everything comes fine after that\\ All the remaining pages are fine.
+\end{thebibliography}
+\end{frame}
+
+\end{document}

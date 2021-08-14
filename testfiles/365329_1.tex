@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/365329
+\documentclass{beamer}
+
+\useoutertheme{infolines}
+\usetheme{Montpellier}
+\setbeamertemplate{footline}[infolines]
+
+\setbeamercolor{footlinecolor}{fg=black, bg=blue!50!white}
+\setbeamercolor{footlinecolor1}{fg=black, bg=blue!20!white}
+
+%%% Footline %%%
+\setbeamercolor{title in head/foot}{parent=footlinecolor}
+\setbeamercolor{author in head/foot}{parent=footlinecolor1}
+\setbeamercolor{date in head/foot}{parent=footlinecolor1}
+
+%%%% headline %%%%
+\setbeamercolor{section in head/foot}{bg=green}
+\setbeamercolor{subsection in head/foot}{bg=yellow}
+\setbeamercolor{separation line}{bg=red}
+
+%%% Logo
+\usepackage{tikz}
+\addtobeamertemplate{headline}{}{%
+\begin{tikzpicture}[remember picture,overlay]
+\node at([shift={(5.5,-.6)}]current page.north) {\includegraphics[height=.8\headheight]{example-image}};
+\end{tikzpicture}}
+
+\begin{document}
+
+\section{bla}
+\begin{frame}
+test
+\end{frame}
+\end{document}

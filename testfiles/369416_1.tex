@@ -1,0 +1,123 @@
+% https://tex.stackexchange.com/a/369416
+\documentclass{beamer}
+\usepackage{appendixnumberbeamer}
+\usetheme{Frankfurt}
+\usecolortheme{beaver}
+\useinnertheme{rounded}
+\setbeamertemplate{footline}
+{
+\leavevmode%
+\hbox{\begin{beamercolorbox}[wd=.3\paperwidth,ht=2.5ex,dp=1.125ex]{author in head/foot}%
+\usebeamerfont{author in head/foot}\centering\insertshortauthor%
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.6\paperwidth,ht=2.5ex,dp=1.125ex]{institute in head/foot}%
+\usebeamerfont{institute in head/foot}\centering\insertshorttitle%
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.1\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm ,rightskip=.3cm plus1fil]{title in head/foot}%
+\usebeamerfont{title in head/foot}\hfill\insertframenumber/\inserttotalframenumber%
+\end{beamercolorbox}}%
+\vskip0pt%
+}%
+
+
+\makeatletter
+\newcount\beamer@sectionstartframe
+\beamer@sectionstartframe=1
+\apptocmd{\beamer@section}{\addtocontents{nav}{\protect\headcommand{%
+            \protect\beamer@sectionframes{\the\beamer@sectionstartframe}{\the\c@framenumber}}}}{}{}
+\apptocmd{\beamer@section}{\beamer@sectionstartframe=\c@framenumber\advance\beamer@sectionstartframe by1\relax}{}{}
+\AtEndDocument{\immediate\write\@auxout{\string\@writefile{nav}%
+        {\noexpand\headcommand{\noexpand\beamer@sectionframes{\the\beamer@sectionstartframe}{\the\c@framenumber}}}}}{}{}
+\def\beamer@startframeofsection{1}
+\def\beamer@endframeofsection{1}
+\def\beamer@sectionframes#1#2{%
+    \ifnum\c@framenumber<#1%
+    \else%
+    \ifnum\c@framenumber>#2%
+    \else%
+    \gdef\beamer@startframeofsection{#1}%
+    \gdef\beamer@endframeofsection{#2}%
+    \fi%
+    \fi%
+}
+\newcommand\insertsectionstartframe{\beamer@startframeofsection}
+\newcommand\insertsectionendframe{\beamer@endframeofsection}
+\makeatother
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\def\inserttotalsectionframenumber{%
+    \pgfmathparse{(\insertsectionendframe-\insertsectionstartframe+1)}%
+    \pgfmathprintnumber[fixed,precision=2]{\pgfmathresult}%
+}
+
+\def\insertsectionframenumber{%
+    \pgfmathparse{(\insertframenumber-\insertsectionstartframe+1)}%
+    \pgfmathprintnumber[fixed,precision=2]{\pgfmathresult}%
+}
+
+\defbeamertemplate{footline}{page number appendix}
+{
+\leavevmode%
+\hbox{\begin{beamercolorbox}[wd=.3\paperwidth,ht=2.5ex,dp=1.125ex]{author in head/foot}%
+\usebeamerfont{author in head/foot}\centering\insertshortauthor%
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.6\paperwidth,ht=2.5ex,dp=1.125ex]{institute in head/foot}%
+\usebeamerfont{institute in head/foot}\centering\insertshorttitle%
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.1\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm ,rightskip=.3cm plus1fil]{title in head/foot}%
+\usebeamerfont{title in head/foot}\hfill%
+\insertsectionframenumber/\inserttotalsectionframenumber
+\end{beamercolorbox}}%
+\vskip0pt%
+}
+
+\makeatletter
+\g@addto@macro\appendix{%
+    \setbeamertemplate{footline}[page number appendix]%
+}
+\makeatother
+
+
+\begin{document}
+\begin{frame}
+Content 1
+\end{frame}
+\begin{frame}
+Content 2
+\end{frame}
+\begin{frame}
+Content 3
+\end{frame}
+\begin{frame}
+Content 3
+\end{frame}
+\appendix
+\section[]{add. Content 1}
+\begin{frame}
+additional material for content 1
+\end{frame}
+\begin{frame}
+additional material for content 1
+\end{frame}
+\begin{frame}
+additional material for content 1
+\end{frame}
+\section[]{add. Content 2}
+\begin{frame}
+additional material for content 2
+\end{frame}
+\begin{frame}
+additional material for content 2
+\end{frame}
+\begin{frame}
+additional material for content 2
+\end{frame}
+\begin{frame}
+additional material for content 2
+\end{frame}
+\begin{frame}
+additional material for content 2
+\end{frame}
+\end{document}

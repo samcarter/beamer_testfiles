@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/337157
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}
+\tableofcontents
+\end{frame} 
+
+\section{bla}
+
+\subsection{blub}
+
+\addtocontents{toc}{\protect\setbeamercolor{subsection in toc}{fg=red}}
+\subsection{blub}\frame{}
+\addtocontents{toc}{\protect\setbeamercolor{subsection in toc}{fg=black}}
+
+\subsection{blubbb}\frame{}
+
+\end{document}

@@ -1,0 +1,23 @@
+% https://tex.stackexchange.com/a/335726
+\documentclass{beamer}
+
+\usepackage{biblatex}
+\addbibresource{biblatex-examples.bib}
+
+\begin{document} 
+
+\begin{frame}  
+    \begin{refsection}
+        \nocite{knuth:ct}
+        \printbibliography
+    \end{refsection}
+\end{frame}
+
+\begin{frame}  
+    \begin{refsection}
+        \nocite{westfahl:space}
+        \printbibliography
+    \end{refsection}
+\end{frame}
+
+\end{document}

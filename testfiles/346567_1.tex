@@ -1,0 +1,30 @@
+% https://tex.stackexchange.com/a/346567
+\documentclass{beamer}
+\usetheme{Berkeley} 
+
+\usepackage{xpatch}
+
+\makeatletter
+\patchcmd\beamer@@tmpl@frametitle{\insertframetitle}{\insertsection\space-- \insertframetitle}{}{}
+\makeatother
+
+
+\begin{document}
+\section{Introduction}
+\begin{frame}[shrink]
+\frametitle{Global burden by World Bank}
+Global burden of STIs and their consequences (World Bank)
+\begin{itemize}
+\item among world’s most common diseases, with an annual incidence exceeded only by diarrheal diseases, malaria, and lower respiratory diseases. 
+\item Due to their high \textbf{prevalence}, particularly in developing settings, STIs result in substantial productivity losses for individuals and communities. %, particularly where the majority of the population is under 40 years of age. 
+\item In developing countries, STIs are among the leading causes of disability-adjusted life years (DALYs) lost for \textbf{women} of reproductive age. 
+\item Every day, 1M \textbf{acquire} a new STI, and more than 340 million new cases of curable STIs occur throughout the world each year. 
+Adolescents and young adults have the highest rates of curable STIs -- up to 1 in 20 adolescents develop a new STI each year. 
+\item \textbf{Untreated} bacterial STIs in women - PID in 40\% infections, 1/3 in infertility, ...
+\item \textbf{Perinatal deaths}. Syphilis - one of most common causes of adverse pregnancy outcomes globally, 1.5M deaths/year. 
+\item \textbf{Chronic liver disease and death}. HBV, 1/40 deaths of adults globally per year. 
+\item \textbf{Cervical cancer and death}. Most common cause of cancer mortality among African women. About 0.24 M/year mortality in resource poor seettings. 
+\item \textbf{Prevention}. Vaccines, .... Antibiotics for many STIs. Antivirals in HIV and HSV-2.  
+\end{itemize}
+\end{frame}
+\end{document}

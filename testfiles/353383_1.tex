@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/353383
+\documentclass{beamer}
+
+\usetheme{amsterdam}
+
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+    leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \leavevmode{\usebeamerfont{title in head/foot}\insertshorttitle}%
+    \hfill%
+    {\usebeamerfont{author in head/foot}\usebeamercolor[fg]{author in head/foot}\insertshortauthor}%
+    \hfill% NEW
+    {\usebeamerfont{author in head/foot}\usebeamercolor[fg]{author in head/foot}\insertframenumber~/~\inserttotalframenumber}% NEW
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+  \end{beamercolorbox}
+}
+
+\author{Einstein}
+\title{Cool Stuff}
+
+\begin{document}
+
+\begin{frame}
+test
+\end{frame}
+\end{document}

@@ -1,0 +1,64 @@
+% https://tex.stackexchange.com/a/356526
+\documentclass{beamer}
+
+\def\RR{{\mathbb R}}
+\def\Ss{{\mathbb S}}
+\def\EE{{\mathbb E}}
+\def\Pr{{\mathrm Pr}}
+\def\dd{{\mathrm d}}
+\def\ee{{\mathrm e}}
+\def\MM{{\mathcal M}}
+\def\sign{{\mathrm sign}}
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\newcommand{\algorithmicinput}{\textbf{input}}
+\newcommand{\INPUT}{\item[\algorithmicinput]}
+\newcommand{\algorithmicoutput}{\textbf{output}}
+\newcommand{\OUTPUT}{\item[\algorithmicoutput]}
+
+
+\usepackage{caption}
+
+\begin{document}
+
+\begin{frame}[allowframebreaks]{Search}
+\rule{\textwidth}{0.5pt}
+\captionof{algorithm}{Dolphinn: Query Algorithm}%
+\vspace*{-0.5cm}
+\rule{\textwidth}{0.5pt}%
+\vspace*{-0.5cm}
+%\begin{algorithm}[H]
+%    \caption{Dolphinn: Query Algorithm}
+    \label{DolphinnQuery}
+    \begin{algorithmic}
+    \INPUT{Metric $(\MM, d_{\MM})$, LSH family $F$, data set $P \subset \MM$, parameter $d'$, integer StopSearch, query $q$. (We assume that this algorithm has access to the ANN data structure created in Algorithm \ref{DolphinnPrep})}
+    \OUTPUT{Point $p \in P$ or ""no""}
+    %\STATE{Compute $f(q)=(f_1(h_1(q)), f_2(h_2(q)), \ldots, f_{d'}(h_{d'}(q)))$ as folows:}
+    \FOR{$i = 1$ to $d'$}
+        \IF{$f_i(h_i(q))$ is not defined in Algorithm \ref{DolphinnPrep}}
+            \STATE{Flip a fair coin and assign the result to $f_i(h_i(q))$.}
+        \ELSE
+            \STATE{Compute $f_i(h_i(q))$.}
+        \ENDIF
+    \ENDFOR
+
+    \STATE{i=0}
+    \FOR{\textbf{each} $x$ in $f(P)$ s.t. $\|x-f(q)\|_1\leq  0.5 \cdot d' \cdot (1-p_1)$ }
+    \FOR{\textbf{each} point $p$ inside the bucket with key $x$}
+    \IF{$d_{\MM}(p,q)\leq c\cdot r$}
+        \STATE \textbf{return} $p$.
+         \ENDIF
+      \STATE{$i\gets i+1$}
+     \IF{$i>StopSearch$}
+        \STATE \textbf{return} ""no"". 
+       \ENDIF
+
+    \ENDFOR
+    \ENDFOR
+    \STATE{\textbf{return} ""no""}
+
+\end{algorithmic}
+%\end{algorithm}
+\end{frame}
+\end{document}

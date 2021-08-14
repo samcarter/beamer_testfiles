@@ -1,0 +1,53 @@
+% https://tex.stackexchange.com/a/354761
+\documentclass{beamer}
+
+\usetheme{Madrid}      
+\usecolortheme{beaver} 
+\setbeamercolor{section in head/foot}{bg=gray!10!white, fg=gray!10!white}
+\setbeamercolor{palette quaternary}{bg=darkred}
+
+\title[latex in collaboration]{latex in collaboration}
+\author{Alexandre Bernardino}
+\institute{ISR/IST}
+\date{March 9, 2015}
+
+\setbeamertemplate{headline}{%
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{palette 
+     quaternary}%               
+            \insertsectionnavigationhorizontal{\paperwidth}{}{}
+        \end{beamercolorbox}%
+    }
+}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section{Introduction}
+\begin{frame}
+\frametitle{test}
+content...
+\end{frame}
+
+\section{Some History}
+\begin{frame}
+content...
+\end{frame}
+
+
+\section{First Steps}
+\begin{frame}
+content...
+\end{frame}
+
+\section{\LaTeX{} Basics}
+
+\begin{frame}
+content...
+\end{frame}
+
+\end{document}

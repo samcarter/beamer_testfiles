@@ -1,0 +1,32 @@
+% https://tex.stackexchange.com/a/336698
+\documentclass{beamer}
+\setbeamertemplate{section in toc}[sections numbered]
+
+\newcommand{\injecttext}[1]{%
+    \vskip-2\baselineskip
+    \setlength{\leftskip}{1.2em}
+    #1\par
+    \setlength{\leftskip}{0em}
+}
+
+\begin{document}
+
+\begin{frame}
+\tableofcontents
+\end{frame}
+
+
+\begin{frame} 
+\tableofcontents[sections=1] 
+\injecttext{blabla1 blabla1 blabla1 blabla1 blabla1 blabla1 blabla1 blabla1 blabla1 blabla1 blabla1} 
+\tableofcontents[sections=2] 
+\injecttext{blabla2} 
+\tableofcontents[sections=3] 
+\injecttext{blabla3} 
+\end{frame}
+
+\section{bla}\frame{}
+\section{test}\frame{}
+\section{blub}\frame{}
+
+\end{document}

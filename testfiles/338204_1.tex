@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/338204
+\documentclass{beamer}
+\usepackage{graphicx}
+
+\begin{document}
+
+\begin{frame}
+    \frametitle{Minimal Working Example}
+        \begin{overlayarea}{\textwidth}{4cm}
+        \begin{itemize}
+        \item<1-> This item belongs with the figure
+        \begin{itemize}
+            \item<1-> as well as this sub item
+        \end{itemize}
+           \begin{onlyenv}<1>
+               \begin{figure}
+                   \includegraphics<1>[width=2cm]{example-image}
+                 \end{figure}
+           \end{onlyenv}
+         \item<2-> This shows after the figure
+         \item<3-> But still takes up space
+         \item<4-> For long lists, the figure will not be visible anymore
+          \end{itemize}
+    \end{overlayarea}
+\end{frame}
+
+\end{document}

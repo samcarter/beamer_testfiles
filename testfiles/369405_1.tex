@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/369405
+\documentclass{beamer}
+
+\AtBeginEnvironment{alertblock}{%
+    \setbeamertemplate{itemize item}{x}  
+}
+
+\begin{document}
+\begin{frame}{Example}
+  \begin{block}{Block}
+    \begin{itemize}
+    \item Test
+    \end{itemize}
+  \end{block}
+
+  \begin{alertblock}{Alertblock}
+    \begin{itemize}
+    \item Another test
+    \end{itemize}
+  \end{alertblock}
+
+  \begin{itemize}
+  \item Yet another test
+  \end{itemize}
+\end{frame}
+\end{document}

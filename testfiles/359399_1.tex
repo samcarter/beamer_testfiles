@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/359399
+\documentclass{beamer}
+
+\usepackage{tikz}
+\usepackage{animate}
+
+\setbeamertemplate{title page}{%
+\begin{animateinline}[autoplay, loop, begin={\begin{tikzpicture}\useasboundingbox (0,0) rectangle (7,7);}, end={\end{tikzpicture}}]{6}
+   \multiframe{10}{i=1+1}{
+%\begin{tikzpicture}
+            \newframe
+            \node[anchor=south west] at (0,0) (anime) {%
+                \includegraphics[width=0.5\textwidth]{example-image}
+            };
+%\end{tikzpicture}
+}
+\end{animateinline}
+}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+\end{document} 

@@ -1,0 +1,60 @@
+% https://tex.stackexchange.com/a/359610
+%\documentclass[notes]{beamer}
+\documentclass[hide notes greek]{beamer}
+%\documentclass[notes=only]{beamer}
+
+\mode<presentation>
+{
+    \usetheme{Rochester}
+}
+
+%Packages
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,greek]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{csquotes}
+\usepackage{fancyhdr}
+\usepackage{listings}
+%\usepackage{color}
+%\usepackage{graphicx}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+\usepackage{tree-dvips}
+\usepackage{lmodern}% http://ctan.org/pkg/lm
+
+\usetikzlibrary{calc,trees,arrows,decorations.pathmorphing,backgrounds,positioning,fit,matrix}
+
+%Math Fonts
+
+\usefonttheme[onlymath]{serif}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+\bibliography{references}
+
+\newcommand{\lat}{\selectlanguage{english}}
+\newcommand{\gre}{\selectlanguage{greek}}
+
+\hypersetup{
+    unicode=true
+}
+
+%Page Title Variables
+
+\title{\foreignlanguage{english}{English title}}
+\subtitle{A greek subtitle}
+\institute{A greek name institute}
+\author{Greek name}
+\subject{}
+\date{}
+
+\begin{document}
+    \begin{frame}
+        \titlepage
+    \end{frame}
+\end{document}

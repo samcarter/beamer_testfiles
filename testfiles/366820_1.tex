@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/366820
+\documentclass{beamer}
+
+\usecolortheme{whale}
+\useoutertheme{split}
+
+\makeatletter
+\let\beamer@original@defbeamertemplate\beamer@defbeamertemplate
+\def\beamer@defbeamertemplate{\beamer@sbtfalse\@ifstar{\beamer@sbtoo}{\beamer@sbtoo}}
+\useoutertheme{infolines}
+\setbeamertemplate{footline}[infolines theme] 
+% This \set must be done manually, 
+% since generally theme names have nothing to do with file names
+\let\beamer@defbeamertemplate\beamer@original@defbeamertemplate
+\makeatother
+
+\begin{document}
+    \begin{frame}
+        Test
+    \end{frame}
+\end{document}

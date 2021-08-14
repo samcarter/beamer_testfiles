@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/364078
+\documentclass{beamer}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \includegraphics[width=\paperwidth]{example-image-duck}%
+}
+
+\addtobeamertemplate{title page}{\includegraphics[width=1cm]{example-image}}{}
+
+\title{Title}
+\author{author names}
+
+\begin{document}
+
+{
+    \addtobeamertemplate{footline}{%
+        \vskip-10pt
+    We are not responsible for anything
+
+    }{}
+
+  \begin{frame}
+    \titlepage
+  \end{frame}
+}
+
+\begin{frame}
+\frametitle{Frametitle}
+slide 
+\end{frame}
+\end{document}

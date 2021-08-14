@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/356140
+\documentclass[24pt]{beamer}
+
+\usepackage{amssymb,amscd,amsthm,amsmath}
+\usepackage{booktabs}
+\usepackage[color,matrix,arrow]{xy}
+%\usepackage{ragged2e}
+\usepackage[scale=2]{ccicons}
+
+\begin{document}
+
+\begin{frame}
+
+\alt<1-4>{
+    \begin{itemize}
+    \uncover<1-4>{\item (CONTENT 1)}
+
+    \uncover<2-4>{\item (CONTENT 2)}
+
+    \uncover<3-4>{\item (CONTENT 3)}
+    \end{itemize}
+}{
+    \begin{itemize}
+    \uncover<6->{\item (CONTENT A)}
+
+    \uncover<7->{\item (CONTENT B)}
+
+    \uncover<8->{\item (CONTENT C)}
+    \end{itemize}
+}
+\pause[8]
+\end{frame}
+
+\end{document}  

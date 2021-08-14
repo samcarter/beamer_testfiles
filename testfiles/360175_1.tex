@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/360175
+\documentclass[italian,aspectratio=169]{beamer}
+\usetheme{Warsaw}
+
+\date{}
+\title{Pillole di sicurezza informatica}
+\titlegraphic{\includegraphics[scale=0.5]{example-image}}
+
+\makeatletter
+\setbeamertemplate{title page}{%
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=true]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    \vskip2em\par
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+  \endgroup
+  \vfill
+}
+\makeatother
+
+\begin{document}
+\begin{frame}
+    \titlepage
+\end{frame}
+\end{document}

@@ -1,0 +1,47 @@
+% https://tex.stackexchange.com/a/336059
+\documentclass[t,8pt]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage[framemethod=tikz]{mdframed}
+
+\newmdenv[
+ innerlinewidth=0.1mm,
+ roundcorner=4pt,
+ linecolor=black,
+ innerleftmargin=6pt,
+ innerrightmargin=6pt,
+ innertopmargin=6pt,
+ innerbottommargin=6pt]{mybox}
+
+\setbeamertemplate{caption}{%
+    \begin{tcolorbox}[colback=lightgray,colframe=black,width=.25\linewidth]
+        \insertcaptionname~%
+        \insertcaptionnumber%
+      \usebeamertemplate{caption label separator}%
+     \end{tcolorbox}%
+     \space%
+            \begin{tcolorbox}[colback=lightgray,colframe=black,width=.74\linewidth]
+                \insertcaption%
+     \end{tcolorbox}%
+}  
+
+\begin{document}
+
+\begin{frame}{}
+ \begin{figure}
+  \begin{mybox}
+     \centering
+     \begin{tikzpicture}[scale=1.3]
+       \node[draw=black,circle,fill=lightgray] (A) at (0,0){\textbf{A}};
+       \node[draw=black,circle,fill=lightgray] (B) at (3,0){\textbf{B}};
+       \draw[->,dashed] (A) -- node[above]{$k$} (B);
+       \end{tikzpicture}
+  \end{mybox}
+  \caption{$k$-$folgt$ Relation für die kritischen Abschnitte A und B}        
+ \end{figure}
+\end{frame}
+
+\end{document}

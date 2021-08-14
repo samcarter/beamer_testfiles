@@ -1,0 +1,45 @@
+% https://tex.stackexchange.com/a/336054
+\documentclass[10pt,english,final]{beamer}
+\usepackage{beamerthemedefault}
+\usecolortheme{default}
+\usepackage[orientation=portrait,size=a0,scale=1.4,debug]{beamerposter}
+
+\title{Research Report Poster STK795}
+\author{AUTHOR HERE}
+\institute{Department University}
+\date{15 October 2016}
+\usepackage{mwe} % just for dummy images
+\usebackgroundtemplate%
+{%
+     \includegraphics[width=\paperwidth,height=\paperheight]{example-image}%
+}
+
+\setbeamercolor{author in head/foot}{bg=blue, fg=white}
+\setbeamercolor{title in head/foot}{bg=blue!50!black, fg=white}
+\setbeamercolor{institute in head/foot}{fg=white}
+
+% slightly modified from beamerouterthememiniframes.sty
+\setbeamertemplate{footline}{%
+    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}%
+      \leavevmode{\usebeamerfont{author in head/foot}\insertshortauthor}%
+      \space%
+%      \hfill%
+      {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertshortinstitute}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+      {\usebeamerfont{title in head/foot}\insertshorttitle}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+    \end{beamercolorbox}
+}
+
+
+\begin{document}
+\begin{frame}{}
+bla
+\end{frame}
+\end{document}

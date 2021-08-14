@@ -1,0 +1,13 @@
+% https://tex.stackexchange.com/a/353783
+\documentclass{beamer}
+
+\definecolor{mycolor}{rgb}{1,1,1}
+
+\begin{document}
+
+\begin{frame}<1-2>
+    \only<2>{\definecolor{mycolor}{rgb}{0,1,0}}
+    \colorbox{mycolor}{test}
+\end{frame} 
+
+\end{document}

@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/341184
+\documentclass[12pt]{beamer}
+\usepackage{multirow} %Used for tables with merged cells
+\usepackage{collcell} %pdflatex.exe hangs without this one
+
+\usepackage{tikz}
+
+\begin{document}
+  \begin{frame}{Communication Models}
+
+          \pause
+
+      \begin{tabular}{|l|l|l|l|}
+        \hline
+        \textbf{Mnemonic}&  \textbf{\#} & \textbf{OSI} & \textbf{TCP/IP}              \\ \hline
+        All              &  7           & Application  & \multirow{3}{*}{Application} \\ \cline{1-3}
+        People           &  6           & Presentation &                              \\ \cline{1-3}
+        Seem             &  5           & Session      &                              \\ \hline
+        To               &  4           & Transport    & Transport                    \\ \hline
+        Need             &  3           & Network      & Internet                     \\ \hline
+        Data             &  2           & Data Link    & \multirow{2}{*}{Link Access} \\ \cline{1-3}
+        Processing       &  1           & Physical     &                              \\ \hline
+      \end{tabular}
+
+      \vspace*{-4.21cm}
+      \begin{tikzpicture}
+          \begin{onlyenv}<.(1)>
+              \draw [color=bg, fill=bg] (0,0) rectangle (2.42,4.2); 
+          \end{onlyenv}
+      \end{tikzpicture}
+      \pause
+  \end{frame}
+\end{document}

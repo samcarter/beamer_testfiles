@@ -1,0 +1,48 @@
+% https://tex.stackexchange.com/a/356355
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\usepackage{PTSansNarrow} % PTSansNarrow
+\mode<presentation>
+{
+    \usetheme{default}
+    \usecolortheme{default}
+    \setbeamertemplate{navigation symbols}{}
+    \setbeamertemplate{caption}[numbered]
+}    
+\setbeamercolor{frametitle}{fg=black!50}
+\setbeamerfont{frametitle}{size=\footnotesize}
+
+\makeatletter
+\setbeamertemplate{frametitle}{%
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \begin{beamercolorbox}[sep=0.3cm,left,wd=\the\@tempdima]{frametitle}
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-1ex%
+    \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+    \strut\MakeUppercase{\insertframetitle}\strut\par%
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+      \fi
+    }%
+    \vskip-1ex%
+    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  \end{beamercolorbox}%
+}
+\makeatother
+
+\setbeamerfont{frametitle}{size=\footnotesize}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Main title}
+\framesubtitle{Subtitle}
+Text for document.
+\end{frame}
+
+\end{document}

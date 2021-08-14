@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/335926
+\documentclass{beamer}
+
+\setbeamercolor{normal text}{fg=red}
+
+\pgfdeclareimage[width=\paperwidth,height=\paperheight]{bg}{example-image}
+\setbeamertemplate{background}{\pgfuseimage{bg}}
+
+\begin{document}
+
+\begin{frame}
+text
+\end{frame}
+
+\pgfdeclareimage[width=\paperwidth,height=\paperheight]{bg}{example-image-b}
+
+\begin{frame}
+another image
+\end{frame}
+
+
+\end{document}

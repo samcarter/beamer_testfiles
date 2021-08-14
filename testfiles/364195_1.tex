@@ -1,0 +1,48 @@
+% https://tex.stackexchange.com/a/364195
+\documentclass[12pt]{beamer}
+
+\usetheme{Frankfurt}
+
+\usepackage{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{graphicx}
+%\usepackage{color}
+\usepackage{tikz}
+\usepackage{tikzpagenodes}
+%\usepackage{multicol}
+
+\tikzstyle{block}=[draw opacity=0.7,line width=1.4cm]
+
+%add logo to every page
+\addtobeamertemplate{frametitle}{}{
+\begin{tikzpicture}[overlay,remember picture,inner sep=0pt, outer sep=0pt]
+\node[anchor=south,yshift=5pt] at (current page text area.south) {\includegraphics[height=0.8cm,width=\linewidth]{example-image}};
+\end{tikzpicture}}
+
+%add logo to titlepage
+\institute{
+\begin{tikzpicture}[overlay,remember picture,inner sep=0pt, outer sep=0pt]
+    \node[anchor=south,yshift=5pt] at (current page text area.south) {\includegraphics[height=0.8cm,width=\linewidth]{example-image}};
+\end{tikzpicture}}
+
+%\usetheme{Frankfurt}
+
+\title{Your Title}
+\author{You}
+\date{date}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\section{Example}
+\begin{frame}{Example}
+slide example
+\end{frame}
+
+\end{document}

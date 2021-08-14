@@ -1,0 +1,14 @@
+% https://tex.stackexchange.com/a/356961
+\documentclass{beamer}
+
+\setbeamertemplate{itemize item}{\includegraphics[width=2em]{duck}}
+
+\begin{document}
+    \begin{frame}
+        \begin{itemize}[<+->]
+            \item 1
+            \item 2
+        \end{itemize}
+        \onslide<2>{text}
+    \end{frame}
+\end{document}

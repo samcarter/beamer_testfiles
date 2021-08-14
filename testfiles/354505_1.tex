@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/354505
+\documentclass[10pt]{beamer}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+
+\begin{document}
+
+% from https://tex.stackexchange.com/a/354503/36296
+\begin{frame}[c]{} % this works
+\null\vfill\null
+ace\rule[.5ex]{.5\textwidth}{.5pt}
+\vfill
+\end{frame}
+
+\makeatletter
+\define@key{beamerframe}{c}[true]{% centered
+  \beamer@frametopskip=0pt plus 1fill\relax%
+% \beamer@framebottomskip=0pt plus 1.5fill\relax%
+  \beamer@framebottomskip=0pt plus 1fill\relax%
+}
+\makeatother
+\begin{frame}[c]
+aba\rule[.5ex]{.5\textwidth}{.5pt}abc
+\end{frame}
+
+\end{document}

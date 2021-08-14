@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/368936
+\documentclass{beamer}
+\usepackage[spanish,activeacute]{babel}
+\usetheme{Madrid}
+\usecolortheme{beaver}
+\begin{document}
+\title{My title}  
+\author{My name}
+\date{\today} 
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+\frametitle{1. First section}
+
+{
+\setbeamercolor{block body}{fg=black, bg=green!20!white}
+\setbeamercolor{block title}{fg=black, bg=green!60!black}
+\begin{block}{ONE} 
+Text for first block
+\end{block}
+}
+
+\begin{block}{TWO}
+Text for second block
+\end{block}
+\end{frame}
+\end{document}

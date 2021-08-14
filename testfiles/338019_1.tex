@@ -1,0 +1,15 @@
+% https://tex.stackexchange.com/a/338019
+\documentclass[xcolor={dvipsnames,table},11pt]{beamer}
+\setbeamertemplate{footline}{\insertframenumber/\inserttotalframenumber}
+\begin{document}
+\frame{}
+
+\begin{frame}[allowframebreaks]
+\begin{thebibliography}{}
+\bibitem{} The total frame number is displayed as zero,
+\framebreak
+\bibitem{} which means the frames are not countered.
+\end{thebibliography}
+\end{frame}
+\addtocounter{framenumber}{-2}
+\end{document}

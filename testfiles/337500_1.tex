@@ -1,0 +1,101 @@
+% https://tex.stackexchange.com/a/337500
+\documentclass[aspectratio=1610,t]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[babel=true,kerning=true]{microtype}
+
+\usepackage{roboto}
+
+\title{The title}
+\subtitle{Here comes the subtitle\\that can be pretty long}
+\date[Short date]{Long date\\ Where the talk is given}
+\author[email]{John Doe}
+\institute{Institute}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{intersections}
+\usetikzlibrary{positioning}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% footline
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{author in head/foot}{fg=gray, bg=black}
+\setbeamerfont{author in head/foot}{size=\large}
+\setbeamertemplate{footline}{%
+    \leavevmode%
+    \hbox{\begin{beamercolorbox}[wd=\paperwidth,ht=4ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{author in head/foot}%
+        \usebeamerfont{author in head/foot}
+        \insertslidenavigationsymbol
+        \insertframenavigationsymbol
+        \insertsubsectionnavigationsymbol
+        \insertsectionnavigationsymbol
+        \insertdocnavigationsymbol
+        \insertbackfindforwardnavigationsymbol
+        \hfill
+        \insertframenumber
+    \end{beamercolorbox}}%
+    \vskip0pt%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% background
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{background canvas}{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \fill [color=orange] (current page.north east) -- (current page.south east) -- ($(current page.south east)+(-5, 0)$) -- ($(current page.north east)+(-3, 0)$);
+  \end{tikzpicture}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% frametitle
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamercolor{frametitle}{fg=black}
+\setbeamerfont{frametitle}{size=\LARGE}
+\setbeamerfont{framesubtitle}{size=\large}
+
+\makeatletter
+\setbeamertemplate{frametitle}{%
+    \vbox{}\vskip-0.5em%
+    \begin{beamercolorbox}[wd=.7\paperwidth]{frametitle}
+        \usebeamerfont{frametitle}%
+        \strut\insertframetitle\strut\par%
+    \end{beamercolorbox}
+    \ifx\insertframesubtitle\@empty%
+  \else%
+      \vskip-0.3em
+    \begin{beamercolorbox}[wd=.68\paperwidth]{frametitle}
+        \usebeamerfont{framesubtitle}%
+        \strut\insertframesubtitle\strut\par%
+    \end{beamercolorbox}    
+  \fi
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}%
+    \frametitle{There Is No Largest Prime Number} 
+    \framesubtitle{The proof uses \textit{reductio ad absurdum}.} 
+        some text
+\end{frame}
+
+\begin{frame}%
+    \frametitle{There Is No Largest Prime Number}  
+        some text
+\end{frame}
+
+\begin{frame}%
+    \frametitle{There Is No Largest Prime NumberThere Is No Largest Prime Number} 
+    \framesubtitle{The proof uses \textit{reductio ad absurdum}.} 
+        some text
+\end{frame}
+
+\end{document}

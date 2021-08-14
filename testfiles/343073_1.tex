@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/343073
+\documentclass{beamer}
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{bibliography entry title}{fg=black}
+\setbeamercolor{bibliography entry note}{fg=black}
+\usepackage[english]{babel}
+\usepackage[style=verbose,backend=bibtex]{biblatex}
+\bibliography{precoderreferences}
+\begin{document}
+{
+{\setbeamercolor{footnote mark}{fg=blue}
+\setbeamercolor{footnote}{fg=blue}
+\setbeamercolor{bibliography entry author}{fg=blue}
+\setbeamercolor{bibliography entry title}{fg=blue}
+\setbeamercolor{bibliography entry note}{fg=blue}
+\begin{frame}
+\frametitle{\color{blue}{Main Slide (I)}}
+\begin{itemize} 
+\item ABC 
+    {
+        \setbeamercolor{footnote}{fg=red}
+        \setbeamercolor{footnote mark}{fg=red}
+        \footfullcite{Tuchler2002}
+    }
+\item XYZ \footfullcite{Wu2003}
+\end{itemize}
+\end{frame}
+}
+\end{document}

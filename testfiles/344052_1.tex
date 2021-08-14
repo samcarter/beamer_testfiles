@@ -1,0 +1,55 @@
+% https://tex.stackexchange.com/a/344052
+\documentclass{beamer}
+\usetheme{CambridgeUS} 
+
+\usepackage[most]{tcolorbox}  
+
+\newenvironment{emblock}
+  {\begin{actionenv}\begin{tcolorbox}[
+                    enhanced,
+            colframe=white,
+            colback=white, 
+                    borderline north={0.2mm}{0.6mm}{gray!25!white},
+                    borderline west ={0.2mm}{0.6mm}{gray!25!white},
+                    borderline north={0.2mm}{0.4mm}{gray!50!white},
+                    borderline west ={0.2mm}{0.4mm}{gray!50!white},
+                    borderline south ={0.2mm}{0.0mm}{gray!50!white},
+                    borderline east ={0.2mm}{0.0mm}{gray!50!white},
+                    borderline north={0.2mm}{0.2mm}{gray!75!white},
+                    borderline west ={0.2mm}{0.2mm}{gray!75!white},
+                    borderline north={0.2mm}{0.0mm}{gray},
+                    borderline west ={0.2mm}{0.0mm}{gray},
+    ]
+  }
+  {\end{tcolorbox}\end{actionenv}}
+
+\newenvironment{hblock}
+  {\begin{actionenv}\begin{tcolorbox}[
+                    enhanced,
+            colframe=white,
+            colback=white, 
+                    borderline south={0.2mm}{0.6mm}{gray},
+                    borderline east ={0.2mm}{0.6mm}{gray},
+                    borderline south={0.2mm}{0.4mm}{gray!75!white},
+                    borderline east ={0.2mm}{0.4mm}{gray!75!white},             
+                    borderline south={0.2mm}{0.2mm}{gray!50!white},
+                    borderline east ={0.2mm}{0.2mm}{gray!50!white},
+                    borderline north={0.2mm}{0.0mm}{gray!50!white},
+                    borderline west ={0.2mm}{0.0mm}{gray!50!white},
+                    borderline south={0.2mm}{0.0mm}{gray!25!white},
+                    borderline east ={0.2mm}{0.0mm}{gray!25!white},
+    ]
+  }
+  {\end{tcolorbox}\end{actionenv}}
+
+\begin{document}
+    \begin{frame} 
+        \begin{emblock} 
+            Preface 
+            \end{emblock} 
+
+        \begin{hblock} 
+            Preface 
+            \end{hblock}            
+    \end{frame} 
+\end{document}

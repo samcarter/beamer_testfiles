@@ -1,0 +1,47 @@
+% https://tex.stackexchange.com/a/344755
+\documentclass[xcolor=dvipsnames,t]{beamer}
+
+\definecolor{mikadoyellow}{rgb}{1.0, 0.77, 0.05}
+\definecolor{yaleblue}{rgb}{0.06, 0.3, 0.57}
+
+\usetheme{Warsaw}
+\usefonttheme{serif}
+\setbeamerfont{section in head/foot}{family=\sffamily}
+\setbeamerfont{subsection in head/foot}{family=\sffamily}
+\setbeamerfont{author in head/foot}{family=\sffamily}
+\setbeamerfont{title in head/foot}{family=\sffamily}
+\setbeamercolor*{palette primary}{use=structure,fg=black,bg=red}
+\setbeamercolor*{palette quaternary}{fg=white,bg=black}
+
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\justifying
+\usefonttheme{professionalfonts}
+\usepackage[none]{hyphenat}
+\usepackage{cancel}
+\usepackage{tikz}
+\usepackage[round]{natbib}
+\usepackage{colortbl}
+
+\let\oldcitet=\citet
+\let\oldcitep=\citep 
+\renewcommand{\citet}[1]{\textcolor[rgb]{0,0,1}{\oldcitet{#1}}}
+\renewcommand{\citep}[1]{\textcolor[rgb]{0,0,1}{\oldcitep{#1}}}
+
+\newcommand{\textunderscript}[1]{$_{\text{#1}}$}
+\setbeamersize{text margin left=20pt,text margin right=20pt}
+
+\begin{document}
+\frame{
+\citep{moore:related} and \citet{moore:related}
+}
+
+\begin{frame}[allowframebreaks]
+\bibliographystyle{apalike}
+\bibliography{biblatex-examples}
+\end{frame}
+\end{document}

@@ -1,0 +1,32 @@
+% https://tex.stackexchange.com/a/353710
+\documentclass[]{beamer}
+
+\setbeamercolor{structure}{fg=red}
+\setbeamercolor{myOwnColorForTheOverviewFrameTitle}{fg=blue}
+
+\begin{document}
+
+
+{
+    \setbeamercolor{frametitle}{parent=myOwnColorForTheOverviewFrameTitle}
+    \begin{frame}[plain]
+    \frametitle{Overview}
+    \tableofcontents
+    \end{frame}
+}
+
+\section{Section 1}
+
+\begin{frame}
+\frametitle{Frame Title 1}
+Test
+\end{frame}
+
+\section{Section 2}
+
+\begin{frame}
+\frametitle{Frame Title 2}
+Test
+\end{frame}
+
+\end{document}

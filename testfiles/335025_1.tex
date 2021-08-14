@@ -1,0 +1,86 @@
+% https://tex.stackexchange.com/a/335025
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage {textcomp}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{topcapt}
+\usepackage{setspace}
+\usepackage{bbding} %Checkmark
+\usepackage{lmodern}
+\usepackage{subfig}
+
+\usetheme{Warsaw}
+\useinnertheme[shadow=true]{rounded}
+
+\makeatletter
+\newcommand\titlegraphicii[1]{\def\inserttitlegraphicii{#1}}
+\titlegraphicii{}
+\setbeamertemplate{title page}
+{
+  \vbox{}
+   {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\hfill\inserttitlegraphicii\par}
+        \begin{centering}
+            \begin{beamercolorbox}[sep=8pt,center]{title}
+                \usebeamerfont{title}\inserttitle\par%
+                \ifx\insertsubtitle\@empty%
+                \else%
+                    \vskip0.25em%
+                    {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+                \fi%     
+            \end{beamercolorbox}%
+            \vskip1em\par
+            \begin{beamercolorbox}[sep=8pt,center]{author}
+                \usebeamerfont{author}\insertauthor
+            \end{beamercolorbox}
+            \begin{beamercolorbox}[sep=8pt,center]{supervisors}
+                \usebeamerfont{institute}
+                    \begin{tabular}[t]{@{}l@{\hspace{8pt}}p{.3\textwidth}@{}}
+                        Supervisor1: & Supervisor1 Name$^1$ \\
+                        Supervisor2: & Supervisor2 Name$^2$
+                    \end{tabular}%
+            \end{beamercolorbox}
+            \begin{beamercolorbox}[sep=8pt,center]{institute1}
+                \usebeamerfont{institute}\insertinstitute
+            \end{beamercolorbox}
+            %\footnotesize
+            \begin{beamercolorbox}[sep=8pt,center]{date}
+                \footnotesize\usebeamerfont{date}\insertdate
+            \end{beamercolorbox}%\vskip0.5em
+        \end{centering}
+        %\vfill
+}
+\makeatother
+\author{{\small{by:}} Author Name$^1$}
+\title[Short title]{Long title}
+\institute{$^1$Department University1 \\ $^2$Department University2}
+\date{\today}
+
+%%%%%%%%%%%%%%Insertion numéros de page et courte version du titre
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+  \insertshorttitle\hfill%
+  \insertframenumber\,/\,\inserttotalframenumber}
+
+\begin{document}
+
+    \begin{frame}[plain]
+        \maketitle
+    \end{frame}
+
+    \title[Short title]{Long title}
+    \setbeamercolor{supervisors}{fg=white}
+
+    \date{}
+    \author{}
+    \author{}
+    \institute{}
+
+    \begin{frame}\frametitle{}
+        \maketitle
+    \end{frame}
+
+\end{document}

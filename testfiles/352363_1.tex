@@ -1,0 +1,30 @@
+% https://tex.stackexchange.com/a/352363
+\documentclass{beamer}
+\usepackage[sorting=none,backref=true,style=verbose,maxcitenames=2,maxbibnames=99,natbib=true]{biblatex}
+\usetheme{CambridgeUS}
+
+\date{February 10, 2017}
+\setbeamerfont{date in head/foot}{series=\bfseries}
+\addbibresource{biblatex-examples.bib}
+
+\begin{document}
+
+\begin{frame} 
+    \frametitle{Simulation parameters}
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth,height=0.8\textheight]{example-image}
+    \end{minipage}%%
+    \begin{minipage}{0.5\textwidth}
+        \begin{itemize}
+            \item MATLAB\footnotemark{} is used.
+        \end{itemize}
+    \end{minipage}% %
+    \footcitetext{moore}
+\end{frame}
+
+\begin{frame}
+    \printbibliography
+\end{frame}
+
+\end{document} 

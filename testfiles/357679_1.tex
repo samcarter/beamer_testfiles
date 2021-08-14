@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/357679
+\documentclass[10pt]{beamer}
+\usetheme{Warsaw}
+
+\title{title}
+\author{author names}
+
+\makeatletter
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.3\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fill,rightskip=.3cm]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.7\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+
+\begin{document}
+
+\begin{frame}
+ Something text here
+\end{frame}
+
+\end{document}

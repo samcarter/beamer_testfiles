@@ -1,0 +1,75 @@
+% https://tex.stackexchange.com/a/335924
+\documentclass{beamer}
+
+\makeatletter
+\defbeamertemplate*{title page}{mytheme}[1][example-image]
+{
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering
+    \vspace*{-1.5cm}
+    \hspace*{-\Gm@lmargin}\includegraphics[width=\paperwidth,height=.45\paperheight]{#1}
+    \begin{beamercolorbox}[sep=8pt,center]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=8pt,center]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+  \endgroup
+  \vfill
+}
+
+\defbeamertemplate*{section page}{mytheme}[1][example-image]
+{
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering
+    \vspace*{-3cm}
+    \hspace*{-\Gm@lmargin}\includegraphics[width=\paperwidth,height=.45\paperheight]{#1}
+  \endgroup
+  \vfill
+}
+\makeatother  
+
+\AtBeginSection{
+    \begin{frame}[plain,t]
+        \sectionpage
+    \end{frame}
+}
+
+\setbeamertemplate{title page}[mytheme][example-image-c]
+\setbeamertemplate{section page}[mytheme][example-image-c]
+
+\begin{document}
+
+\begin{frame}[plain,t]
+\titlepage
+\end{frame}
+
+\setbeamertemplate{title page}[mytheme][example-image-a]
+
+\begin{frame}[plain,t]
+\titlepage
+\end{frame}
+
+\section{Test}
+
+\setbeamertemplate{section page}[mytheme][example-image-b]
+\section{Bla}
+
+\end{document}

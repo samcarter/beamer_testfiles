@@ -1,0 +1,45 @@
+% https://tex.stackexchange.com/a/364940
+\documentclass{beamer}
+
+\usetheme{metropolis}
+
+\makeatletter
+\setbeamertemplate{headline}{%
+  \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}{section in head/foot}
+    \vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+  \end{beamercolorbox}
+}
+\makeatother
+
+\setbeamercolor{section in head/foot}{fg=normal text.bg, bg=structure.fg}
+
+\begin{document}
+
+\section{section 1}
+\subsection{section name}
+\begin{frame}
+\frametitle{blub}
+    abc
+\end{frame} 
+\begin{frame}
+\frametitle{blub}
+    abc
+\end{frame} 
+
+\section{section 2}
+\begin{frame}
+\frametitle{blub}
+    abc
+\end{frame} 
+
+\section{section 3}
+\begin{frame}
+\frametitle{blub}
+    abc
+\end{frame}     
+
+\end{document}

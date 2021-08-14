@@ -1,0 +1,32 @@
+% https://tex.stackexchange.com/a/361763
+\documentclass{beamer}
+\usetheme{Darmstadt}
+
+\makeatletter
+\AtBeginEnvironment{block}{%
+    \def\beamer@usesphere#1#2{%
+      \hbox{\usebeamercolor{#1}\normalsize--}}
+ }
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+    \begin{block}{title}
+        \begin{itemize}
+            \item bla
+            \begin{itemize}
+                \item blub
+            \end{itemize}
+        \end{itemize}
+    \end{block}
+
+    \begin{itemize}
+        \item bla
+        \begin{itemize}
+            \item blub
+        \end{itemize}       
+    \end{itemize}
+\end{frame} 
+
+\end{document}

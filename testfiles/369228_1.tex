@@ -1,0 +1,16 @@
+% https://tex.stackexchange.com/a/369228
+\documentclass[hyperref={hyperfootnotes=false}]{beamer}
+\usepackage{footnoterange}
+\begin{document}
+
+\begin{frame}{1. footnote}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      text$^{\text{1--2}}$
+    \end{column}
+  \end{columns}
+\footnotetext[1]{text}
+\footnotetext[2]{text}
+\end{frame}
+
+\end{document}

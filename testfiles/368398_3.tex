@@ -1,0 +1,102 @@
+% https://tex.stackexchange.com/a/368398
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+\usetheme{Antibes}
+\title{Beamer Class Usetheme Antibes}  
+\author{Sascha Frank} 
+\date{\today} 
+
+\AtBeginSection{%
+\begin{frame}
+    \tableofcontents[currentsection, subsectionstyle=show/show/hide]
+\end{frame}
+}
+
+
+\begin{document}
+%\logo{\includegraphics[scale=0.14]{logo-SF}}
+\begin{frame}
+\titlepage
+\end{frame} 
+
+
+\begin{frame}
+\frametitle{Table of contents}
+\tableofcontents[hidesubsections]
+\end{frame} 
+
+
+\section{Section no.1} 
+\begin{frame}
+\frametitle{frame title} 
+Each frame should have a title.
+\end{frame}
+\subsection{Subsection no.1.1  }
+\begin{frame}
+Without title somethink is missing. 
+\end{frame}
+
+
+\section{Section no. 2} 
+\subsection{Lists I}
+\begin{frame}
+\frametitle{unnumbered lists}
+\begin{itemize}
+\item Introduction to  \LaTeX{}  
+\item Course 2 
+\item Termpapers and presentations with \LaTeX{}  
+\item Beamer class
+\end{itemize} 
+\end{frame}
+
+\begin{frame}\frametitle{lists with single pauses}
+\begin{itemize}
+\item Introduction to  \LaTeX{}  \pause 
+\item Course 2 \pause 
+\item Termpapers and presentations with \LaTeX{}  \pause 
+\item Beamer class
+\end{itemize} 
+\end{frame}
+
+\begin{frame}\frametitle{lists with pause}
+\begin{itemize}[<+->]
+\item Introduction to  \LaTeX{}  
+\item Course 2
+\item Termpapers and presentations with \LaTeX{}  
+\item Beamer class
+\end{itemize} 
+\end{frame}
+
+
+
+\subsection{Lists II}
+\begin{frame}\frametitle{numbered lists}
+\begin{enumerate}
+\item Introduction to  \LaTeX{}   
+\item Course 2 
+\item Termpapers and presentations with \LaTeX{}  
+\item Beamer class
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{numbered lists with single pauses}
+\begin{enumerate}
+\item Introduction to  \LaTeX{}  \pause 
+\item Course 2 \pause 
+\item Termpapers and presentations with \LaTeX{}  \pause 
+\item Beamer class
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{numbered lists with pause}
+\begin{enumerate}[<+->]
+\item Introduction to  \LaTeX{}  
+\item Course 2
+\item Termpapers and presentations with \LaTeX{}  
+\item Beamer class
+\end{enumerate}
+\end{frame}
+
+\end{document}

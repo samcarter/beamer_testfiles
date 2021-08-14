@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/335704
+\documentclass[aspectratio=169]{beamer}
+
+\setbeamercolor{section page}{bg=gray}
+\setbeamerfont{section title}{size=\huge}
+\setbeamerfont{section name}{size=\Huge}
+
+\setbeamertemplate{section page}{%
+    \begin{frame}[plain]
+        \hfill%
+        \colorbox{section page.bg}{%
+            \usebeamerfont{section name}%
+            \sectionname~\insertsectionnumber%
+        }\par
+        \vfill
+        \usebeamerfont{section title}
+        \insertsection\par
+        \vfill
+    \end{frame}
+}
+
+\AtBeginSection{\sectionpage}
+
+\begin{document}   
+   \section{a \texorpdfstring{\itshape styled\upshape}{styled} section}
+   \frame{test}
+\end{document}

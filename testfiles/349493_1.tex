@@ -1,0 +1,93 @@
+% https://tex.stackexchange.com/a/349493
+\documentclass{beamer}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\setbeamertemplate{navigation symbols}{}
+
+\pgfkeys{/visual counter/.cd,
+thickness/.store in=\thickness,
+thickness=0.4ex,
+radius/.store in=\radius,
+radius=1.5ex,
+segment distance/.store in=\segdist,
+segment distance=8,
+color current frame/.store in=\colcurrframe,
+color current frame=orange,
+color old frame/.store in=\cololdframe,
+color old frame=blue,
+color next frame/.store in=\colnextframe,
+color next frame=gray!30,
+color page number/.store in=\colpagenum,
+color page number=white,
+current value/.store in=\currentv,
+current value=1,
+total value/.store in=\totalv,
+total value=2,
+circled page number/.code={
+\begin{tikzpicture}[fill color/.style={}]
+\pgfkeys{/visual counter/.cd, 
+current value=\insertframenumber,
+total value=\inserttotalframenumber,
+}
+\pgfmathtruncatemacro\current{\currentv+1}
+\def\tot{\totalv}
+\def\radiusout{\radius}
+\def\radiusin{\radius-\thickness}
+
+\foreach \s in {1,...,\tot}
+{
+\ifnum\s>\current%
+\tikzset{fill color/.append style={\colnextframe}}%
+\fi%
+\ifnum\s=\current%
+\tikzset{fill color/.append style={\colcurrframe}}%
+\fi%
+\ifnum\s<\current%
+\tikzset{fill color/.append style={\cololdframe}}%
+\fi%
+\fill[fill color]
+({90-360/\tot * (\s - 1)-\segdist}:\radiusout) arc 
+({90-360/\tot * (\s - 1)-\segdist}:{90-360/\tot * (\s)+\segdist}:\radiusout) --
+({90-360/\tot * (\s)+\segdist}:\radiusin) arc 
+({90-360/\tot * (\s)+\segdist}:{90-360/\tot * (\s - 1)-\segdist}:\radiusin);
+% new addition
+\node[inner sep=0pt,text=\colpagenum] at (0,0){\insertframenumber};
+}
+\end{tikzpicture}
+},
+}
+
+% new footline with 
+\setbeamertemplate{footline}{
+\begin{beamercolorbox}[wd=0.95\textwidth, ht=2ex,dp=1ex,sep=1ex]{footline}
+\hfill%
+\tikz\node[/visual counter/.cd,
+segment distance=-2pt,
+radius=0.5cm, thickness=0.5cm,
+color old frame=orange!50,
+color current frame=cyan!80!gray!50,
+color next frame=cyan!80!gray!50,
+circled page number,
+]{};
+\end{beamercolorbox}
+}
+
+%\usepackage{luapersian}
+
+\begin{document}
+
+\begin{frame}
+abc
+\end{frame}
+
+\begin{frame}
+abc
+\end{frame}
+
+\begin{frame}
+abc
+\end{frame}
+
+\end{document}

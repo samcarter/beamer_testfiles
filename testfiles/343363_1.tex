@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/343363
+\documentclass[aspectratio=169,hyperref={unicode},t]{beamer}
+
+\setbeamertemplate{section in toc}[square]
+
+\setbeamerfont{section number projected}{size=\large}
+\setbeamercolor{section number projected}{bg=red,fg=green}
+
+\begin{document}
+
+\begin{frame}{How to layout TOC entries?}
+\large
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Test}
+    some content
+\subsection{Test Test}
+    some content
+\section{Test}
+\subsection{Test Test}
+\section{Test}
+\subsection{Test Test}
+    some content
+\section{Test}
+\subsection{Test Test}
+    some content
+\end{document}

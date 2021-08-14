@@ -1,0 +1,61 @@
+% https://tex.stackexchange.com/a/358648
+\documentclass[xcolor=dvipsnames,onlyslideswithnotes,t]{beamer}
+\setbeamertemplate{footline}[frame number]
+\usetheme{Frankfurt} 
+
+\setbeamertemplate{navigation symbols}{}
+
+\makeatletter
+\def\sectionentry#1#2#3#4#5{% section number, section title, page
+  \ifnum#5=\c@part%
+  \beamer@section@set@min@width
+  \box\beamer@sectionbox\hskip1.875ex plus 1fill%
+  \beamer@xpos=0\relax%
+  \beamer@ypos=1\relax%
+  \setbox\beamer@sectionbox=
+  \hbox{\def\insertsectionhead{#2}%
+    \def\insertsectionheadnumber{#1}%
+    \def\insertpartheadnumber{#5}%
+    {%
+      \usebeamerfont{section in head/foot}\usebeamercolor[fg]{section in head/foot}%
+      \ifnum\c@section=#1%
+        \ifnum#1=2%
+            \hyperlink{Navigation5}{{\usebeamertemplate{section in head/foot}}}%
+         \else%
+                \hyperlink{Navigation#3}{{\usebeamertemplate{section in head/foot}}}%
+         \fi%
+      \else%
+                \ifnum#1=2%
+                    \hyperlink{Navigation5}{{\usebeamertemplate{section in head/foot shaded}}}%
+                \else%
+                    \hyperlink{Navigation#3}{{\usebeamertemplate{section in head/foot shaded}}}%
+                \fi%
+      \fi}%
+  }%
+  \ht\beamer@sectionbox=1.875ex%
+  \dp\beamer@sectionbox=0.75ex%
+  \fi\ignorespaces}
+\makeatother
+
+\begin{document}
+\section{Jump}
+\begin{frame}
+A 
+\end{frame}
+
+\section{section2}
+\begin{frame}
+\begin{itemize}[<+->]
+\item 1
+\item 2
+\item 3
+\item 4
+\end{itemize}
+\end{frame}
+
+\section{Hide}
+\begin{frame}
+EF
+\end{frame}
+
+\end{document}

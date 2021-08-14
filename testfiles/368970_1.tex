@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/368970
+\documentclass{beamer} 
+\usepackage{cmbright}
+\usepackage{cleveref}
+
+\begin{document}
+
+\begin{frame}
+content...
+\end{frame}
+
+\section{Some fancy section}
+\label{sec:section}
+
+\begin{frame}
+content...
+\end{frame}
+
+\begin{frame}{Some Fancy Title}
+This is some fancy text. It would be nice to reference \hyperlink{sec:section}{to it}. But hyperref jumps to the start of the document, while ref works fine. \ref{sec:section}   
+
+\hyperlinksectionstart{to it}
+
+  
+\end{frame}
+\end{document}

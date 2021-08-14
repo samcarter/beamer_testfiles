@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/353827
+\documentclass[t,8pt]{beamer}
+
+\setbeamerfont{itemize/enumerate body}{series=\bfseries}
+\setbeamerfont{itemize/enumerate subbody}{series=\normalfont}
+
+\begin{document}
+
+\begin{frame}{Insert page title}{Subtitle}
+  \begin{itemize}
+    \item First level
+    \begin{itemize}
+        \item Second level
+        \begin{itemize}
+            \item Third level
+        \end{itemize}
+    \end{itemize}
+    \item Again first level
+\end{itemize}
+\end{frame}
+
+\end{document}

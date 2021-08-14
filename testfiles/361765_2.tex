@@ -1,0 +1,51 @@
+% https://tex.stackexchange.com/a/361765
+\documentclass[handout,xcolor=table]{beamer}
+
+\usetheme{Berlin}
+\usefonttheme[onlylarge]{structurebold}
+\setbeamerfont{frametitle}{size=\normalsize,series=\bfseries}
+\setbeamercolor{footline}{fg=blue}
+\setbeamerfont{footline}{series=\bfseries}
+
+\setbeamertemplate{navigation symbols}{%
+    \fontsize{12}{14}\selectfont%
+  \usebeamercolor[fg]{footline}%
+  \hspace{5em}%
+  \ifnum\insertframenumber>0
+    \insertframenumber~/~\inserttotalframenumber
+  \fi
+}
+
+\definecolor{mediumblue}{rgb}{0.0, 0.0, 0.8}
+\definecolor{azulwhale}{rgb}{0.19921875,0.19921875,0.6953125}
+
+\begin{document}
+
+\begin{frame}[noframenumbering]
+    \titlepage
+  \vspace{-0.6 cm}
+  \setlength{\tabcolsep}{1.0cm}
+\end{frame}
+
+\setcounter{tocdepth}{1}
+\begin{frame}[noframenumbering]{Summary}
+    \tableofcontents
+\end{frame}
+
+\section{Introduction}
+\subsection{\thesection - Introduction}
+
+\begin{frame}
+    \textbf{1 - Introduction}
+
+    The graduates of ICMC's graduate programs occupy prominent positions in universities, research centers, government agencies and national and foreign companies. This impact can be regionally identified, since many of them have become teachers in reputable universities in Brazil and América do Sul and created new research centers and graduate programs, which generates significant contribution to the expansion of education and science.
+\end{frame}
+
+
+\begin{frame}
+
+\centering
+\textbf{Thank you. \\ My contact: ricardoramos@icmc.usp.br} 
+\end{frame}
+
+\end{document}

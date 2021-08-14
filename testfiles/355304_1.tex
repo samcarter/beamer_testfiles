@@ -1,0 +1,77 @@
+% https://tex.stackexchange.com/a/355304
+\documentclass{beamer}
+
+%\usetheme{simple}
+\useoutertheme{smoothbars}
+
+\usepackage{lmodern}
+\usepackage[scale=2]{ccicons}
+
+\title{A simple beamer theme}
+\subtitle{}
+\date{\today}
+\author{Facundo Mu\~noz}
+\institute{\url{http://github.com/famuvie}}
+
+\makeatletter
+\setbeamertemplate{headline}{%
+  \pgfuseshading{beamer@barshade}%
+  \ifbeamer@sb@subsection%
+    \vskip-9.75ex%
+  \else%
+    \vskip-7ex%
+  \fi%
+  \begin{beamercolorbox}[ignorebg,ht=2.25ex,dp=3.75ex,wd=.9\paperwidth]{section in head/foot}
+    \insertnavigation{.9\paperwidth}\raisebox{-7ex}{\includegraphics[height=\headheight]{example-image}}
+  \end{beamercolorbox}
+  \ifbeamer@sb@subsection%
+    \begin{beamercolorbox}[ignorebg,ht=2.125ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil,wd=.9\paperwidth]{subsection in head/foot}
+      \usebeamerfont{subsection in head/foot}\insertsubsectionhead
+    \end{beamercolorbox}%
+  \fi%
+}%
+\makeatother
+
+\begin{document}
+
+\begin{frame}[plain]
+\titlepage 
+\end{frame}
+
+\section{test}
+\subsection{test2}
+\begin{frame}{simple}
+  \framesubtitle{A beamer theme}
+
+  \texttt{simple} is a minimalist Beamer theme that features
+
+  \begin{columns}
+    \column{.5\textwidth}
+      \begin{itemize}
+        \item a \alert{watermark} logo in the background
+        \item slide \alert{numbers}
+        \item \emph{emph}asized and \alert{alert}ed text
+      \end{itemize}
+
+    \column{.5\textwidth}
+      \begin{block}{And of course...}
+         blocks, columns, and all Beamer power
+      \end{block}
+  \end{columns}
+
+\end{frame}
+
+\section{section 2}
+\begin{frame}
+\end{frame}
+
+\section{section 3}
+\begin{frame}
+\end{frame}
+
+\section{.}
+\begin{frame}
+\end{frame}
+
+\end{document}

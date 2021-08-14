@@ -1,0 +1,48 @@
+% https://tex.stackexchange.com/a/343066
+\documentclass[unknownkeysallowed]{beamer}
+\usepackage[style=verbose,backend=biber]{biblatex}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{relsize}
+\usepackage{url}
+\usepackage{bm}
+\usepackage[english, magyar]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\captionsetup[figure]{labelformat=empty}
+
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{sidebar right}{}
+\setbeamertemplate{footline}{\hfill\usebeamertemplate***{navigation symbols}{
+\usebeamerfont{footline}
+\usebeamercolor[fg]{footline}
+\hspace{1em}
+\insertframenumber/\inserttotalframenumber}
+\hspace{1em}
+}
+
+\renewcommand{\footnotesize}{\tiny}
+\newcommand\Fontvi{\fontsize{6}{7.2}\selectfont}
+\usepackage{adjustbox}
+
+
+\begin{document}
+
+\frame[shrink=20]{\frametitle{Title~\footfullcite{mandelbrot68}}
+FBM
+}
+
+\begin{frame}
+\frametitle{Title~\footfullcite{mandelbrot68}}
+ \begin{adjustbox}{width=\textwidth,height=\textheight,keepaspectratio}
+     text text text text text text text text text text text text text text text text text text 
+    \end{adjustbox}
+\end{frame}
+
+\frame{\frametitle{Title2~\footfullcite{mandelbrot68}}
+FBM2
+}
+
+\end{document}

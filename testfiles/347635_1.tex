@@ -1,0 +1,49 @@
+% https://tex.stackexchange.com/a/347635
+\documentclass[11pt]{beamer}
+\usetheme{Warsaw}
+
+\makeatletter
+\setbeamertemplate{headline}
+{%
+  \leavevmode%
+  \@tempdimb=2.4375ex%
+  \ifnum\beamer@subsectionmax<\beamer@sectionmax%
+    \multiply\@tempdimb by\beamer@sectionmax%
+  \else%
+    \multiply\@tempdimb by\beamer@subsectionmax%
+  \fi%
+  \ifdim\@tempdimb>0pt%
+    \advance\@tempdimb by 1.825ex%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=\@tempdimb]{section in head/foot}%
+      \vbox to\@tempdimb{\vfil\insertsectionnavigation{.5\paperwidth}\vfil}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=\@tempdimb]{subsection in head/foot}%
+      \vbox to\@tempdimb{\vfil\insertsubsectionnavigation{.3\paperwidth}\vfil}%
+      \hfill
+      \includegraphics[height=\headheight]{example-image}
+    \end{beamercolorbox}%
+  \fi%
+}
+\makeatother
+
+\begin{document}
+
+\section{bla}
+\subsection{blub1}
+\begin{frame}
+content...
+\end{frame}
+\subsection{blub2}
+\begin{frame}
+content...
+\end{frame}
+\subsection{blub3}
+\begin{frame}
+content...
+\end{frame}
+\subsection{blub4}
+\begin{frame}
+content...
+\end{frame}
+
+\end{document}

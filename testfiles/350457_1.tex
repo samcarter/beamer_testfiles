@@ -1,0 +1,14 @@
+% https://tex.stackexchange.com/a/350457
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}
+  \begin{itemize}[<+-| alert@+>]
+      \item \alert<4>{item 1}
+      \item item 2
+      \item item 3 \only<4>{\alert{Contradiction}}
+  \end{itemize}
+\end{frame}
+
+\end{document}

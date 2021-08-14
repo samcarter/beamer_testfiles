@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/343646
+\documentclass{beamer}
+\usetheme{Berlin}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{example-grid-100x100bp}}
+
+\addtobeamertemplate{block begin}{%
+    \pgfsetfillopacity{0.65}%
+}{
+    \pgfsetfillopacity{1}%
+}
+
+
+\begin{document}
+  \begin{frame}
+    \begin{block}{Test}
+            Bla
+    \end{block}
+  \end{frame}
+\end{document}

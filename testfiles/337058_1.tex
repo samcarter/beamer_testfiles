@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/337058
+\documentclass[compress]{beamer}
+\usecolortheme{rose}
+
+\usebackgroundtemplate{\centering
+        \includegraphics[width=\paperwidth,height=\paperheight]{example-image}}
+
+\addtobeamertemplate{title page}{\pgfsetfillopacity{0.5}}{\pgfsetfillopacity{1}}
+
+
+\title{test}
+\author{bla}
+
+\setbeamercolor{title}{fg=white, bg=red}
+\setbeamercolor{author}{fg=white, bg=red}
+\setbeamercolor{date}{fg=white, bg=red}
+
+\begin{document}
+  \begin{frame}
+        \titlepage
+  \end{frame}
+\end{document}

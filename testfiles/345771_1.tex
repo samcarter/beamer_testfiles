@@ -1,0 +1,18 @@
+% https://tex.stackexchange.com/a/345771
+\documentclass{beamer}
+
+\AtBeginSection{
+  \begin{frame}[plain]
+        \insertsection
+  \end{frame}
+}
+
+\begin{document}
+
+    \section{sec1}
+    \frame{test \hyperlinksectionstart{start of section} }
+
+    \section{sec2}
+    \frame{test \hyperlinksectionstart{start of section} }
+
+\end{document}

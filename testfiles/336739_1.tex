@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/336739
+\documentclass{beamer}
+\usetheme{Madrid}
+\usepackage{tikz}
+
+\newlength\barheight\setlength\barheight{\paperheight}
+\divide\barheight by 12
+
+
+\setbeamercolor{frametitle}{bg=white}
+
+\setbeamertemplate{frametitle}
+{
+  \begin{beamercolorbox}[wd=0.5\paperwidth,shadow=true,rounded=true]{title}
+    \usebeamerfont{framesubtitle}\insertframesubtitle
+  \end{beamercolorbox}
+}
+
+\begin{document}
+\begin{frame}
+    \frametitle{There Is No Largest Prime Number}
+    \framesubtitle{The proof uses \textit{reductio ad absurdum}.}
+    \begin{beamercolorbox}[wd=0.5\paperwidth,shadow=true,rounded=true]{title}
+        There is no largest prime number.
+    \end{beamercolorbox}
+\end{frame}
+\end{document}

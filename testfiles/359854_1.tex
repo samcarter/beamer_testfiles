@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/359854
+\documentclass{beamer}
+
+\usepackage{overpic}
+
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamerfont{caption}{size=\footnotesize, series=\bfseries}
+\setbeamercolor{caption}{fg=brown}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{continued....}
+\begin{figure}
+    \begin{overpic}[width=\textwidth]{example-image-duck}
+        \put(37,15){\includegraphics<2>[width=.67\textwidth]{example-image-duck}}
+    \end{overpic}
+    \caption{The emission of cluster $^{14}$C from Fr, Ra, Ac and Th isotopes.}
+\end{figure}
+
+\end{frame}
+
+
+\end{document}

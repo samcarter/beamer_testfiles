@@ -1,0 +1,15 @@
+% https://tex.stackexchange.com/a/359607
+\documentclass{beamer}
+
+\usepackage[all]{xy}
+
+\begin{document}
+
+\begin{frame}
+\begin{displaymath}
+\xymatrix{A \only<2>{\ar[r]} & \visible<2>{D} \only<2>{\ar[d]} \\\ B \ar[u] & \visible<2>{C} \only<2>{\ar[l]}}
+\end{displaymath}
+
+\end{frame} 
+
+\end{document}

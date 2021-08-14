@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/a/348956
+\documentclass{beamer}
+
+\begin{document}
+
+    \begin{frame}
+        my \alert<+>{frame}: \hfill \visible<7>{cuckoo!}
+        \begin{itemize}
+            \item<+-> on the \alert<.>{second} slide
+            \item<+-> on the \alert<.>{third} slide
+            \item<+-> on the \alert<.>{fourth} then the \alert<+>{fifth} slides
+            \item<+-> on the \alert<.,+>{sixth} slide
+            \item<.(-1)-> on the \alert<+>{eighth} slide
+        \end{itemize}
+        \visible<+->{but keep it \alert<.,+>{flexible!}}
+        \visible<.>{.. please :'(}
+    \end{frame}
+
+\end{document}

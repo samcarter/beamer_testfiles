@@ -1,0 +1,54 @@
+% https://tex.stackexchange.com/a/366831
+\documentclass{beamer}
+
+\usepackage{listings}
+
+\begin{document}
+\begin{frame}[fragile]
+\lstset{language=C++,
+            basicstyle=\ttfamily,
+            keywordstyle=\color{blue}\ttfamily,
+            stringstyle=\color{red}\ttfamily,
+            commentstyle=\color{gray}\ttfamily,
+            morecomment=[l][\color{magenta}]{\#}
+}
+\tiny
+\begin{lstlisting}
+
+for(int i = 0; i < 4; i++){
+   for(int j = 0; j < 2; j++){
+     glPushMatrix();
+     // We move the chair and table to their new location
+     glTranslatef(-250.F + 220.F * i - 70.F * j,
+     .0F, 20.F + 150.F * j);
+
+     // if it's on the second row, we slightly rotate it
+     float angle = j==0?-60.F:15.F*i;
+     glRotatef(angle, 0, 1, 0);
+
+     // if we're displaying using another mode than WIREFRAME
+     // we assign a material to the chair
+     if(mode != WIREFRAME)
+         assignMaterial(&reddishMaterial);
+     chair.draw_model(mode);
+
+     glPushMatrix();
+     // we rotate the table to fit the chair
+     // we scale it up a little bit on the z axis
+     glRotatef(90, 0, 1, 0);
+     glScalef(1, 1.7, 1);
+     glTranslatef(-170.F, 0.F, 20.F);
+     // if we're displaying using another mode than WIREFRAME
+     // we assign a material to the table
+     if(mode != WIREFRAME)
+         assignMaterial(&redMaterial);
+     table.draw_model(mode);
+
+     glPopMatrix();
+
+     glPopMatrix();
+   }
+}
+\end{lstlisting}
+\end{frame}
+\end{document}

@@ -1,0 +1,36 @@
+% https://tex.stackexchange.com/a/339099
+\documentclass{beamer}
+
+\usetheme{default}
+\usecolortheme{default}
+\usenavigationsymbolstemplate{}
+
+\defbeamertemplate*{footline}{infolines theme}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor~(\insertshortinstitute)
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\setbeamercolor{title in head/foot}{fg=structure.fg}
+
+\begin{document}
+
+\title[Introduction and Overview]{Econ 196, Financial Crises - Morals and
+Markets}
+\author[Eric Fischer]{Eric Fischer}
+\institute[UCSC]{}
+\date{March 31, 2015}
+\maketitle
+
+\end{document}

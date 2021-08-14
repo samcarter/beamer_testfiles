@@ -1,0 +1,47 @@
+% https://tex.stackexchange.com/a/353055
+\documentclass{beamer}
+
+\AtBeginSection[] {
+    \ifnum\insertsubsectionstartpage=\insertsectionstartpage
+        \relax%
+    \else%
+      \begin{frame}<beamer>
+      \frametitle{Inhalt} %
+      \tableofcontents[currentsection]  
+      \end{frame}
+  \fi%
+}
+
+\AtBeginSubsection[] {
+    \begin{frame}<beamer>
+    \frametitle{Inhalt} %
+    \tableofcontents[currentsubsection]  
+    \end{frame}
+}
+
+\title{TITLE}
+\author{AUTHOR}
+
+\begin{document}
+
+\begin{frame}\maketitle\end{frame}
+
+\section{SECT I}
+\subsection{I.1}
+\begin{frame}I.1\end{frame}
+
+\subsection{I.2}
+\begin{frame}I.2\end{frame}
+
+\section{SECT II}
+\begin{frame}II frame 1\end{frame}
+\begin{frame}II frame 2\end{frame}
+
+\section{SECT III}
+\subsection{III.1}
+\begin{frame}III.1\end{frame}
+
+\subsection{III.2}
+\begin{frame}III.2\end{frame}
+
+\end{document}

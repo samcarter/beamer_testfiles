@@ -1,0 +1,66 @@
+% https://tex.stackexchange.com/a/359575
+\documentclass{beamer}
+
+\usetheme{Rochester}
+
+
+\makeatletter
+
+  \setbeamertemplate{frametitle}{%
+    \nointerlineskip%
+    \vskip-\beamer@headheight%
+    \vbox to \beamer@headheight{%
+      %\vfil
+      \leftskip=-\beamer@leftmargin%
+      \advance\leftskip by2.1cm%
+      \rightskip=-\beamer@rightmargin%
+      \advance\rightskip by2.1cm plus1fil%
+      \begin{minipage}[t][\beamer@headheight][c]{\dimexpr\paperwidth-4.2cm\relax}
+        \usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\centering\insertframetitle\par
+        \usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle\par
+      \end{minipage}
+      \vbox{}%
+      \vskip-1em%
+      \vfil
+    }%
+  }
+
+  \setbeamertemplate{headline}{%
+    \begin{beamercolorbox}[wd=\paperwidth]{frametitle}
+      \ifx\beamer@sidebarside\beamer@lefttext%
+      \else%
+        \hfill%
+      \fi%
+      \ifdim\beamer@sidebarwidth>0pt%  
+        \usebeamercolor[bg]{logo}%
+        \vrule width\beamer@sidebarwidth height \beamer@headheight%
+        \hskip-\beamer@sidebarwidth%
+        \hbox to \beamer@sidebarwidth{\hss\vbox to
+          \beamer@headheight{\vss\hbox{\color{fg}\insertlogo}\vss}\hss}%
+      \else%
+        \raisebox{.1\beamer@headheight}{\hspace*{0.1cm}\includegraphics[height=.8\beamer@headheight]{example-image}}
+        \vrule width0pt height \beamer@headheight%  
+        \hfill
+        \raisebox{.1\beamer@headheight}{\includegraphics[height=.8\beamer@headheight]{example-image}}\hspace*{0.1cm}
+      \fi%
+    \end{beamercolorbox}
+  }
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+    \frametitle{frametitle}
+   abc
+\end{frame} 
+
+\begin{frame}
+    \frametitle{frame title frame title  frame title  frame title frame title frame title frame title}
+  abc
+\end{frame} 
+
+\begin{frame}
+    abc
+\end{frame} 
+
+\end{document}

@@ -1,0 +1,95 @@
+% https://tex.stackexchange.com/a/338351
+\documentclass[t,compress,11pt,xcolor=dvipsnames]{beamer}
+
+\usepackage[french]{babel}
+\usepackage{pifont}
+\usepackage{ifthen}
+
+\definecolor{LHCblue}{RGB}{4, 114, 255}
+\definecolor{charcoal}{RGB}{34,34,34}
+
+\usetheme{Ilmenau}
+\usefonttheme{professionalfonts}
+\usefonttheme{serif}
+\useoutertheme{tree}
+\useoutertheme[subsection=true]{smoothbars}
+\useinnertheme{circles}
+\usecolortheme[named=LHCblue]{structure}
+
+\setbeamercolor{navigation symbols dimmed}{fg=red!80!black}
+\setbeamercolor{navigation symbols}{fg=red!80!black}
+
+\newcommand*\oldmacro{}
+\let\oldmacro\insertshorttitle%
+\renewcommand*\insertshorttitle{%
+    \oldmacro\hfill%
+    \insertframenumber\,%
+}
+
+\usepackage{amsmath,amssymb}
+
+\usetheme{Ilmenau}
+\title[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]{xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx}
+\author[Mr. xxxxxxxx]{Pr\'{e}sent\'{e}e par: \textbf{Mr. xxxxxxxxxx}\\
+Encadre\'{e}e par: Professeur}
+\institute[xxxxxxxxxxsdxxxxxxxxxxxx]{ }
+\date{02/2017}
+
+\begin{document}
+
+{
+\setbeamercolor{section in head/foot}{fg=black}
+\setbeamercolor{author in head/foot}{fg=structure.fg!75!black}
+\setbeamercolor{institute in head/foot}{fg=structure.fg!75!black}
+\begin{frame}
+    \vskip0.5cm
+    \begin{columns}[T]
+        \begin{column}{1cm}
+            \includegraphics[width=1cm]{example-image}
+        \end{column}
+        \begin{column}{9cm}
+            \bfseries
+            \color{black}
+            \fontsize{6}{6}\selectfont 
+            \centering
+                Minist\`{e}re de l'Enseignement  Sup\'{e}rieur et de la Recherche Scientifique \\
+                Universit\'{e} Abderrahmane Mira de B\'{e}jaia, Facult\'{e} des Sciences Exactes\\
+                Unit\'{e} de Recherche LaMOS
+        \end{column}
+        \begin{column}{2cm}
+            \includegraphics[width=2cm, height = 0.90cm]{example-image}
+        \end{column}
+    \end{columns}
+    \begin{center}
+        SOUTENANCE D'UNE TH\`{E}SE DE DOCTORAT EN MATH\'{E}MATIQUES  APPLIQU\'{E}ES
+    \end{center}
+    \vskip-1cm
+    \titlepage
+\end{frame}
+}
+
+  \begin{frame}
+  \frametitle{Table of Contents}
+  \small \tableofcontents
+  \end{frame}
+  \section{A}
+  \subsection{AA}
+  \begin{frame}A\end{frame}
+   \subsection{AA}
+  \begin{frame}A\end{frame}
+  \section{B}
+  \subsection{BA}
+  \begin{frame}B\end{frame}
+  \subsection{BB}
+  \begin{frame}B\end{frame}
+  \subsection{BC}
+  \begin{frame}B\end{frame}
+  \begin{frame}B\end{frame}
+  \begin{frame}B\end{frame}
+  \section{C}
+  \subsection{CA}
+  \begin{frame}C\end{frame}
+  \subsection{CB}
+  \begin{frame}C\end{frame}
+
+\end{document} 

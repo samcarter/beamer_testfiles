@@ -1,0 +1,82 @@
+% https://tex.stackexchange.com/a/335023
+\documentclass{beamer}
+\usetheme[height=0cm]{Rochester}
+
+\setbeamercolor{frametitle}{parent=subsection in head/foot}
+\setbeamercolor{frametitle right}{bg=green}
+
+\makeatletter
+\pgfdeclareverticalshading[frametitle.bg,frametitle right.bg]{beamer@frametitleshade}{\paperwidth}{%
+    color(0pt)=(frametitle right.bg);
+    color(.15\paperheight)=(frametitle.bg)}
+
+\AtBeginDocument{
+    \pgfdeclareverticalshading{beamer@topshade}{\paperwidth}{%
+        color(0pt)=(bg);
+        color(4pt)=(black!50!bg)}
+}
+
+\setbeamertemplate{frametitle}
+{%
+    \nointerlineskip%
+    \vskip-2pt%
+    \hbox{\leavevmode
+        \advance\beamer@leftmargin by -12bp%
+        \advance\beamer@rightmargin by -12bp%
+        \beamer@tempdim=\textwidth%
+        \advance\beamer@tempdim by \beamer@leftmargin%
+        \advance\beamer@tempdim by \beamer@rightmargin%
+        \hskip-\Gm@lmargin\hbox{%
+            \setbox\beamer@tempbox=\hbox{\begin{minipage}[b][.15\paperheight][c]{\paperwidth}%
+                    \vbox{}\vskip-.75ex%
+                    \leftskip0.3cm%
+                    \rightskip0.3cm plus1fil\leavevmode
+                    \hfill\insertframetitle\hfill%
+                    \ifx\insertframesubtitle\@empty%
+                    \strut\par%
+                    \else
+                    \par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+                    \fi%
+                    \nointerlineskip
+                    \vbox{}%
+                \end{minipage}}%
+                \beamer@tempdim=\ht\beamer@tempbox%
+                \advance\beamer@tempdim by 2pt%
+                \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
+                    \usebeamercolor{frametitle right}
+                    \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+                    \pgfusepath{clip}
+                    \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+                \end{pgfpicture}
+                \hskip-\paperwidth%
+                \box\beamer@tempbox%
+            }%
+            \hskip-\Gm@rmargin%
+        }%
+        \nointerlineskip
+        \vskip-0.2pt
+        \hbox to\textwidth{\hskip-\Gm@lmargin\pgfuseshading{beamer@topshade}\hskip-\Gm@rmargin}
+        \vskip-2pt
+    }
+\makeatother
+
+
+\title{Presentation}
+\subtitle{}
+\author{}
+\institute{}
+\date{\today} 
+
+\begin{document}
+
+\begin{frame}
+    \titlepage{}
+\end{frame}
+
+\section{text}
+\subsection{wl}
+\begin{frame}
+    \frametitle{Frametitle which should have vertical shading}
+\end{frame}
+
+\end{document}

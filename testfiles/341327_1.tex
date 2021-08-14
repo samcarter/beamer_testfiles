@@ -1,0 +1,67 @@
+% https://tex.stackexchange.com/a/341327
+\documentclass{beamer}
+
+\usepackage{beamerthemesplit}
+\usetheme{PaloAlto}
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamerfont{title}{size=\Large, series=\bfseries}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{author}{size=\footnotesize}
+\setbeamerfont{framesubtitle}{size=\large, series=\bfseries}
+\setbeamercolor{author}{fg=blue}
+\setbeamercolor{framesubtitle}{fg=cyan}
+
+\title[]{My Thesis}
+\subtitle{}
+\author[]{H. John}
+\date{2016}
+
+\usepackage{verbatim}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame} 
+
+\begin{frame}[t,allowframebreaks]
+    \frametitle{Table of Contents}
+    \tableofcontents
+\end{frame}
+
+\section[Int]{Introduction}
+\frame{\sectionpage}
+
+\subsection[Scope]{Scope}
+\frame{\subsectionpage}
+
+\begin{frame}[fragile,t,shrink=6]
+    \frametitle{overview}
+    \framesubtitle{Main}
+
+    \begin{center}
+        \color{blue}
+        Dosing regimens for pain
+    \end{center}
+
+    ddd aaa ccc ddd
+\end{frame} 
+
+\subsection*{overImp}
+\begin{frame}[fragile,t,shrink=6]
+    \frametitle{overview}
+    \framesubtitle{Important}
+
+    \begin{center}
+         \color{blue}
+            xxx yyyy
+    \end{center}
+
+    ddd aaa ccc ddd
+\end{frame}
+
+\subsection[Lim]{Limits}
+\frame{\subsectionpage}
+
+\end{document} 

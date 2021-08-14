@@ -1,0 +1,23 @@
+% https://tex.stackexchange.com/a/354979
+\documentclass[10pt]{beamer}
+
+\begin{document}
+
+\begin{frame}{Title}
+Some texts
+
+\begin{figure}
+    \begin{minipage}[c][3cm][c]{0.499\linewidth}
+    \centering
+    \includegraphics<1>[height=3cm]{example-image}
+    \includegraphics<2>[height=1cm]{example-image}            
+    \end{minipage}%
+    \begin{minipage}{0.499\linewidth}
+    \centering
+    \includegraphics[height=2cm]{example-image}
+    \end{minipage}
+\end{figure}
+Some other texts
+\end{frame}
+
+\end{document}

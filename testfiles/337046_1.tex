@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/337046
+\documentclass{beamer}
+\begin{document}
+\begin{frame}[fragile]
+
+\begin{equation}
+    x=1
+\label{eq:eq1}
+\end{equation}
+
+\begin{itemize}[<+->]
+    \item[] Item 1: Not very interesting.
+    \item[] Item 2:
+            \begin{equation}
+                x=2
+            \label{eq:eq2}
+            \end{equation}
+            \ref{eq:eq2} \ref{eq:eq1}
+\end{itemize}
+
+\end{frame}
+\end{document}

@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/358959
+\documentclass[]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}     
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\usetheme{Warsaw}
+
+\begin{document}
+
+\begin{frame}{Title}
+  \centering
+  \begin{tikzpicture}
+    \node[draw,circle,fill=black] (a) {};
+    \visible<2->{\node[draw,fill=black,above=of a] (b) {};}
+  \end{tikzpicture}
+\end{frame}
+
+\end{document}

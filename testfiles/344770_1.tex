@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/344770
+\documentclass[12pt]{beamer}
+\usefonttheme{professionalfonts}
+
+\usepackage{siunitx}
+\usepackage{newtxtext,newtxmath}
+\usepackage{bm}
+\usepackage[turkish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[loadonly]{enumitem}
+%\usepackage[shortlabels]{enumerate}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+        \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+%\usepackage{mathptmx}
+\begin{document}
+    \begin{eqnarray*}
+        x\bigoplus y=\max\left\{x,y\right\}\\
+        x\bigotimes y=x+y
+    \end{eqnarray*}
+\end{document}

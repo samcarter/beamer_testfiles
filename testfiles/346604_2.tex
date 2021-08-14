@@ -1,0 +1,37 @@
+% https://tex.stackexchange.com/a/346604
+\documentclass{beamer}
+
+\makeatletter
+  \let\th@plain\relax
+  \let\openbox\relax
+  \let\proofname\relax
+  \let\proof\relax
+  \let\endproof\relax
+  \def\@ptsize{0}
+\makeatother
+
+\newtheorem{observation}[theorem]{Observation}
+
+\usetheme{Frankfurt}
+\useinnertheme{circles}
+\usecolortheme{whale}
+
+\begin{document}
+  \begin{frame}[t]{Folie I.}
+    \begin{block}{Block I}
+    \begin{itemize}
+    \item Hier ein \alert{Alert Befehl} --- seht ihr! Es klappt.
+    \end{itemize}
+    \end{block}
+    \begin{block}{Block II}
+    \begin{itemize}
+        \item<alert@1>
+            Hier ein Alert Befehl mit \alert{at-Zeichen}
+                --- warum, sobald ich ntheorem lade, funktioniert es auf einmal nicht??
+    \end{itemize}
+    \end{block}
+    \begin{observation}
+        bla bla
+    \end{observation}
+  \end{frame}
+\end{document}

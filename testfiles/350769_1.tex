@@ -1,0 +1,59 @@
+% https://tex.stackexchange.com/a/350769
+\documentclass[handout]{beamer}
+
+\hypersetup{pdfpagemode=UseOutlines,
+ pdfstartview=FitH,
+ bookmarksopen=true}
+
+\usepackage{etoolbox}
+\usepackage{bookmark}
+
+
+\makeatletter
+\apptocmd{\beamer@@frametitle}{\only<1|handout:0>{\bookmark[page=\the\c@page,level=3]{#1}}}%
+{\message{** patching of \string\beamer@@frametitle succeeded **}}%
+{\errmessage{** patching of \string\beamer@@frametitle failed **}}%
+\makeatother
+
+
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
+
+
+\title{Test}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Test}
+\begin{itemize}
+\item Test
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Test}
+\begin{itemize}
+\item Test
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Test}
+\begin{itemize}
+\item Test
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Test}
+\begin{itemize}
+\item Test
+\end{itemize}
+\end{frame}
+
+\end{document}

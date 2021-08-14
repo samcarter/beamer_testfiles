@@ -1,0 +1,53 @@
+% https://tex.stackexchange.com/a/363960
+\documentclass[final]{beamer}
+
+\usepackage[scale=1.24]{beamerposter} % Use the beamerposter package for laying out the poster
+
+\usetheme{confposter} % Use the confposter theme supplied with this template
+
+\newlength{\sepwid}
+\newlength{\onecolwid}
+\newlength{\twocolwid}
+\newlength{\threecolwid}
+
+\setlength{\sepwid}{0.024\paperwidth} % Separation width (white space) between columns
+\setlength{\onecolwid}{0.22\paperwidth} % Width of one column
+
+\title{Unnecessarily Complicated Research Title} % Poster title
+
+\author{John Smith, James Smith and Jane Smith} % Author(s)
+
+\institute{Department and University Name} % Institution(s)
+
+\setbeamertemplate{bibliography entry article}{}
+\setbeamertemplate{bibliography entry title}{}
+\setbeamertemplate{bibliography entry location}{}
+\setbeamertemplate{bibliography entry note}{}
+
+
+
+\begin{document}
+
+\begin{frame}[t] 
+
+\begin{columns}[t] 
+
+\begin{column}{\onecolwid} 
+
+Blabla \cite{Smith:2012qr}
+Blabla \cite{Smith:2013jd}
+
+\begin{block}{References}
+
+\bibliographystyle{plain}
+\bibliography{sample.bib}
+
+\end{block}
+
+\end{column} % End of the third column
+
+\end{columns} % End of all the columns in the poster
+
+\end{frame} % End of the enclosing frame
+
+\end{document}

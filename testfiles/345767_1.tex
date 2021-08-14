@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/345767
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}
+    \begin{columns}
+        \begin{column}{.45\linewidth}
+        \begin{overlayarea}{\linewidth}{.25\textheight}
+            \includegraphics<+>[page=1]{example-image}
+            \includegraphics<+>[page=1]{example-image-a}
+            \includegraphics<+>[page=1]{example-image-b}
+            \includegraphics<+>[page=1]{example-image-c}
+        \end{overlayarea}
+        \end{column}
+            \begin{column}{.55\linewidth}
+        \begin{itemize}
+            \item<2-> first item, appears on page 2
+            \item<3-> second item, appears on page 3
+            \item<4-> third item, appears on page 4
+            \item<4-> fourth item, appears on page 4
+        \end{itemize}
+            \end{column}
+    \end{columns}
+
+\end{frame} 
+
+\end{document}

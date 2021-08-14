@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/341702
+ \documentclass[11pt]{beamer}
+ \usetheme{Darmstadt}
+ \usepackage[utf8]{inputenc}
+ \usepackage{caption}
+ \usepackage[absolute,overlay]{textpos}
+ \setbeamertemplate{footline}[frame number]
+ \date{\today} 
+ \subject{Thesis}  
+ \usepackage{graphbox}
+
+ \setbeamertemplate{footline}{%
+        \includegraphics[align=c, height=0.5cm]{example-image}%
+        \hfill%
+        \usebeamercolor[fg]{page number in head/foot}%
+        \usebeamerfont{page number in head/foot}%
+        \insertframenumber\,/\,\inserttotalframenumber\kern1em%
+ }
+
+  \begin{document}
+
+ \begin{frame}
+ {Hello World}
+  You are Welcome
+
+  \end{frame}
+ \end{document}

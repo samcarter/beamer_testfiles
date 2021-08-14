@@ -1,0 +1,30 @@
+% https://tex.stackexchange.com/a/352747
+\documentclass{beamer}
+
+\BeforeBeginEnvironment{frame}{%
+    \frame{%
+        \transduration{0.5}
+        \insertframenumber
+        \addtocounter{framenumber}{-1}
+    }
+}
+
+\begin{document}
+
+\begin{frame}
+test
+\end{frame}
+
+\begin{frame}
+test
+\end{frame}
+
+\begin{frame}
+test
+\end{frame}
+
+\begin{frame}
+test
+\end{frame}
+
+\end{document}

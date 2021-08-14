@@ -1,0 +1,16 @@
+% https://tex.stackexchange.com/a/347411
+\documentclass{beamer}
+
+\usepackage[style=authoryear]{biblatex}
+\addbibresource{biblatex-examples.bib}
+
+\renewcommand*{\bibfont}{\scriptsize}
+
+\begin{document}
+
+\begin{frame}[allowframebreaks]
+\nocite{*}
+\printbibliography
+\end{frame}
+
+\end{document}

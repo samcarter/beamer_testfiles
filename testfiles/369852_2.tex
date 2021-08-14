@@ -1,0 +1,62 @@
+% https://tex.stackexchange.com/a/369852
+\documentclass[10pt]{beamer}
+
+\usetheme[progressbar=frametitle]{metropolis}
+
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{appendixnumberbeamer}
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\title{Title}
+\subtitle{Subtitle}
+\date{\today}
+\author{Name}
+\institute{Institute}
+
+\makeatletter
+\setlength{\metropolis@progressinheadfoot@linewidth}{3pt}
+\setlength{\metropolis@titleseparator@linewidth}{3pt}
+\setlength{\metropolis@progressonsectionpage@linewidth}{3pt}
+
+\setbeamertemplate{progress bar in section page}{
+  \setlength{\metropolis@progressonsectionpage}{%
+    \textwidth * \ratio{\thesection pt}{\totvalue{totalsection} pt}%
+  }%
+  \begin{tikzpicture}
+    \fill[bg] (0,0) rectangle (\textwidth, \metropolis@progressonsectionpage@linewidth);
+    \fill[fg] (0,0) rectangle (\metropolis@progressonsectionpage, \metropolis@progressonsectionpage@linewidth);
+  \end{tikzpicture}%
+}
+
+\makeatother
+
+\usepackage{totcount}
+
+\newcounter{totalsection}
+\regtotcounter{totalsection}
+
+\AtBeginDocument{%
+    \pretocmd{\section}{\refstepcounter{totalsection}}{\typeout{Yes, prepending was successful}}{\typeout{No, prepending was not it was successful}}%
+}%
+
+\begin{document}
+\maketitle
+
+\begin{frame}{Contents}
+    \setbeamertemplate{section in toc}[sections numbered]
+    \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Introduction}
+\begin{frame}{Introduction}
+        blablablablablablabla
+\end{frame}
+
+\section{Introduction}
+\begin{frame}{Introduction}
+        blablablablablablabla
+\end{frame}
+
+\end{document}

@@ -1,0 +1,50 @@
+% https://tex.stackexchange.com/a/357670
+\documentclass[10pt]{beamer}
+\newcommand{\mypause}[1][+]{\onslide<#1>}
+
+\AtBeginSection[]{%
+    \begin{frame}<\value{section}>
+        \setbeamercovered{%
+           still covered={\opaqueness<1->{15}},
+           again covered={\opaqueness<1->{15}}
+        }
+        \let\pause\mypause
+        \tableofcontents[pausesections, subsectionstyle=hide]
+    \end{frame}
+    \begin{frame}
+        \tableofcontents[currentsection, sectionstyle=show/hide, subsectionstyle=show/show/hide]
+    \end{frame}    
+
+}
+
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[ball]
+
+\begin{document}
+
+\section{Lecture 1}
+\begin{frame}
+ Something text here
+\end{frame}
+
+\subsection{Topic 1}
+\begin{frame}
+ Something text here
+\end{frame}
+
+\subsection{Topic 2}
+\begin{frame}
+ Something text here
+\end{frame}
+
+\section{Lecture 2}
+\begin{frame}
+ Something text here
+\end{frame}
+
+\section{Lecture 3}
+\begin{frame}
+ Something text here
+\end{frame}
+
+\end{document}

@@ -1,0 +1,47 @@
+% https://tex.stackexchange.com/a/339724
+\documentclass[xcolor=pdftex,t,11pt]{beamer}
+
+\newenvironment{stepenumerate}{\begin{enumerate}[<+->]}{\end{enumerate}}
+\newenvironment{stepitemize}{\begin{itemize}[<+->]}{\end{itemize} }
+\newenvironment{stepenumeratewithalert}{\begin{enumerate}[<+-| alert@+>]}{\end{enumerate}}
+\newenvironment{stepitemizewithalert}{\begin{itemize}[<+-| alert@+>]}{\end{itemize} }
+
+\begin{document}
+
+
+\section{Time series}
+\subsection{Few preliminaries}
+\begin{frame}
+\frametitle{Time series}
+\framesubtitle{Few preliminaries}
+\begin{stepitemizewithalert}
+\item Before entering our topics, let us review some of the properties of time series.\medskip
+\begin{stepenumeratewithalert}[Prop. 1:]
+\item Time series data have autoregressive (AR), moving average (MA) and seasonal dynamic processes. Since data are ordered in time, this means that past values affect future values. This often results in a violation of the assumption of no serial correlation in the OLS:\medskip
+\begin{equation*}
+E\left[\varepsilon_{t},\varepsilon_{s}|\mathbf{x}\right]\neq0 \ \forall t\neq s
+\end{equation*}
+\item Time series often have time dependent moments (as mean, variance and so on). In many time series, the mean or the variance increase over time (this is a non--stationarity issue, we will discuss later).
+\end{stepenumeratewithalert}
+\end{stepitemizewithalert}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Time series}
+\framesubtitle{Few preliminaries}
+\begin{stepitemizewithalert}
+\item In addition:\medskip
+\begin{stepenumeratewithalert}[Prop. 1:]
+\addtocounter{enumi}{2}
+\item The sequential nature of the data allows for forecasting of future events.\medskip
+\item Events in time series may generate a structural break (e.g. remember the Chow break--point test, you carried out last time).\medskip
+\item Many time series are in an equilibrium relationship (this is the cointegration topic we will discuss later).\medskip
+\item Many time series are endogenously related. In this case we can model them within a multi-equation time series approach like the vector autoregressive model (VAR).\medskip
+\item The effect of the regressors on the regressand can vary over time. In this case, we can use some varying parameter models to account for this.
+\end{stepenumeratewithalert}
+\end{stepitemizewithalert}
+\end{frame}
+
+\end{document}

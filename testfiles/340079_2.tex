@@ -1,0 +1,14 @@
+% https://tex.stackexchange.com/a/340079
+\documentclass{beamer}
+
+\begin{document}
+\begin{frame}{Footnote Overlay Tested}
+  text 1~\footnotemark[1]
+
+  \uncover<2->{text 2~\footnotemark[2]}
+
+  \footnotetext[1]{footnote 1}
+
+  \alt<1>{\let\thefootnote\relax\footnotetext{~}}{\footnotetext[2]{footnote 2}}
+\end{frame}
+\end{document}

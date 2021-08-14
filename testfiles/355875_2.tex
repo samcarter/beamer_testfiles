@@ -1,0 +1,56 @@
+% https://tex.stackexchange.com/a/355875
+\documentclass{beamer}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+%\usepackage{xcolor}
+%\usepackage{graphicx}
+\usepackage{amsfonts, amsmath, amssymb, amsthm}
+\usepackage{textcomp}
+\usepackage{lmodern} 
+\usepackage{tikz}
+
+% Declare the mainpage
+    % only will be used for the mainpage
+
+% Declare emptypage
+    % only for the emptypage
+
+% Declare contentpage
+    % only for content
+\definecolor{gradient}{HTML}{0E1778}
+
+% headline
+\setbeamertemplate{headline}{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \node [rectangle, left color=gradient, right color=gradient!30!white, anchor=north, minimum width=\paperwidth, minimum height=1cm] (box) at (current page.north){};
+  \end{tikzpicture}%
+}
+
+\useinnertheme{rounded}
+\setbeamercolor{frametitle}{fg=white}
+\setbeamercolor{title}{bg=blue!60!black, fg=white}
+\setbeamercolor{block body}{fg=black, bg=green!70!white}
+\setbeamercolor{block title}{fg=white, bg=green!40!black}
+
+
+\title{Title}
+\author{Author}
+\date{\today}
+\institute{Institute}
+
+\begin{document}
+    \begin{frame}[plain]
+        \titlepage
+    \end{frame}
+    \begin{frame}[plain]
+        \tableofcontents
+    \end{frame}
+    \section{test}
+    \begin{frame}{Content}
+        some content
+        \begin{definition}
+            bal bla
+        \end{definition}
+    \end{frame}
+\end{document}

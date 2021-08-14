@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/359970
+\documentclass[xcolor=dvipsnames]{beamer}
+\usepackage{graphbox}
+\usepackage{beamerthemesplit}
+\usepackage[absolute,overlay]{textpos}
+
+\usepackage[orientation=landscape,size=custom,width=16,height=9,scale=0.5,debug]{beamerposter}
+\usepackage[font=Times, timeinterval=1, timeduration=15]{tdclock}
+\setbeamertemplate{background}{\rule{0em}{.99\paperheight}\hspace{.5em}{\color{white}\tiny\bfseries\crono}}
+
+\usetheme{Madrid}
+\usecolortheme[named=Cyan]{structure}
+\usepackage{tikz}
+
+\title[Title Short]{Title Long}
+\author{Job}
+\date{March 29, 2017}
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+\begin{document}
+\begin{frame}
+ \initclock 
+  \titlepage
+\end{frame}
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+\end{document}

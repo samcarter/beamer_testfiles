@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/360425
+\documentclass{beamer}
+
+\newenvironment<>{examplefirst2}[1]{%
+\setbeamercolor{itemize item}{fg=red}
+\setbeamercolor{block title}{fg=white,bg=red!90!black}%
+  \begin{block}#2{#1}}{\end{block}}
+
+\begin{document}
+
+\begin{frame}
+
+\begin{block}{bla}
+    \begin{itemize}
+    \item item
+    \end{itemize}
+\end{block}
+
+\begin{examplefirst2}{bla}
+    \begin{itemize}
+    \item item
+    \end{itemize}
+\end{examplefirst2}
+
+
+\end{frame}
+
+\end{document}

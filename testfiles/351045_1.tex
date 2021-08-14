@@ -1,0 +1,56 @@
+% https://tex.stackexchange.com/a/351045
+\documentclass{beamer}
+\setbeameroption{hide notes}
+
+\usepackage{lmodern}
+
+\usepackage[backend=biber, style=authoryear, doi=false,isbn=false,url=false, giveninits=true]{biblatex}
+\begin{filecontents}{\jobname.bib}
+@article{Forrest2014,
+    author = {Forrest, Alistair R. R. and Kawaji, Hideya and Rehli, Michael and {Kenneth Baillie}, J. and de Hoon, Michiel J. L. and Haberle, Vanja and Lassmann, Timo},
+    doi = {10.1038/nature13182},
+    issn = {0028-0836},
+    journal = {Nature},
+    pages = {462--470},
+    pmid = {24670764},
+    title = {{A promoter-level mammalian expression atlas}},
+    url = {http://dx.doi.org/10.1038/nature13182{\%}5Cnhttp://www.nature.com/doifinder/10.1038/nature13182},
+    volume = {507},
+    year = {2014}
+}
+\end{filecontents}
+\addbibresource{\jobname.bib}
+\setbeamertemplate{bibliography item}{}
+
+\usepackage{xpatch}
+
+\xpatchbibmacro{name:andothers}{%
+  \bibstring{andothers}%
+}{%
+  \bibstring[\emph]{andothers}%
+}{}{}
+
+\renewbibmacro{in:}{}
+
+\mode<presentation> {
+    \usetheme{Singapore}
+}
+\begin{document}
+
+
+\section{Frame 1}
+\begin{frame}
+\frametitle{Frame 1}
+    Here I want a citation:
+
+    \cite{Forrest2014}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]
+\frametitle{References}
+    \printbibliography
+\end{frame}
+
+
+\end{document}

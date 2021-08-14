@@ -1,0 +1,44 @@
+% https://tex.stackexchange.com/a/358250
+\documentclass{beamer}
+
+\useoutertheme[left,height=20pt,width=0.12\paperwidth]{sidebar}
+\setbeamertemplate{sidebar canvas left}[vertical shading][top=black,bottom=white] 
+
+\setbeamerfont{section in head/foot}{size=\normalsize}
+\setbeamercolor{logo}{bg=black}
+
+\makeatletter
+\setbeamertemplate{headline}{%
+    \begin{beamercolorbox}[wd=\paperwidth]{frametitle}
+      \ifdim\beamer@sidebarwidth>0pt%  
+        \usebeamercolor[bg]{logo}%
+        \vrule width\beamer@sidebarwidth height \beamer@headheight%
+        \hskip-\beamer@sidebarwidth%
+        \hbox to \beamer@sidebarwidth{\hss\vbox to
+          \beamer@headheight{\vss\hbox{\color{fg}\insertlogo}\vss}\hss}% 
+        \begin{minipage}[t]{\dimexpr\paperwidth-\beamer@sidebarwidth\relax}
+            \vskip-\beamer@headheight
+            \vskip2pt
+            \rule{\linewidth}{1pt}
+
+            \vskip2pt
+            \usebeamerfont{section in head/foot}\quad \insertsectionhead
+
+            \rule{\linewidth}{1pt}
+        \end{minipage}
+      \else%
+        \vrule width0pt height \beamer@headheight%  
+      \fi%
+    \end{beamercolorbox}
+  }
+\makeatother
+
+\begin{document}
+
+\section{bla}
+
+\begin{frame}
+    content...
+\end{frame}
+
+\end{document}

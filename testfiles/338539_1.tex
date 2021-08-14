@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/338539
+\documentclass{beamer}
+\usepackage[most]{tcolorbox}
+
+\newtcolorbox{myblock}[2][]{%
+    beamer,breakable,colback=blue!10!white,colframe=blue!50!black,#1,title=#2
+}%
+
+\begin{document}
+
+
+\begin{frame}
+
+\begin{myblock}{test}
+    bla
+\end{myblock}
+
+\begin{myblock}[width=3cm]{test}
+    bla
+\end{myblock}
+
+\begin{myblock}[halign=center]{test}
+    bla
+\end{myblock}
+
+\end{frame}
+
+\end{document}

@@ -1,0 +1,204 @@
+% https://tex.stackexchange.com/a/364128
+\documentclass{beamer}
+
+\usetheme{Madrid}
+
+\title{LEoNIDS}
+
+\subtitle{A Low-Latency and Energy-Efficient Network-Level Intrusion Detection System}
+
+\author{NIKOS TSIKOUDIS \inst{1} ANTONIS PAPADOGIANNAKIS \inst{2} \and EVANGELOS P. MARKATOS \inst{2}}
+
+\institute[NIT-KKR]{%
+  \inst{1}
+        Brandeis University, Waltham, MA 02453, USA
+  \and \inst{2}
+    Institute of Computer Science,Foundation for Research and Technology-Hellas, Heraklion 700 13, Greece
+}
+
+\date{IEEE Transaction on Emerging Topics in Computing \\ 26 Feburary 2016}
+\subject{Cyber Security}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Contents}
+    \tableofcontents[sections=1-4]
+    \framebreak
+    \tableofcontents[sections=5-10]
+\end{frame}
+
+\section{Introduction} 
+
+\begin{frame}[allowframebreaks]{Introduction}
+Low power consumption has emerged as one of the main
+design goals in today's computer systems. Recently, much
+effort has been put into improving the energy efficiency in
+a variety of areas like data centers , high performance
+computing , mobile devices , and networks .
+
+Towards this direction, we aim to build an energy-efficient
+Network-level Intrusion Detection System (NIDS). NIDS are
+commonly deployed to detect security violations, enhancing
+the secure operation of modern computer networks. They
+perform computationally heavy operations like pattern
+matching, regular expression matching, and other types of
+complex analysis to detect at real time malicious activities in
+the monitored network. Thus, NIDS usually utilize multi-core
+systems or cluster of servers, to cope with increased
+link speeds and complicated analysis.
+
+\framebreak
+However, the energy efficiency of security systems like NIDS has not received significant attention and has not been studied before.Although NIDS are usually provisioned to operate at link
+rate, in order to be able to handle a fully utilized network,
+most networks are typically much less utilized. This results
+in increased power consumption at low traffic load. To reduce
+the energy spent under low traffic we aim at building a power-
+proportional NIDS using Dynamic Voltage and Frequency
+Scaling (DVFS) and sleep states (C-states), which can be
+found in modern processors. The system should consume
+the less power needed to sustain the incoming traffic load.We found that a NIDS consumes less power when it uses the smallest number of cores that can operate at the lowest
+possible frequency to process the network traffic, by keeping
+these cores nearly fully utilized. This energy-efficient NIDS
+can process all packets with up to 23 percent lower power
+consumption than the original system at low rates. However,
+we observe a significant increase on the detection latency due
+to higher processing times when reducing the frequency, and
+mostly due to increased queuing delays imposed by the high
+utilization.
+
+A low detection latency is very important to ensure a timely
+reaction to the attack. Upon the detection of a packet that
+carries an attack, the NIDS can actively terminate the offend-
+ing connection or install a new firewall rule. This reaction
+should be immediate, before the attack packets reach the
+victim's machine and the attack succeeds. Therefore, our
+results indicate a new tradeoff for NIDS: the energy-latency
+tradeoff. Our key idea to resolve this tradeoff is to identify
+the most important packets for attack detection and process
+them with higher priority, resulting in low latency and fast
+detection. The rest packets are processed with lower priority
+to achieve an overall low power consumption.
+
+We explore two alternative approaches to reduce the
+latency of high-priority packets: time sharing and space
+sharing. In time sharing we use a typical priority queue
+scheduling in each core. In space sharing the high-priority
+packets follow a different path, using dedicated cores with
+much lower utilization to achieve low latency. To implement
+space sharing we use features of modern network interface
+cards (NIC) to move efficiently the processing of least-
+significant packets to cores with higher utilization, a tech-
+nique we call as flow migration. We experimentally compare
+the two approaches and we find that space sharing has a better
+power-latency ratio.
+
+Based on these approaches we propose LEoNIDS: a NIDS
+architecture that resolves the energy-latency tradeoff. The
+implementation of LEoNIDS uses NIC features, a specialized
+kernel module, a modified user-level library, and it is based on
+the popular Snort NIDS [8]. LEoNIDS consumes less power,
+proportionally to the traffic load, while its detection latency
+remains low and almost constant at any traffic load.
+
+The main contributions of this work are:
+
+1. We identify a new tradeoff for NIDS: the energy-latency
+tradeoff.
+
+2. We resolve the energy-latency tradeoff.
+
+3. We introduce space sharing.
+
+4. We experimentally compare two alternative approaches for low latency in a power-proportional NIDS.
+
+5.We present the design, implementation, and evaluation
+of LEoNIDS.
+\end{frame}
+
+\section{Motivation}
+\subsection {Why Detection Latency Matters}
+
+\begin{frame}
+  \frametitle{Motivation}    
+\end{frame}
+
+\subsection{Why Power Consumption Matters }
+\section{Towards Power Proportional NIDS} 
+\subsection{Experimental Environment}
+\subsection{Power Consumption}
+\subsection{Adapt to the Traffic Load}
+\section{Energy-Latency Tradeoff in NIDS} 
+\subsection{Detection Latency}
+\subsection{Deconstructing Detection Latency}
+\subsection{Delay Analysis}
+\section{Solving the Energy-Latency Tradeoff} 
+\subsection{Identify The Most Important Packets For Detection Latency}
+\subsection{Tolerating Evasion Attempts}
+\subsection{Time Sharing}
+\subsection{Space Sharing}
+\subsection{Delay Analysis With Priorities}
+\section{Implementation} 
+\subsection{Time Sharing}
+\subsection{Space Sharing}
+\section{Experimental Evaluation} 
+\subsection{Comparing Time and Space Sharing}
+\subsection{Comparing All Approaches}
+\section{Related Work} 
+\section{Conclusions} 
+
+\section{Summary and Outlook} 
+
+\begin{frame}{Summary}
+  \begin{itemize}
+  \item
+    The \alert{first main message} of your talk in one or two lines.
+  \item
+    The \alert{second main message} of your talk in one or two lines.
+  \item
+    Perhaps a \alert{third message}, but not more than that.
+  \end{itemize}
+
+  \begin{itemize}
+  \item
+    Outlook
+    \begin{itemize}
+    \item
+      Something you haven't solved.
+    \item
+      Something else you haven't solved.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\section{References}  
+
+\begin{frame}[allowframebreaks]
+  \frametitle<presentation>{For Further Reading}
+
+  \begin{thebibliography}{10}
+
+  \beamertemplatebookbibitems
+  % Start with overview books.
+
+  \bibitem{Author1990}
+    A.~Author.
+    \newblock {\em Handbook of Everything}.
+    \newblock Some Press, 1990.
+
+
+  \beamertemplatearticlebibitems
+  % Followed by interesting articles. Keep the list short. 
+
+  \bibitem{Someone2000}
+    S.~Someone.
+    \newblock On this and that.
+    \newblock {\em Journal of This and That}, 2(1):50--100,
+    2000.
+  \end{thebibliography}
+\end{frame}
+
+\end{document}

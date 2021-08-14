@@ -1,0 +1,49 @@
+% https://tex.stackexchange.com/a/357149
+\documentclass{beamer}
+
+\setbeamerfont{title}{shape=\bfseries, size=\large}
+\setbeamerfont{subtitle}{series=\mdseries}
+\setbeamerfont{date}{size=\scriptsize}
+\setbeamercolor{title}{fg=black}
+
+\title[Bold title]{Uppercase bold title}
+\subtitle{Uppercase subtitle}
+\author[John Doe]{John Doe}
+\institute[]{March 2017}
+\date{}
+
+\makeatletter
+\setbeamertemplate{title page}{%
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center]{title}
+      \usebeamerfont{title}\MakeUppercase{\inserttitle}\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\MakeUppercase{\insertsubtitle}\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=8pt,center]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+  \endgroup
+  \vfill
+}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\end{document}

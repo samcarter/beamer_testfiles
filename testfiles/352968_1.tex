@@ -1,0 +1,51 @@
+% https://tex.stackexchange.com/a/352968
+\documentclass{beamer}
+
+\usepackage{listings}
+\usepackage{adjustbox}
+\newsavebox\listingboxname
+
+\begin{document}
+
+\begin{frame}[fragile]
+    \begin{columns}[onlytextwidth]
+        \begin{column}{0.4\textwidth}
+            \begin{lrbox}{\listingboxname}
+                \begin{adjustbox}{max width=\linewidth, margin=0pt}
+                \begin{lstlisting}
+int sumvec(int v[N])
+{
+    int i, sum = 0;
+
+    for (i = 0; i < N; i++) longer line to test
+      sum += v[i];
+    return sum;
+}  
+                \end{lstlisting}
+                \end{adjustbox}
+            \end{lrbox}
+            \colorbox{cyan}{\usebox\listingboxname}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            Just some text
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+    \begin{columns}[onlytextwidth]
+        \begin{column}{0.4\textwidth}
+                \begin{lstlisting}[linewidth=\textwidth,
+                     backgroundcolor=\color{cyan}]
+int 
+{
+}  
+                \end{lstlisting}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            Just some text
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\end{document}

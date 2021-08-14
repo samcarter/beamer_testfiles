@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/343069
+\documentclass{beamer} 
+
+\title[MWE]{MWE poster title}
+\subtitle{A minimum working example}
+\author[Woods \& Christian]{John~O.~Woods, Ph.D.;\thanks{test.email@wvu.edu} Andrew~Rhodes; Jordan~L.~Sell; and John~A.~Christian, Ph.D.}
+\institute[West Virginia University]{Department of Mechanical and Aerospace Engineering, West Virginia University}
+\date{\today}
+
+\makeatletter
+\newcommand{\insertthanks}{\@thanks}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+    \insertauthor
+
+    \insertthanks
+\end{frame}
+\end{document}

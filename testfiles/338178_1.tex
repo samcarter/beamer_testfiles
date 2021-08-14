@@ -1,0 +1,18 @@
+% https://tex.stackexchange.com/a/338178
+\documentclass[14pt]{beamer}
+
+%\setbeamerfont{caption}{size*={10}{6}}
+\setbeamerfont{caption}{size=\footnotesize}
+\setbeamertemplate{caption}{%
+    \structure{\insertcaptionname~\insertcaptionnumber:}
+    \insertcaption\par
+}
+
+\begin{document}
+\frame{{Test} 
+\begin{figure}
+\caption{A very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very, very long caption.}
+\centering
+\includegraphics[width=0.8\linewidth]{example-image}
+\end{figure}}
+\end{document}

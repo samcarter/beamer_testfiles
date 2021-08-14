@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/343078
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usepackage{tikz}
+
+
+\makeatletter
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fill,rightskip=.3cm]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}}%
+  \vskip0pt%
+\begin{tikzpicture}[overlay, remember picture]
+    \draw[color=green, line width=0.2cm] (current page.south west) rectangle (current page.north east);
+\end{tikzpicture}
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+Test
+\end{frame}
+
+\end{document}

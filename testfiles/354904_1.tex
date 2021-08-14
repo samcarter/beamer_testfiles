@@ -1,0 +1,54 @@
+% https://tex.stackexchange.com/a/354904
+\documentclass{beamer}
+
+\usefonttheme{professionalfonts}
+\useoutertheme{infolines}
+\usetheme{Frankfurt}
+
+\makeatletter
+\setbeamertemplate{headline}
+{%
+  \begin{beamercolorbox}[ht=3.5ex,dp=2.125ex]{section in head/foot}
+    \usebeamerfont{section in head/foot}%
+    \usebeamercolor[fg]{section in head/foot}%
+    \insertsectionnavigationhorizontal{\textwidth}{}{}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+  \end{beamercolorbox}
+}
+\makeatother
+
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+\frametitle{Overview}
+\tableofcontents
+\end{frame}
+\section{First Section}
+\subsection{Subsection Example}
+\begin{frame}
+\frametitle{Paragraphs of Text}
+a
+\end{frame}
+\begin{frame}
+  \frametitle{Multiple Columns}
+  \begin{columns}[c]
+    \column{.45\textwidth}
+    \textbf{Heading}
+    \begin{enumerate}
+      \item Statement
+      \item Explanation
+      \item Example
+    \end{enumerate}
+
+    \column{.5\textwidth}
+    a
+  \end{columns}
+\end{frame}
+\section{Second Section}
+\begin{frame}
+content...
+\end{frame}
+\end{document}

@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/368718
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+\makeatletter
+\begin{frame}{Frametitle}
+    \global\beamer@shrinktrue
+    \gdef\beamer@shrinkframebox{
+        \setbox\beamer@framebox=\vbox to\beamer@frametextheight{
+            \centering
+            \includegraphics[height=\beamer@frametextheight]{example-image}
+        }
+    }
+\end{frame}
+\makeatother
+
+
+\end{document}

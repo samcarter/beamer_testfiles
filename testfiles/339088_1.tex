@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/339088
+\documentclass{beamer}
+\let\Tiny\tiny% http://tex.stackexchange.com/q/58087/5764
+
+\newcommand<>{\althyperlink}[2]{%
+    \alt#3{\hyperlink{#1}{#2}}{#2}
+}
+
+\begin{document}
+\begin{frame}[label=bob]
+
+bla
+
+\begin{enumerate}[<+->]
+\item 1
+\item 3 \althyperlink<2>{bob}{Back}
+\item 3 \althyperlink{bob}{Back}
+\item 2 \althyperlink<4>{bob}{Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla}
+\end{enumerate}
+
+
+bla
+\end{frame}
+\end{document}

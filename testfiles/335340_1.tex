@@ -1,0 +1,42 @@
+% https://tex.stackexchange.com/a/335340
+\documentclass[11pt,xcolor={dvipsnames}]{beamer}
+
+\mode<presentation>{
+    \usetheme{Warsaw}  
+    \usecolortheme[named=OliveGreen]{structure}
+    \useoutertheme{shadow}
+
+    \setbeamercovered{transparent}
+
+    \setbeamercolor{block title example}{fg=white,bg=Blue}
+    \setbeamercolor{block body example}{fg=black,bg=Blue!10} 
+    \setbeamercolor{postit}{fg=black,bg=OliveGreen!20}
+    \setbeamercolor{postit2}{fg=yellow,bg=OliveGreen}
+}
+
+\usepackage[italian]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+
+\makeatletter
+\setbeamertemplate{headline}{%
+  \leavevmode%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex]{section in head/foot}%
+    \insertsectionnavigationhorizontal{.5\paperwidth}{\hskip0pt plus1filll}{}%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex]{subsection in head/foot}%
+%    \insertsubsectionnavigationhorizontal{.5\paperwidth}{}{\hskip0pt plus1filll}%
+  \end{beamercolorbox}%
+}
+\makeatother
+
+
+\begin{document}
+
+\section{section}
+\subsection{subsection}
+\begin{frame}
+    abc
+\end{frame} 
+
+\end{document}

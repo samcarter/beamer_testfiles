@@ -1,0 +1,23 @@
+% https://tex.stackexchange.com/a/366967
+\documentclass{beamer}
+\begin{filecontents}{\jobname.bib}
+@article{TestCite2000,
+    Author = {Smith, R. and Jones, O. and Doe, J and Yang, X. and Silva, E.},
+    Journal = {A Great Predatory Journal},
+    Title = {A title},
+    Volume = {3},
+    Year = {2000}}
+\end{filecontents}
+\usepackage[]{apacite}
+\begin{document}
+\begin{frame}
+\frametitle{A citation}
+\shortcite{TestCite2000}
+\end{frame}
+\begin{frame}
+\frametitle{References}
+\bibliographystyle{apacite}
+\renewcommand{\bibliographytypesize}{\tiny}
+\bibliography{\jobname}
+\end{frame}
+\end{document}

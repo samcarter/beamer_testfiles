@@ -1,0 +1,149 @@
+% https://tex.stackexchange.com/a/335388
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% theme
+\usetheme{Goettingen}
+
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+\makeatletter
+\def\insertverticalnavigation#1{%
+  \vbox{%
+    \def\sectionentry##1##2##3##4##5{%
+      \ifnum##5=\c@part%
+      \def\insertsectionhead{##2}%
+      \def\insertsectionheadnumber{##1}%
+      \def\insertpartheadnumber{##5}%
+      \hbox to #1{{%
+        \usebeamerfont{section in sidebar}\usebeamercolor[fg]{section in sidebar}%
+          \hyperlink{Navigation##3}{%
+          \ifnum\c@section=##1%
+            \ifnum\c@subsection=0\relax%
+              {\usebeamertemplate{section in sidebar}}%
+            \else%
+              \ifx\beamer@nav@css\beamer@hidetext%
+                {\usebeamertemplate{section in sidebar}}%
+              \else%
+                {\usebeamertemplate{section in sidebar}}% HERE
+              \fi%
+            \fi%
+          \else
+            {\usebeamertemplate{section in sidebar shaded}}%
+          \fi}}}%
+      \beamer@currentsubsection=0\relax\fi}%
+    \def\slideentry##1##2##3##4##5##6{}%
+    \def\beamer@subsectionentry##1##2##3##4##5{%
+      \ifnum##1=\c@part%
+      \def\insertpartheadnumber{##1}%
+      \def\insertsectionheadnumber{##2}%
+      \def\insertsubsectionheadnumber{##3}%
+      \def\insertsubsectionhead{##5}%
+       \beamer@tocifnothide{\ifnum\c@section=##2\ifnum\c@subsection=##3\beamer@nav@css\else\beamer@nav@oss\fi\else\beamer@nav@ooss\fi}%
+      {\hbox{{%
+        \usebeamerfont{subsection in sidebar}\usebeamercolor[fg]{subsection in sidebar}%
+          \hyperlink{Navigation##4}{%
+          \ifnum\c@section=##2%
+            \ifnum\c@subsection=##3%
+              \ifnum\c@subsubsection=0\relax%
+                {\usebeamertemplate{subsection in sidebar}}%
+              \else%
+                {\usebeamertemplate{subsection in sidebar shaded}}%
+              \fi%
+            \else%
+              {\usebeamertemplate{subsection in sidebar shaded}}%
+            \fi%
+          \else%
+            {\usebeamertemplate{subsection in sidebar shaded}}%
+          \fi}}}%
+      }%
+      \fi}%
+    \def\beamer@subsubsectionentry##1##2##3##4##5##6{%
+      \ifnum##1=\c@part%
+      \def\insertpartheadnumber{##1}%
+      \def\insertsectionheadnumber{##2}%
+      \def\insertsubsectionheadnumber{##3}%
+      \def\insertsubsubsectionheadnumber{##4}%
+      \def\insertsubsubsectionhead{##6}%
+      \beamer@tocifnothide{\ifnum\c@section=##2\ifnum\c@subsection=##3\ifnum\c@subsubsection=##4\beamer@nav@css\else\beamer@nav@oss\fi\else\beamer@nav@ooss\fi\else\beamer@nav@ooss\fi}%
+      {\hbox{{%
+        \usebeamerfont{subsubsection in sidebar}\usebeamercolor[fg]{subsubsection in sidebar}%
+          \hyperlink{Navigation##5}{%
+          \ifnum\c@section=##2%
+            \ifnum\c@subsection=##3%
+              \ifnum\c@subsubsection=##4%
+                {\usebeamertemplate{subsubsection in sidebar}}%
+              \else
+                {\usebeamertemplate{subsubsection in sidebar shaded}}%
+              \fi%
+            \else%
+              {\usebeamertemplate{subsubsection in sidebar shaded}}%
+            \fi%
+          \else%
+            {\usebeamertemplate{subsubsection in sidebar shaded}}%
+          \fi}}}%
+      }%
+      \fi}%
+    %\beamer@currentsubsection=0\relax%
+    \dohead%
+  }%
+}
+\makeatother
+
+
+\title{Title of the Presentation}
+\author{Author Author}
+\date{22-10-2016}
+
+\begin{document}
+\setbeamertemplate{footline}[default]
+\begin{frame}[noframenumbering]
+\titlepage
+\end{frame}
+\section*{Outline}
+\begin{frame}[noframenumbering]
+\frametitle{Outline}
+\tableofcontents[hideallsubsections]
+\end{frame}
+\setbeamertemplate{footline}[frame number]
+\section{section 1}
+\subsection{subsection 1.1}
+\begin{frame}{frame 1.1.1}
+this is a frame.
+\end{frame}
+\begin{frame}{frame 1.1.2}
+this is a frame.
+\end{frame}
+\subsection{subsection 1.2}
+\begin{frame}{frame 1.2.1}
+this is a frame.
+\end{frame}
+\begin{frame}{frame 1.2.2}
+this is a frame.
+\end{frame}
+\section{section 2}
+\subsection{subsection 2.1}
+\begin{frame}{frame 2.1.1}
+this is a frame.
+\end{frame}
+\begin{frame}{frame 2.1.2}
+this is a frame.
+\end{frame}
+\subsection{subsection 2.2}
+\begin{frame}{frame 2.2.1}
+this is a frame.
+\end{frame}
+\begin{frame}{frame 2.2.2}
+this is a frame.
+\end{frame}
+\end{document}

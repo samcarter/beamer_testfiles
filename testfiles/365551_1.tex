@@ -1,0 +1,17 @@
+% https://tex.stackexchange.com/a/365551
+\documentclass{beamer}
+\usepackage{proof}
+\begin{document}
+\frame{
+  \[
+    \infer{\textrm{conclusion}}
+    {
+      \infer{\visible<5->{\textrm{intermediate conclusion}}}
+      {\visible<4->{\textrm{premises}}}
+      &
+      \infer{\visible<3->{\textrm{other conclusion}}}
+      {\visible<2->{\textrm{other premises}}}
+    }
+  \]
+}
+\end{document}

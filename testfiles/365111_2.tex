@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/a/365111
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{shadows}
+
+\setbeamertemplate{itemize item}{%
+    \begin{tikzpicture}
+        \shade[ball color=blue!50!white, preaction={fill=black,
+opacity=.25,transform canvas={xshift=1mm,yshift=-1mm, yscale=0.5}}] (0,0) circle (0.6ex);
+    \end{tikzpicture}
+}
+
+\setbeamertemplate{itemize subitem}{%
+    \begin{tikzpicture}
+        \shade[ball color=red!50!white, preaction={fill=black,
+        opacity=.25,transform canvas={xshift=1mm,yshift=-1mm, yscale=0.5}}] (0,0) circle (0.6ex);
+    \end{tikzpicture}
+}
+
+\begin{document}
+\begin{frame}
+\begin{itemize}
+    \item first item
+    \item second item
+    \begin{itemize}
+        \item first item
+        \item second item
+    \end{itemize}
+\end{itemize}
+\end{frame}
+\end{document}

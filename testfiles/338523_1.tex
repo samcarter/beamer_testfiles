@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/338523
+\documentclass[t]{beamer}
+\usetheme{Madrid}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{multirow}
+\usepackage{tablefootnote}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{arydshln}
+
+\begin{document}
+
+
+\begin{frame}
+    \begin{columns}[T,onlytextwidth]
+
+        \begin{column}{.3\textwidth}
+            \begin{align*}
+            \max \quad b^T y \\
+            A^Ty + s &= c \\
+            s &\geq 0 
+            \end{align*}
+        \end{column}
+
+        \begin{column}{.6\textwidth}
+            \renewcommand{\arraystretch}{2.2}
+            \begin{tabular}{|c|c:c:c|}
+                \hline
+                obj     & $0\dots0$ & $-x_B^T$          & $0\dots0$\\\hline
+                y       & I         & $A_B^-T$        & 0\\\hdashline
+                s       & 0         & $-A_N^TA_B^{-T}$  & 1\\\hline
+            \end{tabular}
+        \end{column}        
+
+    \end{columns}
+\end{frame}
+
+\end{document}

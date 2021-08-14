@@ -1,0 +1,30 @@
+% https://tex.stackexchange.com/a/344067
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage{lipsum} % just for this example
+
+%\usefonttheme{serif}
+\setbeamercolor{structure}{fg=orange}
+\setbeamertemplate{navigation symbols}{}
+\logo{\includegraphics[width=3cm,height=1cm]{example-image}}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{title}
+\lipsum[2]
+\end{frame}
+
+\begin{frame}
+\frametitle{title}
+\begin{columns}[onlytextwidth]
+    \begin{column}{.45\textwidth}
+        bla bla bla
+    \end{column}
+    \begin{column}{.45\textwidth}
+        bla bla bla
+    \end{column}
+\end{columns}
+\end{frame}
+
+\end{document}

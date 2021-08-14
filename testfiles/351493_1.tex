@@ -1,0 +1,73 @@
+% https://tex.stackexchange.com/a/351493
+\documentclass{beamer}
+\usepackage{pgfplots}
+\newlength\figureheight 
+\newlength\figurewidth 
+\setlength{\figurewidth}{8cm}
+\setlength{\figureheight}{4.5cm}
+
+% Style to select only points from #1 to #2 (inclusive)
+\pgfplotsset{select coords between index/.style 2 args={
+    x filter/.code={
+        \ifnum\coordindex<#1\def\pgfmathresult{}\fi
+        \ifnum\coordindex>#2\def\pgfmathresult{}\fi
+    }
+}}
+
+\makeatletter
+\newcommand{\slide}{\the\beamer@slideinframe}
+\makeatother
+
+\begin{document}
+\begin{frame}
+\animate<1-22>
+\transduration<1-22>{0.5}
+\begin{tikzpicture}
+    \begin{axis}[%
+    /pgf/number format/.cd,
+            use comma,
+            1000 sep={},
+    width=0.951\figurewidth,
+    height=\figureheight,
+    at={(0\figurewidth,0\figureheight)},
+    scale only axis,
+    xmin=-1,
+    xmax=1,
+    xlabel style={font=\color{white!15!black}},
+    xlabel={xlabel},
+    ymin=0,
+    ymax=1,
+    ylabel style={font=\color{white!15!black}},
+    ylabel={ylabel},
+    axis background/.style={fill=white}
+    ]
+    \addplot [color=black, forget plot,select coords between index={0}{\slide}]
+      table[row sep=crcr]{%
+-1  0\\
+-0.987  0.001\\
+-0.823  0.15\\
+-0.713  0.4\\
+-0.684  0.5\\
+-0.542  0.6\\
+-0.478  0.65\\
+-0.3544 0.7\\
+-0.254  0.8\\
+-0.14   0.9\\
+0   1\\
+0.057774545 0.9\\
+0.15794 0.8\\
+0.258105455 0.7\\
+0.358270909 0.65\\
+0.458436364 0.6\\
+0.558601818 0.5\\
+0.658767273 0.4\\
+0.758932727 0.15\\
+0.859098182 0.05\\
+0.959263636 0.001\\
+1   0\\
+    };
+    \end{axis}
+    \end{tikzpicture}
+    \pause[20]
+\end{frame}
+\end{document}

@@ -1,0 +1,16 @@
+% https://tex.stackexchange.com/a/363871
+\documentclass{beamer}
+\usetheme{Luebeck}
+
+\newcommand{\insta}[1]{{\usebeamercolor[fg]{footnote mark}$^{#1}$}}
+
+\title[short title]{long title}
+\author[Author 1 \and Author 2]{Author 1\insta{1} \and Author 2\insta{2}} 
+\institute[U]{\insta{1}\href{mailto:user@example.com}{user@example.com} \quad \insta{2}\href{mailto:user@example.com}{user@example.com}}
+\date{\today} 
+
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+\end{document}

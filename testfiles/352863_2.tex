@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/352863
+\documentclass{beamer}
+\usetheme{Frankfurt}
+
+\makeatletter
+\setbeamertemplate{navigation symbols}{
+    \ifbeamer@inappendix%
+  \else%
+    \usebeamerfont{footline}%
+        \usebeamercolor[fg]{footline}%
+    \insertframenumber\,/\,\insertmainframenumber%
+  \fi%
+}
+\makeatother
+
+\begin{document}
+    \section{Test}
+
+    \begin{frame}
+        Stuff!
+    \end{frame}
+
+    \appendix
+    \begin{frame}
+        \Huge
+        Time for questions.
+    \end{frame}
+\end{document}

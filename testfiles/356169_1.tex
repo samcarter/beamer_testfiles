@@ -1,0 +1,23 @@
+% https://tex.stackexchange.com/a/356169
+\documentclass{beamer}
+\mode<presentation>{
+\usetheme{default}
+\usefonttheme[onlymath]{serif}
+
+\setbeamertemplate{bibliography item}[text]}
+\begin{document}
+
+\begin{frame} blabla\footnote{\cite{abc}} \end{frame}
+
+\section{References}
+\begin{frame}  
+\frametitle{References}
+
+\begin{thebibliography}{99} 
+\bibitem[Smith 2013]{abc} ABC
+\bibitem{def} DEF   
+\end{thebibliography}
+
+\end{frame}
+
+\end{document}

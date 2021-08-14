@@ -1,0 +1,49 @@
+% https://tex.stackexchange.com/a/337642
+\documentclass[aspectratio=43,11pt,t]{beamer}
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+\usefonttheme{serif}
+\usepackage{subcaption}
+
+\begin{document}
+\begin{frame}{Sub-figure Alignment}
+    \begin{columns}[T, onlytextwidth]
+        \begin{column}{0.25\textwidth}
+            Some content here.\\
+            Some content here.\\
+            Some content here. 
+        \end{column}
+        \begin{column}{0.65\textwidth}
+                \vskip-\baselineskip
+            \begin{figure}
+                \centering
+                \begin{subfigure}[t]{0.45\textwidth}
+                    \centering
+                    \includegraphics[width=\linewidth]{example-image}
+                    \caption{Two line long caption}
+                    \label{fig:sub1}
+                \end{subfigure}\hskip 1em%
+                \begin{subfigure}[t]{0.45\textwidth}
+                    \centering
+                    \includegraphics[width=\linewidth]{example-image}
+                    \caption{One line caption}
+                    \label{fig:sub2}
+                \end{subfigure}
+
+                \begin{subfigure}[t]{0.45\textwidth}
+                    \centering
+                    \includegraphics[width=\linewidth]{example-image}
+                    \caption{One line caption}
+                    \label{fig:sub1}
+                \end{subfigure}\hskip 1em%
+                \begin{subfigure}[t]{0.45\textwidth}
+                    \centering
+                    \includegraphics[width=\linewidth]{example-image}
+                    \caption{Two line long caption}
+                    \label{fig:sub2}
+                \end{subfigure}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+\end{document}

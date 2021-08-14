@@ -1,0 +1,58 @@
+% https://tex.stackexchange.com/a/348528
+\documentclass{beamer}
+
+\usepackage{beamerthemesplit}
+%\setcounter{tocdepth}{1}
+%\setcounter{secnumdepth}{1}
+
+
+\usetheme{Antibes}
+
+\title{The Title}
+\subtitle{Subtitle}
+\author[F. Author]{F.author\inst{1}\and S. Autor\inst{2}}
+\institute[University of Somewhere and Elsewhere] {
+    \inst{1}
+        UofS
+    \and
+    \inst{2}%
+        UofE
+}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \frametitle{Table of Contents}  
+    \tableofcontents[  
+    sectionstyle=show, 
+    hideallsubsections
+    ] 
+\end{frame}
+\section{Section 1}
+\begin{frame}
+Frame 
+\end{frame}
+\subsection{subsection1}
+\begin{frame}
+Frame 
+\end{frame}
+
+\AtBeginSection[]
+  {
+     \begin{frame}<beamer>
+     \frametitle{Outline}
+            \tableofcontents[sections=\value{section}]
+     \end{frame}
+  }
+
+\section[Section2]{Section 2}
+\subsection{Model Overview}
+\begin{frame}
+Frame 
+\end{frame}
+\subsection{Characteristics of Model}
+\begin{frame}
+Frame 
+\end{frame}
+\end{document}

@@ -1,0 +1,62 @@
+% https://tex.stackexchange.com/a/347274
+\documentclass{beamer}
+
+\useinnertheme[shadow=true]{rounded}
+
+\usepackage{etoolbox}
+
+\setbeamercolor{block title}{use=structure,fg=structure.fg,bg=structure.fg!20!bg}
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!50!bg}
+
+\setbeamercolor{block title example}{use=example text,fg=example text.fg,bg=example text.fg!20!bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!50!bg}
+
+\addtobeamertemplate{proof begin}{%
+    \setbeamercolor{block title}{fg=black,bg=red!50!white}
+    \setbeamercolor{block body}{fg=red, bg=red!30!white}
+}{}
+
+\BeforeBeginEnvironment{theorem}{
+    \setbeamercolor{block title}{fg=black,bg=orange!50!white}
+    \setbeamercolor{block body}{fg=orange, bg=orange!30!white}
+}
+\AfterEndEnvironment{theorem}{
+ \setbeamercolor{block title}{use=structure,fg=structure.fg,bg=structure.fg!20!bg}
+ \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!50!bg, fg=black}
+}
+
+\BeforeBeginEnvironment{definition}{%
+    \setbeamercolor{block title}{fg=black,bg=pink!50!white}
+    \setbeamercolor{block body}{fg=pink, bg=pink!30!white}
+}
+\AfterEndEnvironment{definition}{
+ \setbeamercolor{block title}{use=structure,fg=structure.fg,bg=structure.fg!20!bg}
+ \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!50!bg, fg=black}
+}
+
+\begin{document}
+\begin{frame}
+    \begin{block}{My block}
+        A block.
+    \end{block}
+
+    \begin{definition}[My definition]
+        A definition.
+    \end{definition}
+
+    \begin{theorem}[My theorem]
+        A theorem.
+    \end{theorem}
+    \begin{proof}[My proof]
+        A proof.
+    \end{proof}
+    \begin{example}[My example]
+        An example.
+    \end{example}
+
+    \begin{block}{My block}
+        A block.
+    \end{block}    
+
+\end{frame}
+\end{document}

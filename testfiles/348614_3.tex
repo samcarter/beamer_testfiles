@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/348614
+\documentclass{beamer}
+
+\setbeamercolor{mymath}{parent=normal text}
+
+\def\foo#1$$#2!!{\def\mathdisplay##1{#1$$\begingroup\usebeamercolor[fg]{mymath}#2}}
+\expandafter\foo\mathdisplay{#1}!!
+
+\long\def\foo#1$$#2!!{\def\endmathdisplay##1{#1\endgroup$$#2}}
+\expandafter\foo\endmathdisplay{#1}!!
+
+
+
+\begin{document}
+\begin{frame}
+\only<2>{\setbeamercolor{mymath}{fg=red}}
+\[ \frac{2}{a} \]
+\[ \frac{2}{a} \]
+\end{frame}
+\end{document}

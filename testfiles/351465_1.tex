@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/351465
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Some title}
+\setlength{\leftmargini}{0.5em}
+\begin{columns}
+    \begin{column}[T, onlytextwidth]{.45\textwidth}%
+                \setlength{\partopsep}{0pt}%
+        \begin{itemize}
+        \itemsep 1.5em
+            \item First item bla bla bla bla some more text bla bla and more and more text here
+            \item second item bla bla bla bla some more text bla bla
+            \item third item bla bla bla bla some more text bla
+        \end{itemize}
+    \end{column}%
+    \begin{column}[T]{.45\textwidth}
+        \includegraphics[width=\textwidth, height=5cm]{example-image}
+    \end{column}%
+\end{columns}
+\begin{itemize}
+    \item And yet another item here with some long long long long long long text and some more text bla bla bla
+\end{itemize}
+
+\end{frame}
+
+\end{document}

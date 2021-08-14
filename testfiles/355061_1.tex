@@ -1,0 +1,14 @@
+% https://tex.stackexchange.com/a/355061
+\documentclass[10pt]{beamer}
+\usepackage[color,matrix,arrow]{xy}
+
+\begin{document}
+
+\begin{frame}
+\xymatrix{
+& & & & & & X \ar[dllllll]|-{f_0} \ar[dlllll]|-{f_1} \ar@{.>}[dllll] \ar[dlll]|-{f_k} \ar@{.>}[dll] \ar[dl]|-{f_{i-1}} \ar[dr]|-{\color{red}{f_i}}\\
+Y_0 & \ar[l]^{g_0} Y_1 & \ar@{.>}[l] \cdots & \ar[l]^{g_{k-1}} Y_k & \ar[l]^{g_k} \cdots & \ar[l]^{g_{i-2}} Y_{i-1} & & \ar[ll]^{\color{red}{g_{i-1}}} \uncover<2->{\color{red}{Y_i}}
+}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/336405
+\documentclass[aspectratio=169]{beamer}
+\definecolor{gray}{rgb}{0.76, 0.76, 0.76}
+\definecolor{dark-gray}{rgb}{0.36, 0.36, 0.36}
+\usebackgroundtemplate{%
+    \vbox to \paperheight{
+        \vfil       
+        \colorbox{dark-gray}{
+            \makebox(442,8)[lt]{
+               \tiny\color{gray}{
+                  \hspace{2em}\textcopyright Company Name
+               }
+            }
+         }
+    }
+}
+
+\begin{document}
+\begin{frame}
+ test
+\end{frame}
+\end{document}

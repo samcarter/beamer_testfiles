@@ -1,0 +1,48 @@
+% https://tex.stackexchange.com/a/365382
+\documentclass{beamer}
+\mode<presentation> {
+\usetheme{Madrid}
+}
+%\usepackage{graphicx} 
+\usepackage{booktabs} 
+%\usepackage{graphics}
+\usepackage{subcaption}
+%\usepackage{mwe}
+
+\newlength{\tempwidth}
+
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+
+\begin{document}
+
+\begin{frame}[shrink=30]
+\begin{table}
+\caption{Linear Model, h=10}
+\begin{tabular}{l*{5}{c}}
+    \toprule
+    & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} & \multicolumn{1}{c}{(5)}\\
+    & \multicolumn{1}{c}{Corrupt Items} & \multicolumn{1}{c}{Corrupt Resources} & \multicolumn{1}{c}{Diversion Items} & \multicolumn{1}{c}{Fraud Items} & \multicolumn{1}{c}{Overinvoiced Items}\\
+    \midrule
+    model & & & & & \\
+    T & -0.0226 & -0.0194 & -0.0389 & 0.0000768 & -0.0226 \\
+    & (-0.99) & (-0.45) & (-1.31) & (0.00) & (-0.99) \\[1em]
+    R & 0.00247 & 0.00510 & 0.00379 & -0.00140 & 0.00247 \\
+    & (0.78) & (0.86) & (0.94) & (-0.54) & (0.78) \\[1em]
+    R*T & -0.00539 & -0.0161\sym{*} & -0.00301 & -0.00108 & -0.00539 \\
+    & (-1.35) & (-2.13) & (-0.58) & (-0.32) & (-1.35) \\[1em]
+    Constant & 0.0766\sym{***} & 0.105\sym{**} & 0.0381 & 0.0163 & 0.0766\sym{***}\\
+    & (4.45) & (3.26) & (1.71) & (1.14) & (4.45) \\
+    \midrule
+    sigma & & & & & \\
+    Constant & 0.0441\sym{***} & 0.0827\sym{***} & 0.0531\sym{***} & 0.0352\sym{***} & 0.0441\sym{***}\\
+    & (9.41) & (9.17) & (6.97) & (6.93) & (9.41) \\
+    \midrule
+    Observations&54 &54 &54 &54 &54 \\
+    \bottomrule
+    \multicolumn{6}{l}{\footnotesize All are tobit regressions, censored at 0}\\
+    \multicolumn{6}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+\end{table}
+\end{frame}
+
+\end{document}

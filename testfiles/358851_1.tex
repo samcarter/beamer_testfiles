@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/358851
+\documentclass{beamer}
+
+% Comment and uncomment here to switch between notes and frames
+%\setbeameroption{show only notes}
+
+\makeatletter
+\ifbeamer@notesnormals%
+    \beamer@paperwidth 16.00cm%
+    \beamer@paperheight 9.00cm%
+    \geometry{papersize={\beamer@paperwidth,\beamer@paperheight}}
+\fi%
+\makeatother
+
+\begin{document}
+    \begin{frame}{Testtitle}
+        This is a test slide.
+    \end{frame}
+    \note[itemize]{\item A note}
+\end{document}

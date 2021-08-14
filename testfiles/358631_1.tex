@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/358631
+\documentclass{beamer}
+\usetheme{Warsaw}
+
+\title{This title is large and does not fit into the bar down for each page how can i fit it there ? }
+\author{Anonymous}
+\institute{ShareLaTeX}
+\date{2014}
+
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=4.5ex,dp=2.125ex,leftskip=.3cm plus1fill,rightskip=.3cm]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=4.5ex,dp=2.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}
+    \parbox{.45\paperwidth}{\inserttitle}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\begin{document}
+\frame{\titlepage}
+\begin{frame}
+\frametitle{Sample frame title}
+This is a text in first frame. This is a text in first frame. This is a text in first frame.
+\end{frame}
+\end{document}

@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/356244
+\documentclass{beamer}
+\newcommand{\mypause}[1][+]{\onslide<#1>}
+
+\title{TITLE}
+\author{AUTHOR}
+
+\begin{document}
+
+\section{Live Querying Approach}
+\subsection{Traversal-based approach}
+\subsection{Index-based approach}
+\subsection{Hybrid approach}
+
+\begin{frame}<2>
+    \setbeamercovered{%
+       still covered={\opaqueness<1->{100}},
+       again covered={\opaqueness<1->{15}}
+    }
+    \setbeamercolor{subsection in toc}{fg=blue}
+    \let\pause\mypause
+    \tableofcontents[pausesubsections]
+\end{frame}
+
+\end{document}

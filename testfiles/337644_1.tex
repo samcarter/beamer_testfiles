@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/337644
+\documentclass{beamer}
+\usepackage{wrapfig}
+\usepackage[orientation=portrait,size=a0,scale=1.5]{beamerposter}
+
+\begin{document}
+    \begin{center}
+    \makebox[0.95\linewidth][c]{
+            \begin{minipage}{0.3\textwidth}
+                AAA
+
+                \makebox[\textwidth][c]{Nanophysics}
+
+                BBB
+
+                \begin{wrapfigure}{r}{0.3\textwidth}
+                    \includegraphics[width=0.28\textwidth]{example-image}
+                \end{wrapfigure}
+                \textbf{Graphene and carbon nanotubes} are materials with extraordinary mechanical and electronic properties. High electron conductivity, linear energy dispersion and relatively long spin relaxation time make them good candidates for replacing silicon in low power electronics and spintronics.
+                Our research focuses on spin-orbit interaction in carbon-based systems induced by adatoms, substrate or external fields. Starting from first principle calculations we develop realistic theoretical models describing the underlying physics.
+            \end{minipage}
+        }
+    \end{center}
+\end{document}

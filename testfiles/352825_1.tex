@@ -1,0 +1,50 @@
+% https://tex.stackexchange.com/a/352825
+\documentclass{beamer}
+\useoutertheme{sidebar}
+\title{Supply and Demand}
+\subtitle{Econ 101}
+\author{Dr. Economist}
+\institute{College of Dreams}
+\date{}
+
+\makeatletter
+\setbeamertemplate{sidebar left}
+{
+  \beamer@tempdim=\beamer@sidebarwidth%
+  \advance\beamer@tempdim by -6pt%
+  {\usebeamerfont{title in sidebar}%
+    \vskip1.5em%
+    \hskip3pt%
+    \usebeamercolor[fg]{title in sidebar}%
+    \insertshorttitle[width=\beamer@tempdim,center,respectlinebreaks]\par%
+    \vskip1.25em%
+  }%
+  {%
+    \hskip3pt%
+    \usebeamercolor[fg]{author in sidebar}%
+    \usebeamerfont{author in sidebar}%
+%    \insertshortauthor[width=\beamer@tempdim,center,respectlinebreaks]\par%
+    \insertshortsubtitle[width=\beamer@tempdim,center,respectlinebreaks]\par%
+    \vskip1.25em%
+  }%
+  \insertverticalnavigation{\beamer@sidebarwidth}%
+  \vfill
+  \ifx\beamer@sidebarside\beamer@lefttext%
+  \else%
+    \usebeamercolor{normal text}%
+    \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+    \vskip2pt%
+  \fi%
+}%
+\makeatother
+
+\begin{document}
+
+\begin{frame}{Frame title}
+\begin{itemize}
+    \item This is some text.
+    \item Some more text. 
+\end{itemize}
+\end{frame}
+
+\end{document}

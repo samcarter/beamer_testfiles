@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/349989
+\documentclass{beamer}
+\usepackage{tikz}
+
+\setbeamercolor{background canvas}{bg=orange!50!white}
+
+\begin{document}
+
+\begin{frame}
+\begin{tikzpicture} [scale=0.4]
+\usebeamercolor{background canvas}
+\tikzstyle{every node}=[draw,minimum size=1pt,
+                    inner sep=0pt]
+\draw  node (1) [label=$v_{1,1}$] {}
+-- ++(330:2.0cm) node [](2) [] {}
+-- ++(270:2.0cm) node (3)
+[] {}-- ++(210:2.0cm) node (4)
+[] {}-- ++(150:2.0cm) node (5)
+[] {}-- ++(90:2.0cm) node (6)
+[] {}-- ++(30:2.0cm) node (1)
+{};
+\path [](1) edge (2);
+\path [](2) edge (3);
+\path [dashed](3) edge (4);
+\path (4) edge (5);
+\path (5) edge (6);
+\path [](6) edge (1);
+
+\draw (4) node[below,xshift=0mm,draw=bg]{Layer 1};
+\draw (1) node[below,yshift=-5mm,draw=bg]{$K_n$};
+
+\end{tikzpicture}
+\end{frame} 
+
+\end{document}

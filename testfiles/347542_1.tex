@@ -1,0 +1,23 @@
+% https://tex.stackexchange.com/a/347542
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{positioning,tikzmark}
+
+\begin{document}
+
+\begin{frame}[t]{Test}
+\begin{itemize}
+\item Item 1 \tikzmark{a}
+\item Item 2 \tikzmark{b}
+\item Item 3 \tikzmark{c}
+\item Item 4
+\end{itemize}
+
+\centering
+\begin{tikzpicture}[remember picture,overlay, yshift=-2cm]
+    \node {\includegraphics[width=0.5\textwidth]{example-image}};
+    \foreach \i/\j in {(0.5,0.66)/a} \draw [cyan,->] ({pic cs:\j}) -- \i;
+\end{tikzpicture}
+\end{frame}
+
+\end{document}

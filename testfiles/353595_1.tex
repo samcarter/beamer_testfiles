@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/353595
+\documentclass{beamer}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+
+\setbeamertemplate{note page}{%
+    \begin{wrapfigure}{l}{0.5\textwidth}
+        \centering
+        \insertslideintonotes{0.25}
+        \caption{A figure with wrapping text.}
+    \end{wrapfigure}
+    \insertnote
+}
+
+\setbeameroption{show notes}
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen}
+
+\begin{document}
+
+\begin{frame}
+\lipsum[1]
+\note{\lipsum[1]}
+\end{frame}
+
+
+\end{document}

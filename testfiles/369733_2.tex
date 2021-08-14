@@ -1,0 +1,56 @@
+% https://tex.stackexchange.com/a/369733
+\documentclass[presentation]{beamer}
+
+\usepackage[backend=biber, uniquename=false, maxbibnames=99, maxcitenames=2, citestyle=authoryear, bibstyle=authoryear]{biblatex}
+
+\addbibresource{references.bib}
+
+\DeclareCiteCommand{\cite}
+  {\color{red}\usebibmacro{prenote}}%
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\DeclareCiteCommand{\parencite}[\mkcolorbibparens]
+  {\usebibmacro{prenote}}%
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\makeatletter
+\newrobustcmd{\mkcolorbibparens}[1]{%
+  \begingroup
+  \color{red}%
+  \blx@blxinit
+  \blx@setsfcodes
+  \bibopenparen#1\bibcloseparen
+  \endgroup}
+\makeatother
+
+\usepackage{filecontents}
+\begin{filecontents}{references.bib}
+@Book{bartolini-mair-1990,
+  author = {Bartolini, Stefano AND Mair, Peter},
+  title = {Identity, Competition and Electoral Availability. The Stabilization of European Electorates 1885-1985},
+  publisher = {Cambridge University Press},
+  year =  1990,
+  address = {Cambridge},
+}
+\end{filecontents}
+
+\begin{document}
+
+\begin{frame}
+Text \cite{bartolini-mair-1990} text
+
+Text \parencite{bartolini-mair-1990} text
+\end{frame}
+
+\begin{frame}
+\printbibliography
+\end{frame}
+
+
+\end{document}

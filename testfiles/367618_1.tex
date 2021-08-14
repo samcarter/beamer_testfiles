@@ -1,0 +1,48 @@
+% https://tex.stackexchange.com/a/367618
+\documentclass[xcolor={table,dvipsnames}]{beamer}
+
+\usetheme{Copenhagen}
+
+% from https://tex.stackexchange.com/a/315248/36296
+\usepackage{tikz}
+\usetikzlibrary{matrix,shapes,arrows,fit,tikzmark}
+
+% Some options common to all the nodes and paths
+\tikzset{   
+    every picture/.style={remember picture,baseline},
+    every node/.style={anchor=base,align=center,outer sep=1.5pt},
+    every path/.style={thick},
+}
+
+\newcommand\marktopleft[1]{%
+    \tikz[overlay,remember picture] 
+    \node (marker-#1-a) at (.1em,.3em) {};%
+}
+\newcommand\markbottomright[1]{%
+    \tikz[overlay,remember picture] 
+    \node (marker-#1-b) at (.1em,.3em) {};%
+    \tikz[overlay,remember picture,inner sep=1pt]
+    \node[draw=red,rounded corners,fit=(marker-#1-a.north west) (marker-#1-b.south east)] {};%
+}
+
+\begin{document}
+
+\begin{frame}{}
+
+\begin{table}
+\centering 
+\rowcolors{2}{gray!20}{white}
+\begin{tabular}{lccc}
+A & B & C & D \\ 
+00 & 100\% & 100\% & 0\% \\ 
+\only<1>{\marktopleft{a}}05 & 58 & 181 & 50\only<1>{\markbottomright{a}}\\ 
+\only<2>{\marktopleft{b}}10 & 87 & 112 & 1.6\only<2>{\markbottomright{b}}\\ 
+20 & 92 & 115 & 1.6 \\ 
+30 & 87 & 117 & 1.6 \\ 
+40 & 81 & 121 & 1.6 \\ 
+\end{tabular}
+\end{table}%
+
+\end{frame}
+
+\end{document}

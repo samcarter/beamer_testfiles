@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/350580
+\documentclass{beamer}
+\usetheme{Madrid}
+
+\begin{document}
+{
+\begin{frame}
+    \setbeamercolor{item}{fg=green}
+    \setbeamercolor{normal text}{fg=green}
+    \usebeamercolor[fg]{normal text}
+    this is green
+    \begin{itemize}
+        \item Not green but should be green
+    \end{itemize}
+    this is also green
+    \begin{align*}
+        F = ma
+    \end{align*}
+\end{frame}
+}
+\end{document}

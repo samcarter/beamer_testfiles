@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/351720
+\documentclass[aspectratio=43,10pt]{beamer}
+\setbeamercovered{transparent} 
+\begin{document}
+\begin{frame}[t]
+\frametitle{\textbf{Motivation}}
+\begin{columns}[T]
+\begin{column}{.6\textwidth}
+\begin{itemize}
+\uncover<+->{\item }
+\uncover<+->{\begin{itemize}
+\item Some Item
+\item Some Item
+\item Some Item
+\end{itemize}}
+\uncover<+->{\item some item}
+\uncover<+->{\item some item}
+\end{itemize}
+\end{column}
+\begin{column}{.4\textwidth}
+\centering
+\begin{figure}%
+\includegraphics[height=3cm]{example-image}
+\caption{\tiny URL}
+\end{figure} 
+\end{column}
+\end{columns}
+\end{frame}
+\end{document}

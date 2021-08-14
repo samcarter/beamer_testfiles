@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/365658
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}
+
+\begin{columns}[onlytextwidth, T]
+    \begin{column}{.47\textwidth}
+        \begin{itemize}
+            \item \texttt{sortOddParticles(txt)}
+            \item \texttt{qNumbers(pName, \&spin2, \&charge3, \&cdim)}\footnotemark
+            \item \texttt{pdg2name(nPDG)}
+            \item \texttt{pMass(pName)}
+            \item \texttt{nextOdd(n,\&pMass)}
+        \end{itemize}
+    \end{column}
+    \begin{column}{.47\textwidth}
+        \begin{itemize}
+            \item \texttt{findVal(name,\&val)}
+            \item \texttt{findValW(name)}
+            \item \texttt{printVar(FD)}
+            \item \texttt{printMasses(FD,sort)}
+            \item \texttt{printHiggsMasses(FD, sort)}
+        \end{itemize}
+    \end{column}
+\end{columns}
+
+\footnotetext{The \& represents a memory direction in C}
+\end{frame}
+
+
+\end{document}

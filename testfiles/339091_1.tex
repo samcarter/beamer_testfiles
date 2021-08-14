@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/a/339091
+\documentclass{beamer}
+
+\usepackage{tikz}
+
+\begin{document}
+\begin{frame}
+
+\begin{figure}
+test in normal font
+
+\begin{tikzpicture}[font={\fontfamily{phv}\selectfont}]
+\node[anchor=south west, inner sep=0] at (0,0) {test in phv};
+\end{tikzpicture}
+\end{figure}
+
+
+\end{frame}
+\end{document}

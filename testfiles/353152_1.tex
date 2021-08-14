@@ -1,0 +1,55 @@
+% https://tex.stackexchange.com/a/353152
+\documentclass[xcolor=table]{beamer}
+
+\usepackage{pgf}
+\usepackage{polski}
+\usepackage{tikz}
+\usetikzlibrary{intersections}
+\usepackage{etoolbox}
+\usepackage{pgf,tikz}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usepackage{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor,hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{eurosym}
+\usepackage[export]{adjustbox}
+\usetheme{boxes}
+\usecolortheme{default}
+\usefonttheme{serif}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\beamersetaveragebackground{white}
+\pretocmd{\tableofcontents}{\begin{minipage}{\textwidth}}{}{}
+\apptocmd{\tableofcontents}{\end{minipage}}{}{}
+  \usepackage{pgfplots, pgfplotstable}
+\begin{document}
+    \begin{frame}
+        \begin{table}[]
+            \centering
+            \caption{My caption}
+            \label{my-label}
+            \makebox[0pt]{\resizebox{.98\paperwidth}{!}{%
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                Kraj                   & Okres zwiększonej podaży pieniądza & Liczba kwartałów      & Liczba epizodów       & Inflacja                   \\ \hline
+                Kanada                 & 1972 Q1 - 1974 Q2                  & 4                     & 5                     & {\color[HTML]{009901} TAK} \\ \hline
+                & 1978 Q4 - 1983 Q1                  & 18                    &                       & {\color[HTML]{FE0000} NIE} \\ \hline
+                & 1986 Q4 - 1987 Q3                  & 4                     &                       & {\color[HTML]{FE0000} NIE} \\ \hline
+                & 1990 Q3 - 1993 Q4                  & 14                    &                       & {\color[HTML]{FE0000} NIE} \\ \hline
+                & 1996 Q1 - 1998 Q4                  & 12                    &                       & {\color[HTML]{009901} TAK} \\ \hline
+                \multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{}              & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{}      \\ \hline
+                Dania                  & 1975 Q4 - 1978 Q1                  & 10                    & 4                     & {\color[HTML]{009901} TAK} \\ \hline
+                & 1984 Q2 - 1988 Q4                  & 19                    &                       & {\color[HTML]{FE0000} NIE} \\ \hline
+                & 1992 Q2 - 1994 Q3                  & 10                    &                       & {\color[HTML]{009901} TAK} \\ \hline
+                & 1996 Q4 - 1999 Q3                  & 12                    &                       & {\color[HTML]{009901} TAK} \\ \hline
+                \multicolumn{1}{|l|}{} & \multicolumn{1}{l|}{}              & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{}      \\ \hline
+                Francja                & 1990 Q3 - 1993 Q4                  & 14                    & 2                     & {\color[HTML]{FE0000} NIE} \\ \hline
+                & 1995 Q3 - 1996 Q3                  & 4                     &                       & {\color[HTML]{FE0000} NIE} \\ \hline
+            \end{tabular}}}
+        \end{table}
+    \end{frame}
+\end{document}

@@ -1,0 +1,48 @@
+% https://tex.stackexchange.com/a/366422
+\documentclass{beamer}
+\usetheme{metropolis}           % Use metropolis theme
+
+\begin{document}
+
+\begin{frame}{your frame}
+    \begin{columns}[t]
+        \begin{column}{0.5\textwidth}
+            \rule{\textwidth}{3cm}
+        \end{column}
+        \vrule{}
+        \begin{column}{0.5\textwidth}
+            \rule{\textwidth}{3cm}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{onlytextwidth}
+    \begin{columns}[t, onlytextwidth]
+        \begin{column}{0.5\textwidth}
+            \rule{\textwidth}{3cm}
+        \end{column}
+        \vrule{}
+        \begin{column}{0.5\textwidth}
+            \rule{\textwidth}{3cm}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{smaller columns}
+    \begin{columns}[t]
+        \begin{column}{0.45\textwidth}
+            \rule{\textwidth}{3cm}
+        \end{column}
+        \vrule{}
+        \begin{column}{0.45\textwidth}
+            \rule{\textwidth}{3cm}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \rule{\textwidth}{3cm}
+\end{frame}
+
+\end{document}

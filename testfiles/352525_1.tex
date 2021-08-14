@@ -1,0 +1,68 @@
+% https://tex.stackexchange.com/a/352525
+\documentclass{beamer}
+\usecolortheme{orchid}
+\usecolortheme{whale}
+\useoutertheme{smoothbars}
+
+\setbeamerfont{section in head/foot}{series=\bfseries}
+\setbeamercolor{section in head/foot}{fg=black, bg=}
+
+\usepackage{tikz}
+
+\definecolorseries{foo}{rgb}{last}{red}{blue}
+\resetcolorseries[3]{foo}
+
+\makeatletter
+\setbeamertemplate{headline}{%
+    \foreach \i in {1,...,\number\totvalue{totalsection}}{%
+            {\color{foo!![\i]}\rule{\dimexpr\paperwidth/\number\totvalue{totalsection}\relax}{7ex}}%
+    }
+  \vskip-7ex%
+  \begin{beamercolorbox}[ignorebg,ht=2.25ex,dp=3.75ex]{section in head/foot}
+    \insertnavigation{\paperwidth}
+  \end{beamercolorbox}%
+}%
+\makeatother
+
+
+\usepackage{totcount}
+
+\newcounter{totalsection}
+\regtotcounter{totalsection}
+
+\AtBeginDocument{%
+    \pretocmd{\section}{\refstepcounter{totalsection}}{\typeout{Yes, prepending was successful}}{\typeout{No, prepending was not it was successful}}%
+}%
+
+\title{Hello World}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\begin{frame}{Hello!}
+  \begin{itemize}
+    \item Hello!
+  \end{itemize}
+\end{frame}
+
+\section{Further stuff}
+
+\begin{frame}{Hello!}
+  \begin{itemize}
+    \item Hello!
+  \end{itemize}
+\end{frame}
+
+\section{some stuff}
+
+\begin{frame}{Hello!}
+  \begin{itemize}
+    \item Hello!
+  \end{itemize}
+\end{frame}
+
+
+\end{document}

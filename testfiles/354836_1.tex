@@ -1,0 +1,119 @@
+% https://tex.stackexchange.com/a/354836
+\documentclass[12pt]{beamer}
+\usepackage[many]{tcolorbox}
+
+\usetheme{Copenhagen}
+
+\definecolor{myblue1}{RGB}{35,119,189}
+\definecolor{myblue2}{RGB}{95,179,238}
+\definecolor{myblue3}{RGB}{129,168,207}
+\definecolor{myblue4}{RGB}{26,89,142}
+
+\setbeamercolor*{structure}{fg=myblue1,bg=blue}
+\setbeamercolor*{palette primary}{use=structure,fg=white,bg=structure.fg}
+\setbeamercolor*{palette secondary}{use=structure,fg=white,bg=structure.fg!75!black}
+\setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=structure.fg!50!black}
+\setbeamercolor*{palette quaternary}{fg=black,bg=white}
+
+\setbeamercolor*{item projected}{fg=red,bg=myblue3!80}
+\setbeamercolor*{block title example}{fg=white,bg=myblue4}
+\setbeamercolor*{frametitle}{fg=white}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+\makeatletter
+\defbeamertemplate*{frametitle}{mydefault}[1][left]
+{
+\ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+\nointerlineskip%
+\@tempdima=\textwidth%
+\advance\@tempdima by\beamer@leftmargin%
+\advance\@tempdima by\beamer@rightmargin%
+\begin{tcolorbox}[
+enhanced,
+outer arc=0pt,
+arc=0pt,
+boxrule=0pt,
+top=0pt,
+bottom=0pt,
+enlarge left by=-\beamer@leftmargin,
+enlarge right by=-\beamer@rightmargin,
+width=\paperwidth,
+nobeforeafter,
+interior style={
+  left color=myblue2,
+  right color=white
+  },
+shadow={0mm}{-0.4mm}{0mm}{black!60,opacity=0.6},    
+shadow={0mm}{-0.8mm}{0mm}{black!40,opacity=0.4},    
+]
+  \usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}%
+  \vbox{}\vskip-1ex%
+  \if@tempswa\else\csname beamer@fte#1\endcsname\fi%
+  \insertframetitle\par%
+  {%
+\ifx\insertframesubtitle\@empty%
+\else%
+{\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+\fi
+}%
+\vskip-1ex%
+\if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+\end{tcolorbox}%
+}
+\defbeamertemplate*{footline}{mysplit theme}
+{%
+\leavevmode%
+\hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fill,rightskip=.3cm]{author in head/foot}%
+\usebeamerfont{author in head/foot}\insertshortauthor
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+\usebeamerfont{title in head/foot}\insertshorttitle\hfill
+\insertframenumber/\inserttotalframenumber\hspace*{0.5em}
+\end{beamercolorbox}}%
+\vskip0pt%
+}
+\makeatother
+
+\title{The title of the paper}
+\author{Subham Soni \and Sakthivel \and Syed Rabbani}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\section{Propositional Argumentation Systems}
+\subsection{Propositional Logic}
+\begin{frame}
+\frametitle{Logical consequences}
+\begin{itemize}
+\item First.
+\item Second.
+\item Third.
+\begin{exampleblock}{Entailment Relation}
+\begin{itemize}
+\item First.
+\item Second.
+\end{itemize}
+\end{exampleblock}
+\item Fourth.
+\end{itemize}
+\end{frame}
+
+\subsection{Argumentation Systems}
+\begin{frame}
+\frametitle{Logical consequences}
+\end{frame}
+\subsection{Probabilistic Argumentation Systems}
+\begin{frame}
+\frametitle{Logical consequences}
+\end{frame}
+
+\section{Argumentation Systems on Set Constraint Logic}
+\begin{frame}
+test
+\end{frame}
+
+\end{document}

@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/357046
+\documentclass[c]{beamer}
+
+\usepackage{appendixnumberbeamer}
+
+\setbeamertemplate{footline}{\insertframenumber~/~\inserttotalframenumber}
+
+\makeatletter
+\def\appendix{
+  \xdef\mainend{\theframenumber}
+  \immediate\write\@auxout{\string\global\string\@namedef{mainendframenumber}{\mainend}}
+  \appendixorig
+%  \gdef\inserttotalframenumber{\appendixtotalframenumber}%
+%  \setcounter{framenumber}{0}
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+test
+\pause[3]
+\end{frame}
+
+\begin{frame}
+test
+\end{frame}
+
+\appendix
+
+\begin{frame}
+Appendix
+\end{frame}
+
+\end{document}

@@ -1,0 +1,50 @@
+% https://tex.stackexchange.com/a/346862
+\documentclass{beamer}
+
+\AtBeginSection{%
+\begin{frame}[allowframebreaks]
+    \frametitle{Outline}
+    \tableofcontents[sections=1-4, currentsection]
+    \framebreak
+    \tableofcontents[sections=5-9, currentsection]
+\end{frame}
+}
+
+\begin{document}
+
+% possibility 1a: manual breakpoint; gives you the most control
+\begin{frame}
+    \frametitle{Outline}
+    \tableofcontents[sections=1-4]
+\end{frame}
+
+\begin{frame}
+    \frametitle{Outline}
+    \tableofcontents[sections=5-9]
+\end{frame}
+
+% possibility 1b:
+\begin{frame}[allowframebreaks]
+    \frametitle{Outline}
+    \tableofcontents[sections=1-4]
+    \framebreak
+    \tableofcontents[sections=5-9]
+\end{frame}
+
+% possibility 2: automatic break, might not give nice breakpoints
+\begin{frame}[allowframebreaks]
+    \frametitle{Outline}
+    \tableofcontents
+\end{frame}
+
+\section{sec1}\frame{}
+\section{sec2}\frame{}
+\section{sec3}\frame{}
+\section{sec4}\frame{}
+\section{sec5}\frame{}
+\section{sec6}\frame{}
+\section{sec7}\frame{}
+\section{sec8}\frame{}
+\section{sec9}\frame{}
+
+\end{document}

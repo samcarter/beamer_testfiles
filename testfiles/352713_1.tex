@@ -1,0 +1,90 @@
+% https://tex.stackexchange.com/a/352713
+\documentclass{beamer}
+\usetheme{Warsaw}
+
+\usepackage{etoolbox}
+\makeatletter
+\newcount\beamer@sectionstartframe
+\beamer@sectionstartframe=1
+\apptocmd{\beamer@section}{\addtocontents{nav}{\protect\headcommand{%
+            \protect\beamer@sectionframes{\the\beamer@sectionstartframe}{\the\c@framenumber}}}}{}{}
+\apptocmd{\beamer@section}{\beamer@sectionstartframe=\c@framenumber\advance\beamer@sectionstartframe by1\relax}{}{}
+\AtEndDocument{\immediate\write\@auxout{\string\@writefile{nav}%
+        {\noexpand\headcommand{\noexpand\beamer@sectionframes{\the\beamer@sectionstartframe}{\the\c@framenumber}}}}}{}{}
+\def\beamer@startframeofsection{1}
+\def\beamer@endframeofsection{1}
+\def\beamer@sectionframes#1#2{%
+    \ifnum\c@framenumber<#1%
+    \else%
+    \ifnum\c@framenumber>#2%
+    \else%
+    \gdef\beamer@startframeofsection{#1}%
+    \gdef\beamer@endframeofsection{#2}%
+    \fi%
+    \fi%
+}
+\newcommand\insertsectionstartframe{\beamer@startframeofsection}
+\newcommand\insertsectionendframe{\beamer@endframeofsection}
+
+\setbeamertemplate{headline}{%
+    \ifnum\insertsectionstartframe=\insertframenumber%
+      \vskip-\headheight%
+    \else%
+          \leavevmode%
+          \@tempdimb=2.4375ex%
+          \ifnum\beamer@subsectionmax<\beamer@sectionmax%
+            \multiply\@tempdimb by\beamer@sectionmax%
+          \else%
+            \multiply\@tempdimb by\beamer@subsectionmax%
+          \fi%
+          \ifdim\@tempdimb>0pt%
+            \advance\@tempdimb by 1.825ex%
+            \begin{beamercolorbox}[wd=.5\paperwidth,ht=\@tempdimb]{section in head/foot}%
+              \vbox to\@tempdimb{\vfil\insertsectionnavigation{.5\paperwidth}\vfil}%
+            \end{beamercolorbox}%
+            \begin{beamercolorbox}[wd=.5\paperwidth,ht=\@tempdimb]{subsection in head/foot}%
+              \vbox to\@tempdimb{\vfil\insertsubsectionnavigation{.5\paperwidth}\vfil}%
+            \end{beamercolorbox}%
+          \fi%      
+      \vskip-0.2pt
+      \pgfuseshading{beamer@topshade}
+      \vskip-2pt
+    \fi%
+    }
+\makeatother
+
+\begin{document}
+
+    \section{The First}
+
+    \begin{frame}
+        First slide
+    \end{frame}
+
+    \begin{frame}
+        Second slide
+    \end{frame}
+
+    \begin{frame}
+        Third slide
+    \end{frame}
+
+    \begin{frame}
+        Fourth slide
+    \end{frame}
+
+    \section{The Second}
+
+    \begin{frame}
+        First slide
+    \end{frame}
+
+    \begin{frame}
+        Second slide
+    \end{frame}
+
+    \begin{frame}
+        Third slide
+    \end{frame}
+
+\end{document}

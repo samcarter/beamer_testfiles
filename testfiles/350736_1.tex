@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/a/350736
+\documentclass{beamer}
+\usepackage{etoolbox}
+
+\BeforeBeginEnvironment{frame}{%
+  \normalsize%
+  \normalcolor%
+}
+
+\makeatletter
+\define@key{beamerframe}{bigword}[true]{%
+  \Huge
+  \color{orange}
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+  normal
+\end{frame} 
+
+\begin{frame}[bigword]
+  big
+\end{frame}
+
+\begin{frame}
+  normal
+\end{frame}
+
+\end{document}

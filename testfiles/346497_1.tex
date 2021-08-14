@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/346497
+\documentclass{beamer}
+\usepackage{xpatch}
+
+\makeatletter
+\patchcmd\beamer@@tmpl@frametitle{\insertframetitle}{\insertsection-\insertframetitle}{}{}
+\makeatother
+
+\begin{document}
+\section{Sec shun 1}
+\frame{Dummy frames}
+\begin{frame}{My title 1}
+Some stufff
+\end{frame}
+
+
+\section{Sec shun 2}
+\begin{frame}{My title 2}
+Some other stufff
+\end{frame}
+\frame{Dummy frames}
+\end{document}

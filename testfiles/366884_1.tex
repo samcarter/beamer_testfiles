@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/366884
+\documentclass{beamer}
+
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{frame}
+
+\transduration<0-30>{0.1}
+\begin{tikzpicture}[remember picture, overlay]
+\foreach \x in{0,...,30}{    
+  \node[] at (1.5+0.1333333*\x,2.-0.2*\x) {\includegraphics<+>[width=3cm]{example-image}};
+  \node[] at (5.5,2.) {\includegraphics<.>[width=3cm]{example-image-b}};
+  \node[] at (9.5-0.1333333*\x,2.-0.2*\x) {\includegraphics<.>[width=3cm]{example-image-a}};
+}
+\end{tikzpicture} 
+
+\end{frame}
+\end{document}

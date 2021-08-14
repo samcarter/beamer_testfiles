@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/355508
+\documentclass{beamer}
+
+\usetheme{Madrid}      
+\usecolortheme{beaver} 
+
+\begin{document}
+    \begin{frame}
+        \begin{onlyenv}<1-7>
+            \begin{itemize}
+                \item<2-7>  \only<2-7>{text text text text text text}           
+                            \only<3-7>{text text text text text text.}
+                \item<4-7>  \only<4-7>{text text text text text text}           
+                            \only<5-7>{text text text text text text.}
+                \item<6-7>  \only<6-6>{text text text text text text.} 
+                            \only<7-7>{another text another text another text another text.}
+            \end{itemize}
+        \end{onlyenv}  
+    \end{frame}
+\end{document}

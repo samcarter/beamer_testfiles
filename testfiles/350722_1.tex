@@ -1,0 +1,16 @@
+% https://tex.stackexchange.com/a/350722
+\documentclass{beamer}
+\setbeamercovered{transparent}
+
+\begin{document}
+
+\begin{frame}<1>[label=test]
+    \begin{itemize}[<+>]
+    \item foo
+    \item bar
+    \end{itemize}
+\end{frame}
+
+\againframe<2>{test}
+
+\end{document}

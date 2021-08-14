@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/354626
+\documentclass{beamer}
+
+\useoutertheme{smoothbars}
+
+\setbeamercolor{mini frame}{fg=red}
+
+\makeatother
+\setbeamertemplate{mini frame in other section}{\color{blue!50!bg}\usebeamertemplate{mini frame in current section}}
+\setbeamertemplate{mini frame in other subsection}{\color{blue!50!bg}\usebeamertemplate{mini frame in current subsection}}
+\makeatletter
+
+
+\begin{document}
+\begin{frame}
+test
+\end{frame}
+
+\section{test}
+\subsection{test2}
+\begin{frame}{simple}
+  \framesubtitle{A beamer theme}
+\end{frame}
+
+\subsection{test3}
+\begin{frame}{simple}
+  \framesubtitle{A beamer theme}
+\end{frame}
+\end{document}

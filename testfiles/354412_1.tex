@@ -1,0 +1,42 @@
+% https://tex.stackexchange.com/a/354412
+\documentclass{beamer}
+\newcommand{\mypause}[1][+]{\onslide<#1>}
+
+\title{TITLE}
+\author{AUTHOR}
+
+\AtBeginSection[]{%
+    \begin{frame}<\value{section}>
+        \setbeamercovered{%
+           still covered={\opaqueness<1->{100}},
+           again covered={\opaqueness<1->{15}}
+        }
+        \let\pause\mypause
+        \tableofcontents[pausesections]
+    \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}\maketitle\end{frame}
+
+\section{SECT I}
+
+\subsection{I.1}
+\begin{frame}I.1\end{frame}
+
+\subsection{I.2}
+\begin{frame}I.2\end{frame}
+
+\section{SECT II}
+\begin{frame}II frame 1\end{frame}
+\begin{frame}II frame 2\end{frame}
+
+\section{SECT III}
+\subsection{III.1}
+\begin{frame}III.1\end{frame}
+
+\subsection{III.2}
+\begin{frame}III.2\end{frame}
+
+\end{document}

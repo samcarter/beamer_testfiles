@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/368872
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}
+    \frametitle{Frametitle}
+    \begin{columns}[onlytextwidth,T]
+        \begin{column}{0.48\textwidth}
+            \textbf{bold text}\\
+            \begin{itemize}
+                \item text1
+                \item text2
+                \item an equation
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \begin{center}
+                \begin{overlayarea}{\textwidth}{5cm}
+                    \includegraphics<2>[width=.7\textwidth]{example-image-a}
+                    \includegraphics<3>[width=.7\textwidth,height=5cm]{example-image-b}
+                \end{overlayarea}
+            \end{center}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\end{document}

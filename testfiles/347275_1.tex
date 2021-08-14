@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/347275
+\documentclass{beamer}
+
+\addtobeamertemplate{proof begin}{%
+    \setbeamercolor{block title}{fg=black,bg=red!50!white}%
+    \setbeamercolor{block body}{fg=red, bg=red!30!white}%
+}{}
+
+\addtobeamertemplate{theorem begin}{%
+    \setbeamercolor{block title}{fg=black,bg=orange!50!white}%
+    \setbeamercolor{block body}{fg=orange, bg=orange!30!white}%
+}{}
+
+\addtobeamertemplate{qed symbol}{%
+    \color{red}%
+}
+
+\begin{document}
+\begin{frame}
+    \begin{theorem}[My theorem]
+        A theorem.
+    \end{theorem}
+    \begin{proof}[My proof]
+        A proof.
+    \end{proof}   
+\end{frame}
+\end{document}

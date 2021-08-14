@@ -1,0 +1,44 @@
+% https://tex.stackexchange.com/a/339090
+\documentclass{beamer}
+
+\usepackage[orientation=landscape,width=46in, height=42in,scale=1.4,debug]{beamerposter}
+
+\definecolor{Light}{gray}{.80}
+\definecolor{dgreen}{rgb}{0.,0.6,0.}
+
+% sidebar
+\setbeamersize{sidebar width left=0.075\paperwidth}
+\setbeamertemplate{sidebar canvas left}[vertical shading][top=green!23!blue!49, bottom=green!15!blue!42]
+
+% headline
+\setbeamertemplate{headline}{%
+  \leavevmode%
+  \raisebox{\dimexpr-\headheight\relax}{%
+      \begin{beamercolorbox}[wd=0.92\paperwidth]{headline}
+              \vskip2cm
+        \centering
+        \usebeamercolor{title in headline}{\color{fg}\textbf{\veryHuge{\inserttitle}}\\[1ex]}
+        \usebeamercolor{author in headline}{\color{fg}\Large{\insertauthor}\\[1ex]}
+        \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}\\[1ex]}
+      \end{beamercolorbox}
+    }
+}
+
+\makeatletter
+\def\beamer@andinst{\\[0.15em]}
+\makeatother
+
+\title{Title of the poster}
+\author{\textcolor{dgreen}{author 1}\inst{1} \and author 2\inst{1} \and author 3\inst{2} }
+\institute{\inst{1} Institution 1  \and %
+            \inst{2} Institution 2 }
+\date{}
+
+
+\begin{document}
+\begin{frame}
+
+contents
+
+\end{frame}
+\end{document}
