@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/325445
+\documentclass{beamer}
+\usetheme{Dresden}
+
+\begin{filecontents*}{\jobname.bib}
+    @article{test1,
+        title = {My first Title},
+        author = {T the First.},
+        year = {2006}
+    }
+    @article{test2,
+        title = {My second Title},
+        author = {TT the Second.},
+        year = {2012}
+    }
+\end{filecontents*}
+
+\usepackage[style=verbose,giveninits=true,mincitenames=3,autolang=hyphen,sorting=none,backend=biber]{biblatex}
+\addbibresource{\jobname.bib}
+
+\begin{document}
+    \begin{frame}
+      \frametitle{My Frame title\setcounter{footnote}{0}\footnotemark}
+        \stepcounter{footnote} \footcitetext{test1}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                \begin{itemize}
+                    \item left first
+                    \item left second\footnotemark %<-- should be number 1
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{itemize}
+                    \item right first
+                    \item right second
+                \end{itemize}
+            \end{column}
+        \end{columns}
+        \footcitetext{test2}
+    \end{frame}
+\end{document}

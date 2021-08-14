@@ -1,0 +1,42 @@
+% https://tex.stackexchange.com/a/331753
+\documentclass{beamer}
+
+\begin{document}
+
+{
+\setbeamercolor{subsection in toc}{fg=bg}
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+}
+
+\begin{frame}{Outline}
+    \tableofcontents[pausesubsections]
+\end{frame}
+
+\section{One}
+
+\subsection{OneOne}
+\begin{frame}
+    There is nothing here.
+\end{frame}
+
+\subsection{OneTwo}
+\begin{frame}
+    There is nothing here.
+\end{frame}
+
+
+\section{Two}
+
+\subsection{TwoOne}
+\begin{frame}
+    There is nothing here.
+\end{frame}
+
+\subsection{TwoTwo}
+\begin{frame}
+    There is nothing here.
+\end{frame}
+
+\end{document}

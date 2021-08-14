@@ -1,0 +1,43 @@
+% https://tex.stackexchange.com/a/331063
+\documentclass{beamer}
+\usetheme{Darmstadt} 
+\setbeamerfont{headline}{size=\huge}
+
+\makeatletter
+\setbeamertemplate{mini frame}{%
+  \begin{pgfpicture}{0pt}{0pt}{0.1cm}{0.1cm}
+    \pgfpathcircle{\pgfpoint{0.15cm}{0.15cm}}{0.15cm}
+    \pgfusepath{fill,stroke}
+  \end{pgfpicture}%
+}
+
+\setbeamertemplate{mini frame in current section}{%
+  \begin{pgfpicture}{0pt}{0pt}{0.1cm}{0.1cm}
+    \pgfpathcircle{\pgfpoint{0.15cm}{0.15cm}}{0.15cm}
+    \pgfusepath{stroke}
+  \end{pgfpicture}%
+}
+
+\setbeamertemplate{mini frame in current subsection}{%
+  \begin{pgfpicture}{0pt}{0pt}{0.1cm}{0.1cm}
+    \pgfpathcircle{\pgfpoint{0.15cm}{0.15cm}}{0.15cm}
+    \pgfusepath{stroke}
+  \end{pgfpicture}%
+}
+
+\setbeamersize{mini frame size=0.4cm, mini frame offset=0.3cm}
+\makeatother
+
+\begin{document}
+  \section{Section 1}
+  \subsection{Subsection 1}
+  \begin{frame}{Frame}
+        Content
+  \end{frame}
+  \begin{frame}{Frame}
+        Content
+  \end{frame}
+  \begin{frame}{Frame}
+        Content
+  \end{frame}
+\end{document}

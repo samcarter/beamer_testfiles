@@ -1,0 +1,94 @@
+% https://tex.stackexchange.com/a/334537
+\documentclass[xcolor=dvipsnames]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usetheme{Antibes}
+\usecolortheme[named=Maroon]{structure} 
+\setbeamercovered{transparent}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xcolor}
+\usepackage{listings}
+
+\newcommand\JSONnumbervaluestyle{\color{red}}
+\newcommand\JSONstringvaluestyle{\color{red}}
+
+% switch used as state variable
+\newif\ifcolonfoundonthisline
+
+\makeatletter
+
+\lstdefinestyle{json}
+{
+  showstringspaces    = false,
+  alsoletter          = 0123456789.,
+  morestring          = [s]{""}{""},
+  stringstyle         = \ifcolonfoundonthisline\JSONstringvaluestyle\fi,
+  MoreSelectCharTable =%
+    \lst@DefSaveDef{`:}\colon@json{\processColon@json},
+  basicstyle          = \ttfamily\small,
+  keywordstyle        = \ttfamily\bfseries,
+}
+
+% flip the switch if a colon is found in Pmode
+\newcommand\processColon@json{%
+  \colon@json%
+  \ifnum\lst@mode=\lst@Pmode%
+    \global\colonfoundonthislinetrue%
+  \fi
+}
+
+\lst@AddToHook{Output}{%
+  \ifcolonfoundonthisline%
+    \ifnum\lst@mode=\lst@Pmode%
+      \def\lst@thestyle{\JSONnumbervaluestyle}%
+    \fi
+  \fi
+  %override by keyword style if a keyword is detected!
+  \lsthk@DetectKeywords% 
+}
+
+% reset the switch at the end of line
+\lst@AddToHook{EOL}%
+  {\global\colonfoundonthislinefalse}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\title{Test}
+\author{Alex XYZ}
+\institute{University XYZ}
+\date{20.01.16}
+
+\usepackage[most]{tcolorbox}
+
+\begin{document}
+\beamertemplatenavigationsymbolsempty
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}[fragile]{JSON array of the timetable sheets}
+
+JSON array of the parsed timetable sheets:
+\bigbreak
+\begin{tcolorbox}[enhanced,colback=white,colframe=white,sharpish corners,fuzzy halo=0.5mm with lightgray]
+\begin{lstlisting}[style=json]
+[{""stops"": [{
+    ""arrival_time"": {
+      ""mon-fri"": [ ""04:31"", ""04:43""],
+    ""sat"":     [""05:32"", 06:32""],                                     
+    ""sun"":     [""05:32"", ""06:32""]
+  },   
+    ""stop_name"": ""XYZ"",
+  ""stop_lat"": ""90.874136"",
+  ""stop_long"": ""19.665553""
+  }]
+}]
+\end{lstlisting}
+\end{tcolorbox}
+\end{frame}
+
+\end{document}

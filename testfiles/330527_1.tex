@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/330527
+\documentclass[10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\setlength{\paperwidth}{16cm}
+\setlength{\paperheight}{8cm}
+
+\begin{document}
+\begin{frame}{}
+
+\begin{block}{\Huge A title for my poster}
+    \LARGE By askewchan
+\end{block}
+
+\begin{columns}[T]
+    \column{.5\linewidth}
+        some text in a column
+    \column{.5\linewidth}
+        %some more text in another\footnote{a footnote} column
+        some more text in another\footnote[frame]{a footnote} column
+\end{columns}
+\end{frame}
+\end{document}

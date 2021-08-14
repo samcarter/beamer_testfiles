@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/329962
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}
+Common text, that keeps its position in the two frames \\
+
+\begin{overprint}
+
+\onslide<1>
+  First slide \\
+  Frame - \insertframenumber{} of \inserttotalframenumber \\
+
+\only<2>{\addtocounter{framenumber}{1}}
+
+\onslide<2>
+  Second slide \\
+  Frame - \insertframenumber{} of \inserttotalframenumber \\
+  Some more text
+
+\end{overprint}
+\end{frame}
+
+
+\end{document}

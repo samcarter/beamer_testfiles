@@ -1,0 +1,32 @@
+% https://tex.stackexchange.com/a/322258
+\documentclass{beamer}
+
+\makeatletter
+\setbeamertemplate{button}{%
+    \setbox\beamer@tempbox=\hbox{{\insertbuttontext}}%
+    \ht\beamer@tempbox=6pt%
+    \dp\beamer@tempbox=0pt%
+    \setbox\beamer@tempbox=\vbox{\box\beamer@tempbox\vskip2pt}%
+    \beamer@tempdim=\wd\beamer@tempbox%
+    \beamer@dima=\beamer@tempdim\advance\beamer@dima by2.2pt
+    \beamer@dimb=\beamer@tempdim\advance\beamer@dimb by4pt
+    \begin{pgfpicture}{-2pt}{0pt}{\the\beamer@tempdim}{8pt}
+        \usebeamercolor[bg]{button frame}
+        \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\beamer@dimb}{8pt}}
+        \pgfusepath{fill}
+    \end{pgfpicture}%
+    \hskip2pt
+    \hskip-\beamer@tempdim%
+    \box\beamer@tempbox%
+    \kern4pt%
+}
+\makeatother
+
+\begin{document}
+
+    \begin{frame}{The title}
+        \label{thelabel}
+        \hyperlink{thelabel}{\beamerbutton{thetext}}
+    \end{frame}
+
+\end{document}

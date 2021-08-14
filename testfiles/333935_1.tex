@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/a/333935
+\documentclass{beamer}
+\usepackage{multicol}
+\usetheme{default}
+
+\begin{document}
+\section{Problem Definition}
+\subsection{Terminology}
+\subsection{Naive Workflow}
+\subsection{Fatal Problem}
+\section{Current Solution}
+\subsection{What we have}
+\subsection{How we use it}
+\section{How it Works}
+\section{How to Build}
+\section{Troubleshooting}
+\subsection{No defaulting}
+\subsection{Inconsistent defaulting}
+\subsection{Most other problems}
+
+\begin{frame}{Questions}
+    \begin{columns}[onlytextwidth,T]
+        \begin{column}{.45\textwidth}
+            \tableofcontents[sections=1-2]
+        \end{column}
+        \begin{column}{.45\textwidth}
+            \tableofcontents[sections=3-5]
+        \end{column}
+    \end{columns}
+\end{frame}
+\end{document}

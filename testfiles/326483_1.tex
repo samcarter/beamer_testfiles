@@ -1,0 +1,52 @@
+% https://tex.stackexchange.com/a/326483
+\documentclass[xcolor=dvipsnames,t]{beamer}
+\definecolor{mikadoyellow}{rgb}{1.0, 0.77, 0.05}
+\definecolor{yaleblue}{rgb}{0.06, 0.3, 0.57}
+\usetheme{Warsaw}
+\usefonttheme{serif}
+\setbeamerfont{section in head/foot}{family=\sffamily}
+\setbeamerfont{subsection in head/foot}{family=\sffamily}
+\setbeamerfont{author in head/foot}{family=\sffamily}
+\setbeamerfont{title in head/foot}{family=\sffamily}
+\setbeamercolor*{palette primary}{use=structure,fg=black,bg=mikadoyellow}
+\setbeamercolor*{palette quaternary}{fg=white,bg=yaleblue}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{hyperref}
+\justifying
+\usefonttheme{professionalfonts}
+\usepackage[none]{hyphenat}
+\usepackage{cancel}
+\usepackage{tikz}
+\newcommand{\textunderscript}[1]{$_{\text{#1}}$}
+
+\title[Title 2]{Title 1}   
+\author{Author} 
+\date{\today}
+
+\begin{document}
+    \sloppy
+
+    {
+        \addtobeamertemplate{headline}{%
+            \setbeamercolor{section in head/foot}{use=palette quaternary, fg=palette quaternary.bg}
+    }{}
+    \begin{frame}
+        \titlepage
+    \end{frame}
+}
+
+    \section{Section 1}\frame{\frametitle{Section 1}}
+    \section{Section 2}\frame{\frametitle{Section 2}}
+    \section{Section 3}
+    \subsection{Subsection 1}\frame{\frametitle{Section 3-1}}
+    \subsection{Subsection 2}\frame{\frametitle{Section 3-2}}
+    \subsection{Subsection 3}\frame{\frametitle{Section 3-3}}
+    \section{Section 4}
+    \subsection{Subsection 1}\frame{\frametitle{Section 4-1}}
+    \subsection{Subsection 2}\frame{\frametitle{Section 4-2}}
+\end{document}

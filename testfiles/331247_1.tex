@@ -1,0 +1,43 @@
+% https://tex.stackexchange.com/a/331247
+\documentclass{beamer}
+
+\usecolortheme{orchid}
+
+\makeatletter
+\setbeamertemplate{theorem begin}{%
+    \inserttheoremname
+    \inserttheoremnumber
+    \space
+}
+
+\setbeamertemplate{theorem end}{}
+\makeatother
+
+
+\begin{document}
+    \begin{frame}{A theorem in a box}
+        \begin{definition}
+            bla
+        \end{definition}
+
+        \begin{definition}
+            bla
+        \end{definition}
+
+        test hello ~\\ \pause
+        hello test \pause
+
+        \begin{itemize}
+           \item aa \pause
+           \item bb \pause
+           \item cc
+           \item \begin{definition}
+                    bla
+                 \end{definition}
+        \end{itemize}
+
+        \begin{definition}
+            bla
+        \end{definition}
+    \end{frame} 
+\end{document}

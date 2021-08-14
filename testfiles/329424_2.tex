@@ -1,0 +1,53 @@
+% https://tex.stackexchange.com/a/329424
+\documentclass{beamer}
+\mode<presentation>{
+  \usetheme{Madrid}
+  \setbeamercolor{frametitle}{fg=yellow}
+  \setbeamercolor*{palette primary}{use=structure,fg=red}
+  \setbeamercolor*{palette secondary}{use=structure,fg=red}
+  \setbeamercolor*{palette tertiary}{use=structure,fg=red}
+  \setbeamerfont{frametitle}{size=\huge}
+}
+\usepackage{textpos}
+\usepackage{tikz}
+\usepackage[export]{adjustbox}
+
+\makeatletter
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \includegraphics[width=\paperwidth, height=1cm]{example-image}%NEW
+  \vskip-10pt%NEW
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\beamer@ifempty\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+
+\addtobeamertemplate{frametitle}{
+\begin{textblock*}{\paperwidth}(-30pt,0pt)
+\includegraphics[width=1.1\paperwidth,height=1.3cm]{example-image}
+\end{textblock*}
+}
+
+\title[Title]{\textbf{{\huge Big Title}}}
+\author[email]{Author}
+\institute[]{Department\\University}
+\setbeamertemplate{navigation symbols}{}
+
+\begin{document}
+
+\begin{frame}{Frametitle}
+slide 2
+\end{frame}
+\end{document}

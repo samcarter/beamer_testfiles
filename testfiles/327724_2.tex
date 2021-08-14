@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/327724
+\documentclass{beamer}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{frame}
+
+\[
+    \color<1-2>{normal text.bg}
+    \textcolor<1-3>{normal text.fg}{\overbrace{a+b}^{\text{qq}} =} 
+    \underbrace{%
+        \textcolor<1-3>{normal text.fg}{\overbrace{c+d+e}^{\text{abc}}}
+        \textcolor<2-3>{normal text.fg}{+\overbrace{f+g+h+i+j+k+l}^{\text{def}}}
+    }_{\text{too long!}}
+\color{normal text.fg}
+\]
+
+\end{frame}
+\end{document}

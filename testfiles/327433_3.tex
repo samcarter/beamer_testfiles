@@ -1,0 +1,44 @@
+% https://tex.stackexchange.com/a/327433
+\documentclass{beamer}
+
+\usepackage{tikz}
+
+\defbeamertemplate*{headline}{nosections}{\vskip0pt}
+\defbeamertemplate*{headline}{sections}{%
+\setbeamercolor*{headline}{bg=white,fg=tuddunkelgrau}%
+\hskip52mm%
+\insertsectionnavigationhorizontal{0.5\paperwidth}{\hskip-8pt}{\hskip-8pt}%
+}
+
+\makeatletter
+\defbeamertemplate{background}{mygrid}[1][]
+{%
+    \setkeys{beamer@backgroundgrid}{step=0.5cm,color=fg!10!bg}%
+    \setkeys{beamer@backgroundgrid}{#1}%
+    \begin{tikzpicture}[overlay, remember picture, shift={(current page.south west)},yscale=1]
+        \beamer@bggc
+        \pgfpathgrid[stepx=\beamer@bggw,stepy=\beamer@bggw]{\pgfpointorigin}{\pgfpoint{\the\paperwidth}{\the\paperheight}}
+        \pgfusepath{stroke}
+    \end{tikzpicture}%
+}
+\makeatother
+
+\setbeamertemplate{background}[mygrid][step=10mm]
+
+\begin{document}
+
+\setbeamertemplate{headline}[sections]    
+\begin{frame}
+    \begin{tikzpicture}[overlay, remember picture, shift={(current page.south west)},yscale=1]
+        \draw[line width = 1pt] (5,5) -- (7,7); 
+    \end{tikzpicture}
+\end{frame}
+
+\setbeamertemplate{headline}[nosections]    
+\begin{frame}
+    \begin{tikzpicture}[overlay, remember picture, shift={(current page.south west)},yscale=1]
+        \draw[line width = 1pt] (5,5) -- (7,7); 
+    \end{tikzpicture}
+\end{frame}
+
+\end{document}

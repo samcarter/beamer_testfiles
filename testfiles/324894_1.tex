@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/324894
+\documentclass{beamer}
+
+\usepackage{standalone,tikz}
+
+\begin{document}
+
+\begin{frame}
+  \begin{columns}
+    \begin{column}{.45\columnwidth}
+      \begin{onlyenv}<article>
+        \begin{tikzpicture}
+          \draw [very thick, red, ->] (0,0) -- (4,4);
+        \end{tikzpicture}
+      \end{onlyenv}
+      \begin{onlyenv}<presentation>
+        \begin{tikzpicture}
+          \draw [very thick, red, ->] (0,0) -- (4,4);
+        \end{tikzpicture}
+      \end{onlyenv}
+    \end{column}
+    \begin{column}{.45\columnwidth}
+      \begin{itemize}
+      \item 1st item
+      \item 2nd item
+      \item 3rd item
+      \end{itemize}
+    \end{column}
+
+  \end{columns}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/323706
+\documentclass{beamer}
+
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamercolor{footnote}{fg=green}
+
+\makeatletter
+\def\@makefnmark{\hbox{{{\usebeamercolor[fg]{footnote mark}\usebeamerfont*{footnote mark}$^\@thefnmark$}}}}
+
+\def\@makefntext#1{%
+    \def\insertfootnotetext{ #1}%
+    \def\insertfootnotemark{\@makefnmark}%
+\hfill \usebeamertemplate***{footnote}}    
+\makeatother
+
+\renewcommand{\footnoterule}{}
+
+\begin{document}
+
+\begin{frame}{References}
+    Mr. Smith\footnote{\tiny Mr. Smith, THEJOURNAL,{\bf 00}, 000000 (0000)} showed that Mrs. Smith\footnote{\tiny Mrs. Smith, THEJOURNAL,{\bf 00}, 000000 (0000)} showed that they were right.
+\end{frame}
+\end{document}

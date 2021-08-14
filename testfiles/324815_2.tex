@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/a/324815
+\documentclass{beamer}
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen=right}
+
+\newcommand{\mynote}[2]{%
+    \item #1
+    \note[item]{#1 #2}
+    }
+
+\begin{document}
+
+    \begin{frame}
+       \begin{itemize}
+          \mynote{text for main and notes}{additional notes}
+       \end{itemize}
+    \end{frame}
+
+\end{document}

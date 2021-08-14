@@ -1,0 +1,100 @@
+% https://tex.stackexchange.com/a/330825
+\documentclass[11pt]{beamer}
+% ------------------------------------------------------------------------------
+% Packages
+\usepackage[english,french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{ragged2e}
+\usepackage[normalem]{ulem}
+% ------------------------------------------------------------------------------
+% Parameters
+\mode<presentation>{\usetheme{Luebeck}}
+\setbeamertemplate{itemize items}[triangle]
+\setbeamercovered{transparent}
+\usecolortheme{seagull}
+\usefonttheme{serif}
+\addtobeamertemplate{block begin}{}{\justifying}
+% ToC
+\AtBeginSection[] {
+  \begin{frame}{Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+% Headline
+\makeatletter
+\setbeamertemplate{headline}{%
+  \leavevmode%
+  \@tempdimb=2.4375ex%
+  \ifnum\beamer@subsectionmax<\beamer@sectionmax%
+    \multiply\@tempdimb by\beamer@sectionmax%
+  \else%
+    \multiply\@tempdimb by\beamer@subsectionmax%
+  \fi%
+  \ifdim\@tempdimb>0pt%
+    \advance\@tempdimb by 1.825ex%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=\@tempdimb]{section in head/foot}%
+      \vbox to\@tempdimb{\vfil\includegraphics[height=\@tempdimb]{example-image}\hfill\insertsectionnavigation{.3\paperwidth}\vfil}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.3\paperwidth,ht=\@tempdimb]{subsection in head/foot}%
+      \vbox to\@tempdimb{\vfil\insertsubsectionnavigation{.5\paperwidth}\vfil}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.2\paperwidth,ht=\@tempdimb]{subsection in head/foot}%
+      \vbox to\@tempdimb{\vfil\hfill\includegraphics[height=\@tempdimb]{example-image}\vfil}
+    \end{beamercolorbox}%    
+  \fi%
+}
+\makeatother
+% Footline
+\makeatletter
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortdate \hfill \insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle \hfill \insertframenumber\,/\,\inserttotalframenumber
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+% ------------------------------------------------------------------------------
+% Infos
+\title[Short title]{Title}
+\subtitle[Short subtitle]{Subtitle}
+\author[Short Author]{Author}
+\date[Short date]{Date}
+\institute[Short Institute]{Institute}
+% \logo{\includegraphics[height=1cm]{logo.png}}
+% ------------------------------------------------------------------------------
+% Document
+\begin{document}
+% ------------------------------------------------------------------------------
+% Titlepage
+\begin{frame}
+  \titlepage{}
+\end{frame}
+% ------------------------------------------------------------------------------
+% ToC
+\begin{frame}{Contents}
+  \tableofcontents
+\end{frame}
+% ------------------------------------------------------------------------------
+% Content
+\section{First section}
+\subsection{First subsection}
+\begin{frame}{First subsection}
+  \dots
+\end{frame}
+
+\subsection{Second subsection}
+\begin{frame}{Second subsection}
+  \dots
+\end{frame}
+
+\section{Second section}
+\section{Third section}
+\section{Fourth section}
+% ------------------------------------------------------------------------------
+% Fin
+\end{document}

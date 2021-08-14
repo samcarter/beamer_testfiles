@@ -1,0 +1,56 @@
+% https://tex.stackexchange.com/a/320244
+\documentclass[ngerman,ignorenonframetext,20,aspectratio=1610]{beamer}
+
+\usepackage[light]{sourcesanspro}
+
+\setbeamertemplate{navigation symbols}{}
+
+% how to enforce normal text!?
+\setbeamerfont{normal text}{size*={20}{24},series=\mdseries}
+\setbeamerfont{section name}{size*={20}{24},series=\mdseries}
+\setbeamerfont{section page}{size*={20}{24},series=\mdseries}
+\setbeamerfont{section in page}{size*={20}{24},series=\mdseries}
+\setbeamerfont{section in sidebar}{size*={20}{24},series=\mdseries}
+\setbeamerfont{section in head/foot}{size*={20}{24},series=\mdseries}
+\setbeamerfont{projected text}{size*={20}{24},series=\mdseries}
+\setbeamerfont{structure}{series=\mdseries}
+
+\setbeamerfont{tiny structure}{series=\mdseries}
+\setbeamerfont{frametitle}{size=\large,series=\mdseries} % ,series=\bfseries
+\setbeamerfont{framesubtitle}{size=\footnotesize,series=\mdseries}
+\setbeamerfont{footline}{size=\Tiny,series=\mdseries}
+\setbeamerfont{title}{size*={16}{18},series=\bfseries}
+\setbeamerfont{subtitle}{size*={10}{12},series=\mdseries}
+
+\setbeamerfont{item}{size*={10}{12},series=\mdseries}
+\setbeamerfont{item projected}{size*={10}{12},series=\mdseries}
+\setbeamerfont{itemize item}{size*={10}{12},series=\mdseries}
+\setbeamerfont{itemize subitem}{size*={10}{12},series=\mdseries}
+\setbeamerfont{itemize subsubitem}{size*={10}{12},series=\mdseries}
+\setbeamerfont{itemize/enumerate body}{size*={10}{12},series=\mdseries}
+\setbeamerfont{itemize/enumerate subbody}{size*={10}{12},series=\mdseries}
+\setbeamerfont{itemize/enumerate subsubbody}{size*={10}{12},series=\mdseries}
+
+\AtBeginDocument{\usebeamerfont{normal text}}
+
+
+\begin{document}
+
+    \begin{frame}{Title}
+        Title-bar
+
+        \section{sec1} foo1
+
+        \subsection{sec1sub1} foo1.1
+
+        \subsubsection{sec1sub1sub1} foo1.1.1
+
+        \begin{itemize}
+            \item Item2
+            \item Item3
+            \item Item4
+        \end{itemize}
+
+    \end{frame}
+
+\end{document}

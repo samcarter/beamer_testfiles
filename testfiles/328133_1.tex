@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/328133
+\documentclass[12pt]{beamer}
+\usetheme{metropolis}
+\mode<handout>{
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
+}
+\usepackage{tikz}
+
+
+\title{Title Page}
+\author{Authors}
+\date{Dates}
+\titlegraphic{
+\begin{tikzpicture}[overlay, remember picture]
+\node[at=(current page.south east), anchor=south east] {%
+\includegraphics[width=.25\textwidth]{example-image} \includegraphics[width=.25\textwidth]{example-image} \includegraphics[width=.25\textwidth]{example-image} \includegraphics[width=.25\textwidth]{example-image} 
+};
+\end{tikzpicture}
+}
+
+\begin{document}
+\AtBeginSection[]{
+\begin{frame}<handout:0>
+\frametitle{Outline}
+\tableofcontents[current,currentsection,currentsubsection]
+\end{frame}
+}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\end{document}

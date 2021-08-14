@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/333802
+\documentclass{beamer}
+\usepackage{calc}
+
+\setbeamertemplate{itemize item}{%
+    \makebox[\widthof{$\Rightarrow$}][c]{%
+        \scriptsize\raise1.25pt\hbox{\donotcoloroutermaths$\blacktriangleright$}%
+        \hfill%
+    }%
+}
+
+\begin{document}
+\begin{frame}
+\begin{itemize}
+\item a
+\item a
+\item[$\Rightarrow$] a
+\end{itemize}
+\end{frame}
+\end{document}

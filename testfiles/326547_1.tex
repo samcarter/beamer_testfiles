@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/326547
+\documentclass{beamer}
+
+\mode<presentation>
+{
+    \usetheme{Madrid}
+    \usecolortheme{rose}
+}
+
+% ADD bar with sections above header
+\setbeamertemplate{headline}{%
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{palette quaternary}%
+            \insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+        \end{beamercolorbox}%
+    }
+}
+
+\title{Title}
+
+\author{Author}
+\institute{Institute}
+
+\begin{document}
+    \section{Section 1}
+    \begin{frame}
+        \frametitle{Section 1: Frame with navigation bar}
+    \end{frame}
+
+    \section{Section 2}
+    \begin{frame}[plain]
+        \frametitle{Section 2: Frame without navigation bar}
+    \end{frame}
+\end{document}

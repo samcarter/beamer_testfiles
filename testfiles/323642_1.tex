@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/323642
+\documentclass{beamer}
+
+\setbeamertemplate{caption}[numbered]
+\usepackage{subfigure}
+
+\renewcommand{\thesubfigure}{\protect\usebeamercolor[fg]{caption name}\relax(\arabic{subfigure})}
+
+
+\begin{document}
+    \begin{frame}
+
+        \begin{figure}
+            \subfigure[Subfig 1]{
+            }
+            \hfil
+            \subfigure[Subfig 2]{
+            }
+            \caption{Figure}
+        \end{figure}
+
+    \end{frame}
+
+\end{document}

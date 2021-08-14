@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/332594
+\documentclass{beamer}
+
+\setbeamerfont{title}{size=\Large,series=\bfseries}
+\setbeamerfont{subtitle}{parent={normal text}, size=\small,shape=\itshape}
+\setbeamerfont{author}{size=\small,series=\mdseries}
+\setbeamerfont{date}{size=\small,series=\mdseries}
+
+\defbeamertemplate*{title page}{sebslidestheme}
+{
+  \centering
+  {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\par
+  {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\par
+  \bigskip\bigskip
+  {\usebeamerfont{author}\insertauthor}\par
+  {\usebeamerfont{date}\insertdate}\par
+}
+
+\title{The Title}
+\subtitle{The Subtitle}
+\author{The Author}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\end{document}

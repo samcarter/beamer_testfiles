@@ -1,0 +1,15 @@
+% https://tex.stackexchange.com/a/334050
+\documentclass{beamer}
+\begin{document}
+
+\begin{frame}{Hello World!}
+\hyperlink{Goodbye!}{\beamerbutton{Go back to previous hyperlink}}
+\end{frame}
+
+\begin{frame}{Goodbye!}
+\begin{equation}
+\dfrac{22}{7} = \raisebox{-.3\baselineskip}{\scalebox{1.8}{\hyperlink{Hello World!}{\beamerbutton{$\Pi$}}}}
+\end{equation}
+\end{frame}
+
+\end{document}

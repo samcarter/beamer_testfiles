@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/334245
+\documentclass[t]{beamer}
+\let\Tiny=\tiny
+\newcounter{mycounter}
+\setcounter{mycounter}{0}
+
+\makeatletter
+\def\exercise{%
+    \ifnum\insertframestartpage=\thepage
+        \refstepcounter{mycounter}
+    \fi
+    Exercise \arabic{mycounter}%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}[allowframebreaks]
+  \frametitle{\exercise}  % this seems expanded in each frame
+
+  ABC
+
+  \framebreak
+
+  DEF
+\end{frame}
+
+\end{document}

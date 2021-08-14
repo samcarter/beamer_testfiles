@@ -1,0 +1,36 @@
+% https://tex.stackexchange.com/a/331416
+% code from http://tex.stackexchange.com/a/44716/7561
+\documentclass[compress]{beamer}
+
+\usecolortheme{rose}
+
+% from https://tex.stackexchange.com/a/390317/36296
+\expandafter\def\csname ver@transparent.sty\endcsname{}
+
+% switch this on or off
+\usepackage{svg}
+
+\usebackgroundtemplate{\centering
+        \includegraphics[width=\paperwidth,height=\paperheight]{example-image-a}}
+
+\addtobeamertemplate{block begin}{\pgfsetfillopacity{0.5}}{\pgfsetfillopacity{1}}
+\addtobeamertemplate{block alerted begin}{\pgfsetfillopacity{0.5}}{\pgfsetfillopacity{1}}
+\addtobeamertemplate{block example begin}{\pgfsetfillopacity{0.5}}{\pgfsetfillopacity{1}}
+
+\begin{document}
+
+  \begin{frame}{}
+    \begin{theorem}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. 
+    \end{theorem}
+
+  \begin{alertblock}{Alert!!!}
+Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+  \end{alertblock}
+
+  \begin{exampleblock}{Example}
+Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros.
+  \end{exampleblock}
+  \end{frame}
+
+\end{document}

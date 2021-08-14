@@ -1,0 +1,57 @@
+% https://tex.stackexchange.com/a/326543
+\documentclass{beamer}
+
+% removing section names from navigation
+\makeatletter
+\def\sectionentry#1#2#3#4#5{% section number, section title, page
+    \ifnum#5=\c@part%
+    \beamer@section@set@min@width
+    \box\beamer@sectionbox\hskip1.875ex plus 1fill%
+    \beamer@xpos=0\relax%
+    \beamer@ypos=0\relax%
+    \ht\beamer@sectionbox=1.875ex%
+    \dp\beamer@sectionbox=0ex%
+    \fi\ignorespaces}
+\makeatother
+
+% Set Theme
+\usetheme[width=0.8cm]{Marburg}
+
+% insert dots in sidebar
+\setbeamertemplate{sidebar right}{\hskip0.3cm\rotatebox{270}{\insertnavigation{.98\paperheight}}}
+
+\begin{document}
+
+    \begin{frame}{Outline}
+        \tableofcontents
+    \end{frame}
+
+    \section{sec1}
+    \subsection{s1}
+    \begin{frame}{frame1.1}
+        blah, blah, blah
+    \end{frame}
+    \begin{frame}{frame1.2}
+        blah, blah, blah
+    \end{frame}
+
+    \section{sec2}
+        \subsection{s2}
+    \begin{frame}{frame2.1}
+        blah, blah, blah
+    \end{frame}
+    \begin{frame}{frame2.2}
+        blah, blah, blah
+    \end{frame}
+
+    \section{sec3}
+    \subsection{s3}
+    \begin{frame}{frame3.1}
+        blah, blah, blah
+    \end{frame}
+    \begin{frame}{frame3.2}
+        blah, blah, blah
+    \end{frame}
+
+
+\end{document}

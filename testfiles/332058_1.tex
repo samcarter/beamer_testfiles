@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/332058
+\documentclass[pdf]{beamer}
+\mode<presentation>{\usetheme{Frankfurt}}
+\begin{document}
+\section{Intro}
+
+\subsection{}
+\begin{frame}{Slide1}
+    Text
+\end{frame}
+
+\subsection{}
+\begin{frame}
+    \frametitle<1>{Slide2a}
+    \frametitle<2>{Slide2b}
+    \frametitle<3>{Slide2c}
+    \only<1>{Image1}
+    \only<2>{Image2}
+    \only<3>{Image3}
+\end{frame}
+
+\end{document}

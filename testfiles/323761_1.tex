@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/323761
+\documentclass[t]{beamer}
+
+\defbeamertemplate{headline}{class}[1]{%
+    \vskip5pt%
+    \makebox[\paperwidth][c]{\textbf{#1}}%
+}
+
+\defbeamertemplate{footline}{class}[1]{%
+    \vskip-3pt
+    \begin{minipage}[t][2cm][t]{\paperwidth}
+        \centering
+        \textbf{#1}\\
+    \end{minipage}
+}
+
+\begin{document}
+
+    \setbeamertemplate{headline}[class]{unclassified}
+    \setbeamertemplate{footline}[class]{unclassified}
+    \begin{frame}
+        \frametitle{Background:  The Problem}
+        test
+    \end{frame}
+
+    \setbeamertemplate{headline}[class]{classified}
+    \setbeamertemplate{footline}[class]{classified}
+    \begin{frame}
+        \frametitle{Background:  The Problem}
+        test
+    \end{frame}
+
+\end{document}

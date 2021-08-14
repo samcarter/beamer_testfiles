@@ -1,0 +1,17 @@
+% https://tex.stackexchange.com/a/323639
+\documentclass{beamer}
+
+\begin{document}
+    \begin{frame}
+        \begin{itemize}[<+->]
+            \item text1
+            \item text2
+            \item text3
+        \end{itemize}
+
+        \begin{figure}
+            \includegraphics<1>[width=.2\textwidth]{example-image-a}
+            \includegraphics<2-3>[width=.2\textwidth]{example-image-b}
+        \end{figure}
+    \end{frame}
+\end{document}

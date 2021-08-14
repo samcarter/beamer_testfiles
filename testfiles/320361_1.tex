@@ -1,0 +1,51 @@
+% https://tex.stackexchange.com/a/320361
+\documentclass[10pt]{beamer}
+
+\usetheme{Warsaw}
+\usecolortheme{whale}
+
+
+
+\usepackage[backend=bibtex,giveninits=true,maxbibnames=9,maxcitenames=4]{biblatex}
+\usepackage{filecontents}
+
+\DefineBibliographyStrings{english}{%
+  and = {ve},
+}
+
+\DefineBibliographyExtras{english}{\let\finalandcomma=\empty}
+
+\begin{filecontents}{\jobname.bib}
+
+@article {MR1103855,
+    AUTHOR = {Ladas, G. and Qian, C. and Vlahos, P. N. and Yan, J.},
+     TITLE = {Stability of solutions of linear nonautonomous difference equations},
+   JOURNAL = {Appl. Anal.},
+  FJOURNAL = {Applicable Analysis. An International Journal},
+    VOLUME = {41},
+      YEAR = {1991},
+    NUMBER = {1-4},
+     PAGES = {183--191},
+}
+
+\end{filecontents}
+
+\addbibresource{\jobname.bib}
+
+
+
+\begin{document}
+
+\begin{frame}
+
+\begin{itemize}
+\item What I get: \citeauthor{MR1103855}.
+\item What I need: Ladas, Qian, Vlahos ve Yan.
+\end{itemize}
+\alert{Note that \texttt{{\textbackslash}citeauthor} command gives a comma before {\textquotedblleft}ve{\textquotedblright}.}
+
+\printbibliography
+
+\end{frame}
+
+\end{document}

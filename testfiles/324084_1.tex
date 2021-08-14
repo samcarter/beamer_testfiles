@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/324084
+\documentclass{beamer}
+
+\usepackage{tabu}
+
+\usepackage{totcount}
+\newtotcounter{totalrows}
+
+\begin{document}
+
+\begin{frame}
+    \frametitle{A Table}
+
+
+    bla\pause 
+
+    test\pause
+
+     \everyrow{%
+        \ifnum\thetaburow<\totvalue{totalrows}
+                \only<+>{\rowfont{\leavevmode\color{blue}}}
+        \fi
+        }  
+
+        \begin{tabu}{lll}
+                cell 1 & cell 2 & cell 3\\
+            cell 4 & cell 5 & cell 6\\
+            cell 7 & cell 8 & cell 9 
+            \setcounter{totalrows}{\thetaburow}           
+        \end{tabu}
+
+\end{frame}
+
+\end{document}

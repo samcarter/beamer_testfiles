@@ -1,0 +1,65 @@
+% https://tex.stackexchange.com/a/332591
+\RequirePackage{filecontents}
+\begin{filecontents}{topic_1_frame_pool.tex}
+  \begin{frame}[label=one]
+  \frametitle{<slide title>}
+  \end{frame}
+
+  \begin{frame}[label=two]
+  \frametitle{<slide title>}
+  \end{frame}
+\end{filecontents}
+
+\begin{filecontents}{topic_2_frame_pool.tex}
+  \begin{frame}[label=three]
+  \frametitle{<slide title>}
+  \end{frame}
+
+  \begin{frame}[label=four]
+  \frametitle{<slide title>}
+  \end{frame}
+
+  \begin{frame}[label=five]
+  \frametitle{<slide title>}
+  \end{frame}
+
+  \begin{frame}[label=six]
+  \frametitle{<slide title>}
+  \end{frame}
+\end{filecontents}
+
+\documentclass[utf8]{beamer}
+\mode<presentation>
+\usetheme{Madrid}
+
+\includeonlyframes{one,three,five}
+
+\usepackage{lastpage}
+
+\makeatletter
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\beamer@ifempty\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \thepage~/~\pageref{LastPage}\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+\begin{document}
+
+\input{topic_1_frame_pool}
+\input{topic_2_frame_pool}
+
+
+\mode
+<all>
+\end{document}

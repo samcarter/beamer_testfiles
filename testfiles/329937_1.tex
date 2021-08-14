@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/329937
+\documentclass{beamer}
+
+\usepackage{etoolbox}
+
+\makeatletter
+\def\beamer@frameenv{%
+  \def\beamer@process@envbody{\endgroup%
+    \expandafter\expandafter\expandafter\beamer@framecommand\expandafter\beamer@frameoptions\expandafter{\the\beamer@envbody}}%
+  \global\beamer@envbody{}\def\beamer@begin@stack{b}%
+  \begingroup
+  \let\frame\beamer@collect@@body
+  \def\beamer@process@envbody{\frame}%
+  \beamer@process@envbody%
+  \addtocounter{beamerpauses}{1} %NEW
+}
+\makeatletter
+
+
+\begin{document}
+\begin{frame}{A frame title}
+What am I trying to do here?
+\begin{enumerate}[<+->]
+   \item Show some stuff
+   \item Show more stuff incrementally
+   \item ...?
+   \item Profit!
+\end{enumerate}
+
+\only<+>{I'm just going to show this briefly}
+\uncover<+->{...and then I'll replace it with this!}
+\end{frame}
+
+\end{document}

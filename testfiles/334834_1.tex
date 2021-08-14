@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/334834
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+
+\usetheme{Warsaw}
+
+\setbeamertemplate{section in head/foot}%
+{\hfil \MakeUppercase{\romannumeral\insertsectionheadnumber}~-~\insertsectionhead}
+
+\setbeamertemplate{section in head/foot shaded}%
+{\color{structure!50}\hfil \MakeUppercase{\romannumeral\insertsectionheadnumber}~-~\insertsectionhead}
+
+\begin{document}
+
+\section{Section I}
+\begin{frame}
+\end{frame}
+
+\section{Subsection II}
+\begin{frame}
+\end{frame}
+
+\end{document}

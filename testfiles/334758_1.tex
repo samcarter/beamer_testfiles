@@ -1,0 +1,16 @@
+% https://tex.stackexchange.com/a/334758
+\documentclass{beamer}
+
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{frame}[plain]
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[at=(current page.center)] {
+            \includegraphics[width=\paperwidth, height=\paperheight]{example-image}
+        };
+    \end{tikzpicture}
+\end{frame}
+
+\end{document}

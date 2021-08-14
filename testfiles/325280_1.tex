@@ -1,0 +1,30 @@
+% https://tex.stackexchange.com/a/325280
+\documentclass[12pt]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\title{Test}
+\begin{document}
+
+    \setbeamertemplate{footnote}{
+        \hspace*{1.7cm}%
+        \raisebox{1.7cm}{\insertfootnotemark}
+        \parbox[b][2cm]{7.5cm}{
+            \insertfootnotetext%
+        }%
+    }
+    \logo{%
+        \makebox[0.95\paperwidth]{%
+            \includegraphics[height=1.5cm,keepaspectratio]{example-image}%
+            \hfill%
+            \includegraphics[height=1.5cm,keepaspectratio]{example-image}%
+        }%
+    }
+    \begin{frame}{Footnotes with logo}
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.\footnote{Class aptent  taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            Quisque eget facilisis ex. Mauris bibendum posuere justo sed finibus.
+            Sed tristique orci arcu, id consectetur elit gravida porta.}
+    \end{frame}
+
+\end{document}

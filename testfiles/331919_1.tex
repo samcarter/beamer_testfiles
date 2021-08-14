@@ -1,0 +1,45 @@
+% https://tex.stackexchange.com/a/331919
+\documentclass{beamer}
+\usetheme{Warsaw}
+
+\makeatletter
+\setbeamertemplate{headline}{%
+  \leavevmode%
+  \@tempdimb=2.4375ex%
+  \ifnum\beamer@subsectionmax<\beamer@sectionmax%
+    \multiply\@tempdimb by\beamer@sectionmax%
+  \else%
+    \multiply\@tempdimb by\beamer@subsectionmax%
+  \fi%
+  \ifdim\@tempdimb>0pt%
+    \advance\@tempdimb by 1.825ex%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=\@tempdimb]{section in head/foot}%
+      \vbox to\@tempdimb{\vfil%
+          \ifnum\beamer@sectionmax<5
+              \insertsectionnavigation{.5\paperwidth}%
+             \else%
+                 whatever theme you want
+               \fi%
+         \vfil}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=\@tempdimb]{subsection in head/foot}%
+      \vbox to\@tempdimb{\vfil\insertsubsectionnavigation{.5\paperwidth}\vfil}%
+    \end{beamercolorbox}%
+  \fi%
+}
+\makeatother
+
+\begin{document}
+
+\section{a}\frame{a}
+\section{a}\frame{a}
+\section{a}\frame{a}
+\section{a}\frame{a}
+\section{a}\frame{a}
+\section{a}\frame{a}
+\section{a}\frame{a}
+\section{a}\frame{a}
+\section{a}\frame{a}
+\section{a}\frame{a}
+
+\end{document}

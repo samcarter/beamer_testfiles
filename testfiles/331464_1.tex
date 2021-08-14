@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/331464
+\documentclass{beamer}
+\usetheme{Madrid} 
+
+\makeatletter
+\def\ps@navigation@sectionpage{%
+  \setbeamertemplate{footline}{}%
+  \setbeamertemplate{headline}{}%
+  \@nameuse{ps@navigation}}
+\addtobeamertemplate{section page}{\thispagestyle{navigation@sectionpage}}{}
+\makeatother
+
+\begin{document}
+\begin{frame} 
+    test 
+\end{frame}
+
+\section{bla}
+\begin{frame}
+    \sectionpage
+\end{frame}
+
+\begin{frame} 
+    test1 
+\end{frame}
+
+\end{document}

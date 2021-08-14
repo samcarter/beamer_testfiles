@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/326602
+\documentclass[french,,aspectratio=1610]{beamer} 
+\usepackage{tcolorbox} 
+
+
+% Boite pour les theorèmes : 
+\usepackage{tcolorbox} 
+\tcbuselibrary{skins,breakable} 
+
+% Théorème, proposition, lemme 
+
+\newenvironment{theo}[1][]{% 
+\tcolorbox[noparskip,% 
+            breakable,% 
+            colframe=blue,colback=blue!20!white,% 
+            coltitle=black,% 
+            fonttitle={\bfseries \scshape} ,% 
+            title=Théorème :  #1]}% 
+            {\endtcolorbox}  
+%%%%%% Habituel pour compiler 
+% =========================== 
+\usepackage[latin1]{inputenc} 
+\usepackage[T1]{fontenc} 
+\usepackage[upright]{fourier} 
+
+
+\begin{document} 
+    \begin{frame} 
+            \begin{theo}[Mon titre] 
+                    Mon premier \only<.(2)->{Mon deuxième} 
+            \end{theo} 
+
+                        \begin{onlyenv}<3->
+                \begin{theo} 
+                                \only<3->{Mon troisième} \only<4->{mon quatrième} 
+                \end{theo}  
+                        \end{onlyenv}                   
+
+
+    \end{frame} 
+\end{document} 

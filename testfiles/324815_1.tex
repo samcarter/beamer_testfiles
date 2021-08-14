@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/324815
+\documentclass{beamer}
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen=right}
+
+\begin{document}
+
+    {
+        \def\thenextitem{
+            text for the next item
+        }
+    \begin{frame}
+
+       \begin{itemize}
+          \item<1->\thenextitem
+          \note[item]<1->{\thenextitem..and some extra text}
+       \end{itemize}
+    \end{frame}
+  }
+
+ \end{document}

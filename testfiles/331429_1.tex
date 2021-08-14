@@ -1,0 +1,37 @@
+% https://tex.stackexchange.com/a/331429
+\documentclass[compress,mathserif]{beamer}
+\usepackage{pgfpages}
+\usetheme{Frankfurt}
+\setbeameroption{show notes}
+\setbeameroption{show notes on second screen=right}
+
+\newcommand<>{\mynote}[1]{%
+    \alt#2{%
+        \note{\textcolor{red}{#1}}
+    }
+    {%
+        \note{#1}
+    }
+}
+
+\begin{document}
+\begin{frame}
+  \frametitle{There Is No Largest Prime Number}
+  \framesubtitle{The proof uses \textit{reductio ad absurdum}.}
+  \begin{theorem}
+    There is no largest prime number.
+  \end{theorem}
+  \begin{proof}
+    \begin{enumerate}
+    \item<1-| alert@1> Suppose $p$ were the largest prime number.
+    \item<2-> Let $q$ be the product of the first $p$ numbers.
+    \item<3-> Then $q+1$ is not divisible by any of them.
+    \item<1-> Thus $q+1$ is also prime and greater than $p$.\qedhere
+    \end{enumerate}
+  \end{proof}
+  \mynote<1>{note one\\}
+  \mynote<2>{ note 2\\ }
+  \mynote<3>{ note 3\\ }
+  \mynote<1>{ note 4\\ }
+\end{frame}
+\end{document}

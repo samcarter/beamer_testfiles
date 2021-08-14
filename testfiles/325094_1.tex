@@ -1,0 +1,47 @@
+% https://tex.stackexchange.com/a/325094
+\documentclass{beamer}
+
+%may have to be modified to fit your system
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[latin1]{inputenc}
+
+\usetheme{Frankfurt}
+
+\setbeamertemplate{footline}[frame number]
+
+\usepackage{pgfpages}
+\setbeamertemplate{note page}[plain]
+\setbeameroption{show notes on second screen}
+
+\AtBeginNote{\usebeamertemplate{frametitle}}
+
+\begin{document}
+
+    \begin{frame}
+        \titlepage
+        \note{
+            \begin{itemize}
+                \item notes for introduction 
+            \end{itemize}
+        }
+    \end{frame}
+
+    \begin{frame}{First Slide}{Subtitle}
+        \begin{itemize}
+            \item information
+            \item more information
+        \end{itemize}
+        \note{
+            \begin{itemize}
+                \item information + notes
+                \item more information +notes
+                \begin{itemize}
+                    \item even more notes
+                \end{itemize}
+            \end{itemize}
+    }
+    \end{frame}
+
+\end{document}

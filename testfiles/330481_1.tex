@@ -1,0 +1,23 @@
+% https://tex.stackexchange.com/a/330481
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}{Title}
+Something before\\
+\bigskip
+$%
+B\left(%
+\only<1>{A_2[i]}%
+\only<2>{A_L[i]}%
+\right) =%
+\only<1>{C_1 + C_2 \vphantom{\displaystyle\sum_{k=1}^{L} C_k}}%
+\only<2>{\displaystyle\sum_{k=1}^{L} C_k}%
+\quad \text{text here }%
+\only<1>{a,b,c,}%
+\only<2>{a,b,c,\ldots,z}
+$
+
+\end{frame}
+
+\end{document}

@@ -1,0 +1,74 @@
+% https://tex.stackexchange.com/a/321786
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfmath,pgffor}
+
+\makeatletter
+\def\pgfmathrandomitemwithoutreplacement#1#2{%
+    \pgfmath@ifundefined{pgfmath@randomlist@#2}{\pgfmath@error{Unknown random list `#2'}}{%
+        \edef\pgfmath@randomlistlength{\csname pgfmath@randomlist@#2\endcsname}%
+        \ifnum\pgfmath@randomlistlength>0\relax%
+            \pgfmathrandominteger{\pgfmath@randomtemp}{1}{\pgfmath@randomlistlength}%
+            \def\pgfmath@marshal{\def#1}%
+            \expandafter\expandafter\expandafter\pgfmath@marshal\expandafter\expandafter\expandafter{\csname pgfmath@randomlist@#2@\pgfmath@randomtemp\endcsname}%
+            % Now prune.
+            \c@pgfmath@counta=\pgfmath@randomtemp\relax%
+            \c@pgfmath@countb=\c@pgfmath@counta%
+            \advance\c@pgfmath@countb by1\relax%
+            \pgfmathloop%
+            \ifnum\c@pgfmath@counta=\pgfmath@randomlistlength\relax%
+            \else%
+                \def\pgfmath@marshal{\expandafter\global\expandafter\let\csname pgfmath@randomlist@#2@\the\c@pgfmath@counta\endcsname=}%
+                \expandafter\pgfmath@marshal\csname pgfmath@randomlist@#2@\the\c@pgfmath@countb\endcsname%
+                \advance\c@pgfmath@counta by1\relax%
+                \advance\c@pgfmath@countb by1\relax%
+            \repeatpgfmathloop%
+            \advance\c@pgfmath@counta by-1\relax%
+            \expandafter\xdef\csname pgfmath@randomlist@#2\endcsname{\the\c@pgfmath@counta}%        
+        \else%
+            \pgfmath@error{Random list `#2' is empty}%
+        \fi%        
+    }}
+
+
+\def\pgfmathrandomlistcopy#1#2{%
+    \pgfmath@ifundefined{pgfmath@randomlist@#2}{\pgfmath@error{Unknown random list `#2'}}{%
+        \edef\pgfmath@randomlistlength{\csname pgfmath@randomlist@#2\endcsname}%
+        \pgfmathloop%
+        \ifnum\pgfmathcounter>\pgfmath@randomlistlength\relax%
+        \else%
+            \def\pgfmath@marshal{\expandafter\global\expandafter\let\csname pgfmath@randomlist@#1@\pgfmathcounter\endcsname=}%
+            \expandafter\pgfmath@marshal\csname pgfmath@randomlist@#2@\pgfmathcounter\endcsname%
+        \repeatpgfmathloop%
+        \expandafter\xdef\csname pgfmath@randomlist@#1\endcsname{\pgfmath@randomlistlength}%
+    }%  
+}
+\makeatother
+
+
+\begin{document}
+\pgfmathsetseed{\number\pdfrandomseed} % seed for random generator
+
+\pgfmathdeclarerandomlist{WordsMaster}{%
+ {Canard \textcolor<1>{white}{Duck} }%
+ {Poisson \textcolor<1>{white}{Fish} }%    
+ {Chat \textcolor<1>{white}{Cat} }%          
+}%
+
+\newcommand*{\NumberOfQuizes}{3}%
+\pgfmathrandomlistcopy{Words}{WordsMaster}
+
+\foreach \QuizNumber in {1,...,\NumberOfQuizes} {%
+    \pgfmathrandomitemwithoutreplacement{\RandomQuestion}{Words} 
+
+\begin{frame}<1>
+    \RandomQuestion
+\end{frame}
+
+\begin{frame}<2>
+    \RandomQuestion
+\end{frame}
+
+}%
+
+\end{document}

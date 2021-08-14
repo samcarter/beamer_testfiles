@@ -1,0 +1,106 @@
+% https://tex.stackexchange.com/a/325304
+\documentclass[xcolor=x11names,compress,handout]{beamer}
+
+%% General document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{decorations.fractals}
+\usepackage{etoolbox}
+\usepackage{calc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamercolor*{frametitle}{fg=black,bg=DeepSkyBlue4}
+\setbeamercolor*{lower separation line head}{bg=black} 
+\setbeamercolor*{palette tertiary}{fg=black,bg=black!10} 
+\setbeamercolor*{palette quaternary}{fg=black,bg=black!10} 
+\useoutertheme[subsection=true,shadow]{miniframes}
+
+\setbeamerfont{section in head/foot}{series=\scshape}
+\setbeamerfont{section in toc}{series=\scshape}
+
+\makeatletter
+\newlength{\test}
+
+\def\sectionentry#1#2#3#4#5{% section number, section title, page
+    \ifnum#5=\c@part%
+    \beamer@section@set@min@width
+    \box\beamer@sectionbox\hskip1.875ex plus 1fill%
+    \beamer@xpos=0\relax%
+    \beamer@ypos=1\relax%
+    \setbox\beamer@sectionbox=
+    \hbox{\def\insertsectionhead{#2}%
+        \def\insertsectionheadnumber{#1}%
+        \def\insertpartheadnumber{#5}%
+        {%
+            \usebeamerfont{section in head/foot}\usebeamercolor[fg]{section in head/foot}%
+            \ifnum\c@section=#1%
+            \hyperlink{Navigation#3}{{\usebeamertemplate{section in head/foot}}}%
+            \else%
+            \hyperlink{Navigation#3}{{\usebeamertemplate{section in head/foot shaded}}}%
+            \fi}%
+                \ifnum\c@section=#1%
+                \settowidth{\test}{\insertsubsection}
+                \raisebox{-\baselineskip}{\makebox[0cm][l]{\hskip-\test\insertsubsection}}
+                \fi%
+    }%
+    \ht\beamer@sectionbox=1.875ex%
+    \dp\beamer@sectionbox=0.75ex%
+    \fi%
+    \ignorespaces}
+\makeatletter
+
+\defbeamertemplate*{headline}{}
+{%
+    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}{section in head/foot}
+        \vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[colsep=1.5pt]{middle separation line head}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+    \end{beamercolorbox}
+}
+
+\begin{document}
+    \title[PALM]{Reconstruction parcimonieuse en microscopie de fluorescence}
+    \author[]{Zozo}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \section{Introduction}
+    \begin{frame}
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{frame}{Introduction}
+        \tableofcontents
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \section{Microscopie de super-résolution}
+    \subsection[OLA]{frame 1}
+    \begin{frame}{frame 1}
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{frame}
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \subsection[OLE]{frame 3}
+    \begin{frame}{frame 3}
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \section{Methodology}
+    \subsection{frame 1}
+    \begin{frame}{frame 1}
+    \end{frame}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \subsection{frame 1}
+    \begin{frame}{frame 1}
+    \end{frame}
+\end{document}

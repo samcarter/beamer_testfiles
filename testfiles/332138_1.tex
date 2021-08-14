@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/a/332138
+\documentclass[t]{beamer}
+
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{frame}
+AAAAA CCCCCC \\
+\pause 
+AAAAA CCCCCC
+\begin{align*}
+    \onslide<+->{a &= b \\}
+    \onslide<+->{b &= c \\}
+    \onslide<+>{ a &= c}
+\end{align*}
+\end{frame}
+
+\end{document}

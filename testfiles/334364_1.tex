@@ -1,0 +1,38 @@
+% https://tex.stackexchange.com/a/334364
+\documentclass[t]{beamer}
+\definecolor{red}{HTML}{FC322F}
+\definecolor{blue}{HTML}{268BD2}
+\colorlet{bullet-list-color}{blue}
+\colorlet{alert-list-color}{red}
+\colorlet{block-headings-color}{blue}
+\colorlet{alert-headings-color}{red}
+
+\setbeamercolor{description item}{fg=bullet-list-color}
+
+\usepackage{etoolbox}
+
+\AtBeginEnvironment{alertblock}{%
+    \setbeamercolor{description item}{fg=alert-list-color}  
+}
+
+\setbeamercolor{block title}{fg=block-headings-color}
+\setbeamercolor{block title alerted}{fg=alert-headings-color}
+
+\begin{document}
+
+\begin{frame}
+\begin{alertblock}{Alert}
+\begin{description}
+\item[Alert 1] some explanations.
+\item[Alert 2] some explanations.
+\end{description}
+\end{alertblock}
+
+\begin{block}{Block}
+\begin{description}
+\item[Block 1] some explanations.
+\item[Block 1] some explanations.
+\end{description}
+\end{block}
+\end{frame}
+\end{document}

@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/329929
+\documentclass{beamer}
+\usecolortheme{orchid}
+
+\makeatletter
+\setbeamertemplate{theorem begin}{%
+%  \begin{\inserttheoremblockenv}% removed
+  {%
+    \inserttheoremname
+    \ifx\inserttheoremaddition\@empty\else\ (\inserttheoremaddition)\fi%
+    \space% new
+  }%
+}
+
+\setbeamertemplate{theorem end}{}
+\makeatother
+
+\begin{document}
+    \begin{frame}{A theorem in a box}
+        \begin{theorem}
+         Let $r, s$ be integers such that gcd$(r, s)=1$. 
+        Given integers $a,b$, there exists unique 
+        $x <rs$ such that 
+        \end{theorem} 
+    \end{frame} 
+\end{document}

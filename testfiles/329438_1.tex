@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/329438
+\documentclass{beamer}
+
+\usepackage{pgfpages}
+
+\setbeameroption{show notes}
+\setbeameroption{show notes on second screen=left}
+
+\setbeamertemplate{note page}{\insertnote}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%
+% Title Page
+\begin{frame}[t]
+\titlepage
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+%
+Here's a slide.
+\note{\insertslideintonotes{1}}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+%
+Here's a slide.
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+\end{document}

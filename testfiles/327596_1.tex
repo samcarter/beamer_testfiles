@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/327596
+\documentclass[%
+handout
+]{beamer} 
+
+\newcommand{\hide}[1]{%
+\only<handout>{\underline{\phantom{#1}}}%
+\only<beamer>{#1}%
+}
+
+\begin{document}
+
+\begin{frame}{Test}
+
+\begin{itemize}
+\item Example of itemize:
+\item Some text to \hide{be replaced with underscores}
+\item This is visible in both handout and presentation.
+\end{itemize}
+\end{frame}
+
+\end{document}

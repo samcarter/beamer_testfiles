@@ -1,0 +1,37 @@
+% https://tex.stackexchange.com/a/331266
+\documentclass{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{listings} %http://texdoc.net/texmf-dist/doc/latex/listings/listings.pdf
+\lstset{language=C++}
+
+%http://tex.stackexchange.com/questions/204417/how-can-i-draw-arrows-within-a-listing-to-explain-positional-association
+\usepackage{tikz}
+\usetikzlibrary{decorations.text,calc}
+\newcommand{\tikzmark}[2]{%
+   \tikz[overlay,remember picture] \node[text=black,
+       inner sep=2pt] (#1) {#2};}
+
+\begin{document}
+ \begin{frame}[fragile]{}
+ \begin{lstlisting}[escapeinside={(*@}{@*)}]
+   for([e1]; [e2]; [e3])
+   {
+     instruction(s);
+     if (condition) break;(*@\tikzmark{aBeg}{}@*)
+     instruction(s);(*@\tikzmark{aEnd}{}@*)
+   }
+   (*@
+    \begin{tikzpicture}[overlay,remember picture]
+     \node (Start) at (aBeg.{east}) {};
+     \node  (Ending) at (aEnd.{north west}) {};
+     \draw[->] (Start) -- (Ending);
+      \end{tikzpicture}
+    @*) 
+ \end{lstlisting}
+
+\end{frame}
+\end{document}

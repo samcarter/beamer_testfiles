@@ -1,0 +1,37 @@
+% https://tex.stackexchange.com/a/321889
+\documentclass[10pt]{beamer}
+
+\usepackage{appendixnumberbeamer}
+
+\usetheme{metropolis}
+\useoutertheme{miniframes}
+
+\setbeamercolor{section in head/foot}{fg=white, bg=mDarkTeal}
+\setbeamercolor{subsection in head/foot}{fg=white, bg=mDarkTeal}
+
+\begin{document}
+
+\section{Section}
+
+\subsection{Subsection}
+
+\begin{frame}{slide}
+    Normal slide
+\end{frame}
+
+\appendix
+
+\setbeamertemplate{headline}{}
+\addtobeamertemplate{frametitle}{\vspace*{-\headheight}}{}
+
+\begin{frame}{Additional stuff}
+    Additional stuff
+\end{frame}
+
+\begin{frame}[standout] 
+    \frametitle{~}
+    \vspace*{-\headheight}
+    Thank you very much! 
+\end{frame} 
+
+\end{document}

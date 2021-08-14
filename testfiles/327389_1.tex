@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/327389
+\documentclass{beamer}
+\mode<presentation> {
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen=right}
+}
+
+\begin{document}
+\NoHyper
+\begin{frame}
+\frametitle{Frame with notes 1}
+FIRST FRAME CONTENTS
+\note{
+Notes for the first frame here
+}
+\end{frame}
+
+\begin{frame}
+\frametitle{Frame with notes 2}
+SECOND FRAME CONTENT
+\note{
+Notes for the second frame here
+}
+\end{frame}
+\endNoHyper
+\end{document}

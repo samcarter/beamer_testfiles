@@ -1,0 +1,86 @@
+% https://tex.stackexchange.com/a/323756
+\documentclass[10pt]{beamer}
+
+\usetheme{Warsaw}
+\setbeamertemplate{navigation symbols}{}%remove navigation symbols
+
+\makeatletter
+\setbeamertemplate{frametitle}{%
+    \nointerlineskip%
+    \vskip-2pt%
+    \hbox{\leavevmode
+        \advance\beamer@leftmargin by -12bp%
+        \advance\beamer@rightmargin by -12bp%
+        \beamer@tempdim=\textwidth%
+        \advance\beamer@tempdim by \beamer@leftmargin%
+        \advance\beamer@tempdim by \beamer@rightmargin%
+        \hskip-\Gm@lmargin\hbox{%
+            \setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{.92\paperwidth}%
+                    \vbox{}\vskip-.75ex%
+                    \leftskip0.3cm%
+                    \rightskip0.3cm plus1fil\leavevmode
+                    \insertframetitle%
+                    \ifx\insertframesubtitle\@empty%
+                    \strut\par%
+                    \else
+                    \par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+                    \fi%
+                    \nointerlineskip
+                    \vbox{}%
+                \end{minipage}%
+                \hfill%
+                \raisebox{.1cm}{\includegraphics[height=.5cm]{example-image}}%
+                }%
+                \beamer@tempdim=\ht\beamer@tempbox%
+                \advance\beamer@tempdim by 2pt%
+                \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
+                    \usebeamercolor{frametitle right}
+                    \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+                    \pgfusepath{clip}
+                    \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+                \end{pgfpicture}
+                \hskip-\paperwidth%
+                \box\beamer@tempbox%
+            }%
+            \hskip-\Gm@rmargin%
+        }%
+        \nointerlineskip
+        \vskip-0.2pt
+        \hbox to\textwidth{\hskip-\Gm@lmargin\pgfuseshading{beamer@topshade}\hskip-\Gm@rmargin}
+        \vskip-2pt
+    }
+\makeatother
+
+
+\begin{document}
+
+    \frame{
+        \frametitle{title}
+        \begin{block}{title}
+            title
+            \begin{itemize}
+                \item {title};
+                \item {title};
+                \item {title};
+                \item {title};
+            \end{itemize}
+        \end{block}
+
+        \begin{alertblock}{title}
+            title
+            \begin{itemize}
+                \item {title};
+            \end{itemize}
+        \end{alertblock}
+
+        \begin{exampleblock}{title}
+            title
+            \begin{itemize}
+                \item {title};
+                \item {title};
+                \item {title};
+                \item {title};
+            \end{itemize}
+        \end{exampleblock}
+    }
+\end{document}

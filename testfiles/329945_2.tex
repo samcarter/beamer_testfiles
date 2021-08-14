@@ -1,0 +1,47 @@
+% https://tex.stackexchange.com/a/329945
+\documentclass{beamer}
+
+\newcounter{foo}
+
+\AtBeginSection[]
+{
+      \begin{frame}
+      \frametitle{Outline}
+      \tableofcontents[currentsection]
+      \end{frame}
+}
+\AtBeginSubsection[]
+{   
+    \setcounter{foo}{\insertsectionstartpage}
+    \addtocounter{foo}{1}
+    \ifnum\thefoo=\thepage
+    \else
+  \begin{frame}
+  \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+  \fi
+}
+
+\begin{document}
+
+\section{Section1}
+
+\subsection{Subsection1}
+\frame{sec 1 sub 1}
+
+\section{Section2}
+\frame{sec 2}
+
+\subsection{Subsection1}
+\frame{sec 2 sub 1}
+
+\section{Section 3}
+\frame{sec 3}
+
+\section{Section4}
+
+\subsection{Subsection1}
+\frame{sec 4 sub 1}
+
+
+\end{document}

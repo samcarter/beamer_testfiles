@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/a/323640
+\documentclass{beamer}
+
+\usetheme{Berlin}
+
+\usepackage{tikz}
+
+\AtBeginSection[]
+{
+    \begingroup
+    \setbeamercolor{background dark}{bg=backgrounddark}
+    \setbeamertemplate{headline}{}
+    \begin{frame}
+        \vspace{2em}\usebeamerfont{section title}
+        \vspace*{-\headheight}
+        \begin{tikzpicture}
+            \node[anchor=west, blue, inner sep=0pt] at (0,0) {\insertsection};
+        \end{tikzpicture}
+    \end{frame}
+    \endgroup
+}
+
+
+
+\begin{document}
+    \section{test}
+
+    \begin{frame}
+        bla
+    \end{frame}
+\end{document}

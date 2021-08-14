@@ -1,0 +1,30 @@
+% https://tex.stackexchange.com/a/333896
+\documentclass[20pt]{beamer}
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen=right}
+
+\makeatletter
+    \newcommand{\trickdown}{%
+        \advance\beamer@slideinframe by-1%
+     }%   
+\makeatother
+
+\begin{document}
+\begin{frame}<1-3>{Frame}
+\begin{itemize}
+        \item <1-> first item
+        \item <2-> second item
+        \item <3-> third item
+\end{itemize}
+
+\note{
+\trickdown
+\begin{enumerate}
+   \item <1> first note
+   \item <2> second note
+   \item <3> third note
+\end{enumerate}
+}
+
+\end{frame}
+\end{document}

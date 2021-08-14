@@ -1,0 +1,63 @@
+% https://tex.stackexchange.com/a/326326
+\documentclass{beamer}
+\mode<presentation> {
+  \usetheme{Warsaw}
+  %\setbeamercovered{transparent}
+}
+
+%\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[slovak]{babel}
+\usepackage{palatino}
+\usepackage{graphicx}
+
+\title[short version for footline]{Aplikácia metódy združených asymptotických rozvojov vo finančnej matematike.}
+\subtitle{Application of matched asymptotic expansions method in financial mathematics.} 
+\author%[Author, Anders] % (optional, for multiple authors)
+{Bc. Jozef Janočko}
+\institute[Universities Here and There] % (optional)
+{
+
+  Fakulta matematiky, fyziky a informatiky\\
+  Univerzita Komenského
+ }
+
+%{RNDr. Be\'{a}ta Stehl\'{i}kov\'{a}, PhD.}
+%\subject{Computer Science}
+\makeatletter
+\setbeamertemplate{title page}
+{
+    \vbox{}
+    \vfill
+    \begingroup
+    \flushleft RNDr. Beáta Stehlíková, PhD.   % NEW
+    \vskip0.5em                                                             % NEW
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]{title}
+        \usebeamerfont{title}\inserttitle\par%
+        \ifx\insertsubtitle\@empty%
+        \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+        \fi%     
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]{author}
+        \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]{institute}
+        \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]{date}
+        \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    \endgroup
+    \vfill
+}
+\makeatother
+
+\begin{document}
+\frame{\titlepage}
+\end{document}

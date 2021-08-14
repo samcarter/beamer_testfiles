@@ -1,0 +1,58 @@
+% https://tex.stackexchange.com/a/329413
+\documentclass{beamer}
+
+\makeatletter
+\addtobeamertemplate{frametitle}{}{%
+    \only<1>{%
+        \addtocontents{toc}{%
+         \protect\beamer@subsectionintoc{\the\c@section}{0}{%
+                    \insertframenumber\quad%
+              \ifx\insertframesubtitle\@empty%
+                  \insertframetitle%
+              \else%
+                  \insertframesubtitle%
+              \fi%
+         }{\the\c@page}{\the\c@part}{\the\beamer@tocsectionnumber}%
+        }%
+    }%
+}%
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+\begin{frame}
+\tableofcontents
+\end{frame}
+
+\section{First Section}
+
+\begin{frame}{First frame}
+Text
+\end{frame}
+
+\begin{frame}{Second frame}
+Text
+\end{frame}
+
+
+
+\section{Second Section}
+
+\begin{frame}
+\frametitle{Third frame}
+\framesubtitle{mySubtitle}
+Text
+\end{frame}
+
+\begin{frame}
+\frametitle{Fourth frame}
+Text
+\pause
+more text
+\end{frame}
+
+\end{document}

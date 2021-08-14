@@ -1,0 +1,17 @@
+% https://tex.stackexchange.com/a/327005
+\documentclass{beamer}
+
+\newlength{\primewidth}
+\settowidth{\primewidth}{'}
+
+\begin{document}
+
+\begin{frame}
+\begin{enumerate}
+    \item first
+    \item[1'\hskip-\primewidth .] prime
+    \item second
+\end{enumerate}
+\end{frame}
+
+\end{document}

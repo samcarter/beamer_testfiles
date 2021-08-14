@@ -1,0 +1,18 @@
+% https://tex.stackexchange.com/a/333835
+\documentclass{beamer}
+
+\begin{document}
+
+  \begin{frame}
+    \frametitle{FRAME TITLE HERE}
+    \begin{itemize}
+       \item \onslide<1-> TEXT FOR ITEM 1\footnotemark
+       \item \onslide<2-> TEXT FOR ITEM 2\footnotemark
+       \item \onslide<3-> TEXT FOR ITEM 3 HERE
+       \footnotetext[1]{TEXT FOR FIRST FOOTNOTE HERE}
+       \only<1>{\let\thefootnote\relax\footnotetext{~}}
+       \only<2->{\footnotetext[2]{TEXT FOR SECOND FOOTNOTE HERE}}
+    \end{itemize}
+  \end{frame}
+
+\end{document}

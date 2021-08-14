@@ -1,0 +1,50 @@
+% https://tex.stackexchange.com/a/321924
+\documentclass{beamer}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{xparse}
+
+\usetikzlibrary{overlay-beamer-styles}
+
+\pgfkeys{/highlight/.cd,
+    above right offset/.initial={0.015,0.065},
+    above right offset/.get=\aboverightoffset,
+    above right offset/.store in=\aboverightoffset,
+    below left offset/.initial={-0.015,-0.1},
+    below left offset/.get=\belowleftoffset,
+    below left offset/.store in=\belowleftoffset,
+}
+
+\tikzset{highlighting/.style={
+        append after command={
+            \pgfextra{
+                \path[rounded corners,
+                background filldraw=red filled by red!30,% border+filling
+                filldraw on=<#1>, % overlay specification
+                overlay] ($(\tikzlastnode.south west)+(\belowleftoffset)$) % to have some offset
+                rectangle ($(\tikzlastnode.north east)+(\aboverightoffset)$);
+            }   
+        }
+    }
+}
+
+\NewDocumentCommand{\highlight}{O{} m}{%
+    \pgfkeys{/highlight/.cd,#1}
+    \tikz[baseline=(A.base)] 
+    \node[highlighting=.,
+    inner sep=0pt] (A) {\textcolor{black}{#2}};%  
+}
+
+
+\begin{document}
+
+    \begin{frame}{Itemize with styles}
+        \begin{itemize}[<alert@+>]
+            \item \highlight{one}
+            \item \highlight{two}
+            \item \highlight{three}
+        \end{itemize}
+    \end{frame}
+
+\end{document}

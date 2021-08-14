@@ -1,0 +1,77 @@
+% https://tex.stackexchange.com/a/328095
+\documentclass{beamer}
+
+\usetheme{Singapore}
+
+%% Title slide formatting %%
+
+\pgfdeclareimage[width=\paperwidth]{titlebackground}{example-image}
+\setbeamerfont{subtitle}{size=\tiny}
+\setbeamertemplate{title page}{
+    \begin{picture}(0,0)
+        \put(-28.5,-163){%
+            \pgfuseimage{titlebackground}
+        }
+        \put(0,-75){%
+            \begin{minipage}[b][4.5cm][t]{0.5\textwidth}
+                \color{white}
+                \usebeamerfont{title}
+                    {\inserttitle\\[0.9cm]}
+                \usebeamerfont{subtitle}
+                    {\insertauthor\par}
+                    {\insertinstitute\\[0.3cm]}
+                    {\insertdate}
+            \end{minipage}
+        }
+    \end{picture}
+}
+
+
+
+%% General slide formatting %%
+
+\definecolor{oxfordblue}{RGB}{4,30,66}
+
+\pgfdeclareimage[width=0.9cm]{oxfordlogo}{example-image}
+\pgfdeclareimage[width=1cm]{mathslogo}{example-image}
+
+
+
+\setbeamertemplate{frametitle}
+{%
+    \begin{picture}(0,0)
+        \put(-8,-10){%
+            \color{blue}\insertframetitle
+        }
+        \put(-7,-20){%
+            \tiny\color{oxfordblue}\insertframesubtitle
+        }
+    \end{picture}
+}
+
+\setbeamerfont{page number in head/foot}{size=\large}
+\setbeamertemplate{footline}[frame number]
+
+%% Information (author, title, etc.) %%
+
+\title[Short version of title]{Scattering \& blow-up phenomena for semi-linear wave equations} % short title for footer
+\author%
+{%
+    \sc{Author: Edmund A. Paxton}\\
+   \newline \sc{Supervisor: Prof. Luc Nguyen} \newline
+}
+\institute%
+{%
+    \textit{Mathematical Institute}\\
+    \textit{University of Oxford}
+}
+\date[PoM2015]{CDT summer project report, September 2016} % short date for footer
+
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage 
+\end{frame}
+
+\end{document}

@@ -1,0 +1,172 @@
+% https://tex.stackexchange.com/a/332018
+\documentclass[xcolor=dvipsnames]{beamer}
+
+\usetheme{Antibes}
+\usecolortheme{dolphin}
+\usefonttheme{professionalfonts}
+\useoutertheme{infolines}
+\useinnertheme{circles}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{etoolbox}
+\usepackage[gen]{eurosym}
+
+\makeatletter
+\newcount\beamer@subsectionstartframe
+\beamer@subsectionstartframe=1
+\apptocmd{\beamer@subsection}{\addtocontents{nav}{\protect\headcommand{%
+            \protect\beamer@subsectionframes{\the\beamer@subsectionstartframe}{\the\c@framenumber}}}}{}{}
+\apptocmd{\beamer@subsection}{\beamer@subsectionstartframe=\c@framenumber\advance\beamer@subsectionstartframe by1\relax}{}{}
+\AtEndDocument{\immediate\write\@auxout{\string\@writefile{nav}%
+        {\noexpand\headcommand{\noexpand\beamer@subsectionframes{\the\beamer@subsectionstartframe}{\the\c@framenumber}}}}}{}{}
+\def\beamer@startframeofsubsection{1}
+\def\beamer@endframeofsubsection{1}
+\def\beamer@subsectionframes#1#2{%
+    \ifnum\c@framenumber<#1%
+    \else%
+    \ifnum\c@framenumber>#2%
+    \else%
+    \gdef\beamer@startframeofsubsection{#1}%
+    \gdef\beamer@endframeofsubsection{#2}%
+    \fi%
+    \fi%
+}
+\newcommand\insertsubsectionstartframe{\beamer@startframeofsubsection}
+\newcommand\insertsubsectionendframe{\beamer@endframeofsubsection}
+\makeatother
+
+\newcounter{subsectionframenumber}
+\newcounter{totalsubsectionframenumber}
+
+\setbeamertemplate{headline}
+{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.65ex,dp=1.5ex,right]{section in head/foot}%
+            \usebeamerfont{section in head/foot}\insertsectionhead\hspace*{2ex}
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.65ex,dp=1.5ex,left]{subsection in head/foot}%
+            \parbox[b]{.4\textwidth}{
+            \usebeamerfont{subsection in head/foot}\hspace*{2ex}\insertsubsectionhead%
+            \setcounter{subsectionframenumber}{1}
+            \addtocounter{subsectionframenumber}{\insertframenumber}
+            \addtocounter{subsectionframenumber}{-\insertsubsectionstartframe}
+            \setcounter{totalsubsectionframenumber}{1}
+            \addtocounter{totalsubsectionframenumber}{\insertsubsectionendframe}
+            \addtocounter{totalsubsectionframenumber}{-\insertsubsectionstartframe}
+            \ifnum\value{section}>0%
+            \foreach\x in {1,...,\value{totalsubsectionframenumber}}{%
+                \ifnum\x=\value{subsectionframenumber}%
+                \usebeamertemplate{mini frame}~%
+                \else%
+                \usebeamertemplate{mini frame in other subsection}~%
+                \fi%
+            }%
+            \fi%
+        }%
+        %\hfill\hyperlink{toc}{Outline}%
+        \end{beamercolorbox}}%
+        \vskip0pt%
+    }
+\usepackage{bbm}
+\usepackage{amssymb}
+\usepackage{mathabx}
+
+\newcounter{framenumbervorappendix}
+
+\usepackage{multicol}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+{
+
+  \setbeamertemplate{footline}{
+    \leavevmode%
+    \hbox{%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+      \usebeamerfont{author in head/foot}\insertshortauthor
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+      \usebeamerfont{title in head/foot}\insertshorttitle
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+      \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+%      \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+    \end{beamercolorbox}}%
+    \vskip0pt%
+  } 
+
+    \begin{frame}[noframenumbering]
+        \titlepage
+    \end{frame}
+
+}
+
+    \begin{frame}[label=toc]
+        \frametitle{Outline}
+        \tableofcontents
+    \end{frame}
+
+    \section{BLAH}
+    \subsection{sub1}
+
+    \begin{frame}{SLIDE1}\label{slide1}
+    \hyperlink{appendix}{\beamergotobutton{More}}
+    \end{frame}
+
+    \begin{frame}{SLIDE2}
+    \end{frame}
+
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+     \setcounter{framenumbervorappendix}{\value{framenumber}}
+    \section*{Appendix}
+    \subsection{Appendix}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ {
+
+ \setbeamertemplate{headline}
+ {
+     \leavevmode%
+     \hbox{%
+         \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.65ex,dp=1.5ex,right]{section in head/foot}%
+             \usebeamerfont{section in head/foot}\insertsectionhead\hspace*{2ex}
+         \end{beamercolorbox}%
+         \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.65ex,dp=1.5ex,left]{subsection in head/foot}%
+         \end{beamercolorbox}}%
+         \vskip0pt%
+     }   
+
+  \setbeamertemplate{footline}{
+    \leavevmode%
+    \hbox{%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+      \usebeamerfont{author in head/foot}\insertshortauthor
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+      \usebeamerfont{title in head/foot}\insertshorttitle
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+      \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+%      \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+    \end{beamercolorbox}}%
+    \vskip0pt%
+  }   
+
+
+    \begin{frame}{Extensions 1}\label{appendix} 
+    \end{frame}
+    \begin{frame}{Extensions 2}
+    \hyperlink{slide1}{\beamergotobutton{Back}}
+    \end{frame}
+
+
+}
+
+\setcounter{framenumber}{\value{framenumbervorappendix}}
+
+\end{document}

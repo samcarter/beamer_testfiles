@@ -1,0 +1,30 @@
+% https://tex.stackexchange.com/a/326714
+\documentclass{beamer}
+
+\usepackage{etoolbox} 
+\BeforeBeginEnvironment{frame}{
+\ifnum\value{framenumber}=0
+\else
+    \pgfmathparse{int(mod(\value{framenumber},3))}
+    \ifnum\pgfmathresult=0
+        \addtocounter{framenumber}{-1}
+        \frame{%
+            whatever
+        } 
+    \fi
+\fi
+}
+
+
+\usepackage{pgffor}
+\usepackage{tikz}
+
+\begin{document}
+
+\foreach \i in {1,...,30} {
+    \begin{frame}
+        \insertframenumber
+    \end{frame}
+}
+
+\end{document}

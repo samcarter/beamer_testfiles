@@ -1,0 +1,55 @@
+% https://tex.stackexchange.com/a/331582
+\documentclass[11pt]{beamer}
+\usetheme{Singapore}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{grffile}
+%\usepackage{xcolor}
+\usepackage{todonotes}
+\usepackage[round]{natbib}
+\numberwithin{equation}{section}
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+\usepackage{etoolbox}
+\apptocmd{\frame}{}{\justifying}{}
+%\usepackage[varioref=false]{chemstyle} 
+\usepackage{mhchem,chemfig} 
+\usepackage{flowchart} 
+%\usepackage{float}
+\usepackage[lofdepth=2]{subfig}
+\setbeamercovered{transparent} 
+\setbeamertemplate{navigation symbols}{}
+\usepackage{booktabs} 
+\usepackage{tikz}
+\usetikzlibrary{shapes.multipart}
+
+\begin{document}
+\begin{frame}
+\frametitle{Empirical Framework}
+\begin{table}
+\caption{Previous Studies}
+\tiny
+\begin{tabular}{clcl}
+\toprule
+\multicolumn{4}{c}{Lerner Index Model results in other studies}\\
+\midrule
+Author(s)   &   Sample (\# of African countries &   Periods &   Results \\
+\midrule
+Amidu and Wolfe (2013)  &   55 Developing countries (22)    &   2000-2007   &       \\
+Turk Ariss (2010)   &   60 Developing countries (14)    &   1999-2005   &       \\
+Beck et al. (2013)  &   79 countries    &   1994-2009   &       \\
+Agoraki et al. (2011)   &   13 CEE countries    &   1998-2005   &       \\
+Fu et al. (2014)    &   14 Asian countries  &   2003-2010   &       \\
+Berger et al. (2009)    &   23 industrialized countries     &   1999-2005   &       \\
+Kouki and Al-Nasser (2014)  &   31 African countries    &   2005-2010   &       \\
+de Guevara and Maudos (2011)    &       &   1993-2003   &       \\
+Aboagye et al. (2008)   &   Ghana   &   2001-2006   &       \\
+Weill (2013)    &   22 EU countries &   2002-2010   &       \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{frame}
+
+\end{document}

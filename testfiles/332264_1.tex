@@ -1,0 +1,36 @@
+% https://tex.stackexchange.com/a/332264
+\documentclass{beamer}
+\usetheme{Warsaw}
+
+\usepackage{tikz} 
+\usepackage{smartdiagram}
+\usesmartdiagramlibrary{additions}
+
+\begin{document}
+\begin{frame}{}
+    \begin{beamerboxesrounded}[upper=uppercol,lower=lowercol,shadow=true]{Example 2}
+        \begin{minipage}[c][3cm]{\textwidth}
+            \centering
+                \smartdiagramset{
+                    border color=none,
+                    back arrow disabled=true,
+                                    additions={
+                                      additional item offset=-7mm,
+                                      additional item fill opacity=0
+                                    }
+                }
+                \smartdiagramadd[flow diagram:horizontal]{
+                    $X$,
+                    Noisy channel,
+                    $f(\cdot)$,
+                    $Z$
+                }
+                {
+                        above right of module2/$Y$~~~,
+                }
+        \end{minipage}
+    \end{beamerboxesrounded}
+\end{frame}
+
+
+\end{document}

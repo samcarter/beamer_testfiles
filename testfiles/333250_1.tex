@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/333250
+\documentclass{beamer}
+
+\newcommand{\mysection}[2][blue]{%
+    \begingroup
+    \setbeamercolor{background canvas}{bg=#1}
+    \setbeamercolor{section title}{fg=-#1}
+    \section{#2}
+    \begin{frame}[plain]
+      \vspace{2em}\usebeamercolor[fg]{section title}\usebeamerfont{section title}
+      bla
+    \end{frame}
+    \endgroup
+}
+
+\begin{document}
+
+\mysection[blue]{blue section}
+\begin{frame}
+    abc
+\end{frame} 
+
+\mysection[red]{red section}
+\begin{frame}
+    abc
+\end{frame} 
+
+\mysection{default colour}
+\begin{frame}
+    abc
+\end{frame}     
+
+\end{document}

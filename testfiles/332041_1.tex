@@ -1,0 +1,23 @@
+% https://tex.stackexchange.com/a/332041
+\documentclass{beamer}
+
+\usetheme{Madrid}
+
+\begin{document}
+
+\addtocounter{framenumber}{-1}
+\begin{frame}
+\addtocounter{framenumber}{1}
+
+Common text\\
+\begin{overprint}
+\only<+>{
+  Figure 1 and explanation of Figure 1
+}
+\only<+>{
+  Figure 2 and explanation of Figure 2
+}
+\end{overprint}
+\end{frame}
+
+\end{document}

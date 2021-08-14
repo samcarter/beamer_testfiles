@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/331913
+\documentclass{beamer}
+
+\usepackage[super]{nth} 
+
+\makeatletter
+   \def\c@slideinframe{\beamer@slideinframe}   
+   \def\beamerslideinframe{\beamer@slideinframe} 
+\makeatother
+
+\begin{document}
+\section{Solution}
+\begin{frame}
+    \frametitle{\insertsection{} \nth{\beamerslideinframe} Step}
+    \begin{align*}
+        \uncover<1->{2x-c&=2}
+        \uncover<2->{\\ 2x&=2+c}
+        \uncover<3->{\\ x&=1+0.5c}
+    \end{align*}
+\end{frame}
+\end{document}

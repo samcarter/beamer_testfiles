@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/a/331676
+\documentclass[a4paper]{beamer}
+
+\usetheme{Dresden}
+\usecolortheme{albatross}
+
+\begin{document}
+    \section{Main section}
+        \subsection{First subsection}
+            \begin{frame}{First frame of first subsection}
+            People understand all this stuff.
+        \end{frame}
+ \addtocounter{section}{42}
+ \section[]{hidden}
+        \begin{frame}{Explain stuff to me}
+        You will need this and that for the next slide
+        \end{frame}
+    \addtocounter{section}{-42}
+    \subsection{First subsection}
+        \addtocounter{subsectionslide}{1}
+        \begin{frame}{Second frame of first subsection}
+        Luckily you paid attention to the crash-course, so now you understand this...
+        \end{frame}
+        \begin{frame}{Third frame of first subsection}
+        ... and that.
+        \end{frame}
+    \subsection{Second subsection}
+        \begin{frame}{Some different stuff}
+        Content
+        \end{frame}
+\end{document}

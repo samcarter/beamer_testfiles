@@ -1,0 +1,51 @@
+% https://tex.stackexchange.com/a/333484
+\documentclass[compress]{beamer}
+
+\usetheme{Szeged}
+
+\usecolortheme{beaver}
+\usefonttheme{professionalfonts}
+
+\makeatletter
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\beamer@ifempty\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+
+\title[sd]{Title}
+\author[d]{A:T \inst{1}\\B.T \inst{2}\\  C.A \inst{1}}
+\date[sd]{xx.mm.yyyy}
+ \institute[]{\inst{1}Something\\Somewhere\\ \inst{2} Something\\Somewhere}
+
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+\section{First Section}
+\subsection{}
+\begin{frame}
+\frametitle{Hello}
+\textbf{here we go}
+
+
+
+\end{frame}
+
+\end{document}

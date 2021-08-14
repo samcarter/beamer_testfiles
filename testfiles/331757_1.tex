@@ -1,0 +1,50 @@
+% https://tex.stackexchange.com/a/331757
+\documentclass{beamer}
+\usetheme{Dresden}
+\usepackage{multirow, makecell}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{mwe}
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+    \frametitle{Outline}
+    \begin{columns}[t]
+        \begin{column}{.5\textwidth}
+            \footnotesize
+            \tableofcontents[sections={1-2}]
+        \end{column}
+        \begin{column}{.5\textwidth}
+            \footnotesize
+            \tableofcontents[sections={3-4}]
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\section{Introduction}
+\begin{frame}
+  \begin{columns}[T]
+      \begin{column}{.5\textwidth}
+          \footnotesize
+          \tableofcontents[currentsection,hideallsubsections,subsubsectionstyle=hide]
+      \end{column}
+      \begin{column}{.5\textwidth}
+          \includegraphics[width=\textwidth]{example-image}
+      \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{Stream Bioenergetics}
+
+\begin{frame}
+\frametitle{Stream Bioenergetics}
+\begin{itemize}
+\item Energy availability (upstream to downstream movement)
+\end{itemize}
+\end{frame}
+
+\end{document}

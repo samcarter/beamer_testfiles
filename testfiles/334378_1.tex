@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/334378
+\documentclass{beamer}
+
+\title{Title}
+
+\begin{document}
+\begin{frame}
+text above 
+\[
+    \int_a^b f(x)\,dx= f(\xi)(b-a).
+\] 
+Text after
+\end{frame}
+
+\begin{frame}
+\setlength{\abovedisplayshortskip}{-1pt}
+\setlength{\belowdisplayshortskip}{0pt} 
+text above 
+\[
+    \int_a^b f(x)\,dx= f(\xi)(b-a).
+\]
+Text after
+\end{frame}
+\end{document}

@@ -1,0 +1,18 @@
+% https://tex.stackexchange.com/a/330212
+\documentclass{beamer}
+\begin{document}
+\begin{frame}{Title}
+  $
+    blah =
+    \only<1>{blah}
+    \only<2>{result}
+    \visible<1>{%
+      =
+      \begin{cases}
+          blah \\ 
+          blah
+        \end{cases}
+      }
+    $
+\end{frame}
+\end{document}
