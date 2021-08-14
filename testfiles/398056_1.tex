@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/398056
+\documentclass[14pt]{beamer}
+\geometry{papersize={250mm,190mm}}
+
+% Title page
+\setbeamertemplate{title page}{%
+    \setlength{\unitlength}{1mm}
+    \begin{picture}(250,190)(10,0)%
+        \put(0,0){\color{red}\rule{\paperwidth}{\paperheight}}
+        \put(72.0,100){%
+            \begin{minipage}[b][30.7mm][b]{169.3mm}
+                \usebeamerfont{title}{\inserttitle\par}
+            \end{minipage}
+        }
+    \end{picture}
+}
+
+\title{Example Positioning disaster}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+\end{document}

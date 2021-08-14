@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/411317
+\documentclass{beamer}
+\setbeamercolor{background canvas}{bg=yellow}
+\useinnertheme[shadow]{rounded}
+
+\usepackage{listings}
+
+\lstset{numbers=left, numberstyle=\tiny, stepnumber=1,firstnumber=1,
+    numbersep=5pt,language=Java,
+    stringstyle=\ttfamily,
+    basicstyle=\footnotesize, 
+    showstringspaces=false
+}
+
+\begin{document}
+
+\begin{frame}[fragile]{Code}
+
+\begin{block}{Getting labels}
+\begin{lstlisting}[firstnumber=1, label=glabels, xleftmargin=10pt] 
+class Hello {
+...
+}
+\end{lstlisting}
+\end{block}
+
+\end{frame}
+\end{document}

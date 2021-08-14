@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/309569
+\documentclass{beamer}
+
+\mode<presentation> {
+    \usetheme{Madrid}
+    \usecolortheme[RGB={0,0,0}]{structure}
+}
+
+\usepackage{amsmath,amsfonts,graphicx}
+\usepackage{algpseudocode}
+\usepackage{tikz}
+
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\begin{document}
+    \begin{frame}[t]
+        \frametitle{Example: $\Omega$-Notation}
+        \uncover<+->{{\bf Solution:}}
+        \begin{align*}
+        \uncover<+->{\log(n!) &= \log(\prod_{i=1}^{n} i) = \sum_{i=1}^{n} \log i \\}
+        \uncover<+->{&\geq \sum_{i={\frac{n}{2} + 1}}^{n} \log i \qquad \forall n \geq 1 \\}
+        \uncover<+->{&\geq \sum_{i={\frac{n}{2} + 1}}^{n} \log{(\frac{n}{2})} \qquad \forall n \geq 1 \\}
+        \uncover<+->{&= \frac{n}{2} \log(\frac{n}{2}) = \frac{n}{2} (\log n - 1) \\}
+        \phantom{\log(n!)} & \phantom{\geq \frac{n}{2}(\log n - \frac{1}{2}\log n) \qquad \forall n \geq 4}
+        \end{align*}
+    \end{frame}
+
+    \addtocounter{framenumber}{-1}
+
+    \begin{frame}[t]
+        \frametitle{Example: $\Omega$-Notation}
+        \uncover<+->{{\bf Solution:}}
+        \begin{align*}
+        \uncover<+->{&\geq \frac{n}{2}(\log n - \frac{1}{2}\log n) \qquad \forall n \geq 4 \\}
+        \uncover<+->{&= \frac{1}{4}n \log n \\}
+        \phantom{\log(n!)} & \phantom{\geq \frac{n}{2}(\log n - \frac{1}{2}\log n) \qquad \forall n \geq 4}
+        \end{align*}
+    \end{frame} 
+\end{document}

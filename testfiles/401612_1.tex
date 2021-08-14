@@ -1,0 +1,38 @@
+% https://tex.stackexchange.com/a/401612
+\documentclass{beamer}
+
+\usepackage[english,russian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{ragged2e}
+\usefonttheme{serif}
+\usetheme{metropolis}
+
+\AtBeginSection[]
+{
+\begin{frame}<beamer>
+    \frametitle{\LARGE{TOC}}
+    \tableofcontents[currentsection,currentsubsection]
+\end{frame}
+}
+
+
+\begin{document}
+
+\begin{frame}
+\only<1>{\tableofcontents[sections=1-2]}
+\only<2>{\tableofcontents[sections=3]}
+\end{frame}
+
+\section{test1}
+\begin{frame}
+\end{frame}
+
+\section{test2}
+\begin{frame}
+\end{frame}
+
+\section{test3}
+\begin{frame}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,30 @@
+% https://tex.stackexchange.com/a/420587
+\documentclass[10pt,
+aspectratio=169
+]{beamer}
+\usetheme{Feather}
+
+\title{The Feather Beamer Theme}
+\subtitle[The Feather Beamer Theme]{v. 1.0.0}
+\author[Lilyana Vankova]{Lilyana Vankova}
+\institute[]{Faculty of Mathematics, Informatics and Information}
+\date{\today}
+
+\setbeamercolor{footline}{bg=structure.fg,fg=white}
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=1.0\paperwidth,left,ht=2.5ex,dp=1ex]{footline}
+    \usebeamerfont{section in head/foot}%
+    \hspace*{3.5ex}%
+    \insertshortauthor\ |\ 
+    \insertshorttitle
+    \insertshortsubtitle
+  \end{beamercolorbox}
+}
+
+\begin{document}
+
+\begin{frame}
+test
+\end{frame}
+
+\end{document}

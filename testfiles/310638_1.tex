@@ -1,0 +1,58 @@
+% https://tex.stackexchange.com/a/310638
+\documentclass{beamer}
+
+\makeatletter
+\long\def\beamer@newenvnoopt#1#2#3#4{%
+    \expandafter\renewcommand\expandafter<\expandafter>\csname#1\endcsname[#2]{#3}%<- here
+    \expandafter\long\expandafter\def\csname end#1\endcsname{#4}%
+}
+\long\def\beamer@newenvopt#1#2[#3]#4#5{%
+    \expandafter\renewcommand\expandafter<\expandafter>\csname#1\endcsname[#2][#3]{#4}%<- here
+    \expandafter\long\expandafter\def\csname end#1\endcsname{#5}%
+}
+
+\renewenvironment<>{columns}[1][]{%
+    \begin{actionenv}#2%
+        \def\beamer@colentrycode{%
+            \hbox to\textwidth\bgroup%
+            \leavevmode%
+            \hskip-\beamer@leftmargin%
+            \nobreak%
+            \beamer@tempdim=\textwidth%
+            \advance\beamer@tempdim by\beamer@leftmargin%
+            \advance\beamer@tempdim by\beamer@rightmargin%
+            \hbox to\beamer@tempdim\bgroup%
+            \hbox{}\hfill\ignorespaces}%
+        \def\beamer@colexitcode{\egroup%
+            \nobreak%
+            \hskip-\beamer@rightmargin\egroup}%
+        \ifbeamer@centered\setkeys{beamer@col}{c}\else\setkeys{beamer@col}{t}\fi%
+        \setkeys{beamer@col}{#1, onlytextwidth}% added ""onlytextwidth""
+        \par%
+        \beamer@colentrycode%
+        \def\beamer@colclose{}\ignorespaces}%
+    {\beamer@colclose\def\beamer@colclose{}\beamer@colexitcode\end{actionenv}}%
+\makeatother
+
+\begin{document}
+    \begin{frame}
+        \begin{columns}[onlytextwidth]
+            \begin{column}{.5\textwidth}
+                \rule{\textwidth}{1cm}
+            \end{column}
+            \begin{column}{.5\textwidth}
+                \rule{\textwidth}{1cm}
+            \end{column}            
+        \end{columns}
+
+        \begin{columns}
+            \begin{column}{.5\textwidth}
+                \rule{\textwidth}{1cm}
+            \end{column}
+            \begin{column}{.5\textwidth}
+                \rule{\textwidth}{1cm}
+            \end{column}            
+        \end{columns}       
+
+    \end{frame}
+\end{document}

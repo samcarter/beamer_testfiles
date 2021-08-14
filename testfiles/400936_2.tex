@@ -1,0 +1,69 @@
+% https://tex.stackexchange.com/a/400936
+\documentclass{beamer}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+
+\setbeamercolor{author}{fg=blue}
+\setbeamercolor{section title}{bg=blue!40}
+\setbeamercolor{subsection title}{bg=blue!20}
+
+\setbeamerfont{title}{size=\Large, series=\bfseries}
+\setbeamerfont{subtitle}{size=\Large, series=\bfseries}
+\setbeamerfont{author}{size=\footnotesize}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{section title}{size=\Large,series=\bfseries}
+\setbeamerfont{subsection title}{size=\large,series=\bfseries}
+
+\setbeamertemplate{section page}{%
+    \begingroup
+        \begin{beamercolorbox}[sep=10pt,center,rounded=true,shadow=true]{section title}
+        \usebeamerfont{section title}\thesection~\insertsection\par
+        \end{beamercolorbox}
+    \endgroup
+}
+
+\setbeamertemplate{subsection page}{%
+    \begingroup
+        \begin{beamercolorbox}[sep=2pt,center,rounded=true,shadow=true]{section title}
+        \usebeamerfont{section title}\thesection~\insertsection\par
+        \end{beamercolorbox}
+        \vspace*{-1.pt}
+        \begin{beamercolorbox}[sep=6pt,center,rounded=true,shadow=true]{subsection title}
+        \usebeamerfont{subsection title}\thesection.\thesubsection~\insertsubsection\par
+        \end{beamercolorbox}
+    \endgroup
+}
+
+\AtBeginSection[]{%
+    \begin{frame}
+        \sectionpage
+    \end{frame}
+}
+
+\AtBeginSubsection[]{%
+    \begin{frame}
+        \subsectionpage
+    \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}[t]
+    \frametitle{Table of Contents}
+    \tableofcontents
+\end{frame}
+
+\section{Immortal Games}
+\subsection{Anderssen-Kieseritzky 1851}
+\subsection{Sliwa-Bronstein 1957}
+\subsection{Opera Game}
+\subsection{Alekhine`s Gun Game}
+\section{Famous Games}
+\subsection{Byrne-Fischer}
+\subsection{Evergreen Game}
+\subsection{Deep Blue vs Kasparov}
+\subsection{Caruana vs Wojtkiewicz}
+
+\end{document}

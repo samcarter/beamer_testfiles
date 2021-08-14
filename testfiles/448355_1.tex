@@ -1,0 +1,54 @@
+% https://tex.stackexchange.com/a/448355
+\documentclass[12pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen=right}
+\usepackage[style=alphabetic]{biblatex}
+\addbibresource{mybib.bib}
+\setlength{\biblabelsep}{-0.5cm}
+
+\begin{filecontents}{mybib.bib}
+% Encoding: UTF-8
+@Book{langsam1990,
+  title     = {Data structures using C and C++},
+  publisher = {Prentice-Hall},
+  year      = {1990},
+  author    = {Langsam, Y. and Augenstein, M. J. and Tenenbaum, A .M.},
+  address   = {New Jersey},
+}
+
+@Book{folkzoellick1992,
+  title      = {File structures},
+  publisher  = {Addison-Wesley Publishing Company, Inc.},
+  year       = {1992},
+  author     = {Folk, M.J. and Zoellick, B.},
+  address    = {USA},
+}
+\end{filecontents}
+
+\begin{document}
+
+\begin{frame}
+    File organization: \cite{folkzoellick1992}
+
+    Data structures: \cite{langsam1990}
+
+    \note{Books}
+\end{frame}
+
+
+\begin{frame}
+    References for the audience:
+
+
+    \printbibliography
+
+    \note{
+        References for me:
+        \printbibliography
+    }
+\end{frame}
+
+\end{document}

@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/a/372591
+\documentclass[11pt,t]{beamer} 
+\usetheme{Berkeley}
+
+\makeatletter
+\setlength{\beamer@headheight}{0pt}
+\makeatother
+
+\begin{document}
+\begin{frame}
+    In Calculus I, we have learned ``Integration by Substitution'' as follows:
+    \[ \int g(f(x)) f'(x)dx = \int g(u)du \]
+    where $u=f(x)$. Note that $du=f'(x)dx$.
+    \newline
+    Now our goal is to extend this concept to multiple integrals, such as
+    \[ \iiint_R F(x,y,z)\mathop{dx}\mathop{dy}\mathop{dz} = \iiint_G F(u,v,w) (?)\mathop{du}\mathop{dv'}\mathop{dw} \]
+    where $x=x(u,v,w), y=y(u,v,w), z=z(u,v,w)$. What should be in ``(?)''?
+\end{frame}
+\end{document}

@@ -1,0 +1,80 @@
+% https://tex.stackexchange.com/a/387884
+\documentclass{beamer}
+\usepackage{ragged2e}
+\usepackage{lipsum}
+
+\makeatletter
+\renewcommand{\itemize}[1][]{%
+    \beamer@ifempty{#1}{}{\def\beamer@defaultospec{#1}}%
+    \ifnum \@itemdepth >2\relax\@toodeep\else
+    \advance\@itemdepth\@ne
+    \beamer@computepref\@itemdepth% sets \beameritemnestingprefix
+    \usebeamerfont{itemize/enumerate \beameritemnestingprefix body}%
+    \usebeamercolor[fg]{itemize/enumerate \beameritemnestingprefix body}%
+    \usebeamertemplate{itemize/enumerate \beameritemnestingprefix body begin}%
+    \list
+    {\usebeamertemplate{itemize \beameritemnestingprefix item}}
+    {\def\makelabel##1{%
+            {%
+                \hss\llap{{%
+                        \usebeamerfont*{itemize \beameritemnestingprefix item}%
+                        \usebeamercolor[fg]{itemize \beameritemnestingprefix item}##1}}%
+            }%
+        }%
+    }
+    \fi%
+    \beamer@cramped%
+    \justifying% NEW
+    %\raggedright% ORIGINAL
+    \beamer@firstlineitemizeunskip%
+}
+
+\def\beamer@enum@{%
+  \beamer@computepref\@itemdepth% sets \beameritemnestingprefix
+  \usebeamerfont{itemize/enumerate \beameritemnestingprefix body}%
+  \usebeamercolor[fg]{itemize/enumerate \beameritemnestingprefix body}%
+  \usebeamertemplate{itemize/enumerate \beameritemnestingprefix body begin}%
+  \expandafter
+    \list
+      {\usebeamertemplate{\beamer@enumtempl}}
+      {\usecounter\@enumctr%
+        \def\makelabel##1{{\hss\llap{{%
+                \usebeamerfont*{enumerate \beameritemnestingprefix item}%
+                \usebeamercolor[fg]{enumerate \beameritemnestingprefix item}##1}}}}}%
+  \beamer@cramped%
+  \justifying
+%  \raggedright%
+  \beamer@firstlineitemizeunskip%
+}
+
+\def\@@description{%
+  \advance\beamer@descdefault by \labelsep%
+  \usebeamerfont{description body}%
+  \usebeamercolor[fg]{description body}%
+  \usebeamertemplate{description body begin}%
+  \list
+  {}
+  {\labelwidth\beamer@descdefault\leftmargin\beamer@descdefault\let\makelabel\beamer@descriptionitem}%
+  \beamer@cramped%
+%  \raggedright
+\justifying
+  \beamer@firstlineitemizeunskip%
+}
+
+\makeatother
+
+
+
+\begin{document}
+    \begin{frame}
+        \begin{itemize}
+            \item \lipsum[66]
+        \end{itemize}
+        \begin{enumerate}
+            \item \lipsum[75]
+        \end{enumerate}
+        \begin{description}
+            \item[Item] \lipsum[66]
+        \end{description}
+    \end{frame}
+\end{document}

@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/395727
+\documentclass{beamer}
+
+\usecolortheme{seahorse}
+\useoutertheme{infolines}
+\setbeamertemplate{headline}[default]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{section in toc}{\inserttocsectionnumber.~\inserttocsection}
+\setbeamertemplate{subsection in toc}{\textcolor{structure.fg}{$\blacktriangleright$}\hspace{1.2 em}\inserttocsubsectionnumber.~\inserttocsubsection \\}
+
+
+\begin{document}
+
+\section{A}
+\frame{\tableofcontents[currentsection]}
+
+\subsection{A.1}
+\begin{frame}
+\end{frame}
+\subsection{A.2}
+\begin{frame}
+\end{frame}
+
+\end{document}

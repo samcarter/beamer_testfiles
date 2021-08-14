@@ -1,0 +1,88 @@
+% https://tex.stackexchange.com/a/418133
+\documentclass{beamer} 
+
+\setbeamercolor*{normal text}{fg=blue         ,bg=blue!30!white!50!black}
+\setbeamercolor*{block body} {fg=blue!70!black,bg=white}
+\setbeamercolor*{block title}{bg=blue         ,fg=white}
+\setbeamercolor{lower separation line}{bg=red}
+
+\setbeamertemplate{block begin}{%
+  \begin{beamercolorbox}[ht=4.5ex,
+                         dp=0.5ex,
+                         leftskip=0.5em,
+                         colsep=1.0ex,
+                        ]{block title}%
+    \usebeamerfont*{block title}%
+    {\insertblocktitle\phantom{Gg}}% phantom because of baseline problem
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[%
+%                                           leftskip=1em,
+%                         rightskip=1em,
+%                         colsep=1.0ex,
+%                         sep=0.5ex,
+%                         vmode,
+                        ]{block body}%
+    \usebeamerfont{block body}%
+  }
+% Controls how the block is terminated
+\setbeamertemplate{block end}{
+  \end{beamercolorbox}%
+  \nointerlineskip
+  \begin{beamercolorbox}[ht=2pt]{lower separation line}
+  \end{beamercolorbox}
+}
+
+\begin{document}
+
+\begin{frame}[t]
+
+\begin{columns}[onlytextwidth]
+    \begin{column}{.45\textwidth}
+        \begin{block}{Foo}
+          \begin{itemize}
+            \item test 
+            \begin{itemize}
+              \item test 
+            \end{itemize}
+          \end{itemize}
+        \end{block}
+    \end{column}
+    \begin{column}{.45\textwidth}
+        \begin{block}{Bar}
+          \begin{itemize}
+            \item test 
+          \end{itemize}
+        \end{block}
+    \end{column}
+\end{columns}
+
+\vfill
+
+\begin{columns}[onlytextwidth]
+    \begin{column}{.45\textwidth}
+        \begin{block}{Foo}
+          \begin{minipage}[t][0.2\paperheight][c]{\textwidth} 
+            \vskip-\baselineskip
+            \begin{itemize}
+              \item test
+            \begin{itemize}
+              \item test 
+            \end{itemize}
+            \end{itemize}
+          \end{minipage}
+        \end{block}
+    \end{column}
+    \begin{column}{.45\textwidth}
+        \begin{block}{Bar}
+          \begin{minipage}[t][0.2\paperheight][c]{\textwidth} 
+            \vskip-\baselineskip
+            \begin{itemize}
+              \item test
+            \end{itemize}
+          \end{minipage}
+        \end{block}
+    \end{column}
+\end{columns}
+
+\end{frame}
+\end{document}

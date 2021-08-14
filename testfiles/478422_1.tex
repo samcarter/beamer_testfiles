@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/478422
+\documentclass{beamer}
+\usetheme{metropolis} % Use metropolis theme
+\title{A minimal example}
+\date{\today}
+\author{Matthias Vogelgesang}
+\institute{Centre for Modern Beamer Themes}
+\begin{document}
+    \maketitle
+    \section{First Section}
+    \begin{frame}{First Slide}
+        Hello, world!
+    \end{frame}
+    \section{Second Section}
+    \begin{frame}[label=mylabel]{Second Slide}
+        Hello, world!
+    \end{frame}
+    \begin{frame}{Third Slide}
+        A reference to p\ref{mylabel}
+    \end{frame}
+\end{document}

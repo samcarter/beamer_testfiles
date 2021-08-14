@@ -1,0 +1,54 @@
+% https://tex.stackexchange.com/a/429905
+\documentclass{beamer}
+\usetheme{Warsaw}
+\usecolortheme{beaver}
+%\usepackage{color}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{graphicx}
+\usepackage{multirow,array}
+\usepackage{tikz}
+\usetikzlibrary{calc,external,automata,trees,positioning,shadows,arrows,shapes.geometric}
+%\usepackage{xcolor}
+\usepackage{nicefrac}
+\usepackage{mathrsfs}
+
+\setbeamertemplate{footline}[page number]
+
+\begin{document}
+%\pagestyle{plain}
+
+
+\maketitle
+
+\begin{frame}{}
+\begin{itemize}
+    \item :
+    \begin{columns}[totalwidth=.9\textwidth]
+        \begin{column}{.4\textwidth}
+            \begin{table}
+                \begin{tabular}{c|c|c|}
+                    \multicolumn{1}{c}{} & \multicolumn{1}{c}{$i$} & \multicolumn{1}{c}{$g$} \\\cline{2-3}
+                    $I$ & $1$ & $0$ \\\cline{2-3}
+                    $G$ & $1$ & $0$ \\\cline{2-3}
+        \end{tabular}
+        \caption{$\theta$}
+       \end{table}
+        \end{column}
+        \begin{column}{.4\textwidth}
+            \begin{table}
+                \begin{tabular}{c|c|c|}
+                    \multicolumn{1}{c}{} & \multicolumn{1}{c}{$i$} & \multicolumn{1}{c}{$g$} \\\cline{2-3}
+                    $I$ & $p$ & $1-p$ \\\cline{2-3}
+                    $G$ & $1-p$ & $p$ \\\cline{2-3}
+        \end{tabular}
+        \caption{$1-\theta$}
+       \end{table}
+        \end{column}        
+    \end{columns}
+\end{itemize}
+\end{frame}
+
+\end{document}

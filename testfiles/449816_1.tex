@@ -1,0 +1,38 @@
+% https://tex.stackexchange.com/a/449816
+\documentclass[]{beamer}
+\usetheme{Frankfurt} 
+
+\makeatletter
+\@addtoreset{section}{part}
+\makeatletter
+
+\makeatletter
+\AtBeginPart{\beamer@tocsectionnumber=0}
+\makeatother
+
+\begin{document}
+
+\part{Part 1}
+
+\begin{frame}{Header}
+\end{frame}
+
+\section{P1 - S1}
+\begin{frame}{Header}
+\end{frame}
+
+\part{Part 2}
+
+\begin{frame}{Header}
+Shift visible here
+\end{frame}
+
+\section{P2 - S1}
+\begin{frame}{Header}
+\end{frame}
+
+\section{P2 - S2}
+\begin{frame}{Header}
+\end{frame}
+
+\end{document}

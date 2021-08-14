@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/444179
+\documentclass{beamer}
+\usepackage{
+%graphicx, 
+caption}
+\usepackage[absolute,overlay]{textpos}
+\setbeamertemplate{background}[grid][step=0.25cm]
+
+\begin{document}
+
+% without a figure environment, the image is positioned as expected 
+\begin{frame}{Frame 1}
+\begin{textblock*}{.5\paperwidth}(0cm,0cm)
+    \includegraphics[width=.5\paperwidth]{example-image-a}
+    \captionof{figure}{Example}
+\end{textblock*}
+\end{frame}
+
+% figure environment changes positioning
+\begin{frame}{Frame 2}
+\begin{textblock*}{\paperwidth}(0cm,0cm)
+\begin{figure}
+\includegraphics[scale=0.5]{example-image-a}
+\caption{Example-Image A}
+\end{figure}
+\end{textblock*}
+\end{frame}
+
+\end{document}

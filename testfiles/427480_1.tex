@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/427480
+\documentclass[12pt]{beamer}
+\usetheme{Copenhagen}
+% \usepackage{etoolbox} % automatically loaded by recent versions of beamer
+
+\BeforeBeginEnvironment{frame}{%
+ \setbeamertemplate{footline}[split theme]
+}
+
+\makeatletter
+\define@key{beamerframe}{standout}[true]{%
+\setbeamertemplate{footline}{}%
+}
+\makeatother
+
+\title{The title of the paper}
+\author{XYZ}
+\date{\today}
+
+
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
+\begin{frame}[standout]
+Welcome!
+\end{frame}
+
+
+\begin{frame}{Methodology}
+\tableofcontents
+\end{frame}
+
+\begin{frame}[standout]
+Thank you!
+\end{frame}
+\end{document}

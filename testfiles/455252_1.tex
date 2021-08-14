@@ -1,0 +1,54 @@
+% https://tex.stackexchange.com/a/455252
+%% LyX 2.3.0 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{beamer}
+\usepackage[libertine]{newtxmath}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{1}
+\usepackage[authoryear]{natbib}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+% this default might be overridden by plain title style
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+% (ERT) argument for the TOC
+\AtBeginDocument{%
+  \let\origtableofcontents=\tableofcontents
+  \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+  \def\gobbletableofcontents#1{\origtableofcontents}
+}
+% plain title style, override default
+\renewcommand\makebeamertitle{\frame[plain]{\maketitle}}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{url}
+%\usepackage{hyperref}
+\usepackage{indentfirst}
+\usepackage{tabularx}
+%\usepackage[super,sort&compress]{natbib}
+\usetheme{Warsaw}
+\usepackage{dsfont}
+%\usepackage[table]{xcolor}
+%\usepackage{dcolumn}
+\addtobeamertemplate{footline}{\insertframenumber/\inserttotalframenumber}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\title{Bibliography not working}
+\makebeamertitle
+\begin{frame}{}
+
+\citet{king_matrix_2014}
+\end{frame}
+
+\begin{frame}
+\bibliographystyle{plainnat}
+\bibliography{test}
+\end{frame}
+
+\end{document}

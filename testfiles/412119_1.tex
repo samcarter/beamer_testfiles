@@ -1,0 +1,52 @@
+% https://tex.stackexchange.com/a/412119
+\documentclass{beamer}
+
+\makeatletter
+\setbeamertemplate{title page}{%
+  \vbox{}
+  \vfill
+  \vskip2cm%<- added
+  \begingroup
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \vfill%<- added
+    \begin{beamercolorbox}[sep=8pt,center]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \vfill%<- added
+    \begin{beamercolorbox}[sep=8pt,center]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \vfill%<- added
+    \begin{beamercolorbox}[sep=8pt,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}%
+    \vskip0cm%<- changed
+%    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+  \endgroup
+%  \vfill%<- removed
+}
+\makeatother
+
+\title{Big Title}
+\subtitle{Small title}
+\author{Name Surname}
+\institute{Excellent University}
+\date{Meeting, January 24, 2018}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+    \rule{2pt}{1cm}
+\end{frame}
+
+\end{document}

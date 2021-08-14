@@ -1,0 +1,61 @@
+% https://tex.stackexchange.com/a/482480
+\documentclass[xcolor={usenames,dvipsnames,table},10pt]{beamer}
+\usetheme{Boadilla}
+\usecolortheme{default}
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+{
+\setbeamerfont{title}{series=\scshape}
+\title[] %optional
+{General Title}
+\author[] % (optional)
+{My Name}
+\begin{frame}[plain]
+%\thispagestyle{empty}
+\titlepage
+\end{frame}
+}
+
+\part{essay 1}
+%%%%%%%%%%%%%%%%%%%% CHAPTER 1
+\title %optional
+{CHAP 1 title}
+
+\begin{frame}[plain]
+%\thispagestyle{empty}
+\titlepage
+\end{frame}
+
+
+\section{Section 1 in chap 1}
+\subsection{subsection 1.1 in chap 1}
+\subsection{subsection 1.2 in chap 1}
+\section{Section 2 in chap 1}
+\subsection{subsection 2.1 in chap 1}
+\subsection{subsection 2.2 in chap 1}
+
+\part{essay 2}
+%%%%%%%%%%%%%%%%%%%% CHAPTER 2
+\title %optional
+{CHAP 2 title}
+
+\begin{frame}[plain]
+%\thispagestyle{empty}
+\titlepage
+\end{frame}
+
+\section{Section 1 in chap 2}
+\subsection{subsection 1.1 in chap 2}
+\subsection{subsection 1.2 in chap 2}
+\section{Section 2 in chap 2}
+\subsection{subsection 2.1 in chap 2}
+\subsection{subsection 2.2 in chap 2}
+
+\end{document}

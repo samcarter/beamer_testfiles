@@ -1,0 +1,43 @@
+% https://tex.stackexchange.com/a/299878
+\documentclass{beamer}
+\usetheme{Dresden}
+
+\setbeamertemplate{title page}
+{
+    \vbox{}
+    \vfill
+    \begingroup
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center]{title}
+        \usebeamerfont{title}\inserttitle\par%
+        \ifx\insertsubtitle\@empty%
+        \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+        \fi%     
+    \end{beamercolorbox}%
+    \begin{center}
+        \includegraphics[width=117pt,height=175pt,keepaspectratio]{example-image-duck}
+    \end{center}
+    \begin{beamercolorbox}[sep=8pt,center]{author}
+        \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{institute}
+        \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{date}
+        \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    \endgroup
+    \vfill
+}
+
+\title{Title}
+\subtitle{Subtitle}
+\author{Auth1 \and Auth2 \and Auth3}
+\date{}
+
+\begin{document}
+    \frame{\titlepage}
+\end{document}

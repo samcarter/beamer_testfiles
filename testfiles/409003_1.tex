@@ -1,0 +1,64 @@
+% https://tex.stackexchange.com/a/409003
+\documentclass{beamer}
+
+%\usepackage{graphicx}
+%\usepackage{color} 
+
+\usetheme{Madrid}
+
+% Definition %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{studentbrown}{RGB}{124,71,50}
+
+\BeforeBeginEnvironment{definition}{%
+    \setbeamercolor{block title}{fg=white,bg=studentbrown}
+    \setbeamercolor{block body}{fg=black, bg=studentbrown!20!white}
+}
+\AfterEndEnvironment{definition}{
+        \setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+        \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+}
+
+% Theorem %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\BeforeBeginEnvironment{theorem}{
+    \setbeamercolor{block title}{use=example text,fg=white,bg=example text.fg!75!black}
+    \setbeamercolor{block body}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+}
+\AfterEndEnvironment{theorem}{
+        \setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+        \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+}
+
+% Proposition %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{proposition}{Proposition}
+\BeforeBeginEnvironment{proposition}{
+        \setbeamercolor{block title}{use=alerted text,fg=white,bg=alerted text.fg!75!black}
+        \setbeamercolor{block body}{parent=normal text,use=block title alerted,bg=block title alerted.bg!10!bg}
+}
+\AfterEndEnvironment{proposition}{
+        \setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+        \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+}
+
+\begin{document}
+
+\begin{frame}
+
+\begin{theorem}
+test
+\end{theorem}
+
+\begin{proposition}
+test
+\end{proposition}
+
+\begin{definition}
+test
+\end{definition}
+
+\begin{lemma}
+test
+\end{lemma}    
+
+\end{frame}
+
+\end{document} 

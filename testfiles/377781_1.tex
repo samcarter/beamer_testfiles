@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/377781
+\documentclass{beamer}
+\usetheme{Berlin}
+
+\usepackage{xstring}
+
+\setbeamertemplate{block begin}
+{
+  \par\vskip\medskipamount%
+  \IfStrEq{\insertblocktitle}{}{}{
+      \begin{beamercolorbox}[colsep*=.75ex]{block title}
+        \usebeamerfont*{block title}\insertblocktitle%
+      \end{beamercolorbox}%
+  }
+  {\parskip0pt\par}%
+  \ifbeamercolorempty[bg]{block title}
+  {}
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body}%
+  \begin{beamercolorbox}[colsep*=.75ex,vmode]{block body}%
+    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+}
+
+\begin{document}
+\begin{frame}
+  \begin{block}{}
+    Here is my text...
+  \end{block}
+
+  \begin{block}{test}
+    Here is my text...
+  \end{block}
+\end{frame}
+\end{document}

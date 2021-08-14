@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/a/310594
+\documentclass{beamer}
+
+\usepackage{mathtools}
+
+\newcommand<>{\uncoverubrace}[2]{%
+    \onslide#3 \underbrace{ \onslide<1->%
+        #1%
+        \onslide#3 }_{#2} \onslide<1->%
+}
+\newcommand<>{\uncoverobrace}[2]{%
+    \onslide#3 \overbrace{ \onslide<1->%
+        #1%
+        \onslide#3 }^{#2} \onslide<1->%
+}
+
+
+\begin{document}
+
+    \begin{frame}
+        Complete SM lagrangian can be written as-
+        \[\mathcal{L}_{SM}=\uncoverubrace<1>{\textcolor{blue}{i\overline{\psi}\gamma^{\mu}\mathcal{D}_{\mu}\psi}}{\only<1>{\fbox{matter}}}\pause
+        \textcolor{red}{ -\frac{1}{4}G^{\mu\nu A}G_{\mu\nu}^{A}-\frac{1}{4}W^{\mu\nu I}W_{\mu\nu}^{I}-\frac{1}{4}B^{\mu\nu}B_{\mu\nu}}\]
+        \[\pause\textcolor{magenta}{+h_{ij}^{u}\overline{Q}_{i}U_{j} \widetilde{H}+h_{ij}^{d}\overline{Q}_{i} D_{j}H+h_{ij}^{e}\overline{L}_{i}E_{j}H+h.c.}\]
+        \pause
+        \begin{equation}
+        \textcolor{violet}{+(\mathcal{D}_{\mu}H)^{\dag}\mathcal{D}_{\mu}H-\mu^{2}H^{\dag}H+\lambda(H^{\dag}H)^{2}}
+        \end{equation}
+    \end{frame} 
+
+\end{document}

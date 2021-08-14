@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/454505
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}<1>[label=foo]
+\setbeamercovered{transparent}
+\frametitle{Overlays}
+\onslide<1->{First Line of Text}
+
+\onslide<2->{Second Line of Text}  
+
+\onslide<3->{Third Line of Text}
+\end{frame}
+
+\begin{frame}
+frame with some other text or images explaining something
+\end{frame}
+
+\againframe<2>{foo}
+
+\begin{frame}
+one more frame
+\end{frame}
+
+\againframe<3>{foo}
+
+\end{document}

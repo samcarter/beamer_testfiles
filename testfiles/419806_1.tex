@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/419806
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}
+\transwipe<1-3>[direction=0]
+
+\begin{onlyenv}<1>
+    \begin{figure}
+        \includegraphics[width=.7\textwidth]{example-image}
+    \end{figure}
+\end{onlyenv}
+
+\begin{onlyenv}<2->
+    \begin{columns}[onlytextwidth]
+        \begin{column}{.7\textwidth}
+            \centering  
+            \includegraphics[width=\textwidth]{example-image}
+        \end{column}
+        \begin{column}<3->{.25\textwidth}
+            text text text text text
+        \end{column}
+    \end{columns}
+\end{onlyenv}
+
+\end{frame} 
+
+\end{document}

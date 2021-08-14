@@ -1,0 +1,23 @@
+% https://tex.stackexchange.com/a/373765
+\documentclass{beamer}
+
+\renewcommand*\footnoterule{%
+    \usebeamercolor[fg]{block title}%
+    \usebeamerfont{block title}%    
+    Refereces%
+    \vskip.5\baselineskip%
+}
+
+\setbeamertemplate{footnote}
+{
+  \parindent 1em\noindent%
+  \raggedright
+  \hbox to 0.4em{\hfil\insertfootnotemark}\insertfootnotetext\par%
+}
+
+
+\begin{document}
+\begin{frame}
+it puts this \footnote{this} under that \footnote{that}
+\end{frame}
+\end{document}

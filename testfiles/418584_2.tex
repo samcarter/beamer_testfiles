@@ -1,0 +1,82 @@
+% https://tex.stackexchange.com/a/418584
+\documentclass[10pt,aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\RequirePackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+
+\mode<presentation>
+
+% Frame title
+\defbeamertemplate*{frametitle}{mwe}[1][]
+{
+    \begin{tikzpicture}
+        \useasboundingbox[]
+            (0,0)rectangle(\textwidth+0.5\paperwidth-0.5\textwidth,.135\paperheight);
+        \node [ anchor=east,
+        font=\LARGE,
+        black,
+        minimum height=10pt,
+        align=center]
+            at (current bounding box.east)
+            {\textbf{\insertframetitle}};
+    \end{tikzpicture}
+    \vspace*{5pt}
+}
+
+
+\defbeamertemplate*{footline}{mwe}[1][]
+{
+        \vskip1.8\baselineskip
+    \begin{tikzpicture}
+        \useasboundingbox [draw] (0,\the\textheight) -- (\the\paperwidth,\the\textheight);
+
+        \node [anchor=south west, font=\tiny, black]
+            at ($(current bounding box.west)+(5pt,0)$)
+            {\insertauthor};
+
+        \node [anchor=south, font=\tiny, black]
+            at (current bounding box)
+            {\insertdate};
+
+        \node [anchor=south east, font=\tiny, black]
+            at ($(current bounding box.east)+(-5pt,0)$)
+            {\insertframenumber/\inserttotalframenumber};
+
+        \draw [double distance = 0.6pt, line cap=round,color=black]
+            ($(current bounding box.west)+(5pt,11pt)$) --
+            ($(current bounding box.east)+(-5pt,11pt)$);
+
+    \end{tikzpicture}
+}
+\mode<all>
+
+\makeatletter
+\newlength{\myheight}
+\setlength{\myheight}{\paperheight}
+\addtolength{\myheight}{-\footheight}
+\addtolength{\myheight}{-\headheight}
+\addtolength{\myheight}{-1.95cm}
+\makeatother
+
+\author{an Author}
+\title{a Title}
+\subtitle{a subtitle}
+\date{\today}
+
+%%% DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}{title}
+\begin{tikzpicture}
+\draw [very thick] (0,0)rectangle(\textwidth,\myheight);
+\end{tikzpicture}
+
+\end{frame}
+
+\end{document}

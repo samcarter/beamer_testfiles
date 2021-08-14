@@ -1,0 +1,38 @@
+% https://tex.stackexchange.com/a/413055
+\documentclass{beamer}
+\usetheme[sectionpage=none, progressbar=frametitle, numbering=fraction]{metropolis} 
+
+\makeatletter
+\AtBeginSubsubsection[]{%
+\begin{frame}
+  \centering
+  \begin{minipage}{22em}
+    \raggedright
+    \usebeamercolor[fg]{section title}
+    \usebeamerfont{section title}
+    \insertsectionhead\\[-1ex]
+    \usebeamertemplate*{progress bar in section page}
+    \par
+    \ifx\insertsubsectionhead\@empty\else%
+      \usebeamercolor[fg]{subsection title}%
+      \usebeamerfont{subsection title}%
+      \insertsubsectionhead{} -- \insertsubsubsectionhead
+    \fi
+  \end{minipage}
+  \par
+  \vspace{\baselineskip}
+\end{frame}
+}
+\makeatother
+
+\begin{document}
+
+\section{section title}
+\subsection{subsection title}
+\subsubsection{subsubsection title}
+
+\begin{frame}
+\frametitle{Title}
+
+\end{frame}
+\end{document}

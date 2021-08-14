@@ -1,0 +1,17 @@
+% https://tex.stackexchange.com/a/389589
+\documentclass{beamer}
+
+\begin{document}
+\begin{frame}
+    $1+1=$(\makebox[2cm]{})
+    {
+        \setbeamertemplate{enumerate item}{\Alph{enumi}.}
+        \begin{enumerate}
+            \item one
+            \item two
+            \item three
+            \item four
+        \end{enumerate}
+    }
+\end{frame}
+\end{document}

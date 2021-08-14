@@ -1,0 +1,40 @@
+% https://tex.stackexchange.com/a/479056
+\documentclass[xcolor={usenames,dvipsnames}]{beamer}
+%\usepackage{amsmath,xcolor,color}
+
+\title{its a long title}
+\author[My name]{My name\\ \vspace{0.5cm} Under somebody\\ \vspace{0.5cm} for some random thought}
+\date{}
+
+\setbeamertemplate{frametitle}[default][center]
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}<-2>[label=foo]
+    \frametitle{Some frame title}
+    \begin{itemize}[<+->]
+        \item First, first, first, first, first, first, first, first, first, first
+        \item Second, second, second, second, second, second, second, second, second, second
+        \item Third, third, third, third, third, third, third, third, third, third, third, third,
+        \item Fourth, fourth, fourth, fourth, fourth, fourth, fourth, fourth, fourth, fourth, fourth
+        \item Fifth, fifth, fifth, fifth, fifth, fifth, fifth, fifth, fifth, fifth, fifth, fifth, fifth, fifth
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \includegraphics[width=\textwidth]{example-image}
+\end{frame}
+
+\againframe<3>{foo}
+
+\begin{frame}
+    \includegraphics[width=\textwidth]{example-image-a}
+\end{frame}
+
+\againframe<4-5>{foo}
+
+\end{document}

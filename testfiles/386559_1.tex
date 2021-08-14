@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/386559
+\documentclass{beamer}
+\setbeamercovered{transparent}
+
+\AtBeginSection[]
+{
+    \begin{frame}<beamer>
+    \frametitle{Overview}
+    \tableofcontents[currentsection]
+\end{frame}
+}
+
+\begin{document}
+
+\section{Test 1}
+\begin{frame}
+\hyperlinksectionstart{\beamerbutton{this section}}
+\hyperlinksectionstartnext{\beamerbutton{next section}}
+\end{frame}
+
+\section{Test 2}
+\begin{frame}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,81 @@
+% https://tex.stackexchange.com/a/267336
+\documentclass[10pt,mathserif]{beamer}
+
+\usepackage[francais,english]{babel}
+\usepackage[utf8] {inputenc} %for ISOlatin1 (8859-1) sources
+\usepackage[T1] {fontenc}      %for polices DC 8bits 
+
+%%%Fancy fonts
+%\usepackage{emerald}
+%\usepackage{eulervm}
+%%%
+
+%%Extra packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{etoolbox}
+
+%set text colors for different objects
+\setbeamercolor{frametitle}{fg=white}
+\setbeamercolor{structure}{fg=white}
+\setbeamercolor{normal text}{fg=white}
+\setbeamercolor{alerted text}{fg=white}
+\setbeamercolor{example text}{fg=white}
+
+%%Black background
+\setbeamercolor{background canvas}{bg=black}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%%Script: Random Dust Trails%%%%%%%%%%%%%%%
+\pgfmathsetseed{\number\pdfrandomseed} % seed for random generator
+\setbeamertemplate{background}{
+  \usebox{\mypicture}
+}
+%%%%%%%%%%%%%%%%%%%%%%
+
+\BeforeBeginEnvironment{frame}{%
+    \begin{lrbox}{\mypicture}
+        \begin{tikzpicture}
+        \useasboundingbox (0,0) rectangle (\the\paperwidth, \the\paperheight); 
+        \foreach \i in {1,...,30} {
+            \pgfmathsetmacro{\x}{random(0,10000)/5000-1}%
+            \pgfmathsetmacro{\y}{random(0,10000)/10000-0.1}%
+            \pgfmathsetmacro{\r}{random(0,10000)/1000-5}%
+            \rotatebox{\r}{
+                \pgftext[at=\pgfpoint{\x\paperwidth}{\y\paperheight}, left, base]{\includegraphics[width=\textwidth]{example-image-duck}}
+            }
+        }; 
+        \end{tikzpicture}
+    \end{lrbox}
+}
+
+%%No navigation bar
+\setbeamertemplate{navigation symbols}{}
+
+\begin{document}
+
+    \newsavebox{\mypicture}
+    \begin{frame}
+
+        \begin{itemize}
+            \item<1-> bla slide 1
+            \item<2-> blu slide 1
+            \item<3-> blub slide 1
+        \end{itemize}
+
+    \end{frame}
+
+    \begin{frame}
+
+        \begin{itemize}
+            \item<1-> bla slide 2
+            \item<2-> blu slide 2
+            \item<3-> blub slide 2
+        \end{itemize}
+
+    \end{frame}
+
+\end{document}

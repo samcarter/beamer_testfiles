@@ -1,0 +1,57 @@
+% https://tex.stackexchange.com/a/373050
+\documentclass{beamer}
+
+\usepackage{pgffor}
+
+\usepackage{totcount}
+\regtotcounter{part}
+
+\begin{document} 
+
+\begin{frame}
+\tableofcontents
+\foreach\x in {1,...,\totvalue{part}}{%
+    \vskip-0.4cm
+    \tableofcontents[part=\x]%
+}%
+\end{frame}
+
+
+\section{Cortical modalities 1}
+\begin{frame}{basics} 
+    More refined aspects of sensation ...
+\end{frame}
+
+\section{Cortical modalities 2}
+\begin{frame}{basics} 
+    More refined aspects of sensation ...
+\end{frame}
+
+\section{Cortical modalities 3}
+\begin{frame}{basics} 
+    More refined aspects of sensation ...
+\end{frame}
+
+\part{}
+\section{Cortical modalities 4}
+\begin{frame}{basics} 
+    More refined aspects of sensation ...
+\end{frame}
+
+\section{Cortical modalities 5}
+\begin{frame}{basics} 
+    More refined aspects of sensation ...
+\end{frame}
+
+\part{}
+\section{Cortical modalities 6}
+\begin{frame}{basics} 
+    More refined aspects of sensation ...
+\end{frame}
+
+\section{Cortical modalities 7}
+\begin{frame}{basics} 
+    More refined aspects of sensation ...
+\end{frame}
+
+\end{document}

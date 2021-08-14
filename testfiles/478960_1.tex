@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/478960
+\documentclass[
+    aspectratio=169
+%   aspectratio=43
+    ]{beamer}
+
+\begin{document}
+
+\makeatletter
+\ifdimcomp{\beamer@paperwidth}{=}{12.80cm}{43}{}
+\ifdimcomp{\beamer@paperwidth}{=}{14.85cm}{141}{}
+\ifdimcomp{\beamer@paperwidth}{=}{13.50cm}{32}{}
+\ifdimcomp{\beamer@paperwidth}{=}{12.50cm}{54}{}
+\ifdimcomp{\beamer@paperwidth}{=}{14.00cm}{149}{}
+\ifdimcomp{\beamer@paperwidth}{=}{16.00cm}{
+    \ifdimcomp{\beamer@paperheight}{=}{10.00cm}{1610}{}
+    \ifdimcomp{\beamer@paperheight}{=}{9.00cm}{169}{}
+}{}
+\makeatother
+
+\end{document}

@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/371844
+\documentclass{beamer}
+
+\setbeamerfont{bibliography entry author}{size=\tiny}
+\setbeamerfont{bibliography entry title}{size=\tiny}
+\setbeamerfont{bibliography entry location}{size=\tiny}
+\setbeamerfont{bibliography entry note}{size=\tiny}
+\setbeamerfont{bibliography item}{size=\tiny}
+
+\begin{document}
+
+\begin{frame}
+\cite{knuth:ct:c}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{References}
+   \bibliographystyle{plain}
+   \bibliography{biblatex-examples.bib}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,104 @@
+% https://tex.stackexchange.com/a/377939
+\documentclass{beamer}
+
+\useoutertheme[width=0.10\paperwidth]{sidebar}
+\useinnertheme{rectangles}
+\usecolortheme{whale}
+\usecolortheme{orchid}
+
+\setbeamercolor*{frametitle}{parent=palette primary}
+\setbeamerfont{block title}{size={}}
+
+
+
+\usepackage{tikz}
+\RequirePackage{pgf}
+
+\makeatletter
+\logo{\includegraphics[width=\beamer@sidebarwidth]{example-image}}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{navigation symbols}{}
+\setbeamercovered{transparent}
+
+\beamer@headheight=0.10\paperwidth
+\definecolor{coolblack}{rgb}{0.0, 0.2, 0.44}
+\definecolor{bluepigment}{rgb}{0.2, 0.2, 0.6}
+\definecolor{oxygenorange}{rgb}{0.96,0.5,0.04}
+\definecolor{oxygengray}{rgb}{0.41,0.41,0.41}
+\definecolor{oxygenlightgray}{rgb}{0.93,0.93,0.93}
+\definecolor{oxygenblue}{rgb}{0.63,0.79,0.95}
+\setbeamercolor*{Title bar}{fg=white, bg=oxygenblue}
+\setbeamercolor*{Location bar}{fg=oxygenorange,bg=oxygenlightgray}
+\setbeamercolor*{frametitle}{parent=Title bar}
+\setbeamercolor*{block title}{bg=oxygenblue,fg=white}
+\setbeamercolor*{block body}{bg=oxygenlightgray,fg=oxygengray}
+\setbeamercolor*{block title alerted}{bg=red,fg=white}
+
+
+\setbeamercolor*{normal text}{bg=white,fg=oxygengray}
+\setbeamercolor*{section in head/foot}{bg=oxygenblue,fg=coolblack}
+
+\usecolortheme[named=oxygenorange]{structure}
+
+\setbeamerfont{section in head/foot}{size=\tiny,series=\normalfont}
+\setbeamerfont{frametitle}{size=\large}
+\setbeamertemplate{background canvas}{\begin{tikzpicture}\node[opacity=.15]{\includegraphics
+[width=\paperwidth]{example-image}};\end{tikzpicture}}
+\pgfdeclareimage[height=\beamer@headheight]{logo}{example-image}
+\pgfdeclareimage[height=\beamer@headheight]{net}{example-image}
+\pgfdeclareimage[height=\beamer@headheight]{logocomplete}{example-image}
+
+\addtobeamertemplate{title page}{
+    \vskip -6pt
+    \begin{beamercolorbox}[wd=\paperwidth,ht=1.06\beamer@headheight]{Title bar}
+      \hfill \pgfuseimage{logocomplete}
+  \end{beamercolorbox}
+
+}
+
+\setbeamertemplate{frametitle}
+{
+  \vskip-0.25\beamer@headheight
+  \vskip-\baselineskip
+  \vskip-0.2cm
+  \hskip-0.5cm\usebeamerfont*{frametitle}\insertframetitle
+  \vskip-0.10em
+  \hskip-0.5cm\usebeamerfont*{framesubtitle}\insertframesubtitle
+}
+
+
+\setbeamertemplate{headline\beamer@sidebarside}
+{
+\beamer@tempdim=\beamer@sidebarwidth%
+%  \vskip -5pt
+    \begin{beamercolorbox}[wd=\beamer@tempdim]{Title bar}
+    \usebeamerfont{section in head/foot}%
+    \insertsectionnavigationhorizontal{0pt}{\hskip0.22cm}{}%
+  \end{beamercolorbox}
+
+  \begin{beamercolorbox}[wd=\beamer@tempdim]{Title bar}
+      \hfill \pgfuseimage{net}\pgfuseimage{logo}
+  \end{beamercolorbox}
+
+}
+
+\setbeamertemplate{footline}
+{
+  \linethickness{0.1pt}
+  \framelatex{
+  \begin{beamercolorbox}[leftskip=.3cm,wd=\paperwidth,ht=0.3\beamer@headheight,sep=0.1cm]{Location bar}
+    \usebeamerfont{section in head/foot}%
+    \insertshortauthor~|~\insertshorttitle
+    \hfill
+    \insertframenumber%/\inserttotalframenumber
+  \end{beamercolorbox}}
+}
+
+\makeatother
+
+\begin{document}
+\section{test}
+\begin{frame}
+content...
+\end{frame}
+\end{document}

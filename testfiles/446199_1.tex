@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/446199
+\documentclass{beamer}
+
+\usepackage{tikz}
+
+\setbeamertemplate{frametitle}{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \node[yshift=-0.4cm,xshift=1cm,anchor=west] at (current page.north west) {\insertframesubtitle}; 
+        \node[yshift=0.4cm, anchor=east] at (current page.south east) {\insertframetitle};
+    \end{tikzpicture}
+}
+
+
+\begin{document}
+
+\begin{frame}
+\frametitle{frametitle}
+\framesubtitle{framesubtitle}
+content
+\end{frame}
+
+\end{document}

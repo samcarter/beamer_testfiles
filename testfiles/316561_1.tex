@@ -1,0 +1,58 @@
+% https://tex.stackexchange.com/a/316561
+\documentclass[french]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage[french]{babel}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{1}
+\usetheme{Warsaw}
+
+\makeatletter
+% (ERT) argument for the TOC
+\AtBeginDocument{%
+    \let\origtableofcontents=\tableofcontents
+    \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+    \def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+\addto\extrasfrench{%
+    \providecommand{\og}{\leavevmode\flqq~}%
+    \providecommand{\fg}{\ifdim\lastskip>\z@\unskip\fi~\frqq}%
+}
+\makeatother
+
+\newcommand*\oldmacro{}%
+\let\oldmacro\insertshorttitle%
+\renewcommand*\insertshorttitle{%
+    \oldmacro\hfill% 
+    \insertframenumber\,/\,\inserttotalframenumber}
+
+\title[]{Title page}
+\author[Jeudi $14$ Juillet $2016$]{Nejib MEDIOUNI}
+\date{}
+
+\begin{document}
+
+\begingroup 
+    \setbeamertemplate{headline}{}
+    \begin{frame}
+        \titlepage
+    \end{frame}
+\endgroup
+
+\begingroup 
+    \setbeamertemplate{headline}{}
+    \addtobeamertemplate{frametitle}{\vspace*{-\headheight}}{}
+    \begin{frame}{Plan}
+        \tableofcontents{} [pausesections]
+    \end{frame}
+\endgroup
+
+    \section{Section 1}
+
+    \section{Section 2}
+    \begin{frame}{Title frame}  
+        test test test
+    \end{frame}
+
+\end{document}

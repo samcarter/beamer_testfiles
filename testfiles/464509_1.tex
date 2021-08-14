@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/464509
+ \documentclass[draft=on,t,compress,11pt,xcolor=dvipsnames]{beamer}
+%\usetheme{default}
+\usepackage{amsmath}
+\usepackage{tikz}%, graphicx}
+\usepackage{lmodern}        % <--- those two packages help when you use
+\usepackage[T1]{fontenc}    % the default font LaTeX font
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Explanation of the Papers Regression Function for Modern versus Traditional Manufacturing}
+
+\begin{equation}
+\begin{split}
+\ln(\text{wage}_{jn}) =\beta_1 S_n+\beta_2 \times I^{M}_j+\gamma_1h_n+\gamma_2h_n \times I^{M}_j+\delta_1\boldsymbol{X}_n+\\
+\delta_2\boldsymbol{X}_n \times I^{M}_j+ \alpha_j +\alpha_n +\xi_jn
+\end{split}
+\end{equation}
+
+\begin{itemize}
+\item $\ln(\text{wage}_{jn})$ = Proxy for firm productivity. 
+\item $S_n$ = Represents  proxies for knowledge elites in location n.
+\item $I^{M}_j$ = Indicator variable that takes on value 1 if sector j is  ``modern''.
+\item $h_n$ = Denotes proxies for average human capital, such as literacy and schooling.
+\item $\boldsymbol{X}_n$ = Vector of control variables.
+\item $\alpha_j$ and $\alpha_n$ = Sector fixed effects ($\alpha_j$) and location fixed effects ($\alpha_n$).
+\item$\xi_n$ = Error term.
+\end{itemize}
+
+\end{frame}
+
+\end{document}

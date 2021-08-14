@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/396698
+\documentclass[english,aspectratio=169,handout]{beamer}
+\hypersetup{colorlinks=true}
+
+\definecolor{BBGblue}{RGB}{13,157,219}
+\setbeamercolor{structure}{fg=BBGblue}
+\setbeamercolor{title}{fg=BBGblue}
+\setbeamercolor{frametitle}{fg=BBGblue}
+
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}%
+    \hypersetup{hidelinks}%
+    \insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+\begin{document}
+
+\section{Want this to be BBGblue}
+\begin{frame}{This is blue -- good}
+\end{frame}
+
+\section{This should be BBGblue too}
+\begin{frame}{This is blue too}
+\end{frame}
+
+\end{document}

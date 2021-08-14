@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/429471
+\documentclass{beamer}
+\usepackage{lmodern}
+\usetheme{Luebeck}
+\usepackage{lipsum} % <= to insert dummy text
+\usepackage[absolute,overlay]{textpos}
+\setbeamerfont{title}{size=\Huge}
+\setbeamercolor{background canvas}{bg=black}
+\setbeamercolor{normal text}{fg=white}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{frametitle}{fg=yellow}
+
+\setbeamercolor{block body example}{fg=white,bg=black} \setbeamercolor{block title example}{bg=black}
+\begin{document}
+\begin{frame}
+\frametitle{Example of block over the text}
+\lipsum[1]
+\only<2>{
+\begin{textblock*}{\textwidth}(.35\textwidth,0.25\textheight)
+    \begin{beamercolorbox}[wd=.5\textwidth,center,sep=0.3cm]{block body example}
+        This is wrong!
+    \end{beamercolorbox}
+\end{textblock*}
+}
+\end{frame}
+\end{document}

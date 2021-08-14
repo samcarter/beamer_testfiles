@@ -1,0 +1,45 @@
+% https://tex.stackexchange.com/a/421763
+\documentclass{beamer}
+%\usepackage{graphicx}
+\usepackage{amsmath,amsthm,relsize}
+
+\title{Formative work2}   
+\author{Antoine Zerbini} 
+\date{\today} 
+
+\usepackage{dcolumn}
+\usepackage{booktabs}
+
+\begin{document}
+
+\begin{frame}
+  \frametitle{unnumbered lists}
+
+  \begin{table}
+    \centering 
+    \caption{Results FX} 
+    %  \label{} 
+    \small
+    \begin{tabular}{@{}lD{.}{.}{-3} D{.}{.}{-3}@{}} 
+      \toprule
+      & \multicolumn{2}{c}{\textit{Dependent variable:}}\\
+      \cmidrule{2-3}
+      & \multicolumn{2}{c}{StudentSatisfaction}\\
+      & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)}\\ 
+      \midrule
+      StudentStaffRatio & 0.413^{***} & 0.412^{***} \\ 
+      & (0.061) & (0.061) \\ \addlinespace
+      controls.rank &  & -0.0003^{*} \\ 
+      &  & (0.0002) \\ 
+      \midrule
+      Observations & \multicolumn{1}{c}{1,002} & \multicolumn{1}{c}{1,002} \\
+      R$^{2}$ & 0.048 & 0.051 \\
+      Adjusted R$^{2}$ & -0.048 & -0.046 \\ 
+      F Statistic & \multicolumn{1}{c}{45.943$^{***}$ (df = 1; 909)} & \multicolumn{1}{c}{24.388$^{***}$ (df = 2; 908)} \\ 
+      \bottomrule
+      \textit{Note:}  & \multicolumn{2}{r}{$^{*}p<0.1$; $^{**}p<0.05$; $^{***}p<0.01$} \\ 
+\end{tabular} 
+\end{table}
+\end{frame}
+
+\end{document}

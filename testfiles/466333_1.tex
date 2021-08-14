@@ -1,0 +1,45 @@
+% https://tex.stackexchange.com/a/466333
+\documentclass[xcolor=dvipsnames]{beamer}
+
+\usepackage{soul}
+\setul{}{1.5pt}
+
+\usepackage[tikz]{bclogo}
+
+\colorlet{bctitle}{Maroon}
+
+\renewcommand\bcStyleTitre[1]{\vskip-0.8em\bfseries\color{bctitle}\ul{#1}\vskip-0.7em}
+
+\begin{document}
+
+\begin{frame}
+\begin{bclogo}[arrondi=0.1, logo=\bcquestion, couleurBarre=Maroon]
+{Question}
+Why
+\[
+r_e(\mathbf{T})\geq r(\mathbf{T}) \;?
+\]
+\end{bclogo}
+
+{
+\colorlet{bctitle}{red}
+\begin{bclogo}[couleur = gray!10, arrondi=0.1, logo=\bcattention, couleurBarre=Red]{Remark}
+It is important that...
+\end{bclogo}
+}
+
+{
+\colorlet{bctitle}{blue}
+\begin{bclogo}[couleur = gray!30, arrondi =0.1 ,logo=\bcfleur]{Thanks!}
+\bigskip
+\begin{center}
+\textcolor{blue}{\textbf{{Thank You for your attention !}}}
+\end{center}
+\bigskip
+\end{bclogo}
+
+}
+
+\end{frame}
+
+\end{document}

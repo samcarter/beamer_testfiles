@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/387818
+\documentclass{beamer}
+
+\usetheme{Antibes} 
+
+\setbeamertemplate{headline}
+{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.125ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}
+        \usebeamerfont{title in head/foot}\insertshorttitle
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.125ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{section in head/foot}
+        \usebeamerfont{section in head/foot}%
+        \hskip6pt \thesection\ \insertsectionhead
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.125ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+        \usebeamerfont{subsection in head/foot}%
+        \hskip12pt \thesection.\thesubsection\ \insertsubsectionhead
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.125ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{section in head/foot}
+        \usebeamerfont{subsubsection in head/foot}%
+        \hskip18pt \thesection.\thesubsection.\thesubsubsection\ \insertsubsubsectionhead
+    \end{beamercolorbox}
+}
+
+\title{test}
+
+\begin{document}
+\section{blub}
+\subsection{Propiedades Elctricas}
+\subsubsection{Anlisis de Impedancia}
+\begin{frame}{frametitle}{framesubtitle}
+Hola
+\end{frame}
+\end{document}

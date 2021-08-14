@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/445974
+\documentclass{beamer}
+
+\usepackage{tikz}
+
+\title{Super Awesome Presentation with a Really Long Title}
+\subtitle{Because it is really cool}
+\author{Me, Myself, and I}
+\institute{Distinguished Institute,\par%
+           Prestigious, Locale, 12345}
+\date{\today}
+
+\makeatletter
+\defbeamertemplate*{title page}{custom}[1][]
+{%
+\begin{tikzpicture}[remember picture, overlay]
+\node[xshift=-.25\paperwidth] at (current page.east) {\includegraphics[width=.5\paperwidth,height=\paperheight]{example-image-duck}};
+\end{tikzpicture}
+
+\begin{columns}[onlytextwidth]
+    \begin{column}{.5\textwidth}
+        \vfill
+        \inserttitle\par
+        \insertsubtitle\par
+        \bigskip
+        \insertauthor\par
+        \insertinstitute\par
+        \bigskip
+        \insertdate\par
+    \end{column}
+    \begin{column}{.5\textwidth}
+    \end{column}
+\end{columns}
+}
+\makeatother
+
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+\end{document}

@@ -1,0 +1,105 @@
+% https://tex.stackexchange.com/a/433687
+\documentclass[9pt, notes]{beamer}
+\usetheme{Frankfurt} % nice bullets at top
+\usepackage{amsmath,amssymb,amsthm,
+%minted,
+%float,
+%multicol,
+mathtools,dsfont,
+%hyperref,
+rotating,cleveref,bm,tikz,algorithm,algpseudocode,
+%xcolor,
+vwcol}
+
+% -------------------------------------------
+% modifications
+% -------------------------------------------
+\setbeamertemplate{footline}[frame number]{} % gets rid of bottom navigation bars
+\usecolortheme{rose} % lighten the headers
+% \definecolor{UBCblue}{rgb}{0.04706, 0.13725, 0.26667}
+% \setbeamercolor{alerted text}{fg=UBCblue}
+
+% -------------------------------------------
+% setup
+% -------------------------------------------
+\title{A Title}
+\subtitle{some subtitle}
+\author{Some One}%\inst{1}}
+\institute{Some Where \\ Department }
+\date{May 27, 2018}
+\subject{MWE}
+
+% ToC command
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+
+\makeatletter
+\def\sectionentry#1#2#3#4#5{% section number, section title, page
+  \beamer@xpos=0\relax%
+  \beamer@ypos=1\relax%
+  \beamer@ypos@offset=0\relax%
+  \ifnum#5=\c@part%
+  \beamer@section@set@min@width%
+  \box\beamer@sectionbox\hskip1.875ex plus 1fill%
+  \setbox\beamer@sectionbox=
+  \hbox{\def\insertsectionhead{#2}%
+    \def\insertsectionheadnumber{#1}%
+    \def\insertpartheadnumber{#5}%
+    {%
+      \usebeamerfont{section in head/foot}\usebeamercolor[fg]{section in head/foot}%
+      \ifnum\c@section=#1%
+        \hyperlink{Navigation#3}{{\usebeamertemplate{section in head/foot}}}%
+        :~\insertsubsectionhead%
+      \else%
+        \hyperlink{Navigation#3}{{\usebeamertemplate{section in head/foot shaded}}}%
+      \fi}%
+  }%
+  \ht\beamer@sectionbox=1.875ex%
+  \dp\beamer@sectionbox=0.75ex%
+  \fi\ignorespaces} 
+\makeatother
+
+
+% ===========================================
+% content
+% ===========================================
+\begin{document}
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+% ===========================================
+\section{Introduction}
+% ===========================================
+
+% -------------------------------------------
+\subsection{Motivation}
+% -------------------------------------------
+\begin{frame}
+  p1
+\end{frame}
+
+% -------------------------------------------
+\subsection{Something else}
+% -------------------------------------------
+\begin{frame}
+  p1
+\end{frame}
+
+
+% -------------------------------------------
+\subsubsection{Point 1}
+% -------------------------------------------
+\begin{frame}
+  p2
+\end{frame}
+\begin{frame}
+  p3
+\end{frame}
+
+\end{document}

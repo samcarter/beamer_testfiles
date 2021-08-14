@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/458480
+\documentclass{beamer}
+%\documentclass{article}
+\usepackage[english,czech]{babel}\shorthandoff{-}
+\usepackage{chemfig}
+\usetikzlibrary{babel}
+\author{TK}
+%----- This resolves the problem for the article class ------------------------
+\usepackage{etoolbox}
+    \pretocmd\schemestart{\shorthandoff{-}}{}{}
+    \apptocmd\schemestop{\shorthandon{-}}{}{}
+%-----------------------------------------------------------
+\begin{document}
+    \begin{frame}[fragile]
+    %   \begin{tikzpicture}
+    %       \node{%
+                \schemestart
+                    \subscheme{E\+S\arrow{<=>}ES\arrow{->}E\+P}
+                    \arrow(@c2.197--){0}[-90,.2] +
+                \schemestop
+    %       };
+    %   \end{tikzpicture}
+    \end{frame}
+\end{document}

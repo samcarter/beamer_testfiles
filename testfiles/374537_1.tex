@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/374537
+\documentclass{beamer}
+\usepackage{helvet}
+
+\setbeamercolor{text in head/foot}{fg=black, bg=blue}
+
+\setbeamertemplate{footline}{%
+    \begin{beamercolorbox}[dp=1ex, ht=2ex]{text in head/foot}%
+        \usebeamertemplate{text in foot}%
+    \end{beamercolorbox}%
+}
+\setbeamertemplate{text in foot}{%
+    ~\insertshortauthor~~--~~Page~\insertframenumber%
+}
+
+\author{My Name}
+
+\begin{document}
+
+\begin{frame}
+\end{frame}
+
+\bgroup
+\setbeamercolor{text in head/foot}{fg=black, bg=red}
+\begin{frame}
+\end{frame}
+\egroup
+
+\end{document}

@@ -1,0 +1,16 @@
+% https://tex.stackexchange.com/a/241770
+\documentclass{beamer}
+
+% works if .tex file is in the same directory as the .sty file and `testdir`
+\pgfdeclareimage[width=.5\paperwidth]{test}{example-image-duck}  
+
+% works if .sty file and `textdir` are in my lokal `texmf` folder
+%\pgfdeclareimage[width=.5\paperwidth]{test}{myexample.pdf}     
+
+\begin{document}
+
+    \begin{frame}
+         \pgfuseimage{test}
+    \end{frame} 
+
+\end{document}

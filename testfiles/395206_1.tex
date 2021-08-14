@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/395206
+\documentclass{beamer}
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{frame}[fragile]
+    \begin{block}{Undirected graph}  
+        A graph  $G=(V,E)$ with a set of vertex $V=\left \{ v_{1},v_{2}, ... ,v_{n} \right \}$ and a set of edge (arc) $E=\left \{ e_{1},e_{2}, ... ,e_{m} \right \}$ is called undirected graph or (digraph) if each edge e$_{k}$ is an unordered pair (v$_{i}$,v$_{j}$).
+
+        \begin{tikzpicture}
+            \matrix[column sep=3em, row sep=8ex, inner sep=0pt, minimum width=6pt] (M) {%
+               \node[label={[left,xshift=-4pt]v$_{1}$}] (V1){}; & & &\node[label={right:v$_{2}$}] (V2) {};\\
+            };
+            \draw(V2)--(V1);
+        \end{tikzpicture}
+    \end{block} 
+\end{frame}
+
+\end{document}

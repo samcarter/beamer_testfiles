@@ -1,0 +1,30 @@
+% https://tex.stackexchange.com/a/386733
+\documentclass{beamer}
+\usepackage{tikz}
+
+\setbeamercolor{separation line}{bg=red}
+
+\makeatletter
+\addtobeamertemplate{frametitle}{}{
+    \begin{beamercolorbox}[sep=0.3cm,wd=\the\@tempdima]{frametitle}
+       \begin{tikzpicture}
+        \draw[structure.fg] (0,0) -- (12.2,0);
+       \end{tikzpicture}
+    \end{beamercolorbox}
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+  \frametitle{A shor title}
+  Foo
+\end{frame}
+
+\begin{frame}
+  \frametitle{A terribly long beamer slide title about some obscure meaningless
+  topic}
+  Bar
+\end{frame}
+
+\end{document}

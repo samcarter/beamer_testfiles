@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/442615
+\documentclass{beamer}
+
+\usetheme{Berkeley}
+\setbeamertemplate{section in toc}{\leavevmode\leftskip=1.75ex%
+  \llap{%
+    \usebeamerfont*{section number projected}%
+    \usebeamercolor[bg]{section number projected}%
+    \textbullet% or whatever
+    \hskip-2.25ex%
+    \hbox to2.25ex{\hfil\color{fg}\inserttocsectionnumber\hfil}}%
+  \kern1.25ex\inserttocsection\par}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Agenda}
+\tableofcontents %
+\end{frame}
+
+\section{Title}
+\begin{frame}
+\end{frame}
+
+\end{document}

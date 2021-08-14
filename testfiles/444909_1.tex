@@ -1,0 +1,37 @@
+% https://tex.stackexchange.com/a/444909
+\documentclass{beamer}
+
+\usetheme[numbering=none]{metropolis}
+
+\setbeamerfont{frametitle}{size=\small,series=\normalfont}
+\setbeamercolor{footline}{bg=black!80,fg=white}
+\setbeamertemplate{frame footer}{A footline}
+
+\makeatletter
+\setlength{\metropolis@frametitle@padding}{1.6ex}% <- default 2.2 ex
+
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\textwidth, sep=1.5ex]{footline}% <- default 3ex
+    \usebeamerfont{page number in head/foot}%
+    \usebeamertemplate*{frame footer}
+    \hfill%
+    \usebeamertemplate*{frame numbering}
+  \end{beamercolorbox}%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}{A frame title in a small size}
+ \begin{block}{Some itemize}
+  \begin{itemize}
+   \item Item 1
+   \item Item 2
+  \end{itemize}
+ \end{block}
+ \begin{block}{Some maths}
+ \[\sum_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6}=\zeta(2)\]
+\end{block}
+\end{frame}
+
+\end{document}

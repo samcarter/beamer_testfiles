@@ -1,0 +1,44 @@
+% https://tex.stackexchange.com/a/423052
+\documentclass[10pt,english,xcolor={usenames,dvipsnames}]{beamer}
+
+\AtBeginDocument{%
+    \let\origtableofcontents=\tableofcontents
+\def\tableofcontents{\@ifnextchar[{\origtableofcontents}    {\gobbletableofcontents}}
+    \def\gobbletableofcontents#1{\origtableofcontents}
+}
+
+%\PassOptionsToPackage{usenames,dvipsnames}{xcolor}
+%\usepackage[usenames,dvipsnames]{xcolor}
+
+\date{\today}
+%\usepackage[draft]{pgf}
+\usepackage{listings}
+
+\useoutertheme[subsection=false]{miniframes}
+
+%\makeatother
+
+\usepackage{babel}
+
+\title{Title}
+
+\author[Author]{name}
+\begin{document}
+
+\begin{frame}[plain]
+  \maketitle
+\end{frame}
+
+\AtBeginSubsection[]{%
+  \frame<beamer>{ 
+    \frametitle{Outline}   
+    \tableofcontents[currentsection,currentsubsection] 
+}
+}
+
+\section{Introduction}
+\begin{frame}{Slide 1}
+In this section...
+\end{frame}
+
+\end{document}

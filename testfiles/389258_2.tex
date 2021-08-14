@@ -1,0 +1,166 @@
+% https://tex.stackexchange.com/a/389258
+\documentclass[t]{beamer}
+
+\newif\ifstarred
+
+\AtBeginSection[%
+    \starredtrue 
+]{%
+    \starredfalse
+}
+
+\makeatletter
+\setbeamertemplate{noframetitle}{
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \begin{beamercolorbox}[sep=0.3cm,wd=\the\@tempdima]{frametitle}
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-1ex%
+    \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+    \strut%
+        \ifstarred
+        \else
+            \the\beamer@tocsectionnumber.~%
+        \fi
+        \insertsection\strut\par%
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+      \fi
+    }%
+    \vskip-1ex%
+    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  \end{beamercolorbox}%
+}
+
+
+\renewenvironment{beamer@frameslide}{%
+  \ifbeamer@autobreak\else%
+    \ifx\beamer@againname\@empty%
+      {\let\@elt\beamer@restorecounter\beamer@overlaycounterresets}%
+    \else%
+      {\let\@elt\beamer@labelrestorecounter\beamer@overlaycounterresets}%
+    \fi%
+  \fi%
+  \global\c@beamerpauses=1\relax%
+  \expandafter\ifblank\expandafter{\beamer@framestartpage}{%
+    \stepcounter{subsectionslide}%
+    \xdef\beamer@framestartpage{\the\c@page}% only first time
+  }{\clearpage\beamer@notesactions}% cleanup from previous slide
+  \hypersetup{pdfpagetransition=R}%
+  \hypersetup{pdfpageduration=}%
+  \@ifundefined{thispdfpagelabel}{}{%
+  \thispdfpagelabel{\insertframenumber}}%
+  \xdef\beamer@frameendpage{\the\c@page}% every time
+  \beamer@setuplinks%
+  \beamer@displaybreak%
+  \global\setbox\beamer@zoombox=\box\voidb@x%
+  \def\beamer@zoomer{}%
+  \beamer@slidehaszoomfalse%
+  \gdef\insertframetitle{}%
+  \gdef\insertframesubtitle{}%
+  \gdef\beamer@frametitle{}%
+  \gdef\beamer@shortframetitle{}%
+  \gdef\beamer@framesubtitle{}%
+  \let\beamer@startcomment=\beamer@startcommentinframe%
+  % Start slide:
+  \beamer@framenotesbegin%
+    \global\setbox\beamer@framebox=\vbox\bgroup%
+    \beamer@inframetrue%
+    \let\frame=\framelatex% inside frames, use LaTeX's \frame command
+    \begin{beamer@framepauses}%
+      \refcounter{framenumber}%use frame number for  \label
+      \ifbeamer@shrink%
+        \hsize=\beamer@shrinkfactorinv\hsize%
+        \textwidth=\beamer@shrinkfactorinv\textwidth%
+        \linewidth=\beamer@shrinkfactorinv\linewidth%
+      \fi%
+      % Insert labels if necessary:
+      \ifx\beamer@againname\@empty\else%
+        \nointerlineskip\vbox to0pt{\vss%
+        \label<\the\beamer@slideinframe>{\beamer@againname<\the\beamer@slideinframe>}%
+        \ifnum\beamer@slideinframe=1\relax%
+          \label<1>{\beamer@againname}%
+        \fi%
+        }\nointerlineskip%
+      \fi%
+      \ifx\beamer@framehypertargets\@empty\else%
+        \nointerlineskip\vbox to0pt{\vss%
+          \beamer@framehypertargets%
+          \global\let\beamer@framehypertargets\@empty%
+        }\nointerlineskip%
+      \fi%
+      \vskip-\parskip\vbox{}%
+      \ifbeamer@plainframe\nointerlineskip\fi%
+    \beamer@checkframetitle}%
+    {\par
+    \end{beamer@framepauses}%
+  \egroup%
+  \ifx\beamer@frametitle\@empty%
+    \setbox\beamer@frametitlebox=\vbox{%
+      \vbox{}%
+      {\parskip0pt\usebeamertemplate***{noframetitle}\vskip0.25em}%
+    }%
+  \else%
+    \setbox\beamer@frametitlebox=\vbox{%
+      \vbox{}%
+      {\parskip0pt\usebeamertemplate***{frametitle}\vskip0.25em}%
+    }%
+  \fi%
+  \ifbeamer@plainframe%
+    \beamer@frametextheight=\paperheight%
+  \else%
+    \beamer@frametextheight=\textheight%
+  \fi%
+  \advance\beamer@frametextheight by-\ht\beamer@frametitlebox%
+  \advance\beamer@frametextheight by-\dp\beamer@frametitlebox%
+  \advance\beamer@frametextheight by-\beamer@frametopskip%
+  \ifbeamer@shrink%
+    \beamer@shrinkframebox%
+  \fi%
+  \ifx\beamer@zoomer\@empty
+    \setbox\beamer@framebox=\vbox{%
+      \nobreak\vbox{}\nobreak\par\nobreak\beamer@entrycode\nobreak%
+      \nointerlineskip\unvbox\beamer@frametitlebox%
+      \nobreak%
+      \ifbeamer@autobreak%
+        \vskip\beamer@frametopskipautobreak%
+      \else%
+        \vskip\beamer@frametopskip%
+      \fi%
+      \nobreak%
+      \nointerlineskip\box\beamer@zoombox\nointerlineskip%
+      \nobreak%
+      \ifbeamer@slidehaszoom\box\beamer@framebox\else\unvbox\beamer@framebox\fi%
+      % bottom skip is added in autobreakframebox
+    }%
+    \beamer@autobreakframebox%
+  \else%
+    \beamer@zoomer%
+  \fi%
+  \beamer@undolabels%
+  \beamer@framenotesend%
+  \box\beamer@framebox}
+
+\makeatother
+
+\begin{document}
+\section{bla}
+\begin{frame}
+abc
+\end{frame}
+
+\section*{bla}
+\begin{frame}
+abc
+\end{frame}
+
+\section{bla}
+\begin{frame}
+abc
+\end{frame}
+
+\end{document}

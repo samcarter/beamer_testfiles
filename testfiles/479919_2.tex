@@ -1,0 +1,66 @@
+% https://tex.stackexchange.com/a/479919
+\documentclass[aspectratio=169, xcolor={x11names}]{beamer}
+
+\usecolortheme{rose}
+\setbeamercolor{itemize item}{fg=black}
+\useoutertheme[]{tree}
+\useinnertheme{inmargin}
+
+\setbeamersize{text margin left=2mm, text margin right=2mm}
+\newlength{\sidebarWidth}
+\setlength{\sidebarWidth}{0.2\paperwidth}
+
+\setbeamersize{sidebar width left=\sidebarWidth, sidebar width right=0cm}
+
+\usefonttheme{structurebold}
+
+
+\title{The Main Title of The Presentation}
+\subtitle{Short Title Goes here}
+\author{Al-Motasem Aldaoudeyeh}
+\institute{North Dakota State University}
+\date{}
+
+\setbeamertemplate{headline}{}
+
+\setbeamertemplate{date}{nothing}
+
+\setbeamercolor{block title}{fg=blue}
+\setbeamerfont{title page}{shape=\bfseries}
+
+
+% Custome title page
+\setbeamertemplate{title page}{
+    \vspace*{\stretch{3}}
+    \begin{block}{}
+        \usebeamercolor[fg]{title page}\usebeamerfont{block title}\usebeamertemplate{block title}
+        \inserttitle
+    \end{block}
+    \begin{block}{}
+        \usebeamercolor[fg]{title page}\usebeamerfont{block title}\usebeamertemplate{block title}
+        \large \insertsubtitle
+    \end{block}
+    \vspace{\stretch{2}}
+    \begin{block}{Author}
+        \insertauthor
+    \end{block}
+    \begin{block}{Institute}
+        \insertinstitute
+    \end{block}
+    \ifx\insertdate\empty%
+    \else%
+       \begin{block}{Date}
+           \insertdate
+       \end{block}   
+    \fi
+    \vspace{\stretch{5}}
+                            }
+
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\end{document}

@@ -1,0 +1,96 @@
+% https://tex.stackexchange.com/a/414779
+\documentclass{beamer}
+
+\usepackage{totcount}
+\regtotcounter{section}
+
+\newcounter{prevsec}
+
+\setbeamertemplate{footline}{}
+\setbeamertemplate{navigation symbols}{}
+
+% Format of the title of every section:
+\AtBeginSection[]{\label{sec:\thesection}
+  \begin{frame}{Outline}
+       \tableofcontents[
+         currentsection,
+         sectionstyle=show/shaded,
+         subsectionstyle=shaded/shaded/shaded,
+         subsubsectionstyle=shaded/shaded/shaded/shaded
+         ]
+  \end{frame}
+}
+
+
+\makeatletter
+\setbeamertemplate{sidebar canvas left}{%
+    \begin{minipage}[t][.98\paperheight][b]{\textwidth}
+      \tiny%
+      \setcounter{prevsec}{\thesection}
+      \ifnum\theprevsec>1
+        \addtocounter{prevsec}{-1}
+      \fi
+        \quad\hyperlinkpresentationstart{\beamerreturnbutton{Back to start}}%
+      \quad\hyperlinksectionstart{\beamerreturnbutton{Back to section start}}%
+        \ifnum\thesection<\totvalue{section}%
+        \quad\hyperlinksectionstartnext{\beamerskipbutton{Next section}}%
+      \else%
+        \quad \beamerskipbutton{Next section}%
+      \fi%
+      \quad\hyperlink{sec:\theprevsec}{\beamerskipbutton{Previous section}}%
+    \end{minipage}   
+}
+\makeatother
+
+\begin{document}
+
+  \section{sec1}
+    \begin{frame}%{ss}
+    1st section/ page 1 out of 1
+    \end{frame}
+
+    \begin{frame}
+    1st section/ page 2 out of 2
+    \end{frame}
+
+    \begin{frame}[label=Detailed_Analysis]
+        Detailed Analysis
+    \end{frame}
+
+    \section{sec2}
+%
+\begin{frame}%[plain]
+%
+\begin{table}
+\centering
+%\vspace{-1em}
+\begin{tabular}{c|c|c|c|c}
+$A$ & $B$ & $C$ & $D$ and $E$  \\\hline
+$1.1$ & $1.2$ & $1.3$ & $1.4$ & $1.5$
+\end{tabular}
+%\caption{\label{tab:widgets}An example table.}
+\end{table}
+\vspace{-0.5em}
+%
+\centering
+\includegraphics[width=.48\linewidth]{example-image}
+\begin{minipage}[b][0.4\textheight][c]{.45\linewidth} \end{minipage}\\[1em]
+\includegraphics[width=.48\linewidth]{example-image}\quad
+\includegraphics[width=.48\linewidth]{example-image}
+\end{frame}
+
+    \section{sec3}
+    \begin{frame}
+    3rd section
+    \end{frame}
+
+    \begin{frame}
+    More content on the 3rd section
+    \end{frame}
+
+    \begin{frame}
+    Even More content on the 3rd section
+    \end{frame}
+
+
+\end{document}

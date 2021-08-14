@@ -1,0 +1,112 @@
+% https://tex.stackexchange.com/a/319262
+\documentclass{beamer}
+
+\usepackage{xpatch}
+\usepackage{lmodern}
+
+\usepackage[style=authoryear-comp,backend=biber]{biblatex}
+\addbibresource{biblatex-examples.bib}
+
+\hypersetup{colorlinks=true}
+
+% Combine label and labelyear links
+\xpatchbibmacro{cite}
+{\usebibmacro{cite:label}%
+    \setunit{\addspace}%
+    \usebibmacro{cite:labelyear+extrayear}}
+{\printtext[bibhyperref]{%
+        \DeclareFieldAlias{bibhyperref}{default}%
+        \usebibmacro{cite:label}%
+        \setunit{\addspace}%
+        \usebibmacro{cite:labelyear+extrayear}}}{}{}
+
+% Include labelname in labelyear link
+\xpatchbibmacro{cite}
+{\printnames{labelname}%
+    \setunit{\nameyeardelim}%
+    \usebibmacro{cite:labelyear+extrayear}}
+{\printtext[bibhyperref]{%
+        \DeclareFieldAlias{bibhyperref}{default}%
+        \printnames{labelname}%
+        \setunit{\nameyeardelim}%
+        \usebibmacro{cite:labelyear+extrayear}}}{}{}
+
+% Access hyperref's citation link start/end commands
+\makeatletter
+\protected\def\blx@imc@biblinkstart{%
+    \@ifnextchar[%]
+    {\blx@biblinkstart}
+    {\blx@biblinkstart[\abx@field@entrykey]}}
+\def\blx@biblinkstart[#1]{%
+    \blx@sfsave\hyper@natlinkstart{\the\c@refsection @#1}\blx@sfrest}
+\protected\def\blx@imc@biblinkend{%
+    \blx@sfsave\hyper@natlinkend\blx@sfrest}
+\blx@regimcs{\biblinkstart \biblinkend}
+\makeatother
+
+\newbool{cbx:link}
+
+% Include parentheses around labelyear in \textcite only in
+% single citations without pre- and postnotes
+\def\iflinkparens{%
+    \ifboolexpr{ test {\ifnumequal{\value{multicitetotal}}{0}} and
+        test {\ifnumequal{\value{citetotal}}{1}} and
+        test {\iffieldundef{prenote}} and
+        test {\iffieldundef{postnote}} }}
+
+%\xpatchbibmacro{textcite}
+%{\printnames{labelname}}
+%{\iflinkparens
+%   {\DeclareFieldAlias{bibhyperref}{default}%
+%       \global\booltrue{cbx:link}\biblinkstart%
+%       \printnames{labelname}}
+%   {\printtext[bibhyperref]{\printnames{labelname}}}}{}{}
+
+\xpatchbibmacro{textcite}
+{\printnames{labelname}}
+{\printtext[bibhyperref]{\printnames{labelname}}}{}{}
+
+\xpatchbibmacro{textcite}
+{\usebibmacro{cite:label}}
+{\iflinkparens
+    {\DeclareFieldAlias{bibhyperref}{default}%
+        \global\booltrue{cbx:link}\biblinkstart%
+        \usebibmacro{cite:label}}
+    {\usebibmacro{cite:label}}}{}{}
+
+\xpretobibmacro{textcite:postnote}
+{\ifbool{cbx:link}% patch 2.7+
+    {\ifbool{cbx:parens}
+        {\bibcloseparen\global\boolfalse{cbx:parens}}
+        {}%
+        \biblinkend\global\boolfalse{cbx:link}}
+    {}}
+{}
+{\xpatchbibmacro{textcite}% patch earlier releases
+    {\setunit{%
+            \ifbool{cbx:parens}
+            {\bibcloseparen\global\boolfalse{cbx:parens}}
+            {}%
+            \multicitedelim}}
+    {\ifbool{cbx:link}
+        {\ifbool{cbx:parens}
+            {\bibcloseparen\global\boolfalse{cbx:parens}}
+            {}%
+            \biblinkend\global\boolfalse{cbx:link}}
+        {}%
+        \setunit{%
+            \ifbool{cbx:parens}
+            {\bibcloseparen\global\boolfalse{cbx:parens}}
+            {}%
+            \multicitedelim}}
+    {}{}}
+
+\begin{document}
+    \begin{frame}
+        \textcite{knuth:ct:e}
+    \end{frame}
+    \begin{frame}
+        \frametitle{Bibliography}
+        \printbibliography
+    \end{frame}
+\end{document}

@@ -1,0 +1,49 @@
+% https://tex.stackexchange.com/a/461325
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark,fit,shapes.geometric,calc}
+\begin{document}
+\begin{frame}[t]
+\frametitle{A frame with 3 columns}
+ \begin{columns}[onlytextwidth]
+  \begin{column}{0.3\textwidth}
+   ~
+   \begin{itemize}
+    \item \tikzmarknode{Lx1}{x1}
+    \item x2
+    \item x3    
+   \end{itemize}
+  \end{column}
+  \vrule
+  \begin{column}{0.3\textwidth}
+   BLAH 2
+   \begin{itemize}
+    \item \tikzmarknode{Mx1}{x1}
+    \item x2
+    \item x3    
+   \end{itemize}
+  \end{column}
+  \vrule
+  \begin{column}{0.3\textwidth}
+   BLAH 3
+   \begin{itemize}
+    \item \tikzmarknode{Rx1}{x1}
+    \item x2
+    \item x3    
+   \end{itemize}
+  \end{column}
+ \end{columns}
+ \hrule
+ \begin{itemize}
+  \item x1
+  \item x2
+  \item \tikzmarknode{Bx3}{x3}  
+ \end{itemize}
+\begin{tikzpicture}[overlay,remember picture]
+\draw[line width=1mm,-latex] ([xshift=-5mm]Mx1.west) -- ++ (-1.2,0);
+\draw[line width=1mm,-latex] ([xshift=-5mm]Rx1.west) -- ++ (-1.2,0);
+\path let \p1=($(Lx1.center)-(Bx3.center)$),\n1={90+atan2(\y1,\x1)} in  
+node[fit=(Lx1) (Bx3),draw=red,ellipse,inner ysep=-3mm,rotate fit=\n1]{};
+\end{tikzpicture}
+\end{frame}
+\end{document}

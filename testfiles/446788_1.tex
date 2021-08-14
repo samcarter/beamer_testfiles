@@ -1,0 +1,51 @@
+% https://tex.stackexchange.com/a/446788
+\documentclass[10pt,xcolor={dvipsnames}]{beamer}
+\usefonttheme{professionalfonts}
+\usepackage{mathtools}
+\usepackage[utf8]{inputenc}
+%\usepackage{graphicx}
+\usepackage[english]{babel}
+
+
+%add  a sample .bib file
+\usepackage{filecontents}
+\begin{filecontents}{bibexample.bib}
+ @article{sigfridsson,
+  title = {Four-dimensional flow {MRI} using spiral acquisition},
+  volume = {68},
+  number = {4},
+  journal = {Magnetic Resonance in Medicine},
+  author = {Sigfridsson, Andreas and Petersson, Sven and Carlhäll, Carl-Johan 
+  and Ebbers, Tino},
+  year = {2012},
+  pages = {1065--1073}
+ }
+\end{filecontents}
+
+% ===================================================================
+\usepackage[style=ieee,citetracker=true]{biblatex}
+\addbibresource{bibexample.bib}
+%=============================================================
+
+\usetheme{Frankfurt}
+
+
+
+\begin{document}
+
+{
+\setbeamerfont{footnote}{size=\tiny}
+    \begin{frame}
+    \frametitle{1}
+
+    \begin{block}{definition}
+        There is a special type of non-stationary stochastic 
+ processes\footfullcite{sigfridsson} when their statistical properties vary 
+periodically\footnote{element} with time called cyclostationary processes 
+\footfullcite{sigfridsson}.
+  \end{block}
+
+\end{frame}
+}
+
+\end{document} 

@@ -1,0 +1,45 @@
+% https://tex.stackexchange.com/a/461615
+\documentclass{beamer}
+\usetheme{AnnArbor}
+
+\makeatletter
+\AtBeginPart{%
+\beamer@tocsectionnumber=0\relax
+\setcounter{section}{0}
+\frame{\partpage}%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+\tableofcontents[part=1]
+\tableofcontents[part=2]
+\end{frame}
+
+\part{1}
+
+\makeatletter
+\beamer@tocsectionnumber=4\relax
+\makeatother
+\section{should be 5}
+\begin{frame}
+\end{frame}
+
+\part{2}
+
+\makeatletter
+\beamer@tocsectionnumber=7\relax
+\makeatother
+\section{should be 8}
+\begin{frame}
+\end{frame}
+
+\makeatletter
+\beamer@tocsectionnumber=9\relax
+\makeatother
+\section{should be 10}
+\begin{frame}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,80 @@
+% https://tex.stackexchange.com/a/482068
+\documentclass{beamer}
+
+\setbeamertemplate{navigation symbols}{}
+
+
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[english,greek]{babel} 
+\usepackage{alphabeta}
+\usepackage{multicol}
+\newcommand{\en}{\selectlanguage{english}}
+\newcommand{\gr}{\selectlanguage{greek}}
+\author{\textlatin{author}}
+\usepackage{array,amsmath}
+\usepackage{amsthm}
+
+\definecolor{UniBlue}{RGB}{83,121,170}
+\definecolor{frame}{RGB}{2,0,0}
+\setbeamercolor*{frametitle}{fg=frame}
+
+
+\useoutertheme{shadow}
+\usepackage{tikz}
+\usetikzlibrary{shadings}
+\colorlet{titleleft}{cyan!75!black}
+\colorlet{titleright}{UniBlue}
+
+\makeatletter
+\pgfdeclarehorizontalshading[titleleft,titleright]{beamer@frametitleshade}{\paperheight}{%
+    color(0pt)=(titleleft);
+    color(\paperwidth)=(titleright)}
+\makeatother
+
+\setbeamercolor{author in head/foot}{parent=palette primary,bg=}
+\setbeamercolor{title in head/foot}{parent=palette secondary,bg=}
+\setbeamercolor{date in head/foot}{parent=palette tertiary,bg=}
+
+\makeatletter
+\setbeamertemplate{footline}
+{
+    \leavevmode%
+    \setbox\beamer@tempbox=\hbox{%
+        \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+            \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\beamer@ifempty\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+            \usebeamerfont{title in head/foot}\insertshorttitle
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+            \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+            \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+        \end{beamercolorbox}%
+        }%
+        \beamer@tempdim=\ht\beamer@tempbox%
+        \advance\beamer@tempdim by 4pt%
+        \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{20pt}
+            \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+            \pgfusepath{clip}
+            \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+        \end{pgfpicture}
+        \vskip-\beamer@tempdim%
+        \box\beamer@tempbox%    
+}%
+\makeatother
+
+
+
+
+\title{}
+
+\begin{document}
+
+
+    \begin{frame}{\textlatin{frametitle}}
+
+\end{frame}
+
+\end{document}

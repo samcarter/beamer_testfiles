@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/454681
+\documentclass{beamer}
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen}
+
+
+\begin{document}
+
+\begin{frame} %<-3>
+    Line 1
+
+    \onslide<2->{Line 2}
+
+    \onslide<3->{Line 3}
+
+    Line 4
+
+
+    \note{Talk about lines 1 and 4
+
+    }
+
+    \note<2->{Talk about line 2
+
+    }
+
+        \note<3->{Talk about line 3
+
+        }
+
+        \note{Don't talk about line 4}
+
+\end{frame}
+
+\end{document}

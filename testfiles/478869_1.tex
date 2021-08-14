@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/478869
+\documentclass{beamer}
+
+
+\begin{document}
+
+\begin{frame}
+\begin{tabular}{cp{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}}
+%    \bigskip
+    \multicolumn{2}{c}{\large\textbf{\underline{Model}}}&\multicolumn{4}{c}{\large\textbf{\underline{Parameters}}}\\
+%    \medskip
+    & $\mu$ & $\alpha$ & $\beta$ & $\lambda_p$ & $\lambda_b$ \\ \hline
+    \medskip
+    \textbf{Poisson} & - & - & - & $2,66\times10^{-2}$ & - \\ \hline 
+    \medskip
+   \textbf{ Hawkes} & close to 0 & 3.53 & 3.97 & - & - \\ \hline
+    \medskip
+    \textbf{Branching} & - & - & - & - & $0,13\times10^{-2}$ \\ \hline 
+\end{tabular}
+\end{frame}
+
+\end{document}

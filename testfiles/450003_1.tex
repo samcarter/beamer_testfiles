@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/450003
+\documentclass[11pt]{beamer}
+\usetheme{Malmoe}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{graphicx}
+
+\begin{document}
+
+
+\begin{frame}{A title}
+\onslide<1->{Motivational text.}
+\only<1-2>{\setbeamercolor{block title}{fg=bg}}
+\begin{theorem}
+\visible<3->{We have that}
+\begin{align*}
+\visible<2->{\sqrt{\pi}} \visible<3->{= \int_{-\infty}^\infty e^{-x^2} \text{d} x}
+\end{align*}
+\end{theorem}
+\end{frame}
+
+\end{document}

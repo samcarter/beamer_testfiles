@@ -1,0 +1,43 @@
+% https://tex.stackexchange.com/a/372782
+\documentclass{beamer}
+
+\usetheme{Berkeley} 
+\logo{\includegraphics[width=1cm]{example-image}}
+%\usepackage{hyperref}
+
+\usepackage{xpatch}
+\makeatletter
+\patchcmd\beamer@@tmpl@frametitle{\insertframetitle}{\insertsection-\insertframetitle}{}{}
+\makeatother
+
+\begin{document} 
+\title{Sensory system. Primary sensory modalities. Cortical modalities. Kinds of sensory disturbances. Spinal cord disorders. Spinal cord transverse and partial lesion. Cauda equina damage.}
+\author{Leo}
+
+\section{Cortical modalities}
+\begin{frame}{basics} 
+    More refined aspects of sensation ...
+\end{frame}
+
+\section{Cortical modalities 1}
+\begin{frame}{basics} 
+    More refined aspects of sensation ...
+\end{frame}
+
+\section{Cortical modalities 2}
+\begin{frame}{basics} 
+    More refined aspects of sensation ...
+\end{frame}
+
+\part{}
+\section{Cortical modalities 3}
+\begin{frame}{basics} 
+    More refined aspects of sensation ...
+\end{frame}
+
+\section{Cortical modalities 4}
+\begin{frame}{basics} 
+    More refined aspects of sensation ...
+\end{frame}
+
+\end{document}

@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/419688
+\RequirePackage{fix-cm}
+\documentclass{beamer} 
+\usepackage{mathrsfs}
+\usepackage[scale=1.24]{beamerposter}
+\usetheme{confposter} 
+
+\title{.} 
+\author{.} 
+\institute{.} 
+
+\DeclareFontFamily{U}{rsfs}{\skewchar\font127 }
+\DeclareFontShape{U}{rsfs}{m}{n}{%
+   <-6> rsfs5
+   <6-8> rsfs7
+   <8-> rsfs10
+}{}
+
+\begin{document}
+
+\begin{frame}[t] 
+
+\[
+A\mathscr{A}
+\]
+
+\end{frame} 
+
+\end{document}

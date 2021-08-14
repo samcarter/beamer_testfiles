@@ -1,0 +1,51 @@
+% https://tex.stackexchange.com/a/479948
+\documentclass[aspectratio=169, xcolor={x11names}]{beamer}
+
+\usepackage{amsmath}
+\usepackage{amssymb, amsfonts}
+\usepackage{nccmath}
+\usepackage{mathtools}
+\usepackage{cleveref}
+
+\usecolortheme{seahorse}
+\useoutertheme{split}
+\useinnertheme{inmargin}
+
+\newlength{\widthTextMarginLeft}
+\setlength{\widthTextMarginLeft}{1mm}
+\setbeamersize{sidebar width left=3cm, sidebar width right=0cm}
+\setbeamersize{text margin left=1mm, text margin right=1mm}
+
+
+\begin{document}
+
+{
+\makeatletter
+\def\Gm@lmargin{0.5cm}%
+\def\Gm@rmargin{0.5cm}%
+\textwidth=\dimexpr\paperwidth-\Gm@lmargin-\Gm@rmargin\relax
+\hsize\textwidth
+\columnwidth\textwidth
+\hoffset=\dimexpr-\beamer@leftsidebar+\Gm@lmargin-\widthTextMarginLeft\relax
+\makeatother
+\begin{frame}
+\frametitle{Minipages in beamer}
+
+\rule{\textwidth}{1pt}
+
+\begin{columns}[T,onlytextwidth]
+
+    \begin{column}{.48\textwidth}
+    \rule{\textwidth}{1pt}
+    \end{column}
+
+    \begin{column}{.48\textwidth}
+        \rule{\textwidth}{1pt}  
+    \end{column}
+
+\end{columns}
+
+\end{frame}
+}
+
+\end{document}

@@ -1,0 +1,66 @@
+% https://tex.stackexchange.com/a/466572
+\documentclass{beamer}
+
+%\usepackage[hmargin=1.15in,vmargin=1.115in]{geometry}
+\usepackage{verbatim}
+\usepackage{
+%graphicx,
+caption,subcaption}
+\newcommand{\noi}{\noindent}
+
+\usepackage{tikz}
+%\usepackage{xcolor}
+\usetikzlibrary{intersections,arrows.meta,automata,er,calc,backgrounds,mindmap,folding,patterns,decorations.markings,fit,
+%snakes,
+shapes,matrix,positioning,shapes.geometric,through,arrows,decorations}
+
+\newcommand{\vertex}{\node[vertex]}
+\newcounter{Angle}
+
+\setbeamersize{text margin left=1.15in,text margin right=1.15in}
+
+\begin{document}
+
+\begin{frame}
+\begin{tikzpicture}[scale=0.55]
+    \tikzstyle{every node}=[draw,shape=circle];
+    \node (v0) at (0:3) {$V_0$};
+        \node (v1) at (72:3) {$V_1$};
+        \node (v2) at (2*72:3) {$V_2$};
+        \node (v3) at (3*72:3) {$V_3$};
+        \node (v4) at (4*72:3) {$V_4$};
+        \node (v7) at (0:6) {$V_7$};
+        \node (v8) at (72:6) {$V_8$};
+        \node (v9) at (2*72:6) {$V_9$};
+        \node (v10) at (3*72:6) {$V_{10}$};
+        \node (v11) at (4*72:6) {$V_{11}$};
+
+                \draw (v0) -- (v1) 
+                (v1) -- (v2)
+                (v2) -- (v3)
+                (v3) --(v4)
+                (v4) --(v0)
+                (v0) --(v1)
+                (v1) --(v0)
+                (v7) -- (v8) 
+                (v8) -- (v9)
+                (v9) -- (v10)
+                (v10) --(v11)
+                (v11) --(v7)
+                (v7) --(v8)
+                (v8) --(v7)
+                (v0) --(v7)
+                (v1) --(v8)
+                (v2) --(v9)
+                (v3) --(v10)
+                (v4) --(v11)
+                (v0) --(v7)
+                (v1) --(v8); 
+
+    \end{tikzpicture}
+
+\end{frame}
+
+
+
+\end{document}

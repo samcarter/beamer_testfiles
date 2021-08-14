@@ -1,0 +1,38 @@
+% https://tex.stackexchange.com/a/404862
+\documentclass[final]{beamer}
+\usepackage[scale=1.24]{beamerposter}
+\usetheme{confposter}
+\usepackage{exscale}
+
+\title{This Was Made in \LaTeX}
+\author{Your Name}
+\institute{Department and University Name}
+\newcommand{\insertadvisor}{Faculty Advisor}
+
+\setbeamertemplate{headline}{
+ \leavevmode
+  \begin{columns}
+   \begin{column}{12em}
+    \usebeamercolor{logo in headline}{\color{fg}\large{\insertlogo}}
+   \end{column}
+   \begin{column}{\linewidth}
+    \vskip1cm
+    \centering
+    \usebeamercolor{title in headline}{\color{jblue}\Huge \textbf{\inserttitle}\\[0.5ex]}
+    \usebeamercolor{author in headline}{\color{fg}\Large \insertauthor\\[1ex]}
+    \usebeamercolor{author in headline}{\color{fg}\large \insertadvisor}
+    \usebeamercolor{institute in headline}{\color{fg}\large \insertinstitute\\[1ex]}
+    \vskip0.5cm
+   \end{column}
+   \vspace{1cm}
+  \end{columns}
+ \vspace{0.5in}
+ \hspace{0.5in}\begin{beamercolorbox}[wd=47in,colsep=0.15cm]{cboxb}\end{beamercolorbox}
+ \vspace{0.1in}
+}
+
+\begin{document}
+\begin{frame}[t]
+
+\end{frame}
+\end{document}

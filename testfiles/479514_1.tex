@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/479514
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage{textpos}
+
+\usetheme[height=16mm]{Rochester}
+\addtobeamertemplate{headline}{}{%
+    \begin{textblock*}{100mm}(.85\textwidth,-1cm)
+        \Huge\textcolor{white}{\includegraphics[height=0.8cm]{example-image}\vspace{220pt}}
+    \end{textblock*}
+}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{background canvas}{bg=white!20}
+
+\title{KCET CRASH COURSE}
+\subtitle{Quadratic Equations}
+\author{G Ekaveera}
+
+\begin{document}
+
+\begin{frame}
+    \frametitle{Nature of the roots}
+    If $a,b,c \in \mathbb{R}$
+    \begin{columns}
+        \begin{column}{.45\textwidth}
+            \begin{enumerate}
+                \item If $D > 0$ roots are real and distinct
+                \item If $D=0$ roots are real and equal
+            \end{enumerate}
+        \end{column}
+        \begin{column}{.45\textwidth}
+            \begin{enumerate}
+                \addtocounter{enumi}{2}
+                \item if $D <0$ roots are complex conjugates
+                \item D is discriminant
+            \end{enumerate}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\end{document}

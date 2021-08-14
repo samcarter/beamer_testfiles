@@ -1,0 +1,86 @@
+% https://tex.stackexchange.com/a/165087
+\documentclass{beamer}
+
+%\usepackage{fontspec}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{pgffor}
+
+% set text colors for different objects
+\setbeamercolor{frametitle}{fg=white}
+\setbeamercolor{structure}{fg=white}
+\setbeamercolor{normal text}{fg=white}
+\setbeamercolor{alerted text}{fg=white}
+\setbeamercolor{example text}{fg=white}
+
+\usefonttheme{serif}
+
+%% Green Background Colour
+\setbeamercolor{background canvas}{bg=green!20!black}
+
+% use a small dash ('-') for a bulletpoint list
+\setbeamertemplate{itemize item}{\usebeamercolor[fg]{item}\small -}
+
+%% Frametitle
+\setbeamertemplate{frametitle}{
+    \begin{beamercolorbox}{frametitle}
+        \vskip17pt
+        \usebeamerfont{frametitle}
+        \insertframetitle \\
+        \usebeamerfont{framesubtitle}\insertframesubtitle
+    \end{beamercolorbox}
+}
+
+%% remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%% Date in the Corner
+\setbeamertemplate{headline}{
+    \rotatebox{30}{
+        \ifx\insertdate\empty\else        
+            \hspace*{0.25cm}\insertshortdate\hspace*{0.5cm}
+        \fi
+    }
+    \vspace*{-1cm}
+}
+
+%% Random Dust Trails
+\setbeamertemplate{background}{
+    \begin{tikzpicture}
+        \useasboundingbox (0,0) rectangle (\the\paperwidth, \the\paperheight); 
+      \foreach \i in {1,...,30} {
+            \pgfmathsetmacro{\x}{random(0,10000)/5000-1}%
+            \pgfmathsetmacro{\y}{random(0,10000)/10000-0.1}%
+            \pgfmathsetmacro{\r}{random(0,10000)/1000-5}%
+            \rotatebox{\r}{
+                \pgftext[at=\pgfpoint{\x\paperwidth}{\y\paperheight}, left, base]{\includegraphics[width=\textwidth]{example-image-duck}}
+            }
+        }; 
+    \end{tikzpicture}
+}
+
+\title{The Theory of Everything}
+\author{A. Einstein}
+\date[14/3/14]{March 14, 2014}
+\institute{University of Magratea}
+
+%\setmainfont{DarwinFont} 
+
+\begin{document}
+
+\begin{frame}[plain]
+    \maketitle
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Testpage}
+    \begin{itemize}
+        \item Bla
+        \item Bla
+        \item Blub
+    \end{itemize}
+\end{frame}
+
+\end{document} 

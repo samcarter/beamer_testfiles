@@ -1,0 +1,84 @@
+% https://tex.stackexchange.com/a/471106
+\documentclass{beamer}
+
+\setbeamercolor{lecture in toc}{parent=structure}
+
+\makeatletter
+\long\def\beamer@lecture[#1]#2#3{%
+  \beamer@savemode
+  \mode<all>%
+  \refstepcounter{lecture}%
+  \def\beamer@currentlecturelabel{#3}%
+  \@onelevel@sanitize\beamer@currentlecturelabel
+  \def\beamer@lecturename{#2}%
+  \def\beamer@shortlecturename{#1}%
+  \ifx\beamer@onlylecture\@empty
+  \else
+    \expandafter\beamer@if@in@clist@TF\expandafter\beamer@onlylecture
+      \expandafter{\beamer@currentlecturelabel}%
+      {\beamer@inlecturetrue}%
+      {\beamer@inlecturefalse}%
+  \fi
+  \beamer@atbeginlecture
+  \beamer@resumemode
+  \addtocontents{lol}{%
+    \protect\usebeamercolor[fg]{lecture in toc}%
+    #2%
+    \vfill%
+  }
+}
+
+\AtEndDocument{%
+  \clearpage
+  \if@filesw
+      \newwrite\tf@lol
+      \immediate\openout\tf@lol\jobname.lol\relax
+    \fi
+}
+
+\makeatother
+
+\usepackage{multicol}
+
+\AtBeginSection[]{
+    \begin{frame}
+        \frametitle{Agenda}
+        \begin{multicols}{2}
+                \tiny
+                \tableofcontents[currentsection,hideothersubsections]
+        \end{multicols}
+    \end{frame}
+    \frame{\sectionpage} 
+}
+
+\title{Some Title}
+
+\begin{document}
+
+\begin{frame}
+\vfill
+\IfFileExists{\jobname.lol}{\input{\jobname.lol}}{}
+\end{frame}
+
+\lecture{Lecture1}{lec1}
+\section{Section 1}
+\subsection{Subsection 1a}
+\frame{}
+\subsection{Subsection 1b}
+\frame{}
+\subsection{Subsection 1c}
+\frame{}
+
+\section{Section 2}
+\frame{}
+
+\lecture{Lecture2}{lec2}
+\section{Section 3}
+\subsection{Subsection 3a}
+\frame{}
+\subsection{Subsection 3b}
+\frame{}
+\subsection{Subsection 3c}
+\frame{}
+
+\end{document}

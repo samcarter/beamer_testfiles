@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/413350
+\documentclass[pdf]{beamer}
+
+\usetheme{Malmoe}  %% Themenwahl
+\usecolortheme{beaver}
+\usecolortheme{orchid}
+\usefonttheme{professionalfonts}
+
+\begin{document}
+
+\begin{frame}{Frenet equations}
+
+\begin{alertblock}{\textbf{Theorem:} Frenet equations}
+    For the Frenet frame $(\bf t,\bf n)$ of a curve holds
+    \begin{align*}
+        \bf t'(t) &= \phantom+\kappa(t)\bf n(t),\\
+        \bf n'(t) &= -\kappa(t)\bf t(t).
+    \end{align*}%
+
+    \vspace{-1em}
+    {\usebeamercolor[bg]{block title alerted}\hrulefill}
+
+    The equations can be written in \emph{matrix form}:
+    \[\begin{pmatrix}
+    \bf t'\\\bf n'
+    \end{pmatrix}=\begin{pmatrix}
+    \phantom-0&\kappa\\-\kappa&0
+    \end{pmatrix}\begin{pmatrix}
+    \bf t\\\bf n
+    \end{pmatrix}.\]
+\end{alertblock}
+
+\end{frame}
+
+\end{document}

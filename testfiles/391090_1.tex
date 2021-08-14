@@ -1,0 +1,36 @@
+% https://tex.stackexchange.com/a/391090
+\documentclass{beamer}
+\usetheme{Frankfurt}
+
+\usepackage{lipsum}
+%#############################################################
+\begin{document}
+\begin{frame}
+\lipsum[21]
+\end{frame}
+
+% Two columns using minipage
+\begin{frame}
+\begin{minipage}{0.48\textwidth}
+\lipsum[11]
+\end{minipage}%
+\hfill
+\begin{minipage}{0.48\textwidth}
+\lipsum[11]
+\end{minipage}  
+\end{frame}
+
+% Two columns using columns
+\begin{frame}
+\begin{columns}[onlytextwidth]
+\begin{column}{.48\textwidth}
+\lipsum[11]
+\end{column}
+\begin{column}{.48\textwidth}
+\lipsum[11]
+\end{column}
+
+\end{columns}
+\end{frame}
+
+\end{document}

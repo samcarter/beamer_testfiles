@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/458255
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{frame}
+     \begin{tikzpicture}
+        \path (-4,-3.5) rectangle (4,3.5);
+            \node (image) at (0,0) {\includegraphics[scale=0.5]{example-image}};
+            \node[align=center] at (0,3) {up};
+            \node[align=center] at (0,-3) {down};
+            \node[align=center] at (-3.5,0) {left};
+            \node[align=center] at (3.5,0) {right};
+        \end{tikzpicture}
+\end{frame}
+
+
+\end{document} 

@@ -1,0 +1,51 @@
+% https://tex.stackexchange.com/a/380138
+\documentclass{beamer}
+
+\useoutertheme[height=0pt,width=3cm,left]{sidebar}
+\usecolortheme{dove,sidebartab}
+
+%Colours
+\setbeamercolor{section in sidebar}{fg=blue, bg=red}
+
+% Fonts
+\setbeamerfont{section in sidebar}{series=\bfseries}
+\setbeamerfont{section in sidebar shaded}{series=\normalfont}
+
+\makeatletter
+\setbeamertemplate{section in sidebar shaded}
+{%
+  \vbox{%
+    \vskip1ex%
+    \beamer@sidebarformat{3pt}{section in sidebar shaded}{\usebeamerfont{section in sidebar shaded}\insertsectionhead}%
+  }%
+}
+\makeatother
+
+\begin{document}
+
+\section{Section 1}
+
+\begin{frame}
+    abc
+\end{frame} 
+
+
+\section{Subsection 1.1}
+
+\begin{frame}
+    abc
+\end{frame} 
+
+\section{Subsection 1.2}
+
+\section{Section 2}
+
+\section{Subsection 2.1}
+
+\section{Subsection 2.2}
+
+\begin{frame}
+    abc
+\end{frame} 
+
+\end{document}

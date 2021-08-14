@@ -1,0 +1,100 @@
+% https://tex.stackexchange.com/a/398810
+\documentclass{beamer}
+
+\usetheme{metropolis}
+
+\author{names}
+\title{text}
+
+
+\makeatletter
+\def\beamer@autobreakframebox{%
+  \global\setbox\beamer@splitbox=\box\voidb@x%
+  \ifbeamer@autobreak%
+    % Ok, frame was overful -> split it!
+    \setbox\@tempboxa=\vsplit\beamer@framebox to\beamer@autobreakfactor\textheight%
+    \global\setbox\beamer@splitbox=\box\beamer@framebox%
+    \@tempdima=\ht\beamer@splitbox%
+    \ifdim\@tempdima<\beamer@autobreaklastheight%
+      \global\beamer@autobreaklastheight=\@tempdima\relax%
+    \else%
+      \setbox\@tempboxa=\vbox{\unvbox\@tempboxa\unvbox\beamer@splitbox}%
+      \global\setbox\beamer@splitbox=\box\voidb@x%
+    \fi%
+    \setbox\beamer@framebox=\vbox to\textheight{\unvbox\@tempboxa%
+      \vskip\beamer@framebottomskipautobreak%
+      \ifvoid\beamer@splitbox%
+              \begin{beamercolorbox}[wd=\paperwidth,left]{footnote}
+                    \usebeamerfont{footnote}%   
+                    \ifvoid\beamer@footins%
+                        \vskip\baselineskip%
+                    \else%
+                        \unvbox \beamer@footins%
+                        \global\setbox\beamer@footins=\box\voidb@x%
+                    \fi%
+
+                    \vskip-1.4\baselineskip%
+                    \hspace{.5\paperwidth}%
+                \parbox{.48\paperwidth}{%
+                    \usebeamerfont{footnote}\strut\insertshortauthor\hfill\insertframenumber\quad%
+                }%
+              \end{beamercolorbox}%
+      \fi%
+      \beamer@exitcode%
+    }%
+  \else%
+    \setbox\beamer@framebox=\vbox to\textheight{\unvbox\beamer@framebox%
+      \vskip\beamer@framebottomskip%
+              \begin{beamercolorbox}[wd=\paperwidth,left]{footnote}
+                    \usebeamerfont{footnote}%   
+                    \ifvoid\beamer@footins%
+                        \vskip\baselineskip%
+                    \else%
+                        \unvbox \beamer@footins%
+                        \global\setbox\beamer@footins=\box\voidb@x%
+                    \fi%
+
+                    \vskip-1.4\baselineskip%
+                    \hspace{.5\paperwidth}%
+                \parbox{.48\paperwidth}{%
+                    \usebeamerfont{footnote}\strut\insertshortauthor\hfill\insertframenumber\quad%
+                }%
+              \end{beamercolorbox}%
+      \beamer@exitcode}%
+    \global\setbox\beamer@footins=\box\voidb@x%
+  \fi%
+  }
+\makeatother
+
+\setbeamerfont{footnote}{size=\scriptsize}
+\setbeamertemplate{footline}{}
+\setbeamercolor{footnote}{fg=white,bg=mDarkTeal}
+
+\usepackage[style=authoryear]{biblatex}
+\addbibresource{biblatex-examples.bib}
+
+\begin{document}
+
+\begin{frame}[plain,noframenumbering]
+    \titlepage
+\end{frame} 
+
+\begin{frame}
+   test
+\end{frame} 
+
+\begin{frame}
+   test\footcite{bertram}
+
+   text\footcite{angenendt}
+\end{frame} 
+
+\begin{frame}
+    text\footcite{angenendt}
+\end{frame} 
+
+\begin{frame}
+\printbibliography
+\end{frame}
+
+\end{document}

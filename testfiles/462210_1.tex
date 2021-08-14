@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/462210
+\documentclass[10pt]{beamer}
+
+\usetheme{metropolis}
+\usepackage{lipsum}
+
+\begin{document}
+\begin{frame}[t]{Title}
+\visible<1->{
+\alert{\textbf{Title text:}}
+\begin{enumerate}
+  \item  List item $(2^n, 3^n, 4^n, \dots)$
+  \begin{itemize}
+    \item  \lipsum[1][1] $(2^n, 3^n, \dots)$
+    \item[] \lipsum[1][2]: $e^n$ 
+    \item  \lipsum[1][3] $(2^n, 3^n, \dots)$
+    \item[] \lipsum[1][4] $e^n$ 
+  \end{itemize} 
+  \item  List item $2^{abc} \bigcup 3^\text{def}$
+\end{enumerate}
+}
+\visible<2->{
+\alert{\textbf{Title text:}}\\
+\lipsum[2][1]
+\begin{eqnarray*}
+  \tau(n) & \leq & 2^n \\ 
+          & \leq & n^{O(\log n)}
+\end{eqnarray*}
+}
+\visible<3->{
+\lipsum[2][2]: $$a(n) = \sum_i b_i$$
+}
+\end{frame}
+\end{document}

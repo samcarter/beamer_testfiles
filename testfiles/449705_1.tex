@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/449705
+\documentclass[t]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{mwe}
+
+\begin{document}
+\begin{frame}
+\frametitle{Frame Title}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.24\textwidth}
+    \vspace*{3cm}
+    \includegraphics[width=\textwidth]{example-image}
+\end{column}
+\begin{column}{.74\textwidth}
+    \includegraphics<1-2>[width=\textwidth]{example-image-a}
+    \includegraphics<3>[width=\textwidth]{example-image-b}
+    \begin{itemize}
+        \item<only@1> blablabla1
+        \item<only@2> blablabla2a
+        \item<only@2> blablabla2b
+        \item<only@3> blablabla3
+    \end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+\end{document}

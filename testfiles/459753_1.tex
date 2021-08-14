@@ -1,0 +1,64 @@
+% https://tex.stackexchange.com/a/459753
+\documentclass[dvipsnames,svgnames]{beamer}
+
+\usepackage[most]{tcolorbox}
+
+\setbeamercovered{transparent=30}
+
+\usefonttheme[onlymath]{serif}
+\usefonttheme{professionalfonts}
+
+\newcommand\myRed[1]{%
+  \makebox[0pt][l]{\hspace*{-1mm}\textcolor{red}{#1}}}
+
+\tcbset{
+common/.style={
+  arc=0pt,
+  outer arc=0pt,
+  boxsep=0pt,
+  left=1pt,
+  right=1pt,
+  top=1pt,
+  bottom=1pt
+  },
+blue/.style={
+  common,
+  colback=LightBlue!90,
+  colframe=LightBlue!90,
+  highlight math style={colback=LightBlue!50,colframe=Navy,boxsep=0pt}
+  },
+green/.style={
+  common,
+  colback=Green!20,
+  colframe=Green!20,
+  highlight math style={colback=Green!20,colframe=Green}
+  },
+pink/.style={
+  common,
+  colback=red!10,
+  colframe=red!10,
+  highlight math style={colback=Green!20,colframe=Green}
+  }
+}
+
+\begin{document}
+
+\begin{frame}{Transparent effect}
+\begin{align*}
+\text{LHS} &= \frac{x}{y}\\
+\uncover<2->{&= \frac{x}{y} \times {\frac{4}{4}}}\\
+\uncover<3->{&= {\frac{4x}{4y}}}
+\end{align*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Transparent effect is now working}
+\begin{align*}
+\text{LHS} &= \frac{x}{y}\\
+\uncover<2->{&= \frac{x}{y} \times \tcbhighmath[green]{\uncover<2->{\frac{4}{4}}}}\\
+\uncover<3->{&= \tcbhighmath[green]{\uncover<3->{\frac{4x}{4y}}}}
+\end{align*}
+\end{frame}
+
+
+\end{document}

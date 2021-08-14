@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/419272
+\documentclass[compress]{beamer}
+
+\usepackage{textpos}
+
+\setbeamertemplate{headline}{\vskip3pt}
+
+\setbeamertemplate{frametitle}{%
+    \insertframetitle\par\vskip14pt
+    \begin{textblock*}{200mm}(.93\textwidth,-1.3cm)
+        \includegraphics[height=1.2cm]{example-image}
+    \end{textblock*}}
+
+\usebackgroundtemplate{\includegraphics [width=\paperwidth,height=\paperheight,keepaspectratio]{example-image-duck}}
+
+\setbeamerfont{frametitle}{size=\LARGE,series=\bfseries}
+
+\begin{document}
+
+\begin{frame}[t]
+    \frametitle{Work done in this semester}
+\end{frame}
+
+\end{document}

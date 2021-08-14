@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/413439
+\documentclass[t]{beamer}
+
+\usepackage[utf8]{inputenc}
+
+\usetheme{Copenhagen}
+\usecolortheme{wolverine}
+
+\makeatletter
+\setbeamertemplate{section page}[default][colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
+\setbeamertemplate{subsection page}[default][colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
+\makeatother
+
+\AtBeginSection[]{
+    \begin{frame}[plain,c]
+        \sectionpage
+    \end{frame}
+}
+
+\begin{document}
+
+\section{test}
+\begin{frame}
+content...
+\end{frame}
+
+\end{document}

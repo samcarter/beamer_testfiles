@@ -1,0 +1,40 @@
+% https://tex.stackexchange.com/a/315085
+\documentclass{beamer}
+
+\usetheme{Warsaw}
+
+\setbeameroption{show notes}
+
+% notepage for every slide, even if empty
+\makeatletter 
+\def\beamer@framenotesbegin{%   
+    \gdef\beamer@noteitems{}%   
+    \gdef\beamer@notes{{}}%  
+}
+\makeatother
+
+% empty and uncounted note pages
+\setbeamertemplate{note page}{%
+    \addtocounter{page}{-1}%
+    \vskip3\baselineskip% a little space 
+    \insertnote
+}
+
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}
+
+\begin{document}
+
+    \begin{frame}
+        slide with note
+        \note{additional information blow the slide
+
+            can be long and include linebreaks test test test test test test test test test test test test test test test test test 
+        }
+    \end{frame}
+
+    \begin{frame}
+        test without note
+    \end{frame}
+
+\end{document}

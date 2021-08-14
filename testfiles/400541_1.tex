@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/400541
+\documentclass{beamer}
+\usepackage{lmodern}
+
+\usepackage{siunitx}
+
+\newlength{\mywidth}
+\settowidth{\mywidth}{%
+\begin{tabular}{|>{$}{c}<{$}|}%
+2
+\end{tabular}%
+}
+
+\begin{document}
+
+\begin{frame}
+\begin{center}
+\begin{tabular}{*{2}{|>{$}{c}<{$}}|}
+\hline
+a \only<2>{& b}\\
+\hline
+1 \only<2>{& 2}\\
+\hline
+\end{tabular}\only<1>{\hspace*{\mywidth}}
+\end{center}
+\end{frame}
+\end{document}

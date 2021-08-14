@@ -1,0 +1,14 @@
+% https://tex.stackexchange.com/a/445043
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\begin{document}
+  \begin{frame}{}
+    % \rule{\textwidth}{1pt}
+    \begin{overprint}[0.5\textwidth]
+      \onslide<1|handout:0>{1}%
+      \onslide<2|handout:0>{2}%
+      \onslide<3|handout:0>{}%
+    \end{overprint}bla
+    \rule{\textwidth}{1pt}
+  \end{frame}
+\end{document}

@@ -1,0 +1,80 @@
+% https://tex.stackexchange.com/a/442610
+\documentclass[final]{beamer}
+
+\usepackage[scale=1.24,size=a0,orientation=portrait]{beamerposter} % Use the beamerposter package for laying out the poster
+
+\usetheme{confposter} % Use the confposter theme supplied with this template
+
+\setbeamercolor{block title}{fg=ngreen,bg=white} % Colors of the block titles
+\setbeamercolor{block body}{fg=black,bg=white} % Colors of the body of blocks
+\setbeamercolor{block alerted title}{fg=white,bg=dblue!70} % Colors of the highlighted block titles
+\setbeamercolor{block alerted body}{fg=black,bg=dblue!10}
+% Define the column widths and overall poster size
+% To set effective sepwid, onecolwid and twocolwid values, first choose how many columns you want and how much separation you want between columns
+% In this template, the separation width chosen is 0.024 of the paper width and a 4-column layout
+% onecolwid should therefore be (1-(# of columns+1)*sepwid)/# of columns e.g.  (1-(3+1)*0.024)/3= 0.301
+% Set twocolwid to be (2*onecolwid)+sepwid = 0.464  
+% Set threecolwid to be (3*onecolwid)+2*sepwid = 0.708
+% Set fourcolwid to be (4*onecolwid)+3*sepwid = 0.88 + 0.072= 
+\newlength{\sepwid}
+\newlength{\onecolwid}
+\newlength{\twocolwid}
+\newlength{\threecolwid}
+\newlength{\fourcolwid}
+%\setlength{\paperwidth}{33.1in} % A0 width: 46.8in
+%\setlength{\paperheight}{46.8in} % A0 height: 33.1in
+\setlength{\sepwid}{0.024\paperwidth} % Separation width (white space) between columns
+\setlength{\onecolwid}{0.22\paperwidth} % Width of one column
+\setlength{\twocolwid}{0.464\paperwidth} % Width of two columns
+\setlength{\threecolwid}{0.708\paperwidth} % Width of three columns
+\setlength{\fourcolwid}{0.952\paperwidth} % Width of four columns
+\setlength{\topmargin}{-0.5in} % Reduce the top margin size
+%-----------------------------------------------------------
+
+%\usepackage{graphicx}  % Required for including images
+
+\usepackage{booktabs} % Top and bottom rules for tables
+
+%----------------------------------------------------------------------------------------
+%   TITLE SECTION 
+%----------------------------------------------------------------------------------------
+
+\title{The origin and nature of individual differences in the form of Pavlovian conditioned responding} % Poster title
+
+\author{Adela F.} % Author(s)
+
+\institute{X University} % Institution(s)
+
+\begin{document}
+
+\addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
+\addtobeamertemplate{block alerted end}{}{\vspace*{2ex}} % White space under highlighted (alert) blocks
+
+\setlength{\belowcaptionskip}{2ex} % White space under figures
+\setlength\belowdisplayshortskip{2ex} % White space under equations
+
+\begin{frame}[t] % The whole poster is enclosed in one beamer frame
+
+\begin{columns}[t] % The whole poster consists of four major columns, the second of which is split into two columns twice - the [t] option aligns each column's content to the top
+
+%\begin{column}{\sepwid}\end{column} % Empty spacer column
+
+\begin{column}{\fourcolwid} % The first column
+
+\begin{alertblock}{Objectives}
+Lorem ipsum dolor sit amet, consectetur, nunc tellus pulvinar tortor, commodo eleifend risus arcu sed odio:
+
+Mollis dignissim, magna augue tincidunt dolor, interdum vestibulum urna
+Sed aliquet luctus lectus, eget aliquet leo ullamcorper consequat. Vivamus eros sem, iaculis ut euismod non, sollicitudin vel orci.
+Nascetur ridiculus mus.  
+
+
+\end{alertblock}
+
+
+\end{column}
+
+\end{columns} % End of all the columns in the poster
+
+\end{frame} % End of the enclosing frame
+\end{document}

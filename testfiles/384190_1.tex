@@ -1,0 +1,40 @@
+% https://tex.stackexchange.com/a/384190
+\documentclass[t]{beamer}
+\usetheme{Madrid}
+
+\makeatletter
+\setbeamertemplate{frametitle}{
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \begin{beamercolorbox}[sep=0.3cm,wd=\the\@tempdima]{frametitle}
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-1ex%
+    \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+    \strut\thesection.~\insertsection\strut\par%
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+      \fi
+    }%
+    \vskip-1ex%
+    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  \end{beamercolorbox}%
+}
+\makeatother
+
+\begin{document}
+\section{bla}
+\begin{frame}
+\frametitle{Title}
+\begin{itemize}
+\item Line 1
+\begin{itemize}
+\item Line 2
+\item Line 2
+\end{itemize}
+\end{itemize}
+\end{frame}
+\end{document}

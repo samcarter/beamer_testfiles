@@ -1,0 +1,16 @@
+% https://tex.stackexchange.com/a/447953
+\documentclass[]{beamer}
+\usepackage{handoutWithNotes}  % from https://github.com/gdiepen/latexbeamer-handoutWithNotes
+\pgfpagesuselayout{1 on 1 with notes}[a4paper,border shrink=5mm]
+
+\usetheme[hideothersubsections]{Goettingen}
+\usecolortheme{default}
+
+\begin{document}
+
+\begin{frame}
+    \only<1>{\centering \includegraphics[width=10cm]{example-image-a}}%
+    \only<2>{\centering \includegraphics[width=10cm]{example-image-b}}%
+\end{frame}
+
+\end{document}

@@ -1,0 +1,54 @@
+% https://tex.stackexchange.com/a/443717
+\documentclass[xcolor={usenames,dvipsnames}]{beamer}
+%\usepackage{xcolor}
+
+\usetheme{Madrid}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{GF(2)}
+
+The simplest finite field is GF(2). It's arithmetic operation are easily summarized:
+\bigskip
+\begin{columns}
+\begin{column}{0.3\linewidth}
+\centering
+\begin{tabular}{r|*{2}{c}}
++ & 0 & 1\\
+\hline
+0 & 0 & 1\\
+1 & 1 & 0\\
+\end{tabular}
+
+\vspace*{.5\baselineskip}
+Addition
+\end{column}
+\begin{column}{0.3\linewidth}
+\centering
+\begin{tabular}{r|*{2}{c}}
+x & 0 & 1\\
+\hline
+0 & 0 & 0\\
+1 & 0 & 1\\
+\end{tabular}
+
+\vspace*{.5\baselineskip}
+Multiplication
+\end{column}
+\begin{column}{0.3\linewidth}
+\centering
+\begin{tabular}{r|*{2}{c}}
+x & 0 & 1\\
+\hline
+0 & 0 & 0\\
+1 & 0 & 1\\
+\end{tabular}
+
+\vspace*{.5\baselineskip}
+Inverse
+\end{column}
+\end{columns}
+\end{frame}    
+
+\end{document}  

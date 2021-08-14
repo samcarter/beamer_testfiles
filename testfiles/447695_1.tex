@@ -1,0 +1,78 @@
+% https://tex.stackexchange.com/a/447695
+\documentclass[notheorems]{beamer}
+\usetheme{Pittsburgh}
+
+\setbeamertemplate{theorem}[ams style]
+\setbeamertemplate{theorems}[numbered]
+
+\makeatletter
+\ifbeamer@countsect
+  \newtheorem{theorem}{\translate{Theorem}}[section]
+\else
+  \newtheorem{theorem}{\translate{Theorem}}
+\fi 
+
+\theoremstyle{example}
+\newtheorem{example}{\translate{Example}}  
+
+\setbeamertemplate{theorem begin}{%
+\begin{center}
+\begin{minipage}{0.9\textwidth}
+\begin{\inserttheoremblockenv}
+{%
+  \inserttheoremname
+  \inserttheoremnumber
+  \ifx\inserttheoremaddition\@empty\else\ (\inserttheoremaddition)\fi%
+}%
+}
+
+\setbeamertemplate{theorem end}{%
+\end{\inserttheoremblockenv}
+\end{minipage}
+\end{center}
+}
+\makeatother
+
+\addtobeamertemplate{theorem begin}{%
+\setbeamercolor{block title}{fg=green}%
+\setbeamercolor{block body}{bg=gray}%
+\setbeamerfont{block title}{size=\small,series=\bfseries}%
+}{}
+
+\usepackage{refcount}
+\setrefcountdefault{1}
+
+\newcounter{saveexample}
+
+\newenvironment{examplec}[1][]{%
+    \setcounter{saveexample}{\value{example}}%
+    \setcounterref{example}{#1}%
+    \addtocounter{example}{-1}%
+    \begin{example}[cont.]}{\end{example}%
+    \setcounter{example}{\thesaveexample}%
+}
+
+
+\begin{document}
+\begin{frame}
+\begin{example}
+This is the first example.\label{myexample}
+\end{example}
+
+\begin{example}
+ This is the second example.
+\end{example}
+\begin{example}
+ This is the second example.
+\end{example}
+
+\begin{examplec}[myexample]
+ Continuing first example.
+\end{examplec}
+
+\begin{example}
+ This is the second example.
+\end{example}
+
+\end{frame}
+\end{document}

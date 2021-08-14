@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/479051
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}<1>[label=foo]
+    \begin{itemize}
+    \item marmot
+    \item<alert@2> duck
+    \end{itemize}
+    \footnote{reapearing slide}
+\end{frame} 
+
+\begin{frame}
+\footnote{some other slide with a foonote}
+\end{frame}
+
+\againframe<2>{foo}
+
+\end{document}

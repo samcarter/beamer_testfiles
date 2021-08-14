@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/458255
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{frame}
+     \begin{tikzpicture}
+            \node (image) at (0,0) {\includegraphics[scale=0.5]{example-image}};
+            \begin{pgfinterruptboundingbox}
+            \node[align=center] at (0,3) {up};
+            \node[align=center] at (0,-3) {down};
+            \node[align=center] at (-3.5,0) {left};
+            \node[align=center] at (3.5,0) {right};
+            \end{pgfinterruptboundingbox}
+        \end{tikzpicture}
+\end{frame}
+
+
+\end{document}

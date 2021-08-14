@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/453441
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}
+  \begin{itemize}[<+->]
+      \item Foo
+      \item Bar
+      \item Bla
+  \end{itemize}
+  \begin{onlyenv}<1>
+      \begin{block}{About Foo}
+        ...
+      \end{block}
+  \end{onlyenv}
+  \begin{onlyenv}<2>
+      \begin{block}{About Bar}
+        ...
+      \end{block}
+  \end{onlyenv}
+  \begin{onlyenv}<3>
+      \begin{block}{About Bla}
+        ...
+      \end{block}
+  \end{onlyenv}    
+\end{frame}
+
+\end{document}

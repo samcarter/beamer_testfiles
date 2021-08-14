@@ -1,0 +1,51 @@
+% https://tex.stackexchange.com/a/319781
+\documentclass{beamer}
+
+\begin{document}
+\begin{frame}
+    \textbf{Headline}
+
+    Text
+    \[
+        equation.
+    \]
+
+    \visible<2->{%
+
+        \textbf{2nd Headline}
+
+        Text
+        \[
+            2nd equation
+        \]
+    }
+
+    \visible<3->{%
+
+        \textbf{3rd Headline}
+
+        Text,
+
+        Text
+        \[
+            3rd equation,
+        \]
+        where
+        \[
+            4th equation
+        \]
+        defines
+        \[
+            5th equation
+        \]
+        Text.
+
+        \begin{picture}(0,0)
+            \put(230,50){%
+                \includegraphics[width=0.3\textwidth]{example-image}%
+            }
+        \end{picture}
+    }
+\end{frame}
+
+\end{document}

@@ -1,0 +1,67 @@
+% https://tex.stackexchange.com/a/427014
+\documentclass{beamer}
+
+\usetheme{Malmoe}
+\usecolortheme{beaver}
+
+\title{The tediously long title of my presentation}
+\author{Me}
+\date{\today}
+
+\setbeamercolor{author}{bg=white}
+\setbeamercolor{date}{bg=white}
+
+
+\makeatletter
+\setbeamertemplate{title page}{
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering
+    \begin{minipage}{.9\textwidth}
+    \begin{beamercolorbox}[sep=8pt,center]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    \end{minipage}
+
+    \vskip1em\par
+    \begin{minipage}{.15\textwidth}
+    \begin{beamercolorbox}[sep=8pt,center]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \end{minipage}
+
+    \begin{minipage}{.5\textwidth}
+    \begin{beamercolorbox}[sep=8pt,center]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \end{minipage}
+
+    \begin{minipage}{.3\textwidth}
+    \begin{beamercolorbox}[sep=8pt,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}
+    \end{minipage}
+    \vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+  \endgroup
+  \vfill
+}
+\makeatother
+
+
+
+\begin{document}
+    {\usebackgroundtemplate{
+            \includegraphics[width=\paperwidth,height=\paperheight]{example-image-a}
+        }
+        \begin{frame}
+            \titlepage
+        \end{frame}
+    }
+\end{document}

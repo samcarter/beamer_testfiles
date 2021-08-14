@@ -1,0 +1,59 @@
+% https://tex.stackexchange.com/a/444958
+\documentclass{beamer}
+
+\usetheme[numbering=none,block=fill]{metropolis}
+
+%\setbeamerfont{frametitle}{size=\normalsize,series=\normalfont\bfseries}
+\setbeamerfont{frametitle}{size=\Huge,series=\normalfont\bfseries}
+\setbeamerfont{page number in head/foot}{size=\normalsize,series=\normalfont\bfseries}
+
+\setbeamercolor{footline}{fg=black!2, bg=mDarkTeal}
+\setbeamertemplate{frame footer}{My footline}
+
+\makeatletter
+\setlength{\metropolis@frametitle@padding}{0.7ex}% <- default 2.2 ex
+
+\setbeamertemplate{footline}{%
+    \begin{beamercolorbox}[wd=\textwidth, sep=0.7ex]{footline}% <- default 3ex
+        \usebeamerfont{page number in head/foot}%
+        \usebeamertemplate*{frame footer}
+        \hfill%
+        \usebeamertemplate*{frame numbering}
+    \end{beamercolorbox}%
+}
+
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip%
+  \begin{beamercolorbox}[%
+      wd=\paperwidth,%
+      sep=0pt,%
+      leftskip=\metropolis@frametitle@padding,%
+      rightskip=\metropolis@frametitle@padding,%
+    ]{frametitle}%
+  \metropolis@frametitlestrut@start%
+  \insertframetitle%
+  \nolinebreak%
+  \metropolis@frametitlestrut@end%
+  \hfill
+  \includegraphics[height=1.5ex,keepaspectratio]{example-image-duck}
+  \end{beamercolorbox}%
+}
+
+
+\makeatother
+
+\begin{document}
+
+\begin{frame}{My frame title}
+ \begin{block}{Some itemize}
+  \begin{itemize}
+   \item \alert{Item 1}
+   \item Item 2
+  \end{itemize}
+ \end{block}
+ \begin{block}{Some maths}
+ \[\sum_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6}=\zeta(2)\]
+\end{block}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,36 @@
+% https://tex.stackexchange.com/a/423077
+\documentclass{beamer}      
+
+\usetheme{Boadilla}  
+
+\setbeamertemplate{footline}{\hfill\insertframenumber/\inserttotalframenumber}       
+
+\usepackage{zref-xr}
+\zxrsetup{toltxlabel}
+\zexternaldocument*[main-]{part1}
+
+\usepackage{refcount}
+
+\setcounterref{framenumber}{main-lastframe}
+
+\begin{document}
+
+\begin{frame}
+   text
+\end{frame}
+
+\begin{frame}
+   text
+\end{frame}
+
+  \begin{frame}
+text
+
+\end{frame}
+
+\begin{frame}
+text
+
+\end{frame}
+
+\end{document}

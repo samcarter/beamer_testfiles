@@ -1,0 +1,36 @@
+% https://tex.stackexchange.com/a/313926
+\documentclass[xcolor=dvipsnames]{beamer}
+\usetheme{Frankfurt}
+
+\beamertemplatenavigationsymbolsempty
+\setbeamercolor{section in head/foot}{fg=OliveGreen!40!Sepia, bg=OliveGreen!70!YellowGreen}
+\setbeamercolor{structure}{fg=LimeGreen, bg = LimeGreen}
+\setbeamercolor{alerted text}{fg=LimeGreen}
+\setbeamercolor{title}{fg=Sepia, bg = LimeGreen!60!GreenYellow}
+\setbeamercolor{frametitle}{fg=OliveGreen!60!Sepia, bg = LimeGreen!60!GreenYellow}
+
+\definecolor{mygreen}{RGB}{163,216,56}
+
+\AtBeginDocument{
+  \pgfdeclareverticalshading{beamer@aboveframetitle}{\the\paperwidth}{%
+        color(0ex)=(mygreen);%
+        color(1ex)=(mygreen);%
+        color(2ex)=(section in head/foot.bg)
+  }
+  \pgfdeclareverticalshading{beamer@belowframetitle}{\the\paperwidth}{%
+        color(0ex)=(bg);%
+        color(1ex)=(mygreen)
+  }
+}
+
+\title{Title}
+\author{Me}
+\date{Today} 
+
+\begin{document}
+  \section[My first section]{Section 1}
+\begin{frame}
+\frametitle{Frame title}
+Some text
+\end{frame}
+\end{document}

@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/371095
+\documentclass{beamer}
+
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen}
+
+\begin{document}
+
+\begin{frame}
+    \frametitle{slide} 
+    lorem ipsum...
+
+    \uncover<2->{
+        surprise!
+    }
+
+    \note{
+        do not forget to say this
+    }
+\end{frame}
+
+
+
+\end{document}

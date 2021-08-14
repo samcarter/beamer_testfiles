@@ -1,0 +1,37 @@
+% https://tex.stackexchange.com/a/170090
+\documentclass[t]{beamer}
+
+\setbeamercolor{background canvas}{bg=blue!20}
+\setbeamerfont{frametitle}{size=\fontsize{24}{28},series=\bfseries}
+\setbeamercolor{frametitle}{fg=white}
+
+\pgfdeclareimage[width=\paperwidth]{mybackground}{example-image-duck}
+
+\providecommand\insertframetitle{} 
+\setbeamertemplate{footline}{%
+    \begin{picture}(0,0)
+        \put(0,0){%
+            \pgfuseimage{mybackground}
+        }
+        \put(25,220){%
+            \begin{minipage}[b][0mm][t]{100mm}
+                \usebeamerfont{frametitle}{
+                    \usebeamercolor[fg]{frametitle}{
+                        \insertframetitle
+                    }
+                }
+            \end{minipage}
+        }
+    \end{picture}
+}
+
+\setbeamertemplate{frametitle}{\vspace*{2.5cm}}
+
+\begin{document}
+
+    \begin{frame}
+        \frametitle{Test Test Test}
+        test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test  test
+    \end{frame}
+
+\end{document}

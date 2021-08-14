@@ -1,0 +1,32 @@
+% https://tex.stackexchange.com/a/373804
+\documentclass{beamer}
+
+\newcounter{mycounter}
+
+\newcommand{\localframe}{%
+\ifnum\themycounter>0
+    \framebreak%
+\fi%
+\addtocounter{mycounter}{1}%
+}
+
+\newenvironment{framelist}
+{\begin{frame}[environment=framelist, allowframebreaks]\setcounter{mycounter}{0}}
+{\end{frame}}
+
+\begin{document}
+
+\begin{framelist}
+     \localframe
+         bla
+         bla, all of this in the first frame
+
+     \localframe
+         this should be on another frame entirely
+
+     \localframe
+         this should be another extra frame
+\end{framelist}
+
+
+\end{document}

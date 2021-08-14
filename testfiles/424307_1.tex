@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/424307
+\documentclass{beamer}
+
+\usetheme{metropolis}
+\usepackage{tabularx}
+
+\AtBeginSection[]{%
+    \begin{frame}<beamer>
+    \setbeamerfont{frametitle}{size=\LARGE}
+    \frametitle{TOC}
+    \begin{tabularx}{\textwidth}{X r}
+        \insertsectionhead & \insertsectionstartpage\\  
+    \end{tabularx}
+    \end{frame}
+}
+
+\begin{document}
+\section{Section name Section name Section name Section name Section name Section name Section name Section name Section name Section name Section name Section name Section name Section name Section name Section name Section name Section name}
+
+\end{document}

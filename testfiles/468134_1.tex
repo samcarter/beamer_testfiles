@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/468134
+\documentclass{beamer}
+
+\usetheme{Madrid}
+
+\AtBeginSection{
+   \frame{\sectionpage}
+}
+
+\makeatletter
+\setbeamertemplate{section page}
+{
+  \begingroup
+    \centering
+%    {\usebeamerfont{section name}\usebeamercolor[fg]{section name}\sectionname~\insertsectionnumber}
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=12pt,center,colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]{section title}
+      \usebeamerfont{section title}\insertsection\par
+    \end{beamercolorbox}
+  \endgroup
+}
+\makeatother
+
+
+\begin{document}
+
+\section{title}
+
+\begin{frame}
+\frametitle{fr}
+    abc
+\end{frame} 
+
+\end{document}

@@ -1,0 +1,45 @@
+% https://tex.stackexchange.com/a/471960
+\documentclass{beamer}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{array}
+
+\newcolumntype{R}{>{\raggedright\arraybackslash}X}
+
+
+
+\begin{document}
+\begin{frame}
+
+\begin{itemize}
+\item 1
+\item 2
+\item 3
+\end{itemize}
+
+\begin{block}{test}
+    \smallskip
+  \begin{minipage}{0.58\textwidth}
+    \footnotesize
+    \begin{tabularx}{\textwidth}{@{}RRR@{}}
+        \toprule
+        API hits per month [Mio.] & 
+        Price per month & 
+        Price per year\\
+        \midrule
+      0.1                                   & 2'500                    & 30'000\\
+      0.5                                   & 3'250                    & 39'000\\
+      1                                     & 4'000                    & 48'000\\
+      1.5                                   & 4'750                    & 57'000\\
+      2                                     & 5'500                    & 66'000\\
+      \bottomrule            
+    \end{tabularx}
+  \end{minipage}%
+  \hfill
+    \begin{minipage}{0.38\textwidth}
+      \includegraphics[width=\textwidth]{example-image}
+    \end{minipage}
+\end{block}
+
+\end{frame}
+\end{document}

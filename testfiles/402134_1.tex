@@ -1,0 +1,179 @@
+% https://tex.stackexchange.com/a/402134
+\documentclass{beamer}
+
+\usepackage{tikz}
+\usetikzlibrary{shadings}
+
+\useoutertheme{shadow}
+\useoutertheme{tree}
+\usecolortheme{whale}
+\usefonttheme{professionalfonts}
+
+\setbeamercolor{title in head/foot}{fg=white,bg=}
+\setbeamercolor{section in head/foot}{fg=white,bg=}
+\setbeamercolor{subsection in head/foot}{fg=white,bg=}
+\setbeamercolor{frametitle}{fg=white,bg=}
+
+\pgfdeclarehorizontalshading{beamer@titleshade}{\paperheight}{
+    color(0pt)=(blue);
+    color(\paperwidth)=(orange)
+}
+
+\pgfdeclarehorizontalshading{beamer@sectionshade}{\paperheight}{
+    color(0pt)=(purple);
+    color(\paperwidth)=(green)
+}
+
+\pgfdeclarehorizontalshading{beamer@subsectionshade}{\paperheight}{
+    color(0pt)=(red);
+    color(\paperwidth)=(yellow)
+}
+
+\pgfdeclarehorizontalshading{beamer@frametitleshade}{\paperheight}{
+    color(0pt)=(black);
+    color(\paperwidth)=(gray)
+}
+
+\makeatletter
+\setbeamertemplate{headline}
+{
+    \leavevmode%
+    \begin{beamercolorbox}[wd=\paperwidth,colsep=1.5pt]{upper separation line head}
+    \end{beamercolorbox}
+    \setbox\beamer@tempbox=\hbox{%
+        \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.5ex,%
+            leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}
+            \usebeamerfont{title in head/foot}\insertshorttitle
+        \end{beamercolorbox}
+    }%
+    \beamer@tempdim=\ht\beamer@tempbox%
+    \advance\beamer@tempdim by 4pt%
+    \vskip-\beamer@tempdim%
+    \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{20pt}
+        \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+        \pgfusepath{clip}
+        \pgftext[left,base]{\pgfuseshading{beamer@titleshade}}
+    \end{pgfpicture}
+    \vskip-\beamer@tempdim%
+    \box\beamer@tempbox%    
+    \vskip0pt%
+    \setbox\beamer@tempbox=\hbox{%  
+        \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.5ex,%
+            leftskip=.3cm,rightskip=.3cm plus1fil]{section in head/foot}
+            \usebeamerfont{section in head/foot}%
+            \ifbeamer@tree@showhooks
+            \setbox\beamer@tempbox=\hbox{\insertsectionhead}%
+            \ifdim\wd\beamer@tempbox>1pt%
+            \hskip2pt\raise1.9pt\hbox{\vrule width0.4pt height1.875ex\vrule width 5pt height0.4pt}%
+            \hskip1pt%
+            \fi%
+            \else%  
+            \hskip6pt%
+            \fi%
+            \insertsectionhead
+        \end{beamercolorbox}
+    }
+    \beamer@tempdim=\ht\beamer@tempbox%
+    \advance\beamer@tempdim by 4pt%
+    \vskip-\beamer@tempdim%
+    \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{20pt}
+        \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+        \pgfusepath{clip}
+        \pgftext[left,base]{\pgfuseshading{beamer@sectionshade}}
+    \end{pgfpicture}
+    \vskip-\beamer@tempdim%
+    \box\beamer@tempbox%    
+    \vskip0pt%
+    \setbox\beamer@tempbox=\hbox{%
+        \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.5ex,%
+            leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+            \usebeamerfont{subsection in head/foot}%
+            \ifbeamer@tree@showhooks
+            \setbox\beamer@tempbox=\hbox{\insertsubsectionhead}%
+            \ifdim\wd\beamer@tempbox>1pt%
+            \hskip9.4pt\raise1.9pt\hbox{\vrule width0.4pt height1.875ex\vrule width 5pt height0.4pt}%
+            \hskip1pt%
+            \fi%
+            \else%  
+            \hskip12pt%
+            \fi%
+            \insertsubsectionhead
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[wd=\paperwidth,colsep=1.5pt]{lower separation line head}
+        \end{beamercolorbox}
+    }
+    \beamer@tempdim=\ht\beamer@tempbox%
+    \advance\beamer@tempdim by 4pt%
+    \vskip-\beamer@tempdim%
+    \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{20pt}
+        \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}} \pgfusepath{clip}
+        \pgftext[left,base]{\pgfuseshading{beamer@subsectionshade}}
+    \end{pgfpicture}
+    \vskip-\beamer@tempdim%
+    \box\beamer@tempbox%    
+    \vskip0pt%
+}
+
+\setbeamertemplate{frametitle}
+{%
+    \nointerlineskip%
+    \vskip-2pt%
+    \hbox{\leavevmode
+        \advance\beamer@leftmargin by -12bp%
+        \advance\beamer@rightmargin by -12bp%
+        \beamer@tempdim=\textwidth%
+        \advance\beamer@tempdim by \beamer@leftmargin%
+        \advance\beamer@tempdim by \beamer@rightmargin%
+        \hskip-\Gm@lmargin\hbox{%
+            \setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{\paperwidth}%
+                    \vbox{}\vskip-.75ex%
+                    \leftskip0.3cm%
+                    \rightskip0.3cm plus1fil\leavevmode
+                    \insertframetitle%
+                    \ifx\insertframesubtitle\@empty%
+                    \strut\par%
+                    \else
+                    \par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+                    \fi%
+                    \nointerlineskip
+                    \vbox{}%
+            \end{minipage}}%
+            \beamer@tempdim=\ht\beamer@tempbox%
+            \advance\beamer@tempdim by 2pt%
+            \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
+                \usebeamercolor{frametitle right}
+                \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+                \pgfusepath{clip}
+                \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+            \end{pgfpicture}
+            \hskip-\paperwidth%
+            \box\beamer@tempbox%
+        }%
+        \hskip-\Gm@rmargin%
+    }%
+    \nointerlineskip
+    \vskip-0.2pt
+    \hbox to\textwidth{\hskip-\Gm@lmargin\pgfuseshading{beamer@topshade}\hskip-\Gm@rmargin}
+    \vskip-2pt
+}
+
+\makeatother
+
+\setbeamertemplate{footline}{}
+
+\title{Title}
+\author{Author}
+\institute{Institute}
+\date{Date}
+
+\begin{document}
+
+\section{Title of Section 1}
+\subsection{Title of Subsection 1-1}
+
+\begin{frame}
+\frametitle{Frame Title}
+Some text.
+\end{frame}
+
+\end{document}

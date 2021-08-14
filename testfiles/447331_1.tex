@@ -1,0 +1,46 @@
+% https://tex.stackexchange.com/a/447331
+\documentclass{beamer}
+\usetheme{CambridgeUS}
+\useoutertheme{infolines}
+\usepackage{tikz}
+\newcommand\RBox[1]{%
+  \tikz\node[draw,rounded corners,align=center,] {#1};%
+}  
+\author[Subham Soni S. \& Mithun C.K. \& Karthikeyan \& Shantikumar L.]
+{%
+   \texorpdfstring{
+        \begin{columns}
+            \column{.3\linewidth}
+            \centering
+            \RBox{Subham Soni S.\\
+            \href{mailto:subhamsoni0049@pec.edu}{\tiny subhamsoni0049@pec.edu}}
+            \column{.3\linewidth}
+            \centering
+            \RBox{Mithun C.K.\\
+            \href{mailto:subhamsoni0049@pec.edu}{\tiny subhamsoni0049@pec.edu}}
+            \column{.3\linewidth}
+            \centering
+            \RBox{Karthikeyan\\
+            \href{mailto:subhamsoni0049@pec.edu}{\tiny subhamsoni0049@pec.edu}}
+        \end{columns}
+        \vspace{-0.3cm}
+        \begin{columns}
+          \column{0.3\linewidth}
+          \raggedleft
+            \includegraphics[width=0.7cm]{example-image-duck}
+            \vspace{-4.8cm}
+            \column{0.6\linewidth}
+            \raggedright
+            Department of CSE\\[1.1ex]
+            PEC\\
+            \vspace{-4.8cm}
+        \end{columns}
+   }
+   {John Doe \& Jane Doe}
+}
+\title{Work Culture}
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+\end{document}

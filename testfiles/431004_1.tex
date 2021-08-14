@@ -1,0 +1,71 @@
+% https://tex.stackexchange.com/a/431004
+\documentclass[10pt, compress]{beamer}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage[english]{babel}
+\usepackage{listings}
+%\usepackage{color}
+%\usepackage{xcolor} 
+
+\definecolor{dkgreen}{RGB}{151,205,160}
+\definecolor{test}{RGB}{255,212,212}
+\definecolor{mauve}{RGB}{255,187,185}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{lightblue}{RGB}{176,223,224}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{darkred}{rgb}{0.6,0.0,0.0}
+\definecolor{light-gray}{RGB}{77,77,77}
+\definecolor{numbers}{RGB}{255,153,29}
+\definecolor{whitewhite}{RGB}{214,214,214}
+
+
+\lstset{
+  basicstyle=\ttfamily\footnotesize\color{white},
+  columns=fullflexible,
+  showstringspaces=false,
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny\color{numbers},  % the style that is used for the line-numbers
+  stepnumber=1,
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{light-gray},      % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=none,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                   % show the filename of files included with \lstinputlisting;
+                              % also try caption instead of title  
+  commentstyle=\color{gray}\upshape
+}
+
+
+\lstdefinelanguage{XML}
+{
+  morestring=[s][\color{mauve}]{""}{""},
+  morestring=[s][\color{whitewhite}]{>}{<},
+  morecomment=[s]{<?}{?>},
+  morecomment=[s][\color{dkgreen}]{<!--}{-->},
+  stringstyle=\color{orange},
+  identifierstyle=\color{lightblue},
+  keywordstyle=\color{test},
+  morekeywords=       {xmlns,xsi,noNamespaceSchemaLocation,type,id,x,y,source,target,version,tool,transRef,roleRef,objective,eventually,skos},% list your attributes here
+  morekeywords=[2]{attribute},
+  keywordstyle=[2]\color{green}
+}
+\begin{document}
+
+   \begin{frame}[fragile]
+  \frametitle{}
+
+\begin{lstlisting}[language=xml]
+<element attribute=""#attributevalue"" />
+\end{lstlisting}
+\end{frame}
+
+\end{document}

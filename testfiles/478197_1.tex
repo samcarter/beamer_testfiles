@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/478197
+\documentclass{beamer}
+\usepackage[english]{babel}
+\usepackage{tikz}
+
+\usetikzlibrary{overlay-beamer-styles}
+
+\newcommand<>\myhl[1]{%
+    \tikz[baseline=(char.base)]{%
+        \node[alt=#2{fill=black!8,draw=black!40}{fill=bg,draw=bg}, anchor=base, rounded corners, inner sep=5pt](char) {{#1}};%
+    }%
+}
+
+\begin{document}
+
+
+
+\begin{frame}{Frame Title}
+\transfade<2>
+
+\begin{itemize}
+\item Dummy text
+\item Again dummy text. \myhl<2>{Text to be highlighted}
+\item Dummy text
+\end{itemize}
+
+\end{frame}
+
+\end{document}

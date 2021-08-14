@@ -1,0 +1,37 @@
+% https://tex.stackexchange.com/a/383673
+\documentclass{beamer}
+%\usepackage{newfloat}
+\usepackage{pgfplots}
+
+%\DeclareFloatingEnvironment[fileext=frm,name=Graphe]{graph}
+
+\newenvironment{graph}{%
+    \setbeamertemplate{caption}{%
+      \raggedright
+      {%
+        \usebeamercolor[fg]{caption name}%
+        \usebeamerfont*{caption name}%
+        Graph%
+        \usebeamertemplate{caption label separator}%
+      }%
+      \insertcaption\par
+    }
+    \begin{figure}%
+}{%
+    \end{figure}%
+}
+\pgfplotsset{compat=1.13}
+
+\begin{document}
+
+\begin{frame}
+    \begin{graph}
+        \centering
+        \begin{tikzpicture}
+                    \path[fill=red] (90,100) ellipse (1.4cm and 1.75cm);
+        \end{tikzpicture}
+        \caption{Contrainte maximale de Tresca calculée en fonction de la fréquence \label{TrescaVsFreq}}
+    \end{graph}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,18 @@
+% https://tex.stackexchange.com/a/422178
+\documentclass{beamer}
+
+\usetheme{Pittsburgh}
+\usecolortheme{crane}
+\setbeamercovered{transparent}
+
+\begin{document}
+\begin{frame}
+    Hello!
+    \uncover<2->{
+    \begin{theorem}
+        Hello world!
+        \uncover<1,3->{Goodbye!}
+    \end{theorem}
+    }
+\end{frame}
+\end{document}

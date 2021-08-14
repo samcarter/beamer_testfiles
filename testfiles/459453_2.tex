@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/459453
+\documentclass{beamer}
+
+\title{The Title}
+\author{The Author}
+\useoutertheme[right,width = 3cm,hideallsubsections]{sidebar}
+
+\setbeamercolor{title in sidebar}{fg=red}
+
+
+\makeatletter
+\def\beamer@sidebarformat#1#2#3{%
+  \begin{beamercolorbox}[wd=\beamer@sidebarwidth,leftskip=#1,rightskip=1ex plus1fil,vmode,center]{#2}
+    \vbox{}%
+    #3\par%
+    \vbox{}%
+    \vskip-1.5ex%
+  \end{beamercolorbox}
+}
+\makeatother
+
+\begin{document}
+
+\section{testsection}
+\subsection{subsection name}
+\begin{frame}
+Here's some content, with no notes added.
+\end{frame}
+
+\section{hallo}
+\begin{frame}
+Here's some content, with notes added.
+\end{frame}
+
+\end{document}

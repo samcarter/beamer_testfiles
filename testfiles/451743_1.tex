@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/451743
+\documentclass{beamer}
+\usetheme{metropolis} 
+\setbeamertemplate{frame numbering}[fraction]
+
+\title{My Title}
+\subtitle{My Subtitle}
+\author{My Name}
+\date{}
+\institute{Reference}
+
+\setbeamertemplate{frame footer}{\insertauthor\hfill\insertsubtitle}
+\setbeamerfont{footline}{size=\fontsize{0}{0}\selectfont}
+\setbeamerfont{page number in head/foot}{size=\tiny}
+
+\setbeamercolor{footline}{fg=white,bg=black}
+\setbeamercolor{frametitle}{fg=white,bg=black}
+
+
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\textwidth, sep=1ex]{footline}%
+    \hspace{0.3cm}
+    \usebeamerfont{page number in head/foot}%
+    \usebeamertemplate*{frame footer}
+    \hfill%
+    \usebeamertemplate*{frame numbering}
+  \end{beamercolorbox}%
+}
+
+\begin{document}
+\begin{frame}
+\titlepage\thispagestyle{empty}
+\end{frame}
+\begin{frame}[t]{Contents}\vspace{3pt}
+\begin{enumerate}
+\item First Point
+\item Second Point
+\item ...
+\end{enumerate}
+\end{frame}
+\end{document}

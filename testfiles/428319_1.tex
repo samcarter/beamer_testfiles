@@ -1,0 +1,59 @@
+% https://tex.stackexchange.com/a/428319
+\documentclass[xcolor=dvipsnames]{beamer}
+\usepackage{tikz}
+\usetikzlibrary{calc, intersections,through,backgrounds,positioning}
+\usepackage{pgfpages,ifthen}
+\usepackage{blindtext}
+\usepackage{multicol}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs,bbm,bm}
+\usepackage{subcaption}
+\usetheme[progressbar=frametitle]{metropolis}
+\setbeamertemplate{frame numbering}[none]
+\metroset{block=fill}
+\setbeamercovered{transparent=15}
+
+\title{Test Presentation}
+\subtitle{a quick one}
+\date{}
+\author{}
+\institute{}
+
+\newlength{\test}
+\makeatletter
+\setlength{\test}{\totalheightof{%
+  \begin{beamercolorbox}[%
+      wd=\paperwidth,%
+      sep=0pt,%
+      leftskip=\metropolis@frametitle@padding,%
+      rightskip=\metropolis@frametitle@padding,%
+    ]{frametitle}%
+  \metropolis@frametitlestrut@start%
+  TJ%
+  \nolinebreak%
+  \metropolis@frametitlestrut@end%
+  \end{beamercolorbox}%
+}}
+\addtolength{\test}{\metropolis@progressinheadfoot@linewidth}
+ \makeatother
+
+\begin{document}
+\maketitle
+
+\begin{frame}
+    \begin{tikzpicture}[remember picture,overlay] 
+    \draw[very thick,red] (current page.west) rectangle (current
+    page.south) node (rednode) {};
+        \node [above of = rednode] {test};
+    \draw[very thick,blue] (current page.north west) rectangle (current
+    page.center);
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{A frame title}
+    \begin{tikzpicture}[remember picture,overlay] 
+    \draw[very thick,blue] (current page.north west)++(0,-\test) rectangle (current page.center);
+    \end{tikzpicture}
+\end{frame}
+
+
+\end{document}

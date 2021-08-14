@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/453934
+\documentclass{beamer}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamerfont{frametitle}{series=\bfseries}
+
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\arraybackslash\hspace{0pt}}m{#1}}
+
+\begin{document}
+
+\begin{frame}[t]
+\frametitle{Types of ...}
+\begin{table}
+    \bfseries
+    \begin{tabular}{|C{.16\textwidth}|C{.16\textwidth}|C{.28\textwidth}|}
+        \hline
+        hello & \textcolor{blue}{hello} \textcolor{green}{hello} & receptors\\ \hline
+        hello & \textcolor{blue}{hello} \textcolor{green}{hello} & \\ \hline
+        hello & \textcolor{blue}{hello} \textcolor{green}{hello} & \\ \hline
+    \end{tabular}
+\end{table}
+\end{frame}
+
+\end{document} 

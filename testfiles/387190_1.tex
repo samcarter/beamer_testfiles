@@ -1,0 +1,57 @@
+% https://tex.stackexchange.com/a/387190
+\documentclass{beamer}
+\usetheme{Madrid}
+
+\usecolortheme{beaver}
+%\usepackage{utopia} 
+\usepackage[normalem]{ulem}
+%\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+%\usepackage{multicol}
+
+
+
+\usefonttheme{professionalfonts}
+
+\title[Title]{Title}
+%\author{M. Saiful Bari\inst{1} \and Mr X\inst{2}}
+\author{My Name\inst{1}}
+\institute{
+    \inst{1}
+     Sample University testing and testing
+}
+
+\date{20 June, 2017}
+
+\makeatletter
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\ifblank\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+
+\begin{document}
+
+
+\frame{\titlepage}
+
+
+\section{test}
+
+
+\end{document}

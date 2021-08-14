@@ -1,0 +1,18 @@
+% https://tex.stackexchange.com/a/415285
+\documentclass{beamer}
+\usepackage{xpatch}
+
+\makeatletter
+\patchcmd\beamer@@tmpl@frametitle{\insertframetitle}{\insertsection{} -- \insertframetitle}{}{}
+\makeatother
+
+\begin{document}
+
+\section{Sec shun 2}
+\begin{frame}{My title 2}
+\begin{enumerate}
+\item lorem
+\end{enumerate}
+\end{frame}
+
+\end{document}

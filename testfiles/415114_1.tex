@@ -1,0 +1,57 @@
+% https://tex.stackexchange.com/a/415114
+\documentclass{beamer}
+\useoutertheme[glossy]{wuerzburg}
+\useinnertheme[shadow,outline]{chamfered}
+\usecolortheme{shark}
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage{blindtext}
+
+
+\makeatletter
+\setbeamertemplate{footline}{%
+  \ifbeamer@wuerzburg@nofootline
+  \else
+  \leavevmode%
+  \pgfuseshading{beamer@bottomshade}
+  \ifbeamer@wuerzburg@glossy%
+    \pgfuseshading{beamer@headfootshade}
+    \vskip-3.5ex
+    \hbox{%
+      \begin{beamercolorbox}[wd=.8\paperwidth,ht=2.25ex,dp=1ex,left,ignorebg]{headfoot}%
+        \usebeamerfont{author in head/foot}%
+        \hspace*{3.5ex}%
+        \insertshortauthor{}%
+        \beamerwuerzburgthemeadddelimiter{\insertshortinstitute}%
+        \beamerwuerzburgthemeadddelimiter{\insertshortdate}%
+      \end{beamercolorbox}%
+      \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,right,ignorebg]{headfoot}%
+        \usebeamerfont{date in head/foot}%
+        \insertframenumber{} / \if\thelastframecounter0\inserttotalframenumber\else\thelastframecounter\fi \hspace*{3.5ex}
+      \end{beamercolorbox}}
+  \else%
+    \hbox{%
+      \begin{beamercolorbox}[wd=.8\paperwidth,ht=2.25ex,dp=1ex,left]{headfoot}%
+        \usebeamerfont{author in head/foot}%
+        \hspace*{3.5ex}%
+        \insertshortauthor{}%
+        \beamerwuerzburgthemeadddelimiter{\insertshortinstitute}%
+        \beamerwuerzburgthemeadddelimiter{\insertshortdate}%
+      \end{beamercolorbox}%
+      \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,right]{headfoot}%
+        \usebeamerfont{date in head/foot}%
+        \insertframenumber{} / \if\thelastframecounter0\inserttotalframenumber\else\thelastframecounter\fi \hspace*{3.5ex}
+      \end{beamercolorbox}}
+    \fi%
+  \vskip0pt%
+  \fi
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}[allowframebreaks]{Original footline}
+\blindtext[100]
+\end{frame}
+
+\end{document}

@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/378679
+\documentclass{beamer}
+
+\usepackage{tikz}
+\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture,baseline=(#1.base)] \node (#1) {\vphantom{I}};}
+
+\newcommand{\colorPreamble}{blue!10}
+\newcommand{\colorDocument}{green!10}
+
+\begin{document}
+
+{
+    \addtobeamertemplate{background canvas}{}{%
+        \begin{tikzpicture}[remember picture, overlay]
+        \path[overlay, fill=\colorPreamble] (n.north) rectangle ([xshift=\linewidth] c.south);
+      \path[overlay, fill=\colorDocument] (c.south) rectangle ([xshift=\linewidth] s.south);
+    \end{tikzpicture}
+    }
+    \begin{frame}[fragile]
+            \tikzmark{n}
+            [...]
+
+            \tikzmark{c}
+            [...]
+
+            \tikzmark{s}
+    \end{frame}
+}
+
+\begin{frame}
+content...
+\end{frame}
+\end{document}

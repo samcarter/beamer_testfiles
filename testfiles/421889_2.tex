@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/421889
+\documentclass{beamer}
+\usepackage[framed]{matlab-prettifier}
+
+\lstnewenvironment{myMPcolor}{%
+            \lstset{basicstyle=\color{red}}
+           }{}
+
+\begin{document}
+
+\begin{frame}[fragile]{Title}
+\beamerdefaultoverlayspecification{<+->}
+\begin{itemize}
+    \item first point
+    \begin{itemize}
+        \item subpoint
+    \end{itemize}
+\end{itemize}
+\begin{myMPcolor}
+This is a matlab command
+\end{myMPcolor}
+\end{frame}
+
+\end{document}

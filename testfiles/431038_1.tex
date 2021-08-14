@@ -1,0 +1,16 @@
+% https://tex.stackexchange.com/a/431038
+\documentclass{beamer}
+\usepackage{tikz}
+
+\usebackgroundtemplate{%
+\tikz[overlay,remember picture] \node[opacity=0.3, at=(current page.center),yshift=-100] {
+   \includegraphics[height=\paperheight,width=\paperwidth]{example-image-a}};
+}
+
+\begin{document}
+
+\begin{frame}
+Background transparent image, centered on slide
+\end{frame}
+
+\end{document}

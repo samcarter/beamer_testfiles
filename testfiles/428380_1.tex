@@ -1,0 +1,36 @@
+% https://tex.stackexchange.com/a/428380
+\documentclass[]{beamer}
+\begin{document}
+
+\begin{frame}[t]{Test}
+  \begin{columns}
+    \begin{column}{.4\textwidth}
+      A
+    \end{column}
+    \begin{column}{.4\textwidth}%
+      \only<1>{B}
+      \only<2>{C\\D}
+      \only<3>{C\\D\\E}
+      \only<4>{C\\D\\E\\F}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Test}
+  \begin{columns}
+    \begin{column}{.4\textwidth}
+      A
+    \end{column}
+    \begin{column}{.4\textwidth}%
+      \uncover<1->{B}
+
+      \uncover<2->{C}
+
+      \uncover<3->{D}
+
+      \uncover<4->{E}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\end{document}

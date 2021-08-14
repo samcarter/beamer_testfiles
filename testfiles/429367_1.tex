@@ -1,0 +1,17 @@
+% https://tex.stackexchange.com/a/429367
+\documentclass{beamer}
+\usepackage{tikz}
+\setbeamercolor{normal text}{fg=white, bg=black}
+\begin{document}
+\begin{frame}
+\textcolor{black}{
+    \begin{tikzpicture}
+     \draw [<->,thick] 
+            (0,5) node (yaxis) [left] {$Y$}
+            |- 
+            (5,0) node (xaxis) [below] {$X$};
+    \draw[blue,thick] (0,0) -- (4,4);
+    \end{tikzpicture}
+    }
+\end{frame}
+\end{document}

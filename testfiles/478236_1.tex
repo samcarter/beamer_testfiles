@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/478236
+\documentclass{beamer}
+
+\usetheme{metropolis}
+
+\makeatletter
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip%
+  \begin{beamercolorbox}[%
+      wd=\paperwidth,%
+      sep=0pt,%
+      leftskip=\metropolis@frametitle@padding,%
+      rightskip=\metropolis@frametitle@padding,%
+    ]{frametitle}%
+  \metropolis@frametitlestrut@start%
+  \insertframetitle%
+  \nolinebreak%
+  \metropolis@frametitlestrut@end%
+  \hfill
+  \raisebox{-0.6ex}{\includegraphics[height=3ex,keepaspectratio]{example-image-duck}}
+  \end{beamercolorbox}%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}{My frame title}
+ \begin{block}{Some itemize}
+  \begin{itemize}
+   \item \alert{Item 1}
+   \item Item 2
+  \end{itemize}
+ \end{block}
+ \begin{block}{Some maths}
+ \[\sum_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6}=\zeta(2)\]
+\end{block}
+\end{frame}
+
+\end{document}

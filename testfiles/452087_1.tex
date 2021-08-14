@@ -1,0 +1,49 @@
+% https://tex.stackexchange.com/a/452087
+\documentclass{beamer}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+\begin{document}
+
+\section{recap}
+\subsection{what do we want}
+
+\begin{frame}{what do we want}
+  \begin{itemize}
+      \item we want it all
+  \end{itemize}
+\end{frame}
+
+\begingroup
+\setbeamertemplate{background canvas}{%
+  \hspace{.8\textwidth}\includegraphics[width=.2\paperwidth,height=\paperheight]{example-image-duck}%
+}
+\AtBeginSubsection[]{
+  \begin{frame}<beamer>[label=sym]
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+\subsection[problem when you can zip]{problem when you can zip}
+\endgroup
+
+\begin{frame}
+  \frametitle{zipping solves everything}
+  Lorem ipsum
+\end{frame}
+
+\subsection{1234}
+
+\begin{frame}
+  \frametitle{conclusion}
+  \begin{itemize}
+    \item headache ahead
+    \item<2-> Bonus points for those who spotted the mistake on slide~\ref{sym}
+  \end{itemize}
+\end{frame}
+
+\end{document}

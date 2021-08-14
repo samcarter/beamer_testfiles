@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/464140
+\documentclass[]{beamer}
+\usetheme[progressbar=frametitle]{metropolis}
+\setbeamertemplate{footline}{}
+
+\setbeamertemplate{navigation symbols}{%
+    \ifnum\insertframenumber>0
+        \Tiny\insertframenumber/\inserttotalframenumber%
+    \fi%
+}
+
+\begin{document}
+
+\begin{frame}[plain,noframenumbering]
+\titlepage
+\end{frame}
+
+\begin{frame}
+Some text\footnotemark
+\footnotetext[1]{some footnotetext here, which is not at the same level as slide number}
+\end{frame}
+\end{document}

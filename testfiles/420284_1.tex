@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/420284
+\documentclass{beamer}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz,ifthen,xstring,calc,pgfkeys,pgfopts}
+\usepackage{tikz-uml}
+
+\begin{document}
+
+\begin{frame}
+
+\begin{tikzpicture}
+
+\begin{umlseqdiag}
+\umlobject[class=A]{a}
+\umlobject[class=B]{b}
+
+%\begin{onlyenv}<2>
+\only<2>{\begin{umlcall}[op=call(), return=ok]{a}{b}
+\end{umlcall}}
+%\end{onlyenv}
+
+\end{umlseqdiag}
+
+\end{tikzpicture}
+
+\end{frame}
+
+\end{document}

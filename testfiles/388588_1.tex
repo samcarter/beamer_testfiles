@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/388588
+\documentclass[20pt, xcolor={usenames, dvipsnames}]{beamer}
+\usepackage[overlay,absolute]{textpos}
+
+\begin{document}
+
+\begin{frame}
+\begin{center}
+\begin{textblock}{1}(0.5,0.5)\textcolor{Gray}{n°1}\end{textblock}
+$ \text{5}\times \text{9} $ = \textcolor{BrickRed}{?}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+Answers!
+\end{center}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\begin{textblock}{1}(0.5,0.5)\textcolor{Gray}{n°1}\end{textblock}
+\only<1>{$ \text{5}\times \text{9} $ = \textcolor{BrickRed}{?}}
+\only<2>{$ \text{5}\times \text{9} $ = \textcolor{OliveGreen}{\text{45}}}
+\end{center}
+\end{frame}
+
+\end{document} 

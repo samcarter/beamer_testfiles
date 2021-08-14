@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/417576
+\documentclass[xcolor=dvipsnames,compress,9pt]{beamer}
+
+\setlength{\parskip}{1cm}
+\makeatletter
+\newcommand{\@minipagerestore}{\setlength{\parskip}{1cm}}
+\makeatother
+
+\begin{document}
+
+\begin{frame}{Propagating \textsc{fill} values to columns}
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+\par
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+\vspace*{\parskip}
+\begin{columns}[t]
+\begin{column}{\textwidth}
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+\par
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+\end{column}
+\end{columns}
+\end{frame}
+
+\end{document}

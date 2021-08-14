@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/311025
+\documentclass[handout]{beamer}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Sample side}
+\framesubtitle{with a subtitle}
+
+Start
+\begin{itemize}[<+(1)-| alert@+(1)>]
+\item  first item 
+\vspace{1cm}
+\item second item 
+\vspace{1cm}
+\item  third item
+\end{itemize}
+\pause
+\alert<.(1)|handout:0>{alert}
+\pause
+\action<alert@.(1)>{alert}
+\pause
+
+\only<beamer>{
+    \alert<.(1)>{alert2}
+}
+\end{frame}
+
+\end{document}

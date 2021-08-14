@@ -1,0 +1,38 @@
+% https://tex.stackexchange.com/a/462172
+\documentclass[10pt]{beamer}
+
+\usepackage{makecell}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{siunitx}
+\renewcommand\theadfont{\bfseries\normalsize}
+
+\begin{document}
+\begin{frame}
+    \begin{tabularx}{\linewidth}{%
+        @{}
+        S[table-format=4.4]
+        S[table-format=4.4]
+        S[table-format=4.4]
+        X
+        S[table-format=4.4]
+        X
+        S[table-format=4.4]
+        @{}
+    }
+    \toprule
+    \multicolumn{7}{c}{\textbf{W1011daily}}\\
+        \midrule
+        {\thead{1}} & {\thead{2}} & {\thead{3}}& {\dots} & {\thead{150}}& {\dots} & {\thead{252}}\\
+        \midrule
+         1000.182 & 996.4293 & 993.6557 & \dots & 992.7738 & \dots & 987.8528 \\
+        996.6344&   990.0872  & 990.881  & \dots & 999.3244&  \dots & 989.349\\
+        990.2731 &  987.3196 & 988.7692&   \dots & 1030.053&  \dots & 961.9883\\
+        {\vdots}  & {\vdots} & {\vdots} &  & {\vdots} &  & {\vdots} \\
+        1013.578 &1023.227& 1071.947 &   \dots & 832.6109 &  \dots & 1143.922\\
+        {\vdots}  & {\vdots} & {\vdots} &   & {\vdots} &  & {\vdots} \\
+        734.5305 &821.8897 & 825.8748 &   \dots &  947.0167 &  \dots & 1356.77\\
+        \bottomrule
+    \end{tabularx}
+\end{frame}
+\end{document}

@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/413677
+\documentclass[9pt]{beamer}
+
+\usetheme{Warsaw}
+\useinnertheme{circles}
+\usepackage[utf8]{inputenc}
+
+\title[monExemple]{Un exemple sur le Beamer}
+\subtitle{created with beamer 3.x}
+\author[bela]{A.belahcene}
+\institute{ IAP, Boumerdes}
+
+\setbeamertemplate{itemise item }[ball]
+\setbeamercolor{block title}{fg=black,bg=blue}
+\setbeamercolor{block body}{fg=black,bg=blue!50}
+\setbeamercolor{block body alerted}{fg=white,bg=red}
+
+\begin{document}   
+
+\subsection{Pluridesciplanirité }
+
+\begin{frame}
+    \frametitle{Quelque disciplines d'EIAH}
+    \begin{itemize}[<+->]
+        \item Pédagogie .
+        \item Didactique .
+        \item Information et communication .
+        \item informatique 
+        \begin{itemize}
+            \item IHM , IA ,Si
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\end{document}

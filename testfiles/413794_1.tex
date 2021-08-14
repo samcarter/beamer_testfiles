@@ -1,0 +1,16 @@
+% https://tex.stackexchange.com/a/413794
+\documentclass{beamer}
+
+\setbeamercovered{transparent}
+
+\begin{document}
+
+\begin{frame}
+\begin{align*}
+    \onslide<1->{a &= \frac{b}{c} \\}
+    \onslide<2->{b} &\onslide<2->{= c \times d} \\
+    \onslide<3->{\therefore \quad a} &\onslide<3->{= \frac{d}{c}}
+\end{align*}
+\end{frame}
+
+\end{document}

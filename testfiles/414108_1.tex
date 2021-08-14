@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/414108
+\documentclass{beamer}
+
+\definecolor{myblue}{RGB}{0, 100, 240}
+
+\setbeamercolor{itemize item}{fg=myblue}
+\setbeamercolor{itemize subitem}{fg=myblue}
+\setbeamercolor{itemize subsubitem}{fg=myblue}
+
+\setbeamerfont{itemize item}{size=\normalsize}
+\setbeamerfont{itemize subitem}{size=\scriptsize}
+\setbeamerfont{itemize subsubitem}{size=\tiny}
+
+\defbeamertemplate*{itemize item}{mytheme}{%
+    \usebeamerfont*{itemize item}$>$
+}
+
+\defbeamertemplate*{itemize subitem}{mytheme}{%
+    \usebeamerfont*{itemize subitem}$>$
+}
+
+\defbeamertemplate*{itemize subsubitem}{mytheme}{%
+    \usebeamerfont*{itemize subsubitem}$>$
+}
+
+\begin{document}
+
+\begin{frame}
+    \begin{itemize}
+        \item test
+        \begin{itemize}
+            \item test
+            \begin{itemize}
+                \item test
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+\end{document}

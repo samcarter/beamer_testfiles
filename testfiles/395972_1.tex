@@ -1,0 +1,73 @@
+% https://tex.stackexchange.com/a/395972
+\documentclass[12pt]{beamer}
+\usetheme{CambridgeUS}
+
+
+\usepackage[english]{babel}
+\usepackage{csquotes}% Recommended
+\usepackage[backend=biber,
+  style=authoryear,
+   ]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+
+\addbibresource{\jobname.bib}
+
+\hypersetup{colorlinks,
+citecolor=blue,
+linkcolor=.,
+menucolor=white,
+filecolor=pink,   
+anchorcolor=yellow
+}
+
+\usepackage{filecontents}
+\begin{filecontents*}{\jobname.bib}
+@book{knuth,
+  author       = {Knuth, Donald E.},
+  title        = {The {\TeX} book},
+  date         = 1984,
+  maintitle    = {Computers \& Typesetting},
+  volume       = {A},
+  publisher    = {Addison-Wesley},
+  location     = {Reading, Mass.},
+  langid       = {english},
+  langidopts   = {variant=american},
+  sortyear     = {1984-1},
+  sorttitle    = {Computers & Typesetting A},
+  indexsorttitle= {The TeXbook},
+  indextitle   = {\protect\TeX book, The},
+  shorttitle   = {\TeX book}
+}
+
+@article{einstein,
+    author = {Einstein, A.},
+    title = {Die Grundlage der allgemeinen Relativitätstheorie},
+    journal = {Annalen der Physik},
+    volume = {354},
+    number = {7},
+    doi = {10.1002/andp.19163540702},
+    pages = {769--822},
+    year = {1916}
+}
+\end{filecontents*}
+
+\DeclareCiteCommand{\textcite}
+ {\boolfalse{cbx:parens}}
+  {\usebibmacro{citeindex}%
+    \printtext[bibhyperref]{\printnames{labelname}%
+      \printtext{ (\printfield{year}\printtext{)}}}}
+ {\ifbool{cbx:parens}
+  {\bibcloseparen\global\boolfalse{cbx:parens}}
+  {}%
+ \multicitedelim}
+{\usebibmacro{textcite:postnote}}
+
+\begin{document}
+\begin{frame}{Multiple Model Switching Controllers}
+\begin{itemize}
+    \item \textcite{einstein} gave control scheme which switches between Manifold Convergence Controller and LQR controller for underactuated Autonomous Surface Vessel (river) with just a propeller and rudder.
+\end{itemize}
+
+\end{frame}
+
+\end{document}

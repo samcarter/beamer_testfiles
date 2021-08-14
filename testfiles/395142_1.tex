@@ -1,0 +1,70 @@
+% https://tex.stackexchange.com/a/395142
+\documentclass{beamer}
+\usetheme[microtype,faculty=fsps]{fibeamer} 
+\author{Karthik}
+\title{Title of the document}
+\date{8.10.2017}
+\institute{My institute}
+
+\makeatletter
+\setbeamertemplate{title page}{%
+  % This is slide 0
+  \setcounter{framenumber}{0}
+
+  % Input the university logo
+  \begin{tikzpicture}[
+    remember picture,
+    overlay,
+    xshift=0.5\fibeamer@lengths@logowidth,
+    yshift=0.5\fibeamer@lengths@logoheight
+  ]
+    \node at (0,0) {
+      \fibeamer@includeLogo[
+        width=\fibeamer@lengths@logowidth,
+        height=\fibeamer@lengths@logoheight
+      ]};
+  \end{tikzpicture}
+
+  % Input the title
+  \usebeamerfont{title}%
+  \usebeamercolor[fg]{title}%
+  \begin{minipage}[b][2\baselineskip][b]{\textwidth}%
+    \raggedright\inserttitle
+  \end{minipage}
+  \vskip-.5\baselineskip
+
+  % Input the dashed line
+  \begin{pgfpicture}
+    \pgfsetlinewidth{2pt}
+    \pgfsetroundcap
+    \pgfsetdash{{0pt}{4pt}}{0cm}
+
+    \pgfpathmoveto{\pgfpoint{0mm}{0mm}}
+    \pgfpathlineto{\pgfpoint{\textwidth}{0mm}}
+
+    \pgfusepath{stroke}
+  \end{pgfpicture}
+  \vfill
+  % Input the subtitle
+  \usebeamerfont{subtitle}%
+  \usebeamercolor[fg]{subtitle}%
+  \begin{minipage}{\textwidth}
+    \raggedright%
+    \insertsubtitle%
+  \end{minipage}\vskip.25\baselineskip
+
+  % Input the author's name
+  \usebeamerfont{author}%
+  \usebeamercolor[fg]{author}%
+  \begin{minipage}{\textwidth}
+    \raggedright%
+    \insertauthor\newline%
+    \insertinstitute\newline%
+    \insertdate%
+  \end{minipage}%
+}
+\makeatother
+
+\begin{document}
+\maketitle
+\end{document}

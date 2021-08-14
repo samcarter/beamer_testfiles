@@ -1,0 +1,17 @@
+% https://tex.stackexchange.com/a/479098
+\documentclass{beamer}
+
+\setbeamertemplate{theorems}[numbered]
+
+\begin{document}
+
+\begin{frame}
+    \begin{definition}<1->
+        qwq1 % expected to be ""Definition 1""
+    \end{definition}
+    \begin{definition}<2->
+        qwq2 % expected to be ""Definition 2""
+    \end{definition}
+\end{frame}
+
+\end{document}

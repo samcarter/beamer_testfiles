@@ -1,0 +1,30 @@
+% https://tex.stackexchange.com/a/375134
+\documentclass{beamer}
+
+\usepackage[most]{tcolorbox}
+
+\setbeamertemplate{frametitle}{%
+\begin{tcolorbox}[halign=center, drop shadow=red,enhanced,colback=white,colframe=red, sharp corners=all]
+\insertframetitle
+\end{tcolorbox}
+}
+
+\setbeamertemplate{itemize item}[circle]
+\setbeamercolor{itemize item}{fg=black}
+\setbeamerfont{title in head/foot}{size=\small}
+
+\setbeamertemplate{headline}{\vskip0.7em\usebeamerfont{title in head/foot}\hspace*{1em}\insertshorttitle\hfill\insertshortauthor\hfill\insertframenumber\hspace*{1em}\vskip0.7em}
+
+\title{title}
+\author{author}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{test}
+\begin{itemize}
+\item content
+\end{itemize}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/420553
+\documentclass{beamer}
+
+\setbeamertemplate{footline}[page number]
+
+\begin{document}
+
+\begin{frame}
+
+\pause[6]
+
+outside text
+
+\begin{itemize}
+\item<+(1)-> Text {\color<+(1)-+(2)>{blue} more Text} 
+\item<+(-1)-> Text \visible<.->{more Text 8} \visible<+->{more Text 9}
+\item<+-> Text
+\end{itemize}
+
+\end{frame}
+
+\end{document}

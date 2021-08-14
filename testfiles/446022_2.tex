@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/a/446022
+\documentclass[aspectratio=1610]{beamer}
+\usepackage[english, ngerman]{babel}
+\usetheme{Frankfurt}
+\usecolortheme{beaver}
+\usepackage[sfdefault,lf]{carlito}
+\usepackage[T1]{fontenc}
+\renewcommand*\oldstylenums[1]{\carlitoOsF #1}
+\begin{document}
+\section{Testsection}
+\subsection{Something}
+\begin{frame}\frametitle{Test}
+    \begin{columns}[onlytextwidth]
+        \begin{column}{.5\linewidth}
+            \begin{itemize}
+                \uncover<1->{\item Hi}
+                \uncover<2->{\item Hello}
+                \uncover<3->{\item Hi again}
+                \uncover<4->{\item Hi again}
+                \uncover<5->{\item Hello again}
+            \end{itemize}
+        \end{column}
+        \begin{column}{.5\linewidth}%
+         \begin{minipage}[t][.5\textheight][c]{\textwidth}
+            \includegraphics<1>[width=\textwidth]{example-image-duck}%
+              \includegraphics<5>[width=\textwidth, height=.3\textheight,page=3]{example-image-duck}%
+         \end{minipage}%
+        \end{column}
+    \end{columns}
+\end{frame}
+\end{document}

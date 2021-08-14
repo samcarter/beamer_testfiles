@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/394752
+\documentclass{beamer}
+\usetheme{Warsaw}
+
+\begin{document}
+
+\begin{frame}
+\begin{columns}[onlytextwidth]
+    \begin{column}{0.45\textwidth}
+        \begin{block}{block1}
+          \begin{minipage}[c][0.16\textheight][c]{\linewidth} 
+            text
+          \end{minipage}
+        \end{block}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+        \begin{block}{block2}
+            \[
+                \begin{bmatrix}
+                    f_{1} & f_{2} & f_{3}\\
+                    s_{1} & 0 & 0 \\ 
+                    0 & s_{2} & 0 
+                \end{bmatrix}
+            \]
+        \end{block}
+    \end{column}    
+\end{columns}
+
+\begin{block}{block3}
+
+\end{block}
+\end{frame}
+
+\end{document}

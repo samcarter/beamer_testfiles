@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/404410
+\documentclass[12pt]{beamer}
+\usepackage{algorithm,algorithmic}
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\begin{document}
+
+\begin{frame}
+
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\REQUIRE ingredients I = (1, \ldots, N)
+\ENSURE not Pizza 
+\FOR{$j=1$ to $N$}
+\STATE Add Pineapple on Pizza
+\ENDFOR
+\end{algorithmic}
+\caption{pseudocode for not making a pizza}
+\label{alg:seq}
+\end{algorithm}
+\end{frame}
+
+\end{document}

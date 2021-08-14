@@ -1,0 +1,18 @@
+% https://tex.stackexchange.com/a/453854
+\documentclass{beamer}
+\usepackage{ragged2e}
+\usepackage{lipsum}
+\let\olditem\item
+\renewcommand\item{\olditem\justifying}
+
+\setbeamertemplate{itemize item}{}
+\setlength{\leftmargini}{0cm}
+
+\begin{document}
+\begin{frame}
+text 
+\begin{itemize}
+\item \lipsum[2]
+\end{itemize}
+\end{frame}
+\end{document}

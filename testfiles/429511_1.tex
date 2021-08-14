@@ -1,0 +1,100 @@
+% https://tex.stackexchange.com/a/429511
+\documentclass[9pt,t,handout]{beamer}
+
+\usepackage[utf8]{inputenc}
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamerfont{author in head/foot}{size=\footnotesize}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{institute}{size=\footnotesize}
+\setbeamerfont{date}{size=\footnotesize}
+\setbeamerfont{normal text}{size=\footnotesize}
+\AtBeginDocument{\usebeamerfont{normal text}}
+
+\setbeamertemplate{itemize item}[circle]
+
+\definecolor{myblue}{rgb}{0.196,0.196,0.694}
+\definecolor{myred}{rgb}{1,0.3,0.1} 
+
+\setbeamercolor{alerted text}{fg=myred}
+\setbeamercolor{structure}{fg=myblue}
+
+\author{Max Mustermann}
+\institute[Univ. of Berlin]{Seminar zur Numerik im SS 2018, Universit\""at of Berlin}
+\title{Sobolev-Orthogonalpolynome}
+\date{15.Mai 2018}
+
+\begin{document}
+
+\begin{frame}
+    \maketitle
+
+  \pause
+
+  \alert{Ziel} dieses Vortrags: Motivation der Thematik 
+  \begin{itemize}
+    \item Sobolev-Orthogonalpolynome: Theorie und Anwendungen aus   [G1]
+    \item Sobolev-Orthogonalpolynome: Verwendung der Matlab-Programme aus [G2]
+  \end{itemize}
+
+    \vfill
+    \begingroup
+        \tiny
+    \alert{Verwendete Literatur} (zus\""atzlich zu Originalarbeiten): 
+    \begin{itemize}
+        \item[{[G1]}] W. Gautschi, Orthogonal Polynomials, Oxford University    Press, 2004.
+        \item[{[G2]}] W. Gautschi, Orthogonal Polynomials in Matlab, SIAM, 2016.
+    \end{itemize}
+  \endgroup
+\end{frame}
+
+\begin{frame}
+    \structure{Definition} 
+
+  \begin{itemize}
+      \item 
+      \item $\ldots$
+  \end{itemize}
+
+  \structure{Definition} 
+  \begin{itemize}
+      \item
+      \item
+      \item
+      \item
+      \item
+      \item $\ldots$
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+    \begin{center}
+         \alert{Motivation}
+
+         \alert{Definition \& Eigenschaften}
+    \end{center}
+
+  \begin{itemize}
+    \item Sei $\mathbb{P} :=\{relle \quad Polynome\}$ für ein Paar $u,v \in    \mathbb{P}$ definieren wir 
+      $(1.1) (u,v)_S= \int_{\mathbb{R}}u(t)v(t) d\lambda_0(t)+\cdots+\int_{\mathbb{R}}u^{(s)}(t)v^{(s)}(t) d\lambda_s(t)$ wobei $s\le 1$ $d\lambda_i$ positive  Maße (mit nicht notwendigerweise selben Trägern) als Sobolev inneres  Produkt
+  \end{itemize}
+
+  \pause
+
+    \begin{center}
+         \alert{Motivation}
+
+         \alert{Definition \& Eigenschaften}
+    \end{center}
+
+  \begin{itemize}
+      \item Die Norm ist definiert durch $\lVert u\rVert_S=\sqrt{(u,u)_S}=    \sqrt{\sum_{\sigma=1}^s\int_{\mathbb{R}}(u^{(\sigma)}(t))^2} d\lambda_{\sigma}(t)$\\ sofern $s\le 1$, erfüllt $(1.1)$ nicht länger die Shift-Eigenschaft.
+    Für $s=1$, z.B. ist $(tu,v)_S=(u,tv)_S=\int_{\mathbb{R}}(uv'-u'v)(t) d\lambda_1(t)$ 
+    Wähle $u(t)=1$ und $v(t)=t$ $\Rightarrow \int_{\mathbb{R}}d\lambda_1(t)>0$
+  \end{itemize}
+
+\end{frame}
+
+\end{document}

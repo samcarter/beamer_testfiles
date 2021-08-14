@@ -1,0 +1,73 @@
+% https://tex.stackexchange.com/a/416469
+\documentclass{beamer}
+
+\setbeamerfont{headline}{size=\normalfont}
+\setbeamercolor{headline}{bg=white}
+
+\setbeamertemplate{headline}{%
+  \begin{beamercolorbox}[sep=0.3cm,left,wd=.67\paperwidth]{headline}
+        \usebeamerfont{headline}%
+        \insertshortauthor~\&~\insertshortinstitute 
+  \end{beamercolorbox}%
+}
+
+\setbeamercolor{frametitle}{bg=}
+\setbeamercolor{framesubtitle}{bg=gray!55!white}
+
+\makeatletter
+\setbeamertemplate{frametitle}{%
+    \vspace*{-0.1cm}
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \begin{beamercolorbox}[sep=0.3cm,left,wd=\the\@tempdima]{frametitle}
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-1ex%
+    \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+    \strut\insertframetitle\strut\par%
+   \end{beamercolorbox}
+%    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+        \vskip-0.3cm%
+        \begin{beamercolorbox}[sep=0.1cm,left,wd=\the\@tempdima]{framesubtitle} 
+        {\hspace{0.2cm}\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+        \end{beamercolorbox}        
+      \fi
+%    }%
+    \vskip-1ex%
+    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+%  \end{beamercolorbox}%
+}
+\makeatother
+
+\setbeamercolor{background}{bg=}
+\setbeamertemplate{background}{\includegraphics[width=\paperwidth,height=.17\paperheight]{example-image-duck}}
+
+\logo{\includegraphics[width=.2\paperwidth]{example-image}}
+
+
+\title{The Title}
+\author{S.~Author}
+\institute{The Institute}
+
+\begin{document}
+
+{
+\setbeamertemplate{background}{}
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+}
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\begin{frame}
+\frametitle{title}
+\framesubtitle{subtitle}
+\end{frame}
+
+\end{document}

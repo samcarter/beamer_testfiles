@@ -1,0 +1,87 @@
+% https://tex.stackexchange.com/a/436222
+\documentclass{beamer}
+\usetheme{Frankfurt}
+
+\setbeamercolor*{title}{bg=gray!90,fg=white}
+\setbeamercolor{frametitle}{bg=gray}
+\setbeamercolor{section in head/foot}{fg=white}
+\setbeamercolor{local structure}{fg=black}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{enumerate items}[default]
+
+\usepackage{tikz}
+%\usepackage{xcolor}
+\usepackage{sansmathaccent}
+\pdfmapfile{+sansmathaccent.map}
+
+\makeatletter
+\def\insertnavigation#1{%
+  \vbox{{%
+    \usebeamerfont{section in head/foot}\usebeamercolor[fg]{section in head/foot}%
+    \beamer@xpos=0\relax%
+    \beamer@ypos=1\relax%
+    \beamer@ypos@offset=0\relax%
+    \hbox to #1{\hskip.3cm\setbox\beamer@sectionbox=\hbox{\kern1sp}%
+      \ht\beamer@sectionbox=1.875ex%
+      \dp\beamer@sectionbox=0.75ex%
+%        \hskip-1.875ex plus-1fill%
+        \global\beamer@section@min@dim\z@
+        \dohead%
+        \beamer@section@set@min@width
+      \box\beamer@sectionbox\hfil\hskip.3cm}%
+  }}}
+
+\def\sectionentry#1#2#3#4#5{% section number, section title, page
+  \beamer@xpos=0\relax%
+  \beamer@ypos=1\relax%
+  \beamer@ypos@offset=0\relax%
+  \ifnum#5=\c@part%
+  \beamer@section@set@min@width%
+  \box\beamer@sectionbox%
+%  \hskip1.875ex plus 1fill%
+    \quad% <- Adjust here the desired space
+  \setbox\beamer@sectionbox=
+  \hbox{\def\insertsectionhead{#2}%
+    \def\insertsectionheadnumber{#1}%
+    \def\insertpartheadnumber{#5}%
+    {%
+      \usebeamerfont{section in head/foot}\usebeamercolor[fg]{section in head/foot}%
+      \ifnum\c@section=#1%
+        \hyperlink{Navigation#3}{{\usebeamertemplate{section in head/foot}}}%
+      \else%
+        \hyperlink{Navigation#3}{{\usebeamertemplate{section in head/foot shaded}}}%
+      \fi}%
+  }%
+  \ht\beamer@sectionbox=1.875ex%
+  \dp\beamer@sectionbox=0.75ex%
+  \fi\ignorespaces}
+\makeatother
+
+
+\begin{document}
+
+\section[Section 1]{}
+
+\begin{frame}{A concept}
+
+
+\end{frame}
+
+
+%newFrame
+
+
+\section[Section 2]{}
+
+
+\begin{frame}{A concept}
+
+\end{frame}
+
+
+
+
+
+\end{document}

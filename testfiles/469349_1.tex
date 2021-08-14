@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/469349
+\documentclass{beamer}
+
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen}
+
+\begin{document}
+
+\begin{frame}
+    \begin{itemize}
+        \item<1-> Test
+        \item<2-> Another test
+    \end{itemize}
+
+\note[item]<1>{Test}
+\note[item]<2>{Another test}
+
+\end{frame}
+
+\end{document}

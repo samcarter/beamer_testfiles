@@ -1,0 +1,38 @@
+% https://tex.stackexchange.com/a/380552
+\documentclass{beamer}
+
+\usetheme{Madrid}
+\useoutertheme{infolines}
+
+\usepackage{lipsum}
+\usepackage{ragged2e} % For justifying text
+
+\definecolor{bluepigment}{rgb}{0.25, 0.25, 0.5}
+\makeatletter
+\def\th@definition{%
+    \itshape % body font
+    \setbeamercolor{block title example}{bg=bluepigment,fg=white}
+    \setbeamercolor{block body example}{bg=bluepigment!25,fg=black}
+    \setbeamercolor{example text}{fg=bluepigment}
+    \def\inserttheoremblockenv{exampleblock}
+}
+\makeatother
+
+\theoremstyle{definition}
+\newtheorem{definicion}{Definición}[section]% Definition
+
+\apptocmd{\frame}{}{\justifying}{} % Allow optional arguments after frame.
+
+\addtobeamertemplate{theorem begin}{}{\justifying}
+
+\begin{document}
+
+\begin{frame}
+    \lipsum[2]
+
+    \begin{definicion}[Lipsum text]
+    \lipsum[2]
+    \end{definicion}
+\end{frame}
+
+\end{document}

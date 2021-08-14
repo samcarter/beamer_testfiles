@@ -1,0 +1,14 @@
+% https://tex.stackexchange.com/a/444696
+\documentclass{beamer}
+\setbeamertemplate{navigation symbols}{}
+\usepackage{tikz}   
+\begin{document}
+\begin{frame}[fragile,t]
+\frametitle{}
+\begin{tikzpicture}[scale=.9, transform shape]
+\vspace {1.cm}
+\shade [ball color=orange] (.25,.25) -- ++(0:.25) -- ++(-90:.25)-- ++(0:.25)-- ++(-90:.25)-- ++(180:.25)-- ++(-90:.25)-- ++(180:.25)-- ++(90:.25)-- ++(180:.25)-- ++(90:.25)-- ++(0:.25)-- ++(90:.25) -- cycle;
+\shade [ball color=orange](0,-1) -- ++(0:.75) -- ++(-90:.25)  -- ++(180:.75)-- ++(90:.25)-- cycle;
+\end{tikzpicture}
+\end{frame}
+\end{document} 

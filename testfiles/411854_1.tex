@@ -1,0 +1,30 @@
+% https://tex.stackexchange.com/a/411854
+\documentclass[17pt]{beamer}
+
+\usefonttheme{structuresmallcapsserif}
+\setbeamerfont{itemize item}{series=\normalfont}
+\setbeamerfont{enumerate item}{series=\normalfont}
+\setbeamerfont{description item}{series=\normalfont}
+
+\begin{document}
+
+\begin{frame}{Frame Title}
+
+\framesubtitle{Subtitle}
+    \begin{description}
+        \item [09:00] Opening Remarks
+        \item [17:00] Closing Remarks
+    \end{description}
+
+    \begin{itemize}
+        \item [09:00] Opening Remarks
+        \item [17:00] Closing Remarks
+    \end{itemize}   
+
+    \begin{enumerate}
+        \item Opening Remarks
+        \item Closing Remarks
+    \end{enumerate}    
+\end{frame}
+
+\end{document}

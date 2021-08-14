@@ -1,0 +1,40 @@
+% https://tex.stackexchange.com/a/461022
+\documentclass[12pt,xcolor=dvipsnames]{beamer}
+\usefonttheme{serif}
+\usetheme{Madrid} 
+\usepackage{lipsum}
+
+\newcounter{block}
+\setcounter{block}{0}
+\numberwithin{block}{section}
+
+\setbeamertemplate{block begin}
+{%
+    \refstepcounter{block}%
+  \par\vskip\medskipamount%
+  \begin{beamerboxesrounded}[upper=block title,lower=block body,shadow=true]%
+    {\raggedright\usebeamerfont*{block title}\insertblocktitle}%
+    \raggedright%
+    \usebeamerfont{block body}%
+}
+
+\begin{document}
+
+\section{}
+\begin{frame}{Example \ref{block1}}
+\begin{block}{}\label{block1}
+\lipsum[2]
+\end{block}
+\end{frame}
+
+\begin{frame}
+content...
+\end{frame}
+
+\begin{frame}{Example \ref{block2}}
+\begin{block}{}\label{block2}
+\lipsum[2]
+\end{block}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,79 @@
+% https://tex.stackexchange.com/a/427789
+\documentclass[xcolor=table]{beamer}
+
+\setlength{\arrayrulewidth}{0.5mm}
+\renewcommand{\arraystretch}{1}
+\definecolor{wildblueyonder}{rgb}{0.64, 0.68, 0.82}
+\newcolumntype{S}{>{\columncolor[HTML]{AAACED}}l}
+
+\usepackage{lmodern}
+
+
+\begin{document}
+\begin{frame}
+
+\fontsize{5.5pt}{8pt}\selectfont
+\centering
+\begin{tabular}{ |l|S|S|c| }
+\hline
+\rowcolor{lightgray} \multicolumn{4}{|c|}{Classical multiple lm} \\
+\hline
+\rowcolor{wildblueyonder}
+ & Estimate & Std. Error & p-value \\
+\hline
+intercept & 21.8100 & 0.5723 & $<2e-16$ \\
+r.limit & 0.4872 & 0.3775 & 0.1997 \\
+conc & -0.9541 & 0.0352 & $<2e-16$ \\
+log.t & -2.7720 & 0.0377 & $<2e-16$ \\
+log.rho & -1.4140 & 0.0186 & $<2e-16$ \\
+V.esc & 0.0001 & 0.0001 & 0.2544 \\
+V.t & 0.0021 & 0.0044 & 0.6368 \\
+Metal & 0.0427 & 0.0145 & 0.0040 \\
+\textbf{F test} & \cellcolor{lightgray} & \cellcolor{lightgray} & \textcolor{red}{$<2e-16$} \\
+\hline
+\end{tabular}
+\hfill
+\begin{tabular}{ |l|S|S|c| }
+\hline
+\rowcolor{lightgray} \multicolumn{4}{|c|}{Canonical multiple lm} \\
+\hline
+\rowcolor{wildblueyonder}
+ & Estimate & Std. Error & p-value \\
+\hline
+intercept & -7.4181 & 0.0067 & $<2e-16$ \\
+Comp.1 & -0.2536 & 0.0038 & $<2e-16$ \\
+Comp.2 & 0.6747 & 0.0053 & $<2e-16$ \\
+Comp.3 & -0.4879 & 0.0645 & $<2e-16$ \\
+Comp.4 & -0.0336 & 0.0081 & 0.0001 \\
+Comp.5 & 0.1427 & 0.0097 & $<2e-16$ \\
+Comp.6 & -2.2291 & 0.0284 & $<2e-16$ \\
+Comp.7 & 1.5929 & 0.0409 & $<2e-16$ \\
+\textbf{F test} & \cellcolor{lightgray} & \cellcolor{lightgray} & \textcolor{red}{$<2e-16$} \\
+\hline
+\end{tabular}
+
+\smallskip\smallskip
+
+\begin{tabular}{ |l|S|S|c| }
+\hline
+\rowcolor{lightgray} \multicolumn{4}{|c|}{Canonical multiple lm} \\
+\hline
+\rowcolor{wildblueyonder}
+ & Estimate & Std. Error & p-value \\
+\hline
+intercept & -7.4181 & 0.0067 & $<2e-16$ \\
+Comp.1 & -0.2536 & 0.0038 & $<2e-16$ \\
+Comp.2 & 0.6747 & 0.0053 & $<2e-16$ \\
+Comp.3 & -0.4879 & 0.0645 & $<2e-16$ \\
+Comp.4 & -0.0336 & 0.0081 & 0.0001 \\
+Comp.5 & 0.1427 & 0.0097 & $<2e-16$ \\
+Comp.6 & -2.2291 & 0.0284 & $<2e-16$ \\
+Comp.7 & 1.5929 & 0.0409 & $<2e-16$ \\
+\textbf{F test} & \cellcolor{lightgray} & \cellcolor{lightgray} & \textcolor{red}{$<2e-16$} \\
+\hline
+\end{tabular}
+
+
+\end{frame}
+
+\end{document}

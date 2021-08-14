@@ -1,0 +1,127 @@
+% https://tex.stackexchange.com/a/310224
+\documentclass[xcolor={dvipsnames,svgnames,table},10pt]{beamer}
+
+\usepackage[T1]{fontenc}
+
+\colorlet{titleleft}{Red}
+\colorlet{titleright}{Green}
+
+\setbeamercolor*{frametitle}{fg=white}
+
+\makeatletter
+\pgfdeclarehorizontalshading[titleleft,titleright]{beamer@frametitleshade}{0.7\paperheight}{%
+  color(50pt)=(titleleft);
+  color(0.85\paperwidth)=(titleright)}
+
+\defbeamertemplate*{frametitle}{horizontal shading}
+{%
+  \nointerlineskip%
+  \vskip+3pt%
+  \hbox{\leavevmode
+    \advance\beamer@leftmargin by -12bp%
+    \advance\beamer@rightmargin by -12bp%
+    \beamer@tempdim=\textwidth%
+    \advance\beamer@tempdim by \beamer@leftmargin%
+    \advance\beamer@tempdim by \beamer@rightmargin%
+    \hskip-\Gm@lmargin\hbox{%
+      \setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{\paperwidth}%
+          \vbox{}\vskip-.75ex%
+          \leftskip0.3cm%
+          \hskip5em
+          \rightskip0.3cm plus1fil\leavevmode
+          \insertframetitle%
+          \ifx\insertframesubtitle\@empty%
+            \strut\par%
+          \else
+            \par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+          \fi%
+          \nointerlineskip
+          \vbox{}%
+          \end{minipage}}%
+      \beamer@tempdim=\ht\beamer@tempbox%
+      \advance\beamer@tempdim by 2pt%
+      \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
+        \usebeamercolor{frametitle right}
+        \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+        \pgfusepath{clip}
+        \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+      \end{pgfpicture}
+      \hskip-\paperwidth%
+      \box\beamer@tempbox%
+    }%
+    \hskip-\Gm@rmargin%
+  }%
+    \vskip-2pt
+}
+
+\setbeamertemplate{title page}
+{
+    \vbox{}
+    \vfill
+    \begingroup
+    \centering
+  \hbox{\leavevmode
+    \advance\beamer@leftmargin by -12bp%
+    \advance\beamer@rightmargin by -12bp%
+    \beamer@tempdim=\textwidth%
+    \advance\beamer@tempdim by \beamer@leftmargin%
+    \advance\beamer@tempdim by \beamer@rightmargin%
+    \hskip-\Gm@lmargin\hbox{%
+        \setbox\beamer@tempbox=\hbox{%
+            \hskip24bp              
+                \begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]{title}
+                \usebeamerfont{title}\inserttitle\par%
+                \ifx\insertsubtitle\@empty%
+                \else%
+                \vskip0.25em%
+                {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+                \fi%     
+            \end{beamercolorbox}%
+                }
+            \beamer@tempdim=\ht\beamer@tempbox%
+            \advance\beamer@tempdim by 2pt%
+            \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
+                \usebeamercolor{frametitle right}
+                \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+                \pgfusepath{clip}
+                \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+            \end{pgfpicture}
+      \hskip-\paperwidth%
+      \box\beamer@tempbox%
+    }%
+    \hskip-\Gm@rmargin%
+  }%
+  \vskip-2pt    
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]{author}
+        \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]{institute}
+        \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]{date}
+        \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    \endgroup
+    \vfill
+}
+\makeatother
+
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamerfont{title}{series=\bfseries}
+\setbeamercolor{title}{fg=white}
+
+\title{TEST}
+
+\begin{document}
+
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
+
+\begin{frame}{Test}
+ a Test frame
+\end{frame}
+
+\end{document}

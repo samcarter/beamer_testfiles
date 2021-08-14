@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/379974
+\documentclass{beamer}
+
+\usepackage{fontawesome}
+
+\def\insertreturnsymbol{%
+  \faCoffee\space
+}
+
+\begin{document}
+    \begin{frame}
+    \hyperlink{contents}{\beamerbutton{contents page}}
+
+    \hyperlink{columns}{\beamergotobutton{columns page}}
+
+    \hyperlink{pictures}{\beamerskipbutton{pictures page}}
+
+    \hyperlink{pictures}{\beamerreturnbutton{Home page}}
+\end{frame}
+\end{document}

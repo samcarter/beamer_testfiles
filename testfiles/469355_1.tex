@@ -1,0 +1,18 @@
+% https://tex.stackexchange.com/a/469355
+\documentclass{beamer}
+\usepackage{bussproofs}
+
+\setbeamercovered{transparent}
+
+\begin{document}
+\begin{frame}
+\begin{prooftree}
+\AxiomC{\uncover<3->{an axiom}}
+\LeftLabel{\uncover<3->{some label}}
+\UnaryInfC{\uncover<2->{some text}}
+\LeftLabel{\uncover<2->{another label}}
+\UnaryInfC{more text }
+\end{prooftree}
+\end{frame}
+
+\end{document}

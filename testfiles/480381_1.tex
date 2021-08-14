@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/480381
+\documentclass[aspectratio=169, xcolor={x11names}]{beamer}
+
+\usecolortheme{wolverine}
+\useoutertheme[]{split}
+\useinnertheme{inmargin}
+
+\setbeameroption{show notes}
+
+\setbeamersize{description width=0mm}                       
+%\renewcommand{\encodingdefault}{T1}
+
+\usepackage{cleveref}
+\crefformat{equation}{Eq. (#1)}
+
+\begin{document}
+
+\begin{frame}<-2>[label=foo]
+
+    \begin{block}{Derivation of Equivalent Impedance}
+
+        \begin{description}[<+->]
+            \item[Item 1] Item 1
+            \item[Item 2] Item 2
+            \item[Item 3] Item 3
+                \begin{equation}e = m c^{2}\label{eqx}\end{equation}\cref{eqx} is what we want.
+        \end{description}
+
+    \end{block}\end{frame}
+
+ \note{\begin{equation}e = m c^{2}\label{eq}\end{equation}\cref{eq} is what we want.}
+
+ \againframe<3->{foo}    
+
+\end{document}

@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/314922
+\documentclass[17pt,t]{beamer}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\setbeamertemplate{frametitle}{
+    \vskip1cm
+    \tikz[remember picture,overlay]{
+        \node(a)[fill=black,rectangle,minimum width=.25cm,minimum height=1cm,anchor=north west]at(current page.north west){};
+        \node(b)[anchor=west]at(a.west){\strut\insertframetitle};
+        \draw[red, line width = 1mm, below left=1cm and 3cm of a](a.south west)--+(11.8,0);
+    }
+    \vskip-1cm 
+}
+
+\begin{document}
+    \frame{\frametitle{Gggg}
+    }
+    \frame{\frametitle{Aaaa}
+    }
+\end{document}

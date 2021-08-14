@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/392761
+\documentclass{beamer}
+
+\title{title}
+
+\setbeamertemplate{navigation symbols}{
+\parbox{10cm}{
+    \textcolor{red}{\rule{10cm}{.4pt}}\newline
+    \vskip1pt
+    \textcolor{gray}{%
+        \tiny
+        \hfill Name~\vline~\inserttitle~\vline~Folie~insertframenumber\quad
+    }
+    \vskip3pt
+}
+}
+
+\setbeamerfont{footnote}{size=\tiny}
+\renewcommand{\footnoterule}{}
+\begin{document}
+
+\begin{frame}
+bla \footnote{Test}
+\end{frame}
+
+\end{document}

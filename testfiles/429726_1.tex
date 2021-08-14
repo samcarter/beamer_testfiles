@@ -1,0 +1,30 @@
+% https://tex.stackexchange.com/a/429726
+\documentclass{beamer}
+
+\newenvironment{itemlist}[1]{%
+\begin{trivlist}
+\item \textbf{\large #1}
+\begin{itemize}
+}{%
+\end{itemize}
+\end{trivlist}
+}
+
+\begin{document}
+
+\begin{frame}{Titel}
+\begin{itemlist}{About me}
+  \item Studying XXX in YYY
+  \item Some additional information
+\end{itemlist}
+\begin{itemlist}{About my topic \footnotesize \hfill \raggedleft (""This is the name of my very interesting topic which is too long for one line"") \\}
+  \item Topic information 1
+  \item Topic Information 2
+\end{itemlist}
+\begin{itemlist}{Some other stuff}
+  \item Stuff 1
+  \item Stuff 2
+\end{itemlist}
+\end{frame}
+
+\end{document}

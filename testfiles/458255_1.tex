@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/a/458255
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{frame}
+     \begin{tikzpicture}[remember picture, overlay]
+            \node (image) at (current page.center) {\includegraphics[scale=0.5]{example-image}};
+            \node[align=center,yshift=3cm] at (current page.center) {up};
+            \node[align=center,yshift=-3cm] at (current page.center) {down};        
+            \node[align=center,xshift=-4cm] at (current page.center) {right};   
+            \node[align=center,xshift=4cm] at (current page.center) {left};                               
+        \end{tikzpicture}
+\end{frame}
+
+
+\end{document}

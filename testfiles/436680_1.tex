@@ -1,0 +1,17 @@
+% https://tex.stackexchange.com/a/436680
+\documentclass{beamer}
+
+\newenvironment{myframe}[1]
+    {\begin{frame}[environment=myframe]
+        \frametitle{#1}
+        Heading\par
+        }
+    {\end{frame}}
+
+
+\begin{document}
+\begin{myframe}{Title}
+The title does not appear as expected
+\end{myframe}
+
+\end{document}

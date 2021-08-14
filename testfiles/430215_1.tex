@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/430215
+\documentclass{beamer}
+
+\usetheme{metropolis}
+\usepackage[export]{adjustbox}
+
+\def\Vhrulefill{\leavevmode\leaders\hrule height 0.5ex depth 
+\dimexpr-.5ex+0.4pt\hfill\kern0pt}
+
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\textwidth, sep=3ex]{footline}%
+    \usebeamerfont{page number in head/foot}%
+    Tag line \Vhrulefill
+    \space
+    \includegraphics[height=0.5cm,valign=c]{example-image-a}    
+    \space
+    \usebeamertemplate*{frame numbering}
+  \end{beamercolorbox}%
+}
+
+\begin{document}
+\begin{frame}{Frame title}
+Text
+\end{frame}
+\end{document}

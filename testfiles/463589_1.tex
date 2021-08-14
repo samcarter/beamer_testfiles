@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/463589
+\documentclass{beamer}
+
+\makeatletter
+\renewcommand<>\appendix{%
+    \ifnum\inserttotalframenumber=\insertmainframenumber
+    \else
+    \begin{frame}
+        APPENDIX
+    \end{frame}
+    \fi
+  \beamer@inappendixtrue%
+  \only#1{\part{\appendixname}%
+  \immediate\write\@auxout{\string\@writefile{nav}%
+    {\noexpand\headcommand{\noexpand\gdef\noexpand\insertmainframenumber{\the\c@framenumber}}}}%
+  \addtocontents{nav}{\protect\headcommand{\protect\beamer@appendixpages{\the\c@page}}}%
+  \beamer@resetappendix}%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+content...
+\end{frame}
+
+\appendix
+
+\begin{frame}
+content...
+\end{frame}
+
+\end{document}

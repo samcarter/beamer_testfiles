@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/445164
+\documentclass{beamer}
+\beamertemplatenavigationsymbolsempty
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{arrows}
+\begin{document}
+\begin{frame}[fragile,t]
+\frametitle{}
+\begin{tikzpicture}[scale=.9, transform shape]
+\fontsize{11pt}{9pt}\selectfont
+\draw [thick,-latex](0,0) -- (9.,0);
+\draw [thick,-latex](0,0) -- (0,7);
+
+\draw [ultra thick, blue] (4.,4.4) +(-45:1.cm) node [black, xshift=1.4cm, yshift=-.28cm] {Demand of Imports} -- +(135:3.cm)  +(30:1.cm) node [black, xshift=1.4cm, yshift=.2cm] {\textit{Demand of Exports}} -- +(-150:4.2cm);
+
+\draw [thick, black, densely dotted] (0,4.92) node [minimum size=4.cm, xshift=-.68cm, yshift=.28cm, path picture={\draw [thick, black, solid, -latex'] (0,0) node [black, xshift=.24cm, yshift=-.2cm]{$1.30$} -- +(130:.5cm);}]{} node [black, xshift=-1.28cm, yshift=1.2cm, align=center,text width=1.5cm] {Price buyers pay} -- ++(0:3.46);
+
+\draw [thick, black, densely dotted] (0,4.4) node [minimum size=4.cm, xshift=-.88cm, yshift=.06cm, path picture={\draw [thick, black, solid, -latex'] (0,0) node [black, xshift=.44cm, yshift=0cm]{$1.00$} -- +(180:.4cm);}]{} node [black, xshift=-2.cm, yshift=.06cm, align=center,text width=1.5cm] {Price without tax} -- ++(0:4.);
+
+\draw [thick, black, densely dotted] (0,4.08) node [minimum size=4.cm, xshift=-.8cm, yshift=-.16cm, path picture={\draw [thick, black, solid, -latex'] (0,0) node [black, xshift=.38cm, yshift=0cm]{$0.80$} -- +(-130:.5cm);}]{} node [black, xshift=-1.28cm, yshift=-1.16cm, align=center,text width=1.5cm] {Price sellers receive} -- ++(0:3.46);
+\end{tikzpicture}
+\end{frame}
+\end{document}

@@ -1,0 +1,48 @@
+% https://tex.stackexchange.com/a/432937
+\documentclass{beamer}
+\usetheme{Darmstadt}  
+
+\makeatletter
+\let\beamer@writeslidentry@miniframeson=\beamer@writeslidentry%
+\def\beamer@writeslidentry@miniframesoff{%
+  \expandafter\beamer@ifempty\expandafter{\beamer@framestartpage}{}% does not happen normally
+  {%else
+    % removed \addtocontents commands
+    \clearpage\beamer@notesactions%
+  }
+}
+\newcommand*{\miniframeson}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframeson}
+\newcommand*{\miniframesoff}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframesoff}
+\makeatother    
+
+\begin{document}
+\section{Open Quetions}
+\subsection{Open Questions}
+\begin{frame}
+\frametitle{Open Questions}
+\end{frame}
+
+\miniframesoff
+
+
+\begin{frame}[plain]
+ \vskip 1cm 
+\begin{center}
+Thank You!
+\end{center}
+\end{frame}
+
+
+\begin{frame}[plain]
+\end{frame}
+
+\begin{frame}[plain]
+\end{frame}
+
+\begin{frame}[plain]
+\end{frame}
+
+\miniframeson
+
+
+\end{document}

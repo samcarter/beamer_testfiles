@@ -1,0 +1,86 @@
+% https://tex.stackexchange.com/a/418758
+\documentclass[compress]{beamer}
+
+\usetheme{Ilmenau}
+
+\setbeamercolor{mini frame}{bg=green, fg=blue}
+\setbeamercolor{mini frame current frame}{fg=red}
+
+\makeatletter
+\def\slideentry#1#2#3#4#5#6{%
+  %section number, subsection number, slide number, first/last frame, page number, part number
+  \ifnum#6=\c@part\ifnum#2>0\ifnum#3>0%
+    \ifbeamer@compress%
+      \advance\beamer@xpos by1\relax%
+    \else%
+      \beamer@xpos=#3\relax%
+      \beamer@ypos=#2\relax%
+    \fi%
+  \hbox to 0pt{%
+    \beamer@tempdim=-\beamer@vboxoffset%
+    \advance\beamer@tempdim by-\beamer@boxsize%
+    \multiply\beamer@tempdim by\beamer@ypos%
+    \advance\beamer@tempdim by -.05cm%
+    \raise\beamer@tempdim\hbox{%
+      \beamer@tempdim=\beamer@boxsize%
+      \multiply\beamer@tempdim by\beamer@xpos%
+      \advance\beamer@tempdim by -\beamer@boxsize%
+      \advance\beamer@tempdim by 1pt%
+      \kern\beamer@tempdim
+      \global\beamer@section@min@dim\beamer@tempdim
+      \hbox{\beamer@link(#4){%
+          \usebeamerfont{mini frame}%
+          \ifnum\c@section>#1%
+            \usebeamercolor[fg]{mini frame}%
+            %\usebeamertemplate{mini frame}%
+%            \usebeamercolor{mini frame}%
+            \usebeamertemplate{mini frame}%
+          \else%
+            \ifnum\c@section=#1%
+              \ifnum\c@subsection>#2%
+                \usebeamercolor[fg]{mini frame}%
+                \usebeamertemplate{mini frame}%
+              \else%
+                \ifnum\c@subsection=#2%
+                  \usebeamercolor[fg]{mini frame}%
+                  \ifnum\c@subsectionslide<#3%
+                    \usebeamertemplate{mini frame in current subsection}%
+                  \else%
+                    \ifnum\c@subsectionslide=#3%
+                        \usebeamercolor[fg]{mini frame current frame}
+                    \fi 
+                    \usebeamertemplate{mini frame}%
+                  \fi%
+                \else%
+                  \usebeamercolor{mini frame}%
+                  \usebeamertemplate{mini frame in other subsection}%
+                \fi%
+              \fi%
+            \else%
+              \usebeamercolor{mini frame}%
+              \usebeamertemplate{mini frame in other subsection}%
+            \fi%
+          \fi%
+        }}}\hskip-10cm plus 1fil%
+  }\fi\fi%
+  \else%
+  \fakeslideentry{#1}{#2}{#3}{#4}{#5}{#6}%
+  \fi\ignorespaces
+  }
+\makeatother
+
+\begin{document}
+\section{Section 1}
+\subsection{Subsection 1}
+\frame{}\frame{}\frame{}
+\subsection{Subsection 2}
+\frame{}\frame{}
+\section{Section 2}
+\subsection{Subsection 1}
+\frame{}
+\subsection{Subsection 2}
+\frame{}\frame{}\frame{}\frame{}\frame{}\frame{}
+\section{Section 3}
+\subsection{Subsection 1}
+\frame{}\frame{}\frame{}\frame{}\frame{}\frame{}
+\end{document}

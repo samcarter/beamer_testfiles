@@ -1,0 +1,68 @@
+% https://tex.stackexchange.com/a/391983
+\documentclass[10pt]{beamer}
+
+\usepackage[framemethod=tikz,nobreak]{mdframed}
+
+\mdtheorem[innerlinewidth=0.5pt, %
+roundcorner=4pt,linecolor=blue,innerleftmargin=16pt,
+innerrightmargin=16pt,backgroundcolor=white, %
+frametitlerule=true,frametitlebackgroundcolor=cyan,innertopmargin=\topskip,innerbottommargin=\topskip]{definizione}{Definizione}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\useinnertheme{rounded}
+\setbeamertemplate{theorems}[numbered]
+
+\uselanguage{itanlian}
+\languagepath{italian}
+\deftranslation[to=italian]{Definition}{Definizione}
+\deftranslation[to=italian]{definition}{definizione}
+
+\definecolor{theocolor}{RGB}{0,173,239}
+
+\setbeamercolor{block title}{fg=black,bg=theocolor}
+\setbeamercolor{block body}{fg=black,bg=theocolor!20!white}
+
+\makeatletter
+\setbeamertemplate{theorem begin}
+{%
+  \begin{\inserttheoremblockenv}
+    {%
+      \inserttheoremname
+      \inserttheoremnumber
+      \ifx\inserttheoremaddition\@empty\else
+      : \inserttheoremaddition\fi%
+    }%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}{A slide} 
+\only<2->{\addtocounter{definizione}{-1}}
+\begin{definizione}[A definition]
+
+My definition. 
+
+\end{definizione}\pause
+
+\begin{itemize}
+\item A comment about definition;\pause
+\item Another comment
+\end{itemize}
+\end{frame}
+
+\begin{frame}{B slide} 
+\begin{definition}[A definition]
+
+My definition. 
+
+\end{definition}\pause
+
+\begin{itemize}
+\item A comment about definition;\pause
+\item Another comment
+\end{itemize}
+\end{frame}
+
+\end{document}

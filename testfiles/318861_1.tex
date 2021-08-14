@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/318861
+\documentclass[14pt]{beamer}
+\newcounter{lessontime}
+\newcounter{activitytime}
+
+\makeatletter
+\newcommand{\addtime}[1]{%
+    \ifnum\the\beamer@slideinframe=1%
+        \setcounter{activitytime}{#1}%
+        \addtocounter{lessontime}{\value{activitytime}}%
+    \fi%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}{Frame 1}
+\addtime{10}%
+\only<1>{One}
+\only<2>{Two}
+\only<3>{Three}
+\end{frame}
+
+\begin{frame}{Frame 2}
+\addtime{5}%
+Total time is \thelessontime. It should be 15.
+\end{frame}
+
+\end{document}

@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/183465
+\documentclass{beamer}
+%\usepackage{luacode}
+%\usepackage{luatextra}
+%\usepackage[utf8]{luainputenc}
+%\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{pgffor} %to use \foreach
+
+\begin{document}
+
+    \begin{frame}
+        \frametitle{Inhalt des Kurses}
+        \setcounter{tocdepth}{1}
+        \begin{columns}[totalwidth=.6\textwidth] %change size to adjust space 
+            \hspace*{2.5cm} % change here for horizontal positioning
+            \begin{column}{.35\textwidth}
+          \tableofcontents[sections={1-5}]
+            \end{column}
+            \begin{column}{.35\textwidth}
+            \tableofcontents[sections={6-10}]
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+  \foreach \n in {1,...,10}{
+    \section{section 1}
+        \subsection{section 1}
+        \begin{frame}test\end{frame}
+    }
+
+\end{document}

@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/395729
+\documentclass[handout]{beamer}
+\usepackage{pgfpages}
+
+\mode<handout>{%
+    \pgfpagesuselayout{4 on 1}[a4paper] 
+    \setbeameroption{show notes}
+}
+
+\begin{document}
+
+\begin{frame}
+    content for the presentation
+    \note{your important notes}
+\end{frame}
+
+\begin{frame}
+    another frame
+    \note{another note}
+\end{frame}
+
+\end{document}

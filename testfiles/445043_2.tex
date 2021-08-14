@@ -1,0 +1,18 @@
+% https://tex.stackexchange.com/a/445043
+\documentclass{beamer}
+
+\begin{document}
+  \begin{frame}{}
+    \begin{columns}[onlytextwidth]
+            \begin{column}{.45\textwidth}
+      \only<1|handout:0>{1}%
+      \only<2|handout:0>{2}%
+      \only<3|handout:0>{3}%
+            \end{column}
+            \begin{column}{.45\textwidth}
+                \includegraphics[width=\textwidth]{example-image}
+            \end{column}            
+    \end{columns}
+    \rule{\textwidth}{1pt}
+  \end{frame}
+\end{document}

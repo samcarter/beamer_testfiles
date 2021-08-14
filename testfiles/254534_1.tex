@@ -1,0 +1,23 @@
+% https://tex.stackexchange.com/a/254534
+\documentclass{beamer}
+\usepackage[justification=centering,figurename=Abb.]{caption}
+\setbeamertemplate{caption}[numbered]
+
+\begin{document}
+
+\begin{frame}
+\begin{figure}[htbp]
+    \includegraphics[scale=0.4]{example-image-duck}
+    \addtocounter{figure}{1}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+    Next Slide
+\begin{figure}[htbp]
+    \includegraphics[scale=0.4]{example-image-duck}
+    \caption{What a view}
+\end{figure}
+\end{frame}
+
+\end{document}

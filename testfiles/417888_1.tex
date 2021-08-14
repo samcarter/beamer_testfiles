@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/417888
+\documentclass{beamer}
+
+\begin{document}
+\begin{frame}
+\frametitle{governing equations}
+\begin{exampleblock}{Reynolds-averaged Navier stokes}
+ \begin{itemize}
+      \item 
+    continuity
+
+$\frac{\partial (U_i)}{\partial x_i}=0$
+      \end{itemize}
+       \begin{itemize}
+      \item 
+      momentum equations:
+
+$\frac{\partial (U_jU_i)}{\partial x_j}=-\frac{1}{\rho}\frac{\partial P}{\partial x_i}+\frac{\partial }{\partial x_j}(\nu\frac{\partial U_i}{\partial x_j}-\textcolor<2->{red}{\overline{u_iu_j}})$
+      \end{itemize}    
+       \begin{itemize}
+      \item 
+     energy equation:
+
+$\frac{\partial (U_j\Theta )}{\partial x_j}=\frac{\partial }{\partial x_j}(\frac{\nu}{Pr}\frac{\partial \Theta}{\partial x_j}-\overline{u_j\theta})$
+      \end{itemize}
+\end{exampleblock}
+\end{frame}
+\end{document}

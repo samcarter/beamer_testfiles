@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/471130
+\documentclass{beamer}
+
+\usetheme{metropolis}
+\author{Jane Doe}
+\setbeamertemplate{frame footer}{some text\hfill\insertshortauthor}
+\renewcommand{\footnoterule}{}
+\setbeamercolor{framesource}{fg=gray}
+\setbeamerfont{framesource}{size=\tiny}
+
+\defbeamertemplate{footnote}{unnumbered}{%
+    \usebeamercolor[fg]{framesource}%
+    \usebeamerfont{framesource}%
+    \hfill\insertfootnotetext%
+}
+
+\newcommand{\source}[1]{%
+    \setbeamertemplate{footnote}[unnumbered]%
+    \footnotetext{Source: #1}%
+}
+
+
+\begin{document}
+
+\begin{frame}{Standard frame}
+  Test  
+\end{frame}
+
+\begin{frame}{Frame with source}
+  Test  
+  \source{Jane et. al (2019)}
+\end{frame}
+
+
+\end{document}

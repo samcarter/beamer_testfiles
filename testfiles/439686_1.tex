@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/439686
+\documentclass{beamer}
+\usepackage{listings}
+
+\makeatletter
+\setlength\beamer@paperwidth{25.60cm}
+\setlength\beamer@paperheight{19.20cm}
+\geometry{%
+  papersize={\beamer@paperwidth,\beamer@paperheight},
+  hmargin=2cm,%
+  vmargin=0cm,%
+  head=1cm,% might be changed later
+  headsep=0pt,%
+  foot=1cm% might be changed later
+}
+\makeatother
+
+\AtBeginDocument{\fontsize{22pt}{24pt}\selectfont}
+
+\begin{document}
+\begin{frame}[fragile]
+
+normal text
+
+  \fontsize{5pt}{7pt}
+  \selectfont
+  \begin{lstlisting}
+    Long code
+    {
+      ...
+    }
+  \end{lstlisting}
+\end{frame}
+\end{document}

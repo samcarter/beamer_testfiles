@@ -1,0 +1,23 @@
+% https://tex.stackexchange.com/a/449826
+\documentclass[hyperref={pdfpagemode=FullScreen},xcolor=table,t]{beamer}
+
+\begin{document}
+\begin{frame}
+\frametitle{Frame Title}
+\begin{itemize}
+    \item<+-> first item
+    \begin{enumerate}
+        \item<+-> item 1.
+
+        \only<+>{
+        \begin{enumerate}[a.]
+            \item item a.
+            \item item b.
+            \item item c.
+        \end{enumerate}
+        }
+        \item<+-> item 2.
+    \end{enumerate}
+\end{itemize}
+\end{frame}
+\end{document}

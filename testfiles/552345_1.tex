@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/552345
+\documentclass{beamer}
+\usetheme{CambridgeUS}
+
+
+\begin{document}
+
+\begin{frame}
+  \frametitle{Example}
+
+  \begin{columns}
+    \begin{column}[c]{.5\textwidth}    
+    \begin{itemize}
+        \item This is an interesting fact
+        \item this one is even more interesting         
+    \end{itemize}
+    \end{column}
+    \begin{column}[c]{.5\textwidth}
+      \includegraphics<1>[width=\textwidth]{example-image-a}%
+      \includegraphics<2>[width=\textwidth]{example-image-a}%
+    \end{column}
+    \end{columns}
+  \end{frame}
+\end{document}

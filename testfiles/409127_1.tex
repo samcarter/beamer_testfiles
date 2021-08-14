@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/409127
+\documentclass{beamer}
+
+\setbeamertemplate{footline}{%
+        \if\insertframenumber\inserttotalframenumber
+            last frame
+        \else
+            footline of normal slides
+        \fi
+}
+
+\begin{document}
+\begin{frame}    
+First page    
+\end{frame}
+
+\begin{frame}   
+Last page
+Footline - ""last slide"" is needed here.
+\end{frame}
+\end{document} 

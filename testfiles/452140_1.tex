@@ -1,0 +1,54 @@
+% https://tex.stackexchange.com/a/452140
+\documentclass{beamer}
+
+\usepackage{tikz}
+
+\title{Os Teoremas de Philip Hall e uma caracterização para Grupos Solúveis}
+\author[Lucas Corrêa Lopes]{Lucas Corrêa Lopes\\ {\small Orientador: André Luiz Martins Pereira}}
+\date{}
+\institute{Unversidade Federal Rural do Rio de Janeiro}
+
+%Tema 1:
+
+\usetheme{PaloAlto}
+\logo{\includegraphics[scale=0.26]{example-image-duck}}
+\setbeamercolor{logo}{bg=white}
+\usecolortheme{orchid}
+\usefonttheme{serif}
+
+\makeatletter
+\setbeamertemplate{headline}{%
+  \begin{beamercolorbox}[wd=\paperwidth]{frametitle}
+    \ifx\beamer@sidebarside\beamer@lefttext%
+    \else%
+      \hfill%
+    \fi%
+    \ifdim\beamer@sidebarwidth>0pt%  
+      \usebeamercolor[bg]{logo}%
+      \vrule width\beamer@sidebarwidth height \beamer@headheight%
+      \hskip-\beamer@sidebarwidth%
+      \hbox to \beamer@sidebarwidth{\hss\vbox to
+        \beamer@headheight{\vss\hbox{\color{fg}\insertlogo}\vss}\hss}%
+    \else%
+      \vrule width0pt height \beamer@headheight%  
+    \fi%
+    \begin{minipage}[b][\beamer@headheight][c]{\dimexpr\paperwidth-\beamer@sidebarwidth}%
+            \insertnavigation{\dimexpr\paperwidth-\beamer@sidebarwidth}
+    \end{minipage}%
+  \end{beamercolorbox}
+}
+\makeatother
+
+\begin{document}
+
+\section{title}
+\subsection{title}
+\begin{frame}
+\end{frame}
+
+\section{title}
+\subsection{title}
+\begin{frame}
+\end{frame}
+
+\end{document}

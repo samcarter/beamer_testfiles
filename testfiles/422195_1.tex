@@ -1,0 +1,42 @@
+% https://tex.stackexchange.com/a/422195
+\documentclass{beamer}
+\usepackage{pgffor}
+
+\defbeamertemplate{section in toc}{muhhh}
+{\leavevmode\leftskip=1.75ex%
+  \llap{%
+    \usebeamerfont*{section number projected}%
+    \usebeamercolor[bg]{section number projected}%
+    \vrule width2.7ex height2.12ex depth.58ex%
+    \hskip-2.7ex%
+    \hbox to2.7ex{\hfil\color{fg}\inserttocsectionnumber\hfil}}%
+  \kern1.5ex\inserttocsection\par}
+
+\setbeamertemplate{section in toc}[muhhh]
+
+
+\begin{document}
+
+\section{Overview}
+\begin{frame}[plain]
+    \frametitle{\contentsname}
+    %https://tex.stackexchange.com/questions/109748/
+    \begin{columns}[t]
+        \begin{column}{.5\textwidth}
+            \tableofcontents[sections={1-6}]
+        \end{column}
+        \begin{column}{.5\textwidth}
+            \tableofcontents[sections={7-12}]
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\foreach \x in {1,...,11}{
+    \section{Section \x}
+    \begin{frame}
+    \frametitle{\insertsection}
+        Test
+    \end{frame}
+}
+
+\end{document}

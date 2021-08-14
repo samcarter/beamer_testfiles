@@ -1,0 +1,88 @@
+% https://tex.stackexchange.com/a/380263
+\documentclass{beamer}
+
+\newcounter{start}
+\newcounter{stop}
+
+\AtBeginSection[]{%
+\setcounter{start}{\thesection}
+\setcounter{stop}{\thesection}
+\ifnum\value{section}>1
+    \ifnum\value{section}=2
+        \addtocounter{start}{-1}%
+    \else%
+        \addtocounter{start}{-2}%
+    \fi%
+\fi%
+\addtocounter{stop}{2}
+\begin{frame}<beamer>
+\frametitle{Outline}
+    \begin{columns}[c]
+        \begin{column}{.25\textwidth}
+            \tableofcontents[sections=\thestart-\thestop, subsectionstyle=show/show/hide] % removing hideothersubsections solves the problem
+    \end{column}
+    \hfill
+    \begin{column}{.55\textwidth}
+        \begin{centering}
+            \insertsectionhead
+        \end{centering}
+    \end{column}
+  \end{columns}
+\end{frame}
+}
+
+\begin{document}
+\begin{frame}[shrink]{ToC}
+\tableofcontents
+\end{frame}
+
+\section[aa]{AA}
+\begin{frame}{A}
+a   
+\end{frame}
+
+\section[bb]{BB}
+\begin{frame}{B}
+b
+\end{frame}
+
+\section{CC}
+\begin{frame}{C}
+c
+\end{frame}
+
+\section{DD}
+\begin{frame}{D}
+d
+\end{frame}
+
+\section[ee]{EE}
+\begin{frame}{E}
+e
+\end{frame}
+
+\section[ff]{FF}
+\begin{frame}{F}
+f
+\end{frame}
+
+\section[gg]{GG}
+\begin{frame}{G}
+g
+\end{frame}
+
+
+\section[hh]{HH}
+\begin{frame}{H}
+h
+\end{frame}
+
+
+\section[ii]{II}
+\subsection[iii]{III}
+\subsection[iv]{IV}
+\subsection[v]{V}
+\begin{frame}{I}
+i
+\end{frame}
+\end{document}

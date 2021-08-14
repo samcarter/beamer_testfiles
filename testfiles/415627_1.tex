@@ -1,0 +1,66 @@
+% https://tex.stackexchange.com/a/415627
+\documentclass{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+
+\setbeamerfont{frametitle}{size=\fontsize{36}{43.2}}
+\setbeamerfont{framesubtitle}{size=\fontsize{20}{24}}
+\setbeamercolor{frametitle}{fg=gray}
+\setbeamercolor{framesubtitle}{fg=gray}
+
+\makeatletter
+\setbeamertemplate{frametitle}{%
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \begin{beamercolorbox}[sep=0.5cm,left,wd=\the\@tempdima]{frametitle}
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-0.25ex%
+    \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+    \strut\insertframetitle\strut\par%
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+      \fi
+    }%
+    \vskip-1ex%
+    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  \end{beamercolorbox}%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame} 
+\frametitle{Bulleting and Number} 
+\framesubtitle{As An Example}    
+This is line should be 3.5 cm below the top edge of the slide.
+    \begin{itemize} 
+    \item adfas
+        \begin{itemize}
+        \item afdfa
+            \begin{itemize}
+            \item adfadsfa
+            \item adsfa
+            \end{itemize}    
+        \end{itemize}
+    \end{itemize}
+
+    This is how to add numbered list.
+    \begin{enumerate}
+        \item Use number
+        \item Another number
+        \begin{enumerate}[I]
+            \item Use Letter
+            \item Another letter
+            \begin{enumerate}[a]
+                \item Use 
+                \item Use
+            \end{enumerate}
+        \end{enumerate}
+    \end{enumerate}
+\end{frame}
+
+\end{document}

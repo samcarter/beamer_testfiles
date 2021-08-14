@@ -1,0 +1,45 @@
+% https://tex.stackexchange.com/a/418896
+\documentclass[12pt]{beamer}
+
+\newcounter{myenumi}
+
+\begin{document}
+
+\begin{frame}[t]
+  \setcounter{myenumi}{0}
+  \begin{itemize}
+    \item<1-> \textbf{Point 1} \only<1-2>{(Temporary Info)}
+      \begin{onlyenv}<2>
+        \begin{enumerate}[(1)]
+          \setcounter{enumi}{\value{myenumi}}
+          \item \begin{enumerate}[a.]
+                  \item This should be 1a
+                  \item This should be 1b
+                \end{enumerate}
+          \item \begin{enumerate}[a.]
+                  \item This should be 2a
+                  \item This should be 2b
+                \end{enumerate}
+          \setcounter{myenumi}{\value{enumi}}
+        \end{enumerate}
+      \end{onlyenv}
+    \item<3-> \textbf{Point 2} \only<3-4>{(Temporary Info)}
+      \begin{onlyenv}<4>
+        \begin{enumerate}[(1)]
+          \setcounter{enumi}{\value{myenumi}}
+          \item \begin{enumerate}[a.]
+                  \item This should be 3a
+                  \item This should be 3b
+                \end{enumerate}
+          \item \begin{enumerate}[a.]
+                  \item This should be 4a
+                  \item This should be 4b
+                \end{enumerate}
+          \setcounter{myenumi}{\value{enumi}}
+        \end{enumerate}
+      \end{onlyenv}  
+    \end{itemize}
+
+\end{frame}
+
+\end{document}

@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/427696
+\documentclass{beamer}
+\usepackage{lipsum}
+\setbeamersize{text margin left=5cm}
+\title{Title should be Centered}
+
+\begin{document}
+
+{
+    \hoffset=-2cm
+    \begin{frame}
+    \titlepage
+    \end{frame}
+}
+
+\begin{frame}{Frametitle should be here}
+\lipsum
+\end{frame}
+
+\end{document}

@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/a/420048
+\documentclass[9pt]{beamer}
+\mode<presentation>
+{
+  \usetheme[width=1.4cm]{PaloAlto}      
+  \usecolortheme{beaver} 
+  \usefonttheme{default}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+}
+%\usepackage{graphicx}
+\usepackage{adjustbox} 
+\usepackage{pbox}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+
+\begin{document}
+\begin{frame}{Chapter One}
+Find the domain of the function:
+\[  f(x)=\sqrt{x^{2}-4}\]
+
+\begin{onlyenv}<+(1)>
+  \begin{block}{Solution}
+  \[x^{2}-4 \geq 0, x^{2}\geq 4, |x|\geq 2\]
+  \end{block}
+\end{onlyenv}
+
+\pause 
+next quiz
+\end{frame}
+\end{document}

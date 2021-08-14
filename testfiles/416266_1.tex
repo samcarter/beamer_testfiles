@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/416266
+\documentclass{beamer}
+
+\setbeamercovered{invisible}
+\setbeamercovered{again covered={\opaqueness<1->{30}}}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+\begin{frame}
+
+\begin{itemize}[<+>]
+\item A
+\item B
+\item<.-> C
+\begin{itemize}
+\item CA
+\item CB
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\end{document}

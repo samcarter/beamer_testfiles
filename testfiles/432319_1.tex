@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/432319
+\documentclass{beamer}
+
+\usetheme{metropolis}
+
+
+\setbeamertemplate{footline}{}
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+\setbeamertemplate{navigation symbols}{\footnotesize\usebeamertemplate{page number in head/foot}}
+
+\newcommand{\btVFill}{\vskip0pt plus 1filll}
+
+\begin{document}
+
+\begin{frame}
+ framecontent
+
+ \btVFill
+
+ text at the bottom of the slide. 
+\end{frame}
+
+
+\end{document}

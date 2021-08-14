@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/372235
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}{Outline}
+    \tableofcontents
+
+    \hskip-1.8em\structure{\hyperlink{Navigation4}{Introduction}}
+    \tableofcontents[part=1]
+
+    \hskip-1.8em\structure{\hyperlink{Navigation6}{chapter two}}
+    \tableofcontents[part=2]  
+\end{frame}
+
+\section{section Out-one}\begin{frame}\end{frame}
+\section{section Out-two}\begin{frame}\end{frame}
+
+
+\part{Introduction}
+
+    \section{section I-one}
+        \subsection{subsection I-one}\begin{frame}\end{frame}
+    \section{section I-two}\begin{frame}\end{frame}
+
+
+\part{chapter two}
+
+    \section{section one}\begin{frame}2\end{frame}
+    \section{section two}\begin{frame}\end{frame}
+    \section{section three}\begin{frame}\end{frame}
+
+\end{document}

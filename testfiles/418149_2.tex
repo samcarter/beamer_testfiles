@@ -1,0 +1,52 @@
+% https://tex.stackexchange.com/a/418149
+\documentclass{beamer}
+\usepackage{smartdiagram}
+
+\smartdiagramset{%
+    planet size=2cm,
+    planet text width=2cm,
+    planet font= \normalsize,
+    satellite size=1.5cm, 
+    satellite text width=2cm,
+    satellite font= \normalsize,
+    distance planet-text=0,
+    distance planet-satellite=3.2cm,
+    /tikz/connection planet satellite/.append style={<->}
+}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Test Frame}
+
+\begin{columns}[onlytextwidth]
+    \begin{column}{.8\textwidth}
+        \usebeamercolor{background canvas}
+        \smartdiagramanimated[constellation diagram]{%
+            A,
+            B,
+            C,
+            D,
+            E,
+            F
+        }
+    \end{column}
+    \begin{column}{.15\textwidth}
+        A\pause
+
+            B\pause
+
+            C\pause
+
+            D\pause
+
+            E\pause
+
+            F
+    \end{column}
+\end{columns}
+
+\end{frame}
+
+
+\end{document}

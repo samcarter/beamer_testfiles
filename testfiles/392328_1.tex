@@ -1,0 +1,46 @@
+% https://tex.stackexchange.com/a/392328
+\documentclass[compress]{beamer}
+
+\usetheme{Madrid}
+\usecolortheme{seagull}
+
+\setbeamertemplate{navigation symbols}{}
+
+\title[Name of Presentation Slides]{Name}
+\author[Author A and Author B]{Author A and Author B}
+\date[September 20, 2017]{September 20, 2017}
+
+\makeatletter
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\ifblank\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{}%
+%     / \inserttotalframenumber
+    \hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+\frametitle{First Slide}
+\textbf{Letters}
+\begin{itemize}
+    \item A
+    \item B
+    \item C
+\end{itemize}
+
+\end{frame}
+
+\end{document}

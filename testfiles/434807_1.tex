@@ -1,0 +1,62 @@
+% https://tex.stackexchange.com/a/434807
+\documentclass{beamer}
+
+\usetheme{AnnArbor}
+
+\usepackage{pgffor}
+
+\newcounter{totalsubsub}
+
+\AtBeginSubsubsection[]{\label{subsubsec:\thesection:\thesubsection:\thesubsubsection}}
+
+
+\setbeamertemplate{footline}
+{%
+  \leavevmode%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{subsection in head/foot}%
+    \ifnum\thetotalsubsub>0
+        \foreach \i in {1,...,\thetotalsubsub}{% 
+                \hfill
+                \ifnum\i=\thesubsubsection
+                    \usebeamercolor[fg]{subsubsection in sidebar}
+                \else
+                    \usebeamercolor[fg]{subsubsection in sidebar shaded}
+                \fi
+                \hyperlink{subsubsec:\thesection:\thesubsection:\i}{\nameref{subsubsec:\thesection:\thesubsection:\i}}
+            }
+            \hfill
+            \hspace*{0pt}
+        \fi
+  \end{beamercolorbox}%
+}
+
+
+\begin{document}
+
+\section{section}
+\subsection{sub 1}
+\setcounter{totalsubsub}{3}
+
+\subsubsection{subsub 1}
+\begin{frame}
+    subsub 1
+\end{frame} 
+
+\subsubsection{subsub 2}
+\begin{frame}
+    subsub 2
+\end{frame} 
+
+\subsubsection{subsub 3}
+\begin{frame}
+    subsub 3
+\end{frame} 
+
+\subsection{sub 2}
+\setcounter{totalsubsub}{0}
+
+\begin{frame}
+    abc
+\end{frame} 
+
+\end{document}

@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/456174
+% \documentclass[beamer]{beamer}
+\documentclass[handout]{beamer}
+
+\begin{document}
+
+\begin{frame}<handout:2,4>{Other Frame}
+    \label{otherframe}
+  \begin{itemize}[<all:+->]
+    \item First Item
+    \item Second Item -- this step also to be shown in handout mode
+    \item Third Item
+    \item Forth Item  -- this step also to be shown in handout mode
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Frame, link to Other Frame}
+  We have seen this on \ref{otherframe}! % not resolved in handout mode
+\end{frame}
+
+\end{document}

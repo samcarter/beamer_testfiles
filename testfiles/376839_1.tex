@@ -1,0 +1,36 @@
+% https://tex.stackexchange.com/a/376839
+\documentclass{beamer}
+
+\makeatletter
+\newcommand\immaddtocontents[1]{{%
+   \let\protect\@unexpandable@protect
+   \immediate\write\@auxout{\noexpand\@writefile{toc}{#1}}%
+}}
+\makeatother
+
+
+\begin{document}
+
+\begin{frame}{TOC}
+\tableofcontents
+\end{frame}
+
+\section{The first section}
+\subsection{blub}
+
+\begin{frame}
+Some text.
+\end{frame}
+
+\section{The first section}
+\subsection{blub}
+
+\begin{frame}
+Some text.
+\end{frame}
+
+\immaddtocontents{\vfill \protect\usebeamercolor[fg]{section in toc} text\par}
+
+\immaddtocontents{\leavevmode\leftskip=1.5em \protect\usebeamercolor[fg]{normal text}text\par}
+
+\end{document}

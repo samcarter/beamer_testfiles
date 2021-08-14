@@ -1,0 +1,32 @@
+% https://tex.stackexchange.com/a/480598
+\documentclass[aspectratio=169, xcolor={x11names}]{beamer}
+
+\usecolortheme{seahorse}
+\usefonttheme[onlylarge]{structurebold}
+\setbeamercolor{math text inlined}{fg=SpringGreen3}
+
+\usepackage{array}
+\newcolumntype{C}{>{\color{black}}c}
+\newcolumntype{L}{>{\color{black}}l}
+
+\makeatletter
+\def\tagform@#1{\maketag@@@{\color{black}(\ignorespaces#1\unskip\@@italiccorr)}}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+    \begin{equation}
+        \bar{I}_{R}(n) = \left\lbrace
+            \begin{array}{CCL}
+                I_{R, \thinspace i} &\text{if} &n = i
+            \\
+                I_{R, \thinspace j} &\text{if} &n = j
+            \\
+                0 & \text{if} &n \neq i \text{~or~} j
+            \end{array}
+                        \right.
+    \end{equation}
+\end{frame}
+
+\end{document}

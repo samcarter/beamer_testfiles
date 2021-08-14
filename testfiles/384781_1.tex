@@ -1,0 +1,78 @@
+% https://tex.stackexchange.com/a/384781
+\documentclass[table,xcolor=pdftex,dvipsnames]{beamer}
+\usetheme{Madrid}
+\usecolortheme{whale}
+\beamertemplatenavigationsymbolsempty
+
+\AtBeginSection[]{
+    \begin{frame}<beamer>
+        \frametitle{Outline}
+        \begin{columns}[T]
+            \begin{column}{.45\textwidth}
+                \tableofcontents[currentsection,sections=1-4]
+            \end{column}
+            \begin{column}{.45\textwidth}
+                \tableofcontents[currentsection,sections=5]
+            \end{column}
+        \end{columns}
+    \end{frame}
+}
+
+\AtBeginSubsection[]{
+    \begin{frame}<beamer>
+        \frametitle{Outline}
+        \begin{columns}[T]
+            \begin{column}{.45\textwidth}
+                \tableofcontents[currentsection,currentsubsection,sections=1-4]
+            \end{column}
+            \begin{column}{.45\textwidth}
+                \tableofcontents[currentsection,currentsubsection,sections=5]
+            \end{column}
+        \end{columns}
+    \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+    \frametitle{Outline}
+    \begin{columns}[T]
+        \begin{column}{.45\textwidth}
+            \tableofcontents[sections=1-4]
+        \end{column}
+        \begin{column}{.45\textwidth}
+            \tableofcontents[sections=5]
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\section{Introduction -- Graph Types}
+
+\section{Property Graph Processing}
+    \subsection{Classification}
+    \subsection{Online querying}
+    \subsection{Offline analytics}
+\begin{frame}\end{frame}
+
+\section{Graph Analytics Approaches}
+    \subsection{MapReduce \& Variants}
+    \subsection{Classification of Native Approaches}
+    \begin{frame}\end{frame}
+
+\section{Graph Analytics Systems}
+    \subsection{Vertex-Centric BSP}
+    \subsection{Vertex-Centric Asynchronous}
+    \subsection{Vertex-Centric GAS}
+    \subsection{Block-Centric BSP}
+    \subsection{Edge-Centric BSP}
+\begin{frame}\end{frame}
+%\addtocontents{toc}{\newpage}
+
+\section{OLAP-Style Analytics}
+    \subsection{Graph Summarization}
+    \subsection{Snapshot-based Aggregation}
+    \subsection{Graph Cube}
+    \subsection{Pagrol}
+    \subsection{Gagg Model}
+\begin{frame}\end{frame}
+\end{document}

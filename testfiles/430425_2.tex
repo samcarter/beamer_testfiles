@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/430425
+\documentclass{beamer}
+\usepackage{lipsum}
+
+\usepackage{background}
+\backgroundsetup{
+    placement=center,
+    scale=4,
+    contents={DRAFT},
+    opacity=1
+}
+
+\begin{document}
+
+{
+    \setbeamertemplate{background}{\BgMaterial}
+    \begin{frame}
+        \lipsum[2]
+    \end{frame}
+}
+
+\begin{frame}
+    \lipsum[2]
+\end{frame}
+
+\end{document}

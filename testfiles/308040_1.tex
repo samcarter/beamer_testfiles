@@ -1,0 +1,43 @@
+% https://tex.stackexchange.com/a/308040
+\documentclass{beamer}
+
+\usepackage{filecontents}
+\begin{filecontents}{\jobname.bib}
+    @article{greenwade93,
+        author  = ""George D. Greenwade"",
+        title   = ""The {C}omprehensive {T}ex {A}rchive {N}etwork ({CTAN})"",
+        year    = ""1993"",
+        journal = ""TUGBoat"",
+        volume  = ""14"",
+        number  = ""3"",
+        pages   = ""342--351""
+    }
+    @book{goossens93,
+        author    = ""Michel Goossens and Frank Mittelbach and Alexander Samarin"",
+        title     = ""The LaTeX Companion"",
+        year      = ""1993"",
+        publisher = ""Addison-Wesley"",
+        address   = ""Reading, Massachusetts""
+    }
+\end{filecontents}
+
+\usepackage[english]{babel}
+\usepackage[backend=bibtex, style=verbose]{biblatex}
+\addbibresource{\jobname}
+
+\makeatletter
+    \def\@makefnmark{\hbox{{{\usebeamercolor[fg]{footnote mark}\usebeamerfont*{footnote mark} [\@thefnmark]}}}}
+
+    \def\@makefntext#1{%
+        \def\insertfootnotetext{ #1}%
+        \def\insertfootnotemark{\@makefnmark}%
+        \usebeamertemplate***{footnote}}    
+\makeatother
+
+\begin{document}
+
+    \begin{frame}
+        Bla bla bla \footcite{greenwade93} Ble ble ble \footcite{goossens93}
+    \end{frame}
+
+\end{document}

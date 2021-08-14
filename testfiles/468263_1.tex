@@ -1,0 +1,57 @@
+% https://tex.stackexchange.com/a/468263
+\documentclass{beamer}
+
+\setbeamercolor{frametitle}{bg=blue,fg=white}
+\setbeamercolor{author in head/foot}{bg=blue,fg=white}
+
+\makeatletter
+\setbeamertemplate{headline}{%
+    \usebeamercolor[bg]{frametitle}\rule{\textwidth}{1cm}
+}
+
+\setbeamertemplate{frametitle}{%
+    \vskip-1cm%
+      \begin{minipage}[c][\headheight][c]{\textwidth}%
+        \usebeamerfont{frametitle}%
+        \strut\insertframetitle\par
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\strut\insertframesubtitle\par}%
+      \fi
+    }%      
+      \vspace*{-0.1cm}
+      \end{minipage}%
+  \vskip-0.1em
+}
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=\paperwidth,ht=4.5ex,dp=3.125ex]{author in head/foot}%
+    \usebeamerfont{author in head/foot} bar
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}[plain]
+    \titlepage
+\end{frame} 
+
+\begin{frame}
+    \frametitle{test}
+    abc
+\end{frame} 
+
+\begin{frame}
+    \frametitle{test}
+    \framesubtitle{title}
+    abc
+\end{frame} 
+
+\begin{frame}
+    abc
+\end{frame} 
+
+\end{document}

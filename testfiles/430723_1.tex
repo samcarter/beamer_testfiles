@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/430723
+\documentclass{beamer}
+\usetheme{Ilmenau}
+
+\makeatletter
+  \setbeamertemplate{footline}{%
+    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+      \leavevmode{\usebeamerfont{title in head/foot}\insertshorttitle}%
+      \hfill%
+      {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertshortinstitute%
+      \ifbeamertemplateempty{page number in head/foot}{}{\qquad}%
+      \usebeamerfont{page number in head/foot}\usebeamertemplate{page number in head/foot}%      
+      }%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+    \end{beamercolorbox}
+  }
+\makeatother
+
+\usefonttheme{serif}
+\author[aaa]{aaa}
+\institute[iii]{iii}
+\title[ttt]{ttt}
+\date{\today}
+
+\begin{document}
+\section{A section}
+\subsection{A subsection}
+\frame{Hello}  
+\end{document}

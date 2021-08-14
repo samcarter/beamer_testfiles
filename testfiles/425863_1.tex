@@ -1,0 +1,93 @@
+% https://tex.stackexchange.com/a/425863
+\documentclass[10pt]{beamer}
+
+\usetheme[width=4em]{PaloAlto}
+\usecolortheme{crane}
+
+\addtobeamertemplate{footnote}{\vspace{-6pt}\advance\hsize-0.5cm}{\vspace{6pt}}
+\makeatletter
+% Alternative A: footnote rule
+\renewcommand*{\footnoterule}{\kern -3pt \hrule \@width 2in \kern 8.6pt}
+% Alternative B: no footnote rule
+% \renewcommand*{\footnoterule}{\kern 6pt}
+\makeatother
+
+\usepackage[utf8]{inputenc}
+\usepackage[style=verbose,autocite=footnote,citestyle=authortitle]{biblatex}
+
+\newcounter{colcites}
+
+\usepackage{filecontents}
+
+\begin{filecontents}{\jobname.bib}
+@Book{Taflove2000,
+    Day = {30},
+    Edition = {2},
+    Month = {jun},
+    Publisher = {Artech House Publishers},
+    author = {Taflove, Allen and Hagness, Susan C.},
+    title = {Computational Electrodynamics: The Finite-Difference Time-Domain Method},
+    year = {2000},
+}
+@Book{label2,
+    Day = {30},
+    Edition = {2},
+    Month = {jun},
+    Publisher = {Artech House Publishers},
+    author = {Jordan, Michael and James, LeBron},
+    title = {Computational NBA},
+    year = {2000},
+}
+\end{filecontents}
+
+\addbibresource{\jobname.bib}
+
+\begin{document}
+
+\begin{frame}{The FDTD Method}
+  \begin{columns}
+    \begin{column}{0.4\textwidth}
+      \begin{itemize}
+      \item Discretization of both space and time by central differences.
+      \item Yee Cell 1.\footnotemark 
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+      \centering
+      \rule{0.9\columnwidth}{2cm}% placeholder for graphic
+      \caption{Unit Yee Cell.}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\footcitetext{Taflove2000}
+\end{frame}
+
+\begin{frame}{The FDTD Method}
+\setcounter{colcites}{0}
+  \begin{columns}
+    \begin{column}{0.4\textwidth}
+      \begin{itemize}
+      \item Discretization of both space and time by central differences.\footnotemark\addtocounter{colcites}{1} 
+      \item Yee Cell 1.\footnotemark\addtocounter{colcites}{1}  
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+      \centering
+      \rule{0.9\columnwidth}{2cm}% placeholder for graphic
+      \caption{Unit Yee Cell.}
+      \end{figure}
+    \end{column}
+  \end{columns}
+
+\addtocounter{footnote}{-\thecolcites}
+\addtocounter{footnote}{1}
+\footcitetext[\thefootnote]{Taflove2000}
+\addtocounter{footnote}{1}
+\footcitetext[\thefootnote]{label2}
+\end{frame}
+
+\end{document}

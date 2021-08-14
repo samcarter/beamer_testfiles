@@ -1,0 +1,193 @@
+% https://tex.stackexchange.com/a/456730
+\documentclass[fleqn,9pt]{beamer}
+\usetheme[
+%%% options passed to the outer theme
+%    hidetitle,           % hide the (short) title in the sidebar
+%    hideauthor,          % hide the (short) author in the sidebar
+%    hideinstitute,       % hide the (short) institute in the bottom of the sidebar
+%    shownavsym,          % show the navigation symbols
+%    width=2cm,           % width of the sidebar (default is 2 cm)
+%    hideothersubsections,% hide all subsections but the subsections in the current section
+%    hideallsubsections,  % hide all subsections
+%    left                % right of left position of sidebar (default is right)
+  ]{Aalborg}
+
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage[]{moresize}
+\usepackage{lmodern} %optional
+\usepackage{epstopdf}
+\usepackage{appendixnumberbeamer}
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage{caption}
+\usepackage{relsize}
+\usepackage{mathtools}
+\usepackage{multirow}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\newcommand\Fontvi{\fontsize{4.4}{7.2}\selectfont}
+\newcommand\Fontt{\fontsize{5.5}{7.2}\selectfont}
+\newcommand\Fonttt{\fontsize{6}{7.2}\selectfont}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage[noend]{algpseudocode}
+\makeatletter
+\algnewcommand{\LineComment}[1]{\Statex \hskip\ALG@thistlm \(\) #1}
+\makeatother
+
+
+\usepackage{listings}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\usepackage{icomma}
+
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\theoremstyle{definition}
+\newtheorem{prop}{Proposition}
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{lemma}[theorem]{Lemma}
+% colored hyperlinks
+\newcommand{\chref}[2]{%
+  \href{#1}{{\usebeamercolor[bg]{Aalborg}#2}}
+}
+\usepackage{tikz}
+\usepackage{forest}[compat=all]
+\usetikzlibrary{arrows,shapes,positioning,calc,chains,fit,trees,decorations}
+\definecolor{darblue}{rgb}{0.00,0.41,0.66}% dark blue
+  \definecolor{liblue}{rgb}{0.55,0.79,0.94}% light blue
+
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.16}
+\usetikzlibrary{patterns}
+\usepackage{ragged2e}
+
+\tikzset{
+    decision/.style={rectangle, minimum height=10pt, minimum width=10pt, draw=black, fill=black!30!white, thin, inner sep=0pt},
+    chance/.style={circle, minimum width=10pt, draw=black, fill=black!30!white, thin, inner sep=0pt},
+    leaf-chance/.style={isosceles triangle, minimum width=10pt, draw=black, thin, fill=white, inner sep=0pt, shape border rotate=180, outer sep=-\pgflinewidth}
+  }
+\tikzset{
+    invisible/.style={opacity=0},
+    visible on/.style={alt={#1{}{invisible}}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+  }
+ \pgfmathdeclarefunction{poiss}{1}{%
+  \pgfmathparse{(#1^x)*exp(-#1)/(x!)}%
+  }
+
+\tikzset{
+myshape/.style={
+  rectangle split,
+  minimum height=1.5cm,
+  rectangle split horizontal,
+  rectangle split parts=5, 
+  draw, 
+  anchor=center,
+  },
+mytri/.style={
+  draw,
+  shape=isosceles triangle,
+  isosceles triangle apex angle=60,
+  inner xsep=0.65cm
+  }
+}
+
+\begin{document}
+
+\begin{frame}[fragile]{Introduction to Decision Trees}{Decision Trees}
+\scriptsize
+We can represent decision problems in a graphical form as {\color{red} \textbf{Decision Trees}}\\[1mm]
+For our hotel situation we have:\\[5mm]
+
+\definecolor{dgreen}{RGB}{0,102,51}
+
+\begin{center}
+\scalebox{0.75}{
+
+\put(17,210){{\color{blue}\textbf{Land purchase decision}}}
+\put(120,210){{\color{blue}\textbf{Airport location}}}
+\put(200,210){{\color{blue}\textbf{Payoff}}}
+
+\put(7,186){Buy A}
+\put(7,131){Buy B}
+\put(7,76){Buy A \& B}
+\put(7,21){Buy nothing}
+
+\put(10,175){-18}
+\put(10,120){-12}
+\put(10,65){-30}
+\put(10,10){0}
+
+\put(109,197.5){A}
+\put(109,170){B}
+\put(109,143){A}
+\put(109,115.5){B}
+\put(109,88){A}
+\put(109,61){B}
+\put(109,33){A}
+\put(109,6.5){B}
+
+\put(109,189.5){31}
+\put(109.5,161){6}
+\put(109.5,135){4}
+\put(109,107.5){23}
+\put(109,80){35}
+\put(109,53){29}
+\put(109.5,26){0}
+\put(109.5,0){0}
+
+
+\hspace*{-3.6cm}\begin{forest}
+   my label/.style={
+      edge label={node[auto, sloped,pos=.15,anchor=south]{#1}}
+    },
+    for tree={grow=0, child anchor=west, anchor=west, text ragged,
+              inner sep=1mm, edge={line width=0.65pt, draw=blue!50}, l sep+=27mm,
+              s sep+=5mm, if n children=0{before typesetting nodes={label/.wrap pgfmath arg={right:#1}{content()},
+          content={},
+          leaf-chance,
+        },
+      }{},
+      edge path={
+       \noexpand\path [draw, \forestoption{edge}] (!u.parent anchor) |- (.child anchor)\forestoption{edge label};
+       % alternatively, with angled lines
+        %\noexpand\path[\forestoption{edge}]
+        % (!u.parent anchor) -- ([xshift=-2.6cm].child anchor) --    
+        % (.child anchor)\forestoption{edge label};
+  },
+    }
+    [, decision
+      [,chance, [{\color{dgreen}\textbf{0}}][{\color{dgreen}\textbf{0}}]]
+      [,chance, [{\color{dgreen}\textbf{-1}}][{\color{dgreen}\textbf{5}}]]
+      [,chance, [{\color{dgreen}\textbf{11}}][{\color{dgreen}\textbf{-8}}]]
+      [,chance, [{\color{dgreen}\textbf{-12}}][{\color{dgreen}\textbf{13}}]]
+      ]
+    ]
+\end{forest}
+}
+\end{center}
+\vspace{3mm}
+
+\begin{tikzpicture}[]
+ \put(50,3) {  \node [rectangle, minimum height=8pt, minimum width=8pt, draw=black, fill=black!30!white, thin, inner sep=0pt] at (70,10) {};}
+  \put(120,3) {  \node [circle, minimum height=8pt, minimum width=8pt, draw=black, fill=black!30!white, thin, inner sep=0pt] at (70,10) {};}
+  \put(190,3) {  \node [isosceles triangle, minimum width=10pt, draw=black, thin, fill=white, inner sep=0pt, shape border rotate=180, outer sep=-\pgflinewidth] at (70,10) {};}   
+
+\end{tikzpicture}
+\put(55,5) {Decision Nodes}
+\put(125,5) {Event Nodes}
+\put(195,5) {Terminal Nodes}
+\end{frame}
+
+
+
+
+\end{document}

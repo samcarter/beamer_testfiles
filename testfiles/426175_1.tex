@@ -1,0 +1,17 @@
+% https://tex.stackexchange.com/a/426175
+\documentclass{beamer}
+\usepackage{tabu}
+
+\begin{document}
+\begin{frame}
+\frametitle{Activity}
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabu} to \linewidth 
+ {*{3}{>{\bfseries}X[0.2rm]X[lm$]>{\color{blue}}X[lm$]}}
+% Exercise
+1) & 3x + 6 & \visible<2->{3(x+2)} & 2) & 5x+15 & \visible<2->{5(x+3)} & 3) & 4x+20 & \visible<2->{4(x+5)} \cr
+\end{tabu}
+\end{center}
+\end{frame}
+\end{document}

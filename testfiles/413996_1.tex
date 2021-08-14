@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/413996
+\documentclass{beamer}
+\setbox0=\hbox{}
+\dp0=1.131ex
+
+\makeatletter
+\long\def\beamer@doseveralframes#1{%
+  \ifx\beamer@againname\@empty\else%
+    % Again stuff
+    \expandafter \gdef\csname beamer@again@\beamer@againname\endcsname{{#1}}%
+  \fi%
+  \beamer@slideinframe=1\relax%
+  \loop%
+  \beamer@anotherslidefalse%
+  \gdef\beamer@doifnotinframe{}%
+  \def\beamer@doifinframe{\begin{beamer@frameslide}%
+    #1%
+  \end{beamer@frameslide}}%
+  \beamer@masterdecode{\beamer@whichframes}%
+  \beamer@donow%
+  \ifbeamer@twoscreenstext%
+    \beamer@dosecondscreennow{#1}% two screen stuff
+  \fi%
+  \ifbeamer@anotherslide
+  \advance\beamer@slideinframe by 1\relax
+  \repeat%
+  \beamer@writeslidentry%
+  \beamer@reseteecodes}
+\makeatother
+
+\begin{document}
+\begin{frame}
+\footnote{\box0 }
+\end{frame}
+\end{document}

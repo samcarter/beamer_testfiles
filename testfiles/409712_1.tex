@@ -1,0 +1,30 @@
+% https://tex.stackexchange.com/a/409712
+\documentclass[aspectratio=169]{beamer}
+
+\definecolor{ocre}{RGB}{139,40,34}
+\setbeamercolor{section title}{fg=ocre}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+
+% -- Section title pages
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{block}{}
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{section title}%<- Change here
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \end{block}
+  \vfill
+  \end{frame}
+}
+
+\begin{document}
+
+\section{First Section} 
+
+\begin{frame}
+\end{frame}
+
+\end{document}

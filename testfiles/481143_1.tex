@@ -1,0 +1,64 @@
+% https://tex.stackexchange.com/a/481143
+\documentclass[aspectratio=169, xcolor={x11names}]{beamer}
+
+\usecolortheme{crane}
+\useoutertheme{miniframes}
+\usefonttheme[onlylarge]{structurebold}
+\useinnertheme{inmargin}
+
+\newlength{\widthSideBar}
+\setlength{\widthSideBar}{0.3\paperwidth}
+\setbeamersize{sidebar width left=\widthSideBar, sidebar width right=0cm}
+
+\usepackage{natbib}
+
+\usepackage{filecontents}
+\begin{filecontents*}{\jobname.bib}
+@book{earnest2015,
+  title={Wind Power Technology},
+  author={Joshua Earnest},
+  year={2015},
+  publisher={PHI Learning}
+}
+
+@techreport{MRITS-Grant2014,
+     title = {{Report in the Matter of Integration and Transmission Study for the Future Renewable Energy Standard}},
+     author = {Grant},
+     group = {Minnesota Department of Commerce},
+     year = {2014},
+     institution = {Minnesota Department of Commerce},
+     month = {Nov},
+     Date-Added = {2014},
+     Date-Modified = {2014}
+}
+
+@ARTICLE{wu2017,
+  title={{Assessing Impact of Renewable Energy Integration on System Strength Using Site-Dependent Short Circuit Ratio}},
+  author={Wu, Di and Li, Gangan and Javadi, Milad and Malyscheff, Alexander M and Hong, Mingguo and Jiang, John Ning},
+  journal={IEEE Transactions on Sustainable Energy},
+  year={2017},
+  publisher={IEEE}
+}
+\end{filecontents*}
+
+\makeatletter
+\newcommand{\inmargin}[1]{\beamer@putleft{\cite{#1}}{2.5ex}\vspace*{-\baselineskip}}
+\makeatother
+
+
+\begin{document}
+
+
+\begin{frame}
+
+    \inmargin{MRITS-Grant2014}Cite \textsuperscript{\color{SlateBlue2} 1,}\linebreak\inmargin{wu2017}Cite \textsuperscript{\color{SlateBlue2} 2,}
+
+
+\end{frame}
+
+\begin{frame}[allowframebreaks=0.9]{Referencing}
+\bibliographystyle{elsarticle-harv}
+\bibliography{\jobname}
+\end{frame}
+
+\end{document}

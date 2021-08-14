@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/381044
+\documentclass{beamer}
+
+%\usepackage{etoolbox}
+\makeatletter
+\apptocmd{\beamer@@frametitle}{\write\@auxout{\string\@writefile{frm}{\string\frametitleentry{\the\c@framenumber}{#1}{#2}}}}{}{}
+\newcommand*{\frametitleentry}[3]{\@namedef{frametitleshort#1}{#2}\@namedef{frametitle#1}{#3}}
+\AtEndDocument{\if@filesw\newwrite\tf@frm\immediate\openout\tf@frm\jobname.frm\relax\fi}
+\@input{\jobname.frm}
+\newcommand*{\insertpreviousframetitle}[1][1]{\bgroup\advance\c@framenumber by -#1\relax\@ifstar{\@nameuse{frametitleshort\the\c@framenumber}\egroup}{\@nameuse{frametitle\the\c@framenumber}\egroup}}
+\newcommand*{\insertnextframetitle}[1][1]{\bgroup\advance\c@framenumber by #1\relax\@ifstar{\@nameuse{frametitleshort\the\c@framenumber}\egroup}{\@nameuse{frametitle\the\c@framenumber}\egroup}}
+\makeatother
+
+
+\setbeamertemplate{footline}{\hfill \insertnextframetitle\quad\insertframenumber\quad}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{test1}
+    abc
+\end{frame} 
+
+\begin{frame}
+\frametitle{test2}
+    abc
+\end{frame} 
+
+\begin{frame}
+\frametitle{test3}
+    abc
+\end{frame} 
+
+\begin{frame}
+\frametitle{test4}
+    abc
+\end{frame} 
+
+\end{document}

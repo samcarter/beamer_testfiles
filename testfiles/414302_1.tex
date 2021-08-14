@@ -1,0 +1,56 @@
+% https://tex.stackexchange.com/a/414302
+\documentclass{beamer}
+
+
+\setbeamertemplate{section in toc}{%
+    \leavevmode\leftskip=2ex%
+  \llap{%
+    \usebeamerfont*{section number projected}%
+    \usebeamercolor{section number projected}%
+    \begin{pgfpicture}{-1ex}{0ex}{1ex}{2ex}
+      \color{bg}
+      \pgfpathcircle{\pgfpoint{0pt}{.75ex}}{1.2ex}
+      \pgfusepath{fill}
+      \pgftext[base]{\color{fg}\inserttocsectionnumber}
+    \end{pgfpicture}\kern1.25ex%
+  }%
+  \underline{\inserttocsection}\par%
+}
+
+\setbeamertemplate{section in toc shaded}{%
+\begin{colormixin}{20!parent.bg}
+    \leavevmode\leftskip=2ex%
+  \llap{%
+    \usebeamerfont*{section number projected}%
+    \usebeamercolor{section number projected}%
+    \begin{pgfpicture}{-1ex}{0ex}{1ex}{2ex}
+      \color{bg}
+      \pgfpathcircle{\pgfpoint{0pt}{.75ex}}{1.2ex}
+      \pgfusepath{fill}
+      \pgftext[base]{\color{fg}\inserttocsectionnumber}
+    \end{pgfpicture}\kern1.25ex%
+  }%
+  \inserttocsection\par%
+\end{colormixin}\unskip}
+
+\AtBeginSection[]{
+\begin{frame}{Both sections should have circles with section numbers!}
+    \tableofcontents[currentsection]
+\end{frame}
+}
+
+\begin{document}
+\begin{frame}
+    Slide 1
+\end{frame}
+
+\section{This section should be underlined}
+\begin{frame}
+    Slide 3
+\end{frame}
+
+\section{This section should be shaded and NOT underlined}
+\begin{frame}
+    Slide 5
+\end{frame}
+\end{document}

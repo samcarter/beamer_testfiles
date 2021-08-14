@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/469164
+\documentclass{beamer}
+
+\usetheme{Boadilla}
+
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+
+\setbeamertemplate{subsubsection in toc}{%
+    \leavevmode\normalsize\usebeamerfont{subsection in
+    toc}\leftskip=2.5em\usebeamerfont{subsubsection in toc}%
+  \rlap{\hskip-3em\inserttocsectionnumber.\inserttocsubsectionnumber.\inserttocsubsubsectionnumber}\inserttocsubsubsection\par}
+
+
+\begin{document}
+
+\begin{frame}
+\tableofcontents
+\end{frame}
+
+\section{First Section}
+
+\begin{frame}
+Frame 1
+\end{frame}
+
+\subsection{First Subsection}
+
+\subsubsection{subsubsection name}
+
+\begin{frame}
+Frame 2
+\end{frame}
+
+\section{Second Section}
+
+\begin{frame}
+Frame 3
+\end{frame}
+
+\end{document}

@@ -1,0 +1,64 @@
+% https://tex.stackexchange.com/a/307899
+\documentclass{beamer}
+\usepackage{natbib}
+\usetheme{Warsaw}
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+\usepackage{fancybox}
+\usepackage{multirow}
+\usepackage{beamerthemesplit}
+\usepackage{amssymb,amsmath,amsthm,latexsym}
+\usepackage{amsfonts}
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+\setbeamercovered{highly dynamic}
+
+\begin{document}
+
+\begin{frame}
+\begin{block}{\large Multiple scattered photons versus target thickness (continued...)}
+\begin{figure}
+    \begin{minipage}{150pt}
+    \begin{center}
+    \includegraphics[width=\textwidth]{example-image-duck}
+    \subcaption{Iron}
+    \end{center}    
+    \end{minipage}
+\hfill
+    \begin{minipage}{150pt}
+    \begin{center}
+    \includegraphics[width=\textwidth]{example-image-duck}
+    \subcaption{Copper}
+    \end{center}    
+    \end{minipage}
+\hfill
+\end{figure}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\begin{block}{\large Multiple scattered photons versus target thickness for 75 mm collimator}
+    \setcounter{subfigure}{0}
+\begin{figure}
+    \begin{minipage}{150pt}
+    \begin{center}
+    \includegraphics[width=\textwidth]{example-image-duck}
+    \subcaption{Carbon}
+    \end{center}    
+    \end{minipage}
+\hfill
+    \begin{minipage}{150pt}
+    \begin{center}
+    \includegraphics[width=\textwidth]{example-image-duck}
+    \subcaption{Aluminium}
+    \end{center}    
+    \end{minipage}
+\hfill
+\end{figure}
+\end{block}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,38 @@
+% https://tex.stackexchange.com/a/478927
+\documentclass{beamer}
+
+\usepackage[ruled]{algorithm2e}
+
+
+\begin{document}
+
+\begin{frame}
+
+\begin{onlyenv}<1>
+ \begin{algorithm}[H] 
+% This is to hide end and get the last vertical line straight
+\SetKwBlock{Begin}{Begin}{}
+\SetAlgoLined
+  \Begin{
+  $\mathcal{E} \leftarrow \emptyset$\;
+  }
+\end{algorithm}
+\end{onlyenv}
+
+\begin{onlyenv}<2>
+\begin{algorithm}[H]
+%This is to hide Begin keyword
+\SetKwBlock{Begin}{}{end}
+\Begin{
+  $\mathcal{E} \leftarrow \emptyset$\;
+  $\mathcal{E} \leftarrow \emptyset$\;
+  $\mathcal{E} \leftarrow \emptyset$\;
+  $\mathcal{E} \leftarrow \emptyset$\;
+  $\mathcal{E} \leftarrow \emptyset$\;     
+  }
+\end{algorithm}
+\end{onlyenv}
+
+\end{frame}
+
+\end{document}

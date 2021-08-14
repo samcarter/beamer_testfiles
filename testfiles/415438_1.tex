@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/415438
+\documentclass[t]{beamer}
+\usecolortheme{rose}
+\usepackage[most]{tcolorbox}
+
+
+\setbeamercolor{block title alerted}{use=alerted text,fg=alerted text.fg,bg=alerted text.fg!20!white}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!50!white}
+
+\newtcolorbox{myalertbox}[2][]{%
+    code={%
+        \usebeamercolor{block title alerted}
+        \colorlet{titlebg}{block title alerted.bg}
+        \colorlet{titlefg}{block title alerted.fg}
+        \usebeamercolor{block body alerted}
+        \colorlet{bodybg}{block body alerted.bg}
+        \colorlet{bodyfg}{block body alerted.fg}
+    },
+    colbacktitle=titlebg, 
+    coltitle=titlefg, 
+    colback=bodybg,
+    colupper=bodyfg,
+    title=#2,
+    boxrule=0pt,
+    sharp corners,
+    #1
+}
+
+\begin{document} 
+\begin{frame}{Testing beamer colors in tcolorbox}
+
+\begin{myalertbox}{Alert tcolorbox}
+Some text
+\end{myalertbox}
+
+\begin{alertblock}{Beamer alert box}
+Some text
+\end{alertblock}
+
+\end{frame}
+\end{document}

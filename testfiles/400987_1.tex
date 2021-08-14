@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/400987
+\documentclass{beamer}
+\usetheme{Madrid}
+\usepackage[most]{tcolorbox}
+
+\newtcolorbox[auto counter]{pabox}[1]{%
+    colback=white,
+    colframe=structure.fg,
+    colbacktitle=white!90!structure.fg,
+    coltitle=black,
+    fonttitle=\bfseries, 
+    title=Definition~\thetcbcounter .,
+    enhanced,
+    attach boxed title to top left={yshift=-2mm, xshift=0.5cm}
+}
+
+\begin{document}
+
+\begin{frame}
+\begin{pabox}
+This is my own box with a mandatory
+numbered title and options.
+\end{pabox}
+\end{frame}
+
+
+\end{document}

@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/414415
+\documentclass[xcolor=pdftex,dvipsnames,table]{beamer}
+\usepackage[english]{babel}
+%\usepackage{cleveref}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\mode<presentation>
+\setbeamertemplate{caption}[numbered]
+
+\begin{document}
+\begin{frame} 
+\begin{columns}[t] 
+\begin{column}[T]{5cm} 
+\begin{itemize} 
+\item<+-| alert@+> 1~\ref{1} 
+\item<+-| alert@+> 2~\ref{2} etc 
+\end{itemize} 
+\end{column} 
+\begin{column}[T]{5cm} 
+\begin{figure}%
+    \only<1>{%
+        \begin{subfigure}[b]{\linewidth}%
+        \caption{sub caption 1}\label{1}%
+            \includegraphics<1>[width=3cm]{example-image-a}%
+        \end{subfigure}%
+    }%
+        \only<2>{{\phantomsubcaption}}%
+    \visible<2>{%
+        \begin{subfigure}[b]{\linewidth}%
+          \caption{sub caption 2}\label{2}%
+            \includegraphics<2>[width=3cm]{example-image-b}%
+        \end{subfigure}%
+    }
+    \caption{main} 
+    \label{3} 
+\end{figure} 
+\end{column} 
+\end{columns} 
+\end{frame}
+\end{document}

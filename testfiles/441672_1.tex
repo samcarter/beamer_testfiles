@@ -1,0 +1,75 @@
+% https://tex.stackexchange.com/a/441672
+\documentclass[compress]{beamer}
+\usecolortheme{rose}
+
+\usebackgroundtemplate{\centering
+    \includegraphics[width=\paperwidth,height=\paperheight]{example-image}}
+
+
+\setbeamertemplate{block begin}
+{
+  \par\vskip\medskipamount%
+  \begin{beamercolorbox}[colsep*=.75ex]{block title}
+    \usebeamerfont*{block title}\insertblocktitle%
+  \end{beamercolorbox}%
+  {\parskip0pt\par}%
+  \ifbeamercolorempty[bg]{block title}
+  {}
+  \pgfsetfillopacity{0.5}
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body}%
+  \begin{beamercolorbox}[colsep*=.75ex,vmode]{block body}%
+    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+  \pgfsetfillopacity{1}
+}
+
+\setbeamertemplate{block alerted begin}
+{
+  \par\vskip\medskipamount%
+  \begin{beamercolorbox}[colsep*=.75ex]{block title alerted}
+    \usebeamerfont*{block title alerted}\insertblocktitle%
+  \end{beamercolorbox}%
+  {\parskip0pt\par}%
+  \ifbeamercolorempty[bg]{block title alerted}
+  {}
+  \pgfsetfillopacity{0.5}
+  {\ifbeamercolorempty[bg]{block body alerted}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body alerted}%
+  \begin{beamercolorbox}[colsep*=.75ex,vmode]{block body alerted}%
+    \ifbeamercolorempty[bg]{block body alerted}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+  \pgfsetfillopacity{1}
+}
+
+\setbeamertemplate{block example begin}
+{
+  \par\vskip\medskipamount%
+  \begin{beamercolorbox}[colsep*=.75ex]{block title example}
+    \usebeamerfont*{block title example}\insertblocktitle%
+  \end{beamercolorbox}%
+  {\parskip0pt\par}%
+  \ifbeamercolorempty[bg]{block title example}
+  {}
+  \pgfsetfillopacity{0.5}
+  {\ifbeamercolorempty[bg]{block body example}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body example}%
+  \begin{beamercolorbox}[colsep*=.75ex,vmode]{block body example}%
+    \ifbeamercolorempty[bg]{block body example}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+  \pgfsetfillopacity{1}
+}
+
+\begin{document}
+
+  \begin{frame}{}
+    \begin{theorem}
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. 
+\end{theorem}
+
+    \begin{alertblock}{Alert!!!}
+ Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+  \end{alertblock}
+
+ \begin{exampleblock}{Example}
+  Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros.
+ \end{exampleblock}
+  \end{frame}
+\end{document}

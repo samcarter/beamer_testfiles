@@ -1,0 +1,18 @@
+% https://tex.stackexchange.com/a/373804
+\documentclass{beamer}
+
+\newcommand{\choice}{whatever this macro should do}
+
+\newenvironment{testlist}
+{\begin{frame}[environment=testlist]}
+{\end{frame}}
+
+\begin{document}
+
+\begin{testlist}
+   \choice
+   bla
+   bla
+\end{testlist}
+
+\end{document}

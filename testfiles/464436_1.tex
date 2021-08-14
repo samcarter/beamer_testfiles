@@ -1,0 +1,56 @@
+% https://tex.stackexchange.com/a/464436
+\documentclass[10pt,handout,english]{beamer}
+\usepackage[english]{babel}
+\usepackage[backend=biber,style=numeric-comp,sorting=none]{biblatex}
+
+
+\usepackage{filecontents}
+\begin{filecontents*}{bib2.bib}
+@book{knuth,
+  author       = {Knuth, Donald E.},
+  title        = {The {\TeX} book},
+  date         = 1984,
+  maintitle    = {Computers \& Typesetting},
+  volume       = {A},
+  publisher    = {Addison-Wesley},
+  location     = {Reading, Mass.},
+  langid       = {english},
+  langidopts   = {variant=american},
+  sortyear     = {1984-1},
+  sorttitle    = {Computers & Typesetting A},
+  indexsorttitle= {The TeXbook},
+  indextitle   = {\protect\TeX book, The},
+  shorttitle   = {\TeX book}
+}
+
+@article{einstein,
+    author = {Einstein, A.},
+    title = {Die Grundlage der allgemeinen Relativitätstheorie},
+    journal = {Annalen der Physik},
+    volume = {354},
+    number = {7},
+    doi = {10.1002/andp.19163540702},
+    pages = {769--822},
+    year = {1916}
+}
+\end{filecontents*}
+
+\addbibresource{bib2.bib}
+
+\begin{document}
+
+\begin{frame}
+
+ \frametitle{Title}
+ A reference\footfullcite{knuth}, with refbib an item of the .bib file.
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+        \frametitle{References}
+%        \bibliographystyle{amsalpha}
+\printbibliography
+%        \bibliography{bib2.bib}
+\end{frame}
+
+\end{document}

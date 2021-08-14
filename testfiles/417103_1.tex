@@ -1,0 +1,36 @@
+% https://tex.stackexchange.com/a/417103
+\documentclass{beamer}
+\usetheme{Dresden}
+\useinnertheme{circles}
+
+\setbeamertemplate{enumerate item}[default]
+\setbeamertemplate{enumerate subitem}[default]
+\setbeamertemplate{enumerate subsubitem}[default]
+
+\setbeamerfont{itemize/enumerate subbody}{size=\footnotesize}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\tiny}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Frame title}
+
+\begin{enumerate}
+\item First item 
+
+\begin{enumerate}
+\item First subitem
+\item Second subitem
+
+\begin{enumerate}
+\item First subitem
+\item Second subitem
+
+\end{enumerate}
+\end{enumerate}
+
+\item Second subitem
+\end{enumerate}
+\end{frame}
+
+\end{document} 

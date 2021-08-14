@@ -1,0 +1,43 @@
+% https://tex.stackexchange.com/a/412428
+\documentclass{beamer}
+\usetheme{Singapore}
+
+\makeatletter
+\setbeamertemplate{headline}{%
+  \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}{section in head/foot}
+%    \vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+     \vskip2pt\quad\usebeamerfont{section in head/foot}\insertsection \vskip2pt
+  \end{beamercolorbox}%
+  \ifbeamer@theme@subsection%
+    \begin{beamercolorbox}[colsep=1.5pt]{middle separation line head}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+      \usebeamerfont{subsection in head/foot}\insertsubsectionhead
+    \end{beamercolorbox}%
+  \fi%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+  \end{beamercolorbox}
+}
+\addtoheadtemplate{\pgfuseshading{beamer@headfade}\vskip-1.25cm}{}
+
+\makeatother
+
+\setbeamerfont{section in head/foot}{size=\large}
+\setbeamercolor{section in head/foot}{fg=structure.fg!50!white}
+
+\begin{document}
+
+\section{Introduction}
+\begin{frame}{Introduction}
+  ......
+\end{frame}
+
+\section{Part 1}
+\begin{frame}{Part 1}
+   ......
+\end{frame}
+
+\end{document}

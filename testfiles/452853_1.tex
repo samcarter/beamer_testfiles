@@ -1,0 +1,79 @@
+% https://tex.stackexchange.com/a/452853
+\documentclass{beamer}
+\mode<presentation>
+{
+  \usetheme{Madrid}       
+%  \usecolortheme{default} as the name says, this is default
+  \usefonttheme{serif}    
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+} 
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{chemfig}
+\usepackage[version=3]{mhchem}
+\usepackage{caption}
+%\usepackage{epstopdf} not needed with current tex distributions
+\usepackage{comment}
+%\usepackage{graphicx} not needed with beamer
+\usepackage{subfig}
+
+%\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0} Better not use () in colour names 
+
+\usepackage{pgfpages}
+\pgfpagesuselayout{resize to}[physical paper width=8in, physical paper height=6in]
+
+\makeatletter
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\ifblank\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hfill%
+    \usebeamercolor[fg]{page number in head/foot}\usebeamerfont{page number in head/foot}\makebox[0.9cm][r]{\usebeamertemplate{page number in head/foot}}\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+\title[Unal]{}
+\author{Juan Muñoz}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+\end{frame}
+\begin{frame}
+\end{frame}
+\begin{frame}
+\end{frame}
+\begin{frame}
+\end{frame}
+\begin{frame}
+\end{frame}
+\begin{frame}
+\end{frame}
+\begin{frame}
+\end{frame}
+\begin{frame}
+\end{frame}
+\begin{frame}
+\end{frame}
+\begin{frame}
+\end{frame}
+\begin{frame}
+\end{frame}
+\begin{frame}
+\end{frame}
+
+\end{document}

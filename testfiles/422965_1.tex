@@ -1,0 +1,32 @@
+% https://tex.stackexchange.com/a/422965
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{overlay-beamer-styles}
+
+\newcommand{\fancyitem}[3]{%
+    \node[anchor=west] at (1,-\theitemnumber) (titlenode)  {\color{gray}\textcolor<+>{black}{#2}};
+    \fill[alt=<.>{fill=#1}{fill=#1!40!white}] (titlenode.west)++(0,-0.4) rectangle ++(-0.2,0.8);
+    \only<.>{
+      \fill[#1] (titlenode.west)++(-0.2,-0.4) rectangle ++(5,0.05);
+      \node[anchor=north west] (textnode) at (titlenode.west) [xshift=5cm,yshift=-0.3cm, text width=5cm] {#3};  
+      \fill[#1] (titlenode.west)++(4.8,-0.35) rectangle (textnode.south west);
+    }
+    \addtocounter{itemnumber}{1}
+}
+
+\newcounter{itemnumber}
+
+\begin{document}
+
+\begin{frame}
+\begin{overlayarea}{\linewidth}{.47\textheight}
+    \begin{tikzpicture}
+    \setcounter{itemnumber}{0}
+    \fancyitem{orange}{nanooptics}{confining and guiding light photonic components fabrication}
+    \fancyitem{cyan}{focussed ion beam}{confining and guiding}
+    \fancyitem{violet}{aligment procedure}{confining and guiding light photonic}        
+  \end{tikzpicture}
+\end{overlayarea}
+\end{frame} 
+
+\end{document}

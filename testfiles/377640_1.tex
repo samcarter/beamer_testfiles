@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/377640
+\documentclass[10pt,notheorems]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[turkish]{babel}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning,shapes,arrows}
+
+\usetikzlibrary{babel}
+
+\hypersetup{bookmarksdepth=4,bookmarksnumbered=true,bookmarksopen=true}
+
+\usetheme{Warsaw}
+\usecolortheme{seahorse}
+
+\begin{document}
+
+\begin{frame}[fragile]{}{}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \node (rwp) [draw,fill=blue!20,text centered,minimum height=2em,rounded corners] {Ger\c{c}ek ya\c{s}am problemi};
+    \node (mm) [right=2cm of rwp,draw,fill=purple!20,text centered,minimum height=2em,rounded corners] {Matematiksel model};
+    \node (mc) [below=2cm of mm,draw,fill=green!20,text centered,minimum height=2em,rounded corners] {Matematiksel \c{c}{\i}kar{\i}m};
+    \node (rwq) [below=2cm of rwp,draw,fill=red!20,text centered,minimum height=2em,rounded corners] {Ger\c{c}ek ya\c{s}am tahminleri};
+    \path [draw,->] (rwp.east) -- node [above] {Form\""{u}lasyon} (mm.west);
+    \path [draw,->] (mm.south) -- node [right] {\c{C}\""{o}z\""{u}m} (mc.north);
+    \path [draw,->] (mc.west) -- node [below] {Yorum} (rwq.east);
+    \path [draw,->] (rwq.north) -- node [left] {Kontrol} (rwp.south);
+  \end{tikzpicture}
+  \caption{Modelleme s\""{u}reci}\label{s2ss2fig1}
+\end{figure}
+
+\end{frame}
+
+\end{document} 

@@ -1,0 +1,48 @@
+% https://tex.stackexchange.com/a/464149
+\documentclass{beamer}
+
+\colorlet{foo}{black}
+
+\setbeamertemplate{subsection in toc}{%
+\ifnum\inserttocsubsectionnumber>1
+    {%
+        \color{black!20}%
+        $-$\hspace{0.5em}%
+    }%
+\fi
+\textcolor{foo}{\inserttocsubsection}}
+
+\setbeamertemplate{subsection in toc shaded}{%
+%\begin{colormixin}{20!parent.bg}
+\begingroup%
+\colorlet{foo}{black!20}%
+\usebeamertemplate{subsection in toc}%
+%\end{colormixin}
+\endgroup%
+\unskip}
+
+
+\begin{document}
+\section{Section}
+\subsection{This}
+\begin{frame}{test}
+\end{frame}
+\subsection{Is}
+\begin{frame}
+\tableofcontents[subsectionstyle=show/shaded]
+\end{frame}
+\begin{frame}{test}
+\end{frame}
+\subsection{A}
+\begin{frame}{test}
+\end{frame}
+\subsection{Minimal}
+\begin{frame}{test}
+\end{frame}
+\subsection{Working}
+\begin{frame}{test}
+\end{frame}
+\subsection{Example}
+\begin{frame}{test}
+\end{frame}
+\end{document}

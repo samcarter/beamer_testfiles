@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/424637
+\documentclass{beamer}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{graphicx}
+\usepackage{tcolorbox}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}  
+\usepackage{nccmath}
+
+\begin{document}
+
+\begin{frame}{Problem 1}
+    \begin{tcolorbox}
+        \textit{Case 2:} $c_0(\mathbb{R}) \subset X(\mathbb{R})$
+
+        let 
+        \useshortskip
+        \begin{align}
+            & x_n + i y_n \in c_0(\mathbb{C})\\
+            & \Rightarrow x_n+iy_n \longrightarrow 0\\
+            & \Rightarrow x_n \longrightarrow 0, y_n \longrightarrow 0\\
+            & \Rightarrow (x_n),(y_n) \in c_0(\mathbb{R})\subset X(\mathbb{R})\\
+            & \Rightarrow x_n + iy_n \in X(\mathbb{C})
+        \end{align}
+
+        $\Rightarrow$ $c_0(\mathbb{C}) \subset X(\mathbb{C})$
+
+        Hence, if $Spear(X)$ is not compact, $X$ contains a copy of $c_0$ or $l_1$.
+    \end{tcolorbox}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/437792
+\documentclass[10pt]{beamer}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usetheme{Madrid}
+\setbeamercovered{transparent}
+\setbeamercolor{math text}{fg=black} 
+
+\begin{document}
+
+\begin{frame}
+    \begin{enumerate}[<+->]%
+        \item First item%
+        \item Second item with math mode :%
+            \[\forall x,\exists y\]%    %% Big space after this
+    \end{enumerate}%
+    \vspace*{-\baselineskip}
+    After enumerate
+\end{frame}
+
+\begin{frame}
+    \begin{enumerate}
+        \item First item
+        \item Second item with math mode :
+            \[\forall x,\exists y\]    %% Standard space after this
+    \end{enumerate}
+    \vspace*{-\baselineskip}
+    After enumerate
+\end{frame}
+
+\end{document}

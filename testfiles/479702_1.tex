@@ -1,0 +1,17 @@
+% https://tex.stackexchange.com/a/479702
+\documentclass{beamer}
+
+\makeatletter
+\edef\beamer@origlmargin{\Gm@lmargin}%
+\edef\beamer@origrmargin{\Gm@rmargin}%
+\makeatother
+
+\begin{document}
+\begin{frame}
+normal frame
+\end{frame}
+
+\begin{frame}
+\insertslideintonotes{0.3}
+\end{frame}
+\end{document}

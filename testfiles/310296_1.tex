@@ -1,0 +1,42 @@
+% https://tex.stackexchange.com/a/310296
+\documentclass{beamer}
+\usepackage{mathtools}
+\newtheorem{question}{Question}
+\newtheorem{answer}{Answer}
+
+\usepackage{etoolbox}
+\newcommand{\zerodisplayskips}{%
+    \setlength{\abovedisplayskip}{0pt}
+    \setlength{\belowdisplayskip}{0pt}
+    \setlength{\abovedisplayshortskip}{0pt}
+    \setlength{\belowdisplayshortskip}{0pt}}
+\appto{\normalsize}{\zerodisplayskips}
+\appto{\small}{\zerodisplayskips}
+\appto{\footnotesize}{\zerodisplayskips}
+
+
+\DeclareMathOperator{\argmax}{arg\,max}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+
+\begin{document}
+
+\begin{frame}{Vector offsets}
+We assume that a linguistic relationship between two words corresponds to a constant, cosine distance based offset.
+\begin{question}[Syntactic test]
+$a\:b\ c\:\_$?
+\end{question}
+\begin{answer}
+\nointerlineskip
+\begin{align*}
+y   &= x_b-x_a+x_c \\
+d^* &= \argmax_d \frac{x_dy}{\norm{x_d}\norm{y}}
+\end{align*}
+\end{answer}
+%
+\begin{question}[Semantic test]
+How valid is $a\:b\ c\:d$?
+\end{question}
+\begin{answer}
+\end{answer}
+\end{frame}
+\end{document}

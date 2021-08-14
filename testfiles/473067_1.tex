@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/473067
+\documentclass{beamer}
+\usepackage{ragged2e}   %new code
+\usetheme{default}
+
+\addtobeamertemplate{block example begin}{}{\justifying}  %new code
+
+\begin{document}
+
+\begin{frame}{Test}
+  \begin{example}
+    The brown fox jumped over the lazy dog. The brown fox jumped over
+    the lazy dog. The brown fox jumped over the lazy dog. The brown
+    fox jumped over the lazy dog. The brown fox jumped over the lazy
+    dog. The brown fox jumped over the lazy dog. The brown fox jumped
+    over the lazy dog. The brown fox jumped over the lazy dog. The
+    brown fox jumped over the lazy dog. The brown fox jumped over the
+    lazy dog. The brown fox jumped over the lazy dog.
+  \end{example}
+\end{frame}
+\end{document}

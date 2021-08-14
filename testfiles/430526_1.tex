@@ -1,0 +1,77 @@
+% https://tex.stackexchange.com/a/430526
+\documentclass{beamer}
+\usepackage{tikz}
+
+\usetikzlibrary{chains}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathmorphing}
+
+\definecolor{burgundy}{HTML}{882426}
+
+\tikzset{onslide/.code args={<#1>#2}{%
+          \only<#1>{\pgfkeysalso{#2}}
+          }}
+\tikzstyle{highlight}=[burgundy,ultra thick]
+
+\begin{document}
+
+    \begin{frame}[fragile]{Frame 1}
+        \begin{figure}
+            %\begin{tikzpicture}[remember picture,overlay,level/.style={sibling distance=60mm/#1}]
+            \begin{tikzpicture}[level/.style={sibling distance=60mm/#1}]
+                \edef\sizetape{0.7cm}
+                \tikzstyle{tmtape}=[decorate, decoration={random steps,segment length=0.8pt,amplitude=0.2pt},draw,minimum size=\sizetape,thick]
+                \tikzstyle{tmtap}=[draw,minimum size=\sizetape,black!50]
+                \begin{scope}
+                        \node [circle,decorate, decoration={random steps,segment length=0.8pt,amplitude=0.2pt}, draw,very thick,color=burgundy] (v0){\texttt{1}}
+                        child {node [circle, decorate, decoration={random steps,segment length=0.8pt,amplitude=0.2pt}, draw,very thick,color=burgundy] (v1) {\texttt{2}} 
+                            child {node [circle, decorate, decoration={random steps,segment length=0.8pt,amplitude=0.2pt}, draw,very thick,color=burgundy] (v3) {\texttt{3}}
+                                child {node [circle, decorate, decoration={random steps,segment length=0.8pt,amplitude=0.2pt}, draw] (v9) {\scriptsize{\texttt{4}}}}
+                                child {node [circle, decorate, decoration={random steps,segment length=0.8pt,amplitude=0.2pt}, draw,very thick,color=burgundy] (v8) {\texttt{5}}}
+                            }
+                            child {node [circle,decorate, decoration={random steps,segment length=0.8pt,amplitude=0.2pt}, draw] (v4) {\scriptsize{\texttt{6}}}}
+                          }
+                        child {node [circle,decorate, decoration={random steps,segment length=0.8pt,amplitude=0.2pt}, draw,very thick,color=burgundy] (v2) {\texttt{7}}
+                        child {node [circle,decorate, decoration={random steps,segment length=0.8pt,amplitude=0.2pt}, draw] (v5) {\scriptsize{\texttt{8}}}
+                                child {node [circle,decorate, decoration={random steps,segment length=0.8pt,amplitude=0.2pt}, draw] (v7) {\scriptsize{\texttt{9}}}}}
+                        child {node [circle,decorate, decoration={random steps,segment length=0.8pt,amplitude=0.2pt}, draw,very thick,color=burgundy] (v6) {\texttt{10}}}
+                        };
+                    \path[draw,very thick,onslide={<2>{highlight}}] (v0) -- (v1);
+                    \path[draw,very thick,onslide={<2>{highlight}}] (v1) -- (v3);
+                    \path[draw,very thick,color=burgundy] (v3) -- (v8);
+                    %\path[draw,very thick] (v2) -- (v5);
+                    %\path[draw,very thick] (v5) -- (v7);
+                    %\path[draw,very thick] (v3) -- (v9);
+                    \path[draw,very thick,color=burgundy] (v2) -- (v6);
+                    \path[draw,very thick,color=burgundy] (v2) -- (v0);
+                    %\path[draw,very thick] (v1) -- (v4);
+                    \node[xshift=0.2cm,yshift=0.2cm] (w0) at (v0.north east) {\textit{-1}};
+                    \node[xshift=0.2cm,yshift=0.2cm] (w8) at (v8.north east) {\textit{3}};
+                    \node[xshift=0.2cm,yshift=0.2cm] (w3) at (v3.east) {\textit{9}};
+                    \node[xshift=-0.2cm,yshift=0.2cm] (w1) at (v1.west) {\textit{-17}};
+                    \node[xshift=0.2cm,yshift=0.2cm] (w2) at (v2.north east) {\textit{13}};
+                    \node[xshift=0.2cm,yshift=0.2cm] (w6) at (v6.north east) {\textit{-2}};
+                \end{scope}
+                %\begin{comment}
+                \begin{scope}[shift={($(v1.south)+(1,-4.5)$)},start chain=1 going right, node distance = 3.55mm]
+                        \node [on chain=1,tmtape] (am17) {\texttt{-17}};
+                        \node [on chain=1,tmtape] (am2) {\texttt{-2}};
+                        \node [on chain=1,tmtape] (am1) {\texttt{-1}};
+                        \node [on chain=1,tmtape] (a3) {\texttt{3}};
+                        \node [on chain=1,tmtape] (a9) {\texttt{9}};
+                        \node [on chain=1,tmtape] (a13) {\texttt{13}};
+                        \coordinate (X) at ($(a13.south east)+(1,-1)$);
+                        %\draw [decorate, decoration={brace,amplitude=10pt,mirror,raise=4pt},very thick,yshift=-2cm] (a8l.south  west) -- (a6f.south east) 
+                    %   node[midway,yshift=-0.85cm] (hp0) {\footnotesize{\texttt{8-to-6 path}}};
+                    %\draw [decorate, decoration={brace,amplitude=10pt,raise=4pt},very thick,yshift=-2cm] (a5f.north west) -- (a5l.north east) 
+                    %   node[midway,yshift=0.85cm] (hp1) {\footnotesize{\texttt{omitted vertices}}};
+                        \path [draw,dotted,thick,->,out=0,in=-45] (w8) -- ($(a3.north west)+(-0.07,0.07)$);
+                        \draw [dotted,thick,->,bend right=90,in=-90,out=0] (w6.south) ..controls (X) .. ($(am2.south east)+(0.07,-0.07)$);
+                \end{scope}
+                %\end{comment}
+            \end{tikzpicture}
+            %\caption{Path median query example.}
+            %\label{fig02}
+        \end{figure}
+    \end{frame}
+\end{document}

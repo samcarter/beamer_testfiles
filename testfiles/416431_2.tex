@@ -1,0 +1,54 @@
+% https://tex.stackexchange.com/a/416431
+\documentclass{beamer}
+
+\usepackage{tikz}
+
+\tikzset{onslide/.code args={<#1>#2}{%
+  \only<#1>{\pgfkeysalso{#2}} % \pgfkeysalso doesn't change the path
+}}
+
+\begin{document}
+
+\begin{frame}
+
+\begin{columns}[onlytextwidth]
+    \begin{column}{.15\textwidth}
+        \begin{tikzpicture}
+        \node[onslide=<1>{fill=blue!40},onslide=<2->{fill=blue!5},circle,text width=1cm,align=center] {first text};
+        \end{tikzpicture}
+        \begin{tikzpicture}
+        \node[onslide=<2>{fill=red!40},onslide=<1>{fill=red!5},onslide=<3>{fill=red!5},circle,text width=1cm,align=center] {first text};
+        \end{tikzpicture}       
+        \begin{tikzpicture}
+        \node[onslide=<3>{fill=orange!40},onslide=<-2>{fill=orange!5},circle,text width=1cm,align=center] {first text};
+        \end{tikzpicture}       
+    \end{column}
+    \begin{onlyenv}<1>
+        \begin{column}{.2\textwidth}
+            \includegraphics[width=\textwidth]{example-image-a}
+        \end{column}
+        \begin{column}{.6\textwidth}
+            text 1
+        \end{column}    
+    \end{onlyenv}
+    \begin{onlyenv}<2>
+        \begin{column}{.2\textwidth}
+            \includegraphics[width=\textwidth]{example-image-b}
+        \end{column}
+        \begin{column}{.6\textwidth}
+            text 2
+        \end{column}    
+    \end{onlyenv}   
+    \begin{onlyenv}<3>
+        \begin{column}{.2\textwidth}
+            \includegraphics[width=\textwidth]{example-image-c}
+        \end{column}
+        \begin{column}{.6\textwidth}
+            text 3
+        \end{column}    
+    \end{onlyenv}
+\end{columns}
+
+\end{frame}
+
+\end{document}

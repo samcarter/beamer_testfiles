@@ -1,0 +1,77 @@
+% https://tex.stackexchange.com/a/482979
+\documentclass{beamer}
+\usepackage{pgfpages}
+
+\newenvironment{theindex}{}{}
+%\newcommand\indexspace{}
+\usepackage{imakeidx}
+
+
+
+
+\setbeameroption{show notes on second screen}
+
+
+\makeatletter
+
+\def\@idxitem{\par}
+
+\def\imki@wrindexsplit#1#2{%
+\imki@wrindexentrysplit{#1}{#2}{\the\c@framenumber}%
+\endgroup\imki@showidxentry{#1}{#2}%
+  \@esphack%
+}
+\def\imki@wrindexunique#1#2{%
+\imki@wrindexentryunique{#1}{#2}{\the\c@framenumber}%
+\endgroup\imki@showidxentry{#1}{#2}%
+  \@esphack%
+  }
+
+\let\imki@startidx\imki@startidxsplit
+\let\@wrindex\imki@wrindexsplit
+\let\imki@putindex\imki@putindexsplit
+\let\imki@wrindexentry\imki@wrindexentrysplit
+\let\imki@startidxunique\@undefined
+\let\imki@wrindexunique\@undefined
+\let\imki@putindexunique\@undefined  
+
+\def\imki@firstpagestyle{empty}
+
+\makeatother
+
+\makeindex
+
+
+\begin{document}
+\title{ChapterName}
+\begin{frame}
+{\huge \inserttitle}
+\end{frame}
+
+\section{Subchapter name}
+\begin{frame}{\insertsection}
+\end{frame}
+
+\begin{frame}{Frame 3}
+\begin{itemize}
+\item
+\end{itemize}
+\note<1>{Notes on first page of frame 3.}\note<2>{Notes on second page of 
+frame 3.}
+index1\index{index1}
+\end{frame}
+
+\begin{frame}{Frame 4}
+\begin{itemize}
+\item
+\end{itemize}
+\note<1>{Notes on first page of frame 4.}\note<2>{Notes on second page of 
+frame 4.}
+index1\index{index1}
+index2\index{index2}
+\end{frame}
+
+\begin{frame}{Index}
+\printindex
+\end{frame}
+\end{document}

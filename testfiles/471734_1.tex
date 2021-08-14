@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/471734
+\documentclass{beamer}
+\usetheme{Boadilla}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Outline for section \thesection}
+    \tableofcontents[currentsection]
+    \includegraphics[width=3cm]{example-image-duck} % <- image added here
+  \end{frame}
+}
+
+
+\begin{document}
+
+\section{Test section one}
+\begin{frame} Test \end{frame}
+\begin{frame} Test \end{frame}
+\section{Test section two}
+\begin{frame} Test \end{frame}
+\begin{frame} Test \end{frame}
+
+\end{document}

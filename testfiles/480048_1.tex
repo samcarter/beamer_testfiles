@@ -1,0 +1,49 @@
+% https://tex.stackexchange.com/a/480048
+\documentclass[aspectratio=169, xcolor={x11names}]{beamer}
+
+\usecolortheme{seahorse}
+\useoutertheme[]{split}
+\useinnertheme{inmargin}
+
+\newlength{\widthTextMarginLeft}
+\setlength{\widthTextMarginLeft}{1.5mm}
+\newlength{\widthTextMarginRight}
+\setlength{\widthTextMarginRight}{2mm}
+
+\setbeamersize{text margin left=\widthTextMarginLeft, text margin right=\widthTextMarginRight}
+
+\newlength{\sidebarWidth}
+\setlength{\sidebarWidth}{0.3\paperwidth}
+
+\setbeamersize{sidebar width left=\sidebarWidth, sidebar width right=0cm}
+
+\makeatletter
+\setbeamertemplate{frametitle}{%
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \begin{beamercolorbox}[sep=0.3cm,left,wd=\the\@tempdima]{frametitle}
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-1ex%
+    \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+    \strut\insertframetitle\strut\par%
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\strut\insertframesubtitle\par}%
+      \fi
+    }%
+    \vskip-1ex%
+    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  \end{beamercolorbox}%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}{Uncovering Contents When They Cannot Fit in One Slide}
+
+\end{frame}
+
+\end{document}

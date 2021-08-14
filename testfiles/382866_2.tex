@@ -1,0 +1,56 @@
+% https://tex.stackexchange.com/a/382866
+\documentclass{beamer}
+
+\usetheme{metropolis}
+
+\setbeamertemplate{mini frame}{}
+\setbeamertemplate{mini frame in current section}{}
+\setbeamertemplate{mini frame in current subsection}{}
+
+\makeatletter
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\textwidth, sep=3ex]{footline}%
+    \usebeamerfont{page number in head/foot}%
+    \usebeamertemplate*{frame footer}
+    \hfill%
+    \usebeamertemplate*{frame numbering}
+  \end{beamercolorbox}%
+
+  \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}{section in head/foot}
+    \vskip2pt\insertnavigation{\paperwidth}\vskip-2pt
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+  \end{beamercolorbox}
+}
+\makeatother
+
+\setbeamercolor{section in head/foot}{fg=normal text.bg, bg=structure.fg}
+
+\begin{document}
+
+\section{section 1}
+\subsection{section name}
+\begin{frame}
+\frametitle{blub}
+    abc
+\end{frame} 
+\begin{frame}
+\frametitle{blub}
+    abc
+\end{frame} 
+
+\section{section 2}
+\begin{frame}
+\frametitle{blub}
+    abc
+\end{frame} 
+
+\section{section 3}
+\begin{frame}
+\frametitle{blub}
+    abc
+\end{frame}     
+
+\end{document}

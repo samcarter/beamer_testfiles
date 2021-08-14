@@ -1,0 +1,60 @@
+% https://tex.stackexchange.com/a/449668
+\documentclass[nooutline]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\newcounter{foo}
+
+\makeatletter
+\AtBeginSection[]{
+    \beamer@nextpage\beamer@endpageofsubsection%
+    \setcounter{foo}{\beamer@tempcount}
+    \ifnum\thepage=\thefoo  
+    \else
+        \begin{frame}<beamer>
+    \frametitle{Table of contents}
+    \tableofcontents[currentsection,hideothersubsections]
+  \end{frame}
+    \fi
+}
+\makeatother
+
+\AtBeginSubsection[]{
+  \begin{frame}<beamer>
+    \frametitle{Table of contents} 
+    \tableofcontents[currentsubsection,currentsection, subsectionstyle=show/shaded/hide]
+  \end{frame}
+  }
+
+\begin{document}
+
+\section{Section 1}
+
+\begin{frame}{Frame A}  
+\end{frame}
+
+\subsection{Subsection 1.1}
+
+\begin{frame}{Frame B}  
+\end{frame}
+
+\subsection{Subsection 1.2}
+
+\begin{frame}{Frame C}  
+\end{frame}
+
+
+\section{Section 2}
+
+\subsection{Subsection 2.1}
+
+\begin{frame}{Frame D}  
+\end{frame}
+
+\subsection{Subsection 2.2}
+
+\begin{frame}{Frame E}  
+\end{frame}
+
+\end{document}

@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/446472
+\documentclass{beamer}
+
+\usetheme[progressbar=frametitle]{metropolis}
+\setbeamertemplate{frame numbering}[fraction]
+\usecolortheme{spruce}
+\setbeamercolor{background canvas}{bg=white}
+\definecolor{mygreen}{rgb}{.125,.5,.25}
+\usecolortheme[named=mygreen]{structure}
+\setbeamercovered{transparent=15}
+\usepackage{pgfplots}
+
+
+\usepackage{amsmath} % loaded automatically by beamer
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\tikzset{>=stealth}
+
+\newcommand{\tikzmark}[3][]{\tikz[remember picture,baseline] \node [anchor=base,#1](#2) {$#3$};}
+
+\begin{document}
+\begin{frame}[t]{Channel model}
+    \begin{itemize}
+        \item<1-> The power coupled into the IC, $P_t$ is
+    \end{itemize}
+        \begin{equation*}
+            P_t = \tikzmark{identity}{P_T}\tikzmark[red]{G}{G_T}
+            \tikzmark[blue]{L}{G_t}\tikzmark[purple]{C}{H_f}
+        \end{equation*}
+       \begin{tikzpicture}[overlay, remember picture,node distance =1.5cm]
+            \node[,text width=2cm] (identitydescr) [below left=of identity ]{transmitted power of the sender};
+            \draw[,->,thick] (identitydescr) to [in=-90,out=90] (identity);
+            \node[red,text width=2cm] (Gdescr) [below =of G]{gain of the transmitter antenna};
+            \draw[red,->,thick] (Gdescr) to [in=-90,out=90] (G);
+            \node[blue,xshift=1cm,text width=2cm] (Ldescr) [above right =of L]{gain of the box antenna};
+            \draw[blue,->,thick] (Ldescr) to [in=45,out=-90] (L.north);
+            \node[purple,text width=2cm] (Cdescr) [below right =of C]{attenuation of the transmitted power};
+            \draw[purple,->,thick] (Cdescr) to [in=-90,out=90] (C.south);
+        \end{tikzpicture}
+\end{frame}
+\end{document}

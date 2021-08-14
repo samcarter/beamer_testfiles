@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/453105
+\documentclass{beamer}
+\usepackage{beamerposter}
+
+\usepackage{lipsum}
+
+\begin{document}
+
+\begin{frame}
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{.2\textwidth}
+            \lipsum
+        \end{column}
+        \begin{column}{.75\textwidth}
+            \includegraphics[width=.45\textwidth,page=3]{example-image-duck}\hfill
+            \includegraphics[width=.45\textwidth,page=5]{example-image-duck}
+
+            \includegraphics[width=.45\textwidth,page=11]{example-image-duck}\hfill
+            \includegraphics[width=.45\textwidth,page=34]{example-image-duck}
+        \end{column}
+    \end{columns}
+\end{frame} 
+
+\end{document}

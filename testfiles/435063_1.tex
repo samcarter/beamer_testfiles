@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/435063
+\documentclass[t]{beamer}
+\newcommand{\PART}[2]{\texorpdfstring{\protect\makebox[20pt][l]{#1}\ignorespaces}{#2}}
+
+\begin{document}
+\section{\PART{I.}{I.\space\space\space}Part One}
+
+\begin{frame}
+\PART{I.}{} Part One.
+\end{frame}
+
+\section{\PART{II.}{II.\space\space}Part Two}
+
+\begin{frame}
+\PART{II.}{} Part Two.
+\end{frame}
+
+\section{\PART{III.}{III.\space}Part Three}
+
+\begin{frame}
+\PART{III.}{} Part Three.
+\end{frame}
+
+\end{document}

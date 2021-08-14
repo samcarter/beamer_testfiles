@@ -1,0 +1,62 @@
+% https://tex.stackexchange.com/a/311829
+\documentclass[hyperref={pdftex}]{beamer}
+\useoutertheme{shadow}
+\usetheme{CambridgeUS}
+
+\colorlet{titleleft}{red}
+\colorlet{titlemiddle}{orange}
+\colorlet{titleright}{yellow}
+
+\pgfdeclarehorizontalshading[titleleft,titlemiddle,titleright]
+      {beamer@frametitleshade}{\paperheight}{
+    color(0pt)=(titleleft);
+    color(0.6\paperwidth)=(titlemiddle);
+    color(\paperwidth)=(titleright)
+  }
+
+\title[Short Title]{Long title}
+\subtitle{Sub title}
+\date{\today}
+\author{test}
+
+\setbeamercolor{author in head/foot}{parent=palette primary,bg=}
+\setbeamercolor{title in head/foot}{parent=palette secondary,bg=}
+\setbeamercolor{date in head/foot}{parent=palette tertiary,bg=}
+
+\makeatletter
+\setbeamertemplate{footline}
+{
+    \leavevmode%
+    \setbox\beamer@tempbox=\hbox{%
+        \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+            \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\beamer@ifempty\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+            \usebeamerfont{title in head/foot}\insertshorttitle
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+            \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+            \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+        \end{beamercolorbox}%
+        }%
+        \beamer@tempdim=\ht\beamer@tempbox%
+        \advance\beamer@tempdim by 4pt%
+        \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{20pt}
+            \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+            \pgfusepath{clip}
+            \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+        \end{pgfpicture}
+        \vskip-\beamer@tempdim%
+        \box\beamer@tempbox%    
+}%
+\makeatother
+
+\begin{document}
+    \begin{titlepage}
+    \end{titlepage}
+
+\section{ble}
+    \begin{frame}{Slide 1}
+          Content
+    \end{frame}
+\end{document}

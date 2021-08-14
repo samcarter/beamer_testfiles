@@ -1,0 +1,65 @@
+% https://tex.stackexchange.com/a/458484
+\documentclass{beamer}
+\usetheme{Berkeley}
+
+\def\insertlogoright{\usebeamertemplate*{logoright}}
+\def\logoright{\setbeamertemplate{logoright}}
+
+\makeatletter
+  \defbeamertemplate*{headline}{mycustom theme}
+  {%
+    \begin{beamercolorbox}[wd=\paperwidth]{frametitle}
+      \ifx\beamer@sidebarside\beamer@lefttext%
+      \else%
+        \hfill%
+      \fi%
+      \ifdim\beamer@sidebarwidth>0pt%  
+        \usebeamercolor[bg]{logo}%
+        \vrule width\beamer@sidebarwidth height \beamer@headheight%
+        \hskip-\beamer@sidebarwidth%
+        \hbox to \beamer@sidebarwidth{%
+        \hss%
+        \vbox to \beamer@headheight{%
+        \vss\hbox{\color{fg}\insertlogo}\vss%
+        }%
+        \hss}%
+        \hfill%
+        \hbox to \beamer@sidebarwidth{%
+        \hss%
+        \vbox to \beamer@headheight{%
+        \vss\hbox{\color{fg}\insertlogoright}\vss%
+        }%
+        \hss}%
+      \else%
+        \vrule width0pt height \beamer@headheight%  
+      \fi%
+    \end{beamercolorbox}
+  }
+\makeatother
+
+\logo{\includegraphics[width=1.2cm,keepaspectratio]{example-image-a}}
+\logoright{\includegraphics[width=1.2cm,keepaspectratio]{example-image-b}}
+
+
+\title{The Title}
+\author{The Author}
+\institute{The Institute}
+
+\begin{document}
+
+%{
+% \setbeamertemplate{logo}{}
+% \setbeamertemplate{logoright}{}
+ \begin{frame}
+  \maketitle
+ \end{frame}
+%}
+
+\setbeamertemplate{logo}{}
+\setbeamertemplate{logoright}{}
+
+\begin{frame}{this}
+ test
+\end{frame}
+
+\end{document}

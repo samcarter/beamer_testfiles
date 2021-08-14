@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/425590
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{fadings,decorations.text}
+
+\begin{document}
+
+\begin{frame}
+
+\begin{tikzfadingfrompicture}[name=tikz]
+\node [text=transparent!20]
+{\fontfamily{ptm}\fontsize{45}{45}\bfseries\selectfont Ti\emph{k}Z};
+\end{tikzfadingfrompicture}
+\begin{tikzpicture}
+\shade[path fading=tikz,fit fading=false,
+top color=yellow!80!white,bottom color=black]
+(-2,-1) rectangle (2,1);
+\end{tikzpicture}
+
+\end{frame}
+
+\end{document}

@@ -1,0 +1,45 @@
+% https://tex.stackexchange.com/a/387193
+\documentclass{beamer}
+\usetheme{Madrid}
+\begin{document}
+\begin{frame}
+\begin{block}{}
+    \vskip-\baselineskip
+    \begin{columns}[T]
+        \begin{column}{.55\textwidth}
+            \vskip-0.2cm
+            \[
+            y = \begin{bmatrix}
+                  w_{0}\\
+                  w_{1}\\
+                  \vdots \\
+                  w_{D}\\
+            \end{bmatrix}^{T}
+            \begin{bmatrix}
+                  x_{0}\\
+                  x_{1}\\
+                  \vdots \\
+                  x_{D}\\ 
+            \end{bmatrix} + \epsilon = W^T X+\epsilon
+            \]
+        \end{column}
+            \vrule
+        \begin{column}{.35\textwidth}
+            \begin{align*}
+            \hat{y} &= W^T X \\
+                    &= \sum_{j=0}^{D} w_{j}x_{j}
+            \end{align*}
+        \end{column}
+    \end{columns}
+\end{block}
+\bigskip
+where
+\begin{itemize}
+      \item $X$ is the vector of observed or predicted factors. $x_0\equiv1$ 
+      \item $W$ is the coefficient vector
+      \item $\epsilon$ is the error term (a scalar)
+      \item $\hat{y}$ is the fitted or predicted value
+      \item \alert{$D+1$} is the \alert{dimension} of the vectors $W$ and $X$
+\end{itemize}
+\end{frame}
+\end{document}

@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/422874
+\documentclass{beamer}
+
+\usepackage[framed]{matlab-prettifier}
+\lstnewenvironment{myMPcolor}{%
+            \lstset{basicstyle=\color{red}}
+           }{}
+
+\newenvironment{slide}
+    {\begin{frame}[fragile,environment=slide]}
+    {\end{frame}}
+
+\begin{document}
+
+\begin{slide}
+\frametitle{title}
+\begin{itemize}
+    \item first point
+    \begin{itemize}
+        \item subpoint
+    \end{itemize}
+\end{itemize}
+\begin{myMPcolor}
+This is a matlab command
+\end{myMPcolor}
+\end{slide} 
+
+\end{document}

@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/a/403200
+\documentclass[12pt,table]{beamer}
+\usepackage{lipsum}
+
+\addtobeamertemplate{headline}{}{\vspace*{1cm}}
+\addtobeamertemplate{frametitle}{\vspace*{-1cm}}{\vspace*{1cm}}
+
+\begin{document}
+
+\begin{frame}
+\lipsum
+\end{frame}
+
+\begin{frame}
+\frametitle{title}
+\lipsum
+\end{frame}
+
+\end{document}

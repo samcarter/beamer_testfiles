@@ -1,0 +1,49 @@
+% https://tex.stackexchange.com/a/406884
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+\usepackage{array}
+\usepackage{etex}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+
+\usetheme{CambridgeUS}
+\useoutertheme{shadow}
+
+\usefonttheme{professionalfonts} % default family is serif
+\setbeamerfont{frametitle}{size=\large}
+\setbeamerfont{framesubtitle}{size=\normalfont\tiny}
+\setbeamerfont{footline}{size=\fontsize{5}{2}\selectfont}
+
+\setbeamercolor{frametitle}{fg=black,bg=white}
+\setbeamercolor{frametitle right}{bg=white}
+\setbeamercolor{framesubtitle}{fg=black}
+\setbeamercolor{title}{fg=white,bg=blue}
+\setbeamercolor{section in head/foot}{fg=white, bg=blue}
+\setbeamercolor{title in head/foot}{fg=white, bg=structure.fg}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{\vspace*{0.3cm}}
+
+\makeatletter
+\AtBeginDocument{
+  \pgfdeclareverticalshading{beamer@topshade}{\paperwidth}{%
+    color(0pt)=(bg);
+    color(4pt)=(bg)}
+}
+\makeatother
+
+\title{Titel der Vorlesung} 
+\subtitle{SoSe XXXX} 
+\author{Max Mustermann}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Deskriptive Beschreibung linearer Zusammenhänge}
+\framesubtitle{Untertitel in kleiner Schrift}
+\end{frame}
+\end{document}

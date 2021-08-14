@@ -1,0 +1,43 @@
+% https://tex.stackexchange.com/a/425762
+\documentclass[10pt,fleqn,xcolor=svgnames]{beamer}
+
+\setbeamercolor{background canvas}{bg=Green!10}
+\setbeamercolor{frametitle}{fg=Brown,bg=Yellow!20}
+\setbeamercolor{normal text}{bg=DarkBlue}
+
+
+\usepackage{tcolorbox}
+
+\makeatletter
+
+\setbeamertemplate{frametitle}{%
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \begin{tcolorbox}[colback=Yellow!20,coltext=Brown,enlarge left by=-\beamer@leftmargin,width=\paperwidth]
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-1ex%
+    \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+    \strut\insertframetitle\strut\par%
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+      \fi
+    }%
+    \vskip-1ex%
+    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  \end{tcolorbox}%
+}
+
+\makeatother
+
+\begin{document}
+\begin{frame}
+\frametitle{Bla Bla}
+
+Bla bla
+
+\end{frame}
+\end{document}

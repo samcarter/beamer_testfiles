@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/427387
+\documentclass{beamer}
+\usepackage{tikz}
+
+\setbeamercolor{title}{bg=white}
+
+\begin{document}
+
+\begin{frame}[plain]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{tikzpicture}[remember picture,overlay]
+    \node[at=(current page.center)]{
+        \includegraphics[width=\paperwidth]{example-image-duck}
+        };
+        \pgfsetfillopacity{0.5}
+        \node[at=(current page.center)]{
+            \begin{beamercolorbox}[sep=0.5cm,wd=.8\paperwidth]{title}%
+                \centering
+                \pgfsetfillopacity{1}%
+                \LARGE
+                Your text
+            \end{beamercolorbox}
+        };
+    \end{tikzpicture}
+\end{frame}
+
+\end{document}

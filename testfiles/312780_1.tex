@@ -1,0 +1,36 @@
+% https://tex.stackexchange.com/a/312780
+\documentclass[t]{beamer}
+
+\usefonttheme[onlymath]{serif}
+\usefonttheme{professionalfonts}
+
+
+\setbeamercovered{invisible}
+\setbeamercovered{%
+    again covered={\opaqueness<1->{40}}}
+
+\mode<presentation>
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+    \begin{frame}\frametitle{A Title Here}
+        \begin{itemize}
+            \item<1> A first item describing some things
+            \item<2-4> A second item leading to these equations:
+            \onslide<3-4>{%
+            \begin{center}
+                \large \vskip -.6cm
+                \begin{align}
+                {\color<3>{blue}\color<4>{gray}F_m = F_{m-1} + F_{m-1}, \;\; m \in \mathbb{N}} \tag{Eq 1}\\
+                {\color<4>{blue}\color<3>{gray} a^n + b^n = c^n, \;\; n \in \mathbb{N}\; \& \; a,b,c \in \mathbb{Z}} \tag{Eq 2}
+                \end{align}
+            \end{center}
+        }
+        \item<3-> With $F_0=0$ and $F_1=1$, this is Fibonacci's Sequence.
+        \item<4-> This is Fermat's last theorem.
+        \end{itemize}   
+    \end{frame} 
+\end{document}

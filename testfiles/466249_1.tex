@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/466249
+\documentclass{beamer}
+\setbeamercovered{transparent}
+
+\makeatletter
+    \newcommand{\trickbeamer}{%
+        \advance\beamer@slideinframe by-1%
+        }%
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+        \frametitle{Toc}
+
+        \pause
+        \trickbeamer
+
+    \tableofcontents[pausesections]
+\end{frame}
+
+
+\section{section name}
+\begin{frame}
+content...
+\end{frame}
+
+
+\section{section name}
+\begin{frame}
+content...
+\end{frame}
+
+
+\section{section name}
+\begin{frame}
+content...
+\end{frame}
+\end{document}

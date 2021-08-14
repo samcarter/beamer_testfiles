@@ -1,0 +1,64 @@
+% https://tex.stackexchange.com/a/453528
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{csquotes}
+\usepackage{lmodern}
+
+\usepackage{filecontents}
+\begin{filecontents}{\jobname.bib}
+@article{testArt,
+ AUTHOR = {Author, Aa},
+  TITLE = {A long title illustrating the need to remove the title from footnote citations, at least in Presentations},
+JOURNAL = {Lorem Ipsum Stud.},
+ VOLUME = {15},
+  PAGES = {1--20},
+   YEAR = {1999},
+    URL = {https://math.stackexchange.com},
+}
+@Article{fakearXiv,
+     AUTHOR = {Buthor, Bb},
+      TITLE = {Not a real arXiv article},
+      JOURNAL = {Lorem Ipsum Stud.},
+ VOLUME = {15},
+  PAGES = {1--20},
+   YEAR = {1999},
+    URL = {https://math.stackexchange.com},
+}
+\end{filecontents}
+
+\usepackage[style=authoryear,giveninits=true,uniquename=init]{biblatex}
+
+\addbibresource{\jobname.bib}
+
+\DefineBibliographyExtras{french}{\restorecommand\mkbibnamefamily}
+
+\DeclareCiteCommand{\footcite}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\printnames[family-given]{labelname}%
+   \newunit
+   \printfield{journaltitle}%
+   \newunit
+   \printlabeldateextra}
+  {\addsemicolon\space}
+  {\usebibmacro{postnote}}
+
+\makeatletter
+\def\@makefnmark{}
+\makeatother      
+
+\setbeamerfont{footnote}{size=\tiny,shape=\itshape}
+
+\setbeamertemplate{footnote}{%
+  \parindent 1em\noindent%
+  \raggedright
+  \insertfootnotetext\par%
+}
+
+\begin{document}
+\begin{frame}
+  \frametitle{essai}
+  \footcite{testArt}
+  \footcite{fakearXiv}
+\end{frame}
+\end{document}

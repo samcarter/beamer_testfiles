@@ -1,0 +1,42 @@
+% https://tex.stackexchange.com/a/386581
+\documentclass{beamer}
+\useinnertheme{rectangles}
+
+\newcounter{mynumber}
+
+\makeatletter
+\setbeamertemplate{subsection in toc}{
+    \leavevmode\leftskip=5ex%
+  \llap{%
+    \usebeamerfont*{section number projected}%
+    \usebeamercolor[bg]{section number projected}%
+    \vrule width2.25ex height1.85ex depth.4ex%
+    \hskip-2.25ex%
+    \setcounter{mynumber}{\inserttocsubsectionnumber}%
+    \hbox to2.25ex{\hfil\color{fg}\alph{mynumber}\hfil}}%
+  \kern1.25ex\inserttocsubsection\par}
+\makeatother 
+
+\begin{document}
+\begin{frame}{ToC}
+\tableofcontents
+\end{frame}
+
+\section{Test 1}
+\subsection{Test 11}
+\begin{frame}
+page 1
+\end{frame}
+\subsection{Test 12}
+\begin{frame}
+page 2
+\end{frame}
+
+
+\section{Test 2}
+\subsection{Test 21}
+\begin{frame}
+page 3
+\end{frame}
+
+\end{document}

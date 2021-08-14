@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/478434
+\documentclass[t, sansserif, onlymath, 10pt]{beamer}%\mode<handout>
+
+\makeatletter
+\defbeamertemplate{section in toc}{sections numbered roman}{%
+  \makebox[0.8cm]{\hfill\@Roman\inserttocsectionnumber.}\space%
+  \inserttocsection\par
+}
+\makeatother
+
+\begin{document}
+
+\setbeamertemplate{section in toc}[sections numbered roman]
+
+\begin{frame}
+  \frametitle{Overview}
+  \tableofcontents
+\end{frame}
+
+\section{section one}
+\begin{frame}
+  \frametitle{xxx1 \thesection}
+\end{frame}
+
+\makeatletter
+\beamer@tocsectionnumber=24
+\makeatother
+
+\section{section two/twenty-five}
+\begin{frame}
+  \frametitle{xxx2 \thesection}
+\end{frame}
+
+\end{document}

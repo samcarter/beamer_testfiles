@@ -1,0 +1,18 @@
+% https://tex.stackexchange.com/a/452130
+\documentclass{beamer}
+
+\usetheme{Ilmenau}
+\usepackage{tikz}
+
+\usebackgroundtemplate{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[opacity=0.3] at (current page.center) {\includegraphics[scale=1]{example-image}};
+    \end{tikzpicture}
+}
+
+\begin{document}
+
+\begin{frame}
+\end{frame}
+
+\end{document}

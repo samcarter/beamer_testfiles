@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/414381
+\documentclass[10pt]{beamer}
+
+\definecolor{dipjyoticol}{rgb}{0.137,0.466,0.641}
+\setbeamercolor{structure}{fg=dipjyoticol}
+\usetheme{Warsaw}
+\usepackage{caption}
+\useoutertheme{sidebar}
+
+\begin{document}
+
+
+\section{Chapter 1: Introduction}
+
+\begin{frame}{Introduction}
+\begin{columns}
+        \begin{column}{.45\textwidth}
+         \begin{figure}
+             \caption*{First Device\footnotemark[1] }
+             \includegraphics[width=\textwidth]{example-image-a}
+         \end{figure}
+     \end{column}
+     \begin{column}{.45\textwidth}
+         \begin{figure}
+             \caption*{First Time\footnotemark[2]}
+             \includegraphics[width=\textwidth]{example-image-b}
+         \end{figure}
+ \end{column}
+\end{columns}
+\footnotetext[1]{\tiny{abc} \textit{bcde} \textbf{1987, 51, 913-915.}}
+\footnotetext[2]{\tiny{xyz} \textit{absfg,} \textbf{1990, 347 }}
+\end{frame}
+
+
+\end{document}

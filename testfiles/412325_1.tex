@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/412325
+\documentclass{beamer}
+
+\logo{\includegraphics[width=1cm]{example-image}}
+
+\makeatletter
+\setbeamertemplate{frametitle}{%
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \begin{beamercolorbox}[sep=0.3cm,left,wd=\the\@tempdima]{frametitle}
+    \begin{minipage}{.87\@tempdima}%
+        \usebeamerfont{frametitle}%
+        \vbox{}\vskip-1ex%
+        \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+        \strut\insertframetitle\strut\par%
+        {%
+          \ifx\insertframesubtitle\@empty%
+          \else%
+          {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+          \fi
+        }%
+        \vskip-1ex%
+        \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+      \end{minipage}%
+      \raisebox{-0.3cm}{\includegraphics[width=1cm]{example-image}}
+  \end{beamercolorbox}%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+\frametitle{title}
+    abc
+\end{frame} 
+
+\end{document}

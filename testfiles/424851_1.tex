@@ -1,0 +1,42 @@
+% https://tex.stackexchange.com/a/424851
+\documentclass{beamer}
+
+\usetheme{Madrid}
+\setbeamertemplate{page number in head/foot}[pagenumber]
+
+\begin{document}
+
+\begin{frame}[t]{........}
+\only<1>{
+\begin{exampleblock}{...}
+\begin{itemize}
+\item ....
+\end{itemize}
+\end{exampleblock}}
+
+\only<2-3>{
+\begin{exampleblock}{...}
+\begin{itemize}
+\item<2-3> \textit{....}
+    \begin{itemize}
+    \item ...
+    \end{itemize}
+
+\item<3> \textit{......}
+    \begin{itemize}
+    \item ......
+    \end{itemize}   
+\end{itemize}
+\end{exampleblock}}
+
+
+\only<4>{
+\begin{exampleblock}{.....}
+....
+\end{exampleblock}
+}
+
+\end{frame}
+
+
+\end{document}

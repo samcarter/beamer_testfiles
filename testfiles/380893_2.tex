@@ -1,0 +1,52 @@
+% https://tex.stackexchange.com/a/380893
+\documentclass{beamer}
+\usepackage{etex}
+\usetheme{Warsaw}
+\setbeamercolor {alerted text} {fg=blue}
+\logo{\includegraphics[height=.8cm]{example-image}}
+\usepackage{beamerthemeshadow}
+\usepackage{textcomp}
+\usecolortheme[RGB={0,153,0}]{structure}
+\usecolortheme{crane}
+\useinnertheme{rounded}
+%\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{verbatim,longtable}
+\hypersetup{pdfpagemode=FullScreen}
+\usepackage{verbatim}
+\usepackage{pdflscape}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array,colortbl}
+%\usepackage{xcolor}
+
+\usepackage{ragged2e}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{subfig}
+\newcommand\Fontvi{\fontsize{6}{7.2}\selectfont}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{frametitle continuation}{}
+\usepackage{adjustbox}
+\definecolor{deepblue}{RGB}{0,0,128}
+
+\newcommand{\subitem}{\par\qquad}
+
+\begin{document}
+\begin{frame}[fragile]
+ \begin{algorithm}[H]
+    \caption{Algorithm }\label{alg:alg1}
+    \begin{algorithmic}[1]
+        \STATE Sink node  
+        \STATE Store the value 
+        \subitem a\textunderscore value .
+        \subitem c\textunderscore value .
+        \subitem SINR\textunderscore = .
+        \subitem kappa\textunderscore = .
+        \STATE Sink node broadcasts 
+        \STATE Each .
+        \STATE .
+    \end{algorithmic}
+ \end{algorithm}
+\end{frame}
+\end{document}

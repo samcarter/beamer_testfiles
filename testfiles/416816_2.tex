@@ -1,0 +1,49 @@
+% https://tex.stackexchange.com/a/416816
+\documentclass{beamer}
+\mode<presentation>
+{
+  \usetheme{CambridgeUS}
+  \usecolortheme{dolphin}
+  \usecolortheme{rose}
+  \setbeamerfont*{title}{shape=\itshape, family=\rmfamily}
+  \setbeamercovered{transparent}
+}
+\usepackage{algorithm2e}
+
+\begin{document}
+
+% This solution is evil!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+% use it at your own risk!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+\begin{frame}[shrink]{Hello world}
+  \begin{center}
+    \begin{minipage}{0.8\linewidth}
+      \begin{algorithm}[H]
+    \DontPrintSemicolon
+    \KwSty{type} brow : \KwSty{int}$[M+1]$\;
+    \KwSty{type} bcol : \KwSty{int}$[N+1]$\;
+    \KwSty{type} val : \KwSty{real}$[k]$\;
+    \KwSty{type} val\_ptr : \KwSty{int}$[K+1]$\;
+    \KwSty{type} ind : \KwSty{int}$[K]$\;
+    \KwSty{type} ptr : \KwSty{int}$[M+1]$\;
+    \everypar={\nl}
+    \ForEach{block row $I$}{
+      $i_0 \leftarrow brow[I]$\;
+      $r \leftarrow brow[I+1]$\;
+      Let $\hat{y} \leftarrow y_{i_0:(i_0+r-1)}$\;
+      \For{$b=ptr[I] \KwTo ptr[I+1]$}{
+        $J \leftarrow ind[b]$\;
+        $j_0 \leftarrow bcol[J]$\;
+        $c \leftarrow bcol[J+1]-bcol[J]$\;
+        Let $\hat{x} \leftarrow x_{j_0:(j_0+c-1)}$\;
+        Let $\hat{A} \leftarrow a_{i_0:(i_0+r-1),j_0:(j_0+c-1)}$\;
+        Perform $r \times c$ block multiply, $\hat{y} \leftarrow \hat{y}+\hat{A} \cdot \hat{x}$\;
+      }
+    }
+      \end{algorithm}
+    \end{minipage}
+  \end{center}
+\end{frame}
+
+
+
+\end{document}

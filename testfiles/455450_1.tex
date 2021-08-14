@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/455450
+\documentclass[handout]{beamer} % remove ""handout"" to see normal slides
+\usepackage{filecontents,tikz}
+\usetikzlibrary{overlay-beamer-styles}
+
+\makeatletter
+\newif\ifOnBeamerModeTransition
+\newcommand{\slideselection}{1-}%
+\newenvironment{handoutframeselect}[1][1-]{%
+  \begingroup%
+  \mode<handout>{%
+    \gdef\beamer@currentmode{beamer}%
+    \OnBeamerModeTransitiontrue%
+    \renewcommand{\slideselection}{#1}}%
+}{%
+  \ifOnBeamerModeTransition%
+    \OnBeamerModeTransitionfalse%
+    \gdef\beamer@currentmode{handout}%
+  \fi%
+  \endgroup%
+}
+\makeatother
+
+\begin{filecontents}{fancyFig.tikz}
+\begin{tikzpicture}
+  \node[draw] (n1) {some node};
+  \node<2>[below of=n1,draw] (n2) {an even more awesome node!};
+\end{tikzpicture}
+\end{filecontents}
+
+\begin{document}
+
+
+\begin{handoutframeselect}[1]
+\begin{frame}<1>{boring frame title}
+Awesome pic:\\[1em]
+\input{fancyFig.tikz}
+\end{frame}
+\end{handoutframeselect}
+
+\end{document}

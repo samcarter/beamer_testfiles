@@ -1,0 +1,42 @@
+% https://tex.stackexchange.com/a/461609
+\documentclass{beamer}
+
+\usecolortheme[rgb={0.7,0.2,0.2}]{structure}
+\beamertemplateshadingbackground{red!70}{yellow!85}
+
+\mode<presentation>{
+    \usetheme{Darmstadt}
+}
+
+\begin{document}
+
+\begin{frame}
+    \frametitle{Prediction}
+    \begin{block}{\footnotesize Prediction, The Main Purpose of Spatial Analysis}
+        \begin{columns}[T]
+            \begin{column}{0.39\textwidth}
+                \begin{alertblock}{}
+                    \includegraphics<1>[width=\textwidth, height=0.75\textwidth]{example-image}%
+                    \includegraphics<2>[width=\textwidth, height=0.75\textwidth]{example-image}%
+                    \includegraphics<3>[width=\textwidth, height=0.75\textwidth]{example-image}%
+                    \includegraphics<4>[width=\textwidth, height=0.75\textwidth]{example-image}%
+                \end{alertblock}
+            \end{column}
+            \begin{column}{0.45\textwidth}
+                \pause
+                \begin{block}{\centering\scriptsize Bayesian Inference}
+                    \centering\scriptsize Data Agumentation Method 
+                \end{block}
+                \pause
+                \begin{exampleblock}{\centering\scriptsize Gibbs Sampling}
+                    \centering\scriptsize Metropolis - Hatings Algorithm
+                \end{exampleblock}
+                \pause
+                \begin{alertblock}{\centering\scriptsize Bayesian Predictive Distribution}
+                    \centering\scriptsize Bayesian Spatial Prediction
+                \end{alertblock}
+            \end{column}
+        \end{columns}
+    \end{block}
+\end{frame}
+\end{document}

@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/552309
+\documentclass{beamer}
+
+\usetheme{Warsaw}
+
+
+\newenvironment<>{exenv}{\begin{altenv}#1%
+      {\usebeamercolor[fg]{example text}}
+      {}{\color{.}}{}\ignorespaces}{\ifhmode\unskip\fi\end{altenv}}
+\newcommand<>{\ex}[1]{\begin{exenv}#2\relax#1\end{exenv}}
+
+
+
+\begin{document}
+
+\begin{frame}
+    \begin{example}
+  content...
+  \end{example}
+
+  \ex{test}
+\end{frame} 
+
+\end{document}

@@ -1,0 +1,83 @@
+% https://tex.stackexchange.com/a/408224
+\documentclass{beamer}
+
+\usetheme{Boadilla}
+\usecolortheme{beaver}
+
+\newcounter{appendixframenumber}
+\newcounter{appendixtotalframenumber}
+
+\makeatletter
+\setbeamertemplate{footline}
+{%
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\ifblank\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}%
+    \ifnum\insertframenumber>\totvalue{documentendframe}
+        % appendix frames
+        \setcounter{appendixframenumber}{\insertframenumber}%
+        \addtocounter{appendixframenumber}{-\totvalue{documentendframe}}%
+        \setcounter{appendixtotalframenumber}{\inserttotalframenumber}%
+        \addtocounter{appendixtotalframenumber}{-\totvalue{documentendframe}}%
+        \theappendixframenumber /\theappendixtotalframenumber%
+    \else%
+        % frames from main part
+        \insertframenumber /\total{documentendframe}%
+    \fi%
+    \hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+\usepackage{totcount}
+\newtotcounter{documentendframe}
+
+\makeatletter
+\renewcommand<>\appendix{%
+  \only#1{\part{\appendixname}%
+  \addtocontents{nav}{\protect\headcommand{\protect\beamer@appendixpages{\the\c@page}}}%
+  \global\let\appendix\beamer@appendix}%
+  \setcounter{documentendframe}{\insertframenumber}
+}
+\makeatother
+
+\begin{document}
+\frame{\titlepage}
+%-------------------------------------
+
+\begin{frame}
+\frametitle{Normal slide 1}
+\end{frame}
+
+\begin{frame}
+\frametitle{Normal slide 2}
+\end{frame}
+
+\begin{frame}
+\frametitle{Normal slide 3}
+\end{frame}
+
+\begin{frame}
+\frametitle{Normal slide 4}
+\end{frame}
+%--------------------------------------------------
+
+\appendix
+
+\begin{frame}
+\frametitle{Appendix slide 1}
+\end{frame}
+
+\begin{frame}
+\frametitle{Appendix slide 2}
+\end{frame}
+
+\end{document}

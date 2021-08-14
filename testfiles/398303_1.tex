@@ -1,0 +1,61 @@
+% https://tex.stackexchange.com/a/398303
+\documentclass[compress,aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\beamertemplatenavigationsymbolsempty
+
+\definecolor{headfq}{RGB}{255,0,0}   %red
+\definecolor{headbg}{RGB}{249,196,95}  
+\definecolor{titlebg}{RGB}{153,255,153} %green
+\definecolor{screenfoot}{RGB}{224,224,224}
+\definecolor{letterfoot}{RGB}{153,0,76}
+\setbeamercolor{frametitle}{fg=headfq,bg=titlebg}
+\setbeamercolor{palette}{bg=titlebg}
+\setbeamercolor{section in head/foot}{fg=blue,bg=red}
+\setbeamercolor{footcolor}{fg=letterfoot,bg=titlebg}
+
+\setbeamertemplate{headline}{%
+\leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.8ex,dp=0.125ex]{palette}%
+    \hspace*{6em}
+    \insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+
+    \end{beamercolorbox}%
+  }
+}
+
+
+\setbeamertemplate{frametitle}
+{\vskip-1pt
+  \leavevmode
+  \hbox{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1ex]{frametitle}%
+
+    \raggedleft
+    \textbf{\LARGE\insertframetitle} \hspace*{0.5em}
+  \end{beamercolorbox}
+  }%
+}
+
+\setbeamertemplate{section in head/foot}{\colorbox{orange}{\insertsectionhead}}
+\setbeamertemplate{section in head/foot shaded}{\color{fg!50!bg}\insertsectionhead}
+
+\begin{document}
+
+\section{Introduction}
+\subsection{The questions}
+\begin{frame}\frametitle{A test frame}Test\end{frame}
+\subsection{Another questions}
+\begin{frame}\frametitle{Another test frame}Test
+%\textcolor‎{‎letterfoot‎}{\rule{2cm}{2cm}}‎
+\end{frame}
+
+\section{section2}
+\subsection{The questions}
+\begin{frame}\frametitle{A test frame}Test\end{frame}
+\subsection{Another questions}
+\begin{frame}\frametitle{Another test frame}Test
+%\textcolor‎{‎letterfoot‎}{\rule{2cm}{2cm}}‎
+\end{frame}
+
+\end{document}

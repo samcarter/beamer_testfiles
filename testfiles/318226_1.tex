@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/318226
+\documentclass{beamer}
+
+\begin{document}
+
+    \begin{frame}<4>[label=myframe]
+        \only<1-4>{something new should be before}
+
+        \visible<1-3>{
+            \only<1->{1}
+            \only<2->{2}
+            \only<3->{3}
+        }
+
+    \end{frame} 
+
+    % to keep the framenumber constant 
+    \addtocounter{framenumber}{-1}      
+
+    \againframe<1-3>{myframe}
+
+\end{document}

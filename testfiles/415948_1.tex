@@ -1,0 +1,68 @@
+% https://tex.stackexchange.com/a/415948
+\documentclass{beamer}
+
+\usetheme{Warsaw}
+
+\AtBeginSection[]{\label{sec:\thesection}}
+
+\usepackage{totcount}
+\newcounter{totalsection}
+\regtotcounter{totalsection}
+
+\AtBeginDocument{%
+  \pretocmd{\section}{\refstepcounter{totalsection}}{}{}%
+}%
+
+\newcounter{start}
+\newcounter{stop}
+
+\usepackage{pgffor}
+
+\setbeamercolor{section in head/foot}{fg=white}
+\setbeamercolor{section in head/foot shaded}{fg=white!60!bg}
+
+\setbeamertemplate{headline}{%
+\leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{palette quaternary}%
+        \ifnum\value{section}>0%
+            \quad
+            \setcounter{start}{\value{section}}
+                \setcounter{stop}{\value{section}}
+                \ifnum\value{section}>1
+                    \addtocounter{start}{-1}
+                \fi
+                \ifnum\value{section}<\totvalue{totalsection}
+                    \addtocounter{stop}{1}
+                \fi     
+                \foreach \i in {\thestart,...,\thestop}{%
+                    \ifnum\i=\value{section}
+                        \usebeamercolor[fg]{section in head/foot}
+                    \else   
+                        \usebeamercolor[fg]{section in head/foot shaded}
+                    \fi
+                    \hfill\hyperlink{sec:\i}{\nameref{sec:\i}}
+                }
+                \hfill\quad
+            \fi
+    \end{beamercolorbox}%
+  }
+}
+
+
+
+\begin{document}
+
+\section{test1}\begin{frame}abc\end{frame}  
+\section{test2}\begin{frame}abc\end{frame}  
+\section{test3}\begin{frame}abc\end{frame}  
+\section{test4}\begin{frame}abc\end{frame}  
+\section{test5}\begin{frame}abc\end{frame}  
+\section{test6}\begin{frame}abc\end{frame}  
+\section{test7}\begin{frame}abc\end{frame}  
+\section{test8}\begin{frame}abc\end{frame}  
+\section{test9}\begin{frame}abc\end{frame}  
+\section{test10}\begin{frame}abc\end{frame} 
+\section{test11}\begin{frame}abc\end{frame}     
+
+\end{document}

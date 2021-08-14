@@ -1,0 +1,51 @@
+% https://tex.stackexchange.com/a/482962
+\documentclass[t]{beamer}
+\useinnertheme{rectangles}
+\usecolortheme{whale}
+
+\usepackage{natbib, amsmath, bm, tikz, mathrsfs, tabularx, booktabs, csvsimple, siunitx 
+%graphicx
+}
+\usetikzlibrary{positioning, fit, arrows.meta, shapes, calc}
+
+\setbeamertemplate{headline}{%
+\leavevmode%
+  \begin{beamercolorbox}[wd=.15\paperwidth, ht=2.5ex, dp=1ex, leftskip=10pt]{palette primary}%
+    \insertsectionhead%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.85\paperwidth, ht=2.5ex, dp=1ex, leftskip=10pt]{subsection in head/foot}%
+    \insertsubsectionhead%
+  \end{beamercolorbox}%
+}
+
+\setbeamertemplate{frametitle}{%
+\ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+\begin{beamercolorbox}[wd=\paperwidth, ht=2.5ex, dp=1ex, leftskip=10pt]{section in head/foot}%
+    \insertframetitle%
+\end{beamercolorbox}%
+}
+
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}[wd=\paperwidth, ht=2.5ex, dp=1ex, leftskip=10pt, rightskip=10pt]{palette tertiary}{\insertshorttitle \hfill \insertframenumber/\inserttotalframenumber}
+  \end{beamercolorbox}%
+}
+
+% get rid of nav bar
+\setbeamertemplate{navigation symbols}{}
+
+\title{Using Pricing Data and News Headlines to Predict the Direction of Stock Returns}
+\author{Jack Dry}
+\date{}
+
+\begin{document}
+
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+
+\section{Introduction}
+\begin{frame}{Outline}
+\tableofcontents[currentsection]
+\end{frame}
+
+\end{document}

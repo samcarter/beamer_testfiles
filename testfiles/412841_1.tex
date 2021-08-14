@@ -1,0 +1,60 @@
+% https://tex.stackexchange.com/a/412841
+\PassOptionsToPackage{table}{xcolor}
+\documentclass[xcolor=svgnames]{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}  
+  \setbeamertemplate{navigation symbols}{}
+}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+%\usepackage{graphicx}
+%\usepackage{hyperref}
+\usepackage{amsmath}
+%\usepackage{xcolor}
+\usepackage{tabu}
+\usepackage{booktabs}% for better rules in the table
+\usepackage{ragged2e}
+\usepackage{rotating}
+\usepackage{threeparttable}
+%\usepackage{subcaption}
+
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+\setbeamerfont{caption}{size=\tiny}
+%\setlength{\abovecaptionskip}{-2pt}
+%\setlength{\belowcaptionskip}{6pt}
+
+\title[Thesis Defense]{Name of thesis}
+\subtitle{Thesis Defense}
+\author{name}
+\institute{University}
+\date{January 31, 2018}
+
+\begin{document}
+
+\begin{frame}{Results - Impulse responses, baseline model}
+
+\begin{figure}
+\setbeamerfont{caption}{size=\footnotesize}
+\begin{columns}[onlytextwidth]
+    \begin{column}{.45\textwidth}
+        \centering
+        \includegraphics[height=0.2\textheight,width=\linewidth,keepaspectratio]{example-image}
+        \includegraphics[height=0.2\textheight,width=\linewidth,keepaspectratio]{example-image}
+        \includegraphics[height=0.2\textheight,width=\linewidth,keepaspectratio]{example-image}
+    \end{column}
+    \begin{column}{.45\textwidth}
+        \centering
+        \includegraphics[height=0.2\textheight,width=\linewidth,keepaspectratio]{example-image}
+        \includegraphics[height=0.2\textheight,width=\linewidth,keepaspectratio]{example-image}
+        \includegraphics[height=0.2\textheight,width=\linewidth,keepaspectratio]{example-image}
+    \end{column}    
+\end{columns}   
+\caption{whatever caption you want}
+\end{figure}
+
+\end{frame}
+
+\end{document}

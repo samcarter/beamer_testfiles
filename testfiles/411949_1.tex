@@ -1,0 +1,40 @@
+% https://tex.stackexchange.com/a/411949
+\documentclass{beamer}
+\newcommand{\mypause}[1][+]{\onslide<#1>}
+\newcounter{nextsection}
+
+\newcommand{\sectionendtoc}{%
+    \setcounter{nextsection}{\value{section}}
+    \addtocounter{nextsection}{1}
+
+    \begin{frame}<\value{nextsection}>
+        \setbeamercovered{%
+           still covered={\opaqueness<1->{100}},
+           again covered={\opaqueness<1->{15}}
+        }
+        \let\pause\mypause
+        \tableofcontents[pausesections]
+    \end{frame}
+}
+
+\begin{document}
+
+\section{Section 1}
+\subsection{title}
+\subsection{title}
+\begin{frame}
+test
+\end{frame}
+\sectionendtoc
+
+\section{Section 2}
+\begin{frame}
+test
+\end{frame}
+\sectionendtoc
+
+\section{Section 3}
+\begin{frame}
+test
+\end{frame}
+\end{document}

@@ -1,0 +1,15 @@
+% https://tex.stackexchange.com/a/401078
+\newcommand{\aspectratio}{43}
+%\newcommand{\aspectratio}{169}
+\documentclass[aspectratio=\aspectratio]{beamer}
+
+\begin{document}
+test 
+
+\ifnum\aspectratio=169 %
+    foo
+\else
+    bar
+\fi
+
+\end{document}

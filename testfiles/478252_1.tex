@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/478252
+\documentclass{beamer}
+
+ \AtBeginSection[]{%
+ \begin{frame}
+     \tableofcontents[currentsection, subsectionstyle=show/show/hide]
+ \end{frame}
+ }
+\begin{document}
+
+\section{section with toc}
+\begin{frame}
+content...
+\end{frame}
+
+{
+\AtBeginSection[]{}
+\section{section withou toc}
+\begin{frame}
+content...
+\end{frame}
+}
+
+\section{section with toc}
+\begin{frame}
+content...
+\end{frame}
+
+\end{document}

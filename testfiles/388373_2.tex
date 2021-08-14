@@ -1,0 +1,67 @@
+% https://tex.stackexchange.com/a/388373
+\documentclass[xcolor={dvipsnames,table},12pt]{beamer}
+\setbeamertemplate{footline}{%
+    \hfill \insertframenumber{} / \inserttotalframenumber \hfill \vspace*{1mm}
+}
+
+\usepackage{filecontents}
+\begin{filecontents*}{\jobname.bib}
+@article{Balle2002,
+author = {Bountin, Dmitry and Chimitov},
+journal = {Journal of Aircraft},
+number = {02},
+pages = {1203--1210},
+title = {{Separated Shock Boundary-Layer Interaction Control Using Stream}},
+volume = {3},
+year = {2002}
+}
+
+
+@article{Holden2005,
+author = {Bountin, Dmitry and Chimitov},
+journal = {Journal of Aircraft},
+number = {1},
+pages = {1203--1210},
+title = {{Separated Shock Boundary-Layer Interaction Control Using Streamwise Slots}},
+volume = {42},
+year = {2005}
+}
+
+@article{Delery2000,
+author = {Bountin, Dmitry and Chimitov},
+journal = {European Congres on Computational Methohd in Applied Sciences and Engineering},
+number = {September},
+pages = {1203--1210},
+title = {{The physics of shock wave/boundary layer interaction control: last lessons learned}},
+year = {2000}
+}
+
+@article{Bountin2013,
+author = {Bountin, Dmitry and Chimitov, Timur and Maslov, Anatoly and Novikov, Andrey and Egorov, Ivan and Fedorov, Alexander and Utyuzhnikov, Sergey},
+journal = {Journal of Aircraft},
+number = {5},
+pages = {1203--1210},
+title = {{Separated Shock Boundary-Layer Interaction Control Using Stream}},
+volume = {51},
+year = {2013}
+}
+\end{filecontents*}
+
+\setbeamerfont{bibliography entry author}{size=\fontsize{11pt}{13pt}}
+\setbeamerfont{bibliography entry title}{size=\fontsize{11pt}{13pt}}
+\setbeamerfont{bibliography entry location}{size=\fontsize{11pt}{13pt}}
+\setbeamerfont{bibliography entry note}{size=\fontsize{11pt}{13pt}}
+\setbeamerfont{bibliography item}{size=\fontsize{11pt}{13pt}}
+
+\begin{document}
+\begin{frame}{First slide}
+These are all references for bibliography.
+\cite{Balle2002} ,\cite{Holden2005}, \cite{Delery2000}, \cite{Bountin2013}.
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Reference}
+\bibliographystyle{ieeetr} 
+\bibliography{\jobname}
+\end{frame}
+
+\end{document}

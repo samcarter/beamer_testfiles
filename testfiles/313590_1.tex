@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/313590
+\documentclass{beamer}
+%allow for pause inside aligned
+\def\pdftex@driver{pdftex.def}
+\ifx\Gin@driver\pdftex@driver
+\def\pgfsys@color@unstacked#1{%
+    \pdfliteral{\csname\string\color@#1\endcsname}%
+}
+\fi
+\begin{document}
+\begin{frame}
+\begin{columns}
+\begin{column}[T]{0.45\textwidth}
+\[
+\begin{aligned}
+\onslide<4->{equation 4 &= display 4th \\} 
+\onslide<5->{equation 5 &= display 5th \\} 
+\onslide<6->{equation 6 &= display 6th \\} 
+\end{aligned}
+\]
+\end{column}  
+\begin{column}[T]{0.45\textwidth}
+\[
+\begin{aligned}
+\onslide<1->{equation 1 &= display first \\} 
+\onslide<2->{equation 2 &= display second \\} 
+\onslide<3->{equation 3 &= display third \\} 
+\end{aligned}
+\]
+\end{column}
+\end{columns}   
+\end{frame}
+\end{document}

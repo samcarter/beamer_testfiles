@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/410717
+\documentclass{beamer}
+
+\usetheme{CambridgeUS}
+
+\setbeamerfont{block title}{series=\bfseries,size=\small}
+\setbeamercolor{block title}{fg=white, bg=blue}
+\setbeamercolor{block body}{bg=gray!20!bg}
+
+\setbeamertemplate{theorems}[numbered]
+\newtheorem{beisp}{Beispiel}
+
+\makeatletter
+\setbeamertemplate{theorem begin}{%
+    \begin{center}
+    \begin{minipage}{0.7\textwidth}
+  \begin{\inserttheoremblockenv}
+    {%
+      \inserttheoremname
+      \inserttheoremnumber
+      \ifx\inserttheoremaddition\@empty\else\ (\inserttheoremaddition)\fi%
+    }%
+}
+
+\setbeamertemplate{theorem end}{%
+    \end{\inserttheoremblockenv}
+    \end{minipage}
+    \end{center}
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+
+\begin{beisp}[Konsumausgaben eines Haushalts]
+    This is the beginning of Theorem 1.
+\end{beisp} 
+
+\end{frame} 
+\end{document}

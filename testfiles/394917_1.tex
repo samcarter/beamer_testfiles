@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/394917
+\documentclass[]{beamer}
+\usetheme{Madrid}
+
+\AtBeginSection{%
+    \ifnum\value{section}=1
+        \setbeamercolor{block title}{bg=red}
+    \fi
+    \ifnum\value{section}=2
+        \setbeamercolor{block title}{bg=green}
+    \fi
+}
+
+\begin{document}
+\section{first section}
+\begin{frame}
+    \begin{block}{A  block of the first section}
+        Something about this example of the first kind.
+    \end{block}
+    \end{frame}
+\section{second section}
+    \begin{frame}
+    \begin{block}{A  block of the second section}
+        Something about this example of the second kind.
+    \end{block}
+
+\end{frame}
+
+\end{document}

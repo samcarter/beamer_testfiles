@@ -1,0 +1,18 @@
+% https://tex.stackexchange.com/a/483194
+\documentclass{beamer}
+\usepackage{amsmath, bm}
+
+\begin{document}
+
+\begin{frame}
+\begin{align*}
+\alert<+>{\bm{f_t}} & \alert<.>{=\sigma(\bm{W_f} \cdot [\bm{h_{t-1}}, \bm{x_t}] + \bm{b_f})} \\
+\alert<+>{\bm{i_t}} &\alert<.>{= \sigma(\bm{W_i} \cdot [\bm{h_{t-1}}, \bm{x_t}] + \bm{b_i})} \\
+\alert<+>{\bm{\tilde{C}_t}} &\alert<.>{= \tanh(\bm{W_{\tilde{C}}} \cdot [\bm{h_{t-1}}, \bm{x_t}] + \bm{b_{\tilde{C}}})} \\
+\alert<+>{\bm{C_t}} &\alert<.>{= \bm{f_t} \odot \bm{C_{t-1}} + \bm{i_t} \odot\bm{\tilde{C}_t}} \\
+\alert<+>{\bm{o_t}} &\alert<.>{= \sigma(\bm{W_o} \cdot [\bm{h_{t-1}}, \bm{x_t}] + \bm{b_o})} \\
+\alert<+>{\bm{h_t}} &\alert<.>{= \bm{o_t} \odot \tanh(\bm{C_t})}
+\end{align*}
+\end{frame}
+
+\end{document}

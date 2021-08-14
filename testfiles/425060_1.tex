@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/425060
+\documentclass{beamer}
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen}
+\setbeamerfont{note page}{size=\tiny}
+
+\addtobeamertemplate{note page}{\setbeamerfont{itemize/enumerate subbody}{size=\tiny}}{}
+
+
+
+\begin{document}
+
+\begin{frame}{Slide Title}
+  Slide text
+    \begin{itemize}
+      \item This is large
+      \begin{itemize}
+      \item This
+      \end{itemize}
+    \end{itemize}
+  \note{This is small}
+  \note[item]{This is small
+  \begin{itemize}
+    \item This is large
+  \end{itemize}}
+\end{frame}
+
+\end{document}

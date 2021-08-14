@@ -1,0 +1,46 @@
+% https://tex.stackexchange.com/a/450931
+\documentclass[8pt]{beamer}
+\usetheme{metropolis}
+\setbeamercovered{transparent}
+
+\usepackage{ragged2e}
+%\usepackage{etoolbox}
+
+\usepackage{amsmath,amsthm}  
+\usepackage{mathtools}
+%\usepackage{fontspec}
+\usefonttheme{serif}
+
+%\newcommand\Fontvi{\fontsize{11.2}{7.2}{{Times New Roman}}}
+
+
+\setbeamertemplate{frametitle}[default][center]
+\setbeamercolor{page number in head/foot}{fg=black}
+\setbeamerfont{page number in head/foot}{size=\large}
+
+\setbeamertemplate{footline}{%
+  \hfill%
+  \usebeamercolor[fg]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \setbeamertemplate{page number in head/foot}[totalpagenumber]%
+  \usebeamertemplate*{page number in head/foot}%
+  \hfill\hspace{0pt}%
+  \vskip2pt%
+}
+
+\begin{document}
+
+\begin{frame}\frametitle{Motivations and Goals}
+text text text
+
+\end{frame}
+
+\begin{frame}\frametitle{Budget}
+Flowers
+\end{frame}
+
+\begin{frame}\frametitle{Target Values} \label{targets}
+$F=0.52$
+\end{frame}
+
+\end{document}

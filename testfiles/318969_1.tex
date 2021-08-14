@@ -1,0 +1,45 @@
+% https://tex.stackexchange.com/a/318969
+\documentclass[12pt, aspectratio=169, noamssymb]{beamer} 
+\usetheme{default}
+\setbeamertemplate{navigation symbols}{}
+\usepackage[T1]{fontenc}
+\setbeamercolor{background canvas}{bg=black}
+\setbeamercolor{normal text}{fg=white}
+\usepackage[utf8]{inputenc}
+\usepackage[norsk]{babel}
+\usepackage{amsmath}
+\newtheoremstyle{newstyle}
+{3000pt}   % ABOVESPACE
+{3000pt}   % BELOWSPACE
+{\normalfont}  % BODYFONT
+{0pt}       % INDENT (empty value is the same as 0pt)
+{\bfseries} % HEADFONT
+{.}         % HEADPUNCT
+{5pt plus 1pt minus 1pt} % HEADSPACE
+{}          % CUSTOM-HEAD-SPEC
+\theoremstyle{newstyle}
+\newtheorem{teorem}{\normalsize \color{white} \bfseries Teorem}
+\newtheorem{korollar}{\normalsize \color{white} \bfseries Korollar}
+
+\usepackage{etoolbox}
+\addtobeamertemplate{theorem begin}{%
+    \vspace{0.5cm}
+}
+
+\addtobeamertemplate{theorem end}{%
+    \vspace{0,5cm}
+}
+
+
+\begin{document}
+
+    \begin{frame}
+        \begin{teorem}[Skjæringssetningen]
+            La $X$ være et koblet og $Y$ er en ordnet mengde i ordentopologien. La $f: X \to Y$ være kontinuerlig. Hvis $a,b \in X$ og $r \in Y$ slik at $f(a) <r < f(b)$, da eksisterer $c \in X$ slik at $f(c) = r$. 
+        \end{teorem}
+        \begin{korollar}
+            Anta at $f:[a,b] \to R$ er kontinuerlig og $r \in R$ slik at $f(a) <r < f(b)$, da eksisterer $c \in [a,b]$ slik at $f(c) = r$. 
+        \end{korollar}
+    \end{frame}
+
+\end{document}

@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/457813
+\documentclass{beamer}
+\usepackage[backend=biber]{biblatex}
+
+\begin{filecontents}{\jobname.bib}
+@InProceedings{identifier1,
+  Title                    = {Some Awesome Title},
+  Author                   = {Some Author and Another Author},
+  Booktitle                = {Some Book about the Future},
+  Year                     = {2042},
+  Pages                    = {1--42}
+}
+
+@InProceedings{identifier2,
+  Title                    = {Some So-So Title},
+  Author                   = {First Author and Second Author},
+  Booktitle                = {An okay Booktitle},
+  Year                     = {2000},
+  Pages                    = {1--100}
+}
+\end{filecontents}
+\addbibresource{\jobname.bib}
+
+\begin{document}
+
+\begin{frame}
+
+\begingroup
+    \footnotesize
+  \fullcite{identifier1}\par
+  \fullcite{identifier2}\par
+\endgroup
+\end{frame}
+
+\end{document}

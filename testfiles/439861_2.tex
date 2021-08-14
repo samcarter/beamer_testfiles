@@ -1,0 +1,38 @@
+% https://tex.stackexchange.com/a/439861
+\documentclass{beamer}
+
+%\usepackage{appendixnumberbeamer}
+
+\mode<presentation> {
+    \usetheme{AnnArbor}
+    \usecolortheme{wolverine}
+    \setbeamertemplate{page number in head/foot}[appendixframenumber]
+}
+
+\renewcommand{\appendixname}{\texorpdfstring{\translate{Appendix}}{Appendix}}
+
+\begin{document}
+
+\begin{frame}
+    slide 1
+\end{frame}
+
+\begin{frame}
+slide 2
+\end{frame}
+
+\begin{frame}
+slide 3
+\end{frame}
+
+\appendix %do not count the following slides for the total number
+
+\begin{frame}
+extra slide 1
+\end{frame}
+
+\begin{frame}
+extra slide 2
+\end{frame}
+
+\end{document}

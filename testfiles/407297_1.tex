@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/407297
+\documentclass{beamer}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{frame}
+    \frametitle{Example}
+
+  \begin{exampleblock}{}
+    {\large ``\blindtext''}
+    \vskip5mm
+    \hspace*\fill{\small--- Author and Author}
+    \end{exampleblock}
+
+    \begin{tikzpicture}[remember picture, overlay]
+        \draw[ultra thick,color=red] (0,0) -- (11,7) (11,0) -- (0,7);
+    \end{tikzpicture}
+
+\end{frame}
+
+\end{document}

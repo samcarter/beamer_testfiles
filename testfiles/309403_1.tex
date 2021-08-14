@@ -1,0 +1,67 @@
+% https://tex.stackexchange.com/a/309403
+\documentclass[xcolor={dvipsnames,svgnames,table},10pt]{beamer}
+
+\usepackage[T1]{fontenc}
+
+\colorlet{titleleft}{Red}
+\colorlet{titleright}{Green}
+
+\setbeamercolor*{frametitle}{fg=white}
+
+\makeatletter
+\pgfdeclarehorizontalshading[titleleft,titleright]{beamer@frametitleshade}{0.7\paperheight}{%
+  color(50pt)=(titleleft);
+  color(0.85\paperwidth)=(titleright)}
+
+\defbeamertemplate*{frametitle}{horizontal shading}
+{%
+  \nointerlineskip%
+  \vskip+3pt%
+  \hbox{\leavevmode
+    \advance\beamer@leftmargin by -12bp%
+    \advance\beamer@rightmargin by -12bp%
+    \beamer@tempdim=\textwidth%
+    \advance\beamer@tempdim by \beamer@leftmargin%
+    \advance\beamer@tempdim by \beamer@rightmargin%
+    \hskip-\Gm@lmargin\hbox{%
+      \setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{\paperwidth}%
+          \vbox{}\vskip-.75ex%
+          \leftskip2.8cm%
+          \rightskip0.3cm plus1fil\leavevmode
+          \insertframetitle%
+          \ifx\insertframesubtitle\@empty%
+            \strut\par%
+          \else
+            \par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+          \fi%
+          \nointerlineskip
+          \vbox{}%
+          \end{minipage}}%
+      \beamer@tempdim=\ht\beamer@tempbox%
+      \advance\beamer@tempdim by 2pt%
+      \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
+        \usebeamercolor{frametitle right}
+%        \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}} 
+         \pgfsetcornersarced{\pgfpoint{3mm}{3mm}}
+         \pgfpathrectanglecorners{\pgfpoint{.2\paperwidth}{0}}{\pgfpoint{.8\paperwidth}{\beamer@tempdim}}
+        \pgfusepath{clip}
+        \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+      \end{pgfpicture}
+      \hskip-\paperwidth%
+      \box\beamer@tempbox%
+    }%
+    \hskip-\Gm@rmargin%
+  }%
+    \vskip-2pt
+}
+\makeatother
+
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+
+\begin{document}
+
+\begin{frame}{Test}
+ a Test frame
+\end{frame}
+
+\end{document}

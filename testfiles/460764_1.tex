@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/460764
+\documentclass{beamer}
+
+\usepackage{soul}
+\makeatletter
+\let\HL\hl
+\renewcommand\hl{%
+  \let\set@color\beamerorig@set@color
+  \let\reset@color\beamerorig@reset@color
+  \HL}
+\makeatother
+\begin{document}
+
+\begin{frame}
+ \begin{block}{P1}
+  Some \hl{text} here
+ \end{block}
+\end{frame}
+
+\end{document}

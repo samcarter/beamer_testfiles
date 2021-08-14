@@ -1,0 +1,15 @@
+% https://tex.stackexchange.com/a/450317
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+\begin{frame}{Frame Title}
+Some text
+\settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
+\addtolength{\leftmargini}{\labelsep}
+\begin{itemize}
+    \item first item
+    \item this is a second item which is longer and should hopefully go over more than one line
+\end{itemize}
+\end{frame}
+\end{document}

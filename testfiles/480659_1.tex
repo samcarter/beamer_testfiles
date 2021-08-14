@@ -1,0 +1,59 @@
+% https://tex.stackexchange.com/a/480659
+\documentclass[aspectratio=169]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage{lipsum}
+\title{Boring Title}
+
+\usepackage{filecontents} % <- just for creating this example
+\begin{filecontents*}{beamerthememytheme.sty}
+\mode<presentation>
+
+% Requirement
+\RequirePackage{tikz}
+%\RequirePackage{graphicx}
+%\RequirePackage{fontspec}
+%\setmainfont{Calibri}
+
+%\AtBeginDocument{\setbeamertemplate{logo}{}}
+
+\DeclareOptionBeamer{myimage}{\def\beamer@mytheme@myimage{#1}}
+\ExecuteOptionsBeamer{myimage=example-image}
+\ProcessOptionsBeamer
+
+
+\newcommand{\frontimage}{\includegraphics[width=\paperwidth, keepaspectratio]{\beamer@mytheme@myimage}} %my title page image hardcoded
+%\useinnertheme{mytheme}
+%\useoutertheme{mytheme}
+%\usecolortheme{mytheme}
+
+\defbeamertemplate*{background}{mytheme}{%
+\begin{tikzpicture}
+     \ifnum\thepage>1\relax%
+          %if base frame
+          \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+     \else
+          %if title page
+          \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+          \node[anchor=south west,inner sep=0] (image) at (0,0) {\frontimage};
+      \fi
+\end{tikzpicture}
+}
+\mode<all>
+\end{filecontents*}
+
+\usetheme[
+    myimage=example-image-duck
+]{mytheme}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\section{Introduction}
+%  \sectionframe
+\begin{frame}
+  \lipsum[1]
+\end{frame}
+\end{document}

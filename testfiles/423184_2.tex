@@ -1,0 +1,108 @@
+% https://tex.stackexchange.com/a/423184
+\documentclass[xcolor=dvipsnames]{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+
+
+
+  \setbeamercovered{invisible}
+}
+
+\definecolor{UBCblue}{rgb}{0.04706, 0.13725, 0.26667} % UBC Blue (primary)
+\definecolor{UBCgrey}{rgb}{0.3686, 0.5255, 0.6235} % UBC Grey (secondary)
+
+\setbeamercolor{palette primary}{bg=UBCblue,fg=white}
+\setbeamercolor{palette secondary}{bg=UBCblue,fg=white}
+\setbeamercolor{palette tertiary}{bg=UBCblue,fg=white}
+\setbeamercolor{palette quaternary}{bg=UBCblue,fg=white}
+\setbeamercolor{structure}{fg=UBCblue} 
+\setbeamercolor{section in toc}{fg=UBCblue} 
+
+
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\addtobeamertemplate{block begin}{\pgfsetfillopacity{0.8}}{\pgfsetfillopacity{1}}
+\addtobeamertemplate{block example begin}{\pgfsetfillopacity{0.8}}{\pgfsetfillopacity{1}}
+\setbeamercolor{structure}{fg=UBCblue}
+
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+
+\usepackage[english]{babel}
+
+
+\usepackage{amsmath, amssymb}
+\usepackage{array}
+\usepackage{amsthm}
+\usepackage{amssymb,amsfonts}  
+\usepackage{latexsym} 
+\usepackage[all,arc]{xy}
+\usepackage{comment}
+%\usepackage{enumerate}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{rotating}
+\usepackage{wasysym}
+%\usepackage{slashbox}
+%\usepackage{graphicx}
+\usepackage{tikz}
+%\usepackage{sagetex}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
+\usepackage{amstext}
+
+%\usepackage{etoolbox}
+\usepackage[T1]{fontenc}
+
+
+\usetikzlibrary{positioning}
+\usepackage{stackengine}
+\usepackage{filecontents}
+%\usepackage{color}   %May be necessary if you want to color links
+%\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=black,
+    urlcolor=black,
+    citecolor=black,  %choose some color if you want links to stand out
+}
+
+\usepackage{xypic}
+\usepackage{times}
+\usepackage{ulem}
+%\usepackage[T1]{fontenc}
+
+\newtheorem*{Proposition}{Proposition}
+\newtheorem*{keylemma}{Key Lemma}
+\newtheorem*{Remark}{Remark}
+\newtheorem*{question}{Question}
+\newtheorem*{Task}{Task}
+\newtheorem*{cor}{Corollary}
+\newtheorem*{thm}{Theorem}
+
+
+\setbeamercolor{block title example}{use=structure,fg=white,bg=structure.fg!75!black}
+\setbeamercolor{block body example}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+
+\begin{document}
+
+\begin{frame}
+\begin{Theorem}
+This is a theorem.
+\end{Theorem}
+\begin{Remark}
+This is a remark.
+\end{Remark}
+\begin{Example}
+This is an example. I don't like this color.
+\end{Example}
+\end{frame}
+
+\end{document}

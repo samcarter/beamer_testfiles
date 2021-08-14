@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/424575
+\documentclass[compress]{beamer}
+\usetheme{Warsaw} 
+
+\newcounter{cont}
+
+\makeatletter
+\newcommand{\inserttotalslidenumber}{    \setcounter{cont}{\beamer@endpageofframe}%
+    \addtocounter{cont}{1}%
+    \addtocounter{cont}{-\beamer@startpageofframe}%
+    \arabic{cont}%
+}
+\makeatother
+
+\title{title}
+\author{author}
+
+%%%%%
+\begin{document}   
+
+\begin{frame}
+  \frametitle{The title (\insertslidenumber/\inserttotalslidenumber)}
+   %
+   \only<+->{Some content.}
+   \only<+->{Some more content.}
+\end{frame}
+
+\end{document}

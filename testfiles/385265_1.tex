@@ -1,0 +1,32 @@
+% https://tex.stackexchange.com/a/385265
+\documentclass{beamer}
+\usetheme{Berlin}
+
+\usepackage{lipsum}
+
+\begin{document}
+
+\begin{frame}
+content...
+\end{frame}
+
+\pdfpagewidth 21cm
+\pdfpageheight 29.7cm
+
+\begin{frame}[plain]
+\vskip1cm
+\begin{minipage}{19cm}
+\lipsum
+\end{minipage}
+\end{frame}
+
+\makeatletter
+\pdfpagewidth \beamer@paperwidth
+\pdfpageheight \beamer@paperheight
+\makeatother
+
+\begin{frame}
+content...
+\end{frame}
+
+\end{document}

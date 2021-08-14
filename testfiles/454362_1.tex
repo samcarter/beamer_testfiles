@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/454362
+\documentclass{beamer}
+\usetheme{PaloAlto}
+\usecolortheme{seagull}
+
+\begin{document}
+
+\begin{frame}<1-3>[label=foo]
+\frametitle{Frame1}
+\begin{itemize}
+ \item<+-> Item1
+    \begin{itemize}
+        \item<+-> Item 1.1
+        \item<+-> Item 1.2    
+        \item<+-> 1.3
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\includegraphics[width=\textwidth]{example-image-duck}
+\end{frame}
+
+\againframe<4->{foo}
+
+\end{document}

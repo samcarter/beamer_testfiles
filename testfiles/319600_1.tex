@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/319600
+\documentclass{beamer}
+
+\usepackage{etoolbox}
+\BeforeBeginEnvironment{frame}{%
+    \setbeamertemplate{background canvas}{}%
+}
+
+\makeatletter
+\define@key{beamerframe}{getoffthestage}[true]{%
+    \setbeamertemplate{background canvas}{%
+        \vbox to \paperheight{\vfil\hbox to \paperwidth{\hfil\includegraphics[width=.5\textwidth]{example-grid-100x100bp}\hfil}\vfil}%
+    }%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}[getoffthestage]
+\end{frame}
+
+\begin{frame}
+    \frametitle{bla}
+    normal frame
+\end{frame}
+
+\end{document}

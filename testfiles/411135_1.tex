@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/411135
+\documentclass{beamer}
+
+\useinnertheme[shadow]{rounded}
+\setbeamercolor{block title example}{fg=black,bg=lightgray}
+\setbeamercolor{block body example}{fg=white,bg=gray}
+\setbeamercolor{block body}{fg=white,bg=blue!60}
+
+\begin{document}
+
+\begin{frame}
+
+\begin{minipage}{5cm}
+\setbeamertemplate{block begin}[default]
+\setbeamertemplate{block end}[default]
+\begin{block}{}
+    The \texttt{beamercolorbox} environment!
+\end{block}
+\end{minipage}
+
+\begin{exampleblock}{block title}
+ Box type \texttt{beamerboxesrounded}
+
+ with shadow.
+
+ Different colours are possible for the header and box contents. \ldots
+\end{exampleblock}
+
+\begin{example}
+ Box type \texttt{beamerboxesrounded}
+
+ with shadow.
+
+ Different colours are possible for the header and box contents. \ldots
+\end{example}
+
+\end{frame}
+
+\end{document}

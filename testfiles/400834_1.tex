@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/400834
+\documentclass[10pt]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{lmodern}
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{lipsum}
+\usepackage{gensymb}
+\usepackage[absolute,overlay]{textpos}
+%\usepackage{graphicx}
+
+\begin{document}
+\begin{frame}
+    \frametitle{Try 1}
+    \begin{textblock*}{\textwidth}(0.8\textwidth,1cm)%specific position, I hope the numbers cannot matter...
+        \includegraphics<+(1)->[width=4cm,keepaspectratio]{example-image}
+    \end{textblock*}\vfill\pause
+\lipsum[1]
+\pause
+\lipsum[2]
+\end{frame}
+\end{document}

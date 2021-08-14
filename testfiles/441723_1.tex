@@ -1,0 +1,63 @@
+% https://tex.stackexchange.com/a/441723
+\documentclass[12pt]{beamer}
+\usetheme{metropolis}
+\usecolortheme{spruce}
+
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{fixmath}
+\usepackage{graphicx}
+
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{$#2$}}%
+\newcommand*{\Resize}[2]{\resizebox{#1}{!}{$#2$}}%
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+
+\begin{document}
+
+\begin{frame}[t]{Adjacency Matrix}
+    \vspace{1em}
+    \only<1>{
+    \begin{block}{What is an adjacency matrix?}
+    \vspace{0.5em}
+     An adjacency matrix is a square matrix used to represent a finite graph.
+    \end{block}
+    \vspace{0.5em}
+    For a graph with $\mathbold{\abs{V}}$ vertices, an adjacency matrix is a $\mathbold{\abs{V} \times \abs{V}}$ matrix.
+    \\\vspace{1em}
+    If the edge between vertex $\mathbold{i}$ and vertex $\mathbold{j}$ is denoted by $\mathbold{V_{i,j}}$ then there are two possibilities.
+    }
+
+        \only<2-3>{
+    \setbeamertemplate{itemize items}[ball]
+        \begin{enumerate}
+        \only<2>{
+            \item Unweighted Graph
+                \vspace{1em}
+                \begin{itemize}
+                    \item Matrix of 0s and 1s where in row $\mathbold{i}$ and column $\mathbold{j}$ is $1$ iff the edge $\mathbold{(i,j)}$ is in the graph
+                \end{itemize}
+
+                \[      \Scale[1]{
+                        V_{i,j} = \begin{cases}
+                                    1 & if ~ edge(i,j) ~ exists \\
+                                    0 & otherwise
+                                \end{cases}
+                        }
+                \]
+            }
+            \addtocounter{enumi}{1}
+            \only<3>{
+            \item Weighted Graph
+                \begin{itemize}
+                    \item Edge weight is placed in $\mathbold{V_{i,j}}$ entry if there is an edge and a special value (perhaps \textit{null} to indicate absence of an edge. 
+                \end{itemize}
+            }
+        \end{enumerate}
+            }
+
+\end{frame}
+
+\end{document}

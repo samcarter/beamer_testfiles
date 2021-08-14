@@ -1,0 +1,44 @@
+% https://tex.stackexchange.com/a/416067
+\documentclass{beamer}
+
+\usetheme{Malmoe}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{footline}{}
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+
+\newtheorem{deff}{Definition} 
+
+\begin{document}
+
+\begin{frame}
+\begin{deff}
+
+A recipe is 
+
+\structure{given}
+\begin{enumerate}
+\item a desired outcome
+\item a language of instruction
+\end{enumerate} 
+\structure{a set of}
+\begin{enumerate}[a.]
+\item required inputs
+\item cooking instructions 
+\item sanity checks
+\end{enumerate}
+\structure{, such that}
+\begin{itemize}
+\item the desired outcome is achieved using inputs and instructions
+\item the sanity checks verify that the cook is still sane
+\end{itemize}
+
+\end{deff}
+\end{frame}
+
+
+\end{document}

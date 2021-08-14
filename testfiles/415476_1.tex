@@ -1,0 +1,18 @@
+% https://tex.stackexchange.com/a/415476
+\documentclass{beamer}
+
+\setbeamersize{text margin left=2.5cm}
+\settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
+\addtolength{\leftmargini}{\labelsep}
+
+\begin{document}
+
+\begin{frame}{Title}{Subtitle}
+This line should be 2.5 cm away from the left ledge of the slide.
+\begin{itemize}
+\item the item symbol {\color{blue}\small $\blacktriangleright$} should also be 2.5 cm away from the left edge of the slide.
+\end{itemize}
+
+\end{frame}
+
+\end{document}

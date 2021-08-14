@@ -1,0 +1,37 @@
+% https://tex.stackexchange.com/a/410961
+\documentclass{beamer}
+
+\begin{document}
+
+{
+    \setbeamercovered{transparent}
+    \begin{frame}{Outline}
+          \tableofcontents[
+            currentsection
+          ]
+    \end{frame} 
+    \addtocounter{framenumber}{-1}
+    \begin{frame}{Outline}
+          \tableofcontents[
+            pausesections,
+            pausesubsections,
+          ]
+    \end{frame}
+}
+
+\section{sec1}
+\subsection{sub1}
+\begin{frame}
+content...
+\end{frame}
+\subsection{sub2}
+\begin{frame}
+content...
+\end{frame}
+\section{sec2}
+\begin{frame}
+content...
+\end{frame}
+
+
+\end{document}

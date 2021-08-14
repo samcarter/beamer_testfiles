@@ -1,0 +1,44 @@
+% https://tex.stackexchange.com/a/479918
+\documentclass[aspectratio=169, xcolor={x11names}]{beamer}
+
+\usecolortheme{rose}
+\useoutertheme[]{split}
+\useinnertheme{inmargin}
+\setbeamersize{sidebar width left=1cm, sidebar width right=1cm}
+\setbeamersize{text margin left=0.5mm, text margin right=0.5mm}
+
+\usepackage[square, nonamebreak, sort&compress, comma, numbers]{natbib}
+
+\usepackage{blindtext}
+
+\setbeamertemplate{headline}{}
+
+
+\begin{document}
+
+\section{Section 1}
+
+\begin{frame}[allowframebreaks=0.9]{Sections in ToC}
+
+\blindtext[3]
+
+\end{frame}
+
+\section{Section 2}
+
+\begin{frame}[allowframebreaks=0.9]{Sections in ToC}
+
+\blindtext[3]
+
+\end{frame}
+
+
+\section{Section 3}
+
+\begin{frame}[allowframebreaks=0.9]{Sections in ToC}
+
+\blindtext[3]
+
+\end{frame}
+
+\end{document}

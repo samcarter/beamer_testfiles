@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/417039
+\documentclass{beamer}
+
+\usetheme{Madrid}
+
+\setbeamertemplate{block begin}{%
+  \par\vskip\medskipamount%
+  \begin{beamerboxesrounded}[upper=block title,lower=block body,shadow=true]%
+    {\raggedright\usebeamerfont*{block title}\insertblocktitle
+     \rule{0pt}{0.6em}%
+    }%
+    \raggedright%
+    \usebeamerfont{block body}%
+}
+
+\begin{document}
+
+\begin{frame}
+
+\begin{block}{}
+test
+\end{block}
+
+\end{frame}
+
+\end{document}

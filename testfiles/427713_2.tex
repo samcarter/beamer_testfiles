@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/427713
+\documentclass{beamer}
+
+\begin{document}
+    \begin{frame}
+        \includegraphics[height=0.3\textheight]{example-image-a} \\
+        \begin{overlayarea}{\linewidth}{0.5\textheight}
+            \only<1>{
+                \begin{itemize}
+                    \item A
+                    \item B
+                    \item C
+                \end{itemize}
+            }
+            \only<2>{
+                \begin{itemize}
+                    \item D\footnotemark
+                    \item E%\footnote{Footnote concerning E.}
+                    \item F
+                    \item G
+                \end{itemize}   
+            }
+        \end{overlayarea}
+        \only<2>{\footnotetext{Footnote concering D.}}
+    \end{frame}
+\end{document}

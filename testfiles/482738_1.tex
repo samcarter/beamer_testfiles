@@ -1,0 +1,17 @@
+% https://tex.stackexchange.com/a/482738
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}[label=foo]
+\frametitle{A}
+Two set of admissible functions are generated for two set extreme stiffness values, \hyperlink{bar}{\beamergotobutton{B}}
+\end{frame}
+
+\begin{frame}[label=bar]
+\frametitle{B}
+\hyperlink{foo}{\beamergotobutton{A}}
+\end{frame}
+
+
+\end{document}

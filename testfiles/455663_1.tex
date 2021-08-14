@@ -1,0 +1,14 @@
+% https://tex.stackexchange.com/a/455663
+\documentclass{beamer}
+
+\usepackage{array}
+\begin{document}
+ \begin{frame}
+  \begin{tabular}{l|cccc}
+    Class & A & B & C & D \\\hline
+    \visible<+->{X} & \visible<+->{1} & \visible<+->{2} & \visible<+->{3} & \visible<+->{4} \pause\\
+    \visible<+->{Y} & \visible<+->{3} & \visible<+->{4} & \visible<+->{5} & \visible<+->{6} \pause\\
+    \visible<+->{Z} & \visible<+->{5} & \visible<+->{6} & \visible<+->{7} & \visible<+->{8}
+  \end{tabular}
+ \end{frame}
+\end{document}

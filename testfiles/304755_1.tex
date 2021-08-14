@@ -1,0 +1,37 @@
+% https://tex.stackexchange.com/a/304755
+\documentclass{beamer}
+
+\usetheme{Warsaw}
+\useoutertheme{infolines}
+
+\usepackage{caption}
+\usepackage[labelformat=simple]{subcaption}
+
+\setbeamertemplate{caption}[numbered] 
+
+\captionsetup{font=bf}
+
+\renewcommand\thesubfigure{\normalfont(\alph{subfigure})}
+
+\begin{document}
+
+    \begin{frame}
+        \begin{figure}[h!]
+            \begin{subfigure}{.49\textwidth}
+                \renewcommand\thesubfigure{\fontsize{5}{8}\selectfont (\alph{subfigure})}
+                \includegraphics[width=1\linewidth]{example-image-duck}
+                \caption{ }
+                \label{fig7a}
+                \renewcommand\thesubfigure{\normalfont (\alph{subfigure})}
+            \end{subfigure} 
+            \begin{subfigure}{.49\textwidth}
+                \includegraphics[width=1\linewidth]{example-image-duck}
+                \caption{ }
+                \label{fig7b}
+            \end{subfigure}
+            \caption{My caption}
+            \label{f7}
+        \end{figure}
+    \end{frame}
+
+\end{document} 

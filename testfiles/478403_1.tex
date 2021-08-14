@@ -1,0 +1,44 @@
+% https://tex.stackexchange.com/a/478403
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[english]{babel} 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\renewcommand{\footnoterule}{}
+\newcommand\source[1]{%
+  \begingroup
+    \setbeamertemplate{footnote}{%
+      \parindent 1em\noindent%
+      \raggedright
+      \insertfootnotetext\par%
+    }
+
+    \setbeamerfont{footnote}{size=\tiny}
+    \footnotetext{#1}
+  \endgroup
+}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Recall: Kronecker Product}
+Let $A\in\mathbb{R}^{m\times n}$ and $B$ be some other matrix.
+\[
+A\otimes B := 
+\begin{bmatrix}
+    A_{1,1}\cdot B & \cdots & A_{1,n}\cdot B \\
+    \vdots & \ddots & \vdots \\
+    A_{m,1}\cdot B & \cdots & A_{m,n}\cdot B
+\end{bmatrix}
+\]
+\pause Important properties:
+\begin{itemize}
+    \item $ (A\otimes B)^{-1} = A^{-1}\otimes B^{-1}$.\pause
+    \item $ (A\otimes B)(C\otimes D) = (AC\otimes BD)$ \small (if well-defined)
+\end{itemize}
+
+\source{J. Martens and R. Grosse. Optimizing neural networks with kronecker-factored approximate curvature. ICML, 2015.}
+\end{frame}
+
+\end{document}

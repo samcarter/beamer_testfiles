@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/461899
+\documentclass[
+ %notes % This option is obsolete
+ ]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfpages}
+\title[This is the rather long short title]{This is the title}
+
+\setbeameroption{show notes on second screen}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{{\insertshorttitle}}
+  Nono :(
+
+  \insertshorttitle within the frame works fine
+\end{frame}
+
+\end{document}

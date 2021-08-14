@@ -1,0 +1,37 @@
+% https://tex.stackexchange.com/a/447392
+\documentclass{beamer}
+
+\AtBeginSection[]{
+    \begin{frame}[plain]
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
+\title{The Title}
+\author{A.~U.~Thor}
+\setbeamercolor{mysection}{bg=fg,fg=bg}
+
+\setbeamertemplate{headline}{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex]{mysection}%
+    \hbox to .5\paperwidth{\hspace{.5em}\insertsectionhead\hfil}
+  \end{beamercolorbox}%
+}
+
+\begin{document}
+
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
+
+\begin{frame}[plain]
+    \frametitle{Slide 0}
+    Zero
+\end{frame}
+
+\section{Section A}
+\begin{frame}{Slide 1}One\end{frame}
+\begin{frame}{Slide 2}Two\end{frame}
+
+\section{Section B}
+\begin{frame}{Slide 3}Three\end{frame}
+\end{document}

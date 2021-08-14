@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/471435
+\documentclass{beamer}
+
+\setbeameroption{show notes}
+
+\setbeamertemplate{note page}{\insertnote} % <- make the notes pages empty, otherwise it will show a preview of the frame 
+
+\begin{document}
+
+\begin{frame}
+this is page 1
+\end{frame}
+
+\begin{frame}
+this is page 2
+\end{frame}
+
+\begin{frame}
+this is page 3
+\note{~}
+\end{frame}
+
+\begin{frame}
+this is page 5
+\note{notes on page 6}
+\end{frame}
+
+\end{document}

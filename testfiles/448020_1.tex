@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/448020
+\documentclass{beamer}
+\usepackage{tikz}
+
+\usepackage{filecontents}
+\begin{filecontents*}{someGraphic.tikz}
+\begin{tikzpicture}
+\node<1> {node on frame 1};
+\node<2> {node on frame 2};
+\node<3> {node on frame 3};
+\node<4> {node on frame 4};
+\node<5> {node on frame 5};
+\node<6> {node on frame 6};
+\end{tikzpicture}
+\end{filecontents*}
+
+\begin{document}
+
+\begin{frame}<1,4,7>
+  \begin{itemize}[<+->]
+    \item point 1
+    \item poiant 2; here I would like to include frame number 4 of a fancy tikz picture:\\
+    \input{someGraphic.tikz}
+    \item<7> point 3
+  \end{itemize}
+\end{frame}
+
+\end{document}

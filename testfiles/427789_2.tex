@@ -1,0 +1,72 @@
+% https://tex.stackexchange.com/a/427789
+\documentclass{beamer}
+
+\usepackage{booktabs}
+\usepackage{siunitx}
+
+\begin{document}
+\begin{frame}
+\tiny
+\centering
+\begin{tabular}{@{}lS[table-format=-2.4]S[table-format=1.4]S[table-format=1e-2,table-comparator = true,table-number-alignment = center]@{}}
+\toprule
+\multicolumn{4}{c}{Classical multiple lm} \\
+\midrule
+ & {Estimate} & {Std. Error} & {p-value} \\
+ \cmidrule(rl){2-2} \cmidrule(rl){3-3} \cmidrule(rl){4-4}
+intercept & 21.8100 & 0.5723 & <2e-16 \\
+r.limit & 0.4872 & 0.3775 & 0.1997 \\
+conc & -0.9541 & 0.0352 & <2e-16 \\
+log.t & -2.7720 & 0.0377 & <2e-16 \\
+log.rho & -1.4140 & 0.0186 & <2e-16 \\
+V.esc & 0.0001 & 0.0001 & 0.2544 \\
+V.t & 0.0021 & 0.0044 & 0.6368 \\
+Metal & 0.0427 & 0.0145 & 0.0040 \\
+\midrule
+F test & & & <2e-16 \\
+\bottomrule
+\end{tabular}
+\hfill
+\begin{tabular}{@{}lS[table-format=-2.4]S[table-format=1.4]S[table-format=1e-2,table-comparator = true,table-number-alignment = center]@{}}
+\toprule
+\multicolumn{4}{c}{Classical multiple lm} \\
+\midrule
+ & {Estimate} & {Std. Error} & {p-value} \\
+ \cmidrule(rl){2-2} \cmidrule(rl){3-3} \cmidrule(rl){4-4}
+intercept & 21.8100 & 0.5723 & <2e-16 \\
+r.limit & 0.4872 & 0.3775 & 0.1997 \\
+conc & -0.9541 & 0.0352 & <2e-16 \\
+log.t & -2.7720 & 0.0377 & <2e-16 \\
+log.rho & -1.4140 & 0.0186 & <2e-16 \\
+V.esc & 0.0001 & 0.0001 & 0.2544 \\
+V.t & 0.0021 & 0.0044 & 0.6368 \\
+Metal & 0.0427 & 0.0145 & 0.0040 \\
+\midrule
+F test & & & <2e-16 \\
+\bottomrule
+\end{tabular}
+
+\smallskip
+
+\begin{tabular}{@{}lS[table-format=-2.4]S[table-format=1.4]S[table-format=1e-2,table-comparator = true,table-number-alignment = center]@{}}
+\toprule
+\multicolumn{4}{c}{Classical multiple lm} \\
+\midrule
+ & {Estimate} & {Std. Error} & {p-value} \\
+ \cmidrule(rl){2-2} \cmidrule(rl){3-3} \cmidrule(rl){4-4}
+intercept & 21.8100 & 0.5723 & <2e-16 \\
+r.limit & 0.4872 & 0.3775 & 0.1997 \\
+conc & -0.9541 & 0.0352 & <2e-16 \\
+log.t & -2.7720 & 0.0377 & <2e-16 \\
+log.rho & -1.4140 & 0.0186 & <2e-16 \\
+V.esc & 0.0001 & 0.0001 & 0.2544 \\
+V.t & 0.0021 & 0.0044 & 0.6368 \\
+Metal & 0.0427 & 0.0145 & 0.0040 \\
+\midrule
+F test & & & <2e-16 \\
+\bottomrule
+\end{tabular}
+
+\end{frame}
+
+\end{document}

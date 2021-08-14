@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/a/480256
+\documentclass{beamer}
+
+\setbeamercovered{transparent}
+\usepackage{tikzducks,tikzlings}
+
+\begin{document}
+
+\begin{frame}
+\begin{itemize}[<+>]
+\item \alt<.>{\tikz[scale=0.2]{\duck}}{Duck}
+\item \alt<.>{\tikz[scale=0.2]{\marmot}}{Marmot}
+\item \alt<.>{\tikz[scale=0.2]{\sloth}}{Sloth}
+\item \alt<.>{\tikz[scale=0.2]{\bear}}{Bear}
+\end{itemize}
+\end{frame}
+
+
+\end{document}

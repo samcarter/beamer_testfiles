@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/449134
+\documentclass{beamer}
+
+\usepackage[
+    audience=experts
+%   audience=beginners  
+]{beameraudience}
+
+
+\begin{document}
+
+\begin{frame}{Title}
+ all version
+\end{frame}
+
+\justfor{beginners}{
+    \begin{frame}{Title}
+      long version
+    \end{frame}
+}
+
+\justfor{experts}{
+    \begin{frame}{Title}
+      short version
+    \end{frame}
+}
+
+\end{document}

@@ -1,0 +1,46 @@
+% https://tex.stackexchange.com/a/387634
+\documentclass{beamer}
+\usepackage{tikzducks}
+
+\newcommand{\duckfamily}[1][1]{%
+    \begin{center}
+        \begin{tikzpicture}[xscale=#1]
+        \begin{scope}[scale=.15]
+        \duck
+        \end{scope}
+        \begin{scope}[xshift=14pt, scale=.1]
+        \duck
+        \end{scope}
+        \begin{scope}[xshift=14pt+10pt, scale=.1]
+        \duck
+        \end{scope}
+        \begin{scope}[xshift=14pt+20pt, scale=.1]
+        \duck
+        \end{scope}
+        \end{tikzpicture}
+    \end{center}
+}
+
+\newcounter{test}
+\setcounter{test}{1}
+
+\newcommand{\duckdecor}{%
+    \addtocounter{test}{1}%
+    \ifodd\value{test}%
+        \duckfamily%
+    \else%
+        \duckfamily[-1]%
+    \fi%
+}
+
+\begin{document}
+
+\begin{frame}
+    \duckdecor
+\end{frame}
+
+\begin{frame}
+    \duckdecor
+\end{frame}
+
+\end{document}

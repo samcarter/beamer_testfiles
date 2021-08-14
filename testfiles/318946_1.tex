@@ -1,0 +1,63 @@
+% https://tex.stackexchange.com/a/318946
+\documentclass{beamer}
+\usepackage{ocgx}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage{calc}
+\newlength{\BOXlength}
+\setlength{\BOXlength}{%
+    \widthof{%
+        \fcolorbox{black}{white}{%
+            \bfseries\Large%
+            \resizebox{2cm}{!}{Box 2}}}%
+}
+
+
+\newcommand{\ocgItem}[2]{%
+    % input:
+    % #1: colorselection. write 1 here for red, 2 for green
+    % #2: The Text displayed.
+    % Example: \ocgItem{2}{Item 1}\\% Produces green
+    \colorbox{%
+        \ifcase#1 \or
+        red\or%1
+        green\fi%2
+    }{\huge #2}%
+}
+\begin{document}
+    \begin{frame}
+        \centering
+        \begin{minipage}[t]{\BOXlength}
+            \switchocg{ocg1}{%
+                \fcolorbox{black}{white}{%
+                    \bfseries\Large%
+                    \resizebox{2cm}{!}{Box 1}}}\\%
+            \begin{ocg}{OCG 1}{ocg1}{0}
+                \colorbox{white}{%
+                    \parbox{10cm}{%
+                        \ocgItem{2}{Item 1}\\%
+                        \ocgItem{1}{Item 2}\\%
+                        \ocgItem{2}{Item 3}\\%
+                        \ocgItem{1}{Item 4}%
+                    }%
+                }
+            \end{ocg}
+        \end{minipage}\hspace{2em}
+        \begin{minipage}[t]{\BOXlength}
+            \switchocg{ocg2}{%
+                \fcolorbox{black}{white}{%
+                    \bfseries\Large%
+                    \resizebox{2cm}{!}{Box 2}}}\\%
+            \begin{ocg}{OCG 2}{ocg2}{1}
+                \colorbox{white}{%
+                    \parbox{10cm}{%
+                        \ocgItem{1}{Item 1}\\%
+                        \ocgItem{2}{Item 2}\\%
+                        \ocgItem{1}{Item 3}\\%
+                        \ocgItem{2}{Item 4}%
+                    }%
+                }
+            \end{ocg}
+        \end{minipage}%
+\end{frame}
+\end{document}

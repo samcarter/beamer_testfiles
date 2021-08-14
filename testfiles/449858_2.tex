@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/449858
+\documentclass{beamer}
+\usepackage{array}
+
+\begin{document}
+
+\begin{frame}
+
+\begin{table}
+\caption{$2^{3}$ Full Factorial Design}
+\begin{tabular}{rrr|>{\onslide<1>}c<{\onslide}}
+\multicolumn{3}{c}{factors} & Response variable\\ \hline
+$A$&$B$&$C$&$\mathbf{y}$\\ \hline
+$-1$ & $-1$ & $-1$  &$y_{1}$\\ 
+$1$ &  $-1$ & $-1$ &$y_{2}$   \\ 
+$-1$ & $1$ & $-1$&$y_{3}$    \\ 
+$1$ &  $1$ & $-1$&$y_{4}$ \\
+$-1$ & $-1$ & $1$&$y_{5}$\\
+$1$ &  $-1$ & $1$ & $y_{6}$\\
+$-1$ & $1$ & $1$&$y_{7}$\\
+$1$ &  $1$ &  $1$&$y_{8}$\\
+\end{tabular}
+\pause
+\end{table}
+
+\end{frame}
+
+\end{document}

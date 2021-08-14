@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/412678
+\documentclass{beamer}
+
+\makeatletter
+\newcommand{\insertonodd}{%
+    \ifodd\the\beamer@slideinframe
+        This is slide \insertslideinframe. ODD.
+    \else
+        \only<\numexpr\insertslideinframe+1\relax>{}
+    \fi
+}
+
+\newcommand{\insertslideinframe}{\the\beamer@slideinframe}
+
+\makeatother
+
+\begin{document}
+\begin{frame}
+
+\insertonodd
+
+\only<2>  {This is slide \insertslideinframe.}
+\only<4>  {This is slide \insertslideinframe.}
+\end{frame}
+\end{document}

@@ -1,0 +1,32 @@
+% https://tex.stackexchange.com/a/450858
+\documentclass[xcolor=table]{beamer}
+
+\usecolortheme{orchid}
+
+\begin{document}
+
+\setbeamerfont{frametitle}{size=\small}
+\begin{frame}
+    \frametitle{Backstepping}
+    \begin{columns}[T]
+        \begin{column}{.49\textwidth}
+            \includegraphics[width=\linewidth]{example-image-16x10}
+
+            \includegraphics[width=\linewidth]{example-image-16x10}
+        \end{column}
+        \begin{column}{.49\textwidth}
+            \includegraphics[width=\linewidth]{example-image-16x10}
+
+            \begin{block}{Title}
+                \settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
+                \addtolength{\leftmargini}{\labelsep}
+                \setbeamerfont{itemize/enumerate body}{size=\footnotesize}
+                \begin{itemize}
+                \item Convergence rapide de la trajectoire réelle vers celle désirée
+                \item Les erreurs sur les positions sont relativement élevées et présentent des variations qui sont traduites par des dérivées très importantes
+            \end{itemize}
+        \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+\end{document}

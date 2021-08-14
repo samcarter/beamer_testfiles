@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/471960
+\documentclass[xcolor={table}]{beamer}
+\usepackage{tabularx}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{frame}
+\begin{itemize}
+\item 1
+\item 2
+\item 3
+\end{itemize}
+\begin{block}{test}
+  \begin{minipage}{0.58\textwidth}
+%    \centering
+%  \begin{table}
+    \begin{tabularx}{\textwidth}{XXX}
+        \footnotesize \textbf{API hits per month (in Mio.)} & 
+        \footnotesize \textbf{Price per month} & 
+        \footnotesize \textbf{Price per year} \\ \hline
+      \rowcolor[HTML]{DDDDDD} 
+      0.1                                   & 2'500                    & 30'000                  \\
+      0.5                                   & 3'250                    & 39'000                  \\
+      \rowcolor[HTML]{DDDDDD} 
+      1                                     & 4'000                    & 48'000                  \\
+      1.5                                   & 4'750                    & 57'000                  \\
+      \rowcolor[HTML]{DDDDDD} 
+      2                                     & 5'500                    & 66'000                 
+    \end{tabularx}
+%  \end{table}
+  \end{minipage}%
+  \hfill
+\begin{minipage}{0.38\textwidth}
+%\centering
+  \includegraphics[width=\textwidth]{example-image}
+\end{minipage}
+\end{block}
+\end{frame}
+\end{document}

@@ -1,0 +1,79 @@
+% https://tex.stackexchange.com/a/455400
+\documentclass{beamer}
+
+\usetheme[]{Madrid}
+\useoutertheme[footline=empty,subsection=false]{miniframes}
+
+\title{an awesome talk}
+\author{a froody dude}
+\date{\today}
+
+
+\makeatletter
+\let\beamer@writeslidentry@miniframeson=\beamer@writeslidentry%
+\def\beamer@writeslidentry@miniframesoff{%
+  \expandafter\beamer@ifempty\expandafter{\beamer@framestartpage}{}% does not happen normally
+  {%else
+    % removed \addtocontents commands
+    \clearpage\beamer@notesactions%
+  }
+}
+\newcommand*{\miniframeson}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframeson}
+\newcommand*{\miniframesoff}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframesoff}
+\makeatother
+
+\begin{document}
+
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+
+\begin{frame}{slide 0}
+All miniframes dimmed, as desired.
+\end{frame}
+
+\section{section 1}
+%\stepcounter{subsection}
+
+\begin{frame}{slide 1}
+content 1
+\end{frame}
+
+\begin{frame}{slide 2}
+content 2
+\end{frame}
+
+\section{section 2}
+%\stepcounter{subsection}
+
+\begin{frame}{slide 3}
+content 3
+\end{frame}
+
+\begin{frame}{slide 4}
+content 4
+\end{frame}
+
+\section{section 3}
+%\stepcounter{subsection}
+
+\begin{frame}{slide 5}
+shading on miniframes is wrong
+\end{frame}
+
+\begin{frame}{slide 6}
+shading on miniframes is wrong
+\end{frame}
+
+\section{}
+\miniframesoff
+
+\begin{frame}{slide 5}
+all miniframes should be dimmed
+\end{frame}
+
+\begin{frame}{slide 6}
+all miniframes should be dimmed
+\end{frame}
+
+\end{document}

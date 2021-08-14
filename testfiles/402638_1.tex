@@ -1,0 +1,61 @@
+% https://tex.stackexchange.com/a/402638
+\documentclass{beamer}
+\usetheme{Hannover}
+
+\title{Presentation Title}
+
+\subtitle{Optional Subtitle}
+
+\author{F.~Author\inst{1} \and S.~Another\inst{2}}
+\institute[Universities of Somewhere and Elsewhere] % (optional, but mostly needed)
+{
+  \inst{1}%
+  University of Somewhere
+  \inst{2}%
+  University of Elsewhere}
+\date{Conference Name, 2013}
+
+\makeatletter
+\setbeamertemplate{title page}{
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=8pt,center]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    % ----------------------- new
+    \begin{beamercolorbox}[sep=8pt,center]{author}
+      \usebeamerfont{author}my name
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{institute}
+      \usebeamerfont{institute}my university
+    \end{beamercolorbox}
+    % ------------------------
+    \begin{beamercolorbox}[sep=8pt,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+  \endgroup
+  \vfill
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+\end{document}

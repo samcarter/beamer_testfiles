@@ -1,0 +1,46 @@
+% https://tex.stackexchange.com/a/415518
+\documentclass{beamer}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark,decorations.pathreplacing,calligraphy}
+
+\begin{document}
+
+\begin{frame}
+%%%% Part1%%%%%
+\begin{itemize}
+\item<1-> A
+\end{itemize}
+%%%%%%%%%%%%%%%
+
+%%%% Part2%%%%%
+
+\begin{itemize}
+\item<2-> B\tikzmark{start}
+\item<3-> C: 
+\begin{itemize}
+\item<4-> C1,
+\item<5-> C2.\tikzmark{end}
+\end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%
+
+%%%% Part3%%%%%
+\begin{itemize}
+\item<6-> Limited to finite horizon problems
+\end{itemize}
+%%%%%%%%%%%%%%%
+
+
+\begin{tikzpicture}[remember picture,overlay]
+    \draw[decorate,decoration={calligraphic brace}]
+        ([yshift=10pt,xshift=60pt]{{pic cs:end}|-{pic cs:start}}) --
+        node[xshift=5pt,anchor=west] {Part 2}
+        ([xshift=60pt]{pic cs:end})
+;
+\end{tikzpicture}
+
+\end{frame}
+
+\end{document}

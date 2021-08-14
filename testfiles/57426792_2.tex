@@ -1,0 +1,44 @@
+% https://stackoverflow.com/a/57426792
+\documentclass{beamer}
+
+\mode<presentation>
+
+\definecolor{myblue}{RGB}{32,66,135}
+\definecolor{mmconcept}{RGB}{32,66,135}
+\definecolor{mmt1}{RGB}{87.75,113.25,165}
+\definecolor{mmt2}{RGB}{143.5,160.5,195}
+
+% Settings
+\setbeamercolor*{title page header}{fg=myblue}
+\setbeamercolor*{author}{fg=myblue}
+\setbeamercolor*{date}{fg=myblue}
+\setbeamercolor{item}{fg=myblue}
+\setbeamercolor{frametitle}{fg=myblue}
+\setbeamercolor{block title}{bg=myblue}
+\setbeamercolor{block title}{fg=white}
+\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{palette primary}{fg=myblue}
+\setbeamercolor{palette secondary}{fg=myblue}
+\setbeamercolor{palette tertiary}{fg=myblue}
+\setbeamercolor{palette quaternary}{fg=myblue}
+
+
+\setbeamercolor{bibliography item}{fg=green}
+\setbeamercolor{bibliography entry author}{fg=red}
+\setbeamercolor{bibliography entry title}{fg=blue}
+\setbeamercolor{bibliography entry location}{fg=orange}
+\setbeamercolor{bibliography entry note}{fg=teal}
+
+\mode
+<all>
+
+
+\begin{document}
+
+\begin{frame}
+    \nocite{knuth:ct}
+    \bibliographystyle{plain}
+    \bibliography{biblatex-examples.bib}
+\end{frame} 
+
+\end{document}

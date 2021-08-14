@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/480062
+\documentclass[aspectratio=169, xcolor={x11names}]{beamer}
+
+\setbeameroption{show notes}
+
+\usecolortheme{rose}
+\useinnertheme{inmargin}
+\setbeamercovered{transparent=30}
+
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{frame}{Uncovering Contents with Alert}
+
+\begin{itemize}[<+->]
+    \item[Rigid] Rigid
+    \item[Cheap] Cheap
+    \item[Low Maintenance] Low Maintenance%    
+    \note<3>{note text}%
+    \tikz[overlay ,remember picture]{\fill[orange] (0,0 -| current page.west) rectangle ++(0.2,0.2);}
+    \item[Self-Starting] Self-starting
+    \item[No Excitation Needed] No Excitation Needed
+\end{itemize}
+
+\end{frame}
+
+\end{document}

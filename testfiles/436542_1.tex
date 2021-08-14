@@ -1,0 +1,80 @@
+% https://tex.stackexchange.com/a/436542
+\documentclass[beaver,8pt,compress,notheorems,xcolor={svgnames},hyperref={colorlinks,allcolors=blue}]{beamer}
+
+% PACKAGES LOADING
+
+\usepackage[upright]{fourier} % My favourite font.
+\usepackage[isbn=false,style=authoryear-comp,backend=biber,natbib,maxbibnames=99,maxcitenames=3,hyperref=true]{biblatex}
+\usepackage{setspace} % To format text line spacing.
+
+% FONT DEFINITIONS
+
+\usefonttheme{professionalfonts}
+\usefonttheme{serif}
+
+% TO GET BULLETS ON TOP
+
+\setbeamertemplate{frametitle}[default][center]
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{navigation symbols}{}
+\useoutertheme{miniframes}
+
+\setbeamertemplate{itemize/enumerate subbody begin}{\normalsize}
+\makeatletter
+\g@addto@macro\@listii{\itemsep4pt}
+\makeatletter
+
+\addtobeamertemplate{frametitle}{\vskip-1.75ex}{}
+\setlength{\leftmargini}{20.00pt}
+
+\setbeamercolor{mini frame}{bg=blue, fg=blue}
+
+\usepackage{filecontents}
+\begin{filecontents*}{\jobname.bib}
+@article{einstein,
+    author = {Einstein, A.},
+    title = {Die Grundlage der allgemeinen Relativit\""atstheorie},
+    journal = {Annalen der Physik},
+    volume = {354},
+    number = {7},
+    doi = {10.1002/andp.19163540702},
+    pages = {769--822},
+    year = {1916}
+}
+\end{filecontents*}
+
+\makeatletter
+\let\beamer@writeslidentry@miniframeson=\beamer@writeslidentry%
+\def\beamer@writeslidentry@miniframesoff{%
+  \expandafter\beamer@ifempty\expandafter{\beamer@framestartpage}{}% does not happen normally
+  {%else
+    % removed \addtocontents commands
+    \clearpage\beamer@notesactions%
+  }
+}
+\newcommand*{\miniframeson}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframeson}
+\newcommand*{\miniframesoff}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframesoff}
+\makeatother
+
+\addbibresource{\jobname.bib}
+
+\setbeamerfont{frametitle}{series=\scshape}
+
+\begin{document}
+
+\section{Introduction}
+\subsection{}
+
+\begin{frame}
+\frametitle{Introduction}
+\citet{einstein} is an awesome paper.
+\end{frame}
+
+\miniframesoff
+
+\begin{frame}
+\frametitle{References}
+\printbibliography[heading=none]
+\end{frame}
+
+\end{document}

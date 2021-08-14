@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/427915
+\documentclass{beamer}
+
+\AtBeginSection[] {
+    \begin{frame}<beamer>
+        \frametitle{A continuación}
+        \tableofcontents[currentsection,subsubsectionstyle=show/show/
+show/shaded]
+    \end{frame}
+}
+
+
+\begin{document}
+
+\section{title}
+\subsection{title}
+\subsubsection{title}   
+\begin{frame}
+    abc
+\end{frame} 
+
+\section{title}
+\subsection{title}
+\subsubsection{title}   
+\begin{frame}
+    abc
+\end{frame} 
+
+\end{document}

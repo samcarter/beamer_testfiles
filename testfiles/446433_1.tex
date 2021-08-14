@@ -1,0 +1,68 @@
+% https://tex.stackexchange.com/a/446433
+\documentclass{beamer}
+
+\usetheme{CambridgeUS}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{items}[ball]
+\setbeamercolor{title}{bg=red!65!black, fg=white}
+\setbeamercolor{item projected}{bg=darkred}
+\setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{navigation symbols}{}
+\setbeamercovered{transparent}
+\setbeamercolor{block title}{fg=darkred}
+\setbeamercolor{local structure}{fg=darkred}
+\usepackage[backend=bibtex]{biblatex}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathtools}
+\usepackage{amsthm}
+%\usepackage{lmodern}
+\usepackage{algorithm2e}
+
+\usepackage{etoolbox}
+\AtBeginEnvironment{align}{\setcounter{equation}{0}}
+\usepackage{chngcntr}
+%\counterwithout{equation}{chapter} % remove the chapter number
+\addbibresource{references.bib}
+\title[Presentation Title]{Test}
+
+% A subtitle is optional and this may be deleted
+\subtitle{An Introduction}
+
+\author{abc}
+
+\date{PUT DATE HERE}
+
+\begin{document}
+
+\begin{frame}{The Integer Programming Formulation}
+\centering
+\fontsize{4pt}{5pt}\selectfont
+\begin{minipage}{.7\textwidth}
+\begin{align}
+&\min \quad 
+\sum_{t\in\mathcal{T}} \sum_{(i,j)\in A} d_{ij} x_{tij}\\
+\text{s.t.}\quad
+\sum_{o\in O} b_o z_{ot} &\leq B\alpha_t \quad && \forall t \in \mathcal{T}\\
+\sum_{t\in \mathcal{T}} z_{ot} &= 1 \quad && \forall o\in O\\
+\sum_{(i,j)\in \delta^+(i)} x_{tij} &\geq z_{ot} \quad && \forall o \in O, t\in \mathcal{T}, i:l(i)\in L_o\\
+\sum_{(i,j)\in \delta^+(i)} x_{tij} &= \sum_{(i,j)\in \delta^-(i)} x_{tji} \quad && \forall i\in V, t\in \mathcal{T}\\
+\sum_{(s,j)\in \delta^+(s)} x_{tsj} &= \sum_{(j,s)\in \delta^-(s)} x_{tjs} = \alpha_t \quad && \forall t\in \mathcal{T}\\
+x_{tij} &\leq \alpha_t \quad && \forall (i,j)\in A, t\in \mathcal{T}\\
+z_{ot} &\leq \alpha_t \quad && \forall o\in , t\in \mathcal{T}\label{8}\\
+\sum_{o\in O} z_{ot} &\geq \alpha_t \quad && t\in \mathcal{T}\\
+\sum_{(i,j)\in \delta^+(i)} x_{tij} &= g_{ti} \quad && \forall i\in V, t\in \mathcal{T}\\
+y_{ti} &\geq x_{tij} \quad && \forall (i,j)\in A, t\in \mathcal{T}\\
+\sum_{j\in W} g_{tj} &\geq y_{ti} + \sum_{(j,k)\in A(W)} x_{tjk} \quad && \forall i \in W, W \subseteq V \setminus \{s\},|W|>1, t\in\mathcal{T}\\
+x_{tij} &\in \mathbb{B} \quad && \forall (i,j)\in A, t\in \mathcal{T}\\
+z_{ot} &\in \mathbb{B} \quad && \forall o\in O, t\in \mathcal{T}\\
+0 \leq \alpha_t &\leq 1 \quad && t\in\mathcal{T}\\
+y_{ti} &\leq \alpha_t \quad && \forall i\in V, t\in \mathcal{T}
+\end{align}
+\end{minipage}
+\end{frame}
+
+\end{document}

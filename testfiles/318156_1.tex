@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/318156
+\documentclass{beamer}  
+\usefonttheme{professionalfonts}  
+\usepackage{booktabs}  
+\usepackage{pgfplotstable}
+\usefonttheme{serif}
+
+\usepackage{filecontents}
+
+\begin{filecontents}{data.csv}  
+    Strings,1,2  
+    100/100 = 1, 100,100  
+    120/125 = 0.96, 120,125  
+    148/160 = 0.925, 148,160
+
+\end{filecontents}
+
+\begin{document}
+
+
+    \begin{table}  
+        \centering
+        \pgfplotstabletypeset[%
+            col sep=comma,  
+            columns={Strings, 1, 2},  
+            columns/Strings/.style={%
+                string type,
+            },
+            columns/1/.style={%
+                column name=Values 1,
+            },
+            columns/2/.style={
+                column name=Values 2,
+            },  
+        ]  
+        {data.csv}  
+    \end{table}
+
+\end{document}

@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/318715
+\documentclass{beamer}
+
+\usepackage{tikz}
+\definecolor{oxfordblue}{RGB}{0,33,71} 
+
+\setbeamertemplate{title page}
+{
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[at=(current page.center),fill=oxfordblue, minimum width=\paperwidth, minimum height=\paperheight] {};
+    \end{tikzpicture}
+    However you would normally define your title page
+}
+
+\begin{document}
+
+    \begin{frame}
+        \titlepage
+    \end{frame} 
+
+\end{document}

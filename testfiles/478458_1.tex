@@ -1,0 +1,95 @@
+% https://tex.stackexchange.com/a/478458
+\documentclass[12pt]{beamer}
+
+\usetheme[progressbar=frametitle]{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\setbeamertemplate{title page}{
+    \begin{minipage}[c][\paperheight]{\textwidth}
+        \ifx\inserttitlegraphic\@empty\else\usebeamertemplate*{title graphic}\fi
+        \vfill%
+        {
+        \centering
+        \ifx\inserttitle\@empty\else\usebeamertemplate*{title}\fi
+        \ifx\insertsubtitle\@empty\else\usebeamertemplate*{subtitle}\fi
+        }
+        \usebeamertemplate*{title separator}
+        \begin{minipage}[t]{.5\textwidth}
+            \ifx\beamer@shortauthor\@empty\else\usebeamertemplate*{author}\fi
+            \ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi
+        \end{minipage}
+        \begin{minipage}[t]{.5\textwidth}
+            \vspace*{2em}
+            {\hspace{3.2em}\small Supervisor: \textit{name} \par}
+            \vspace*{0.2em}
+            {\hspace{3.2em}\small CoSupervisor: \textit{name}}
+        \end{minipage}%
+
+        \begin{minipage}[t]{\textwidth}
+            \centering
+            \ifx\insertinstitute\@empty\else\usebeamertemplate*{institute}\fi
+        \end{minipage}
+        \vfill
+        \vspace*{1mm}
+    \end{minipage}
+}
+
+
+\setbeamertemplate{title}{
+%  \raggedright%  % <-- Comment here
+  \linespread{1.0}%
+  \inserttitle%
+  \par%
+  \vspace*{0.5em}
+}
+\setbeamertemplate{subtitle}{
+%  \raggedright%  % <-- Comment here
+  \insertsubtitle%
+  \par%
+  \vspace*{0.5em}
+}
+
+\definecolor{Cream}{RGB}{255,253,208}
+\definecolor{AirForce}{RGB}{88,139,174}
+%\setbeamercolor{frametitle}{bg=Cream, fg=AirForce}
+
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc} 
+\usepackage[export]{adjustbox}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{amsfonts}
+\setlist[itemize]{label=$\checkmark$}
+%\newcommand{\Icon}{\includegraphics[width=1em]{fig/icon.jpg}}
+
+\definecolor{honey}{RGB}{255,195,11}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+\title{title}
+\subtitle{subtitle}
+% \date{\today}
+\date{date}
+\author{Author}
+\institute{Master Degree in \\networks}
+% \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
+
+\begin{document}
+
+\maketitle
+
+
+
+\end{document}

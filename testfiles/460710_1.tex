@@ -1,0 +1,42 @@
+% https://tex.stackexchange.com/a/460710
+\documentclass[xcolor={dvipsnames},10pt]{beamer}
+
+
+%\setbeamercovered{transparent} useless as it is overwritten by dynamic
+\setbeamercovered{dynamic}
+
+\usetheme{Darmstadt}
+
+% Transition with the name of the section
+\AtBeginSection[]{
+  \begin{frame}
+  %\vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsection\par%
+  \end{beamercolorbox}
+  %\vfill
+  \end{frame}
+}
+
+%\usepackage[dvipsnames]{xcolor} % already laoded by beamer
+%\usepackage{multicol} % unnecessary
+%\usepackage{remreset} % obsolet
+
+\setbeamerfont{title}{size=\large, series=\bfseries}
+\title{Title}
+
+%\vspace{5cm} %Makes no sense in preamble
+
+\setbeamerfont{author}{series=\bfseries}
+\author{Author 1}
+
+%\vspace{0.15cm} %Makes no sense in preamble
+
+\begin{document}
+
+\section[Section 1]{This is the long title for the Section 1}
+\section[Section 2]{This is the long title for the Section 2}
+\section[Section 3]{This is the long title for the Section 3}
+
+\end{document}

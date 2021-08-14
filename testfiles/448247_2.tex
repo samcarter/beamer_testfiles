@@ -1,0 +1,36 @@
+% https://tex.stackexchange.com/a/448247
+\documentclass{beamer}
+\usetheme{metropolis}
+
+\metroset{numbering=fraction}
+\metroset{progressbar=frametitle}
+\metroset{background=dark}
+
+\setbeamercolor{palette primary}{bg=black,fg=white}
+\setbeamercolor{background canvas}{parent=palette primary}
+\setbeamercolor{normal text}{fg=white}
+\setbeamercolor{progress bar}{use=palette primary,fg=red}
+
+\title{A minimal example}
+\date{\today}
+\author{Matthias Vogelgesang}
+\institute{Centre for Modern Beamer Themes}
+
+\makeatletter
+\setbeamertemplate{progress bar in section page}{
+  \setlength{\metropolis@progressonsectionpage}{%
+    \textwidth * \ratio{\insertframenumber pt}{\inserttotalframenumber pt}%
+  }%
+  \begin{tikzpicture}
+    \fill[bg] (\metropolis@progressonsectionpage,0) rectangle (\textwidth, \metropolis@progressonsectionpage@linewidth);
+    \fill[fg] (0,0) rectangle (\metropolis@progressonsectionpage, \metropolis@progressonsectionpage@linewidth);
+  \end{tikzpicture}%
+}
+\makeatother
+
+\begin{document}
+\begin{frame}
+\maketitle
+\end{frame}
+\section{First Section}
+\end{document}

@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/421975
+\documentclass{beamer}
+
+\definecolor{subred}{HTML}{ff3333}
+\definecolor{subsubred}{HTML}{ff6666}
+\setbeamercolor{itemize item}{fg=red}
+\setbeamercolor{itemize subitem}{fg=subred}
+\setbeamercolor{itemize subsubitem}{fg=subsubred}
+\setbeamercolor{itemize subitem in toc}{fg=subred}
+\definecolor{myred}{HTML}{660000}
+\usetheme{Copenhagen}
+\useinnertheme{rectangles}
+\usecolortheme{beaver}
+
+\setbeamercolor{section number projected}{bg=subred}
+
+
+\begin{document}
+
+\section{title}
+\begin{frame}
+\tableofcontents
+\begin{itemize}
+\item test
+\end{itemize}
+\end{frame} 
+
+\end{document}

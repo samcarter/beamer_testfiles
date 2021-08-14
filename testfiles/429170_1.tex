@@ -1,0 +1,38 @@
+% https://tex.stackexchange.com/a/429170
+\documentclass{beamer}
+\usepackage{beamerthemesplit}
+
+\makeatletter
+\setbeamertemplate{headline}{}
+
+\setbeamertemplate{frametitle}{%
+  \leavevmode%
+    \tiny%
+  \@tempdimb=2.4375ex%
+  \ifnum\beamer@subsectionmax<\beamer@sectionmax%
+    \multiply\@tempdimb by\beamer@sectionmax%
+  \else%
+    \multiply\@tempdimb by\beamer@subsectionmax%
+  \fi%
+  \ifdim\@tempdimb>0pt%
+    \advance\@tempdimb by 1.825ex%
+    \vskip-3ex%
+    \hspace*{-\beamer@leftmargin}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=\@tempdimb]{section in head/foot}%
+      \vbox to\@tempdimb{\vfil\insertsectionnavigation{.5\paperwidth}\vfil}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=\@tempdimb]{subsection in head/foot}%
+      \vbox to\@tempdimb{\vfil \quad \normalsize \insertframetitle  \vfil}%
+    \end{beamercolorbox}%
+  \fi%
+}
+\makeatother
+
+\begin{document}
+\section{title}
+\section{title}
+
+\begin{frame}
+\frametitle{Overview}
+\end{frame}
+\end{document}

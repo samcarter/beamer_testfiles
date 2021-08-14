@@ -1,0 +1,98 @@
+% https://tex.stackexchange.com/a/404219
+\documentclass[17pt,t,compress]{beamer}
+
+
+\useoutertheme{miniframes}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{section in head/foot shaded}{\color{gray}\usebeamertemplate{section in head/foot}}
+
+\setbeamertemplate{headline}{%
+  \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}{section in head/foot}
+    \vskip2pt\insertsectionnavigationhorizontal{\paperwidth}{}{}\vskip2pt
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+  \end{beamercolorbox}
+}
+
+
+
+\begin{document}
+\section{Section A}
+
+\subsection{Subsection 1}
+\begin{frame}
+One frame
+\end{frame}
+
+\begin{frame}
+One frame
+\end{frame}
+
+\subsection{Subsection 2}
+\begin{frame}
+One frame
+\end{frame}
+
+\begin{frame}
+One frame
+\end{frame}
+
+\section{Section B}
+
+\subsection{Subsection 1}
+\begin{frame}
+One frame
+\end{frame}
+
+\begin{frame}
+One frame
+\end{frame}
+
+
+\subsection{Subsection 2}
+\begin{frame}
+One frame
+\end{frame}
+
+\begin{frame}
+One frame
+\end{frame}
+
+
+
+\section{Section C}
+\subsection{Subsection 1}
+\begin{frame}
+One frame
+\end{frame}
+
+\begin{frame}
+One frame
+\end{frame}
+
+\subsection{Subsection 2}
+\begin{frame}
+One frame
+\end{frame}
+
+
+\section{Section D}
+\subsection{Subsection 1}
+\begin{frame}
+One frame
+\end{frame}
+
+\begin{frame}
+One frame
+\end{frame}
+
+\subsection{Subsection 2}
+\begin{frame}
+One frame
+\end{frame}
+
+
+\end{document}

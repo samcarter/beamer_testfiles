@@ -1,0 +1,61 @@
+% https://tex.stackexchange.com/a/417578
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{shapes.symbols,positioning,mindmap,trees}
+
+\tikzset{level 1 concept/.append style={level distance = 24mm}}
+\tikzset{level 2 concept/.append style={level distance = 13mm}}
+
+
+\begin{document}
+
+\begin{frame}
+    \frametitle{gas turbine}
+    \setbeamercovered{transparent}
+
+    \begin{enumerate}
+        \item<1,3> thermal barrier coating
+        \item<2,3> internal blade cooling
+    \end{enumerate}
+
+    \begin{minipage}{\textwidth}
+        \centering
+        \begin{onlyenv}<1>
+            \includegraphics[width=0.45\linewidth]{example-image.pdf}
+        \end{onlyenv}
+        \begin{onlyenv}<2>
+            \begin{tikzpicture}[mindmap, grow cyclic, every        node/.style=concept, concept color=blue!40, align=flush center]
+                \node[concept,scale=0.4]{\Large Gas Turbine Blade Cooling}
+                [clockwise from=-30]
+                child[concept] {
+                        node[concept,scale=0.4] {\large Internal Blade Cooling}
+                    [clockwise from=100]
+                    child { node[concept,scale=0.4] {Jet Impingement} }
+                    child { node[concept,scale=0.4] {Rib turbulators} }
+                    child { node[concept,scale=0.4] {Pin-fins} }
+                    child { node[concept,scale=0.4] {Swirl Chambers} }
+                    child { node[concept,scale=0.4] {Dimples} }
+                }
+                child[concept] {
+                    node[concept,scale=0.4] {\large External Blade Cooling}
+                    [clockwise from=-90]
+                    child { node[concept,scale=0.4] {Film Cooling} }
+                }
+                child[concept] {
+                    node[concept,scale=0.4] {\large Other Cooling Concepts}
+                    [clockwise from=-60]
+                    child { node[concept,scale=0.4] {\scriptsize Transpiration} }
+                    child { node[concept,scale=0.4] {Water Cooling} }
+                    child { node[concept,scale=0.4] {Steam Cooling} }
+                }
+                ;
+            \end{tikzpicture}
+        \end{onlyenv}
+        \begin{onlyenv}<3>
+            \includegraphics[width=.6\textwidth]{example-grid-100x100bp}
+        \end{onlyenv}
+    \end{minipage}
+
+\end{frame}
+
+\end{document}

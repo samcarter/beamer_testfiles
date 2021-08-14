@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/374901
+\documentclass{beamer}
+
+\setbeamertemplate{frametitle continuation}{}
+
+\makeatletter
+\setbeamertemplate{frametitle}{%
+\ifnum\insertcontinuationcount=1
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \begin{beamercolorbox}[sep=0.3cm,left,wd=\the\@tempdima]{frametitle}
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-1ex%
+    \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+    \strut\insertframetitle\strut\par%
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+      \fi
+    }%
+    \vskip-1ex%
+    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  \end{beamercolorbox}%
+\fi}
+\makeatother
+
+\begin{document}
+
+\begin{frame}[allowframebreaks=0.8]{Frame Title}
+    .
+
+    \framebreak
+    .
+\end{frame}
+
+\end{document}

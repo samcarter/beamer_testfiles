@@ -1,0 +1,17 @@
+% https://tex.stackexchange.com/a/464117
+\documentclass{beamer}
+\usetheme{PaloAlto}
+\usepackage{tikz}
+
+\setbeamertemplate{navigation symbols}{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[xshift=-0.4cm,yshift=0.2cm] at (current page.south east) {\tiny\insertframenumber/\inserttotalframenumber};
+    \end{tikzpicture}}
+\begin{document}
+\begin{frame}
+  \frametitle{A regular frame}
+\end{frame}
+\begin{frame}[plain]
+  \frametitle{A plain frame}
+\end{frame}
+\end{document}

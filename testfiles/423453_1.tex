@@ -1,0 +1,70 @@
+% https://tex.stackexchange.com/a/423453
+\documentclass[12pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[linguistics]{forest}    
+
+\begin{document}
+\begin{frame} \footnotesize
+\frametitle{A Heading for my Frame}
+
+\begin{itemize}
+    \item This is an item.
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{.9\textheight}
+
+\begin{itemize}
+    \item Some more Items
+    %           \onslide*<2-7>{
+    \begin{itemize}
+        \item<2-> This is an item
+        \item<5-> This is an item
+    \end{itemize}%}
+
+    \item<8-> More Items
+\end{itemize}
+\begin{columns}[T]
+    \begin{column}{.15\textwidth}
+        \onslide+<9->{
+            %               \scalebox{.8}{ 
+            \begin{tikzpicture}
+            \node[draw](tree){ 
+                \begin{forest}
+                [ VP
+                [ VP
+                [ Node ]
+                [ Node]]
+                [ Node ]]
+                \end{forest}};
+
+            \onslide+<12->{
+                \draw[red, thick] (tree.south east) to (tree.north west);
+                \draw[red, thick] (tree.south west) to (tree.north east);}
+
+            \end{tikzpicture}}%}
+    \end{column}
+    \begin{column}{.6\textwidth}
+        \begin{itemize} 
+            \item<10-> This is a relatively long question that stretches two lines ?
+
+            \onslide*<11-12>{
+                \begin{itemize}
+                    \item
+                    \begin{itemize}
+                        \item *Here the whole thing jumps
+                        \item *Here the whole thing jumps
+                        \item *Here the whole thing jumps
+                    \end{itemize}
+            \end{itemize}}
+            \item<13-> Everything jumps back.
+            \item<14-> Concluding remarks.
+        \end{itemize}
+
+    \end{column}
+\end{columns}
+\end{overlayarea}
+
+\end{frame}
+
+\end{document}

@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/435933
+\documentclass[aspectratio=169]{beamer}
+
+
+\mode<presentation>
+
+\useoutertheme[subsection=false]{miniframes}
+\useinnertheme[shadow=false]{rounded}
+\usecolortheme{orchid}
+\usecolortheme{whale}
+
+\setbeamerfont{block title}{size={}}
+
+\mode
+<all>
+
+
+\usecolortheme{crane}    % albatross, crane, 
+\usefonttheme{structurebold}
+\usepackage{bookman}
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=false]  % title page
+
+
+\begin{document}
+%---------------------------------------------------
+\section{Section Name}
+\subsection{Subsection Name}
+%---------------------------------------------------
+\begin{frame}[c,    % vertical align [c, t, b]  
+allowframebreaks,
+allowdisplaybreaks]
+{This is frame title}
+{Frame subtitle}
+This is frame content...
+\begin{block}{Block title}
+This is Block content....
+\end{block}
+\end{frame}
+\end{document}

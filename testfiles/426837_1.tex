@@ -1,0 +1,23 @@
+% https://tex.stackexchange.com/a/426837
+\documentclass{beamer}
+
+\setbeamertemplate{frametitle continuation}{%
+    \ifnum\insertcontinuationcount>1
+    \insertcontinuationcount
+    \fi}
+
+\begin{document}
+
+\begin{frame}[allowframebreaks]
+\frametitle{allowframebreaks title}
+frame 1
+\framebreak
+
+frame 2
+\framebreak
+
+frame 3
+\framebreak
+\end{frame}
+
+\end{document}

@@ -1,0 +1,46 @@
+% https://tex.stackexchange.com/a/418170
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{overlay-beamer-styles}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Test Frame}
+
+\begin{columns}[onlytextwidth]
+    \begin{column}{.8\textwidth}
+        \begin{tikzpicture}[remember picture, overlay, radius=1.2cm,minimum size=2.4cm,xshift=3.5cm,circle,text width=1cm,text centered]
+            \node[fill=gray!30!white]       at (216:0.0) (A) {text text};
+            \node<2->[fill=red!30!white]    at ( 72:3.2) (B) {B};
+            \node<3->[fill=cyan!30!white]   at (144:3.2) (C) {C};
+            \node<5->[fill=violet!30!white] at (216:3.2) (D) {D};
+            \node<6->[fill=green!30!white]  at (288:3.2) (E) {E};
+            \node<7->[fill=orange!30!white] at (  0:3.2) (F) {F};
+            \draw<2->[latex-latex,ultra thick,red!30!white] (A) -- (B);
+            \draw<3->[latex-latex,ultra thick,cyan!30!white] (A) -- (C);
+            \draw<5->[latex-latex,ultra thick,violet!30!white] (A) -- (D);
+            \draw<6->[latex-latex,ultra thick,green!30!white] (A) -- (E);
+            \draw<7->[latex-latex,ultra thick,orange!30!white] (A) -- (F);
+        \end{tikzpicture}
+    \end{column}
+    \begin{column}{.15\textwidth}
+        \visible<1->{A}
+
+        \visible<2->{B}
+
+        \visible<3->{C}
+
+        \visible<4->{more C}
+
+        \visible<5->{D}
+
+        \visible<6->{E}
+
+        \visible<6->{F}
+    \end{column}
+\end{columns}
+
+\end{frame}
+
+\end{document}

@@ -1,0 +1,75 @@
+% https://tex.stackexchange.com/a/466031
+\documentclass{beamer}
+
+\usepackage{listings}
+
+\lstset{frame=tb,
+   language=Mathematica,
+   basicstyle={\small\ttfamily},
+   numberstyle=\tiny\color{gray},
+   keywordstyle=\color{blue},
+   commentstyle=\color{green},
+   stringstyle=\color{red},
+   tabsize=2,
+   breaklines=true,
+   xleftmargin=0.5cm
+   }
+
+\usetheme{CambridgeUS}
+
+\begin{document}
+
+\begin{frame}[fragile]
+\begin{lstlisting}[
+basicstyle=\tiny,numbers=left]
+BeginPackage[""conversionfirst`""]
+Begin[""Global`""]
+
+ConversionTensor[CCC_]:=
+Module[{qqqqq},
+Clear[TensorCCC];
+Clear[ListaIndici];
+Clear[ListaIndicidue];
+Clear[PermutazioniTensore];
+variables={x[0],x[1],x[2],x[3],x[4],x[5],x[6],x[7],x[8],x[9]};
+
+If[CCC=!=0,
+ListaCCC=MonomialList[CCC,variables];
+
+Do[
+Do[
+If[D[ListaCCC[[t]],x[q]]*(x[q]/ListaCCC[[t]])==1,ListaIndici[q+1]=1,
+ListaIndici[q+1]=0],{q,0,9}];  
+Evaluate[TensorCCC@@Flatten[Position[Array[ListaIndici,10,1],1]]]=
+ ListaCCC[[t]]/Product[x[k-1],{k,Flatten[Position[Array[ListaIndici,10,1],1]]}]; 
+ListaIndicidue[t]=Flatten[Position[Array[ListaIndici,10,1],1]]
+,{t,1,Length[ListaCCC]}];
+
+
+
+Do[
+PermutazioniTensore=Permutations[ListaIndicidue[tt]];
+Do[
+
+Activate @ Inactive[Set][ Inactive[TensorCCC]@@Flatten[  PermutazioniTensore[[g]]  ], TensorCCC@@Flatten[PermutazioniTensore[[1]]]*Signature[PermutazioniTensore[[g]]]],  
+{g,1,Dimensions[PermutazioniTensore][[1]] } ];
+,{tt,1,Length[ListaCCC]} ];
+
+C6=0;
+
+Do[
+If[ Dimensions[ListaIndicidue[s]]=={6},C6 +=ListaCCC[[s]] ] 
+
+,{s,1,Length[ListaCCC]} ];
+
+
+
+]
+]
+End[]
+EndPackage[]
+
+\end{lstlisting}
+\end{frame}
+
+\end{document}

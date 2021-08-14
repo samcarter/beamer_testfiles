@@ -1,0 +1,214 @@
+% https://tex.stackexchange.com/a/452836
+\documentclass{beamer}
+\usepackage{textcomp} % for \textopenbullet
+
+\setbeamercolor{frametitle}{bg=black!20}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+%\usepackage{etoolbox}
+
+\makeatletter
+\newcount\beamer@subsectionstartframe
+\beamer@subsectionstartframe=1
+
+\apptocmd{\beamer@subsection}{\addtocontents{nav}{\protect\headcommand{%
+            \protect\beamer@subsectionframes{\the\beamer@subsectionstartframe}{\the\c@framenumber}}}}{}{}          
+
+\apptocmd{\beamer@subsection}{\beamer@subsectionstartframe=\c@framenumber\advance\beamer@subsectionstartframe by1\relax}{}{}
+
+\AtEndDocument{\immediate\write\@auxout{\string\@writefile{nav}%
+        {\noexpand\headcommand{\noexpand\beamer@subsectionframes{\the\beamer@subsectionstartframe}{\the\c@framenumber}}}}}{}{}
+\def\beamer@startframeofsubsection{1}
+\def\beamer@endframeofsubsection{1}
+\def\beamer@subsectionframes#1#2{%
+    \ifnum\c@framenumber<#1%
+    \else%
+    \ifnum\c@framenumber>#2%
+    \else%
+    \gdef\beamer@startframeofsubsection{#1}%
+    \gdef\beamer@endframeofsubsection{#2}%
+    \fi%
+    \fi%
+}
+\newcommand\insertsubsectionstartframe{\beamer@startframeofsubsection}
+\newcommand\insertsubsectionendframe{\beamer@endframeofsubsection}
+
+\newcount\beamer@sectionstartframe
+\beamer@sectionstartframe=1
+\apptocmd{\beamer@section}{\addtocontents{nav}{\protect\headcommand{%
+            \protect\beamer@sectionframes{\the\beamer@sectionstartframe}{\the\c@framenumber}}}}{}{}
+\apptocmd{\beamer@section}{\beamer@sectionstartframe=\c@framenumber\advance\beamer@sectionstartframe by1\relax}{}{}
+\AtEndDocument{\immediate\write\@auxout{\string\@writefile{nav}%
+        {\noexpand\headcommand{\noexpand\beamer@sectionframes{\the\beamer@sectionstartframe}{\the\c@framenumber}}}}}{}{}
+\def\beamer@startframeofsection{1}
+\def\beamer@endframeofsection{1}
+\def\beamer@sectionframes#1#2{%
+    \ifnum\c@framenumber<#1%
+    \else%
+    \ifnum\c@framenumber>#2%
+    \else%
+    \gdef\beamer@startframeofsection{#1}%
+    \gdef\beamer@endframeofsection{#2}%
+    \fi%
+    \fi%
+}
+\newcommand\insertsectionstartframe{\beamer@startframeofsection}
+\newcommand\insertsectionendframe{\beamer@endframeofsection}
+\makeatother
+
+\newcounter{subsectionframenumber}
+\newcounter{totalsubsectionframenumber}
+\newcounter{sectionframenumber}
+\newcounter{totalsectionframenumber}
+\newcounter{stopframe}
+
+\setbeamertemplate{frametitle}
+{
+   \nointerlineskip
+   \begin{beamercolorbox}[sep=0.0cm,ht=10mm,wd=\paperwidth]{frametitle}
+      \vbox{}\vskip-0ex%
+      \strut%
+      \hspace*{4mm}\insertsectionhead%
+      \ifnum\insertsectionstartframe=\insertsectionendframe%
+      \else%
+      \space(%
+      \setcounter{sectionframenumber}{1}%
+      \addtocounter{sectionframenumber}{\insertframenumber}%
+      \addtocounter{sectionframenumber}{-\insertsectionstartframe}%
+      \setcounter{totalsectionframenumber}{1}%
+      \addtocounter{totalsectionframenumber}{\insertsectionendframe}%
+      \addtocounter{totalsectionframenumber}{-\insertsectionstartframe}%
+      \ifnum\value{section}>0%
+      \foreach\x in {1,...,\value{totalsectionframenumber}}{%
+          \ifnum \x<\numexpr\value{sectionframenumber}+1%
+          \textbullet%
+          \else%
+          \textopenbullet%
+          \fi%
+      }%
+      \fi%
+      )%
+      \fi%
+      \hfill{\scriptsize\insertframenumber/\inserttotalframenumber}\hspace*{0.5cm}%
+      \ifnum\thesubsection=0
+         \newline\hspace*{4mm}\small\strut\phantom{Pq}%
+      \else
+             \newline\hspace*{4mm}\small\strut\insertsubsectionhead%
+             \ifnum\insertsubsectionstartframe=\insertsubsectionendframe%
+             \else%
+             \space(%
+             \setcounter{subsectionframenumber}{1}%
+             \addtocounter{subsectionframenumber}{\insertframenumber}%
+             \addtocounter{subsectionframenumber}{-\insertsubsectionstartframe}%
+             \setcounter{totalsubsectionframenumber}{1}%
+             \ifnum\insertsubsectionendframe<\insertsectionendframe
+                \addtocounter{totalsubsectionframenumber}{\insertsubsectionendframe}%
+             \else%
+                   \addtocounter{totalsubsectionframenumber}{\insertsectionendframe}%
+             \fi%
+             \addtocounter{totalsubsectionframenumber}{-\insertsubsectionstartframe}%
+             \ifnum\value{section}>0%
+             \foreach\x in {1,...,\value{totalsubsectionframenumber}}{%
+                 \ifnum\x<\numexpr\value{subsectionframenumber}+1%
+                 \textbullet%
+                 \else%
+                 \textopenbullet%
+                 \fi%
+             }%
+             \fi%
+             )%
+           \fi%  
+      \fi%
+   \end{beamercolorbox}
+}
+
+\makeatletter
+  \CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+  \renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+
+
+\begin{document}
+
+\part{Part1}
+
+\section{Sec1}
+
+\begin{frame}
+   I would like to automatize the `navigation bullets' in the frametitle and in the framesubtitle. Here that would give:\\[5mm]
+   Sec1 (\textbullet\textopenbullet\textopenbullet\textopenbullet\textopenbullet)\\[5mm]
+
+   \color{red}Note that when there is no subsection, no bullets should be shown.
+\end{frame}
+
+\begin{frame}
+   I would like to automatize the `navigation bullets' in the frametitle and in the framesubtitle. Here that would give:\\[5mm]
+   Sec1 (\textbullet\textbullet\textopenbullet\textopenbullet\textopenbullet)\\[5mm]
+
+   \color{red}Note that when there is no subsection, no bullets should be shown.
+\end{frame}
+
+\subsection{Subsec1.1}
+
+\begin{frame}
+   I would like to automatize the `navigation bullets' in the frametitle and in the framesubtitle. Here that would give:\\[5mm]
+   Sec1 (\textbullet\textbullet\textbullet\textopenbullet\textopenbullet)\\
+   Subsec1.1 (\textbullet\textopenbullet)
+\end{frame}
+
+\begin{frame}
+   I would like to automatize the `navigation bullets' in the frametitle and in the framesubtitle. Here that would give:\\[5mm]
+   Sec1 (\textbullet\textbullet\textbullet\textbullet\textopenbullet)\\
+   Subsec1.1 (\textbullet\textbullet)
+\end{frame}
+
+
+\subsection{Subsec1.2}
+
+\begin{frame}
+   I would like to automatize the `navigation bullets' in the frametitle and in the framesubtitle. Here that would give:\\[5mm]
+   Sec1 (\textbullet\textbullet\textbullet\textbullet\textbullet)\\
+   Subsec1.2\\[5mm]
+   \color{red}Note that when there is only one frame in section or subsection, no bullets should be shown.
+\end{frame}
+
+\section{Sec2}
+
+\subsection{Subsec2.1}
+
+\begin{frame}
+   I would like to automatize the `navigation bullets' in the frametitle and in the framesubtitle. Here that would give:\\[5mm]
+   Sec2 (\textbullet\textopenbullet\textopenbullet)\\
+   Subsec2.1\\[5mm]
+   \color{red}Note that when there is only one frame in section or subsection, no bullets should be shown.
+\end{frame}
+
+\subsection{Subsec2.2}
+
+\begin{frame}
+   I would like to automatize the `navigation bullets' in the frametitle and in the framesubtitle. Here that would give:\\[5mm]
+   Sec2 (\textbullet\textbullet\textopenbullet)\\
+   Subsec2.2 (\textbullet\textopenbullet)\\[5mm]
+
+   \color{red}I don't know why there is 3 bullets in the subsection here.
+\end{frame}
+
+\begin{frame}
+   I would like to automatize the `navigation bullets' in the frametitle and in the framesubtitle. Here that would give:\\[5mm]
+   Sec2 (\textbullet\textbullet\textbullet)\\
+   Subsec2.2 (\textbullet\textbullet)\\[5mm]
+
+   \color{red}I don't know why there is 3 bullets in the subsection here.
+\end{frame}
+
+\section{Sec3}
+
+\begin{frame}
+   I would like to automatize the `navigation bullets' in the frametitle and in the framesubtitle. Here that would give:\\[5mm]
+   Sec3\\[5mm]
+
+   \color{red}I don't know why there is 3 bullets in the subsection here.
+\end{frame}
+
+\end{document}

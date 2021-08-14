@@ -1,0 +1,47 @@
+% https://tex.stackexchange.com/a/308367
+\documentclass[11pt]{beamer}
+\usetheme{CambridgeUS}
+
+\makeatletter
+\defbeamertemplate*{title page}{mydefault}[1][]
+{
+    \vbox{}
+    \vfill
+    \begingroup
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center,#1]{institute}
+        \usebeamerfont{institute} Institue and Degree
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center,#1]{title}
+        \usebeamerfont{title}\inserttitle    
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=8pt,center,#1]{institute}
+        \usebeamerfont{subtitle}\insertsubtitle
+    \end{beamercolorbox}    
+    \begin{beamercolorbox}[sep=8pt,center,#1]{author}
+        \usebeamerfont{author}supervisor \hspace*{2cm} \insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center,#1]{date}
+        \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    \endgroup
+    \vfill
+}
+
+\setbeamertemplate{title page}[mydefault][colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
+\makeatother
+
+\title[title for footline]{Realisation de quelque chose ...}
+\subtitle{presente}
+\author[name for footline]{myname}
+\date[date for footline]{2015/2016}
+
+\begin{document}
+
+    \begin{frame}
+        \titlepage
+    \end{frame} 
+
+\end{document}

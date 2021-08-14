@@ -1,0 +1,40 @@
+% https://tex.stackexchange.com/a/442356
+\documentclass[11pt,notheorems]{beamer}
+
+\usetheme{Madrid}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{frametitle}[default][left]
+\setbeamertemplate{navigation symbols}{}
+\setbeamercovered{transparent}
+
+% Footer
+\setbeamertemplate{footline}[frame number]
+\setbeamerfont{footline}{size=\normalsize, series=\bfseries}
+\setbeamercolor{footline}{fg = black, bg = black}
+\setbeamercolor{page number in head/foot}{fg = black}
+
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage[T1]{fontenc}%
+\usepackage{textcomp}%
+\usepackage[utf8]{inputenc}%
+%\usepackage{otf}%
+\usepackage{helvet}%
+
+\begin{document}
+
+\begin{frame}[noframenumbering, plain]
+\titlepage %
+\end{frame}
+
+\begin{frame}
+\frametitle{Agenda}
+\tableofcontents %
+\end{frame}
+
+\section{Title}
+\begin{frame}
+\frametitle{aaa}
+\end{frame}
+
+\end{document}

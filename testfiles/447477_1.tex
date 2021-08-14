@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/447477
+\documentclass{beamer}
+\usetheme{Madrid}
+
+\usepackage{textpos} 
+
+\addtobeamertemplate{frametitle}{}{%
+    \begin{textblock*}{100mm}(.956\textwidth,-0.9cm)
+        \includegraphics[height=0.8cm,width=0.8cm]{example-image}
+\end{textblock*}}
+
+\title[Final Presentation] {Title of my Presentation }
+\author[Author 1, Author 2] {Author 1 \and Author 2}
+\titlegraphic{\includegraphics[width=2cm]{example-image}}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
+\end{document}

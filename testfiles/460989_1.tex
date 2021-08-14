@@ -1,0 +1,49 @@
+% https://tex.stackexchange.com/a/460989
+\documentclass{beamer}
+\usepackage{filecontents}
+\begin{filecontents}{\jobname.bib}
+@book{key,
+  author = {Author, A.},
+  year = {2001},
+  title = {Title},
+  publisher = {Publisher},
+}
+@article{angulo2015dynamics,
+  title={Dynamics and forecast in a simple model of sustainable development for rural populations},
+  author={Angulo, David and Angulo, Fabiola and Olivar, Gerard},
+  journal={Bulletin of mathematical biology},
+  volume={77},
+  number={2},
+  pages={368--389},
+  year={2015},
+  publisher={Springer}
+}
+@book{david,
+Author = {Angulo García, David and Olivar Tost, Gerard},
+Publisher = {Manizales, 2012.},
+Title = {Esquemas de Desarrollo Sostenible : una Aplicación de Redes Complejas a la Región de Caldas = Sustainable development schemes: [recurso electrónico].},
+URL = {http://ezproxy.unal.edu.co/login?url=http://search.ebscohost.com/login.aspx?direct=true&db=cat02704a&AN=unc.000723149&lang=es&site=eds-live},
+Year = {2012},
+}
+\end{filecontents}
+
+\usepackage[style=alphabetic]{biblatex}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\addbibresource{\jobname}
+
+\begin{document}
+\begin{frame}{Justificación}
+
+\footnotemark
+\setcounter{footnote}{1} 
+  \footnotetext{\cite{key}, \textsuperscript{2}\cite{angulo2015dynamics}, \cite{david}} 
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{Referencias}
+    \begin{refsection}
+    \nocite{key}
+    \printbibliography
+    \end{refsection}
+\end{frame}
+\end{document}

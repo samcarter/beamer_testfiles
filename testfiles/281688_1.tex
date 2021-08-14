@@ -1,0 +1,62 @@
+% https://tex.stackexchange.com/a/281688
+\documentclass{beamer}
+
+\mode<presentation>
+{
+    \usetheme{Warsaw}
+    \setbeamertemplate{headline}{}
+    \setbeamertemplate{itemize item}[triangle]
+    \setbeamertemplate{itemize subitem}[triangle]
+    \setbeamertemplate{itemize subsubitem}[triangle]
+    \setbeamercovered{transparent}
+    \useoutertheme{infolines}
+    \usefonttheme{professionalfonts}
+}
+
+\setbeamertemplate{section page}
+{
+    \begin{centering}
+        \begin{beamercolorbox}[sep=12pt,center]{part title}
+            \usebeamerfont{section title}\insertsection\par
+        \end{beamercolorbox}
+    \end{centering}
+}
+
+\newcounter{cont}
+
+\makeatletter
+\setbeamertemplate{footline}
+{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+            \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\beamer@ifempty\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+            \usebeamerfont{title in head/foot}\insertshorttitle
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+            \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+            \insertframenumber%
+            \setcounter{cont}{\thepage}%
+                \addtocounter{cont}{1}%
+                \addtocounter{cont}{-\beamer@startpageofframe}%
+            \ifnum\beamer@startpageofframe=\beamer@endpageofframe%
+            \else%
+                -\arabic{cont}%
+              \fi%
+             ~/ \inserttotalframenumber\hspace*{2ex}%
+        \end{beamercolorbox}}%
+        \vskip0pt%
+    }
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+content...
+\end{frame}
+
+\end{document}
+
+

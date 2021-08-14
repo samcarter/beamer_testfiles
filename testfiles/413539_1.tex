@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/413539
+\documentclass{beamer}
+
+\setbeamertemplate{subsubsection page}{%
+\begingroup
+\begin{beamercolorbox}[sep=6pt,center,rounded=true,shadow=true]{subsubsection title}%
+    \usebeamerfont{subsubsection title}\thesection.\thesubsection.\thesubsubsection.~\insertsubsubsection\par%
+\end{beamercolorbox}%
+\endgroup
+}
+
+\newcommand{\subsubsectionpage}{\usebeamertemplate{subsubsection page}}
+\setbeamercolor{subsubsection title}{bg=blue!20}
+\setbeamerfont{subsubsection title}{size=\large,series=\bfseries}
+
+\begin{document}
+
+\section{Openings}
+\subsection{Ruy Lopez Opening}
+\subsubsection{Ruy Lopez: Giuoco Piano Defense}
+
+\begin{frame}
+    \subsubsectionpage
+\end{frame}
+
+\end{document}

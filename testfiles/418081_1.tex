@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/418081
+\documentclass{beamer}
+\usepackage{ifthen}
+\newcounter{maxroad}
+
+\newcommand{\roadmapframe}[1][]{%
+    \ifthenelse{\equal{#1}{}}{%
+        \setcounter{maxroad}{3}
+    }{
+        \setcounter{maxroad}{#1}
+    }
+    \begin{frame}<\themaxroad>
+    \setbeamercovered{transparent}
+    Roadmap:
+    \ifthenelse{\equal{#1}{}}{%
+      \begin{itemize}[<+->]
+              \item El 1
+              \item El2 
+              \item El3
+      \end{itemize}
+    }{
+      \begin{itemize}[<+>]
+              \item El 1
+              \item El2 
+              \item El3
+      \end{itemize}
+    }
+  \end{frame}
+}
+
+\begin{document}
+
+\roadmapframe
+
+\roadmapframe[1]
+
+\roadmapframe[2]
+
+\roadmapframe[3]
+
+\end{document}

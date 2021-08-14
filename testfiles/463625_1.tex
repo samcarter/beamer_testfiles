@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/463625
+\documentclass{beamer}
+
+\begin{filecontents}{ref.bib}
+@article{myart,
+  author={Author, A.},
+  title={My Title},
+  journal={A Journal},
+  volume={123},
+  pages={1},
+  year={2018},
+}
+\end{filecontents}
+
+
+\usetheme{madrid}
+\setbeamersize{text margin left=1cm,text margin right=1cm}
+
+\usepackage[
+            style=authoryear,% whithout this style the theme is working
+            ]{biblatex}
+
+\addbibresource{ref.bib}
+
+
+\begin{document}
+
+\begin{frame}
+\cite{myart}
+\printbibliography
+\end{frame}
+
+
+\end{document}

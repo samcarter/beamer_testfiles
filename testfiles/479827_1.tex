@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/479827
+\documentclass[aspectratio=169, xcolor={x11names}]{beamer}
+
+\usecolortheme{rose}
+\useoutertheme[]{split}
+\useinnertheme{inmargin}
+\setbeamersize{sidebar width left=1cm, sidebar width right=1cm}
+\setbeamersize{text margin left=0.5mm, text margin right=0.5mm}
+
+\setbeamercovered{transparent=15}
+
+\begin{document}
+
+\begin{frame}
+
+    \begin{block}
+
+        \begin{align*}
+            A \onslide<+->{&= B \\}
+            \onslide<+->{A &= C \\}
+            \onslide<+->{A &= D \\}
+            \onslide<+->{A &= E \\}
+        \end{align*}
+
+        \begin{equation*}
+            A = B \uncover<+->{= C} \uncover<+->{= D} \uncover<+->{= E}
+        \end{equation*}
+
+    \end{block}
+
+\end{frame}
+
+\end{document}

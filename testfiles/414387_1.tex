@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/a/414387
+\documentclass[10pt]{beamer}
+
+\usetheme{Warsaw}
+\usefonttheme{professionalfonts}
+\useoutertheme{sidebar}
+
+\definecolor{dipjyoticol}{rgb}{0.137,0.466,0.641}
+\setbeamercolor{structure}{fg=dipjyoticol}
+\setbeamercolor{frametitle}{fg=white}
+\setbeamerfont{date}{size=\tiny}
+\setbeamertemplate{footline}[frame number]
+
+\title{Name of the Title}
+
+\author[Author Name]{%
+    Presented by: {\textbf{Author Name}} \\
+    Supervisor: {\textbf{supervisor name}} \\[4ex]
+    Name of Department\\ 
+    ABC Institute of Technology}
+\logo{\includegraphics[height=0.6in, width=0.6in, keepaspectratio]{example-image-b}}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \frametitle{whatever you want to write}
+    \titlepage
+\end{frame}
+
+\end{document}

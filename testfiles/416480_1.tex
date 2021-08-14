@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/416480
+\documentclass[xcolor=dvipsnames, table]{beamer} 
+\usetheme{Frankfurt} 
+\usepackage{framed}
+\usepackage{bm, multirow, subfig, tabularx}
+\usepackage[]{textpos}
+\usepackage{tikz} 
+\usetikzlibrary{calc,shapes.callouts,shapes.arrows, chains,shapes.multipart}
+%\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+\begin{frame}[plain]{Caption 1}   
+\begin{figure}
+\subfloat[title 1]{\includegraphics[width=.45\textwidth]{example-image.jpg}} 
+\hfill
+\subfloat[title 2]{\includegraphics[width=.45\textwidth]{example-image}}
+\end{figure}
+\end{frame}
+\end{document}

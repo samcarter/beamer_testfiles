@@ -1,0 +1,37 @@
+% https://tex.stackexchange.com/a/424759
+\documentclass[
+handout
+]{beamer}
+
+
+\usepackage{filecontents}
+\begin{filecontents*}{beamerouterthemeTUC.sty}
+    \setbeamercolor{background canvas}{bg=blue}
+\end{filecontents*}
+\begin{filecontents*}{beamerouterthemeTUC-handout.sty}
+    \setbeamercolor{background canvas}{bg=green}
+\end{filecontents*}
+\begin{filecontents*}{beamerthemeTUC.sty}
+
+\mode<handout>{
+  \useoutertheme{TUC-handout}
+}
+
+\mode<beamer>{
+  \useoutertheme{TUC}
+}
+
+
+\end{filecontents*}
+
+\usetheme{TUC}
+
+
+
+\begin{document}
+
+\begin{frame}
+    abc
+\end{frame} 
+
+\end{document}

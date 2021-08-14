@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/459456
+\documentclass{beamer}
+
+\setbeameroption{show notes}
+\makeatletter 
+\def\beamer@framenotesbegin{%   at beginning of slide   
+    \gdef\beamer@noteitems{}%   
+    \gdef\beamer@notes{{}}% used to be totally  empty. 
+}
+\makeatother
+
+\setbeamertemplate{note page}{%
+    \hspace*{-1cm}%
+    \centering%
+    \includegraphics[height=\paperheight]{example-image-duck}%
+}
+
+\begin{document}
+
+\begin{frame} 
+   normal frame 
+\end{frame}
+
+\begin{frame}
+   normal frame 
+\end{frame}
+
+\end{document}

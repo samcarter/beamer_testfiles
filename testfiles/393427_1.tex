@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/393427
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}[fragile]
+\begin{columns}[onlytextwidth]
+\begin{column}{.4\textwidth}
+\begin{verbatim}
+local r1
+x := 1
+\end{verbatim}
+\end{column}
+\begin{column}{.05\textwidth}
+\rotatebox{90}{=}
+\end{column}
+\begin{column}{.4\textwidth}
+\begin{verbatim}
+local r2
+y := 1
+\end{verbatim}
+\end{column}
+\end{columns}
+\begin{center}
+Dekker's Mutal Exclusion Algorithm
+\end{center}
+\end{frame} 
+
+\end{document}

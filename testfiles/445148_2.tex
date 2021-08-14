@@ -1,0 +1,18 @@
+% https://tex.stackexchange.com/a/445148
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{decorations.text}
+\title{TWO PROBLEMS}
+
+\titlegraphic{%
+    \begin{tikzpicture}[overlay,remember picture] 
+        \path [decorate,decoration={text along path, text={around the}}, shift={(current page.center)}] (0,0) sin (1,1) cos (2,0);
+    \end{tikzpicture}
+}
+
+
+\begin{document}
+    \begin{frame} 
+        \titlepage
+    \end{frame}
+\end{document}

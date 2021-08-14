@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/402389
+\documentclass{beamer}
+
+\usepackage[T1]{fontenc}         
+\usepackage[utf8]{inputenc} 
+
+
+\usetheme{Warsaw}
+\setbeamertemplate{theorems}[numbered]
+
+\usepackage[french]{babel}
+\uselanguage{French}
+\languagepath{French}
+\deftranslation[to=French]{Theorem}{Th\'eor\`eme}
+
+
+\begin{document}
+
+\begin{frame}
+Hello world
+\end{frame}
+
+\begin{frame}
+  \begin{theorem}
+    \label{th1}
+        My first theorem
+  \end{theorem}
+\end{frame}
+
+\begin{frame}
+As precised in Theorem \ref{th1}
+\end{frame} 
+\end{document}

@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/a/430281
+\documentclass[xcolor={table,dvipsnames,usenames}]{beamer}
+\begin{filecontents*}{\jobname.bib}
+
+@article{aguiree2013idf,
+  title={IDF diabetes atlas},
+  author={Aguiree, Florencia and Brown, Alex and Cho, Nam Ho and Dahlquist, Gisela and Dodd, Sheree and Dunning, Trisha and Hirst, Michael and Hwang, Christopher and Magliano, Dianna and Patterson, Chris and others},
+  year={2013},
+  publisher={International Diabetes Federation}
+}
+
+\end{filecontents*}
+\usepackage{natbib}
+\usepackage{bibentry}
+\bibliographystyle{apalike}
+
+\begin{document}
+\nobibliography{\jobname}
+\subsection{frame 6}
+\begin{frame}{}
+\begin{figure}
+\includegraphics[width=.47\textwidth]{example-image-duck}\hfill
+\includegraphics[width=.47\textwidth]{example-image-duck}
+\vfill
+\includegraphics[width=\textwidth,height=50pt]{example-image-duck}
+\caption{Steps}
+\end{figure}
+\vfill
+\footnotesize Image credit: \bibentry{aguiree2013idf}
+\end{frame}
+\end{document}

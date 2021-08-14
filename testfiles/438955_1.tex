@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/a/438955
+\documentclass{beamer}
+
+\begin{document}
+\begin{frame}
+1
+
+\hyperlink{foo}{\beamerskipbutton{skip slide}}
+
+\end{frame}
+
+\begin{frame}
+2
+\end{frame}
+
+\begin{frame}[label=foo]
+3
+\end{frame}
+\end{document}

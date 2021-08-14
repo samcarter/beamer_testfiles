@@ -1,0 +1,14 @@
+% https://tex.stackexchange.com/a/412529
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}
+  \alt<1>{The initial image}{The same image}
+
+  \visible<2->{after some changes have been made}
+
+  \includegraphics<1>[width=0.6\paperwidth]{example-image-a}%
+  \includegraphics<2->[width=0.6\paperwidth]{example-image-b}
+\end{frame}
+\end{document}

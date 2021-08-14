@@ -1,0 +1,18 @@
+% https://tex.stackexchange.com/a/375425
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}\frametitle{First Slide}
+    \includegraphics[width=0.9\linewidth]{example-image}
+\end{frame}
+
+
+\begin{frame}\frametitle{Second Slide}
+    \begin{overprint}[0.11\linewidth]
+        \includegraphics<1>[width=0.1\linewidth]{example-image}
+        \includegraphics<2>[width=0.1\linewidth]{example-image}
+    \end{overprint}
+\end{frame}
+
+\end{document}

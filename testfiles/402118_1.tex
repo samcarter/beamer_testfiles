@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/402118
+\documentclass[final]{beamer}
+\usepackage{beamerposter} % Use the beamerposter package for laying out the poster
+
+% These work
+\setbeamerfont{title}{family=\rmfamily,series=\bfseries,size={\fontsize{36}{32}}}
+\setbeamerfont{block title}{family=\rmfamily,series=\bfseries,size={\fontsize{36}{32}}}
+\setbeamerfont{author}{size={\fontsize{36}{32}}}
+\setbeamerfont{date}{size={\fontsize{36}{32}}}
+\setbeamerfont{block body alerted}{family=\rmfamily,series=\bfseries,size={\fontsize{36}{32}}}
+\setbeamerfont{block body}{family=\rmfamily,series=\bfseries,size={\fontsize{36}{32}}}
+\setbeamerfont{normal text}{family=\rmfamily,series=\bfseries,size={\fontsize{30}{32}}}
+\AtBeginDocument{\usebeamerfont{normal text}}
+
+\title{Fake title for MWE} % Poster title
+\author{Author 1 and Author 2} % Author(s)
+
+\begin{document}
+\begin{frame}
+\maketitle
+text
+
+\begin{alertblock}{Summary}
+We introduce a package that makes data processing
+significatly more efficient:
+\begin{itemize}
+\item Easy to use
+\item Oopen-source
+\end{itemize}
+\end{alertblock}
+
+\end{frame} % End of the enclosing frame
+\end{document}

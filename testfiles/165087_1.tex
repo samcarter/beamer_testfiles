@@ -1,0 +1,96 @@
+% https://tex.stackexchange.com/a/165087
+\documentclass{beamer}
+
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage[T1]{fontenc}
+\usepackage{emerald}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{pgffor}
+
+% set text colors for different objects
+\setbeamercolor{frametitle}{fg=white}
+\setbeamercolor{structure}{fg=white}
+\setbeamercolor{normal text}{fg=white}
+\setbeamercolor{alerted text}{fg=white}
+\setbeamercolor{example text}{fg=white}
+
+%% set fonts
+\setbeamerfont{frametitle}{size=\Huge, series=\ECFAugie}
+\setbeamerfont{framesubtitle}{size=\large, series=\ECFAugie}
+\setbeamerfont{title}{size=\huge, series=\ECFAugie}
+\setbeamerfont{author}{size=\large}
+\setbeamerfont{date}{size=\large}
+\setbeamerfont{institute}{size=\large}
+\setbeamerfont{caption}{series=\ECFAugie}
+
+%% Green Background Colour
+\setbeamercolor{background canvas}{bg=green!20!black}
+
+%% Random Dust Trails
+\pgfmathsetseed{\number\pdfrandomseed} % seed for random generator
+\setbeamertemplate{background}{
+    \begin{tikzpicture}
+        \useasboundingbox (0,0) rectangle (\the\paperwidth, \the\paperheight); 
+      \foreach \i in {1,...,30} {
+            \pgfmathsetmacro{\x}{random(0,10000)/5000-1}%
+            \pgfmathsetmacro{\y}{random(0,10000)/10000-0.1}%
+            \pgfmathsetmacro{\r}{random(0,10000)/1000-5}%
+            \rotatebox{\r}{
+                \pgftext[at=\pgfpoint{\x\paperwidth}{\y\paperheight}, left, base]{\includegraphics[width=\textwidth]{example-image-duck}}
+            }
+        }; 
+    \end{tikzpicture}
+}
+
+%% use a small dash ('-') for a bulletpoint list
+\setbeamertemplate{itemize item}{\usebeamercolor[fg]{item}\small\ECFAugie{-}}
+
+%% Frametitle
+\setbeamertemplate{frametitle}{
+    \begin{beamercolorbox}{frametitle}
+        \vskip17pt
+        \usebeamerfont{frametitle}
+        \insertframetitle \\
+        \usebeamerfont{framesubtitle}\insertframesubtitle
+    \end{beamercolorbox}
+}
+
+%% remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%% Date in the Corner
+\setbeamertemplate{headline}{
+    \rotatebox{30}{
+        \ifx\insertdate\empty\else        
+            \hspace*{0.25cm}\ECFAugie\insertshortdate\hspace*{0.5cm}
+        \fi
+    }
+    \vspace*{-1cm}
+}
+
+\title{The Theory of Everything}
+\author{A. Einstein}
+\date[14/3/14]{March 14, 2014}
+\institute{University of Magratea}
+
+\begin{document}
+
+% set handwritten font
+\ECFAugie
+
+\begin{frame}[plain]
+    \maketitle
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Testpage}
+    \begin{itemize}
+        \item Bla
+        \item Bla
+        \item Blub
+    \end{itemize}
+\end{frame}
+
+\end{document} 

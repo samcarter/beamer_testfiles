@@ -1,0 +1,61 @@
+% https://tex.stackexchange.com/a/314108
+\documentclass{beamer}
+\usepackage{tikz,graphicx} 
+
+\title{Title}
+\author{My name}
+\institute{My institute}
+
+\useoutertheme[right,height=0pt,width=0.12\paperwidth]{sidebar}
+\setbeamertemplate{sidebar canvas right}[horizontal shading]       [left=blue!10!white,right=white] 
+
+\newlength\imageheight
+\settoheight\imageheight{\includegraphics[width=0.11\paperwidth]{logo.png}}
+
+\makeatletter
+\setbeamertemplate{sidebar \beamer@sidebarside}
+  {
+    \vspace*{\imageheight}
+    \beamer@tempdim=\beamer@sidebarwidth%
+    \advance\beamer@tempdim by -6pt%
+    {\usebeamerfont{title in sidebar}%
+        \vskip1.5em%
+        \hskip3pt%
+        \usebeamercolor[fg]{title in sidebar}%
+        \insertshorttitle[width=\beamer@tempdim,center,respectlinebreaks]\par%
+        \vskip1.25em%
+    }%
+    {%
+        \hskip3pt%
+        \usebeamercolor[fg]{author in sidebar}%
+        \usebeamerfont{author in sidebar}%
+        \insertshortauthor[width=\beamer@tempdim,center,respectlinebreaks]\par%
+        \vskip1.25em%
+    }%
+    \insertverticalnavigation{\beamer@sidebarwidth}%
+    \vfill
+    \ifx\beamer@sidebarside\beamer@lefttext%
+    \else%
+    \usebeamercolor{normal text}%
+    \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+    \vskip2pt%
+    \fi%
+  }%
+
+\addtobeamertemplate{sidebar right}{}{%
+    \begin{tikzpicture}[remember picture,overlay] % 
+    \node[anchor=north east,xshift=0.8pt,yshift=2pt] at (current page.north east) {\includegraphics[width=0.11\paperwidth]{logo.png}};
+    \end{tikzpicture}
+}
+\makeatother
+
+\begin{document}
+    \begin{frame}[plain]
+        \titlepage
+    \end{frame}
+
+    \begin{frame}
+        Frame content
+    \end{frame}
+
+\end{document}

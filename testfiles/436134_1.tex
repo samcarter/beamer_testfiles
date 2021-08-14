@@ -1,0 +1,158 @@
+% https://tex.stackexchange.com/a/436134
+\documentclass[ngerman]{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\makeatletter
+\usetheme{Malmoe}
+\usepackage{calc}
+%\usepackage{winfont}
+%\usecolortheme{angel}
+%\usepackage{nubacolors}
+%\usecolortheme{seagull}
+\definecolor{greenRGB}{RGB}{94,173,53}
+\definecolor{dgreenRGB}{RGB}{0,118,38}
+\definecolor{lgrayRGB}{RGB}{240,241,241}
+\definecolor{dgrayRGB}{RGB}{75,75,77}
+
+\renewcommand{\ttdefault}{pcr}
+%höhe der Titelzeilen
+\newlength{\testheight}
+\settoheight{\testheight}{\vbox{\small\hbox{t}\Large\hbox{T}\hbox{T}}}
+% höhe des farbigen Einschubes am Seitenrand
+\newlength{\sbheight}
+\settoheight{\sbheight}{\testheight-\baselineskip+\depthof{\Large g}}
+%\usepackage{ubaslides}
+
+
+\colorlet{lightgray}{lgrayRGB}
+\colorlet{darkgray}{dgrayRGB}
+\colorlet{dark}{dgreenRGB}
+\colorlet{normal}{greenRGB}
+%Graue Linie für head oder footline
+\newcommand{\horizontalgrayline}{
+\begin{minipage}[t]{\paperwidth}
+\colorbox{lightgray}{\parbox[4mm]{\paperwidth}{\ \hfill}}\par
+\end{minipage}
+}
+% Seitenrand ohne Einschub
+\newcommand{\sidenoinset}{%
+\colorbox{lightgray}{\parbox[t][\paperheight]{0.07cm}{\hfill\strut}}
+}
+% Seitenrand mit farbigem Einschub bei title
+\newcommand{\sideinset}{%
+\colorbox{lightgray}{\parbox[t][0.07cm]{0.07cm}{\strut}}\par
+\colorbox{dark}{\parbox[t][\testheight-\baselineskip+\depthof{\Large g}]{0.07cm}{\strut}}\par
+\colorbox{lightgray}{\parbox[t][\paperheight-1.5cm]{0.07cm}{\strut}}
+}
+\newcommand*{\event}[1]{\gdef\@subject{#1}}
+\event{test}
+\newcommand*{\showevent}{\@subject}
+%
+%standardframekopf
+%
+\defbeamertemplate{frametitle}{stdslide}{
+\begin{minipage}[t]{\paperwidth}
+\usebeamerfont{frametitle}{\small\insertshorttitle\par}
+\insertframetitle
+\end{minipage}
+}
+%
+% framekopf für Titelpage mit Logo
+%
+%\newcommand{\titlepageframetitle}{\Large Für Mensch \& Umwelt\hspace{3.012cm}{\raisebox{-0.71cm}[0.0cm][0.0cm]{\includegraphics[height=1.61cm]{logo_gruen.jpg}}}}
+\newcommand{\titlepageframetitle}{\Large Für Mensch \& Umwelt\hspace{3.012cm}{LOGO}}
+
+%
+\defbeamertemplate{frametitle}{titlepage} {%
+%\titlepageframetitle
+\begin{minipage}[t]{\paperwidth}
+% insert blank to adjust height
+\usebeamerfont{frametitle}{\small\ \par}
+\insertframetitle
+\end{minipage}
+}
+%
+% titlepage
+\newcommand{\titlelayout}{%
+\setbeamercolor{background canvas}{bg=dgreenRGB,fg=white}
+\setbeamercolor{titlelike}{fg=white}
+\setbeamercolor{normal text}{fg=white}\usebeamercolor*[fg]{normal text}
+\setbeamertemplate{footline}{\horizontalgrayline}
+\setbeamertemplate{sidebar canvas left}{}
+\setbeamertemplate{sidebar left}{%
+\sidenoinset
+}
+\setbeamertemplate{sidebar canvas right}{}
+\setbeamertemplate{sidebar right}{%
+\sideinset
+%\setbeamertemplate{frametitle}[titlepage]
+
+}
+}
+%end titlelayout
+
+\renewcommand{\maketitle}{
+%\begin{frame}
+%\Large Für Mensch \& Umwelt
+%\end{frame}
+%\vspace*{-2em} Für Mensch \& Umwelt\par
+{\large\textcolor{normal}\showevent\par}
+{\Huge\inserttitle\par}
+\medskip\insertauthor\par
+}
+\newcommand{\makebeamertitle}{{
+    \titlelayout
+    \setbeamertemplate{frametitle}[titlepage]
+    \begin{frame}
+        \frametitle{\titlepageframetitle}
+        \maketitle
+    \end{frame}
+}}
+
+%ende titelpage
+%
+\setbeamersize{sidebar width left=0.2cm}
+\setbeamersize{sidebar width right=0.2cm}
+\setbeamercolor{titlelike}{fg=dgreenRGB}
+\setbeamertemplate{footline}{%
+\colorbox{gray}{\parbox{\paperwidth}{\textcolor{white}{\hspace*{1cm}\insertdate \qquad \showevent \hfill\insertframenumber\hspace*{1cm}}}}
+}
+\setbeamertemplate{headline}{%
+\horizontalgrayline
+}
+\setbeamertemplate{frametitle}[stdslide]
+\setbeamertemplate{sidebar canvas left}{}
+\setbeamertemplate{sidebar left}{%
+\sideinset
+}
+\setbeamertemplate{sidebar canvas right}{}
+\setbeamertemplate{sidebar right}{%
+\sidenoinset
+}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\addtocounter{framenumber}{-1}
+
+\event{conference on testslides}
+
+\title[Testslides]{Presentation-Testslides}
+
+\author{Max Mustermann}
+
+\institute{}
+\makebeamertitle
+\begin{frame}{very long frametitle on two lines\\
+Test-long}
+\begin{enumerate}
+\item this
+\item that 
+\end{enumerate}
+\end{frame}
+
+\end{document}

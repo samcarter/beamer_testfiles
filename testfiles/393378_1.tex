@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/393378
+\documentclass{beamer}
+\usetheme{Madrid}
+
+\setbeamertemplate{footline}
+{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]
+    {author in head/foot}%
+            %\usebeamerfont{author in head/foot}\insertshortauthor
+            Institution
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]
+    {date in head/foot}%
+            \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+            \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+    \end{beamercolorbox}}%
+    \vskip0pt%
+    }
+
+
+\begin{document}
+
+\begin{frame}{Main slide}
+\begin{itemize}[<+->]
+    \item Item 1
+    \item Item 2
+    \item Item 3\hypertarget<3>{main}{} 
+\end{itemize}
+
+\hyperlink{appendix}{\beamergotobutton{Appendix}}
+\end{frame}
+
+
+\begin{frame}[label=appendix]{Appendix slide} %Slide10
+    Appendix slide
+  \hyperlink{main}{\beamerreturnbutton{Main slide}}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,66 @@
+% https://tex.stackexchange.com/a/397208
+\documentclass{beamer}
+
+\usetheme{Berkeley}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\makeatletter
+\colorlet{pbblue}{beamer@blendedblue}% filling color for the progress bar
+\definecolor{pbgray}{HTML}{575757}% background color for the progress bar
+
+
+\def\progressbar@progressbar{} % the progress bar
+\newcount\progressbar@tmpcounta% auxiliary counter
+\newcount\progressbar@tmpcountb% auxiliary counter
+\newdimen\progressbar@pbht %progressbar height
+\newdimen\progressbar@pbwd %progressbar width
+\newdimen\progressbar@tmpdim % auxiliary dimension
+
+\progressbar@pbwd=.82\paperheight
+\progressbar@pbht=1.5ex
+
+% the progress bar
+\def\progressbar@progressbar{%
+
+    \progressbar@tmpcounta=\insertframenumber
+    \progressbar@tmpcountb=\inserttotalframenumber
+    \progressbar@tmpdim=\progressbar@pbwd
+    \multiply\progressbar@tmpdim by \progressbar@tmpcounta
+    \divide\progressbar@tmpdim by \progressbar@tmpcountb
+
+  \begin{tikzpicture}[rounded corners=2pt,very thin]
+
+    \shade[top color=pbgray!40,bottom color=pbgray!40,middle color=pbgray!50]
+      (0pt, 0pt) rectangle ++ (\progressbar@pbwd, \progressbar@pbht);
+
+      \shade[draw=structure.fg,top color=structure.fg,bottom color=structure.fg,middle color=structure.fg!75!black] %
+        (0pt, 0pt) rectangle ++ (\progressbar@tmpdim, \progressbar@pbht);
+  \end{tikzpicture}%
+}
+
+\setbeamertemplate{navigation symbols}{\rotatebox{270}{\progressbar@progressbar}}
+\makeatother
+
+\begin{document}
+
+\section{test}
+
+\begin{frame}{title}
+test
+\end{frame}
+
+\begin{frame}
+test
+\end{frame}
+
+\begin{frame}
+test
+\end{frame}
+
+\begin{frame}
+test
+\end{frame}
+
+\end{document}

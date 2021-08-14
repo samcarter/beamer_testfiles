@@ -1,0 +1,64 @@
+% https://tex.stackexchange.com/a/315248
+\documentclass[xcolor={dvipsnames,svgnames}]{beamer}
+\usetheme{CambridgeUS}
+\usecolortheme{spruce}
+\usepackage[english,greek]{babel}
+\usepackage{ucs} 
+\usepackage[utf8x]{inputenc}
+%\usepackage{kerkis}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{booktabs,dcolumn}
+\usepackage{tabularx}
+
+\usetikzlibrary{matrix,shapes,arrows,fit,tikzmark}
+\newcolumntype{.}{D{.}{.}{-1}}
+\begin{document}
+    % Some options common to all the nodes and paths
+    \tikzset{   
+        every picture/.style={remember picture,baseline},
+        every node/.style={anchor=base,align=center,outer sep=1.5pt},
+        every path/.style={thick},
+    }
+
+    \newcommand\marktopleft[1]{%
+        \tikz[overlay,remember picture] 
+        \node (marker-#1-a) at (.1em,.3em) {};%
+    }
+    \newcommand\markbottomright[1]{%
+        \tikz[overlay,remember picture] 
+        \node (marker-#1-b) at (.1em,.3em) {};%
+        \tikz[overlay,remember picture,inner sep=3pt]
+        \node[draw=red,rounded corners,fit=(marker-#1-a.north west) (marker-#1-b.south east)] {};%
+    }
+    \begin{frame}
+        \frametitle{A' Επιλογή}
+        \begin{columns}[onlytextwidth]
+            \begin{column}{.5\textwidth}
+            \begin{tabular}{ccc}
+                \toprule
+                Παραγωγικοί & \multicolumn{2}{c}{Κατανομή Π.Σ.} \\ 
+                Συντελεστές & Αγαθό $x$ & Αγαθό $y$ \\
+                \midrule
+                Εργασία & \marktopleft{b1}0     & 20 \\
+                Έδαφος & 0     & 10 \\
+                Κεφάλαιο & 0     & 8\markbottomright{b1} \\
+                \bottomrule
+            \end{tabular}%
+            \end{column}
+            \begin{column}{.42\textwidth}
+            \hfill
+            \begin{tabular}{rrr}
+                \toprule
+                & \multicolumn{2}{c}{\small Παραγόμενες Ποσότητες} \\
+                & $x$     & $y$ \\
+                \midrule
+                Α     & 0     & 600 \\
+                \\
+                \\
+                \bottomrule
+            \end{tabular}%
+            \end{column}            
+        \end{columns}
+    \end{frame}
+\end{document}

@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/a/466590
+\documentclass{beamer}
+
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{frame}
+
+\transduration{1}
+
+\foreach \x in {0,...,50}{\only<+>{
+
+    \pgfdeclarehorizontalshading{myshade}{1em}{%
+        color(0\textwidth)=(rgb:green,50;-green,\x;red,\x);
+        color(\x*0.0175\textwidth)=(rgb:green,50;-green,\x;red,\x);     
+        color(0.1\textwidth+\x*0.0175\textwidth)=(white);
+      color(\textwidth)=(white)
+    }
+    \begin{pgfpicture}{0pt}{0pt}{\textwidth}{1em}
+        \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\textwidth}{1em}}
+    \pgfusepath{clip}
+    \pgftext[left,base]{\pgfuseshading{myshade}}
+    \pgftext[x=.9\textwidth,y=0.5em] {\x s / 50s}
+  \end{pgfpicture}
+
+}}
+
+\end{frame}
+
+\end{document}

@@ -1,0 +1,46 @@
+% https://tex.stackexchange.com/a/410743
+\documentclass[compress]{beamer}
+
+\usepackage{pdfpages}
+\usepackage{appendixnumberbeamer}
+
+\useoutertheme[footline=authortitle, subsection=false]{miniframes}
+\setbeamertemplate{navigation symbols}{} 
+
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+    leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \leavevmode{\usebeamerfont{title in head/foot}\insertshorttitle}%
+    \hfill%
+    {\usebeamerfont{author in head/foot}\usebeamercolor[fg]{author in head/foot}\insertframenumber{}\,/\,\inserttotalframenumber}%
+    \hfill%
+    {\usebeamerfont{author in head/foot}\usebeamercolor[fg]{author in head/foot}\insertshortauthor}%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+  \end{beamercolorbox}
+}
+
+\author{names}
+\title{text}
+
+\begin{document}
+
+\section{Overview}
+\begin{frame}{Section 1}
+    test
+\end{frame}
+
+{
+    \setbeamercolor{background canvas}{bg=} 
+  \includepdf[pages=1]{example-image.pdf}    
+}
+
+\appendix
+\section{Appendix A}
+\begin{frame}[noframenumbering]
+    Appendix blah
+\end{frame}
+
+\end{document}

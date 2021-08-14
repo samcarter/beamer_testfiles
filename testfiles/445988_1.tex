@@ -1,0 +1,68 @@
+% https://tex.stackexchange.com/a/445988
+\documentclass[aspectratio=169]{beamer}
+\usepackage[language=english, backend=biber, style=numeric]{biblatex}
+\usepackage{filecontents}
+
+\begin{filecontents*}{exampleReferences.bib}
+@book{foo1,
+  year = {2001},
+  title = {Example title 1},
+  author = {John One}
+}
+
+@book{foo2,
+  year = {2002},
+  title = {Example title 2},
+  author = {John Two}
+}
+\end{filecontents*}
+
+\addbibresource{exampleReferences.bib}
+\setbeamertemplate{bibliography item}[text]
+
+\makeatletter
+\DeclareCiteCommand{\cite}[\mkbibsuperscript]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\renewbibmacro*{cite}{%
+  \printtext[bibhyperref]{%
+    \printfield{labelprefix}%
+    \printfield{labelnumber}%
+    \ifbool{bbx:subentry}{%
+        \printfield{entrysetcount}
+    }{}%
+  }%
+  \footnotetext[\thefield{labelnumber}]{%
+    \usedriver{\DeclareNameAlias{sortname}{default}}{\thefield{entrytype}}
+  }%
+}
+\makeatother
+\begin{document}
+\begin{frame}{Example frame 1}
+Text on frame that doesn't change.\\
+
+%This citation should be marked with a 1
+\only<1>{Special text foo1 to be cited \cite{foo1}}
+
+%This citation should be marked with a 2, as it is the second citation and different from the first citation
+\only<2>{Another special text to be cited \cite{foo2}}
+
+%This should be marked once again with 1, as it was already cited before.
+\only<3>{Another passage of special text foo1 to be citeted \cite{foo1}}
+\end{frame}
+
+\begin{frame}{Example frame 2}
+%The reference on a new frame should get the same marker if it was already cited (here it should get a 2)
+New frame with reference to already referenced text \cite{foo2}
+\end{frame}
+
+\begin{frame}{Bibliography}
+%The bibliography of all cited texts. 
+%It should be sorted in citation-order and have a citation-number item instead of the image [e.g. [1]~\cite{foo1}].
+\printbibliography
+\end{frame}
+\end{document}

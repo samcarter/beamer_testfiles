@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/392865
+\documentclass[final, 20pt]{beamer}
+
+\usepackage[size=a0, scale=1.5]{beamerposter}
+\usepackage{lipsum}
+
+\setlength{\topmargin}{0.5in} % Reduce the top margin size
+\setlength{\parskip}{3em}
+
+\begin{document}
+
+\begin{frame}[t]
+
+\begin{columns}[onlytextwidth]
+    \begin{column}{.45\textwidth}
+        \lipsum[2]
+    \end{column}
+    \begin{column}{.45\textwidth}
+        \lipsum[2]
+    \end{column}
+\end{columns}
+
+\lipsum[2]
+
+\end{frame} 
+
+\end{document}

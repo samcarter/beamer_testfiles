@@ -1,0 +1,50 @@
+% https://tex.stackexchange.com/a/457273
+\documentclass{beamer}
+%\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\title{Some slides}
+\date{05 November, 2018}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \large \insertframenumber/\inserttotalframenumber
+}
+
+\setbeamertemplate{section in toc shaded}[default][60]
+
+\begin{document}
+
+%--- the titlepage frame -------------------------%
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\begin{frame}<beamer>
+  \frametitle{Outline}
+  \tableofcontents
+\end{frame}
+
+%--- the presentation begins here ----------------%
+
+\section{FAT32}
+
+\begin{frame}{A frame}
+\end{frame}
+
+\section{The models}
+
+\begin{frame}{Another frame}
+\end{frame}
+
+\end{document}

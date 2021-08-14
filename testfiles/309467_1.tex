@@ -1,0 +1,38 @@
+% https://tex.stackexchange.com/a/309467
+\documentclass{beamer}
+\usepackage{etoolbox}
+\newtheorem{teorem}{Teorem}[section]
+\newtheorem{definicija}{Definicija}[section]
+\newtheorem{lema}{Lema}[section]
+\newtheorem{primjer}{Primjer}[section]
+\newtheorem{conjecture}{Konjektura}[section]
+\usepackage[mathscr]{eucal}
+\usepackage[utf8]{inputenc} 
+\usepackage[croatian]{babel}
+\usepackage{latexsym}
+\usepackage{tabularx,pstricks,pst-plot,amsfonts,amsmath,tensor,amssymb}
+\usetheme{Warsaw}
+\usecolortheme{default}
+\title{Fibonaccijevi brojevi i zlatni rez. Rekurzije. Fraktali}
+\author{Amar Bapić, Merjem Vikalo, Irma Zenunović}
+\date{}
+\institute{Univerzitet u Tuzli\\Prirodno - matematički fakultet\\ Odsjek Matematika}
+
+\setbeamertemplate{theorems}[numbered]
+
+\AtBeginEnvironment{teorem}{%
+    \setbeamercolor{block title}{fg=white,bg=red}
+    \setbeamercolor{block body}{fg=black,bg=red!40}
+}
+
+\begin{document}
+    \begin{frame}[plain]
+        \titlepage
+    \end{frame}
+    \section{Fraktali}
+    \begin{frame}{Fraktali}
+        \begin{teorem}
+            test
+        \end{teorem}
+    \end{frame}
+\end{document} 

@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/468242
+\documentclass{beamer}
+%\url{https://tex.stackexchange.com/q/86378/86}
+\usepackage{pgfpages,tikz}
+\setbeameroption{show notes on second screen=right}
+
+\author{Euclid}
+\title{There Is No Largest Prime Number}
+\titlegraphic{%
+  \begin{tikzpicture}[inner sep=0, remember picture, overlay]
+  \node[anchor=south west, inner sep=0, shift={(5mm,5mm)}]
+   at (current page.south west)
+   [fill=red!20,rounded corners, above right]
+   {\Huge\LaTeX};
+  \end{tikzpicture}%
+}
+
+\begin{document}
+\maketitle
+
+\begin{frame}
+  \begin{tikzpicture}[inner sep=0, remember picture, overlay]
+    \node[anchor=south west, inner sep=0] at (5.9,-0.5) [fill=red!20,rounded corners, above right]
+    {\Huge\LaTeX};
+  \end{tikzpicture}%  
+\end{frame}
+
+\end{document}

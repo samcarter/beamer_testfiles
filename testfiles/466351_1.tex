@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/466351
+\documentclass[xcolor=dvipsnames]{beamer}
+\mode<presentation>
+\usetheme{Madrid}
+
+
+\makeatletter
+\setbeamertemplate{theorem begin}
+{%
+    \setbeamercolor{block title}{bg=green!40!black}
+  \begin{\inserttheoremblockenv}
+  {%
+    \textcolor{orange}{\inserttheoremname}
+    \ifx\inserttheoremaddition\@empty\else\ \inserttheoremaddition\fi%
+  }%
+}
+\makeatother
+
+\begin{document}
+\begin{frame}{}
+\begin{theorem}[\cite{MS92}]
+For a $d$-tuple of ....
+\end{theorem}
+
+\beamertemplatearticlebibitems
+\begin{thebibliography}{9}
+\bibitem[V. M\""{u}ller and A. Soltysiak (1992)]{MS92}
+\alert{V. M\""{u}ller, and A. Soltysiak}
+\newblock Spectral radius formula for commuting Hilbert space operators
+\newblock \em Studia Math.103. (1992), 329-333.
+\end{thebibliography}
+
+\end{frame}
+\end{document}

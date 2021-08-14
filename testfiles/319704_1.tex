@@ -1,0 +1,63 @@
+% https://tex.stackexchange.com/a/319704
+\documentclass{beamer}
+
+\usetheme{CambridgeUS}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{pdfrender}
+
+\usetikzlibrary{shapes,arrows}
+
+\title[]{Title}
+\date{28 luglio 2016}
+\author[]{Author{\small Supervisor}}
+\institute[]{Institute}
+
+\setbeamerfont{author}{size=\Large}
+\setbeamerfont{institute}{size=\fontsize{10}{10}\itshape}
+\setbeamerfont{title}{size=\fontsize{30}{36}\bfseries}
+\setbeamerfont{subtitle}{size=\Large\normalfont\slshape}
+
+\setbeamertemplate{title page}{%
+    \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=south] at ([yshift=-0.15cm]current page.south) {\includegraphics[width=\paperwidth,height=5cm]{example-grid-100x100bp}};
+    \node[anchor=east] 
+    at ([yshift=-50pt]current page.north east) (author)
+    {\parbox[t]{.6\paperwidth}{\raggedleft%
+            \usebeamerfont{author}\textcolor{orange}{%
+                \textpdfrender{
+                    TextRenderingMode=FillStroke,
+                    %    FillColor=orange,
+                    %    LineWidth=.1ex,
+                }{\insertauthor}}}};
+    \node[anchor=north east] 
+    at ([yshift=-70pt]current page.north east) (institute)
+    {\parbox[t]{.78\paperwidth}{\raggedleft%
+            \usebeamerfont{institute}\textcolor{gray}{\insertinstitute}}};
+    \node[anchor=south west] 
+    at ([yshift=20pt]current page.west) (logo)
+    {\parbox[t]{.19\paperwidth}{\raggedleft%
+            \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic}};
+    \node[anchor=east]
+    at ([yshift=-15pt,xshift=-20pt]current page.east) (title)
+    {\parbox[t]{\textwidth}{\raggedleft%
+            \usebeamerfont{author}\textcolor{white}{%
+                \textpdfrender{
+                    TextRenderingMode=FillStroke,
+                    FillColor=white,
+                    LineWidth=.1ex,
+                }{\inserttitle}}}};
+    \node[anchor=east]
+    at ([yshift=-60pt,xshift=-20pt]current page.east) (subtitle)
+    {\parbox[t]{.6\paperwidth}{\raggedleft\usebeamerfont{subtitle}\textcolor{black}{\insertsubtitle}}};
+    \end{tikzpicture}
+}
+\titlegraphic{\includegraphics[width=2cm]{example-image}}
+
+\begin{document}
+    \begin{frame}[plain]
+        \maketitle
+    \end{frame}
+\end{document}

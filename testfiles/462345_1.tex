@@ -1,0 +1,65 @@
+% https://tex.stackexchange.com/a/462345
+\documentclass{beamer}
+\usetheme{Warsaw}
+
+\makeatletter
+    \newcommand{\trickbeamer}[1]{%
+        \advance\beamer@slideinframe by #1 %
+        }%
+\makeatother
+
+
+\begin{document}    
+    \begin{frame}{Outline}
+    \begin{columns}[onlytextwidth]
+        \begin{column}{.45\textwidth}
+            \tableofcontents[hideothersubsections, pausesections, sections=-5]
+        \end{column}
+        \trickbeamer{-5}
+        \begin{column}{.45\textwidth}
+            \tableofcontents[pausesections,hideothersubsections, sections=6-]
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\section{One}
+\begin{frame}
+\end{frame}
+
+\section{Two}
+\begin{frame}
+\end{frame}
+
+\section{three}
+\begin{frame}
+\end{frame}
+
+\section{four}
+\begin{frame}
+\end{frame}
+
+\section{five}
+\begin{frame}
+\end{frame}
+
+\section{six}
+\begin{frame}
+\end{frame}
+
+\section{seven}
+\begin{frame}
+\end{frame}
+
+\section{eight}
+\begin{frame}
+\end{frame}
+
+\section{nine}
+\begin{frame}
+\end{frame}
+
+\section{ten}
+\begin{frame}
+\end{frame}
+
+\end{document}

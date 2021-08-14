@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/472646
+\documentclass{beamer}
+\usepackage{pdfpages}
+\usetheme{Montpellier}
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{0.5cm}%
+    \raisebox{1.5pt}{\insertframenumber/\inserttotalframenumber}
+}
+\begin{document}
+
+\begin{frame}
+content...
+\end{frame}
+
+{
+\addtocounter{framenumber}{1}
+\setbeamercolor{background canvas}{bg=}
+\includepdf{example-image-a4-numbered}
+}
+
+\begin{frame}
+content...
+\end{frame}
+
+\end{document}

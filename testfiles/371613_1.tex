@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/371613
+\documentclass{beamer}
+
+\useoutertheme{shadow}
+\useinnertheme{rounded}
+\usecolortheme{beaver}
+
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}{\leavevmode\leftskip=3.2em\rlap{\hskip-2em\inserttocsectionnumber.\inserttocsubsectionnumber}\inserttocsubsection\par}
+
+\begin{document}                                                        
+
+\begin{frame}
+    \frametitle{Sommaire}
+    \tableofcontents
+\end{frame}
+
+\section{sec}
+\subsection{sub}
+\section{sec}
+
+\begin{frame}
+    abc
+\end{frame}
+
+\end{document}

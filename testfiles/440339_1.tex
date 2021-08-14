@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/440339
+\documentclass[xcolor=table]{beamer}
+
+\definecolor{background}{rgb}{0.84,0.92,0.95}
+
+\makeatletter
+\def\rowcolor{\noalign{\ifnum0=`}\fi\bmr@rowcolor}
+\newcommand<>{\bmr@rowcolor}{%
+    \alt#1%
+        {\global\let\CT@do@color\CT@@do@color\@ifnextchar[\CT@rowa\CT@rowb}% 
+        {\ifnum0=`{\fi}\@gooble@rowcolor}% 
+}
+
+\newcommand{\@gooble@rowcolor}[2][]{\@gooble@rowcolor@}
+\newcommand{\@gooble@rowcolor@}[1][]{\@gooble@rowcolor@@}
+\newcommand{\@gooble@rowcolor@@}[1][]{\ignorespaces}
+\makeatother
+
+\begin{document}
+\begin{frame}
+\setbeamercovered{dynamic}
+\begin{tabular}{|c|c|c|c|}
+    \hline
+  J & K & $Q_{n}$ & $\overline{Q_{n}}$ \\
+  \hline
+    \rowcolor<1>{background} \onslide<1->{0} &  \onslide<1->{0} &  \onslide<1->{0} &  \onslide<1->{0} \\
+  \hline
+  \rowcolor<2>{background}
+  \onslide<2->{0} &  \onslide<2->{1} &  \onslide<2->{0} &  \onslide<2->{0} \\
+    \hline
+    \rowcolor<3>{background}        
+    \onslide<3->{1} &  \onslide<3->{0} &  \onslide<3->{0} &  \onslide<3->{0} \\
+    \hline
+    \rowcolor<4>{background}
+    \onslide<4->{1} &  \onslide<4->{1} &  \onslide<4->{0} &  \onslide<4->{0} \\
+    \hline
+    \end{tabular}
+\end{frame}
+\end{document}

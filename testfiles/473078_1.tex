@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/473078
+\documentclass{beamer}
+
+\usepackage[french]{babel}
+
+\setbeamercolor{frametitle}{fg=red}
+\setbeamertemplate{caption}{%
+  \raggedright
+  \insertcaption\par
+}
+
+\begin{document}
+
+\begin{frame}
+
+\frametitle{Example Slide}
+
+\begin{figure}
+   \includegraphics[width=6cm]{example-image}
+   \caption{\textbf{\emph{Simulation 1}}: True activity status of the corresponding cell.}
+\end{figure}
+
+\end{frame}
+
+\end{document}

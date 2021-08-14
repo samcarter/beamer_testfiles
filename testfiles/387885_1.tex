@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/387885
+\documentclass{beamer}
+\usepackage{ragged2e}
+\usepackage{lipsum}
+
+\renewcommand{\raggedright}{\justifying}
+
+\begin{document}
+    \begin{frame}
+        \begin{itemize}
+            \item \lipsum[66]
+        \end{itemize}
+        \begin{enumerate}
+            \item \lipsum[75]
+        \end{enumerate}
+        \begin{description}
+            \item[Item] \lipsum[66]
+        \end{description}
+    \end{frame}
+\end{document}

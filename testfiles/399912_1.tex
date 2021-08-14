@@ -1,0 +1,30 @@
+% https://tex.stackexchange.com/a/399912
+\documentclass{beamer}
+
+\usepackage{tcolorbox}
+
+\begin{document}
+
+{
+\addtobeamertemplate{frametitle}{}{%
+    \begin{tcolorbox}
+    align to top
+    \end{tcolorbox}
+}
+\begin{frame}{Title}
+align to middle
+\end{frame}
+}
+
+{
+\addtobeamertemplate{frametitle}{}{%
+    \begin{tcolorbox}
+    align to top
+    \end{tcolorbox}
+}
+\begin{frame}{\mbox{}}
+align to middle
+\end{frame}
+}
+
+\end{document}

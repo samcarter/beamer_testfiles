@@ -1,0 +1,91 @@
+% https://tex.stackexchange.com/a/479519
+\documentclass{beamer}
+
+%\usepackage{pgf}
+%\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+% Citation                                                                                                                      
+\usepackage[style=science]{biblatex}
+
+\usepackage{subcaption}
+\usepackage{filecontents}
+
+\begin{filecontents}{vorlage.bib}
+
+ @article{test1,
+    author  = {Shen Lin and Brian W. Kernighan},
+    title   = {An Effective Heuristic Algorithm for the Travelling-Salesman Problem},
+    journal = {Operations Research},
+    volume  = {21},
+    year    = {1973},
+    pages   = {498--516},
+ }
+
+@BOOK{test,
+  title = {The Infamous Test},
+  publisher = {Testington Test},
+  year = {2007},
+  author = {John Doe},
+  address = {Testville},
+}
+
+@ARTICLE{test2,
+  author = {Testi, T.},
+  year = {2003},
+  title = {Testartikel},
+  journal = {Testjournal}
+}
+\end{filecontents}
+
+
+
+% Hacky fix to citation                                                                                                         
+\makeatletter
+\def\blx@maxline{77}
+\makeatother
+
+% Add bibliography file                                                                                                         
+\bibliography{vorlage.bib}
+
+
+\DeclareCiteCommand{\footfullcitetext}[\mkbibfootnotetext]
+  {\usebibmacro{prenote}}
+  {\usedriver
+     {\DeclareNameAlias{sortname}{default}}
+     {\thefield{entrytype}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Introduction and motivation - the title}
+\section[Motivation]{Introduction and motivation}
+\begin{figure}
+\centering
+\begin{subfigure}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{example-image}
+  \caption{A subfigure\footnotemark[1]}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{example-image}
+  \caption{A subfigure\footnotemark[2]}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{A figure with two subfigures\footnotemark[3]}
+\label{fig:test}
+\end{figure}
+
+\addtocounter{footnote}{1}
+\footfullcitetext{test}
+\addtocounter{footnote}{1}
+\footfullcitetext{test1}
+\addtocounter{footnote}{1}
+\footfullcitetext{test2}
+\end{frame}
+
+\end{document}

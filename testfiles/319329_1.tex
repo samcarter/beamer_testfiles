@@ -1,0 +1,45 @@
+% https://tex.stackexchange.com/a/319329
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\lstset{
+    basicstyle=\normalsize\ttfamily,
+    numbers=left,
+    numberstyle=\tiny\color{gray},  
+    stepnumber=1,
+    numbersep=5pt,
+    escapechar=£,
+    breaklines=true}
+\begin{document}
+
+\begin{frame}<1>[fragile,t,label=foo]
+\frametitle{Example}
+\begin{minipage}{.45\textwidth}%
+\begin{lstlisting}[firstnumber=1,name=fooex]
+foo£\label<2>{lst:foo}£
+\end{lstlisting}%
+\end{minipage}%
+\begin{minipage}{.45\textwidth}%
+\begin{lstlisting}[firstnumber=2,name=fooex]
+bar£\label<2>{lst:bar}£
+\end{lstlisting}%
+\end{minipage}%
+
+\only<1>{
+\begin{itemize}
+    \item First stuff
+\end{itemize}}
+
+\only<2>{
+    \begin{itemize}
+        \item stuff about lines \ref{lst:foo} and \ref{lst:bar}
+    \end{itemize}}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Another frame}
+\end{frame}
+
+\againframe<2>{foo}
+\end{document}

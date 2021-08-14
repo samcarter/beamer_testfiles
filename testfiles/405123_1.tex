@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/405123
+\documentclass{beamer}
+
+\AtBeginSection{
+    \frame{\sectionpage}
+}
+
+\setbeamertemplate{section page}{
+  \begingroup
+    \centering
+%    {\usebeamerfont{section name}\usebeamercolor[fg]{section name}\sectionname~\thesection}
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=12pt,center]{part title}
+      \usebeamerfont{section title}\insertsection\par
+    \end{beamercolorbox}
+  \endgroup
+}
+
+
+\begin{document}
+\section{sd}    
+\begin{frame}
+    abc
+\end{frame} 
+
+\end{document}

@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/426720
+\documentclass[10pt,xcolor=dvipsnames, aspectratio=169]{beamer}
+
+\usepackage[natbib=true, style=alphabetic, citestyle=authoryear,backend=biber]{biblatex}
+\addbibresource{refs.bib}
+\DeclareLanguageMapping{american}{american-apa}
+\begin{document}
+
+\begin{frame}
+  \onslide<1->{
+    \begin{quote}
+       Quote 1 \footcite{palen_success_2015}.
+    \end{quote}
+  }
+  \vfill
+  \onslide<2->{
+    \begin{quote}
+      Quote 2 \only<2>{\footcite{crawford_what_2016}}.
+    \end{quote}
+  }
+\end{frame}
+\end{document}

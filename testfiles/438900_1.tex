@@ -1,0 +1,44 @@
+% https://tex.stackexchange.com/a/438900
+\documentclass{beamer}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usetheme{Madrid}
+
+  \renewenvironment<>{proof}[1][\proofname]{%
+    \par
+    \def\insertproofname{Proof (#1)}%
+    \pushQED{\qed}
+    \usebeamertemplate{proof begin}#2}
+  {\popQED\usebeamertemplate{proof end}}
+
+  \newenvironment<>{emptyproof}[1][\proofname]{%
+    \par
+    \def\insertproofname{Proof}%
+    \pushQED{\qed}
+    \usebeamertemplate{proof begin}#2}
+  {\popQED\usebeamertemplate{proof end}}
+
+
+\begin{document}
+
+\begin{frame}
+    \begin{definition}[don't forget it !]
+        this is a definition
+    \end{definition}
+
+    \begin{theorem}[very important !]
+        this is a theorem
+    \end{theorem}
+
+    \begin{proof}[to be known]
+        and this is the proof!
+    \end{proof}
+
+    \begin{emptyproof}
+        and this is the proof!
+    \end{emptyproof}    
+\end{frame}
+
+\end{document}

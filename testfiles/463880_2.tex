@@ -1,0 +1,45 @@
+% https://tex.stackexchange.com/a/463880
+\documentclass{beamer}
+
+\usepackage{pdfpages}
+\mode<presentation> {
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[LLLLLLLL] 
+{LLLLLLLL}
+
+\author[]{XX}
+
+\institute{YY \ UU}
+
+\date[]{HHHHH}
+
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+
+\makeatletter
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \hfil
+    \usebeamerfont{title in head/foot}\insertshorttitle
+    \hfill
+    \makebox[0pt][r]{\insertframenumber\,/\,\inserttotalframenumber\hspace*{2ex}} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\end{document}

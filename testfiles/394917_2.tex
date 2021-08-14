@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/394917
+\documentclass[]{beamer}
+\usetheme{Madrid}
+
+\definecolor{zz1}{rgb}{.8,.2,.2}
+\definecolor{zz2}{rgb}{.7,.9,.1}
+\definecolor{zz3}{rgb}{.6,.4,.8}
+
+\AtBeginSection{%
+   \setbeamercolor{block title}{bg=zz\thesection}
+}
+
+\begin{document}
+\section{first section}
+\begin{frame}
+    \begin{block}{A  block of the first section}
+        Something about this example of the first kind.
+    \end{block}
+    \end{frame}
+\section{second section}
+    \begin{frame}
+    \begin{block}{A  block of the second section}
+        Something about this example of the second kind.
+    \end{block}
+\end{frame}
+
+\section{third section}
+    \begin{frame}
+    \begin{block}{A  block of the second section}
+        Something about this example of the second kind.
+    \end{block}
+\end{frame}
+
+
+\end{document}

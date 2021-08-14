@@ -1,0 +1,53 @@
+% https://tex.stackexchange.com/a/415364
+\documentclass[t]{beamer}
+\usecolortheme{rose}
+
+\newcommand{\FourQuads}[4]{
+    \begin{columns}[onlytextwidth]
+        \begin{column}{.45\textwidth}
+            \begin{block}{First}
+                \begin{minipage}[t][.25\textheight][t]{\textwidth}
+                    #1
+                \end{minipage}
+            \end{block}
+        \end{column}
+        \begin{column}{.45\textwidth}
+            \begin{block}{Second}
+                \begin{minipage}[t][.25\textheight][t]{\textwidth}
+                    #2
+                \end{minipage}
+            \end{block}
+        \end{column}        
+    \end{columns}
+    \begin{columns}[onlytextwidth]
+        \begin{column}{.45\textwidth}
+            \begin{block}{Third}
+                \begin{minipage}[t][.25\textheight][t]{\textwidth}
+                    #3
+                \end{minipage}
+            \end{block}
+        \end{column}
+        \begin{column}{.45\textwidth}
+            \begin{block}{Fourth}
+                \begin{minipage}[t][.25\textheight][t]{\textwidth}
+                    #4
+                \end{minipage}
+            \end{block}
+        \end{column}        
+    \end{columns}   
+}
+
+
+
+
+\begin{document} 
+\begin{frame}{A very important slide}
+\FourQuads%
+{first item\\
+another first item}
+{second item}
+{third item}
+{fourth item\\
+another fourth item}
+\end{frame}
+\end{document}

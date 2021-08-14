@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/408647
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setbeamercovered{transparent}
+\usepackage[most]{tcolorbox}
+
+\tcbset{%
+    enhanced,
+    size=fbox,
+    nobeforeafter,
+    tcbox raise base,
+}
+
+\begin{document}
+\beamerdefaultoverlayspecification{<+->}
+\begin{frame}{Test}
+\begin{itemize}
+\item tes
+\item test \tcbox[only=<-.(-1)>{opacitytext=0.2}]{test1} test
+\item test \tcbox[only=<-.(-1)>{opacitytext=0.2}]{test2} test
+\end{itemize}
+
+\end{frame}
+\end{document}

@@ -1,0 +1,37 @@
+% https://tex.stackexchange.com/a/448658
+\documentclass{beamer}
+
+\usepackage{filecontents}
+
+%
+% outer theme
+%
+\begin{filecontents*}{beamerouterthemeMyFancy.sty}
+    \DeclareOptionBeamer{wB}{\def\beamer@MyFancy@wB{#1}}
+    \ExecuteOptionsBeamer{wB=1cm} % default value
+    \ProcessOptionsBeamer
+    \useoutertheme[right, hideallsubsections, height=1cm, width=\beamer@MyFancy@wB]{sidebar}
+\end{filecontents*}
+
+%
+% main theme
+%
+\begin{filecontents*}{beamerthemeMyFancy.sty}
+    \DeclareOptionBeamer{wB}{
+        \PassOptionsToPackage{wB=#1}{beamerouterthemeMyFancy}
+    }
+    \ProcessOptionsBeamer
+    \useoutertheme{MyFancy}
+\end{filecontents*}
+
+\usetheme[
+    wB=3cm
+]{MyFancy} 
+
+\setbeamercolor{sidebar right}{bg=green}
+
+\begin{document}
+\begin{frame}
+X
+\end{frame}
+\end{document}

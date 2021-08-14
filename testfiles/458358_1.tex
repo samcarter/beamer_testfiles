@@ -1,0 +1,128 @@
+% https://tex.stackexchange.com/a/458358
+%----------------------------------------------------------------------------------------
+%   PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+\mode<presentation> {
+
+\usetheme{PaloAlto}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+%\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+%----------------------------------------------------------------------------------------
+%   TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Managerial Economics]{VW Invasion of North America} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Group 7} % Your name
+\institute[FDSM] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+\textit{Fudan Business} \\\textit{School of Management} \\ % Your institution for the title page
+\medskip
+%\textit{bofu20131@163.com} % Your email address
+}
+\date{\today} % Date, can be changed to a custom date
+
+\makeatletter
+  \setbeamertemplate{headline}
+  {%
+    \ifnum\thepage=\insertsectionstartpage
+    \begin{beamercolorbox}[wd=\paperwidth]{frametitle}
+      \ifx\beamer@sidebarside\beamer@lefttext%
+      \else%
+        \hfill%
+      \fi%
+      \ifdim\beamer@sidebarwidth>0pt%  
+        \usebeamercolor[bg]{logo}%
+        \vrule width\beamer@sidebarwidth height \beamer@headheight%
+        \hskip-\beamer@sidebarwidth%
+        \hbox to \beamer@sidebarwidth{\hss\vbox to
+          \beamer@headheight{\vss\hbox{\color{fg}\insertlogo}\vss}\hss}%
+      \else%
+        \vrule width0pt height \beamer@headheight%  
+      \fi%
+    \end{beamercolorbox}
+    \else
+    \begin{beamercolorbox}[wd=\beamer@sidebarwidth]{frametitle}
+      \ifx\beamer@sidebarside\beamer@lefttext%
+      \else%
+        \hfill%
+      \fi%
+      \ifdim\beamer@sidebarwidth>0pt%  
+        \usebeamercolor[bg]{logo}%
+        \vrule width\beamer@sidebarwidth height \beamer@headheight%
+        \hskip-\beamer@sidebarwidth%
+        \hbox to \beamer@sidebarwidth{\hss\vbox to
+          \beamer@headheight{\vss\hbox{\color{fg}\insertlogo}\vss}\hss}%
+      \else%
+        \vrule width0pt height \beamer@headheight%  
+      \fi%
+    \end{beamercolorbox}    
+    \fi
+  }
+\makeatother
+
+
+\begin{document}
+
+\maketitle
+
+\section{Section 1}
+\begin{frame}
+\frametitle{Section 1}
+\end{frame}
+
+\subsection{Subsection 1.1}
+\subsubsection{SubSubsection1.1.1}
+\begin{frame}
+bla
+\end{frame}
+\subsubsection{SubSubsection 1.1.2}
+\begin{frame}
+bla
+\end{frame}
+
+\subsection{Subsection 1.2}
+\subsubsection{SubSubsection1.2.1}
+\begin{frame}
+bla
+\end{frame}
+\subsubsection{SubSubsection 1.2.2}
+\begin{frame}
+bla
+\end{frame}
+
+\section{Section 2}
+\begin{frame}
+\frametitle{Section 2}
+\end{frame}
+
+\subsection{Subsection 2.1}
+\subsubsection{SubSubsection2.1.1}
+\begin{frame}
+bla
+\end{frame}
+\subsubsection{SubSubsection 2.1.2}
+\begin{frame}
+bla
+\end{frame}
+
+\subsection{Subsection 2.2}
+\subsubsection{SubSubsection2.2.1}
+\begin{frame}
+bla
+\end{frame}
+\subsubsection{SubSubsection 2.2.2}
+\begin{frame}
+bla
+\end{frame}
+\end{document}

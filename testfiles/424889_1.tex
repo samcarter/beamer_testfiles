@@ -1,0 +1,78 @@
+% https://tex.stackexchange.com/a/424889
+\documentclass{beamer}
+
+\usepackage{listingsutf8}
+\usepackage{listings}
+%\usepackage{xcolor}
+%\usepackage{color}
+
+\renewcommand{\lstlistingname}{Código}
+\definecolor{Code}{rgb}{0,0,0}
+\definecolor{Keywords}{rgb}{255,0,0}
+\definecolor{Strings}{rgb}{255,0,255}
+\definecolor{Comments}{rgb}{0,0,255}
+\definecolor{Numbers}{rgb}{255,128,0}
+
+\lstset{ 
+language=Python,
+basicstyle=\footnotesize\ttfamily,
+numbers=left,
+numberstyle=\scriptsize,
+stepnumber=1,
+numbersep=5pt,
+backgroundcolor=\color{white},
+showspaces=false,
+showstringspaces=false,
+showtabs=false,
+frame=single,
+tabsize=2,
+captionpos=t,
+breakatwhitespace=false,
+escapeinside={\#},
+stringstyle =\color{OliveGreen},
+keywordstyle = \color{blue},
+commentstyle = \color{black},
+identifierstyle = \color{black},
+literate=%
+     {á}{{\'a}}1
+     {é}{{\'e}}1
+     {í}{{\'i}}1
+     {ó}{{\'o}}1
+     {ú}{{\'u}}1
+}
+
+\lstdefinestyle{FormattedNumber}{%
+literate={0}{{\textcolor{red}{0}}}{1}%
+         {1}{{\textcolor{red}{1}}}{1}%
+         {2}{{\textcolor{red}{2}}}{1}%
+         {3}{{\textcolor{red}{3}}}{1}%
+         {4}{{\textcolor{red}{4}}}{1}%
+         {5}{{\textcolor{red}{5}}}{1}%
+         {6}{{\textcolor{red}{6}}}{1}%
+         {7}{{\textcolor{red}{7}}}{1}%
+         {8}{{\textcolor{red}{8}}}{1}%
+         {9}{{\textcolor{red}{9}}}{1}%
+         {.0}{{\textcolor{red}{.0}}}{2}% Following is to ensure that only periods
+         {.1}{{\textcolor{red}{.1}}}{2}% followed by a digit are changed.
+         {.2}{{\textcolor{red}{.2}}}{2}%
+         {.3}{{\textcolor{red}{.3}}}{2}%
+         {.4}{{\textcolor{red}{.4}}}{2}%
+         {.5}{{\textcolor{red}{.5}}}{2}%
+         {.6}{{\textcolor{red}{.6}}}{2}%
+         {.7}{{\textcolor{red}{.7}}}{2}%
+         {.8}{{\textcolor{red}{.8}}}{2}%
+         {.9}{{\textcolor{red}{.9}}}{2}%
+         {\ }{{ }}{1}% handle the space
+     ,%
+      escapeinside={__}
+      }
+
+\begin{document}
+
+\begin{frame}[fragile]
+\begin{lstlisting}[style=FormattedNumber]
+bbox_\textunderscore_to_\textunderscore_anchor
+\end{lstlisting}
+\end{frame}
+
+\end{document}

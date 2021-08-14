@@ -1,0 +1,78 @@
+% https://tex.stackexchange.com/a/480190
+\documentclass[aspectratio=169, xcolor={x11names}]{beamer}
+
+\setbeameroption{show notes}
+
+\usecolortheme{wolverine}
+\useoutertheme[]{split}
+\useinnertheme{inmargin}
+
+\newlength{\widthTextMarginLeft}
+\setlength{\widthTextMarginLeft}{1.5mm}
+\newlength{\widthTextMarginRight}
+\setlength{\widthTextMarginRight}{2mm}
+\setbeamersize{text margin left=\widthTextMarginLeft, text margin right=\widthTextMarginRight}
+\newlength{\sidebarWidth}
+\setlength{\sidebarWidth}{0.3\paperwidth}
+\setbeamersize{sidebar width left=\sidebarWidth, sidebar width right=0cm}
+
+\setbeamercovered{transparent=30}
+\setbeamersize{description width=0mm}
+
+\usepackage{blindtext}
+
+\usepackage{pgfpages}
+\setbeameroption{previous slide on second screen=left}
+
+
+\setbeamercolor{background canvas}{bg=green}
+
+\makeatletter
+\pgfpagesdeclarelayout{my two screens with lagging second}
+{}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=2,%
+    physical height=\pgfpageoptiontwoheight,%
+    physical width=2.5\paperwidth,% <- change ""2.5"" to adjust total paper width
+    last logical shipout=1,%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {%
+    center=\pgfpoint{2\paperwidth}{.5\paperheight},% <- change the ""2"" to horizontally move left page
+  }%
+  \pgfpageslogicalpageoptions{2}
+  {%
+    center=\pgfpoint{.5\paperwidth}{.5\paperheight},%
+    copy from=1%
+  }%
+}
+\pgfpagesuselayout{my two screens with lagging second}
+\makeatother
+
+
+\begin{document}
+
+\begin{frame}{Showing Contents Gradually without Alert}
+
+    \begin{block}{Why is induction motor very common}
+        %
+        \uncover<+->{\vphantom{$1$}}\uncover<+->{Induction motors are very practical for the following reasons}
+
+        \begin{description}[<+->]
+            \item[Rigid] Rigid
+            \item[Cheap] Cheap
+                \note<+>{\blindlistlist[1]{enumerate}}
+            \item[Low Maintenance] Low Maintenance
+            \item[Self-Starting] Self-starting
+                \note<+>{\blindlistlist[1]{enumerate}}
+            \item[No Excitation Needed] No Excitation Needed
+        \end{description}
+
+    \end{block}
+
+
+\end{frame}
+
+\end{document}

@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/400503
+\documentclass[usenames, dvipsnames]{beamer}
+\usepackage{amsmath, amssymb, amsthm, mathtools, commath, array, tcolorbox, cancel, caption, subcaption, stmaryrd,comment, media9,animate}
+
+\usepackage[utf8]{inputenc}
+\useoutertheme{split}
+\usetheme{Madrid}
+
+\begin{document}
+
+%6 slide
+\begin{frame}{Introducción: La función gamma}
+\begin{align*}
+\visible<+->{\Gamma(x) = \int_0^\infty e^{-t}t^{x-1} dt} \\
+\visible<+->{\text{Integrando por partes, obtenemos:}}\\ 
+\visible<.->{\Gamma(x+1) &= \int_0^\infty e^{-t}t^{x}dt}\\ 
+\visible<+->{&= \lim_{B \rightarrow \infty} \int_0^B e^{-t}t^{x}dt}\\ 
+\visible<+->{&=\lim_{B \rightarrow \infty} \Big[-e^{-t}t^x \Big|_0^B + x \int_0^B e^{-t}t^{x-1}dt \Big]} \\ 
+\visible<+->{&= x \lim_{B \rightarrow \infty} \int_0^B e^{-t}t^{x-1}dt}\\ 
+\visible<+->{&= x\Gamma(x)} 
+\end{align*}
+\end{frame}
+
+\end{document}

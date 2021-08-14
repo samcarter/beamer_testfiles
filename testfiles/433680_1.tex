@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/a/433680
+\documentclass{beamer}
+\usepackage{tikz}
+
+\usetikzlibrary{overlay-beamer-styles}
+
+\begin{document}
+
+\begin{frame}
+  \begin{tikzpicture}
+    \node (b) at (0,3) {b};
+    \node (a) at (0,0) {a}
+       edge[<-,draw on=<1>] node[auto] {c} (b)
+      ;
+    \node<2> (d) at (5,0) {d};
+  \end{tikzpicture}
+\end{frame}
+
+\end{document}

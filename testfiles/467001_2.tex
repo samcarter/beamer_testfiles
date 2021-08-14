@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/467001
+\documentclass[notheorems]{beamer}
+
+\newenvironment{questions}{}{}
+\newcommand{\question}{}
+
+% For the solution file
+%\newenvironment{solution}{}{}
+
+%For printing the student version
+\newenvironment{solution}{\color{white}}{}
+
+\begin{document}
+
+\begin{frame}
+\begin{questions}
+  \question Is this a test?
+  \begin{solution}
+      Yes, this is a test.
+  \end{solution}
+\end{questions}
+\end{frame}
+
+\end{document}

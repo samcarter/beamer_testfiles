@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/a/442894
+\documentclass{beamer}
+
+\usepackage[default, scale=0.95]{opensans}
+\usepackage{siunitx}
+
+\setbeamerfont{math text}{series=\fontseries{l}}    % does not change anything
+\setbeamerfont{normal text}{series=\fontseries{l}}
+\AtBeginDocument{\usebeamerfont{normal text}}
+
+
+\renewcommand{\mddefault}{l}
+
+\begin{document}
+    \begin{frame}{Some Math and Text}
+        here is some text in OpenSans light \\
+        but $math\,mode$ is not in light: \si{\micro\second}
+    \end{frame}
+\end{document}

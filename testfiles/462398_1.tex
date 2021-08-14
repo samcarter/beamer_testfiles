@@ -1,0 +1,67 @@
+% https://tex.stackexchange.com/a/462398
+\documentclass{beamer}
+
+\usepackage[scale=1.24]{beamerposter}
+\usetheme{confposter}
+
+\geometry{papersize={16in,32in},margin=1in}
+
+\title{Unnecessarily Complicated Research Title} % Poster title
+\author{John Smith, James Smith and Jane Smith} % Author(s)
+\institute{Department and University Name} % Institution(s)
+
+\setbeamertemplate{headline}{}
+
+\begin{document}
+
+\begin{frame}[t,fragile] 
+
+\begin{columns}[t]
+
+\begin{column}{\textwidth} % The first column
+
+%----------------------------------------------------------------------------------------
+%   OBJECTIVES
+%----------------------------------------------------------------------------------------
+
+\begin{alertblock}{Objectives}
+
+Lorem ipsum dolor sit amet, consectetur, nunc tellus pulvinar tortor, commodo eleifend risus arcu sed odio:
+\begin{itemize}
+\item Mollis dignissim, magna augue tincidunt dolor, interdum vestibulum urna
+\item Sed aliquet luctus lectus, eget aliquet leo ullamcorper consequat. Vivamus eros sem, iaculis ut euismod non, sollicitudin vel orci.
+\item Nascetur ridiculus mus.  
+\item Euismod non erat. Nam ultricies pellentesque nunc, ultrices volutpat nisl ultrices a.
+\end{itemize}
+
+\end{alertblock}
+
+%----------------------------------------------------------------------------------------
+%   INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Introduction}
+
+Lorem ipsum dolor \textbf{sit amet}, consectetur adipiscing elit. Sed commodo molestie porta. Sed ultrices scelerisque sapien ac commodo. Donec ut volutpat elit. Sed laoreet accumsan mattis. Integer sapien tellus, auctor ac blandit eget, sollicitudin vitae lorem. Praesent dictum tempor pulvinar. Suspendisse potenti. Sed tincidunt varius ipsum, et porta nulla suscipit et. Etiam congue bibendum felis, ac dictum augue cursus a. \textbf{Donec} magna eros, iaculis sit amet placerat quis, laoreet id est. In ut orci purus, interdum ornare nibh. Pellentesque pulvinar, nibh ac malesuada accumsan, urna nunc convallis tortor, ac vehicula nulla tellus eget nulla. Nullam lectus tortor, \textit{consequat tempor hendrerit} quis, vestibulum in diam. Maecenas sed diam augue.
+
+This statement requires citation \cite{Smith:2012qr}.
+
+\end{block}
+
+%------------------------------------------------
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{example-image-duck}
+\caption{Figure caption}
+\end{figure}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of the first column
+
+\end{columns} % End of all the columns in the poster
+
+\end{frame}
+ % End of the enclosing frame
+
+\end{document}

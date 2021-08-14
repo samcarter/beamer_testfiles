@@ -1,0 +1,82 @@
+% https://tex.stackexchange.com/a/438407
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{svg}
+%\usepackage{gensymb}
+%\usepackage{siunitx}
+
+%\sisetup {
+    %locale = DE,
+    %per-mode = symbol
+%}
+
+% THEME AND COLOR SETUP
+\usetheme{CambridgeUS}
+\usecolortheme[RGB={205,0,0}]{structure}
+\setbeamertemplate{items}[default]
+\setbeamertemplate{sections/subsections in toc}[square]
+
+\newcommand{\quoted}[1]{
+    \glqq#1\grqq
+}
+\date{02. Juli 2018}
+
+\usepackage{tikz}
+\usetikzlibrary{chains, positioning, shapes.symbols}
+\usepackage{etoolbox}
+
+\tikzset{start/.style = {signal, draw=#1, fill=#1!30,
+             text width=23mm, text=black, minimum height=23mm, font=\tiny, text depth=20mm,text height=5mm,
+             signal pointer angle=150, on chain},
+         cont/.style = {start=#1, signal from=west, text=black}
+        }
+
+
+\mode<presentation>{}
+
+\begin{document}
+\beamertemplatenavigationsymbolsempty
+\begin{frame}
+\frametitle{Wilhelm Schick}
+\begin{tikzpicture}[
+        node distance = 2mm,
+         start chain = going right,
+         %start/.style = {signal, draw=[1]{#1}, fill=[1]{#1}!30,
+         %    text width=23mm, minimum height=23mm, font=\tiny,
+          %   signal pointer angle=150, on chain},
+          %cont/.style = {start=[1]{#1}, signal from=west}
+             ]
+
+        \node[start=darkred!80!black] {\bfseries
+                 Meldebogen\\
+                 \normalfont
+                };
+        \node[cont=gray!60!white] {\bfseries
+                 Anklage\\ 
+             };
+        \node[cont=gray!60!white] {\bfseries
+            Beweisaufnahme\\
+            \normalfont
+             };
+        \node[cont=gray!60!white] {\bfseries
+                 Urteil\\
+                  \normalfont
+                  };
+        \end{tikzpicture}
+        \begin{columns}
+            \begin{column}{.4\textwidth}
+                \begin{itemize}[<+->]
+            \item Ortsgruppenamtsleiter der NSDAP 
+            \item Kreisabschnittsverwalter des NSLB
+            \item Bef\""{o}rderung zum Rektor des Goethe-Gymnasiums
+        \end{itemize} 
+        \end{column}
+        \begin{column}{.25\textwidth}
+        \includegraphics[width=\textwidth]{example-image-10x16}\\
+    \end{column}
+\end{columns}
+\end{frame}
+
+\end{document}

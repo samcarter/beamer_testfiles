@@ -1,0 +1,30 @@
+% https://tex.stackexchange.com/a/395812
+\documentclass{beamer}
+
+\begin{document}
+\begin{frame}{Frame}
+First
+
+\alert<+(1)>{A1}
+
+\alert<+(1)>{A2}
+
+\begin{uncoverenv}<+(1)->
+Second
+
+\alert<+(1)>{A3}
+
+\alert<+(1)>{A4}
+\end{uncoverenv}
+
+\begin{uncoverenv}<+(1)->
+ Third
+
+\alert<+(1)>{A5}
+
+\alert<+(1)>{A6}
+\end{uncoverenv}
+
+\end{frame}
+
+\end{document}

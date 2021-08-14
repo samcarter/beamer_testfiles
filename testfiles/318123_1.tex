@@ -1,0 +1,63 @@
+% https://tex.stackexchange.com/a/318123
+\documentclass{beamer}
+
+\usetheme{Warsaw}
+
+% mod. from default theme
+\defbeamertemplate*{title page}{myspecial}[1][]
+{
+    \vbox{}
+    \vfill
+    \begingroup
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center]{title}
+        \usebeamerfont{title}\inserttitle\par%
+        \ifx\insertsubtitle\@empty%
+        \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+        \fi%     
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=8pt,center,#1]{author}
+        \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center,#1]{institute}
+        \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center,#1]{date}
+        \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    \endgroup
+    \vfill
+    %%%%%%%%%% added footline from split
+    \leavevmode%
+    \tiny%
+    \hbox{
+        \hskip-1.1cm%
+        \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fill,rightskip=.3cm]{title in head/foot}%
+        \usebeamerfont{author in head/foot}\insertshortauthor
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}%
+        \usebeamerfont{title in head/foot}\insertshorttitle
+    \end{beamercolorbox}}%
+}
+
+\title{test title}
+
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{title page}[myspecial][colsep=-4bp,rounded=true,shadow=false]
+
+\begin{document}
+
+    \begin{frame}[plain,b]
+        \titlepage
+    \end{frame} 
+
+    \begin{frame}
+        normal
+    \end{frame}
+
+\end{document}

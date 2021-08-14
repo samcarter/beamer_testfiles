@@ -1,0 +1,30 @@
+% https://tex.stackexchange.com/a/416813
+\documentclass{beamer}
+\usepackage[english]{babel}
+
+\theoremstyle{definition}
+\newtheorem{mydef}{}[theorem]
+
+\makeatletter
+\setbeamertemplate{theorem begin}
+{
+  \normalfont
+  \begin{\inserttheoremblockenv}
+  {%
+    \inserttheoremname%
+    \ifx\inserttheoremaddition\@empty\else%\ <- Removed this space
+    (\inserttheoremaddition)\fi%
+  }%
+}
+
+\makeatother
+
+\begin{document}
+\begin{frame}
+\noindent Here is a sentence with correct alignment
+\begin{mydef}[This name is prefixed by a single space]
+This is a definition 
+\end{mydef}
+\noindent Here
+\end{frame}
+\end{document}

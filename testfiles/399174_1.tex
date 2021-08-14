@@ -1,0 +1,43 @@
+% https://tex.stackexchange.com/a/399174
+\documentclass[final]{beamer}
+\usepackage{tikz}
+\usepackage[scale=1.15]{beamerposter} 
+\usetheme{confposter}
+
+\title{TitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitleTitle} 
+\author{xxxxx, xxxxx, xxx} 
+\institute{ Department of xxxxxxxxx,xxxxxxxxxxxxxxxx} 
+
+\setbeamertemplate{headline}{
+ \leavevmode
+  \begin{columns}[T]
+    \begin{column}{.1\linewidth}
+        \vskip1cm
+        \hskip1cm
+        \includegraphics[width=.9\linewidth]{example-image-a}
+    \end{column}
+        \begin{column}{.8\linewidth}
+         \vskip2cm
+         \centering
+         \usebeamercolor{title in headline}{\color{jblue}\Huge{\textbf{\inserttitle}}\\[0.5ex]}
+         \usebeamercolor{author in headline}{\color{fg}\Large{\insertauthor}\\[1ex]}
+         \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}\\[1ex]}
+         \vskip1cm
+        \end{column}
+    \begin{column}{.1\linewidth}
+        \vskip1cm
+        \includegraphics[width=.9\linewidth]{example-image-b}
+        \hskip1cm
+    \end{column}        
+   \vspace{1cm}
+  \end{columns}
+ \vspace{0.5in}
+ \hspace{0.5in}\begin{beamercolorbox}[wd=47in,colsep=0.15cm]{cboxb}\end{beamercolorbox}
+ \vspace{0.1in}
+}
+
+\begin{document}
+
+\begin{frame}[t]
+\end{frame}
+\end{document}

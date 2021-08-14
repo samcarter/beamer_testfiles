@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/417342
+\documentclass{beamer}
+\setbeamertemplate{headline}{\color{red}\rule{\paperwidth}{1cm}}
+\setbeamertemplate{background}{\rule{0.8cm}{7cm}}
+
+\usepackage{xpatch}
+
+\makeatletter
+\xpatchcmd{\ps@empty}{%
+    \vbox{\hbox{\hskip-\Gm@lmargin\raise\headheight\box\beamer@tempbox\box\@tempboxa}\hfil}%
+}{%
+    \vbox{\hbox{\hskip-\Gm@lmargin\raise\headheight\box\beamer@tempbox\raise\headheight\box\@tempboxa}\hfil}%
+}{\typeout{patching successful}}{\typeout{patching failure}}
+\makeatother
+
+\begin{document}
+    \begin{frame}[plain]
+        plain frame
+    \end{frame}
+
+    \begin{frame}
+        normal frame
+    \end{frame}
+\end{document}

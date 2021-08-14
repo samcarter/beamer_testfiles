@@ -1,0 +1,64 @@
+% https://tex.stackexchange.com/a/422056
+\documentclass[10pt,ignorenonframetext]{beamer}
+
+\usepackage{filecontents}
+\begin{filecontents*}{MWE1.bib}
+@article{dijkstra1959note,
+    Author = {Dijkstra, Edsger W},
+    Date-Added = {2014-04-28 19:35:12 +0000},
+    Date-Modified = {2014-04-28 19:35:12 +0000},
+    Journal = {Numerische mathematik},
+    Number = {1},
+    Pages = {269--271},
+    Publisher = {Springer},
+    Title = {A note on two problems in connexion with graphs},
+    Volume = {1},
+    Year = {1959}}
+
+@article{zipf1946p1,
+    Author = {Zipf, George Kingsley},
+    Date-Added = {2014-04-28 19:32:00 +0000},
+    Date-Modified = {2014-04-28 19:32:00 +0000},
+    Journal = {American sociological review},
+    Pages = {677--686},
+    Publisher = {JSTOR},
+    Title = {The P1 P2/D hypothesis: On the intercity movement of persons},
+    Year = {1946}}
+\end{filecontents*}
+
+\usepackage[bibencoding=utf8,citestyle=authortitle,bibstyle=authortitle]{biblatex}
+\addbibresource{MWE1.bib}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Title of frame 2}
+
+\begin{columns}[T]
+\begin{column}{0.45\textwidth}
+\begin{block}{Block title 1 on left}
+
+\begin{itemize}
+\item Sentence 1.\footnotemark[1] 
+\item Sentence 2.\footnotemark[2]
+\end{itemize}
+
+\end{block}
+\end{column}
+
+\begin{column}{0.45\textwidth}
+\begin{figure}
+\includegraphics[width=\textwidth]{example-image-a}
+\caption{Example image}
+\end{figure}
+\end{column}
+\end{columns}
+
+\setcounter{footnote}{1}
+\footcitetext{dijkstra1959note}
+\stepcounter{footnote}
+\footcitetext{zipf1946p1}
+
+\end{frame}
+
+\end{document}

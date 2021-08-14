@@ -1,0 +1,138 @@
+% https://tex.stackexchange.com/a/442070
+% !TeX spellcheck = en_US
+\documentclass[13pt
+    ,aspectratio=43
+%,handout
+]{beamer}
+
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb}
+
+\usepackage{gensymb}
+%\usepackage{color}
+\usepackage{lmodern}
+%\renewcommand{\rmdefault}{lmss}
+%\usepackage{hyperref}
+
+%Remove indentation in footnotes
+%\usepackage[hang,flushmargin]{footmisc} 
+%Table Packages
+\usepackage{tabularx}
+\usepackage{longtable,booktabs,tabu}
+\usepackage{makecell}
+\usepackage[detect-all]{siunitx}
+\sisetup{input-symbols = ()} % ""("" and "")"" are ordinary inputs
+\usepackage{setspace}
+
+
+\def\V#1,#2/#3/{\Entry[#3]{#1}{#2}}
+\usepackage{siunitx} %align numbers by decimal point
+
+\usepackage{csquotes}
+% Options for captions
+\usepackage[hypcap,format = plain, justification=raggedright, singlelinecheck=off]{caption}
+\captionsetup[table]{belowskip=0em,aboveskip=2pt}
+\captionsetup[figure]{belowskip=0em,aboveskip=2pt}
+
+
+\usepackage{textcomp,ragged2e}
+\usepackage{appendixnumberbeamer}
+
+%Turn on and of the display of the notes by commenting out the following line
+%\setbeameroption{show notes}
+\setbeamertemplate{note page}[plain]
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{positioning} 
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{spy}
+
+
+
+% % % Theme
+%\usetheme{Frankfurt}
+\usetheme[titleformat = regular
+        , sectionpage = progressbar
+        , subsectionpage = none
+        , numbering = counter %none,counter, fraction
+        , progressbar = foot % none, head, frametitle, foot
+        ]{metropolis}
+
+\usetikzlibrary{matrix}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+
+\tikzset{
+    invisible/.style={opacity=0,text opacity=0},
+    visible on/.style={alt={#1{}{invisible}}},
+    connect on/.style={alt={#1{connect spies}{}}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} 
+    },
+}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Distribution of Leverage prior to Price Decline in 2008 and 2014}
+
+\begin{table}
+        \footnotesize
+\begin{tikzpicture}[spy using outlines={rectangle, magnification=3, width=\textwidth, height=.8\textheight,
+every spy in node/.style={fill=bg}
+}
+]
+    \matrix[ampersand replacement=\&] {
+        \node (species1) {
+\begin{tabularx}{\textwidth}{>{\centering}p{0.19\textwidth}
+                                >{\centering}p{0.01em}
+                                >{\centering}X
+                                S[table-format=6.0
+                                ,round-mode=places
+                                ,round-precision=0
+                                ,table-align-text-post = false
+                                ]
+                                S[table-format=6.0
+                                ,round-mode=places
+                                ,round-precision=0
+                                ,table-align-text-post = false
+                                ]
+                                >{\centering}p{0.01em}
+                                >{\centering}X
+                                S[table-format=6.0
+                                ,round-mode=places
+                                ,round-precision=0
+                                ,table-align-text-post = false
+                                ]
+                                S[table-format=6.0
+                                ,round-mode=places
+                                ,round-precision=0
+                                ,table-align-text-post = false
+                                ]
+                                  }
+    \toprule
+    Leverage Percentile &  & \multicolumn{4}{c}{2008~Q2}  &  \multicolumn{3}{c}{2014~Q3}  \tabularnewline
+    \cmidrule{3-5} \cmidrule{7-9}
+                        &  & No.  & {Assets} & {Debt} & & No.  & {Assets} & {Debt}\tabularnewline
+\cmidrule{1-1}      \cmidrule{3-5}  \cmidrule{7-9}
+$1^{st} Quartile$   &  & 33 & 3094.25 & 493.08 & & 33 & 5871.65  & 948.29  \tabularnewline  %   $0    < P_{0.25} \leq 0.25$ 
+$2^{nd} Quartile$   &  & 36 & 11868.81 & 2494.08 & & 36 & 12894.65 & 2749.38 \tabularnewline        % $0.25 < P_{0.50} \leq 0.50$   
+$3^{rd} Quartile$   &  & 35 & 5018.03 & 1380.06 & & 36 & 4279.47 & 1328.07  \tabularnewline         % $0.50 < P_{0.75} \leq 0.75$ 
+$4^{th} Quartile$       &  & 35 & 2844.71 & 1208.22 & & 36 & 2001.95 & 884.75 \tabularnewline   % $0.75 < P_{1} \leq 1$ 
+Non-calculable Leverage &  & 5  & 1172.49 & 338.66 & &  7 & 1304.48  & 390.58 \tabularnewline
+\bottomrule
+\end{tabularx}
+        };\\
+\node[text width=\textwidth] (species2) {\addtocounter{table}{1}\textbf{Table \thetable:} Comparison of the number of companies for each leverage group prior to price declines in 2008~Q2 and 2014~Q3 and their average value of total assets and debt in million US-Dollar.};\\
+};
+\spy on (-0.5,0.4) in node[visible on=<2->] at (0,0);
+\end{tikzpicture}
+\end{table}
+
+\end{frame}
+
+
+\end{document}

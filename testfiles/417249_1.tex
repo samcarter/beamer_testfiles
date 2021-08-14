@@ -1,0 +1,88 @@
+% https://tex.stackexchange.com/a/417249
+\documentclass{beamer}
+\usepackage{tikz}
+
+% \usepackage{xcolor}
+
+\definecolor{tuelightblue}{cmyk}{0.2, 0.15, 0.04,  0.0}
+\definecolor{tueblue}{cmyk}{1.0, 0.93, 0.18, 0.05}
+\definecolor{tuepurple}{cmyk}{0.14, 0.97, 0.51, 0.01}
+\definecolor{babypink}{rgb}{0.96, 0.76, 0.76}
+
+\tikzset{onslide/.code args={<#1>#2}{%
+\only<#1>{\pgfkeysalso{#2}} % \pgfkeysalso doesn't change the path
+}}
+
+\begin{document}
+
+\section{first}
+
+\begin{frame}
+    \begin{columns}[onlytextwidth]
+        \vrule{}%
+        \begin{column}{.85\textwidth}%
+            \begin{onlyenv}<1>%
+                \begin{minipage}{1\textwidth}%
+                    text here%
+                \end{minipage}%
+                \begin{figure}%
+                    \begin{minipage}{.475\textwidth}%
+                        \includegraphics[width=\linewidth]{example-image}%
+                        \caption{reynolds 5000}%
+                    \end{minipage}%
+                    \begin{minipage}{.475\textwidth}%
+                        \includegraphics[width=\linewidth]{example-image}%
+                        \caption{reynolds 10000}%
+                    \end{minipage}%
+                \end{figure}%
+            \end{onlyenv}%
+            \begin{onlyenv}<2>%
+                \begin{minipage}{1\textwidth}%
+                    text here%
+                \end{minipage}%
+                \begin{figure}%
+                    \begin{minipage}{.475\textwidth}%
+                        \includegraphics[width=\linewidth]{example-image}%
+                        \caption{reynolds 5000}%
+                    \end{minipage}%
+                    \begin{minipage}{.475\textwidth}%
+                        \includegraphics[width=\linewidth]{example-image}%
+                        \caption{reynolds 10000}%
+                    \end{minipage}%
+                \end{figure}%
+            \end{onlyenv}%          
+            \begin{onlyenv}<3>%
+                \begin{minipage}{1\textwidth}%
+                    text here%
+                \end{minipage}%
+                \begin{figure}%
+                    \begin{minipage}{.475\textwidth}%
+                        \includegraphics[width=\linewidth]{example-image}%
+                        \caption{reynolds 5000}%
+                    \end{minipage}%
+                    \begin{minipage}{.475\textwidth}%
+                        \includegraphics[width=\linewidth]{example-image}%
+                        \caption{reynolds 10000}%
+                    \end{minipage}%
+                \end{figure}%
+            \end{onlyenv}%
+        \end{column}
+        \vrule{}
+        \begin{column}{.15\textwidth}
+            \begin{center}
+                \begin{tikzpicture}
+                    \node[onslide=<1>{fill=tuepurple},onslide=    <2->{fill=tuelightblue},circle,text width=0.5cm,align=center,inner sep=1pt,minimum size=1.3cm]{\footnotesize text one};
+                \end{tikzpicture}
+                \begin{tikzpicture}
+                    \node[onslide=<2>{fill=tuepurple},onslide=    <1>{fill=tuelightblue},onslide=<3>{fill=tuelightblue},circle,text width=0.5cm,align=center,inner sep=1pt,minimum size=1.3cm] {\footnotesize text two};
+                \end{tikzpicture}       
+                \begin{tikzpicture}
+                    \node[onslide=<3>{fill=tuepurple},onslide=<-2>{fill=tuelightblue},circle,text width=0.5cm,align=center,inner sep=1pt,minimum size=1.3cm]{\footnotesize text three};
+                \end{tikzpicture}  
+            \end{center}  
+        \end{column}
+        \vrule{}
+    \end{columns}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/412678
+\documentclass{beamer}
+
+\newcommand{\insertonodd}{%
+    \ifodd\insertoverlaynumber
+        This is slide \insertoverlaynumber. ODD.
+    \else
+        \only<\numexpr\insertoverlaynumber+1\relax>{}
+    \fi
+}
+
+\begin{document}
+\begin{frame}
+
+\insertonodd
+
+\only<2>  {This is slide \insertoverlaynumber.}
+\only<4>  {This is slide \insertoverlaynumber.}
+\end{frame}
+\end{document}

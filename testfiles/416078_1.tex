@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/416078
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}{Foo}
+Foo
+\begin{enumerate}
+\item Bar
+\item Baz
+\item Domingo
+\end{enumerate}
+
+Foo
+\begin{enumerate}[a.]
+\item Bar
+\item Baz
+\item Domingo
+\end{enumerate}
+
+Foo
+{
+\setbeamertemplate{enumerate item}{\alph{enumi}.}
+\begin{enumerate}
+\item Bar
+\item Baz
+\item Domingo
+\end{enumerate}
+}
+
+and bar
+
+\begin{itemize}
+\item Bar
+\item Baz
+\item Domingo
+\end{itemize}
+\end{frame}
+
+
+\end{document}

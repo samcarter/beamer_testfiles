@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/395350
+\documentclass{beamer}
+\setbeamertemplate{frametitle}[default][center]
+
+\newenvironment{myitemize}{%
+\begingroup
+    \setbeamercolor{itemize item}{parent=structure}
+    \setbeamercolor{alerted text}{fg=black}
+    \setbeamercolor{itemize/enumerate body}{fg=white}
+    \begin{itemize}[<alert@+->]
+}{
+    \end{itemize}
+\endgroup
+}
+
+
+\begin{document}
+
+\begin{frame}
+\frametitle{X}
+\begin{myitemize}
+    \item A
+    \item B
+    \item C
+\end{myitemize}
+\end{frame}
+\end{document}

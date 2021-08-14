@@ -1,0 +1,124 @@
+% https://tex.stackexchange.com/a/448526
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+
+\def\bibfont{\footnotesize}
+\addto\captionsfrench{\def\contentsname{}}
+
+\usetheme{Ilmenau}
+
+\makeatletter
+\beamer@theme@subsectionfalse
+\makeatother
+
+\title[Meeting]{Meeting}
+\subtitle{Subject of the meeting}
+\author[M. Dupont]{P. Dupont\inst{1,2,3} \and P. Dupond\inst{1} \and E. Dupond\inst{2} \and F. Dupont\inst{3}}
+\institute[Dupont's Institution]{
+    \inst{1}
+    Dupont Lab, France\\
+    Univ. of Dupont
+    \and
+    \inst{2}
+    Dupond, France\\
+    Univ. of Dupond
+    \and
+    \inst{3}
+    Dupond Factory, Paris
+}
+\date{17/09/2018}
+
+
+\addtobeamertemplate{navigation symbols}{}{%
+        \usebeamerfont{footline}%
+        \usebeamercolor[fg]{footline}%
+        \hspace{1em}%
+        \insertframenumber/\inserttotalframenumber
+}
+\setbeamercolor{footline}{fg=structure}
+\setbeamercolor{section in head/foot}{fg=white}
+
+
+\setbeamercolor{section in toc}{fg=structure}
+
+\begin{document}
+
+
+\frame{\titlepage}
+
+\AtBeginSection[]
+{
+ \begin{frame}
+        \frametitle{Section's outline}
+        \tableofcontents[currentsection]
+    \end{frame}
+    %\setbeamercolor{section in toc}{fg=black}
+}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}{First subject}
+
+\end{frame}
+
+\begin{frame}{Second subject}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Organization}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{First subject}
+
+\end{frame}
+
+\begin{frame}{Second subject}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Development}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{First subject}
+
+\end{frame}
+
+\begin{frame}{Second subject}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Conclusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{First subject}
+
+\end{frame}
+
+\begin{frame}{Second subject}
+
+\end{frame}
+
+
+\end{document}

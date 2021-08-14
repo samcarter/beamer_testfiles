@@ -1,0 +1,36 @@
+% https://tex.stackexchange.com/a/401107
+\documentclass{beamer}
+
+\makeatletter
+\setbeamertemplate{frametitle}{
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \hspace*{0.5cm}
+  \begin{beamercolorbox}[sep=0.3cm,left,wd=\dimexpr\the\@tempdima-1cm\relax]{frametitle}
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-1ex%
+    \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+    \strut\hskip-1cm\insertframetitle\strut\par%
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+      \fi
+    }%
+    \vskip-1ex%
+    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  \end{beamercolorbox}%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Long Frametitle that spans two lines and goes on and on and on and on and on}
+
+\end{frame}
+
+
+\end{document}

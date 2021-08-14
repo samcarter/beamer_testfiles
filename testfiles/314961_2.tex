@@ -1,0 +1,185 @@
+% https://tex.stackexchange.com/a/314961
+\documentclass[xcolor=dvipsnames]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{MnSymbol}
+\usepackage{stmaryrd}
+\usepackage{colortbl}
+\usepackage{caption}
+\usepackage{comment}
+\usepackage[utf8]{inputenc}
+\usepackage{pdfpages}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{soul}
+\usepackage[normalem]{ulem}
+\usepackage{appendixnumberbeamer}
+\usepackage{soul}
+\newcommand{\hlc}[2][yellow]{ {\sethlcolor{#1} \hl{#2}} }
+
+
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+\usepackage{bbm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage{pgf}
+%\usepackage{etex}
+%\usepackage{tikz,pgfplots}
+
+
+\usetheme{Antibes}
+%\usetheme{Madrid}
+%\usecolortheme[named=Maroon]{structure}
+\usecolortheme{dolphin}
+\usefonttheme{professionalfonts}
+\useoutertheme{infolines}
+\useinnertheme{circles}
+
+\newtheorem*{bem}{Bemerkung}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{etoolbox}
+
+%\useoutertheme[section=false]{smoothbars}
+
+
+\newcommand{\beginbackup}{
+    \newcounter{framenumbervorappendix}
+    \setcounter{framenumbervorappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+    \addtocounter{framenumbervorappendix}{-\value{framenumber}}
+    \addtocounter{framenumber}{\value{framenumbervorappendix}} 
+}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+    language=Java,
+    aboveskip=2mm,
+    belowskip=2mm,
+    showstringspaces=false,
+    columns=flexible,
+    basicstyle={\small\ttfamily},
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=2
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[Paper]{Paper}
+\date{\today}
+
+\makeatletter
+\newcount\beamer@subsectionstartframe
+\beamer@subsectionstartframe=1
+\apptocmd{\beamer@subsection}{\addtocontents{nav}{\protect\headcommand{%
+            \protect\beamer@subsectionframes{\the\beamer@subsectionstartframe}{\the\c@framenumber}}}}{}{}
+\apptocmd{\beamer@subsection}{\beamer@subsectionstartframe=\c@framenumber\advance\beamer@subsectionstartframe by1\relax}{}{}
+\AtEndDocument{\immediate\write\@auxout{\string\@writefile{nav}%
+        {\noexpand\headcommand{\noexpand\beamer@subsectionframes{\the\beamer@subsectionstartframe}{\the\c@framenumber}}}}}{}{}
+\def\beamer@startframeofsubsection{1}
+\def\beamer@endframeofsubsection{1}
+\def\beamer@subsectionframes#1#2{%
+    \ifnum\c@framenumber<#1%
+    \else%
+    \ifnum\c@framenumber>#2%
+    \else%
+    \gdef\beamer@startframeofsubsection{#1}%
+    \gdef\beamer@endframeofsubsection{#2}%
+    \fi%
+    \fi%
+}
+\newcommand\insertsubsectionstartframe{\beamer@startframeofsubsection}
+\newcommand\insertsubsectionendframe{\beamer@endframeofsubsection}
+\makeatother
+
+\newcounter{subsectionframenumber}
+\newcounter{totalsubsectionframenumber}
+
+\setbeamertemplate{headline}
+{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.65ex,dp=1.5ex,right]{section in head/foot}%
+            \usebeamerfont{section in head/foot}\insertsectionhead\hspace*{2ex}
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.65ex,dp=1.5ex,left]{subsection in head/foot}%
+            \parbox[b]{.4\textwidth}{
+                \usebeamerfont{subsection in head/foot}\hspace*{2ex}\insertsubsectionhead%
+                \setcounter{subsectionframenumber}{1}
+                \addtocounter{subsectionframenumber}{\insertframenumber}
+                \addtocounter{subsectionframenumber}{-\insertsubsectionstartframe}
+                \setcounter{totalsubsectionframenumber}{1}
+                \addtocounter{totalsubsectionframenumber}{\insertsubsectionendframe}
+                \addtocounter{totalsubsectionframenumber}{-\insertsubsectionstartframe}
+                \ifnum\value{section}>0%
+                \foreach\x in {1,...,\value{totalsubsectionframenumber}}{%
+                    \ifnum\x=\thesubsectionframenumber%
+                    \usebeamertemplate{mini frame}~%
+                    \else%
+                    \usebeamertemplate{mini frame in other subsection}~%
+                    \fi%
+                }%
+                \fi%
+            }%
+            \hfill\hyperlink{toc}{ToC}%
+        \end{beamercolorbox}}%
+        \vskip0pt%
+    }
+
+
+\begin{document}
+
+
+    \beginbackup
+    \begin{frame}
+        \titlepage
+    \end{frame}
+    \backupend
+
+    \begin{frame}[label=toc]
+        \frametitle{Outline}
+        \tableofcontents
+    \end{frame}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \section{BLAH}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \subsection{sub1}
+
+    \begin{frame}{SLIDE1}
+    \end{frame}
+
+    \begin{frame}{SLIDE2}
+    \end{frame}
+
+\end{document}

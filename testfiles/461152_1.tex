@@ -1,0 +1,59 @@
+% https://tex.stackexchange.com/a/461152
+\documentclass[xcolor={svgnames}]{beamer}
+
+\usepackage{lipsum}
+\usepackage{tcolorbox}
+
+\tcbuselibrary{most,documentation}
+\definecolor{Green_Dark}{rgb}{0.078431,0.407843,0.176471}
+\definecolor{Blue_Dark}{rgb}{0.090196,0.211765,0.364706}
+\definecolor{Blue_Bright}{rgb}{0.858824,0.898039,0.945098}
+
+
+
+
+\begin{document}
+
+\begin{frame}
+
+\begin{tikzpicture}[overlay, remember picture, transform canvas={scale=0.6, xshift=6cm,yshift=-1cm}]
+\definecolorseries{boxcol}{rgb}{last}{blue}{red}
+\resetcolorseries[28]{boxcol}
+\coordinate (A) at (0,0); \coordinate (B) at (current page.center);
+\path[use as bounding box] (A) rectangle coordinate (C) (B);
+\node at (C) {%
+  \begin{tcbitemize}[title=tcolorbox xx,fonttitle=\small\bfseries,
+    enhanced jigsaw,opacityback=0.5,opacitybacktitle=0.75,
+    halign=center,valign=center,arc=5mm,
+    raster width=16cm,raster column skip=8mm,raster halign=center,
+    raster force size=false,
+    raster row 1/.style={height=6cm},
+    raster row 2/.style={width=6cm,height=4cm},
+    raster column 1/.style={flushright title,
+      frame style={left color=yellow!50!black,right color=green!50!black},
+      title style={left color=yellow!50!blue,right color=blue!50!green!50!black},
+      interior style={left color=yellow!70,right color=green!70},
+      underlay={\draw[line width=6mm,line cap=round,black!60]
+        ([shift={(0.4,-0.15)}]frame.north east)
+        --([shift={(0.4,0.15)}]frame.south east); }},
+    raster column 2/.style={
+      frame style={left color=green!50!black,right color=yellow!50!black},
+      title style={left color=blue!50!green!50!black,right color=yellow!50!blue},
+      interior style={left color=green!70,right color=yellow!70}}]
+  \tcbitem[fontupper=\Huge\bfseries,sharp corners=east,
+    underlay={\draw[line width=6mm,line cap=round,black!60]
+      ([shift={(0.4,0.30)}]frame.north east)-- coordinate(A) +(0,0.2);
+      \draw[line width=1mm,line cap=round,black!60](A) -- +(30:1.5cm);
+      \draw[line width=1mm,line cap=round,black!60](A) -- +(150:1.5cm);}]
+    tcolorbox
+  \tcbitem[fontupper=\large\bfseries,sharp corners=west]
+    Manual for\\ version\\ xx\\(xx)
+  \tcbitem[sharp corners=northeast]
+  \tcbitem[sharp corners=northwest] Thomas F.~Sturm
+  \end{tcbitemize}%
+};
+\end{tikzpicture}
+
+\end{frame}
+
+\end{document}

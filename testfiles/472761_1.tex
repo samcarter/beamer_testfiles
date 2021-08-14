@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/a/472761
+\documentclass{beamer}
+
+
+\usetheme{Madrid}
+\useinnertheme{rectangles}
+\setbeamertemplate{blocks}[default]
+
+\newcommand{\mysquare}[1]{
+  \hbox{%
+    \usebeamerfont*{item projected}%
+    \usebeamercolor[bg]{item projected}%
+    \vrule width2.25ex height1.85ex depth.4ex%
+    \hskip-2.25ex%
+    \hbox to2.25ex{%
+      \hfil%
+      \color{fg}#1%
+      \hfil}%
+  }%
+}
+
+
+\begin{document}
+    \begin{frame}
+        \begin{enumerate}
+            \item Item one
+            \item Item two
+            \item[\mysquare{n}] Item n
+        \end{enumerate}
+    \end{frame}
+\end{document}

@@ -1,0 +1,23 @@
+% https://tex.stackexchange.com/a/373514
+\documentclass{beamer}
+
+\setbeamerfont{item projected}{size=\normalsize}
+
+\begin{document}
+\begin{frame}
+text
+{
+            \setbeamertemplate{enumerate item}{
+              \usebeamerfont*{item projected}%
+              \usebeamercolor[bg]{item projected}%
+              Step \insertenumlabel.%
+            }
+            \setlength{\leftmargini}{3.5em}
+
+            \begin{enumerate}
+                \item test1
+                \item test2
+            \end{enumerate}
+}
+\end{frame}
+\end{document}

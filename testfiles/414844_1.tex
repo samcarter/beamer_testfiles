@@ -1,0 +1,53 @@
+% https://tex.stackexchange.com/a/414844
+\documentclass[c]{beamer}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\setbeamertemplate{frametitle continuation}{} 
+
+\makeatletter
+\patchcmd{\beamer@sectionintoc}
+  {\vfill}
+  {\vskip\itemsep}
+  {}
+  {}
+\makeatother  
+
+\begin{document}
+\begin{frame}[t,allowframebreaks]
+\frametitle{Plan}
+\tableofcontents
+\end{frame}    
+\section{a}
+\begin{frame} aaa \end{frame}
+\section{b}
+\begin{frame} bbb \end{frame}
+\section{c}
+\begin{frame} ccc \end{frame}
+\section{d}
+\begin{frame} ddd \end{frame}
+\section{e}
+\begin{frame} eee \end{frame}
+\section{f}
+\begin{frame} fff \end{frame}
+\section{g}
+\begin{frame} ggg \end{frame}
+\section{h}
+\begin{frame} hhh \end{frame}
+\section{i}
+\begin{frame} iii \end{frame}
+\section{j}
+\begin{frame} jjj \end{frame}
+\section{k}
+\begin{frame} kkk \end{frame}
+\section{l}
+\begin{frame} lll \end{frame}
+\section{m}
+\begin{frame} mmm \end{frame}
+\section{n}
+\begin{frame} nnn \end{frame}
+\section{o}
+\begin{frame} ooo \end{frame}
+\section{p}
+\begin{frame} ppp \end{frame}
+\end{document}

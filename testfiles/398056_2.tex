@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/398056
+\documentclass[14pt]{beamer}
+\geometry{papersize={250mm,190mm}}
+
+\usepackage{tikz}
+
+\setbeamertemplate{title page}{%
+\begin{tikzpicture}[overlay, remember picture]
+    \fill[red] (current page.south west) rectangle (current page.north east);
+\end{tikzpicture}
+}
+
+\title{Example Positioning disaster}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+\end{document}

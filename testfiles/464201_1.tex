@@ -1,0 +1,37 @@
+% https://tex.stackexchange.com/a/464201
+\documentclass{beamer}
+
+\usepackage{tikz}
+
+\setbeamertemplate{background}
+{\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{example-image}}
+
+\setbeamercolor{sidebar}{bg=red!70!black}
+\useoutertheme[height=0pt,width=1cm]{sidebar}
+
+\setbeamertemplate{headline}{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[xshift=-0.5cm,yshift=-0.5cm] at (current page.north east) {\tiny\insertframenumber};
+    \end{tikzpicture}
+}
+
+\title[]{title}
+\author[]{author names}
+
+\setbeamertemplate{navigation symbols}{\raisebox{0.2cm}{\includegraphics[width=1cm]{example-image-duck}}\hspace*{0.2cm}}
+
+\begin{document}
+
+\begin{frame}[plain]
+    \begin{tikzpicture}[remember picture, overlay]
+        \fill[red!70!black] (current page.south west) rectangle ([xshift=2cm]current page.north west);
+        \node at ([xshift=2cm,yshift=-1cm]current page.north west) {\includegraphics[width=2cm]{example-image-duck}};
+    \end{tikzpicture}
+  \titlepage
+\end{frame}
+
+
+\begin{frame}
+  normal frame
+\end{frame}
+\end{document}

@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/466976
+\documentclass[10pt]{beamer}
+\usetheme{metropolis}
+
+\begin{document}
+
+{
+\metroset{sectionpage=none}
+\section{This should not have an intro frame}
+}
+%\metroset{sectionpage=simple}
+
+\begin{frame}
+    test
+\end{frame}
+
+\section{I want this one to have an intro frame}
+
+\begin{frame}
+    test
+\end{frame}
+
+
+\end{document}

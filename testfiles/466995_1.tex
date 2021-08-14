@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/466995
+\documentclass{beamer}
+\newcommand{\AND}{%
+  \hskip\fontdimen2\font plus \fontdimen3\font minus \fontdimen4\font
+  \pause
+  }
+
+\newenvironment{pausespaces}
+ {\par\obeyspaces\begingroup\lccode`\~=`\ \lowercase{\endgroup\let~}\AND}
+ {\par}
+
+\begin{document}
+
+\begin{frame}[fragile]
+
+\begin{pausespaces}%
+some text some text someveryverylongword text text
+\end{pausespaces}
+
+\end{frame}
+
+\end{document}

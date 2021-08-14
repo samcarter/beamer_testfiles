@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/a/370421
+\documentclass{beamer}
+
+\usepackage{pgfpages}
+\setbeameroption{show notes}
+\setbeameroption{show notes on second screen=right}
+
+\usetheme{metropolis}
+\usefonttheme[onlymath]{serif}
+
+\usepackage{hepnames}
+
+\newcommand{\themath}{
+    Decay width
+    \[ \varGamma\big(\APKzero \rightarrow \Ppositron \, \Pmuon\big)  = a + b = 0 \]
+}
+
+\title{Metropolis Standout}
+\begin{document}
+
+    \begin{frame}
+        \themath
+        \note{\themath}
+    \end{frame}
+
+    \begin{frame}[standout]
+        \themath
+    \end{frame}
+    \note{\themath}
+
+\end{document}

@@ -1,0 +1,30 @@
+% https://tex.stackexchange.com/a/433507
+\documentclass[aspectratio=169]{beamer}
+\usepackage[skins]{tcolorbox}
+\usecolortheme{rose}
+
+\newtcolorbox{consoleBox}[2][]{%
+    colbacktitle=structure.fg!20!white, 
+    coltitle=structure.fg, 
+    colback=block title.bg!40!white,
+    title=#2,
+    boxrule=0pt,
+    sharp corners,
+    #1
+}  
+
+\begin{document}
+\begin{frame}
+\frametitle{Problem}
+
+  \begin{block}{Console}
+    This is the desired appearance.
+  \end{block} 
+
+  \begin{consoleBox}{Console}
+    This is close but not quite right.  The body background is way too
+    dark and the title background is a little too dark.
+  \end{consoleBox}
+
+\end{frame}
+\end{document}

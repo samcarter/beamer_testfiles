@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/311249
+\documentclass{beamer}
+
+\usepackage{booktabs}
+\usepackage{colortbl}
+
+\begin{document}
+\begin{frame}
+\frametitle{Example}
+\begin{table}
+\centering
+\begin{tabular}{c c c}
+\toprule
+H1 & H2 & H3\\
+\midrule
+1 & \only<2>{\cellcolor{blue!50}}? & 3 \\
+2 & 4 & ?\\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{frame}
+\end{document}

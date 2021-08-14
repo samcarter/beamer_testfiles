@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/392309
+\documentclass{beamer}
+
+\setbeamercovered{%
+still covered={\opaqueness<1>{15}\opaqueness<2>{10}\opaqueness<3>{5}\opaqueness<4->{2}},
+again covered={\opaqueness<1->{15}}}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{frame}
+    \begin{itemize}
+    \item<1> test
+    \item<1> test
+    \end{itemize}
+    \only<2>{
+   \begin{picture}(0,0)
+            \put(50,0){\color{blue}\rule{.6\textwidth}{.3\textheight}}
+            \put(110,30){question block}
+    \end{picture}
+
+   }%
+\end{frame} 
+
+\end{document}

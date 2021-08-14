@@ -1,0 +1,102 @@
+% https://tex.stackexchange.com/a/437129
+\documentclass[aspectratio=43]{beamer}
+
+\usepackage{pbox}
+\setbeamercolor{section in head/foot}{fg=white}
+\setbeamertemplate{section in head/foot}{%
+        \usebeamerfont{sectionpage}\usebeamercolor[fg]{titlepages}\raggedright%
+        \huge\insertsectionhead%
+      \hspace{0.1\textwidth}%
+      \begin{minipage}[b][.5\textheight][t]{0.5\textwidth}
+        \vspace*{4.3cm}
+        \large\insertsubsectionnavigation{\linewidth}
+      \end{minipage}
+}
+\setbeamertemplate{section in head/foot shaded}{%
+    \pbox[c][4ex][c]{0.2\textwidth}{%
+      %
+      \color{black!75}\Large\centering\insertsectionhead%
+    }\hspace*{1pt}%
+}
+\setbeamercolor{subsection in head/foot}{fg=white}
+\setbeamertemplate{subsection in head/foot}{%
+    \footnotesize\hspace*{-1pt}\setlength\fboxsep{0pt}%
+    \pbox[c][4ex][c]{\textwidth}{%
+            \centering\small\insertsubsectionhead%
+    }\hspace*{1pt}%
+}
+\setbeamertemplate{subsection in head/foot shaded}{%
+    \footnotesize \hspace*{-1pt}\setlength\fboxsep{0pt}%
+    \pbox[c][4ex][c]{\textwidth}{%
+      %
+      \color{black!75}\small\insertsubsectionhead%
+    }\hspace*{1pt}%
+}
+
+\AtBeginSection[]{%
+        {\setbeamercolor{background canvas}{bg=blue!50}%
+        \frame{%
+            \huge\insertsectionnavigation{0.6\linewidth}{}{}%
+            \addtocounter{framenumber}{-1}}}%
+        }
+
+\AtBeginSubsection[]{{\setbeamercolor{background canvas}{bg=blue!50}\frame{\mbox{}\hspace{0.1\textwidth}Subsection \thesubsection\addtocounter{framenumber}{-1}}}}
+
+\begin{document}
+
+\section*{Overview}
+
+\begin{frame}{Overview}
+
+\end{frame}
+
+\section{Methodology} % if this does not have a star, it works.
+
+\subsection{Method A}
+    \subsection{Method A}
+        \subsection{Method A}
+            \subsection{Method A}
+                \subsection{Method A}
+                    \subsection{Method A}
+
+\begin{frame}{Method A is good}
+
+    Total: \inserttotalframenumber
+
+\end{frame}
+
+\subsection*{Method B}
+
+\begin{frame}{Method B is better}
+
+    Because it is better.
+
+\end{frame}
+
+\subsection*{Method C}
+
+\begin{frame}{Method C is the best}
+
+    Because it is the best.
+
+\end{frame}
+
+\section{Results}
+
+\subsection*{Preliminary results}
+
+\begin{frame}{Early results}
+
+    Not good.
+
+\end{frame}
+
+\subsection*{Final results}
+
+\begin{frame}{These results are beautiful.}
+
+    Perfect.
+
+\end{frame}
+
+\end{document}

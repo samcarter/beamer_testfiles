@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/a/430797
+\documentclass{beamer}
+
+\usepackage[
+    audience=long
+    ]{beameraudience}
+
+\begin{document}
+
+\frame{Frame 1}
+
+\justfor{long}{%
+    \frame{Frame 2 -- Additional Slide} 
+}
+
+
+\frame{Frame 3}
+
+\end{document}

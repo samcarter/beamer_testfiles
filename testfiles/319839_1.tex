@@ -1,0 +1,75 @@
+% https://tex.stackexchange.com/a/319839
+\documentclass{beamer}
+
+\usepackage{pgfpages}
+
+\makeatletter
+\define@key{pgfpagesuselayoutoption}{horizontal shift}%
+{\def\pgfpageoptionhshift{#1}}
+\define@key{pgfpagesuselayoutoption}{vertical shift}%
+{\def\pgfpageoptionvshift{#1}}
+\makeatother
+
+\pgfpagesdeclarelayout{2 on 1 shifted}
+{
+    \edef\pgfpageoptionheight{\the\paperwidth} % landscaped by default
+    \edef\pgfpageoptionwidth{\the\paperheight}
+    \def\pgfpageoptionborder{0pt}
+    \def\pgfpageoptionfirstshipout{1}
+    \def\pgfpageoptionhshift{0pt}
+    \def\pgfpageoptionvshift{0pt}
+}
+{
+    \pgfpagesphysicalpageoptions
+    {%
+        logical pages=2,%
+        physical height=\pgfpageoptionheight,%
+        physical width=\pgfpageoptionwidth,%
+        current logical shipout=\pgfpageoptionfirstshipout%
+    }
+    \ifdim\paperheight>\paperwidth\relax
+    % put side-by-side
+    \pgfpageslogicalpageoptions{1}
+    {%
+        border shrink=\pgfpageoptionborder,%
+        resized width=.5\pgfphysicalwidth,%
+        resized height=\pgfphysicalheight,%
+        center=\pgfpoint{.25\pgfphysicalwidth+\pgfpageoptionhshift}{.5\pgfphysicalheight+\pgfpageoptionvshift}%
+    }%
+    \pgfpageslogicalpageoptions{2}
+    {%
+        border shrink=\pgfpageoptionborder,%
+        resized width=.5\pgfphysicalwidth,%
+        resized height=\pgfphysicalheight,%
+        center=\pgfpoint{.75\pgfphysicalwidth+\pgfpageoptionhshift}{.5\pgfphysicalheight+\pgfpageoptionvshift}%
+    }%
+    \else
+    % stack on top of one another
+    \pgfpageslogicalpageoptions{1}
+    {%
+        border shrink=\pgfpageoptionborder,%
+        resized width=\pgfphysicalwidth,%
+        resized height=.5\pgfphysicalheight,%
+        center=\pgfpoint{.5\pgfphysicalwidth+\pgfpageoptionhshift}{.75\pgfphysicalheight+\pgfpageoptionvshift}%
+    }%
+    \pgfpageslogicalpageoptions{2}
+    {%
+        border shrink=\pgfpageoptionborder,%
+        resized width=\pgfphysicalwidth,%
+        resized height=.5\pgfphysicalheight,%
+        center=\pgfpoint{.5\pgfphysicalwidth+\pgfpageoptionhshift}{.25\pgfphysicalheight+\pgfpageoptionvshift}%
+    }%
+    \fi    
+}
+
+\pgfpagesuselayout{2 on 1 shifted}[a4paper,border shrink=12mm, horizontal shift=0.7cm]
+
+\usetheme{Berkeley}         
+\useoutertheme{sidebar}    
+
+\begin{document}
+
+    \frame{frame1}
+    \frame{frame2}
+
+\end{document}

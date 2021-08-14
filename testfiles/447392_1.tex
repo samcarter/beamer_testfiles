@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/447392
+\documentclass{beamer}
+
+\AtBeginSection[]{{
+    \setbeamertemplate{headline}{} 
+    \frame{\tableofcontents[currentsection]}
+}}
+
+\title{The Title}
+\author{A.~U.~Thor}
+
+\setbeamertemplate{headline}{%
+    \ifnum\thesection>0
+        \setbeamercolor{mysection}{bg=fg}
+    \else
+        \setbeamercolor{mysection}{bg=bg}
+    \fi
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex]{mysection}%
+    \hbox to .5\paperwidth{\hspace{.5em}\insertsectionhead\hfil}
+  \end{beamercolorbox}%
+}
+
+\begin{document}
+
+\maketitle % We don't want a headline
+\begin{frame}{Slide 0}Zero\end{frame} % Still don't want a headline
+
+\section{Section A}
+\begin{frame}{Slide 1}One\end{frame}
+\begin{frame}{Slide 2}Two\end{frame}
+
+\section{Section B}
+\begin{frame}{Slide 3}Three\end{frame}
+\end{document}

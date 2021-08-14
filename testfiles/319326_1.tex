@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/319326
+\documentclass{beamer}
+\beamertemplatetransparentcovered
+
+\newenvironment{mytabular}[2][c]{%
+    \catcode`\&=10
+    \catcode`\ =4
+    \begin{tabular}[#1]{#2}
+    }{%
+\end{tabular}
+}
+
+\begin{document}
+    \begin{frame}
+        \begin{tabular}{cc}
+            A & B \pause \\
+            C & D
+        \end{tabular}
+    \end{frame}
+
+    \begin{frame}
+        \begin{mytabular}{cc}
+                    A B\\\pause
+                    C D
+        \end{mytabular}
+    \end{frame}
+
+
+\end{document}

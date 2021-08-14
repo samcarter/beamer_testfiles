@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/386633
+\documentclass{beamer}
+\usetheme[
+sectionpage=progressbar,
+progressbar=frametitle]{metropolis}
+
+
+\setbeamertemplate{mini frame}{}
+\setbeamertemplate{mini frame in current section}{}
+\setbeamertemplate{mini frame in current subsection}{}
+\setbeamercolor{section in head/foot}{fg=normal text.bg, bg=structure.fg}
+\setbeamercolor{subsection in head/foot}{fg=normal text.bg, bg=structure.fg}
+
+\makeatletter
+\setbeamertemplate{footline}{%
+    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}{section in head/foot}
+      \insertsubsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}\vskip3pt%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+    \end{beamercolorbox}
+}
+\makeatother
+
+
+\begin{document}
+
+\section{sec}
+\begin{frame}a\end{frame}
+
+\subsection{sub1}
+\begin{frame}a\end{frame}
+
+\subsection{sub2}
+\begin{frame}a\end{frame}
+
+\subsection{sub3}
+\begin{frame}a\end{frame}
+
+\end{document}

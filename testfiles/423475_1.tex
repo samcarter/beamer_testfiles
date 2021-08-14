@@ -1,0 +1,57 @@
+% https://tex.stackexchange.com/a/423475
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{navigation symbols}{}
+
+
+\usepackage{totcount}
+\newcounter{endspecial}
+\newcounter{startspecial}
+\regtotcounter{endspecial}
+
+
+\newenvironment{specialcontent}{%
+  \begin{frame}
+    \frametitle{Special content}
+    The following special content:
+    \begin{itemize}
+    \setcounter{startspecial}{\totvalue{endspecial}}
+    \addtocounter{startspecial}{1}
+    \addtocounter{startspecial}{-\insertframenumber}
+    \item has \thestartspecial  <total number of frames> frames,
+    \item ends frame \total{endspecial} <number of last frame of the special content>.
+    \end{itemize}
+  \end{frame}
+}{%
+  \setcounter{endspecial}{\insertframenumber}
+}
+
+\begin{document}
+\begin{frame}
+  \frametitle{Foo bar}
+  Foo\pause{} bar.
+\end{frame}
+
+\begin{specialcontent}
+
+  \begin{frame}
+    \frametitle{Foo bar (special content)}
+    Foo\pause{} bar.
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Foo bar (special content)}
+    Foo\pause{} bar.
+  \end{frame}
+
+\end{specialcontent}
+
+\begin{frame}
+  \frametitle{Foo bar}
+  Foo\pause{} bar.
+\end{frame}
+\end{document}

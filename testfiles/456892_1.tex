@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/456892
+\documentclass[aspectratio=169]{beamer}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{lstautogobble}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+}
+
+\usecolortheme{crane}
+\useoutertheme{split}
+\usefonttheme[onlysmall]{structurebold}
+
+\lstset{
+    basicstyle=\tiny \ttfamily,
+    frame=single,
+}
+
+\begin{document}
+    \section{listing in item}
+        \begin{frame}[t, fragile]{Listing in Item}
+            \begin{onlyenv}<+>
+                \begin{itemize}
+                    \item
+                        \begin{lstlisting}[autogobble,aboveskip=-.8\baselineskip]
+                            How to align this with the bullet? 
+                        \end{lstlisting}
+                \end{itemize}
+            \end{onlyenv}
+        \end{frame}
+\end{document}

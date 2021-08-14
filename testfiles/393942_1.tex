@@ -1,0 +1,18 @@
+% https://tex.stackexchange.com/a/393942
+\documentclass{beamer}
+\usepackage{ragged2e}
+
+\begin{document}
+\begin{frame}[t]
+\begin{enumerate}[<+->]
+\RaggedRight
+
+\item Ne pas x xxx x oublier qu'un décimal peut s'écrire avec des
+\only<.>{\nolinebreak\dots }\visible<+->{zéros inutiles si besoin.}
+
+\end{enumerate}
+
+Must not move.
+
+\end{frame}
+\end{document}

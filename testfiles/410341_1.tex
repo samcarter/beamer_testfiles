@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/410341
+\documentclass{beamer}
+
+\newcommand{\nonumbernote}[1]{%
+  {%
+      \setbeamertemplate{footnote}{%
+        \parindent 1em\noindent%
+        \raggedright
+        \insertfootnotetext\par%
+    }
+    \footnotetext[42]{#1}
+  }
+}
+
+\begin{document}
+
+\begin{frame}
+
+\nonumbernote{Fuente: Experimental analysis, modeling and simulation of a solar energy accumulator with paraffin wax as PCM}
+\end{frame}
+
+\end{document}

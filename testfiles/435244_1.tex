@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/435244
+\documentclass[draft]{beamer}
+\begin{document}
+\begin{frame}
+\frametitle{Test}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}[<+->]
+        \item Somebody once told me the world is gonna roll me
+        \item I ain't the sharpest tool in the shed
+        \item She was looking kinda dumb with her finger and her thumb
+        \item In the shape of an L her forehead
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+        \begin{overlayarea}{\linewidth}{1.5\linewidth}%
+            \includegraphics<1>[width=\linewidth,height=1.5\linewidth]{fig1.png}%
+            \includegraphics<2-3>[width=\linewidth,height=\linewidth]{fig2.png}%
+            \includegraphics<4>[width=\linewidth,height=1.5\linewidth]{fig1.png}%
+        \end{overlayarea}
+     \end{column}
+   \end{columns}
+\end{frame}
+\end{document}

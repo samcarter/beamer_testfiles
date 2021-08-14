@@ -1,0 +1,65 @@
+% https://tex.stackexchange.com/a/414667
+\documentclass{beamer}
+
+\AtBeginSection[]{\label{sec:\thesection}}
+\newcounter{prevsec}
+
+\usepackage{totcount}
+\regtotcounter{section}
+
+\title{Some Title}
+
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{footline}{%
+    \setcounter{prevsec}{\thesection}
+    \ifnum\value{prevsec}>1
+       \addtocounter{prevsec}{-1}
+    \fi
+    \quad\hyperlinkpresentationstart{\beamerreturnbutton{Back to start}}%
+    \quad\hyperlinksectionstart{\beamerreturnbutton{Back to section start}}%
+    \quad\hyperlink{Detailed_Analysis}{\beamergotobutton{Detailed Analysis}}%
+    \ifnum\value{section}<\totvalue{section}%
+        \quad\hyperlinksectionstartnext{\beamerskipbutton{Next section}}%
+    \else%
+        \quad \beamerskipbutton{Next section}%
+    \fi%
+    \quad\hyperlink{sec:\theprevsec}{\beamerskipbutton{previous section}}%
+    \vspace*{0.2cm}%
+}
+
+
+\begin{document}
+
+   \section{sec1}
+    \begin{frame}%{ss}
+    1st section/ page 1 out of 1
+    \end{frame}
+
+    \begin{frame}
+    1st section/ page 2 out of 2
+    \end{frame}
+
+    \begin{frame}[label=Detailed_Analysis]
+        Detailed Analysis
+    \end{frame}
+
+    \section{sec2}
+    \begin{frame}
+    2nd section
+    \end{frame}
+
+    \section{sec3}
+    \begin{frame}
+    3rd section
+    \end{frame}
+
+    \begin{frame}
+    More content on the 3rd section
+    \end{frame}
+
+    \begin{frame}
+    Even More content on the 3rd section
+    \end{frame}
+
+\end{document}

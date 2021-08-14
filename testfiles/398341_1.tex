@@ -1,0 +1,51 @@
+% https://tex.stackexchange.com/a/398341
+\documentclass{beamer}
+
+
+\setbeamertemplate{headline}{%
+\leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=4.8ex,dp=0.125ex]{palette}%
+        \insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+    \end{beamercolorbox}%
+  }
+}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+
+\setbeamertemplate{section in head/foot}{%
+    \if\insertsectionheadnumber1
+        \tikz\node[draw=blue,fill=blue,shape=signal,very thick,text=white]{\insertsectionhead\hskip.3cm};
+    \else
+        \tikz\node[draw=blue,fill=blue,shape=signal,signal from=west, signal to=east,very thick,text=white]     {\insertsectionhead\hskip.3cm};
+  \fi
+}
+
+\setbeamertemplate{section in head/foot shaded}{%
+    \if\insertsectionheadnumber1
+        \tikz\node[draw=blue,fill=white,shape=signal,very thick,text=blue]{\insertsectionhead\hskip.3cm};
+    \else
+        \tikz\node[draw=blue,fill=white,shape=signal,signal from=west, signal to=east,very thick,text=blue]     {\insertsectionhead\hskip.3cm};
+  \fi
+}
+
+\begin{document}
+
+\section{Introduction}
+\subsection{The questions}
+\begin{frame}\frametitle{A test frame}Test\end{frame}
+\subsection{Another questions}
+\begin{frame}\frametitle{Another test frame}Test
+%\textcolor‎{‎letterfoot‎}{\rule{2cm}{2cm}}‎
+\end{frame}
+
+\section{section2}
+\subsection{The questions}
+\begin{frame}\frametitle{A test frame}Test\end{frame}
+\subsection{Another questions}
+\begin{frame}\frametitle{Another test frame}Test
+%\textcolor‎{‎letterfoot‎}{\rule{2cm}{2cm}}‎
+\end{frame}
+
+\end{document}

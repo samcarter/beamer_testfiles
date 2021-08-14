@@ -1,0 +1,15 @@
+% https://tex.stackexchange.com/a/478602
+\documentclass{beamer}
+% I do like * as footnotemark in titles 
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\begin{document}
+\begin{frame}
+  \frametitle{Our World\footnotemark[1]}
+
+  \includegraphics[width=.8\textwidth]{example-image}
+
+    \addtocounter{footnote}{1}
+  \footnotetext{Meaning, the Earth, since ... (long explanation not
+    related to the main topic of the lecture).}
+\end{frame}
+\end{document}

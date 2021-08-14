@@ -1,0 +1,53 @@
+% https://tex.stackexchange.com/a/313582
+\documentclass[10pt, xcolor=x11names,compress]{beamer}
+\usecolortheme{seagull}
+\useoutertheme{infolines}
+\usefonttheme[onlymath]{serif}
+\setbeamertemplate{headline}[default]
+\setbeamertemplate{navigation symbols}{}
+\mode<beamer>{\setbeamertemplate{blocks}[rounded][shadow=true]}
+\setbeamercovered{transparent}
+\setbeamercolor{block body example}{fg=blue, bg=black!20}
+
+\useoutertheme[subsection=false]{miniframes}
+
+    \begin{document}    
+        \section{Section1}
+        \subsection{Subsection1}
+        \begin{frame}
+            \frametitle{Frame11}
+        \end{frame}
+
+        \subsection{Subsection2}
+        \begin{frame}
+            \frametitle{Frame12}
+        \end{frame}
+
+        \section{Section2}
+        \begin{frame}
+            \frametitle{Frame2}
+        \end{frame}
+
+        \subsection{Subsection1}
+        \begin{frame}
+            \frametitle{Frame21}
+        \end{frame}
+
+        \subsection{Subsection2}
+        \begin{frame}
+            \frametitle{Frame22}
+        \end{frame}
+
+        \subsection{Subsection3}
+        \begin{frame}
+            \frametitle{Frame23}
+        \end{frame}
+
+        \section{Section3}
+        \begin{frame}
+            \frametitle{Frame3}
+        \end{frame}
+
+        \frame{}
+
+    \end{document}

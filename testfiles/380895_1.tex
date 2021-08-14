@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/380895
+\documentclass{beamer}
+\usetheme[progressbar=frametitle, block=fill]{metropolis}
+
+%\usepackage{multicol}
+
+\begin{document}
+    \section{1 Section}
+    \section{2 Section}
+    \section{3 Section}
+    \section{4 Section}
+    \section{5 Section}
+    \section{6 Section} 
+    \section{7 Section}
+    \section{8 Section}
+
+    \begin{frame}
+        \begin{columns}
+            \begin{column}{.45\textwidth}
+                \tableofcontents[sections=1-4]
+            \end{column}
+            \begin{column}{.45\textwidth}
+                \tableofcontents[sections=5-8]
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+\end{document}

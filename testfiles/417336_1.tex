@@ -1,0 +1,37 @@
+% https://tex.stackexchange.com/a/417336
+\documentclass{beamer}
+
+\usetheme{Copenhagen}
+
+\author{names}
+\title{text}
+
+\setbeamercolor{palette primary}{bg=blue}
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+
+\makeatletter
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\hfill\insertshortdate\quad\usebeamertemplate{page number in head/foot}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\section{title}
+\begin{frame}
+\frametitle{title}
+content...
+\end{frame}
+
+\end{document}

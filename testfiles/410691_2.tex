@@ -1,0 +1,23 @@
+% https://tex.stackexchange.com/a/410691
+\RequirePackage{xr-hyper}
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}    
+
+\theoremstyle{plain}
+\newtheorem{thm}{Sætning}[section]
+
+\externaldocument{nameofyourthesisfile}
+
+\begin{document}
+
+\section{Præsentation af sætningen.}
+\begin{frame}
+\frametitle{Picard's sætning}
+
+\begin{thm}[\ref{thm:second}]
+Lad $G$ være åben i $\mathbb{C}$. En funktion $h:G\to \mathbb{R}$ kaldes 
+harmonisk hvis $h\in C^2(G)$ og $\Delta h=0$ i $G.$ 
+\end{thm}
+
+\end{frame}
+\end{document}

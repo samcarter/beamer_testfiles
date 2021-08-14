@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/431432
+\documentclass{beamer}
+
+\usetheme{Madrid}
+\setbeamerfont{title}{series=\bfseries}
+
+\title{My awesome presentation}
+\author{Name Surname}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{%
+    \hspace*{0.3cm}\parbox{3cm}{\includegraphics[height=0.8cm]{example-image-golden-upright}}%
+    \hfill%
+    {\insertframenumber{} / \inserttotalframenumber}%
+    \hfill%
+    \parbox{3cm}{\hfill\includegraphics[height=0.8cm]{example-image-golden}}%
+    \hspace*{0.3cm}
+    \vskip0.3cm
+}
+
+
+\begin{document}
+
+\begin{frame}{Title}
+Blah blah
+\end{frame}
+
+
+\end{document}

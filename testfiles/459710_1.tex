@@ -1,0 +1,47 @@
+% https://tex.stackexchange.com/a/459710
+\documentclass[xcolor={usenames, dvipsnames}]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\usepackage[font={small}, labelfont=bf]{caption}
+\usepackage{subcaption}
+
+
+\usetheme{Cuerna}
+
+\usepackage{amsmath,commath,amssymb,amsthm,blkarray}
+\usepackage{bbm}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+
+
+\usepackage{siunitx}
+\newcommand{\imp}[1]{\textbf{#1}}
+\newcommand{\vv}[1]{\mathbf{#1}}
+\DeclareMathOperator{\inff}{inf \;}
+\DeclareMathOperator{\supp}{sup \;}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{physics}
+\addtobeamertemplate{navigation symbols}{}{}%
+
+\setbeamercolor{itemize item}{fg=MidnightBlue}
+\setbeamertemplate{itemize items}{\begin{tikzpicture}
+\shade[ball color=MidnightBlue!50!white, preaction={fill=black,
+opacity=.25,transform canvas={xshift=1mm,yshift=-1mm, yscale=0.5}}] (0,0)      circle (0.6ex);
+\end{tikzpicture}
+}
+
+\begin{document}
+
+\begin{frame}
+content...
+
+\begin{itemize}
+\item test
+\end{itemize}
+\end{frame}
+
+
+\end{document}

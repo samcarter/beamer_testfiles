@@ -1,0 +1,80 @@
+% https://tex.stackexchange.com/a/317837
+\documentclass[aspectratio=1610]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usetheme{Darmstadt}
+\usecolortheme{beaver}
+\useoutertheme[subsection=false]{miniframes}
+
+\setbeamertemplate{frametitle}[default][colsep=-4bp,rounded=false,shadow=false]
+
+
+\usepackage{tikz}
+
+\usepackage{graphicx}
+
+\usepackage{filecontents}
+
+\begin{filecontents*}{\jobname.bib}
+    @book{Knu86,
+        author = {Knuth, Donald E.},
+        year = {1986},
+        title = {The \TeX book},
+    }
+\end{filecontents*}
+
+\usepackage[style=authoryear,hyperref,natbib]{biblatex}
+\addbibresource{\jobname.bib}
+
+\author[]{Author name here}
+\title{\huge Cool title here\\ \large Ugly withe space on top of this frame}
+\date{Date here}
+\institute[]{Badass institution}
+
+\begin{document}
+
+    \beamertemplatenavigationsymbolsempty
+
+    \usebackgroundtemplate{%
+        \begin{tikzpicture}[remember picture,overlay]
+        \node[at=(current page.center),opacity=0.5] {
+            \includegraphics[width=\paperwidth,height=\paperheight]{example-image-a}
+        };
+        \end{tikzpicture}
+    }
+
+    {
+        \setbeamertemplate{headline}{}
+        \setbeamertemplate{footline}{}
+        \beamertemplatenavigationsymbolsempty
+        \begin{frame}
+            \maketitle
+        \end{frame}
+    }
+
+    \usebackgroundtemplate{%
+        \begin{tikzpicture}[remember picture,overlay]
+        \node[at=(current page.center),opacity=0.5] {
+            \includegraphics[width=\paperwidth,height=\paperheight]{example-image-b}
+        };
+        \end{tikzpicture}
+    }
+
+    \section*{Introduction}
+    \subsection*{}
+    \begin{frame}
+        \frametitle{Introduction}
+        \framesubtitle{}
+
+        Note the white space caused by the gradient from the title background to white. Citation: \citet{Citation}
+    \end{frame}
+
+    \begin{frame}[t,allowframebreaks]
+        \frametitle{References}
+        \nocite{*}
+        \printbibliography
+    \end{frame}
+
+\end{document}

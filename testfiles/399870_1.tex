@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/399870
+\documentclass{beamer}
+
+\setbeamertemplate{footline}{%
+    \ifnum\thepage=\insertframeendpage%
+        \color{red}%
+    \else%
+        \color{blue}%
+    \fi%
+    \insertframenumber%
+}
+
+\begin{document}
+\begin{frame}
+Number in gray
+
+\only<2>{Number not in gray, but in black}
+
+
+\end{frame}
+\end{document}

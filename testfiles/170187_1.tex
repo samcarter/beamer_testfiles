@@ -1,0 +1,37 @@
+% https://tex.stackexchange.com/a/170187
+\documentclass[12pt,a4paper]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\begin{document}
+    \begin{frame}
+    \frametitle{The Hovorka model}
+    \begin{columns}
+
+        \begin{column}{.5\textwidth}
+
+            The Hovorka model as an IVP:
+            \begin{align*}
+                \boldsymbol{\dot{x}}(t) &= f(\boldsymbol{x}(t),d_k,u_k,\boldsymbol{\theta}_k)\\
+                \boldsymbol{x}(t_0) &= \boldsymbol{x_0} \\
+                f &: \left( \mathbb{R}^{n_x}, \mathbb{R}, \mathbb{R}, \mathbb{R}^{n_\theta} \right) \mapsto \mathbb{R}^{n_x}
+            \end{align*}
+            CGM model:
+            \begin{align*}
+                \frac{dG_I}{dt}(t) = -\frac{(G_I(t)-G(t))}{\tau_I} \\
+                G_{CGM}(t) = G_I(t) + \varepsilon_n \\
+                \varepsilon_n = \left( \xi +\lambda \cdot  \sinh \left(\frac{e_n - \gamma}{\delta} \right) \right)
+            \end{align*}
+
+        \end{column}
+
+        \begin{column}{.5\textwidth}
+            \includegraphics[scale=0.15]{example-image-duck}
+        \end{column}    
+
+        \end{columns}   
+    \end{frame}
+\end{document}

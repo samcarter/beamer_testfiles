@@ -1,0 +1,11 @@
+% https://tex.stackexchange.com/a/411533
+\documentclass[ignorenonframetext]{beamer}
+
+\makeatletter
+\beamer@ignorenonframefalse
+\makeatother
+
+\AtEndDocument{\begin{frame}{Last page}Last page\end{frame}}
+\begin{document}
+\begin{frame}{Test document}Test\end{frame}
+\end{document}

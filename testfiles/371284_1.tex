@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/371284
+\documentclass{beamer}
+
+\setbeamertemplate{theorems}[ams style]
+\newtheorem{MyHypo}{Hypothesis}
+
+\makeatletter
+\setbeamertemplate{theorem begin}
+{%
+  \begin{\inserttheoremblockenv}
+    {%
+      \inserttheoremheadfont
+      \inserttheoremname
+      \inserttheoremnumber
+      \ifx\inserttheoremaddition\@empty\else\ \inserttheoremaddition\fi%
+      \inserttheorempunctuation
+    }%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+\begin{MyHypo}[insert text]
+  This is my hypothesis
+\end{MyHypo}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,18 @@
+% https://tex.stackexchange.com/a/478588
+\documentclass[10pt]{beamer}
+\usetheme[progressbar=frametitle]{metropolis}
+\usepackage{biblatex}
+\addbibresource{biblatex-examples.bib}
+
+\usepackage{ragged2e}
+\setbeamertemplate{footnote}{
+  \parindent 1em\noindent%
+  \raggedright
+  \hbox to 1.8em{\hfil\insertfootnotemark}\justifying\insertfootnotetext\par%
+}
+
+\begin{document}
+\begin{frame}{Trial Slide}
+Text \footfullcite{sigfridsson}
+\end{frame}
+\end{document}

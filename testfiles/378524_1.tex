@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/378524
+\documentclass{beamer}
+\usetheme{Hannover}
+
+\makeatletter
+    \newlength{\imagewidth}
+    \setlength{\imagewidth}{\paperwidth}
+    \addtolength{\imagewidth}{-\beamer@sidebarwidth}
+
+    \newlength{\sidebarwidth}
+    \setlength{\sidebarwidth}{\beamer@sidebarwidth}
+\makeatother
+
+\usebackgroundtemplate{%
+    \hspace*{\sidebarwidth}%
+    \includegraphics[width=\imagewidth,height=\paperheight]{example-image}%
+}
+
+\begin{document}
+
+\begin{frame}
+content
+\end{frame}
+
+\end{document}

@@ -1,0 +1,134 @@
+% https://tex.stackexchange.com/a/429163
+\documentclass{beamer}
+%\usepackage{default}
+\usepackage{beamerthemesplit}  % I add this one to make changes and command the orignal one.
+
+
+\usepackage{filecontents}
+\begin{filecontents*}{\jobname.bib}
+@article{_j._????,
+  title = {J. {{Kim Vandiver}}, 2.{{003SC}} / 1.{{053J Engineering Dynamics}}, {{Fall}} 2011. ({{MIT OpenCourseWare}}: {{Massachusetts Institute}} of {{Technology}}), {{https://ocw.mit.edu/courses/mechanical-engineering/2-003sc-engineering-dynamics-fall-2011/}} ({{Accessed March}} 22, 2017). {{License}}: {{Creative}} Commons {{BY}}-{{NC}}-{{SA}}},
+  file = {C:\\Users\\SATLLITE\\Zotero\\storage\\DBJSWH93\\MIT2_003SCF11_pset10Sol.pdf}
+}
+
+@article{bejan_fundamentals_2002,
+  title = {Fundamentals of Exergy Analysis, Entropy Generation Minimization, and the Generation of Flow Architecture},
+  volume = {26},
+  number = {7},
+  journal = {International Journal of Energy Research},
+  author = {Bejan, Adrian},
+  year = {2002},
+  pages = {0--43},
+  file = {C:\\Users\\SATLLITE\\Zotero\\storage\\8B7IQV7D\\Bejan-2002-International_Journal_of_Energy_Research.pdf}
+}
+
+@article{sunar2015entropy,
+  title = {Entropy Generation Rate in a Mechanical System Subjected to a Damped Oscillation},
+  volume = {17},
+  number = {4},
+  journal = {International Journal of Exergy},
+  author = {Sunar, M and Sahin, AZ and Yilbas, BS},
+  year = {2015},
+  pages = {401-411},
+  file = {C:\\Users\\SATLLITE\\Zotero\\storage\\EHRPUQUB\\Paper_SSY.pdf}
+}
+
+@article{belandria2008positive,
+  title = {Positive and Negative Entropy Production in Thermodynamics Systems},
+  journal = {arXiv preprint arXiv:0901.0023},
+  author = {Belandria, Jos{\'e} Iraides},
+  year = {2008}
+}
+
+@article{dondapati2014entropy,
+  title = {Entropy Generation Minimization ({{EGM}}) to Optimize Mass Flow Rate in Dual Channel Cable-in-Conduit Conductors ({{CICCs}}) Used for Fusion Grade Magnets},
+  volume = {89},
+  number = {6},
+  journal = {Fusion Engineering and design},
+  author = {Dondapati, Raja Sekhar and Rao, VV},
+  year = {2014},
+  pages = {837-846},
+  publisher = {{Elsevier}}
+}
+
+@article{al2008entropy,
+  title = {Entropy Generation Rate during Laser Pulse Heating: {{Effect}} of Laser Pulse Parameters on Entropy Generation Rate},
+  volume = {46},
+  number = {1},
+  journal = {Optics and Lasers in Engineering},
+  author = {Al-Qahtani, H and Yilbas, BS},
+  year = {2008},
+  pages = {27-33},
+  publisher = {{Elsevier}}
+}
+
+@article{silverberg2007classical,
+  title = {Classical Analytical Mechanics and Entropy Production},
+  journal = {arXiv preprint physics/0701096},
+  author = {Silverberg, J and Widom, A},
+  year = {2007}
+}
+
+@article{zhang2005maximum,
+  title = {Maximum Entropy Spectral Analysis in Vibration Experiment of Vehicle during Accelerating and Decelerating.},
+  volume = {24},
+  number = {1},
+  journal = {Zhendong yu Chongji(J. Vibr. Shock)},
+  author = {Zhang, Lijun and Zhang, Tianxia},
+  year = {2005},
+  pages = {30-32}
+}
+
+@article{lakzian2018entropy,
+  title = {The Entropy Generation Rate Minimization for a Proposed Air Ejector for the Carpet Industry},
+  volume = {53},
+  number = {1-2},
+  journal = {Meccanica},
+  author = {Lakzian, Esmail and Hajian, Masoud and Farahmand, Ali},
+  year = {2018},
+  pages = {145-159},
+  publisher = {{Springer}}
+}
+
+@article{goudarzi2015improving,
+  title = {Improving Performance of Two-Phase Natural Circulation Loops by Reducing of Entropy Generation},
+  volume = {93},
+  journal = {Energy},
+  author = {Goudarzi, N and Talebi, S},
+  year = {2015},
+  pages = {882-899},
+  publisher = {{Elsevier}}
+}
+
+@article{chen2016propagation,
+  title = {Propagation and Generation of Acoustic and Entropy Waves across a Moving Flame Front},
+  volume = {166},
+  journal = {Combustion and Flame},
+  author = {Chen, Lin Strobio and Bomberg, Sebastian and Polifke, Wolfgang},
+  year = {2016},
+  pages = {170-180},
+  publisher = {{Elsevier}}
+}
+
+@article{peters2003nonlinear,
+  title = {Nonlinear {{Damping}} of the'{{Linear}}'{{Pendulum}}},
+  journal = {arXiv preprint physics/0306081},
+  author = {Peters, Randall D},
+  year = {2003}
+}
+
+\end{filecontents*}
+
+\begin{document}
+\begin{frame}[allowframebreaks]{References}
+\nocite{*}
+\vspace{-0.6cm}
+%\begin{frame}{References}
+\renewcommand{\bibname}{REFERENCES} 
+\bibliographystyle{IEEEtran}
+\scriptsize     % font size 7pt
+%\tiny
+\bibliography{\jobname}
+%\clearpage
+\end{frame}
+\end{document}

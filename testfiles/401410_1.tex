@@ -1,0 +1,48 @@
+% https://tex.stackexchange.com/a/401410
+\documentclass{beamer}
+\usetheme{Madrid}
+
+\usepackage{tikz}
+
+\makeatletter
+\setbeamertemplate{frametitle}{%
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \newsavebox{\mybox}% <- NEW
+  \sbox{\mybox}{% <- NEW
+      \begin{beamercolorbox}[sep=0.3cm,left,wd=\the\@tempdima]{frametitle}
+        \usebeamerfont{frametitle}%
+        \vbox{}\vskip-1ex%
+        \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+        \strut\insertframetitle\strut\par%
+        {%
+          \ifx\insertframesubtitle\@empty%
+          \else%
+          {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+          \fi
+        }%
+        \vskip-1ex%
+        \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+      \end{beamercolorbox}%
+     }% <- NEW
+     \usebox{\mybox}% <- NEW
+     \newlength{\frametitelheight}% <- NEW
+     \settoheight{\frametitelheight}{\usebox{\mybox}}% <- NEW
+}
+\makeatother
+
+\addtobeamertemplate{frametitle}{}{%
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north east,yshift=5pt] at (current page.north east) {\includegraphics[height=\frametitelheight]{example-image}};
+\end{tikzpicture}}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Frame title}
+Hello world!
+\end{frame}
+
+\end{document}

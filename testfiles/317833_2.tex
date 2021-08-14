@@ -1,0 +1,46 @@
+% https://tex.stackexchange.com/a/317833
+\documentclass{beamer}
+
+\usetheme{Warsaw}
+
+\makeatletter
+\let\beamer@writeslidentry@miniframeson=\beamer@writeslidentry%
+\def\beamer@writeslidentry@miniframesoff{%
+  \expandafter\beamer@ifempty\expandafter{\beamer@framestartpage}{}% does not happen normally
+  {%else
+    % removed \addtocontents commands
+    \clearpage\beamer@notesactions%
+  }
+}
+\newcommand*{\miniframeson}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframeson}
+\newcommand*{\miniframesoff}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframesoff}
+\makeatother
+
+\begin{document}
+
+    \begin{frame}
+        \titlepage
+    \end{frame}
+
+    \begin{frame}{Introduction}
+
+    \end{frame}
+
+    \begin{frame}{Outline}
+        \tableofcontents[pausesections]
+    \end{frame}
+
+    \section{Context}
+    % Slides of Context section
+    \section{Development}
+    % Slides of Development section
+    \section{Results}
+    \frame{}
+    % Slides of Development section
+    \miniframesoff
+        \section{}
+    \begin{frame}{Conclusion}
+
+    \end{frame}
+
+\end{document}

@@ -1,0 +1,97 @@
+% https://tex.stackexchange.com/a/388811
+\documentclass{beamer}
+
+\makeatletter
+\def\beamer@autobreakframebox{%
+  \global\setbox\beamer@splitbox=\box\voidb@x%
+  \ifbeamer@autobreak%
+    % Ok, frame was overful -> split it!
+    \setbox\@tempboxa=\vsplit\beamer@framebox to\beamer@autobreakfactor\textheight%
+    \global\setbox\beamer@splitbox=\box\beamer@framebox%
+    \@tempdima=\ht\beamer@splitbox%
+    \ifdim\@tempdima<\beamer@autobreaklastheight%
+      \global\beamer@autobreaklastheight=\@tempdima\relax%
+    \else%
+      \setbox\@tempboxa=\vbox{\unvbox\@tempboxa\unvbox\beamer@splitbox}%
+      \global\setbox\beamer@splitbox=\box\voidb@x%
+    \fi%
+    \setbox\beamer@framebox=\vbox to\textheight{\unvbox\@tempboxa%
+      \vskip\beamer@framebottomskipautobreak%
+      \ifvoid\beamer@splitbox%
+        \ifvoid\beamer@footins%
+        \else%
+          \begingroup
+        \rule{\textwidth}{1pt}
+            \begin{minipage}[b][0.5cm][t]{.45\textwidth}% 
+                \usebeamerfont{title in head/foot}
+                \insertshortauthor
+                \insertshorttitle\newline
+                \insertshortinstitute
+            \end{minipage}% <----------------------
+            \begin{minipage}[b][0.5cm][t]{.45\textwidth}% <----------------------
+              \usebeamercolor*[fg]{footnote}%
+%              \footnoterule%
+                            \usebeamerfont{footnote}
+              \unvbox \beamer@footins%
+              \global\setbox\beamer@footins=\box\voidb@x%
+            \end{minipage}% <----------------------
+
+             \begin{minipage}[c]{\textwidth}% 
+                \centering \insertframenumber
+            \end{minipage}
+          \endgroup  
+        \fi%
+      \fi%
+      \beamer@exitcode%
+    }%
+  \else%
+    \setbox\beamer@framebox=\vbox to\textheight{\unvbox\beamer@framebox%
+      \vskip\beamer@framebottomskip%
+      \ifvoid\beamer@footins%
+      \else%
+        \begingroup
+        \rule{\textwidth}{1pt}
+            \begin{minipage}[b][0.5cm][t]{.45\textwidth}% 
+                \usebeamerfont{title in head/foot}
+                \insertshortauthor
+                \insertshorttitle\newline
+                \insertshortinstitute
+            \end{minipage}% <----------------------
+            \begin{minipage}[b][0.5cm][t]{.45\textwidth}% <----------------------
+              \usebeamercolor*[fg]{footnote}%
+%              \footnoterule%
+                            \usebeamerfont{footnote}
+              \unvbox \beamer@footins%
+              \global\setbox\beamer@footins=\box\voidb@x%
+            \end{minipage}% <----------------------
+
+             \begin{minipage}[c]{\textwidth}% 
+                \centering \insertframenumber
+            \end{minipage}
+        \endgroup 
+      \fi%
+      \beamer@exitcode}%
+    \global\setbox\beamer@footins=\box\voidb@x%
+  \fi%
+  }
+\makeatother
+
+\setbeamerfont{footnote}{size=\tiny}
+\setbeamerfont{title in head/foot}{size=\tiny}
+
+\title{title}
+\author{author}
+\institute{ins}
+
+\begin{document}
+
+\begin{frame}
+    \footnote{Must not complain about beamer customisation}
+    \footnote{Must not complain about too many duck images}
+\end{frame} 
+
+\begin{frame}
+    \footnote{Must try the new \texttt{tikzducks} package}
+\end{frame} 
+
+\end{document}

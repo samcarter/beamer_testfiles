@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/a/447544
+\documentclass{beamer}
+
+\setbeamertemplate{footline}{FOOTLINE}
+
+\begin{document}
+\begin{frame}{Slide 1}One\end{frame}
+\setlength{\headheight}{.5ex}
+
+\makeatletter
+    \advance\textheight by-\headheight%
+  \@colht\textheight%
+  \@colroom\textheight%
+  \vsize\textheight%
+\makeatother
+
+
+\begin{frame}{Slide 2}Two\end{frame}
+\end{document}

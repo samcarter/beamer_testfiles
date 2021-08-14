@@ -1,0 +1,44 @@
+% https://tex.stackexchange.com/a/383409
+\documentclass{beamer}
+\usetheme{Madrid}
+
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+\title{The Title}
+\author{The Author}
+\institute{The Institute}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\section{Test section one}
+\begin{frame}
+test frame for section one
+\end{frame}
+
+{
+\AtBeginSection[]{}
+\section{Test section two}
+\begin{frame}
+test frame for section two
+\end{frame}
+}
+
+\section{Test section three}
+\begin{frame}
+test frame for section three
+\end{frame}
+
+\end{document}

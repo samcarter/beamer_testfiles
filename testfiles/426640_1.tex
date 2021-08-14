@@ -1,0 +1,61 @@
+% https://tex.stackexchange.com/a/426640
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+
+\setbeamercolor{structure}{fg=teal}
+
+\usetheme{Szeged}
+
+\institute{institute}
+\title{text}
+
+\setbeamertemplate{navigation symbols}{}
+
+%Removes gradient color
+\makeatletter
+\AtBeginDocument{%
+{
+\usebeamercolor{section in head/foot}
+}
+\pgfdeclareverticalshading{beamer@headfade}{\paperwidth}
+{%
+color(0cm)=(structure.fg!0!bg);
+color(1.25cm)=(structure.fg!0!bg)%
+}
+\setbeamercolor{section in head/foot}{bg=}
+}
+\addtoheadtemplate{\pgfuseshading{beamer@headfade}\vskip-1.25cm}{}
+
+\setbeamertemplate{footline}{%
+\begin{minipage}{.1\textwidth}
+    \includegraphics[width=\textwidth]{example-image}
+\end{minipage}
+\begin{minipage}{.9\textwidth}
+  \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+    leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \leavevmode{\usebeamerfont{title in head/foot}\insertshorttitle}%
+    \hfill%
+    {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertshortinstitute%
+    \ifbeamertemplateempty{page number in head/foot}{}{\qquad}%
+    \usebeamerfont{page number in head/foot}\usebeamertemplate{page number in head/foot}%      
+    }%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+  \end{beamercolorbox}
+\end{minipage}  
+}
+
+\makeatother
+
+\begin{document}
+
+\section{Section no.1} 
+\begin{frame}
+\frametitle{frame title} 
+Each frame should have a title.
+\end{frame}
+\subsection{Subsection no.1.1  }
+
+\end{document}

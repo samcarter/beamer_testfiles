@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/454685
+\documentclass{beamer}
+
+\usepackage[
+%    audience=english
+%    audience=spanish
+    audience=german
+]{beameraudience}
+
+
+\begin{document}
+
+\begin{frame}{Title}
+ all version
+\end{frame}
+
+\justfor{english}{
+    \begin{frame}
+    English Slide
+    \pause
+    tba
+    \end{frame}
+}
+
+\justfor{spanish}{
+    \begin{frame}
+    Spanish Slide
+    \pause
+    tba
+    \end{frame}
+}
+
+\justfor{german}{
+    \begin{frame}
+    Deutcher Text
+    \pause
+    wird noch angekündigt
+    \end{frame}
+}
+
+\end{document}

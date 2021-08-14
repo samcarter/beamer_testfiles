@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/424911
+\documentclass{beamer}
+\usepackage{listings}
+\usepackage[english]{babel}
+
+\usetheme{Berlin}
+\setbeamertemplate{footline}[frame number]
+
+\begin{document}
+
+\section{Test}
+\subsection{Test}
+
+\begin{frame}[fragile]{My Code}
+
+\begin{onlyenv}<1>
+\begin{lstlisting}[mathescape=true]
+class ClassA {
+ public void methodA() {
+  new ClassB().methodB1();
+ }
+}
+ \end{lstlisting}
+\end{onlyenv}
+
+\begin{onlyenv}<2>
+\begin{lstlisting}[mathescape=true]
+class ClassA {
+ public void methodA() {
+  new ClassB().methodC1();
+ }
+}
+ \end{lstlisting}
+\end{onlyenv}
+\end{frame}
+
+\begin{frame}[fragile]{Final Remarks}
+...
+\end{frame}
+
+\end{document}

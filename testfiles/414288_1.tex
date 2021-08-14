@@ -1,0 +1,48 @@
+% https://tex.stackexchange.com/a/414288
+\documentclass{beamer}
+\usepackage{tikz}
+
+\defbeamertemplate{background}{special frames}{%
+      \begin{tikzpicture}
+      \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+      \fill[color=gray] (0,2) rectangle (\the\paperwidth,\the\paperheight);
+      \end{tikzpicture}
+}
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+   \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+  \end{tikzpicture}
+}
+
+\defbeamertemplate{footline}{special frames}{text for special footline}
+
+\setbeamertemplate{footline}{text for normal footline}
+
+\newcommand{\insertendpage}{%
+    \setbeamertemplate{background}[special frames]
+    \setbeamertemplate{footline}[special frames]
+    \begin{frame}
+            bla bla
+    \end{frame}
+}
+
+\setbeamertemplate{title page}{%
+    \setbeamertemplate{background}[special frames]
+    \setbeamertemplate{footline}[special frames]
+    \begin{frame}
+            text text
+    \end{frame}
+}
+
+\begin{document}
+
+\titlepage
+
+\begin{frame}
+  Slide 2
+\end{frame}
+
+\insertendpage
+
+\end{document}

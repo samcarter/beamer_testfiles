@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/400790
+\documentclass{beamer}
+\usepackage{pgffor}
+
+\usebackgroundtemplate{%
+    \vbox{%
+        \foreach\y in {1,...,5}{%
+            \foreach\x in {1,...,5}{%
+                \includegraphics[width=.2\paperwidth]{example-grid-100x100bp}%
+            }%
+            \linebreak
+        }%
+    }%
+}
+
+\begin{document}
+
+\begin{frame}{Introduction}
+\begin{itemize}
+\item 1
+\item 2
+\item 3
+\end{itemize}
+\end{frame}
+
+\end{document}

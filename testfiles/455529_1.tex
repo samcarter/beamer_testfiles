@@ -1,0 +1,32 @@
+% https://tex.stackexchange.com/a/455529
+\documentclass{beamer}
+
+\usepackage{covington}
+
+\makeatletter
+\def\glosstr{}
+\@ifundefined{linggloss}{%
+\newenvironment{linggloss}[2][]{
+        \def\glosstr{\glt #1}%
+        \gll #2}
+{\glosstr\glend}}{}
+\makeatother
+
+\title{Are Czech conditionals with an infinitival condition all Counterfactual?}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}[fragile]
+    \frametitle{And how does it look inCzech?}
+    \begin{covexamples}
+        \item real conditions – realistic, achievable, achieved?
+        \item \begin{linggloss}[If Vašek comes on time we'll make it without any problems.]
+            Když přijde        Vašek        včas,   tak  to          stihneme      v  pohodě.
+            If   come-3sg.pres Vašek-nom.sg on time then that-acc.sg make-1pl.pres in ease.
+        \end{linggloss}
+    \end{covexamples}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,41 @@
+% https://tex.stackexchange.com/a/170118
+\documentclass{beamer}
+\usetheme{Antibes}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\pgfdeclareimage[width=\paperwidth]{mybackground}{example-image-duck}
+
+\setbeamertemplate{title page}{
+
+        \begin{picture}(0,0)
+
+            \put(-30,-163){%
+                \pgfuseimage{mybackground}
+            }
+
+            \put(0,-110.7){%
+                \begin{minipage}[b][45mm][t]{226mm}
+                    \usebeamerfont{title}{\inserttitle\par}
+                \end{minipage}
+            }
+
+            \end{picture}
+
+    }
+
+\title[...]{My title}
+
+\begin{document}
+
+    \begin{frame}[plain]
+        \titlepage
+    \end{frame}
+
+    \section{Introduction}
+
+    \begin{frame}{History}
+        This is a test page!
+    \end{frame}
+
+\end{document}

@@ -1,0 +1,106 @@
+% https://tex.stackexchange.com/a/442941
+\documentclass[xcolor={svgnames}]{beamer}
+
+\definecolor{dark}{rgb}{0.05, 0.3, 0.5}
+\definecolor{light}{rgb}{0.1, 0.5, 0.7}
+
+% Imports
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+%\usepackage[margin=1in]{geometry}
+\usepackage{pythontex}
+%\usepackage[svgnames]{xcolor}
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+% Theme definitions
+\DeclareOptionBeamer{compress}{\beamer@compresstrue}
+\ProcessOptionsBeamer
+
+\mode<presentation>
+
+\useoutertheme[footline=title]{miniframes}
+\useinnertheme{circles}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+% Colors
+\setbeamercolor{palette primary}{bg=dark, fg=black}
+\setbeamercolor{palette secondary}{bg=light, fg=black}
+\setbeamercolor{palette tertiary}{bg=dark, fg=white}
+\setbeamercolor{palette quaternary}{bg=dark, fg=light}
+
+\setbeamercolor{structure}{fg=black}
+
+\setbeamercolor{titlelike}{parent=structure}
+\setbeamercolor{title}{bg=light}
+
+\setbeamercolor{item}{fg=light}
+\setbeamercolor{itemize item}{fg=black}
+\setbeamercolor{itemize subitem}{fg=black}
+
+\setbeamercolor{institute in head/foot}{fg=white}
+
+\makeatletter
+
+\pgfdeclarehorizontalshading{beamer@titleshade}{\paperheight}{%
+    color(0pt)=(dark);
+    color(.2\paperwidth)=(white!80!dark);
+    color(\paperwidth)=(white)
+}
+\makeatother
+
+% Title page
+\defbeamertemplate*{title page}{customized}[1][]
+{
+\begin{pgfpicture}{30pt}{0pt}{\paperwidth}{\paperheight}
+\pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\paperheight}}
+\pgfusepath{clip}
+\pgftext[left,base]{\pgfuseshading{beamer@titleshade}}
+\end{pgfpicture}
+\vspace*{-.8\paperheight}
+
+\hspace*{.1\paperwidth}
+\begin{minipage}{.8\paperwidth}
+        \centering
+    \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par
+    \usebeamercolor[bg]{palette primary}www.url.com\par
+    \vspace{0.15\paperheight}
+    \usebeamerfont{title}\inserttitle\par
+    \vspace{0.6\paperheight}
+    \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle
+\end{minipage} 
+}
+
+\mode
+<all>
+
+\title{Title}   
+\titlegraphic{Title Graphic}
+\logo{Logo}
+\date{}
+
+% Begin document
+\begin{document}
+
+% Title page and contents
+\frame[plain]{\titlepage} 
+\frame[plain]{\frametitle{Contents}\tableofcontents} 
+
+% Sections
+\section{Intro} 
+\frame{
+\frametitle{\insertsectionhead} 
+
+}
+
+\section{Second} 
+
+\frame{
+\frametitle{\insertsectionhead} 
+
+}
+
+\end{document}

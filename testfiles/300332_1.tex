@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/300332
+\documentclass{beamer}
+\usetheme{Warsaw}
+\setbeamercovered{transparent}
+\setbeamertemplate{navigation symbols}{}
+\usepackage{beamerthemeshadow}
+\usepackage{tikz}
+
+\begin{document}
+
+    \begin{frame}
+        \begin{block}{Theorem}
+            Theorem Text Here
+        \end{block}
+
+        \vfill \pause
+
+        \begin{block}{Corollary}
+            Corollary text here
+        \end{block}
+
+        \vfill \pause 
+
+        \begin{example} 
+            \begin{figure}
+        \begin{tikzpicture}
+            \visible<1-2>{\node[opacity=0.3] (img2) {\includegraphics[height=0.4\textwidth]{example-image-duck}};}
+            \visible<3>{\node (img2) {\includegraphics[height=0.4\textwidth]{example-image-duck}};}
+        \end{tikzpicture}
+            \end{figure}
+        \end{example}
+
+    \end{frame}
+
+\end{document}

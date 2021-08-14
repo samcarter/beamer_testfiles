@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/425734
+\documentclass{beamer}
+\usetheme{Feather}
+
+\title{The Feather Beamer Theme}
+\subtitle{v. 1.0.0}
+\author{Lilyana Vankova}
+\institute{Faculty of Mathematics, Informatics and Information}
+\date{\today}
+
+\setbeamertemplate{page number in head/foot}[totalframenumber]%
+\setbeamercolor{footline}{bg=structure.fg,fg=white}
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=1.0\paperwidth]{footline}
+    \usebeamerfont{section in head/foot}%
+    \hspace*{3.5ex}%
+    \insertshortauthor\ |\ 
+    \insertshorttitle
+    \insertshortsubtitle \hfill \usebeamertemplate{page number in head/foot}\hspace*{2ex} 
+  \end{beamercolorbox}
+}
+
+\begin{document}
+
+\begin{frame}
+test
+\end{frame}
+
+\end{document}

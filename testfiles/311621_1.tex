@@ -1,0 +1,54 @@
+% https://tex.stackexchange.com/a/311621
+ \documentclass{beamer}
+
+ \usepackage{etoolbox}
+ \usepackage{xpatch}
+
+ \usetheme{Warsaw}
+ \usecolortheme{seahorse}
+
+ \setbeamertemplate{section in head/foot}{\hfill\insertsectionheadnumber.~\insertsectionhead}
+ \setbeamertemplate{section in head/foot shaded}{\color{structure!50}\hfill\insertsectionheadnumber.~\insertsectionhead}
+ \setbeamertemplate{section in toc}{\inserttocsectionnumber.~\inserttocsection}
+
+
+ \title{Fibonaccijevi brojevi i zlatni rez. Rekurzije. Fraktali}
+ \author{Amar Bapić, Merjem Vikalo, Irma Zenunović}
+ \date{}
+ \institute{Univerzitet u Tuzli\\Prirodno - matematički fakultet\\ Odsjek Matematika}
+
+
+    \makeatletter
+    \patchcmd\beamer@@tmpl@frametitle{\insertframetitle}{%
+        \ifnumgreater{\arabic{section}}{0}{%
+            \thesection.%
+                    \ifnumgreater{\arabic{subsection}}{0}{% 
+                        \thesubsection.%
+                                \ifnumgreater{\arabic{subsubsection}}{0}{%
+                                    \thesubsubsection.%
+                                }{}%
+                    }{}%
+        }{}%
+        ~\insertframetitle{}{}%
+    }%
+    \makeatother
+
+ \begin{document}
+
+    \begin{frame}[plain]
+        \titlepage
+    \end{frame}
+    \section{Rekurzije}
+    \begin{frame}{Rekurzije}
+    \end{frame}
+    \subsection{Podjela ravni pravima. Podjela prostora ravnima.}
+    \begin{frame}{Podjela ravni pravima. Podjela prostora ravnima.}
+
+    \end{frame}
+    \subsection{Hanojski tornjevi}
+    \subsubsection{test}
+    \begin{frame}{Hanojski tornjevi}
+
+    \end{frame}
+
+ \end{document} 

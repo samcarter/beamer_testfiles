@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/406291
+\documentclass[leqno]{beamer}
+\usetheme{Madrid}
+\usecolortheme{beaver}
+\usepackage[utf8]{inputenc}
+\title{How to change the title of ToC Beamer ?}
+\author{Mohcine}
+\institute{Tex.stackexchange.com}
+\date{2017}
+\begin{document}
+ \maketitle
+
+
+ \AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Outline} % <--- CHANGE HERE
+    \tableofcontents[currentsection]
+     \end{frame}
+}
+
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents
+\end{frame}
+\section[1]{1}
+\begin{frame}
+\frametitle{Sample frame title}
+\end{frame}
+ \section[2]{2}
+\begin{frame}
+\frametitle{Sample frame title}
+\end{frame}
+\end{document}

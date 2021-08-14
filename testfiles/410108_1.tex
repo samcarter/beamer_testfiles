@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/410108
+\documentclass{beamer}
+
+\newcounter{insub}
+\AtBeginSubsection[]{\setcounter{insub}{0}}
+\AtBeginEnvironment{frame}{\addtocounter{insub}{1}}
+\setbeamertemplate{frametitle}{\subsecname{} - \theinsub}
+
+\begin{document}
+
+\subsection{test}
+\begin{frame}{.}
+    abc
+    \pause 
+    cdef
+\end{frame} 
+
+\begin{frame}{.}
+content...
+\end{frame}
+
+\subsection{test}
+\begin{frame}{.}
+    abc
+    \pause 
+    cdef
+\end{frame} 
+
+\end{document}

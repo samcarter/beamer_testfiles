@@ -1,0 +1,89 @@
+% https://tex.stackexchange.com/a/479935
+\documentclass[aspectratio=169, xcolor={x11names}]{beamer}
+
+\usecolortheme{rose}
+
+\setbeamercolor{itemize item}{fg=black}
+
+\useoutertheme{miniframes}
+
+\useinnertheme{inmargin}
+
+\setbeamersize{text margin left=2mm, text margin right=2mm}
+
+\newlength{\sidebarWidth}
+\setlength{\sidebarWidth}{0.2\paperwidth}
+
+\setbeamersize{sidebar width left=\sidebarWidth, sidebar width right=0cm}
+
+\usefonttheme{structurebold}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+% Custom progress bar
+% BEGIN_FOLD
+
+\setbeamercolor{progress bar progress}{use=progress bar,bg=progress bar.fg}
+\newlength{\heightNavigationSymbol}
+\setlength{\heightNavigationSymbol}{2.5mm} % around 2.5mm or 7.1pt
+\newlength{\widthProgressBarFull}
+\setlength{\widthProgressBarFull}{\sidebarWidth}
+\newcommand{\totalslideinframe}{0}
+\defbeamertemplate{footline}{progress bar}{
+    % Calculate bars widths
+    \dimen0=\widthProgressBarFull
+    \multiply\dimen0 by \insertframenumber
+    \divide\dimen0 by \inserttotalframenumber
+    \edef\widthProgressBar{\the\dimen0}
+    \leavevmode%
+    %
+    % The bar itself
+    \begin{beamercolorbox}[wd=\widthProgressBarFull, ht=\heightNavigationSymbol, dp=1ex]{progress bar}
+        \begin{beamercolorbox}[wd=\widthProgressBar, ht=\heightNavigationSymbol, dp=1ex]{progress bar progress}
+        \end{beamercolorbox}%
+    \end{beamercolorbox}%
+    \raisebox{0.02cm}{\hspace{-\widthProgressBarFull}\color{white} \adjustbox{minipage={\sidebarWidth}, frame}{\hspace*{\fill} $\progressframepercent$ \hspace*{\fill}}}%
+                                        }
+\setbeamertemplate{footline}[progress bar]
+\setbeamercolor{progress bar}{fg=DodgerBlue3,bg=PeachPuff3}
+
+% END_FOLD
+
+\usepackage{adjustbox}
+
+\newcommand{\progressframepercent}{
+    {\textnormal{\pgfmathparse{\insertframenumber*100/\inserttotalframenumber}%
+            \pgfmathprintnumber[fixed,precision=2]{\pgfmathresult}\,\%}}
+                                }
+
+
+
+\begin{document}
+
+\begin{frame}
+Some contents
+\end{frame}
+
+\begin{frame}
+
+
+
+
+
+Some contents
+\end{frame}
+
+\begin{frame}
+Some contents
+\end{frame}
+
+\begin{frame}
+Some contents
+\end{frame}
+
+\begin{frame}
+Some contents
+\end{frame}
+
+\end{document}

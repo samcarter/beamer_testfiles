@@ -1,0 +1,36 @@
+% https://tex.stackexchange.com/a/414526
+\documentclass[compress]{beamer}
+
+\usetheme{Singapore}
+
+\AtBeginSection[]{
+    \miniframesoff%
+  \begin{frame}
+  \frametitle{Outline}
+  \small \tableofcontents[currentsection, hideothersubsections]
+  \end{frame} 
+  \miniframeson%
+}
+
+
+\makeatletter
+\let\beamer@writeslidentry@miniframeson=\beamer@writeslidentry%
+\def\beamer@writeslidentry@miniframesoff{%
+  \expandafter\beamer@ifempty\expandafter{\beamer@framestartpage}{}% does not happen normally
+  {%else
+    % removed \addtocontents commands
+    \clearpage\beamer@notesactions%
+  }
+}
+\newcommand*{\miniframeson}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframeson}
+\newcommand*{\miniframesoff}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframesoff}
+\makeatother
+
+\begin{document}
+
+\section{sd}
+\begin{frame}
+    abc
+\end{frame} 
+
+\end{document}

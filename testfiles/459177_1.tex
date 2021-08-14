@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/459177
+\documentclass{beamer}
+
+\makeatletter
+\def\ps@navigation@titlepage{%
+  \usebackgroundtemplate{\includegraphics[width=\paperwidth]{example-image-duck}}% <-- define here the specific footline for the titlepage 
+  \@nameuse{ps@navigation}}
+\addtobeamertemplate{title page}{\thispagestyle{navigation@titlepage}}{}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+content...
+\end{frame}
+
+\end{document}

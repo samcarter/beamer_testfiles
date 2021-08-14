@@ -1,0 +1,44 @@
+% https://tex.stackexchange.com/a/456124
+\documentclass[10pt,dvipsnames]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+
+\usepackage{filecontents}
+\begin{filecontents*}{beamerthemeTest2.sty}
+    \setbeamerfont{frametitle}{size=\large}
+    \setbeamercolor{frametitle}{fg=JungleGreen,bg=Dandelion!60}
+    \setbeamertemplate{frametitle}
+    {%
+        \nointerlineskip
+        \begin{beamercolorbox}[sep=0.3cm,wd=\paperwidth]{frametitle}
+            \usebeamerfont{frametitle}%
+            \vbox{}\vskip-1ex%
+            \parbox{.8\textwidth}{\strut\insertframetitle\strut}%
+            \hfill
+            \vskip-0.8ex%
+        \end{beamercolorbox}
+    }
+    \addtobeamertemplate{frametitle}{}{%
+        \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=north east,yshift=-0.05cm] at (current page.north east) {\includegraphics[width=2cm,height=0.4cm]{example-image}};
+        \end{tikzpicture}}
+\end{filecontents*}
+
+\usetheme{Test2}
+
+\begin{document}
+
+\begin{frame}{Test Frame}
+    Optional Content
+\end{frame}
+
+\begin{frame}{Test Frame With Really Really Really Really Really Really Long Title}
+    Optional Content
+\end{frame}
+
+\begin{frame}{Test Frame With Really Really Really Really Really Really Really Really Really Long Title}
+    Optional Content
+\end{frame}
+
+\end{document}

@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/319561
+\documentclass[11pt]{beamer}
+\usepackage{natbib}
+
+\makeatletter
+\DeclareRobustCommand\citep
+{\begingroup\tiny\NAT@swatrue\let\NAT@ctype\z@\NAT@partrue
+    \@ifstar{\NAT@fulltrue\NAT@citetp}{\NAT@fullfalse\NAT@citetp}}
+\makeatother
+
+\begin{document}
+\bibliographystyle{plainnat}
+
+\begin{frame}
+Lorem ipsum \citep{jon90} % I would like this citation to be 50 percent smaller
+\end{frame}
+
+\begin{thebibliography}{1}
+\bibitem[Jones et al.(1990)]{jon90}
+\end{thebibliography}
+
+\end{document}

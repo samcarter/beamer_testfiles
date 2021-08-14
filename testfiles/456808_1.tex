@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/456808
+\documentclass{beamer}
+
+\usepackage{listings}
+\usepackage{tikz}
+\lstset{basicstyle=\ttfamily}
+
+\begin{document}
+
+
+\begin{frame}[fragile]{No centering}
+    \centering
+    \begin{minipage}{.381\textwidth}
+  \begin{lstlisting}[gobble=4]
+    hello := ""world"";
+    there := 1;
+  \end{lstlisting}
+    \end{minipage}
+  \par Bla\par
+\end{frame}
+
+
+
+
+\end{document}

@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/262414
+\documentclass{beamer}
+\usepackage[style=verbose]{biblatex}
+\addbibresource{biblatex-examples.bib}
+
+\begin{document}
+
+\begin{frame}
+footcite is in default color blue here.\footcite{knuth:ct}
+\end{frame}
+
+{
+\setbeamercolor{footnote mark}{fg=red}
+\setbeamercolor{footnote}{fg=red}
+\begin{frame}
+How to make footcite red color here.\footcite{knuth:ct}
+\end{frame}
+}
+
+\begin{frame}
+    footcite is in default color blue here.\footcite{knuth:ct}
+\end{frame}
+
+\begin{frame}
+\printbibliography
+\end{frame}
+
+\end{document}

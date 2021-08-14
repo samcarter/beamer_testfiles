@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/568831
+\documentclass[xcolor=dvipsnames,aspectratio=1610,handout]{beamer} 
+\usetheme[block=fill,progressbar=frametitle]{metropolis}
+\usepackage{tikz}
+
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.2,inner sep=0pt] {\includegraphics[height=\paperheight,width=\paperwidth]{example-image}};}
+
+% Presentation attributes
+\title{Title}
+\subtitle{\small Subtitle}
+\author[xxx]{Author} % Author
+\institute{\small Institute}
+\date{\tiny\today}
+
+\begin{document}
+% ---------------------------------------------------------------------------- %
+\begin{frame}
+    \titlepage
+\end{frame}
+% ---------------------------------------------------------------------------- %
+\begin{frame}
+    \frametitle{Frame Title}
+    \begin{itemize}
+        \item Item 1
+        \item Item 2
+    \end{itemize}
+\end{frame}
+\end{document}

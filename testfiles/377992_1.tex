@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/377992
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}
+    \begin{enumerate}
+        \item normal margin
+    \end{enumerate}
+    \begin{enumerate}[i]
+        \item smaller margin
+    \end{enumerate}
+    {
+    \setbeamertemplate{enumerate item}{\alph{enumi}}
+    \begin{enumerate}
+        \item much smaller margin
+    \end{enumerate}
+    }
+    \begin{enumerate}
+        \item[a] normal margin, but manual labels
+    \end{enumerate}
+\end{frame}
+
+\end{document}

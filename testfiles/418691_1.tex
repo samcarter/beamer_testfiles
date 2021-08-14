@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/418691
+\documentclass{beamer}
+
+\useoutertheme[height=0pt,left,width=1cm]{sidebar}
+\setbeamercolor{sidebar}{use=structure,bg=structure.fg!20!white,fg=white}
+
+\makeatletter
+\setbeamertemplate{sidebar left}{%
+    \begin{minipage}[t][.98\paperheight][t]{1cm}%
+        \vskip1.5em%
+        \centering
+        \includegraphics[width=.9\textwidth]{example-image}
+        \vfill      
+        \usebeamercolor[fg]{sidebar}
+        \insertframenumber
+        \vskip1.5em%
+    \end{minipage}
+}%
+\makeatother
+
+
+\begin{document}
+
+\begin{frame}
+    abc
+\end{frame} 
+
+\end{document}

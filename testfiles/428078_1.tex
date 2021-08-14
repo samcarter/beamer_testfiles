@@ -1,0 +1,51 @@
+% https://tex.stackexchange.com/a/428078
+\documentclass[compress]{beamer}
+
+\useoutertheme[subsection=false]{miniframes}
+\usepackage{tikz}
+
+\newcounter{cont}
+
+\makeatletter
+\setbeamertemplate{footline}{%
+    \setcounter{cont}{\beamer@endpageofframe}%
+  \addtocounter{cont}{1}%
+  \addtocounter{cont}{-\beamer@startpageofframe}%
+  \ifnum\thecont>1%
+    \foreach \i in {1, ..., \thecont}{%
+        \usebeamercolor[fg]{mini frame}%
+        \ifnum\i=\insertslidenumber%
+                ~\usebeamertemplate{mini frame}%
+            \else%
+                ~\usebeamertemplate{mini frame in current section}%
+            \fi%
+        }%
+    \fi%
+}
+\makeatother
+
+\begin{document}
+
+\section{Section 1}
+
+\subsection{Subsection 1.1}
+
+\begin{frame}{Single Frame}
+\end{frame}
+
+\subsection{Subsection 1.2}
+
+\begin{frame}{Multi slide frame}
+    \textbf{First slide}. I would like to have 3 dots at the bottom indicating the navigation of the current frame. \pause
+
+    \textbf{Second slide}. The  second dot should be filled now.\pause
+
+    \textbf{Third slide}. Now the third dot should be filled.
+\end{frame}
+
+\subsection{Subsection 1.3}
+
+\begin{frame}{Single Frame}
+\end{frame}
+
+\end{document}

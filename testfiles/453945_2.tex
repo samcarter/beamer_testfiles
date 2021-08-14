@@ -1,0 +1,38 @@
+% https://tex.stackexchange.com/a/453945
+\documentclass{beamer}                                                                                                                        
+\usepackage{tikzducks}   
+\setbeamertemplate{caption}[numbered] % for numbering figures in beamer                                                                                                         
+\usepackage{subcaption}                                                                                                                       
+
+\title{The Title}                                                                                                                             
+\author{The Author}                                                                                                                           
+
+\begin{document}                                                                                                                           
+
+\begin{frame}{Frame 1}
+  \begin{figure}
+    \begin{onlyenv}<1>
+        \begin{subfigure}{0.45\paperwidth}
+          \includegraphics[width=0.45\paperwidth]{example-image-a}
+          \caption{}
+        \end{subfigure}%                                                                                                                          
+        \begin{subfigure}{0.45\paperwidth}
+          \includegraphics[width=0.45\paperwidth]{example-image-b}
+          \caption{}
+        \end{subfigure}
+    \end{onlyenv}
+
+    \begin{onlyenv}<2>
+        \begin{subfigure}{0.45\paperwidth}
+          \includegraphics[width=0.45\paperwidth]{example-image-c}
+          \caption{}
+        \end{subfigure}%                                                                                                                          
+        \begin{subfigure}{0.45\paperwidth}
+          \includegraphics[width=0.45\paperwidth]{example-image-duck}
+          \caption{}
+        \end{subfigure}
+      \end{onlyenv}
+    \caption{}
+  \end{figure}
+\end{frame}                                                                                                                                   
+\end{document} 

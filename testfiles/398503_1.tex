@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/398503
+\documentclass{beamer}
+
+\newlength\barwidth
+\setlength\barwidth{24pt} % width of bars set here
+\setbeamercolor*{footline}{fg=orange,bg=black} 
+\setbeamerfont{title in head/foot}{series=\bfseries, size=\fontsize{12}{14}\selectfont}
+
+\setbeamertemplate{footline}{%
+    \begin{beamercolorbox}[wd=\paperwidth,sep=2pt]{footline}%
+    \includegraphics[align=c, height=\barwidth]{example-image}%
+    \hfill%
+    \usebeamerfont{title in head/foot}%
+    \inserttitle\hfill\kern1em%
+    \end{beamercolorbox}%
+}
+
+\usepackage{graphbox}
+
+\title{text}
+
+\begin{document}
+
+\begin{frame}
+
+\end{frame}
+
+
+\end{document}

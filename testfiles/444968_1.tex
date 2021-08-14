@@ -1,0 +1,32 @@
+% https://tex.stackexchange.com/a/444968
+\documentclass{beamer}
+
+\usetheme{metropolis}
+\setbeamertemplate{frame footer}{\insertshortauthor~(\insertshortinstitute)\hfill\insertshorttitle}
+
+\setbeamerfont{page number in head/foot}{size=\tiny}
+%\setbeamercolor{footline}{fg=gray}
+
+\author{names}
+\institute{institute}
+\title{Quack}
+
+\setbeamercolor{footline}{fg=black!2, bg=mDarkTeal}
+
+\makeatletter
+\setbeamertemplate{footline}{%
+    \begin{beamercolorbox}[wd=\textwidth, sep=1ex]{footline}
+        \usebeamerfont{page number in head/foot}%
+        \usebeamertemplate*{frame footer}
+        \hfill%
+%        \usebeamertemplate*{frame numbering}
+                \raisebox{-2ex}{\includegraphics[height=6ex]{example-image-duck}}
+    \end{beamercolorbox}%
+}
+\makeatother
+
+\begin{document}
+\begin{frame}
+content...
+\end{frame}
+\end{document}

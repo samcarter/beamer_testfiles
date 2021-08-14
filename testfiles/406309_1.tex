@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/406309
+\documentclass{beamer}
+\usepackage{forest}
+
+
+\tikzset{onslide/.code args={<#1>#2}{%
+  \only<#1>{\pgfkeysalso{#2}} % \pgfkeysalso doesn't change the path
+}}
+
+
+\begin{document}
+    \begin{frame}
+       \begin{forest}
+            for tree={
+                circle,
+                black,
+                draw,
+                minimum size = 2em,
+                font=\Large,
+                edge={->},
+                s sep = 30pt
+            }
+            [{}, onslide=<1>{color=green}
+            [{}, edge label={node[midway, left]{J}}
+            [{}, edge label={node[midway, left]{a}}
+            [{}, double, edge label={node[midway, left]{ck}}]
+            [{}, double, edge label={node[midway, right]{va}}]]
+            [{}, double, edge label={node[midway, left]{im}}
+            [{}, double, edge label={node[midway, left]{my}}]]]
+            [{}, onslide=<2>{color=green}, double, edge label={node[midway, right]{Ron}}
+            [{}, onslide=<3>{color=green}, double, edge label={node[midway, right]{ny}}]]]
+     \end{forest}
+\end{frame}
+
+\end{document}

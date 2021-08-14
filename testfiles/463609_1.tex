@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/463609
+\documentclass{beamer}
+
+\newcounter{foo}
+
+\begin{document}
+
+\begin{frame}
+  \begin{itemize}[<+->]
+    \item A
+    \item 
+        \setcounter{foo}{\insertframeendpage}
+        \addtocounter{foo}{-\insertframestartpage}
+        \addtocounter{foo}{1}
+        \alert<\thefoo>{B}   
+    \item C
+    \item D 
+  \end{itemize}
+    \only<+>{}
+\end{frame}
+
+\end{document}

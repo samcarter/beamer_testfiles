@@ -1,0 +1,174 @@
+% https://tex.stackexchange.com/a/319240
+\documentclass[aspectratio=169]{beamer}
+\mode<presentation>{}
+
+\usepackage{ocgx}
+\usepackage{tikz}
+\usepackage{array}
+
+
+\newcommand{\myarrow}{\raisebox{1ex}{\tikz \draw[->, line width=1.25mm] (0,0)--++(1,0);}}
+
+\begin{document}
+    \begin{frame}
+        %\small
+\resizebox{\textwidth}{!}{%
+        \begin{minipage}[t]{5cm}
+            \switchocg{ocg1}{%
+                \fcolorbox{black}{white}{%
+                    \bfseries\Large%
+                    \resizebox{5cm}{!}{\begin{tabular}{c c c c c c c c c c c c c c}
+                            \\
+                            \\
+                            {\Huge Project 1} \\ 
+                            \\
+                            \\
+                        \end{tabular}}}}\\%
+                        \begin{ocg}{OCG 1}{ocg1}{0}
+                            \colorbox{white}{%
+                                \parbox{10cm}{%
+                                    \colorbox{green}{
+                                        \begin{tabular}{m{4.18cm}} 
+                                            Item 1
+                                        \end{tabular}
+                                    }\\%
+                                    \colorbox{red}{\normalsize \color{white}{
+                                            \begin{tabular}{m{4.3cm}} 
+                                                Item 2
+                                            \end{tabular}
+                                        }}\\%
+                                        \colorbox{green}{\normalsize 
+                                            \begin{tabular}{m{4.3cm}} 
+                                                Item 3
+                                            \end{tabular}
+                                        }\\%
+                                        \colorbox{red}{\normalsize \color{white}{
+                                                \begin{tabular}{m{4.3cm}} 
+                                                    Item 4
+                                                \end{tabular}
+                                            }}\\%
+                                            \colorbox{green}{\normalsize 
+                                                \begin{tabular}{m{4.3cm}} 
+                                                    Item 5
+                                                \end{tabular}
+                                            }\\%
+                                            \colorbox{green}{\normalsize 
+                                                \begin{tabular}{m{4.3cm}} 
+                                                    Item 6
+                                                \end{tabular}
+                                            }%
+                                        }%
+                                    }
+                                \end{ocg}
+                            \end{minipage}%
+                            \indent \myarrow
+                            \indent \begin{minipage}[t]{5cm}
+                                \switchocg{ocg2}{%
+                                    \fcolorbox{black}{white}{%
+                                        \bfseries\Large%
+                                        \resizebox{5cm}{!}{\begin{tabular}{c c c c c c c c c c c c c c}
+                                                \\
+                                                \\
+                                                {\Huge Project 2} \\ 
+                                                \\
+                                                \\
+                                            \end{tabular}}}}\\%
+                                            \begin{ocg}{OCG 2}{ocg2}{0}
+                                                \colorbox{white}{%
+                                                    \parbox{10cm}{%
+                                                        \colorbox{red}{\normalsize \color{white}{
+                                                                \begin{tabular}{m{4.3cm}} 
+                                                                    Item 1
+                                                                \end{tabular}
+                                                            }}\\%
+                                                            \colorbox{green}{\normalsize 
+                                                                \begin{tabular}{m{4.3cm}} 
+                                                                    Item 2 
+                                                                \end{tabular}
+                                                            }%
+                                                        }%
+                                                    }
+                                                \end{ocg}
+                                            \end{minipage}%
+                                            \indent \myarrow
+                                            \indent \begin{minipage}[t]{5cm}
+                                                \switchocg{ocg3}{%
+                                                    \fcolorbox{black}{white}{%
+                                                        \bfseries\Large%
+                                                        \resizebox{5cm}{!}{\begin{tabular}{c c c c c c c c c c c c c c}
+                                                                \\
+                                                                \\
+                                                                {\Huge Project 3}\\
+                                                                \\
+                                                                \\
+                                                            \end{tabular}}}}\\%
+                                                            \begin{ocg}{OCG 3}{ocg3}{0}
+                                                                \colorbox{white}{%
+                                                                    \parbox{10cm}{%
+                                                                        \colorbox{green}{\normalsize 
+                                                                            \begin{tabular}{m{4.3cm}} 
+                                                                                Item 1
+                                                                            \end{tabular}
+                                                                        }\\%
+                                                                        \colorbox{green}{\normalsize 
+                                                                            \begin{tabular}{m{4.3cm}} 
+                                                                                Item 2
+                                                                            \end{tabular}
+                                                                        }\\%
+                                                                        \colorbox{red}{\normalsize \color{white}{
+                                                                                \begin{tabular}{m{4.3cm}} 
+                                                                                    Item 3
+                                                                                \end{tabular}
+                                                                            }}\\%
+                                                                            \colorbox{green}{\normalsize 
+                                                                                \begin{tabular}{m{4.3cm}} 
+                                                                                    Item 4
+                                                                                \end{tabular}
+                                                                            }\\%
+                                                                            \colorbox{red}{\normalsize \color{white}{
+                                                                                    \begin{tabular}{m{4.3cm}} 
+                                                                                        Item 5
+                                                                                    \end{tabular}
+                                                                                }}%
+                                                                            }%
+                                                                        }
+                                                                    \end{ocg}
+                                                                \end{minipage}%
+                                                                \indent \myarrow
+                                                                \indent \begin{minipage}[t]{5cm}
+                                                                    \switchocg{ocg4}{%
+                                                                        \fcolorbox{black}{white}{%
+                                                                            \bfseries\Large%
+                                                                            \resizebox{5cm}{!}{\begin{tabular}{c c c c c c c c c c c c c c}
+                                                                                    \\
+                                                                                    \\
+                                                                                    {\Huge Project 4}\\
+                                                                                    \\
+                                                                                    \\
+                                                                                \end{tabular}}}}\\%
+                                                                                \begin{ocg}{OCG 4}{ocg4}{0}
+                                                                                    \colorbox{white}{%
+                                                                                        \parbox{10cm}{%
+                                                                                            \colorbox{red}{\normalsize \color{white}
+                                                                                                \begin{tabular}{m{4.3cm}}
+                                                                                                    Item 1
+                                                                                                \end{tabular}
+                                                                                            }\\%
+                                                                                            \colorbox{red}{\normalsize \color{white}
+                                                                                                \begin{tabular}{m{4.3cm}} 
+                                                                                                    Item 2 
+                                                                                                \end{tabular}
+                                                                                            }\\%
+                                                                                            \colorbox{red}{\normalsize \color{white}
+                                                                                                \begin{tabular}{m{4.3cm}} 
+                                                                                                    Item 3
+                                                                                                \end{tabular}
+                                                                                            }}%
+                                                                                        }%
+
+                                                                                    \end{ocg}
+                                                                                \end{minipage}%
+                                                                            }
+                                                                            \end{frame}
+                                                                            %
+                                                                        \end{document}

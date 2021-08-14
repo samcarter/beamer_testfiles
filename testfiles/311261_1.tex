@@ -1,0 +1,48 @@
+% https://tex.stackexchange.com/a/311261
+\documentclass{beamer}
+
+\usetheme{Warsaw}
+
+\title{Beamer Presentation}
+\author{\LaTeX  Enthusiast}
+\date{today}
+
+\makeatletter
+\setbeamertemplate{frametitle}
+{
+    \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+    \@tempdima=\textwidth%
+    \advance\@tempdima by\beamer@leftmargin%
+    \advance\@tempdima by\beamer@rightmargin%
+    \vskip1ex
+    \begin{beamercolorbox}[sep=8pt,center,colsep=-4bp,rounded=true]{frametitle}
+        \usebeamerfont{frametitle}%
+        \vbox{}\vskip-1ex%
+        \if@tempswa\else\csname beamer@ftecenter\endcsname\fi%
+        \strut\insertframetitle\strut\par%
+        {%
+            \ifx\insertframesubtitle\@empty%
+            \else%
+            {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+            \fi
+        }%
+        \vskip-1ex%
+        \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+    \end{beamercolorbox}%
+}
+\makeatother
+
+
+
+\begin{document}
+
+    \begin{frame}
+        \titlepage
+    \end{frame}
+
+  \begin{frame}
+      \frametitle{Frame title}
+      test
+  \end{frame}
+
+\end{document}

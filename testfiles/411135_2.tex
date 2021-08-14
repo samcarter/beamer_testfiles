@@ -1,0 +1,74 @@
+% https://tex.stackexchange.com/a/411135
+\documentclass{beamer}
+
+\useinnertheme[shadow]{rounded}
+\setbeamercolor{block title example}{fg=black,bg=lightgray}
+\setbeamercolor{block body example}{fg=white,bg=gray}
+\setbeamercolor{block body}{fg=white,bg=blue!60}
+
+  \newenvironment<>{prosseekblock}[1]{%
+    \begin{actionenv}#2%
+      \def\insertblocktitle{#1}%
+      \par%
+      \mode<presentation>{%\usebeamerfont{block}%
+        \setbeamercolor{local structure}{parent=example text}}%
+      \usebeamertemplate{block prosseek begin}}
+    {\par%
+      \usebeamertemplate{block prosseek end}%
+    \end{actionenv}}    
+
+\defbeamertemplate*{block prosseek end}{default}
+{\end{beamercolorbox}\vskip\smallskipamount}
+
+
+\defbeamertemplate*{block prosseek begin}{default}
+{
+  \par\vskip\medskipamount%
+  \begin{beamercolorbox}[colsep*=.75ex]{block title example}
+    \usebeamerfont*{block title example}\insertblocktitle%
+  \end{beamercolorbox}%
+  {\parskip0pt\par}%
+  \ifbeamercolorempty[bg]{block title example}
+  {}
+  {\ifbeamercolorempty[bg]{block body example}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body example}%
+  \begin{beamercolorbox}[colsep*=.75ex,vmode]{block body example}%
+    \ifbeamercolorempty[bg]{block body example}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+}
+
+
+\begin{document}
+
+\begin{frame}
+
+\begin{minipage}{5cm}
+\setbeamertemplate{block begin}[default]
+\setbeamertemplate{block end}[default]
+\begin{block}{}
+    The \texttt{beamercolorbox} environment!
+\end{block}
+\end{minipage}
+
+\begin{exampleblock}{block title}
+ Box type \texttt{beamerboxesrounded}
+
+ with shadow.
+
+ Different colours are possible for the header and box contents. \ldots
+\end{exampleblock}
+
+\begin{example}
+ Box type \texttt{beamerboxesrounded}
+
+ with shadow.
+
+ Different colours are possible for the header and box contents. \ldots
+\end{example}
+
+\begin{prosseekblock}{test}
+    test
+\end{prosseekblock}
+
+\end{frame}
+
+\end{document}

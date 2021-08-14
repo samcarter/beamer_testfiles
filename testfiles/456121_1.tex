@@ -1,0 +1,44 @@
+% https://tex.stackexchange.com/a/456121
+\documentclass{beamer}
+
+\setbeamerfont{footnote}{size=\tiny}
+
+\setbeamertemplate{footnote}{%
+  \parindent 1em\noindent%
+  \raggedright
+  \linespread{0.5}
+  \hbox to 1.8em{\hfil\insertfootnotemark}\insertfootnotetext\par\vspace*{-0.2em}%
+}
+
+\defbeamertemplate{footnote}{unnumbered}{%
+  \parindent 1em\noindent%
+  \raggedright
+    \hbox to 1.8em{\hfil}\insertfootnotetext\par\vspace*{-0.2em}%
+}
+
+\begin{document}
+
+\begin{frame}
+    \begingroup
+        \setbeamertemplate{footnote}[unnumbered]
+        \footnotetext{my unnumbered, tiny, tightly spaced footnote tiny, tightly spaced footnote tiny, tightly spaced footnote tiny, tightly spaced footnote tiny, tightly spaced footnote tiny, tightly spaced footnotetiny, tightly spaced footnote tiny, tightly spaced footnote tiny, tightly spaced footnote}
+      \footnotetext{second unnumbered, tiny, tightly spaced footnote}
+    \endgroup
+
+    \begin{columns}[onlytextwidth]
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item some content
+                \item some more content
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item some more content\footnote[frame]{third tiny, tightly spaced footnote}
+                \item some more content\footnote[frame]{fourth tiny, tightly spaced footnote}
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/387018
+\documentclass{beamer}
+
+\usetheme[sectionpage=none,progressbar=frametitle]{metropolis}
+
+\setbeamertemplate{frame numbering}{%
+  \ifnum\insertframeendpage>\insertframestartpage{}
+        \insertframenumber{} -- \insertoverlaynumber{}%
+  \else
+        \insertframenumber{}
+  \fi%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+  Slide 1
+\end{frame}
+
+\begin{frame}
+  \textcolor<2>{red}{\color<3,18>{blue} Hi}
+\end{frame}
+
+\begin{frame}
+  Slide 3
+\end{frame}
+
+\end{document}

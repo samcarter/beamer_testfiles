@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/405349
+\documentclass{beamer}
+
+\usepackage{filecontents}
+\begin{filecontents*}{\jobname.bib}
+@article{einstein,
+author = {Einstein, A.},
+title = {Die Grundlage der allgemeinen Relativit\""atstheorie},
+journal = {Annalen der Physik},
+volume = {354},
+number = {7},
+pages = {769--822},
+year = {1916}
+}
+\end{filecontents*}
+
+\usepackage{biblatex}
+\addbibresource{\jobname.bib}
+
+\title[Paper summary]{Paper summary: \fullcite{einstein}}
+\author{name}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}[plain]
+    \titlepage
+\end{frame} 
+
+\begin{frame}
+\printbibliography
+\end{frame}
+
+
+\end{document}

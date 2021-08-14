@@ -1,0 +1,26 @@
+% https://tex.stackexchange.com/a/459382
+\documentclass{beamer}
+
+\setbeamercolor{footerbox}{bg=blue, fg=white}
+\setbeamercolor{footerboxcenter}{bg=red}
+
+\setbeamertemplate{footline}{%
+    \leavevmode
+    \begin{beamercolorbox}[wd=0.33\paperwidth,ht=7pt,dp=4pt,center]{footerbox}
+        \insertauthor
+    \end{beamercolorbox}% <- added
+    \begin{beamercolorbox}[wd=0.34\paperwidth,ht=7pt,dp=4pt,center]{footerboxcenter}
+        \inserttitle
+    \end{beamercolorbox}% <- added
+    \begin{beamercolorbox}[wd=0.33\paperwidth,ht=7pt,dp=4pt,center]{footerbox}
+        \insertframenumber/\inserttotalframenumber
+    \end{beamercolorbox}
+}
+
+\begin{document}
+
+\begin{frame}
+    abc
+\end{frame} 
+
+\end{document}

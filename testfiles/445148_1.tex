@@ -1,0 +1,46 @@
+% https://tex.stackexchange.com/a/445148
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{decorations.text}
+\title{TWO PROBLEMS}
+
+\titlegraphic{  \begin{tikzpicture}
+    \path [decorate,decoration={text along path, text={around the}}]
+     (0,0) sin (1,1) cos (2,0);
+    \end{tikzpicture}}
+
+\makeatletter 
+\setbeamertemplate{title page}{
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=8pt,center]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+  \endgroup
+  \vfill
+}    
+\makeatother
+
+\begin{document}
+  \begin{frame} 
+        \titlepage
+   \end{frame}
+\end{document}

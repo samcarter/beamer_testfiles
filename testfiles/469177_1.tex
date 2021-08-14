@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/a/469177
+\documentclass[final,t]{beamer}
+\usepackage{caption}
+
+\begin{document}
+
+\begin{frame}
+  \begin{columns}[T,onlytextwidth]
+%    \centering
+    \begin{column}{0.48\textwidth}
+%       \begin{figure}
+                    \centering
+          \includegraphics[scale=0.5]{example-image-duck}
+          \captionof{figure}{heading}
+%          \caption{aha}
+%       \end{figure}
+    \end{column}
+  \begin{column}{0.48\textwidth}
+  test
+  \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[scale=0.5]{example-image-duck}
+       \caption{aha}
+    \end{figure}
+  \end{frame}
+
+\end{document}

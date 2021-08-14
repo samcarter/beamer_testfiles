@@ -1,0 +1,52 @@
+% https://tex.stackexchange.com/a/432838
+\documentclass{beamer}
+
+\usetheme{Darmstadt}    
+
+\defbeamertemplate*{footline}{infolines theme}
+{\leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+\usebeamerfont{author in head/foot}\insertshortauthor~~
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+\usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+\usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+\insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\addtobeamertemplate{block begin}{%
+  \setlength{\textwidth}{0.8\textwidth}%
+}{}
+
+\addtobeamertemplate{block alerted begin}{%
+  \setlength{\textwidth}{0.8\textwidth}%
+}{}
+
+\addtobeamertemplate{block example begin}{%
+  \setlength{\textwidth}{0.8\textwidth}%
+}{}
+% Class options include: notes, handout, trans
+%
+
+
+
+\title{Title}    % Enter your title between curly braces
+\subtitle{}
+\author{author name}                 % Enter your name between curly braces
+\institute{My Institute Name Researcher\\[0.5cm] visting Institute}      % Enter your institute name between curly braces
+
+\date{June 2018}                    % Enter the date or \today between curly braces
+
+ \mode<presentation>{}
+
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+
+\end{document}

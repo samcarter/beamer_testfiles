@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/416887
+\documentclass{beamer}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\begin{document}
+\begin{frame}
+  This is the plot
+
+  \begin{onlyenv}<2>
+        \begin{tikzpicture}
+      \begin{axis}
+        [xmin=-1,xmax=1] \addplot [mark=*, samples=100] { x^2 };
+        \label<2>{line:tmp}
+      \end{axis}
+    \end{tikzpicture}%
+
+    My line is:~\ref{line:tmp}
+  \end{onlyenv}
+
+\end{frame}
+\end{document}

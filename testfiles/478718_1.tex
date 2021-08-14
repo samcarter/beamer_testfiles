@@ -1,0 +1,39 @@
+% https://tex.stackexchange.com/a/478718
+\documentclass{beamer}
+
+\usetheme{Madrid}
+
+\title{text}
+
+\makeatletter
+\renewcommand\insertshorttitle[1][]{%
+  \beamer@setupshort{#1}%
+  \let\thanks=\@gobble%
+  \ifnum\c@page=1%
+%    \hyperlinkpresentationend{\beamer@insertshort{\beamer@shorttitle}}%
+    \hyperlink{foo<2>}{\beamer@insertshort{\beamer@shorttitle}}%
+  \else%
+    \hyperlinkpresentationstart{\beamer@insertshort{\beamer@shorttitle}}%
+  \fi}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+content...
+\end{frame}
+
+\appendix
+
+\begin{frame}[label=foo]
+appendix
+\pause
+appendix2
+\end{frame}
+
+
+\end{document}

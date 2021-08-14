@@ -1,0 +1,33 @@
+% https://tex.stackexchange.com/a/317257
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\tikzset{onslide/.code args={<#1>#2}{%
+  \only<#1>{\pgfkeysalso{#2}} % \pgfkeysalso doesn't change the path
+}}
+\tikzset{temporal/.code args={<#1>#2#3#4}{%
+  \temporal<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}{\pgfkeysalso{#4}} % \pgfkeysalso doesn't change the path
+}}
+
+\tikzstyle{highlight}=[fill=#1!30!white]
+\tikzstyle{highlight2}=[fill=#1!60!white]
+
+
+\begin{document}
+\begin{frame}
+ \begin{figure}[h]
+  \begin{centering}
+  \begin{tikzpicture}[
+    system/.style={draw,rectangle,rounded corners=3,minimum width=2cm,text width=1.8cm,text centered},
+    node distance=2cm
+  ]
+    \node [system,onslide=<1>{highlight=blue},onslide=<2->{highlight2=blue},anchor=center] (fe) {Feature Extraction};
+
+    \node [system,onslide=<2>{highlight=red},onslide=<3->{highlight2=red},right=of fe.center] (he) {\textcolor<2->{red}{Feature Extraction}};
+
+  \end{tikzpicture}
+  \end{centering}
+  \end{figure}
+\end{frame}
+\end{document}

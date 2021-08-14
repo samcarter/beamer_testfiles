@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/391880
+\documentclass[t]{beamer}
+
+\begin{document}
+
+\begin{frame}
+    \frametitle<1>{Frame 1}
+    \frametitle<2>{Frame 2}
+    Text\medskip\par
+    Itemize:%
+    \begin{itemize}
+    \item a%
+    \item b%
+    \item c%
+    \end{itemize}
+    \begin{overlayarea}{300pt}{150pt}
+      \begin{figure}
+        \only<1>{\framebox(300,150){Height = 150 units}}
+        \only<2>{\framebox(300,50){Height = 50 units}}
+      \end{figure}
+    \end{overlayarea}
+\end{frame}
+
+\end{document}

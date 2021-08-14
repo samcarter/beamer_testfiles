@@ -1,0 +1,52 @@
+% https://tex.stackexchange.com/a/393336
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\title{The title}
+\date{}
+
+\makeatletter
+\setbeamertemplate{title page}{%
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \author[Us]{First Author\inst{1} \and Second Author\inst{2}}
+    \institute{\inst{1} University of Us1 \and \inst{2} University of Us2}
+    \begin{beamercolorbox}[sep=8pt,center]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \author[Them]{Another Author\inst{3} \and Yet Another Author\inst{2}}
+    \institute{\inst{3} University of Them1 \and \inst{2} University of Them2}
+    \begin{beamercolorbox}[sep=8pt,center]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+  \endgroup
+  \vfill
+}
+\makeatother
+
+
+\begin{document}
+\begin{frame}
+\maketitle
+\end{frame}
+\end{document}

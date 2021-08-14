@@ -1,0 +1,28 @@
+% https://tex.stackexchange.com/a/479704
+\documentclass{beamer}
+
+\makeatletter
+\edef\beamer@origlmargin{\Gm@lmargin}%
+\edef\beamer@origrmargin{\Gm@rmargin}%
+\makeatother
+
+\newsavebox{\mybox}
+
+\begin{document}
+\begin{frame}
+\begin{itemize}[<+->]
+\item AAA
+\item BBB
+\item CCC
+\end{itemize}
+\end{frame}
+\savebox{\mybox}{\insertslideintonotes{0.3}}
+
+\begin{frame}
+some other stuff
+\end{frame}
+
+\begin{frame}
+\usebox{\mybox}
+\end{frame}
+\end{document}

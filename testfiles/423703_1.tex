@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/423703
+\documentclass[t]{beamer}
+
+\begin{document}
+
+\begin{frame}
+%
+\frametitle{Title of Frame}
+    \begin{columns}[t,onlytextwidth]
+        %
+        \begin{column}{.5\textwidth}
+        \begin{itemize}
+        \item Text Text\footnote{Long Footnote Text Long Footnote Text Long Footnote Text Long Footnote Text Long Footnote Text} Text.
+        \item Text Text Text.
+        \end{itemize}
+        \end{column}
+        %
+        \begin{column}{.5\textwidth}
+        \end{column}
+        %
+    \end{columns}
+%
+Another Text\footnote{Long Footnote Text Long Footnote Text Long Footnote Text Long Footnote Text Long Footnote Text} Outside The \texttt{columns} Environment.
+%
+\end{frame}
+
+\end{document}

@@ -1,0 +1,34 @@
+% https://tex.stackexchange.com/a/384025
+\documentclass[t]{beamer}
+
+\usetheme{Singapore}
+\useoutertheme{miniframes}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning}
+
+\begin{document}
+
+\section{Section}
+\subsection{Subsection}
+
+\section{Section}
+\subsection{Subsection}
+
+\begin{frame}[c]
+\frametitle{Title}
+\framesubtitle{Subtitle}
+%
+\begin{beamerboxesrounded}[]{}
+The intention is to redraw the navigation from \emph{within} the frame environment to e.\,g. allow highlights of specific sections. The problem: The current solution needs a manual adjustment of the alignment. What can be considered as hacky. A cleaner solution for the \emph{exact} alignment at the original position would be highly appreciated.
+\end{beamerboxesrounded}
+\begin{tikzpicture}[remember picture,overlay]%
+{\node[text width=\paperwidth] at (current page.north) {%
+    \vskip13.25pt%
+    \usebeamerfont{headline}\insertnavigation{\paperwidth}%
+};
+}%
+\end{tikzpicture}
+\end{frame}
+
+\end{document}

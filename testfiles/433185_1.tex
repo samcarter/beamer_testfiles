@@ -1,0 +1,102 @@
+% https://tex.stackexchange.com/a/433185
+\documentclass{beamer}
+\usepackage[english]{babel}
+\usetheme{Frankfurt}
+\usecolortheme{beaver}
+%\usepackage{geometry}
+%\usepackage{graphicx} 
+\usepackage{subfigure}
+\usepackage{pifont}
+\usepackage{fancybox}
+%\usepackage{color, xcolor} 
+\usepackage{colortbl}
+%\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{natbib}
+%\usepackage{hyperref}
+
+\setbeamertemplate{navigation symbols}{} %gets rid of navigation symbols
+\setbeamercovered{transparent=20}
+\setbeamertemplate{footline}[frame number] % to show overlay page numbers type: page number
+\setbeamersize{text margin left=0.65cm, text margin right=0.65cm}
+\setbeamercolor{item}{fg=red!70!black} % red bullets
+\setbeamertemplate{itemize subitem}[triangle] % triangle sub-bullets
+\setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+
+\makeatletter
+\setbeamertemplate{headline}{%
+  \pgfuseshading{beamer@barshade}%
+  \ifbeamer@sb@subsection%
+    \vskip-9.75ex%
+  \else%
+    \vskip-7ex%
+  \fi%
+    \begin{beamercolorbox}[ht=3.5ex,dp=2.125ex]{section in head/foot}
+     \insertsectionnavigationhorizontal{\textwidth}{}{}%
+  \end{beamercolorbox}%
+  \ifbeamer@sb@subsection%
+    \begin{beamercolorbox}[ignorebg,ht=2.125ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+      \usebeamerfont{subsection in head/foot}\insertsubsectionhead
+    \end{beamercolorbox}%
+  \fi%
+}%
+
+\makeatother
+
+\begin{document}
+
+\section{title}
+\begin{frame}
+content...
+\end{frame}
+
+\section{title}
+\begin{frame}
+content...
+\end{frame}
+
+\section{title}
+\begin{frame}
+content...
+\end{frame}
+
+\section{title}
+\begin{frame}
+content...
+\end{frame}
+
+\section{title}
+\begin{frame}
+content...
+\end{frame}
+
+\section{title}
+\begin{frame}
+content...
+\end{frame}
+
+\section{title}
+\begin{frame}
+content...
+\end{frame}
+
+\section{title}
+\begin{frame}
+content...
+\end{frame}
+
+\section{title}
+\begin{frame}
+content...
+\end{frame}
+
+\section{title}
+\begin{frame}
+content...
+\end{frame}
+
+
+\end{document}

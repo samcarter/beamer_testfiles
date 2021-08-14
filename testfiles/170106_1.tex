@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/a/170106
+\documentclass[t]{beamer}
+
+\setbeamerfont{frametitle}{size=\fontsize{24}{28},series=\bfseries}
+\setbeamercolor{frametitle}{fg=black}
+
+\setbeamercolor{bgcolor}{fg=black,bg=blue!20}
+\pgfdeclareimage[width=\paperwidth]{mybackground}{example-image-duck}
+
+\setbeamertemplate{background canvas}{%
+    \begin{picture}(30,273)
+     \begin{beamercolorbox}[wd=1.1\paperwidth,ht=\paperheight]{bgcolor}
+     \end{beamercolorbox}
+        \put(-310,0){%
+            \pgfuseimage{mybackground}
+        }
+    \end{picture}
+}
+
+\begin{document}
+
+    \begin{frame}
+        test
+    \end{frame}
+
+    \setbeamercolor{bgcolor}{fg=black,bg=red!20}
+    \begin{frame}
+        test
+    \end{frame}
+
+\end{document}

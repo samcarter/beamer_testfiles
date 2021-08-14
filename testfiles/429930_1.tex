@@ -1,0 +1,64 @@
+% https://tex.stackexchange.com/a/429930
+\documentclass[10pt]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{charter}
+\usepackage{tikz}
+%\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{multicol}
+%\usepackage{wallpaper}
+\usepackage{IEEEtrantools}
+
+%% Title slide formatting %%
+\pgfdeclareimage[width=\paperwidth]{titlebackground}{example-image}
+\setbeamerfont{subtitle}{size=\tiny}
+
+\setbeamertemplate{title page}{
+  \begin{picture}(0,0)
+  \put(-28.5,-163){%
+    \pgfuseimage{titlebackground}
+  }
+ \put(0,-75){%
+  \begin{minipage}[b][4.5cm][t]{0.65\textwidth}
+    \color{white}
+ \usebeamerfont{title}
+   {\usebeamercolor[fg]{title}\inserttitle\\[0.9cm]}
+ \usebeamerfont{subtitle}
+ {\insertauthor\par}
+ {\insertinstitute\\[0.3cm]}
+  {\insertdate}
+\end{minipage}
+   }
+ \end{picture}
+}
+
+\setbeamerfont{title}{size=\Huge}
+\setbeamercolor{title}{fg=blue}
+
+%% General slide formatting %%
+\definecolor{oxfordblue}{RGB}{4,30,66}
+\pgfdeclareimage[width=3.9cm]{oxfordlogo}{example-image}
+\pgfdeclareimage[width=1cm]{mathslogo}{example-image}
+
+\title[MATH]{MATH}% short title for footer
+
+\author{%
+    \sc{Ph.D. candidate: }\\
+    \textit{Institute}
+}
+
+\institute{%
+    \sc{Advisor: }\\
+    \textit{Institute}
+}
+
+\date[\today]{Thesis Defense Presentation, \today} 
+\begin{document}
+
+    \begin{frame}[plain]
+        \titlepage
+    \end{frame}
+
+\end{document}

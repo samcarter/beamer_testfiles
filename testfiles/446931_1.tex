@@ -1,0 +1,69 @@
+% https://tex.stackexchange.com/a/446931
+\documentclass[table,dvipsnames]{beamer}
+
+%%% Basic packages
+\usepackage{amsmath}
+\usepackage{pgfpages}
+\usepackage{pgfplots}
+%\usepackage{graphicx}
+\usepackage{picture}
+\usepackage{filecontents}
+%\usepackage{multicol}
+\usepackage{ragged2e}
+\usepackage{listings}
+
+\usepackage{listingsutf8}
+\lstset{
+  language=python,
+  inputencoding=utf8/latin1,
+  extendedchars=true,
+  keywordstyle=\bfseries\ttfamily\color{blue},
+  identifierstyle=\ttfamily,
+  commentstyle=\color{gray},
+  stringstyle=\ttfamily\color{green!50!black},
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  tabsize=2,
+  breaklines=true,
+  extendedchars=true,
+  xleftmargin=1cm, 
+  xrightmargin=1cm,
+  escapeinside={(*@}{@*)},  
+  backgroundcolor=\color{white!80!black},
+  literate=%
+    {é}{{\'{e}}}1
+    {è}{{\`{e}}}1
+    {ê}{{\^{e}}}1
+    {ë}{{\¨{e}}}1
+    {û}{{\^{u}}}1
+    {ù}{{\`{u}}}1
+    {â}{{\^{a}}}1
+    {à}{{\`{a}}}1
+    {î}{{\^{i}}}1
+    {ô}{{\^{o}}}1
+    {ç}{{\c{c}}}1
+}
+
+\title[Test listings]{Test listings}
+
+\subtitle{ }
+\author{ }
+\institute{ } 
+\date{ }
+
+\begin{document}
+
+\begin{frame}[fragile]
+\frametitle{test}
+  \begin{lstlisting}
+  if (1<2):
+    print('python')
+
+  (*@\vspace*{3cm}@*)
+
+  if (2<3):
+    print('yay')
+  \end{lstlisting}
+\end{frame}
+
+\end{document}

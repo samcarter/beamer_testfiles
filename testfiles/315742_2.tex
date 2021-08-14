@@ -1,0 +1,99 @@
+% https://tex.stackexchange.com/a/315742
+\documentclass[handout]{beamer}
+\usepackage{pgfpages}
+\pgfpagesuselayout{4 on 1}[a4paper,border shrink=5mm, landscape]
+\setbeamertemplate{headline}{\scriptsize{\vspace*{0.3cm}\hspace*{0.3cm}
+
+\insertframenumber}}
+    \expandafter\def\expandafter\insertshorttitle\expandafter{%
+      \insertshorttitle\hfill%
+      \insertframenumber\,/\,\inserttotalframenumber}
+
+\usefonttheme[onlymath]{serif}
+
+\usetheme{Szeged}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{tipa}
+    \usepackage{eurosym}
+\usepackage{wasysym}
+\usepackage{colortbl}
+\usepackage{wrapfig}
+\usepackage{graphics}
+\usepackage{linguex}
+\usepackage{cgloss4e}
+\usepackage{csquotes}
+\usepackage{xspace}
+\usepackage{color}
+\usepackage{xyling}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{phonetic}
+\usepackage{multicol}
+\usepackage{booktabs}
+
+\usepackage[backend=biber, style=authoryear-comp]{biblatex}
+\addbibresource{ref.bib}
+
+% \strikeout{text}: prints a struck-out version of #1
+\newlength{\howlong}
+\newcommand{\strikeout}[1]{
+ \settowidth{\howlong}{#1}%
+ #1\unitlength0.5ex%
+ \begin{picture}(0,0)
+ \put(0,1){\line(-1,0){\howlong\divide\unitlength}}
+ \end{picture}%
+}
+
+\setbeamertemplate{headline}{%
+\leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{palette quaternary}%
+    \insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll}
+    \end{beamercolorbox}%
+  }
+}
+
+\setbeamertemplate{footline}
+{%
+    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+        leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}%
+        \leavevmode{\usebeamerfont{author in head/foot}\insertshortauthor}%
+        \hfill%
+        \leavevmode{\usebeamerfont{title in head/foot}\insertshorttitle}%
+        \hfill%
+        {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertshortinstitute}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+    \end{beamercolorbox}
+}
+
+\setbeamercovered{transparent=30}
+\beamertemplateballitem
+
+
+\makeatletter
+\def\pgfsys@endpicture{%
+    \makebox[\pgfphysicalwidth]{\the\numexpr\value{page}/4\relax}%
+}
+\makeatother
+
+\title{XXX}
+\subtitle{YYY}
+\author{ME}
+\institute{Mordor}
+\date{\today}
+
+\newcommand{\textunderscript}[1]{$_{\text{#1}}$}
+
+\begin{document}
+
+\frame {
+\frametitle{Flaflafla}
+
+xxxxxxxx}
+
+\end{document}

@@ -1,0 +1,51 @@
+% https://tex.stackexchange.com/a/405371
+\documentclass[xcolor={dvipsnames},aspectratio=1610]{beamer}
+
+\setbeamercolor{lower separation line head}{bg=red}
+
+\makeatletter
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip%
+    \vskip0.3cm%
+   \begin{beamercolorbox}[wd=\paperwidth,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{frametitle}%
+        \begin{minipage}{2cm}%
+            \includegraphics[height=1.2cm]{example-image-a}%
+        \end{minipage}%
+        \begin{minipage}{\dimexpr\paperwidth-4.6cm\relax}%
+    \usebeamerfont*{frametitle}\insertframetitle%
+      \ifx\insertframesubtitle\@empty%
+        \strut\par%
+      \else
+        \par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+      \fi%%
+        \end{minipage}%
+        \begin{minipage}{2cm}%
+            \hfill
+            \includegraphics[height=1.2cm]{example-image-b}%
+        \end{minipage}%
+  \end{beamercolorbox}%
+  \vskip1ex
+  \begin{beamercolorbox}[colsep=1.5pt,wd=\paperwidth]{lower separation line head}
+  \end{beamercolorbox}
+}
+\makeatother
+
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{frame}
+    \frametitle{title}
+\end{frame}
+
+\begin{frame}
+    \frametitle{multiline very very very very very very very very very long title}
+    \framesubtitle{title}
+\end{frame}
+
+\begin{frame}
+    \frametitle{title}
+    \framesubtitle{title}
+\end{frame}
+
+\end{document}

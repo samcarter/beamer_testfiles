@@ -1,0 +1,29 @@
+% https://tex.stackexchange.com/a/309834
+\documentclass{beamer}
+
+\usetheme{Frankfurt}
+
+\makeatletter
+\setbeamertemplate{headline}
+{%
+    \pgfuseshading{beamer@barshade}%
+    \vskip-5.5ex%
+    \begin{beamercolorbox}[ignorebg,ht=2.25ex,dp=3.75ex]{section in head/foot}
+        \insertsubsectionnavigationhorizontal{\paperwidth}{}{}
+    \end{beamercolorbox}%
+}%
+\makeatother
+
+
+\begin{document}
+\section{Section1}
+\subsection{Subsection1.1}
+\frame{test}
+\subsection{Subsection1.2}
+\frame{test}
+\section{Section2}
+\subsection{Subsection2.1}
+\frame{test}
+\subsection{Subsection2.2}
+\frame{test}
+\end{document} 

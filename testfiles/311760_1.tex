@@ -1,0 +1,37 @@
+% https://tex.stackexchange.com/a/311760
+\documentclass{beamer}
+
+\usepackage{tikz}
+\usetikzlibrary{fit,shapes.geometric}
+
+\newcounter{nodemarkers}
+\newcommand<>\circletext[1]{%
+    \tikz[overlay,remember picture] 
+    \node (marker-\arabic{nodemarkers}-a) at (0,1.5ex) {};%
+    #1%
+    \tikz[overlay,remember picture]
+    \node (marker-\arabic{nodemarkers}-b) at (0,0){};%
+    \tikz[overlay,remember picture,inner sep=2pt]
+    \node#2[draw,ellipse,fit=(marker-\arabic{nodemarkers}-a.center) (marker-\arabic{nodemarkers}-b.center)] {};%
+    \stepcounter{nodemarkers}%
+}
+
+\begin{document}
+
+    \begin{frame}
+        \frametitle{test}
+
+        \begin{tabular}{|ccccccc|}
+            \hline
+            \circletext<2->{AA}&
+            B&
+            C&
+            \circletext<3>{BB}&
+            A&
+            B&
+            C\\
+            \hline
+        \end{tabular}
+    \end{frame}
+
+\end{document}

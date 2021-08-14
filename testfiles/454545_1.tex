@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/a/454545
+\documentclass{beamer}
+
+\setbeamercovered{%
+    still covered={\opaqueness<1>{20}},
+    again covered={\opaqueness<1->{20}}
+}
+
+\begin{document}
+
+\begin{frame}
+    \Huge
+
+    \uncover<1>{old text}
+
+    \visible<2>{\vspace*{-\baselineskip} new text}
+\end{frame} 
+
+\end{document}

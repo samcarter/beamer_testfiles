@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/464203
+\documentclass{beamer}
+\newtheorem{exe}{Exercise}
+\usepackage{lmodern}
+
+\makeatletter
+\setbeamertemplate{theorem begin}{%
+%  \begin{\inserttheoremblockenv}% removed
+  {%
+    \textcolor{red}{\bfseries\inserttheoremname\space\inserttheoremnumber.}
+    \ifx\inserttheoremaddition\@empty\else\ (\inserttheoremaddition)\fi%
+    \space% new
+  }%
+}
+
+\setbeamertemplate{theorem end}{}
+\makeatother
+
+\begin{document}
+    \begin{frame}{A theorem in a box}
+            \begin{exe} Here is the exercise.
+            \end{exe}
+    \end{frame} 
+\end{document}

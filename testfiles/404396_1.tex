@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/404396
+\documentclass{beamer}
+\usetheme[width=10mm]{Berkeley}
+
+\usepackage{tikz}
+
+
+\makeatletter
+\setlength{\beamer@headheight}{4cm}
+
+\setbeamertemplate{sidebar left}{
+    \begin{tikzpicture}
+        \useasboundingbox[](0,0) rectangle(\beamer@sidebarwidth,\paperheight);
+        \usebeamercolor{palette primary};
+        \fill[left color=red, right color=bg!40!black] (0,0) rectangle (10mm,\paperheight);
+    \end{tikzpicture}
+}
+\makeatother
+
+
+\begin{document}
+
+\begin{frame}
+    abc
+\end{frame} 
+
+\end{document}

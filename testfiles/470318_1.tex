@@ -1,0 +1,112 @@
+% https://tex.stackexchange.com/a/470318
+\documentclass{beamer}
+
+\usetheme{AnnArbor}
+
+\usepackage{multicol}
+
+\definecolor{beamer@myBlue}{RGB}{19,41,75}
+\definecolor{beamer@myOrange}{RGB}{232,74,39}
+\definecolor{beamer@myGray}{RGB}{210,210,210}
+
+\setbeamercolor{frametitle}{fg=beamer@myBlue,bg=beamer@myGray}
+\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{title}{fg=beamer@myBlue,bg=beamer@myOrange!75}
+\setbeamercolor{item projected}{fg=white,bg=beamer@myOrange}
+\setbeamercolor{block title}{fg=beamer@myBlue,bg=beamer@myOrange}
+\setbeamercolor{block body}{fg=blue,bg=beamer@myBlue!80}
+\setbeamercolor{title in head/foot}{fg=beamer@myBlue,bg=beamer@myGray}
+\setbeamercolor{author in head/foot}{fg=white,bg=beamer@myBlue}
+\setbeamercolor{institute in head/foot}{fg=white,bg=beamer@myOrange}
+\setbeamercolor{date in head/foot}{fg=white,bg=beamer@myOrange}
+\setbeamercolor{section in head/foot}{fg=white,bg=beamer@myBlue}
+\setbeamercolor{subsection in head/foot}{fg=white,bg=beamer@myOrange}
+
+\setbeamercolor{section in toc}{fg=green}
+\setbeamercolor{subsection in toc}{fg=green}
+
+\beamertemplatenavigationsymbolsempty
+
+%% Presentation info
+\title[Test]{
+This is a test of my template
+}
+
+\author[J.~Smith]{John Smith}
+
+\institute[A]{Affiliation}
+
+\date[Jan. 15, 2019]{January 15, 2019}
+
+\begin{document}
+
+
+%%%%
+
+%% Titlepage
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+%%%%
+
+%% Outline
+\begin{frame}
+    \frametitle{Outline}
+    \begin{multicols}{2}
+        \tableofcontents
+    \end{multicols}
+\end{frame}
+%%%%
+
+%%% Other slides start here
+
+\section{Introduction}
+\subsection{Overview}
+
+\begin{frame}
+\frametitle{Example}
+\begin{itemize}
+    \item Here is a list:
+    \begin{itemize}
+        \item A
+        \item B
+        \item C
+        \item D
+        \item E
+    \end{itemize}
+    \item And another one:
+    \begin{itemize}
+        \item 1
+        \item 2
+        \item 3
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{Conclusion}
+\subsection{Review}
+
+\begin{frame}
+\frametitle{Example}
+\begin{itemize}
+    \item Here is a list:
+    \begin{itemize}
+        \item A
+        \item B
+        \item C
+        \item D
+        \item E
+    \end{itemize}
+    \item And another one:
+    \begin{itemize}
+        \item 1
+        \item 2
+        \item 3
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\newcounter{finalframe}
+\setcounter{finalframe}{\value{framenumber}}
+
+\end{document}

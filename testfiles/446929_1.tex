@@ -1,0 +1,31 @@
+% https://tex.stackexchange.com/a/446929
+\documentclass[border=5mm, usenames, dvipsnames]{beamer}
+\usepackage{tikz}
+\usetikzlibrary{shapes, positioning, calc, arrows.meta, matrix, chains, scopes, fit}
+\usetikzlibrary{overlay-beamer-styles}
+
+\makeatletter
+\geometry{papersize={32cm,\beamer@paperheight}}
+\makeatother
+\begin{document}
+    \tikzset{myrect/.style n args = {4}{font=\footnotesize \ttfamily, align=left, rounded corners, rectangle, minimum width=#1cm, minimum height=#2cm, fill=#3, draw=#4}}
+    \tikzset{myrect/.default={3}{1}{white}{black}}
+    \tikzset{mycon/.style = {rounded corners}}
+    \begin{frame}[t,fragile]
+        \begin{tikzpicture}
+            \matrix (layer1) [matrix of nodes, nodes={myrect}, column sep=1cm] {
+                A&
+                |[visible on=<2->]| B&
+                |[visible on=<3->]| C&
+                |[visible on=<4->]| D\\
+            };
+            {
+                [start chain,every on chain/.style={join}, every join/.style={->}]
+                \chainin (layer1-1-1) [];
+                \only<5->{\chainin (layer1-1-2) [];}
+                \only<6->{\chainin (layer1-1-3) [];}
+                \only<7->{\chainin (layer1-1-4) [];}
+            }
+        \end{tikzpicture}
+    \end{frame}
+\end{document}

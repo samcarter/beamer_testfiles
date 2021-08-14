@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/478989
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+
+%\usepackage{stubs}
+\usetheme{Copenhagen}
+
+\usepackage{pgffor}
+\setbeamertemplate{footline}{%
+    \quad
+    \foreach \x in {1,...,22}{
+        \rule{0.7pt}{1.5cm}\rotatebox{90}{\parbox{1.5cm}{some text\\some text}}
+    }
+    \rule{0.7pt}{1.5cm}
+}
+
+\begin{document}
+
+  \begin{frame}{Header}
+    Main body text.
+  \end{frame}
+
+
+
+\end{document}

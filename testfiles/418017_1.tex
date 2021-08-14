@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/418017
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}
+    \frametitle{test}
+    \visible<1,2,3>{Blalalalalalala}
+
+    \begin{overlayarea}{\textwidth}{.5\textheight}
+        \only<2>{
+        \begin{figure}
+        \includegraphics[scale=0.5]{example-image}
+        \end{figure}}
+
+        \only<3>{Balalalalala}
+    \end{overlayarea}
+\end{frame} 
+
+\end{document}

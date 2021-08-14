@@ -1,0 +1,21 @@
+% https://tex.stackexchange.com/a/463590
+\documentclass{beamer}
+
+\newcommand<>{\myalert}[1]{%
+    \begingroup
+        \setbeamercolor{alerted text}{fg=blue}%
+        \alert#2{#1}%
+    \endgroup
+}
+
+\begin{document}
+
+\begin{frame}
+
+\alert<1>{test}
+
+\myalert<3-5>{sdf}
+
+\end{frame}
+
+\end{document}

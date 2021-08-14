@@ -1,0 +1,79 @@
+% https://tex.stackexchange.com/a/316250
+\documentclass{beamer} 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usetheme{Ilmenau}
+
+\makeatletter
+\setbeamertemplate{headline}{%
+    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}{section in head/foot}
+        \vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+    \end{beamercolorbox}%
+    \ifnum\value{subsection}>0%
+%   \ifbeamer@theme@subsection%
+    \begin{beamercolorbox}[colsep=1.5pt]{middle separation line head}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+        leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+        \usebeamerfont{subsection in head/foot}\insertsubsectionhead
+    \end{beamercolorbox}%
+    \fi%
+    \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+    \end{beamercolorbox}
+}
+
+
+\setbeamertemplate{frametitle}
+{
+    \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+    \@tempdima=\textwidth%
+    \advance\@tempdima by\beamer@leftmargin%
+    \advance\@tempdima by\beamer@rightmargin%
+    \ifnum\thesubsection>0%
+        \vskip1.5ex%
+    \fi%
+    \begin{beamercolorbox}[sep=0.3cm,left,wd=\the\@tempdima]{frametitle}
+        \usebeamerfont{frametitle}%
+        \vbox{}\vskip-1ex%
+        \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+        \strut\insertframetitle\strut\par%
+        {%
+            \ifx\insertframesubtitle\@empty%
+            \else%
+            {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+            \fi
+        }%
+        \vskip-1ex%
+        \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+    \end{beamercolorbox}%
+}
+
+\makeatother
+
+\begin{document}
+
+\section{Section 1}
+\begin{frame}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{d}
+\end{frame}
+
+
+\section{Section 2}
+\subsection{Subsection 2.1}
+\begin{frame}
+    \frametitle{d}
+
+\end{frame}
+
+\subsection{Subsection 2.2}
+\begin{frame}
+
+\end{frame}
+\end{document}

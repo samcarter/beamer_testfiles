@@ -1,0 +1,48 @@
+% https://tex.stackexchange.com/a/439390
+\documentclass{beamer}
+
+\usepackage{filecontents}
+\begin{filecontents*}{\jobname.bib}
+@article{Goldlucke2014,
+  title={A super-resolution framework for high-accuracy multiview reconstruction},
+  author={Goldl{\""u}cke, Bastian and Aubry, Mathieu and Kolev, Kalin and Cremers, Daniel},
+  journal={International Journal of Computer Vision},
+  volume={106},
+  number={2},
+  pages={172--191},
+  year={2014},
+}
+
+@inproceedings{Li2014,
+  title={Similarity-aware patchwork assembly for depth image super-resolution},
+  author={Li, Jing and Lu, Zhichao and Zeng, Gang and Gan, Rui and Zha, Hongbin},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  pages={3374--3381},
+  year={2014}
+}
+@inproceedings{Yang2007,
+  title={Spatial-depth super resolution for range images},
+  author={Yang, Qingxiong and Yang, Ruigang and Davis, James and Nist{\'e}r, David},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  year={2007\normalfont},
+}
+\end{filecontents*}
+
+
+\usepackage{bibunits}  
+\setbeamertemplate{bibliography item}{[\theenumiv]}
+\defaultbibliography{\jobname}
+\defaultbibliographystyle{IEEEtran}
+
+\newcommand{\BIBdecl}{\bfseries}
+
+\begin{document}
+  \begin{frame}
+    \frametitle{Some entries}
+    \begin{bibunit}
+      \nocite{Yang2007, Goldlucke2014, Li2014}
+      \putbib
+    \end{bibunit}
+    and many more...
+  \end{frame}
+\end{document}

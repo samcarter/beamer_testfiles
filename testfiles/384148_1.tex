@@ -1,0 +1,27 @@
+% https://tex.stackexchange.com/a/384148
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetheme{Madrid}
+
+\begin{document}
+
+\begin{frame}
+    \transduration{1}
+    \frametitle{Personal information}
+    \begin{itemize}
+        \item Jordi Altayó González
+        \item Born on July 28, 1996
+        \item Sabadell
+    \end{itemize}   
+    \vfill
+    \foreach \t in {0,1,...,9} {%
+        \only<+>{%
+            \begin{flushright}
+                \t
+            \end{flushright}
+        }%
+    }%             
+\end{frame}
+
+\end{document}

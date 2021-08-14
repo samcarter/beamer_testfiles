@@ -1,0 +1,20 @@
+% https://tex.stackexchange.com/a/478289
+\documentclass[11pt]{beamer}
+
+\setbeamertemplate{caption}{%
+  \raggedright
+  \insertcaption\par
+}
+
+\begin{document}
+
+\section{my photos}
+\begin{frame}
+\footnotesize\textbf{Is this the same as previous figure?} 
+\begin{figure}
+\caption{This is amazing photo}
+%\centering
+\includegraphics[width=0.4\textwidth]{example-image-duck}
+\end{figure}
+\end{frame}
+\end{document}

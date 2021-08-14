@@ -1,0 +1,24 @@
+% https://tex.stackexchange.com/a/401106
+\documentclass{beamer}
+
+\newcommand{\numcirc}[1]{%
+%   \usebeamerfont*{item projected}%
+    \large
+  \usebeamercolor[bg]{item projected}%
+  \begin{pgfpicture}{-1ex}{0ex}{1ex}{2ex}
+    \pgfpathcircle{\pgfpoint{0pt}{.75ex}}{1.2ex}
+    \pgfusepath{fill}
+    \pgftext[base]{\color{fg}#1}
+  \end{pgfpicture}%
+  \usebeamerfont*{frametitle}%
+}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{\numcirc{5} test}
+
+\end{frame}
+
+
+\end{document}

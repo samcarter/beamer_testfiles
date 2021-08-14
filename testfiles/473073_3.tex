@@ -1,0 +1,63 @@
+% https://tex.stackexchange.com/a/473073
+\documentclass{beamer}
+
+\usetheme{warsaw}
+\usepackage{ragged2e}
+\bibliographystyle{unsrt}
+
+%\let\olditem=\item 
+%\renewcommand{\item}{\olditem \justifying}
+
+\usepackage{filecontents}
+\begin{filecontents*}{\jobname.bib}
+@book{knuth,
+  author       = {Knuth, Donald E.},
+  title        = {The {\TeX} book},
+  date         = 1984,
+  maintitle    = {Computers \& Typesetting},
+  volume       = {A},
+  publisher    = {Addison-Wesley},
+  location     = {Reading, Mass.},
+  langid       = {english},
+  langidopts   = {variant=american},
+  sortyear     = {1984-1},
+  sorttitle    = {Computers & Typesetting A},
+  indexsorttitle= {The TeXbook},
+  indextitle   = {\protect\TeX book, The},
+  shorttitle   = {\TeX book}
+}
+
+@article{einstein,
+    author = {Einstein, A.},
+    title = {Die Grundlage der allgemeinen Relativitatstheorie},
+    journal = {Annalen der Physik},
+    volume = {354},
+    number = {7},
+    doi = {10.1002/andp.19163540702},
+    pages = {769--822},
+    year = {1916}
+}
+\end{filecontents*}
+
+\begin{document}
+
+\begin{frame}
+    \justify
+    \frametitle{Fundamentals of PV Array}
+    Everything is good \cite{knuth}.
+    \begin{itemize}
+        %\justify
+        \item A.
+        %\justify
+        \item B \cite{einstein}
+    \end{itemize}   
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+        \frametitle{References}
+    \tiny
+    \justifying
+    \bibliography{\jobname}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,43 @@
+% https://tex.stackexchange.com/a/309834
+\documentclass{beamer}
+
+\useoutertheme[subsection=true]{smoothbars}
+\useinnertheme[shadow=true]{rounded}
+\usecolortheme{orchid}
+\usecolortheme{whale}
+
+\setbeamerfont{block title}{size={}}
+
+\makeatletter
+\setbeamertemplate{headline}
+{%
+    \pgfuseshading{beamer@barshade}%
+    \ifbeamer@sb@subsection%
+    \vskip-8.2ex%
+    \else%
+    \vskip-7ex%
+    \fi%
+    \begin{beamercolorbox}[ignorebg,ht=2.25ex,dp=3.75ex]{section in head/foot}
+        \insertsectionnavigationhorizontal{\paperwidth}{}{}
+    \end{beamercolorbox}%
+    \ifbeamer@sb@subsection%
+    \begin{beamercolorbox}[ignorebg,ht=1.ex,dp=1.125ex]{subsection in head/foot}
+        \usebeamerfont{subsection in head/foot}\insertsubsectionnavigationhorizontal{\paperwidth}{}{}
+    \end{beamercolorbox}%
+    \fi%
+}%
+\makeatother
+
+
+\begin{document}
+\section{Section1}
+\subsection{Subsection1.1}
+\frame{test}
+\subsection{Subsection1.2}
+\frame{test}
+\section{Section2}
+\subsection{Subsection2.1}
+\frame{test}
+\subsection{Subsection2.2}
+\frame{test}
+\end{document} 

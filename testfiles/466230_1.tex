@@ -1,0 +1,22 @@
+% https://tex.stackexchange.com/a/466230
+\documentclass[xcolor=dvipsnames]{beamer}
+
+\usepackage{soul}
+\setul{}{1.5pt}
+
+\usepackage[tikz]{bclogo}
+\renewcommand\bcStyleTitre[1]{\vskip-0.5em\bfseries\color{Maroon}\ul{#1}\vskip0em}
+
+\begin{document}
+
+\begin{frame}
+  \begin{bclogo}[arrondi=0.1, logo=\bcquestion, couleurBarre=Maroon] 
+        {Question}
+    Why
+    \[
+        r_e(\mathbf{T})\geq r(\mathbf{T}) \;?
+    \]
+  \end{bclogo}
+\end{frame}
+
+\end{document}

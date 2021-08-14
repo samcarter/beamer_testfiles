@@ -1,0 +1,97 @@
+% https://tex.stackexchange.com/a/426328
+\documentclass{beamer}
+\usetheme{PaloAlto}
+\usepackage{ifthen}
+
+\makeatletter
+\AtEndDocument{%
+    \clearpage
+    \beamer@tempcount=\c@page\advance\beamer@tempcount by -1%
+    \if@filesw
+    \newwrite\tf@lof
+    \immediate\openout\tf@lof\jobname.lof\relax
+    \newwrite\tf@lot
+    \immediate\openout\tf@lot\jobname.lot\relax
+    \fi
+}
+\long\def\beamer@makecaption#1#2#3#4{%
+    \def\insertcaptionname{\csname#1name\endcsname}%
+    \def\insertcaptionnumber{\csname the#1\endcsname}%
+    \edef\insertframenumber{\theframenumber}%
+    \ifthenelse{\equal{#3}{\empty}}{%  
+        \def\insertlistcaption{#2}%
+    }{%
+        \def\insertlistcaption{#3}%
+    }
+    \def\insertsource{#4}%
+    \def\insertcaption{#2}%
+    \ifthenelse{\equal{#1}{figure}}{%  
+    \only<+>{
+        \addtocontents{lof} 
+{\protect\listoffigureformat{\insertcaptionnumber}{\insertlistcaption} 
+{\insertframenumber}{\insertsource}}{}{}%
+    }}{}
+    \ifthenelse{\equal{#1}{table}}{%  
+        \addtocontents{lot}{\protect\listoftableformat{\insertcaptionnumber} 
+{\insertlistcaption}{\insertframenumber}}{}{}%
+    }{}
+    \nobreak\vskip\abovecaptionskip\nobreak
+    \sbox\@tempboxa{\usebeamertemplate**{caption}}%
+    \ifdim \wd\@tempboxa >\hsize
+    \usebeamertemplate**{caption}\par
+    \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+    \fi
+    \nobreak\vskip\belowcaptionskip\nobreak%
+}
+\def\listoffigureformat#1#2#3#4{%
+    \makebox[2ex][r]{#1}%
+    \hspace{1ex}%
+    {\usebeamercolor[fg]{bibliography entry author} #2}%
+    \ifthenelse{\equal{#4}{\empty}}{}{ -- #4}%
+    \dotfill%
+    \makebox[2ex][r]{#3}\par%
+}
+\def\listoffigures{%
+    \setlength{\leftskip}{3ex}
+    \setlength{\parindent}{-3ex}
+    \@starttoc{lof}%
+}
+\def\listoftableformat#1#2#3{\makebox[2ex][r] 
+{#1}\hspace{1ex}#2\dotfill\makebox[2ex][r]{#3}\par}
+\def\listoftables{%
+    \setlength{\leftskip}{3ex}
+    \setlength{\parindent}{-3ex}
+    \@starttoc{lot}%
+}
+\long\def\@caption#1[#2]#3{
+    \par\nobreak
+    \begingroup
+    \@parboxrestore
+    \if@minipage
+    \@setminipage
+    \fi
+    \beamer@makecaption{#1}{\ignorespaces #3}{\ignorespaces #3} 
+{\ignorespaces #2}\par\nobreak
+    \endgroup}
+\makeatother
+
+\begin{document}
+
+\begin{frame}{Frame}
+\begin{figure}
+\mbox{A}
+\caption[citation]{The letter 'A'}
+\end{figure}
+\begin{itemize}
+    \item<1-> an item
+    \item<2-> another item
+    \item<3-> a third item
+\end{itemize}
+\end{frame}
+\begin{frame}{List of Figures}
+\listoffigures
+\end{frame}
+
+\end{document}

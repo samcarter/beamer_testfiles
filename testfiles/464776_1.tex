@@ -1,0 +1,35 @@
+% https://tex.stackexchange.com/a/464776
+\documentclass{beamer}
+\usetheme{metropolis}
+
+\begin{document}
+
+\begin{frame}[t]{title}
+\begin{overlayarea}{\textwidth}{.86\textheight}
+\begin{itemize}
+    \item 0
+    \only<+>{%
+        \item a
+    }
+    \only<+>{%
+        \item b
+        \item c
+    }
+    \only<+>{%
+        \item d
+        \item e
+        \item f
+        \item 
+        ggggggggggggggggggggggggggggggggggggggggg
+        ggggggggggggggggggggggggggggggggggggggggg
+        ggggggggggggggggggggggggggggggggggggggggg
+        ggggggggggggggggggggggggggggggggggggggggg
+        ggggggggggggggggggggggggggggggggggggggggg
+        ggggggggggggggggggggggggggggggggggggggggg
+        ggggggggggggggggggggggggggggggggggggggggg
+        ggggggggggggggggggggggggggggggggggggggggg
+    }
+\end{itemize}
+\end{overlayarea}
+\end{frame}
+\end{document}

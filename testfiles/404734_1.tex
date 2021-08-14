@@ -1,0 +1,47 @@
+% https://tex.stackexchange.com/a/404734
+\documentclass{beamer}
+
+\newcommand{\fhline}[1]{%
+    \rule{\textwidth}{#1pt}%
+}
+
+\title{There Is No Largest Prime Number}
+\subtitle{Testttl}
+\date[ISPN ’80]{27th International Symposium of Prime Numbers}
+\author[Euclid]{Euclid of Alexandria \texttt{euclid@alexandria.edu}}
+
+\setbeamertemplate{title page}{%
+        \fhline{3}
+    \vskip0.2em
+    \begin{minipage}{\textwidth}
+        \ifx\insertsubtitle\empty
+        \usebeamerfont{title}\inserttitle
+        \else
+        \usebeamerfont{title}\inserttitle\par
+        \vskip0.5em
+        \usebeamerfont{subtitle}\insertsubtitle
+        \fi
+    \end{minipage}
+    \vskip0.3em
+        \fhline{1}
+    \vskip3.0cm
+    \begin{minipage}{\textwidth}
+        \ifx\insertauthor\empty
+        \else
+        \usebeamerfont{author}\insertauthor\par
+        \fi
+        \ifx\insertdate\empty
+        \else
+        \usebeamerfont{author}\insertdate\\
+        \fi
+    \end{minipage}
+    \vskip1.0cm
+}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\end{document}

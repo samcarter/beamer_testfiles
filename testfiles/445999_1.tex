@@ -1,0 +1,16 @@
+% https://tex.stackexchange.com/a/445999
+\documentclass{beamer}
+
+\usepackage{tikz}
+
+\begin{document}
+\begin{frame}
+\transduration{0}
+\begin{tikzpicture}
+\foreach \foreach \x in {0,0.01, ...,1}{
+    \fill<+>[red] (0,0) rectangle (\x*\textwidth,1);
+}
+\node[anchor=west] at (0.25,0.5) {A piece of text with red background for highlight.};
+\end{tikzpicture}
+\end{frame}
+\end{document}

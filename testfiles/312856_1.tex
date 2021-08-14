@@ -1,0 +1,48 @@
+% https://tex.stackexchange.com/a/312856
+\documentclass{beamer}
+
+\usetheme{Berlin}
+
+\setbeamertemplate{headline}{%
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=\paperwidth,ht=12.5ex]{section in head/foot}%
+            \insertsectionnavigation{\paperwidth}
+        \end{beamercolorbox}%
+    }
+}
+
+\makeatletter
+\def\insertsectionnavigation#1{%
+    \hbox to #1{%
+        \vbox{{\usebeamerfont{section in head/foot}\usebeamercolor[fg]{section in head/foot}%
+                \vskip0.5625ex%
+                \def\slideentry##1##2##3##4##5##6{}%
+                \def\sectionentry##1##2##3##4##5{%
+                    \ifnum##5=\c@part%
+                    \def\insertsectionhead{##2}%
+                    \def\insertsectionheadnumber{##1}%
+                    \def\insertpartheadnumber{##5}%
+                    \setbox\beamer@tempbox=\hbox{%
+                        \hyperlink{Navigation##3}{\hbox to #1{%
+                                \hskip0.3cm%
+                                \ifnum\c@section=##1%
+                                {\hfill\usebeamertemplate{section in head/foot}\hfill}%
+                                \else%
+                                {\hfill\usebeamertemplate{section in head/foot shaded}\hfill}%
+                                \fi\hskip0.3cm}}}%
+                    \ht\beamer@tempbox=1.6875ex\dp\beamer@tempbox=0.75ex%
+                    \box\beamer@tempbox\fi}%
+                \dohead\vskip0.5625ex}}\hfil}}
+\makeatother
+
+
+\begin{document}
+
+\section{loooooooooooooong}
+\frame{as}
+
+\section{er}
+\frame{sd}
+
+\end{document}

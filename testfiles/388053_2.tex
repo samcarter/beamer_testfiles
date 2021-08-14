@@ -1,0 +1,25 @@
+% https://tex.stackexchange.com/a/388053
+\documentclass{beamer}
+
+\BeforeBeginEnvironment{block}{\framebreak}
+
+\begin{document}
+
+\begin{frame}[allowframebreaks]{Section 1}
+\begin{block}{Sub-Section 1.1}
+\begin{itemize}
+\item a
+\item b
+\end{itemize}
+\end{block}
+
+\begin{block}{Sub-Section 1.2}
+\begin{itemize}
+\item c
+\item d
+\end{itemize}
+\end{block}
+
+\end{frame} 
+
+\end{document}

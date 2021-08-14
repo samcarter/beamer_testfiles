@@ -1,0 +1,64 @@
+% https://tex.stackexchange.com/a/446970
+\documentclass[
+    aspectratio = 169
+]{beamer}
+\setbeameroption{show notes}
+\usepackage{lipsum}
+
+\makeatletter
+\renewcommand\beamer@outsideframenote[2][]{%
+  \beamer@savemode%
+  \ifbeamer@inlecture%
+    \def\beamer@noteenvstart{}%
+    \def\beamer@noteenvend{}%
+    \setkeys{beamernotes}{#1}%
+    \ifbeamer@notes
+    \begingroup
+      \setbeamertemplate{itemize item}{\textbullet}
+      \setbeamertemplate{itemize subitem}{--}
+      \setbeamertemplate{enumerate item}{\insertenumlabel.}
+      \setbeamertemplate{enumerate subitem}{\insertenumlabel.\insertsubenumlabel}
+      \def\@oddhead{}
+      \def\@oddfoot{}
+      \let\@evenhead\@oddhead
+      \let\@evenfoot\@oddfoot
+      \def\beamer@backgroundtemplate{}%
+      \setbeamercolor{item}{fg=black,bg=white}
+      \color{black}%
+      \nointerlineskip
+      \hbox{\hskip-\Gm@lmargin\hskip1cm\vbox to\textheight{%
+                                  %pretend to have ``standard'' margins
+          \edef\beamer@origlmargin{\Gm@lmargin}%
+          \edef\beamer@origrmargin{\Gm@rmargin}%
+          \def\Gm@lmargin{1cm}%
+          \def\Gm@rmargin{1cm}%
+%          \textwidth=10.8cm%
+          \hsize=\textwidth%
+          \@arrayparboxrestore%
+          \vskip-\headheight%
+          \def\insertnote{\vbox{}%
+            \beamer@noteenvstart#2\beamer@noteenvend%
+          }%
+          \usebeamertemplate*{note page}%
+          \vfil%
+          \vskip-4pt% foot separator
+          \vskip-\footheight}\hskip-\Gm@lmargin\hskip1cm}%
+      \ifbeamer@twoscreensnotes%
+        \pgfpagescurrentpagewillbelogicalpage{2}%
+        \advance\c@page by-1\relax%
+      \fi%
+      \clearpage
+      \endgroup
+    \fi%
+  \fi%
+  \beamer@resumemode}
+\makeatother
+
+\begin{document}
+\begin{frame}
+\frametitle{title}
+\framesubtitle{subtitle}
+ \lipsum[1]
+ \note{\lipsum[1]}
+\end{frame}
+\end{document}

@@ -1,0 +1,15 @@
+% https://tex.stackexchange.com/a/425493
+\documentclass{beamer}
+\setbeamercovered{transparent}
+
+\begin{document}
+\begin{frame}
+    \begin{itemize}[<+->]
+        \item test1
+        \item if this item is shown
+        \begin{itemize}[<.->]
+            \item then this subitem should be shown also, and not in the next step
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+\end{document}

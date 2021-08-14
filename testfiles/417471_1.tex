@@ -1,0 +1,15 @@
+% https://tex.stackexchange.com/a/417471
+\documentclass{beamer}
+
+\usepackage{lipsum}
+\usepackage{shapepar}
+\setlength{\cutoutsep}{2cm} 
+
+\begin{document}
+
+\begin{frame}
+\cutout{r}(-1cm,.75\paperheight)\shapepar{\squareshape}\textcolor{bg}{.}\par
+\lipsum*[1-2]
+\end{frame} 
+
+\end{document}

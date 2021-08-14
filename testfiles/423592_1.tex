@@ -1,0 +1,84 @@
+% https://tex.stackexchange.com/a/423592
+\documentclass[aspectratio=169, 10pt]{beamer}
+\usepackage[english]{babel}
+\usepackage[export]{adjustbox}
+\usepackage{tikz}
+\usepackage{cancel}
+
+%%%%%% THE FOLLOWING CONTAINS THE STYLE DEFINITIONS %%%%%%
+\usepackage[utf8]{inputenc}
+
+\definecolor{gris}{rgb}{0.92,0.92,0.92}
+\definecolor{blau-upc}{rgb}{0.07,0.18,0.29}
+
+\setbeamercolor{titlelike}{fg=blau-upc}
+\setbeamercolor{capcalera}{bg=blau-upc,fg=white}
+\setbeamercolor{section in toc}{fg=blau-upc}
+\setbeamertemplate{sections/subsections in toc}[circle]
+\setbeamertemplate{itemize items}[circle]
+\setbeamercolor{item}{fg=blau-upc}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamercolor*{block body}{bg=gris}
+\setbeamerfont{block body}{size=\footnotesize}
+\setbeamercolor*{block title}{parent=structure,bg=blau-upc,fg=white}
+
+\setbeamersize{text margin left=12mm,text margin right=12mm}
+\setbeamertemplate{navigation symbols}{}
+
+\defbeamertemplate*{headline}{infolines theme}
+{
+    \begin{beamercolorbox}[wd=\paperwidth,ht=9.5mm,right]{white}%
+    \end{beamercolorbox}
+}
+
+\setbeamertemplate{footline}
+{
+    \hbox{
+        \begin{beamercolorbox}[wd=0.1\paperwidth,ht=10mm,left]{}
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[wd=0.8\paperwidth,ht=3ex,center]{}
+            \hspace*{4ex} \footnotesize \insertsection\vskip 4ex
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[wd=0.1\paperwidth,ht=3ex,right]{}
+            \insertframenumber\hspace*{6ex}\vskip 4ex
+        \end{beamercolorbox}
+    }
+}
+
+\setbeamertemplate{title page}
+{
+    \vbox{}
+    \vfill
+    \begin{centering}
+        {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}
+        \vskip0.2em
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}
+        \vskip2em\par
+        \small\insertauthor\par
+        \vskip0.7em\par
+        \tiny\insertdate\vskip1em\par
+    \end{centering}
+}
+%%%%%%
+
+%%%%%% TITLE, AUTHOR, DATE DEFINITIONS %%%%%%
+\title{Title}
+
+\author{Author}
+\date{\today}
+%%%%%%
+\setbeamercovered{invisible}
+
+\begin{document}
+
+\section{Lemma}
+\frame{\frametitle{Proof:}
+    \onslide<1->{We had:
+        \[Av=\left( -{{e}^{-i\theta }}\left| x \right|\left| y \right|\cos \theta +\left| x \right|\left| y \right| \right)\frac{x}{\left| x \right|}+\left( {{e}^{-i\theta }}\left| y \right|\left| x \right|-\left| y \right|\left| x \right|\cos \theta  \right)\frac{y}{\left| y \right|}\] }
+    \onslide<2->{For the second term:}
+        \begin{align*}
+      \onslide<2->{  \left( {\color{red}{e}^{-i\theta }}\left| y \right|\left| x \right|-\left| y \right|\left| x \right|\cos \theta  \right)\frac{y}{\left| y \right|}} \onslide<3->{&={\color{red} \left( \cos \theta -i\sin \theta  \right)}\left| y \right|\left| x \right|-\left| y \right|\left| x \right|\cos \theta  \\ }
+    \onslide<4->{& =\cancel{\cos \theta \left| y \right|\left| x \right|}-i\sin \theta \left| x \right|\left| y \right|- \cancel{\left| y \right|\left| x \right|\cos \theta} \\}
+    \end{align*}
+}
+\end{document}

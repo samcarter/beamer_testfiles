@@ -1,0 +1,48 @@
+% https://tex.stackexchange.com/a/286137
+\documentclass{beamer}
+\usepackage{tikz}
+\usetheme{Copenhagen}
+
+\begin{document}
+
+  \begin{frame}
+
+    \begin{columns}
+
+        \begin{column}{5cm}
+            \begin{figure}
+                \includegraphics[height=3cm,width=0.4\textwidth]{example-image-duck}
+                \vspace*{-0.45cm}
+                \caption{example 1}
+            \end{figure}
+            \vspace*{-0.3cm}
+            ajeiwfif uoerifioerfeorf ioefepofieprf 
+        \end{column}
+
+        \hfill
+
+        \begin{column}{5cm}
+            \begin{figure}
+                \includegraphics[height=3.cm,width=0.4\textwidth]{example-image-duck}
+                \vspace*{-0.45cm}
+                \caption{Example 2}
+            \end{figure}
+            \vspace*{-0.3cm}
+            ajeiwfif uoerifioerfeorf ioefepofieprf 
+        \end{column}
+
+    \end{columns}
+
+        \begin{onlyenv}<1>
+            \begin{tikzpicture}[remember picture,overlay]%
+            \fill[fill=white,opacity=0.80] 
+            (current page.north) rectangle (current page.south east);
+            \end{tikzpicture}
+        \end{onlyenv} 
+
+        \pause    
+
+  \end{frame}
+
+
+\end{document}

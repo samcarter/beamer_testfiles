@@ -1,0 +1,46 @@
+% https://tex.stackexchange.com/a/401877
+\documentclass[11pt]{beamer}
+
+\usepackage[sort]{natbib}
+
+% to generate some dummy bib entry, as no one was in the question %%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{filecontents}
+\begin{filecontents*}{\jobname.bib}
+@book{knuth,
+  author       = {Knuth, Donald E.},
+  title        = {The {\TeX} book},
+  year         = 1984,
+  maintitle    = {Computers \& Typesetting},
+  volume       = {A},
+  publisher    = {Addison-Wesley},
+  location     = {Reading, Mass.},
+  langid       = {english},
+  langidopts   = {variant=american},
+  sortyear     = {1984-1},
+  sorttitle    = {Computers \& Typesetting A},
+  indexsorttitle= {The TeXbook},
+  indextitle   = {\protect\TeX book, The},
+  shorttitle   = {\TeX book}
+}
+\end{filecontents*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}
+
+\frametitle{Books}
+
+\begin{enumerate}
+
+    \item \citet{knuth}
+\end{enumerate}
+
+\end{frame} 
+
+\begin{frame}
+\bibliographystyle{abbrvnat}
+\bibliography{\jobname}
+\end{frame}
+
+\end{document}

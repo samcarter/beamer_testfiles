@@ -1,0 +1,19 @@
+% https://tex.stackexchange.com/a/478474
+\documentclass[10pt]{beamer}
+\usetheme[progressbar=frametitle]{metropolis}
+\usepackage{biblatex}
+\addbibresource{biblatex-examples.bib}
+
+\setbeamertemplate{footline}{}
+
+\setbeamertemplate{logo}{%
+    \usebeamercolor[fg]{footline}%
+    \usebeamerfont{page number in head/foot}%
+  \usebeamertemplate*{frame numbering}%
+}
+
+\begin{document}
+\begin{frame}{Trial Slide}
+Text \footfullcite{sigfridsson}
+\end{frame}
+\end{document}

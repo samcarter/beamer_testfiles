@@ -1,0 +1,86 @@
+% https://tex.stackexchange.com/a/398788
+\documentclass[aspectratio=169, hyperref={pdfpagelabels=false}]{beamer}
+%\documentclass[handout, hyperref={pdfpagelabels=false}]{beamer}
+\usetheme{Madrid} 
+\let\Tiny=\tiny
+\usepackage{multimedia}
+\usepackage{marvosym}
+%\usepackage[backend=bibtex,style=authoryear]{biblatex}
+\usecolortheme{whale} 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage[spanish,es-tabla]{babel}
+\usefonttheme{professionalfonts}  
+\usenavigationsymbolstemplate{} 
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{frametitle}[default][center]
+\setbeamersize{text margin left=2em,text margin right=2em}
+
+\addtolength{\columnsep}{2cm}
+
+%\usepackage{ragged2e}
+\usepackage{forest}
+%\usepackage{float}
+%\setbeamercovered{transparent}
+\usepackage[flushleft]{threeparttable}
+%\floatstyle{plaintop}
+%\usepackage{url}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{frame}
+\frametitle{Resultados - Método de solvatación}
+
+\begin{itemize}
+\item Here some text...
+\end{itemize}
+
+\begin{columns}[onlytextwidth]
+    \begin{column}{.65\textwidth}
+        \begin{threeparttable}
+            \caption{Convergence RM1 - DHAP}
+            \begin{tabular}{ccccc}\toprule
+                nºconf & $\Delta G^\circ_{\text{f(SS)}}$ & $\Delta G^\circ_{\text{f(Packmol)}}$ & $\sigma_{\text{SS}}$ & $\sigma_{\text{Packmol}}$ \\  \midrule
+                5 & -1756.3 & -1758.4 & 1.2 & 3.8 \\  
+                10 & -1754.6 & -1760.8 & 2.9 & 1.3 \\  
+                15 & -1755.7 & -1761.3 & 1.9 & 0.9 \\  
+                20 & -1757.2 & -1761.6 & 0.3 & 0.5 \\  
+                30 & -1757.2 & -1764.2 & 0.3 & -2.0 \\  
+                50 & -1757.5 & -1762.1 & - & - \\ 
+                \textbf{MAE} &  &  & 1.3 & 1.7 \\ \bottomrule
+            \end{tabular}
+            \begin{tablenotes}
+                \footnotesize
+                \item{Here some text as a note..}
+            \end{tablenotes}
+        \end{threeparttable}
+    \end{column}
+    \begin{column}{.3\textwidth}
+        \scalebox{0.73}{
+            \begin{forest}
+              for tree={
+                rounded corners, draw, align=center, top color=white, bottom color=blue!30,
+                edge+=->,
+                l sep'+=10pt,
+              }, 
+               [Solvatación
+                 [Explícito+Implícito
+                   [SS/COSMO, bottom color=green!30]%want this block green
+                   [Packmol/COSMO, bottom color=gray!30]
+                 ]
+            %     [Implícito
+            %       [COSMO]
+            %     ]
+               ] 
+            \end{forest}
+        }
+    \end{column}
+\end{columns}
+
+\begin{center}
+    And short a conclusion like this...
+\end{center}
+
+\end{frame}
+\end{document}

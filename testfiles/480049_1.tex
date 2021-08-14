@@ -1,0 +1,36 @@
+% https://tex.stackexchange.com/a/480049
+\documentclass[aspectratio=169, xcolor={x11names}]{beamer}
+
+\usecolortheme{rose}
+\useoutertheme[]{split}
+\useinnertheme{inmargin}
+\setbeamersize{sidebar width left=5cm, sidebar width right=0cm}
+\setbeamersize{text margin left=3mm, text margin right=3mm}
+\setbeamersize{description width=0mm}
+\setbeamercovered{transparent=30}
+
+
+
+\begin{document}
+
+\begin{frame}{Uncovering Contents with Alert}
+
+    \begin{block}{Why is induction motor very common}
+        %
+        \uncover<+->{\phantom{$1$}}\uncover<+->{Induction motors are very practical for the following reasons}
+
+        \begin{description}[<+- | alert@+>]
+            \item[Rigid] Rigid
+            \item[Cheap] Cheap
+            \item[Low Maintenance] Low Maintenance
+            \item[Self-Starting] Self-starting
+            \item[No Excitation Needed] No Excitation Needed
+        \end{description}
+
+        \uncover<+->{\alert<.>{Extra content}}
+
+    \end{block}
+
+\end{frame}
+
+\end{document}

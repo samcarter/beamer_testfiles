@@ -1,0 +1,149 @@
+% https://tex.stackexchange.com/a/403595
+\documentclass{beamer} 
+
+\usepackage[brazilian,hyperpageref]{backref}     % Paginas com as citações na bibl
+
+\usepackage{stmaryrd}
+%\usepackage{graphicx}
+
+\usetheme{Antibes}
+\usecolortheme{beaver}
+
+%    \justifying
+
+\usepackage{parskip}
+\setlength{\parskip}{\smallskipamount}
+
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}
+\usefonttheme{serif}
+\usepackage{lipsum}
+%\usepackage{caption}
+\setbeamercolor{block title}{bg=red!30,fg=black}
+\usepackage{times}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{framed} 
+\usepackage[bottom]{footmisc}
+\usepackage{arydshln}
+
+%\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{arrows,shapes,positioning,shadows,trees}
+%\usetikzlibrary{trees}
+%\usepackage{tikz}
+%\usetikzlibrary{positioning}
+\usetikzlibrary{arrows.meta,chains}
+%\usetikzlibrary{arrows,shapes,positioning,shadows,trees}
+
+%\usepackage{float}
+%\usepackage{caption}
+
+
+\author{\texorpdfstring{Gabriel Petrini da Silveira \and RA 155468
+\\ \textbf{Orientador:} Antônio Carlos Macedo e Silva \\ 
+{\footnotesize\ttfamily gpetrinidasilveira@gmail.com}}{Gabriel Petrini da Silveira}}
+\title[Política Fiscal: HPE, Grande Recessão e SFC]{Política Fiscal e(m) Grande Recessão: uma análise com Consistência entre Fluxos e Estoques}
+\institute{Instituto de Economia - UNICAMP}
+\date{05 de Dezembro - 2017}
+
+%\makeindex
+
+\tikzset{
+    basic/.style  = {draw, text width=2cm, font=\sffamily, rectangle},
+    root/.style   = {basic, rounded corners=2pt, thin, align=center,
+        fill=green!30},
+    level 2/.style = {basic, rounded corners=6pt, thin,align=center, fill=green!60,
+        text width=8em},
+    level 3/.style = {basic, thin, align=left, fill=white, text width=6.5em}
+}
+
+
+
+\begin{document}
+
+\begin{frame}  
+\frametitle{Características do NCM}     
+
+Neste arcabouço:
+\begin{description}         
+    \item[Principal instrumento] Taxa de juros de curto prazo       
+    \item[Aparato institucional] Regime de Metas para a Inflação        
+    \item[Objetivo] Estabilização da inflação
+\end{description}
+
+\begin{figure}%[H]
+    \begin{tikzpicture}[
+    > = {Latex[]},
+    start chain = going right,
+    node distance=7mm,
+    block/.style={shape=rectangle, draw,
+        inner sep=1mm, align=center,
+        minimum height=7mm, on chain}]     %Para que servem esses comandos?
+    %placing the blocks
+    \node[block] (n1) {Política monetária \\ eficiente};
+    \node[block] (n2) {$Y^G$ estável};
+    \node[block] (n3) {Inflação estável};
+    \node[block] {Nível de \\ atividade};
+
+    \draw[->] (n1.east) --  + (0,0mm) -> (n2.west);
+    \draw[->] (n2.east) --  + (0,0mm) -> (n3.west);
+    \draw[<->] (n1.south) --  + (0,-7mm) -| (n3.south);
+    \draw[<->] (n2.north) --  + (0,+7mm) -| (n3.north);
+    \end{tikzpicture}
+ \end{figure}
+
+ \begin{framed}
+    Portanto, há uma hierarquia entre os objetivos de política econômica, subordinando os demais ao controle da inflação.
+ \end{framed}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{SFC e política fiscal}
+\framesubtitle{Estrutura Modelo G\&L}
+ \begin{center}
+    \begin{tikzpicture}[
+    > = {Latex[]},
+    start chain = going right,
+    node distance=7mm,
+    block/.style={shape=rectangle, draw,
+        inner sep=1mm, align=center,
+        minimum height=7mm, 
+        join=by ->, on chain}]     %Para que servem esses comandos?
+    %placing the blocks
+    \node[block] (n10) {Modelo SFC-PK};
+    \node[block] (n11) {Endogenização \\ dos gastos \\ públicos};
+    \node[block] (n12) {Função de reação};
+ %  \node[block] (n4) {Endogenização \\ dos gastos \\ públicos};
+ %  \node[block] (n5) {Função de reação};
+    \end{tikzpicture}
+    %Fim Fluxograma
+
+    \begin{equation}
+    \label{FiscalReac}
+    gr_G = gr - \beta_1\cdot \Delta \pi_{-1} - \beta_2\cdot (\pi_{-1} - \pi^T)
+    \end{equation}
+
+    \begin{tikzpicture}[
+ > = {Latex[]},
+ start chain = going right,
+ node distance=7mm,
+ block/.style={shape=rectangle, draw,
+    inner sep=1mm, align=center,
+    minimum height=7mm,  on chain}]     %Para que servem esses comandos?
+ %placing the blocks
+ \node[block] (n13) {NCM};
+ \node[block] (n14) {Função de reação};
+ \node[block] (n15) {$\Delta \pi, y$};
+ %  \node[block] (n4) {Endogenização \\ dos gastos \\ públicos};
+ %  \node[block] (n5) {Função de reação};
+ \draw[->] (n13.south) --  + (0,-7mm) -| (n14.south);
+ \draw[->] (n14.north) --  + (0,+7mm) -| (n13.north);
+ \draw[->] (n14.east) --  + (0,0mm) -> (n15.west);
+ \end{tikzpicture}
+ \end{center}
+ \end{frame} 
+\end{document}

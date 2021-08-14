@@ -1,0 +1,32 @@
+% https://tex.stackexchange.com/a/402963
+\documentclass{beamer}
+\usetheme{Warsaw}
+
+\definecolorseries{foo}{rgb}{last}{red}{blue}
+\resetcolorseries[3]{foo}
+
+\AtBeginSection[]{%
+    \setbeamercolor{subsection in head/foot}{bg=foo!![\thesection]}
+}
+
+\begin{document}
+
+\section{sec1}
+\subsection{sub1}   
+\begin{frame}
+    abc
+\end{frame} 
+
+\section{sec2}
+\subsection{sub2}   
+\begin{frame}
+    abc
+\end{frame} 
+
+\section{sec3}
+\subsection{sub3}   
+\begin{frame}
+    abc
+\end{frame}
+
+\end{document}
