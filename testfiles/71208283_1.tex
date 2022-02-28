@@ -1,0 +1,34 @@
+% https://stackoverflow.com/a/71208283
+\documentclass{beamer}
+
+\defbeamertemplate{footline}{special footline}{%
+  special footline
+}
+
+\setbeamertemplate{footline}{%
+        \hspace*{2mm}
+        \usebeamerfont{structure}
+        \footnotesize\hspace*{16mm} Normal footline \hspace{6mm}
+        \vspace*{2cm}
+}
+
+
+\makeatletter
+\def\ps@navigation@titlepage{%
+  \setbeamertemplate{footline}{special footline}
+  \@nameuse{ps@navigation}
+}
+\addtobeamertemplate{title page}{\thispagestyle{navigation@titlepage}}{}
+\makeatother
+
+\usepackage{lipsum}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}[shrink]
+\frametitle{abc}
+\lipsum[1-2]
+\end{frame} 
+\end{document}

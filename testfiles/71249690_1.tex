@@ -1,0 +1,35 @@
+% https://stackoverflow.com/a/71249690
+\documentclass[]{beamer}
+\usetheme{Madrid}
+
+\usenavigationsymbolstemplate{}
+
+\title{Main Title} 
+\author{Jane Doe}
+\institute{University A}
+\date{\today}
+
+\begin{document}
+    
+    \begin{frame}[label={important}]
+        \frametitle{Second Page}
+        \begin{itemize}
+            
+            \item Item 1
+            \pause
+            \item \hyperlink{foo<2>}{Item 2}
+        \end{itemize}
+    \end{frame}
+    
+    \begin{frame}[label={foo}]
+        \frametitle{Third Page}
+        \begin{itemize}
+            
+            \item Item 1
+            \pause
+            \item \hyperlink{important<2>}{Item 2}
+            \item \hyperlink{important}{Item 3}
+        \end{itemize}
+    \end{frame}
+    
+\end{document} 

@@ -1,0 +1,27 @@
+% https://stackoverflow.com/a/71208283
+\documentclass{beamer}
+
+\setbeamertemplate{footline}{%
+\ifnum\thepage>1
+        \hspace*{2mm}
+        \usebeamerfont{structure}
+        \footnotesize\hspace*{16mm} Normal footline \hspace{6mm}
+        \vspace*{2cm}
+\fi 
+}
+
+\usepackage{lipsum}
+
+\begin{document}
+
+\maketitle
+
+\makeatletter
+\beamer@calculateheadfoot
+\makeatother
+
+\begin{frame}[shrink]
+\frametitle{abc}
+\lipsum[1-2]
+\end{frame} 
+\end{document}

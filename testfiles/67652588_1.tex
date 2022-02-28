@@ -1,0 +1,25 @@
+% https://stackoverflow.com/a/67652588
+\documentclass{beamer}
+
+\usepackage{biblatex}
+\addbibresource{biblatex-examples.bib}
+
+\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+\begin{itemize}
+\item content...
+\item content...
+\end{itemize}
+\end{frame}
+
+\beamerdefaultoverlayspecification{}
+
+\begin{frame}
+\nocite{knuth:ct,angenendt}
+\printbibliography
+\end{frame}
+
+\end{document}

@@ -1,0 +1,49 @@
+% https://stackoverflow.com/a/67824907
+\documentclass{beamer}
+
+\usetheme{Madrid}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\setbeamercovered{dynamic}
+\usetikzlibrary{shapes,arrows, positioning, calc}  
+\usetikzlibrary{overlay-beamer-styles}
+
+
+\begin{document}
+
+\newcommand{\myani}{1-}
+
+\begin{frame}[label=foo]
+\transduration<\myani>{1}
+\begin{center}
+\begin{tikzpicture}[auto]
+    \draw(-2.7,1.5) node[sloped,above] {Start A};
+    
+    \draw[->,thick] (-2,0.5)  -- node[below] {T} (4,0.5) ;
+    
+    \draw[visible on=<1>,gray,-,thick,dashed] (-1.7,1.7)  -- (3.7,1.7);
+    \draw[visible on=<1>] (1,1.8) node[sloped,above] {text};
+    
+    \draw[visible on=<2>,gray,-,thick,dashed] (-1.7,1.7)  -- (-0.3,1.7);
+    \draw[visible on=<2>,gray,-,thick,dashed] (2.3,1.7)  -- (3.7,1.7); 
+    \draw[visible on=<2>](3,2.5) node[sloped,above] {text};
+    \draw[visible on=<2>](1,1.68) node[sloped,above] {Point};
+    \draw[visible on=<2>](1,1.18) node[sloped,above] {C};
+    
+    \draw(4.7,1.90) node[sloped,above] {Point};
+    \draw(4.7,1.45) node[sloped,above] {B};
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\foreach \x in {0,...,10}{
+\againframe{foo}
+}
+
+\renewcommand{\myani}{1}
+\againframe{foo}
+
+\begin{frame}
+content
+\end{frame}
+\end{document}

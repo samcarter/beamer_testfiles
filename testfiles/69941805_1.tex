@@ -1,0 +1,29 @@
+% https://stackoverflow.com/a/69941805
+\documentclass{beamer}
+
+\setbeamercolor{item}{fg=cyan}
+
+\addtobeamertemplate{alerted text begin}{\setbeamercolor{item}{fg=alerted text.fg}}{}
+
+
+\begin{document}
+
+\begin{frame}{MWE Beamer item color}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+                \begin{itemize}
+                    \item A default neutral  item
+                    \item<alert@2-> An alerted item
+                \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+                \begin{itemize}
+                    \item A default neutral  item
+                    \item<alert@2-> An alerted item
+                    \item A default neutral  item                    
+                \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\end{document}

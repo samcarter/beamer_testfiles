@@ -1,0 +1,36 @@
+% https://stackoverflow.com/a/70557401
+\documentclass{beamer}
+\usepackage{natbib}
+\bibliographystyle{agsm}
+\usepackage[german]{babel}
+
+\begin{filecontents*}[overwrite]{\jobname.bib}
+  @article{burzio1988ItalianSyntaxGovernmentBindingApproach,
+  title = {Italian {{Syntax}}: {{A Government-Binding Approach}}},
+  shorttitle = {Italian {{Syntax}}},
+  author = {Burzio, Luigi},
+  year = 1988,
+  month = 3,
+  journaltitle = {Language},
+  shortjournal = {Language},
+  volume = {64},
+  number = {1},
+  eprint = {414791},
+  eprinttype = {jstor},
+  pages = {130},
+  issn = {00978507},
+  doi = {10.2307/414791}
+}
+\end{filecontents*}
+
+\begin{document}
+  \begin{frame}
+    \frametitle{Example citation}
+    This is an example text with a citation from \citep{burzio1988ItalianSyntaxGovernmentBindingApproach} (← which is without date here and in the bibliography)
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Bibliography}
+    \bibliography{\jobname}
+  \end{frame}
+\end{document}

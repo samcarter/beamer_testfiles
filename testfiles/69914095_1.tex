@@ -1,0 +1,36 @@
+% https://stackoverflow.com/a/69914095
+% !TeX TS-program = lualatex
+\documentclass{beamer}
+
+\usepackage{luacolor}
+\usepackage{lua-ul}
+
+\makeatletter
+  \newunderlinetype\@myhighLight[\number\dimexpr1ex@%
+                               \luaul@currentcolor]{%
+    \luaul@applycolor
+    \leaders\vrule height 2.25ex depth .75ex
+  }
+  \NewDocumentCommand\myhighLight{O{\luaul@highlight@color}+m}{{%
+    \luaul@setcolor{#1}%
+    \@myhighLight#2%
+  }}  
+\makeatother  
+
+\setbeamertemplate{frametitle}{\myhighLight[frametitle.bg]{\insertframetitle}}
+\setbeamercolor{frametitle}{fg=white,bg=blue}
+
+
+\begin{document}
+    
+\begin{frame}
+\frametitle{Ütitle}
+    abc 
+\end{frame} 
+
+\begin{frame}
+\frametitle{Überraschungsei title title title title title title title title title title title title}
+    abc
+\end{frame} 
+    
+\end{document}

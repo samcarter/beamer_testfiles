@@ -1,0 +1,42 @@
+% https://stackoverflow.com/a/71172957
+\documentclass[]{beamer}
+\usetheme{Madrid}
+
+\usenavigationsymbolstemplate{}
+
+\title{Main Title} 
+\author{Jane Doe}
+\institute{University A}
+\date{\today}
+
+\begin{document}
+    
+    \begin{frame}
+        \titlepage % Print the title page as the first slide
+    \end{frame}
+    
+    \begin{frame}
+        \frametitle{First Page}
+        \begin{exampleblock}{Example}
+            This is an example which will be used later.
+        \end{exampleblock}
+    \end{frame}
+    
+    \begin{frame}[label={important}]
+        \frametitle{Second Page}
+        \begin{itemize}
+            \item \hyperlink{foo}{Item 1}
+            \item Item 2 
+        \end{itemize}
+    \end{frame}
+    
+    \begin{frame}[label={foo}]
+        \frametitle{Third Page}
+        \begin{itemize}
+        \item \hyperlink{important}{Item 1}
+        \item Item 2
+        \end{itemize}
+    \end{frame}
+    
+\end{document} 
+
