@@ -1,0 +1,73 @@
+% https://topanswers.xyz/tex?q=1775#a2000
+\documentclass{beamer}
+\usepackage[beamer,customcolors]{hf-tikz}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usetikzlibrary{tikzmark, chains, fit,
+	shapes}
+  \usetikzlibrary{backgrounds,calc}
+\begin{document}
+
+\begin{frame}
+\frametitle{}
+\begin{tabular}{lll} 
+& IIIIII-IIII & IIIIII-DDDDDD  \\
+\hline CCCCCCCC & DDDDDDDDDDDDD & RRRRRRRRRR \\
+\tikzmarkin<2->{a}Bipartiteness\tikzmarkend{a} & BBBBBBBBBBBBB & RRRRRRRRRR \\
+CCCCCCCCCC & DDDDDDDDDDDDD & RRRRRRRRRR  \\
+SSSSSSSSSSSSS & DDDDDDDDDDDDD & RRRRRRRRRR \\
+& MMMMMMM & OOOOOOOO \\
+MMMMMMMM & MMMMMMMMMM & OOOOOOOOOO \\
+MMMMMMMM & MMMMMMMMMM  \\
+& & EEEEEEEEEE \\
+ UUUUUUUU  & MMMMMMM& OOOOOOOO\\
+WWWWWWWW & MMMMMMMMMM & OOOOOOOO\\
+\hline
+\end{tabular}
+
+\begin{visibleenv}<2->
+\definecolor{myblue}{RGB}{80,80,160}
+\definecolor{mygreen}{RGB}{80,160,80}
+\vspace*{-4cm}\hspace*{4cm}
+\begin{tikzpicture}[thick,
+  every node/.style={draw,circle},
+  fsnode/.style={fill=myblue},
+  ssnode/.style={fill=mygreen},
+  every fit/.style={ellipse,draw,inner sep=-2pt,text width=2cm},
+  ->,shorten >= 3pt,shorten <= 3pt,
+  scale=0.3,
+  background rectangle/.style={fill=white, draw=black, rounded corners, inner frame sep=1cm }, 
+  show background rectangle,
+  remember picture,
+]
+
+\begin{scope}[start chain=going below,node distance=3mm]
+\foreach \i in {1,2,...,5}
+  \node[fsnode,on chain] (f\i)  {};
+\end{scope}
+
+\begin{scope}[xshift=4cm,yshift=-0.5cm,start chain=going below,node distance=3mm]
+\foreach \i in {6,7,...,9}
+  \node[ssnode,on chain] (s\i)  {};
+\end{scope}
+
+\node [myblue,fit=(f1) (f5)] {};
+
+\node [mygreen,fit=(s6) (s9)] {};
+
+% the edges
+\draw (f1) -- (s6);
+\draw (s6) -- (f2);
+\draw (f2) -- (s7);
+\draw (s7) -- (f3);
+\draw (s8) -- (f3);
+\draw (f3) -- (s9);
+\draw (s9) -- (f5);
+\draw (f5) -- (s6);
+
+\draw<2>[red,overlay] (current bounding box.west) -- (a);
+
+\end{tikzpicture}
+\end{visibleenv}
+\end{frame}
+\end{document}

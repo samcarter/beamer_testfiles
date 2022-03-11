@@ -1,0 +1,44 @@
+% https://topanswers.xyz/tex?q=1290#a1525
+\documentclass{beamer}
+\beamertemplatenavigationsymbolsempty
+\setbeamersize{text margin left=10mm,text margin right=5mm} 
+\setbeamertemplate{frametitle}[default][center]
+\usepackage{tikz}
+
+\newcommand{\tikzcircle}[2][red]{\tikz[baseline=-0.5ex]{\fill[{#1},radius=#2] (0,0) circle ;}\hspace{0pt}}%
+
+\def\numcolors{6}
+\def\numdots{100}
+
+\pgfmathparse{1/\numcolors}%
+\definecolorseries{foo}{hsb}{step}{red!90!black}{\pgfmathresult,0,0} 
+\resetcolorseries[\numcolors]{foo}% 
+
+\newcounter{bar}
+\foreach \x in {1,...,\numcolors}{
+  \setcounter{bar}{\x}
+  \newcounter{mycount\alph{bar}}
+}
+
+\pgfmathsetseed{\number\pdfrandomseed}
+
+\begin{document}
+\begin{frame}{The counting problem}
+\foreach \x in {1,...,\numdots}{%
+  \pgfmathrandominteger{\myran}{1}{\numcolors}%
+  \setcounter{bar}{\myran}%
+  \addtocounter{mycount\alph{bar}}{1}%
+  \tikzcircle[{foo!![\myran]}]{8pt}%
+}%
+\end{frame}
+
+\begin{frame}{The counting problem}
+\foreach \x in {1,...,\numcolors}{%
+  \setcounter{bar}{\x}%
+  \foreach \y in {1,...,\csname themycount\alph{bar}\endcsname}{%
+    \tikzcircle[{foo!![\x]}]{8pt}%
+  }%
+}
+\end{frame}
+
+\end{document}

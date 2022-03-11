@@ -1,0 +1,29 @@
+% https://topanswers.xyz/tex?q=1314#a1554
+\documentclass[xcolor={rgb}]{beamer}
+
+\beamertemplatenavigationsymbolsempty
+\setbeamersize{text margin left=10mm,text margin right=5mm}
+\setbeamertemplate{frametitle}[default][center]
+\usepackage{tikz}
+
+\newcommand{\tikzcircle}[3][red]{\tikz[baseline=-0.5ex]{\node[draw={#1}, fill={#1}, circle,text width=#2,minimum width=2.5em,text=black,align=center] at (0,0) {#3};}\hspace{0pt}}%
+
+
+\def\numcolors{10}
+\def\numdots{20}
+
+\pgfmathparse{1/\numcolors}%
+\definecolorseries{foo}{hsb}{step}{red!90!black}{\pgfmathresult,0,0}
+\resetcolorseries[\numcolors]{foo}%
+\pgfmathsetseed{2}
+
+\begin{document}
+\begin{frame}
+\foreach \x in {1,...,\numdots}{%
+\pgfmathrandominteger{\myran}{1}{\numcolors}%
+\tikzcircle[{foo!![\myran]}]{12pt}{\x}% 
+}%
+
+\tikzcircle[cyan]{12pt}{}% 
+\end{frame}
+\end{document}

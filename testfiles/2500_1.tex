@@ -1,0 +1,26 @@
+% https://texnique.fr/osqa/questions/2500/beamer-ordre-des-frames/6500
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}<-3>[label=A]
+    \frametitle{Titre principal}
+    \pause
+    \begin{enumerate}[<+-|alert@+>]
+        \item Titre 1
+        \item Titre 2
+            \item Titre 3
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[label=B]
+    \frametitle{blabla}
+    \begin{figure}
+        \includegraphics[scale=0.65]{example-image-duck}
+%       \label{Photo}% sans \caption ça ne marche pas
+    \end{figure}
+\end{frame}
+
+\againframe<3->{A}
+
+\end{document}

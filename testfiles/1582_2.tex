@@ -1,0 +1,32 @@
+% https://topanswers.xyz/tex?q=1337#a1582
+\documentclass[xcolor={rgb}]{beamer}
+
+\usepackage{tikz}
+\def\numcolors{4}
+\pgfmathparse{1/\numcolors}%
+\definecolorseries{foo}{hsb}{step}{red!90!black}{\pgfmathresult,0,0} 
+\resetcolorseries[\numcolors]{foo}%
+\pgfmathsetseed{\number\pdfrandomseed}
+
+\begin{document}
+\begin{frame}
+\begin{tikzpicture}
+
+  % drawing buckets
+  \foreach \x in {1,...,8}{
+    \draw (0.125*\textwidth*\x,0.4) ellipse [x radius=0.5, y radius=0.3];
+    \draw (0.125*\textwidth*\x,0.4)++(-0.5,0) -- ++(0.15,-0.8) arc [start angle=180, end angle=360, x radius=0.35, y radius=0.2] -- ++(0.15,0.8); 
+  }
+  
+  % distribute 4 circles randomly to the buckets
+  \foreach \x in {1,...,4}{
+    \pgfmathrandominteger{\bucket}{1}{8}% which bucket
+    \pgfmathsetmacro{\xran}{rand}% random offset x
+    \pgfmathsetmacro{\yran}{rand}% random offset y
+    \draw[fill={foo!![\x]},draw=blue!60] (0.125*\textwidth*\bucket+5*\xran,-0.2+0.2*\yran) circle [radius=0.12]; 
+  }
+  
+\end{tikzpicture}
+\pause[10]
+\end{frame}
+\end{document}

@@ -1,0 +1,17 @@
+% https://topanswers.xyz/tex?q=1298#a1537
+ \documentclass{beamer}  
+ \setbeamercovered{transparent}  
+ \newcommand{\var}[1]{\operatorname{var}{\!#1}}   
+ \begin{document}  
+ \begin{frame}  
+ \uncover<+->{  
+ Intro text}  
+ \begin{align*}  
+ \uncover<.->{\Pr(Y_r >0) &= \Pr(Y_r \geq 1) \leq \frac{\mathbb{E}(Y_r)}{1} = \frac{d}{2^r}}  
+ \uncover<+->{  
+ \intertext{More text,}  
+ \uncover<+->{\Pr(Y_r=0)} & \uncover<+->{\leq \Pr(|Y_r-\mathbb{E}(Y_r)| \geq d/2^r)} \uncover<+->{\leq \frac{\var(Y_r)}{(d/2^r)^2}} \uncover<+->{\leq \frac{2^r}{d}}  
+ }  
+ \end{align*}  
+ \end{frame}  
+ \end{document}

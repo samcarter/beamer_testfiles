@@ -1,0 +1,16 @@
+% https://topanswers.xyz/tex?q=1343#a1587
+\documentclass{beamer}
+
+\begin{document}
+
+\part{foo}
+\makeatletter
+\expandafter\NR@gettitle\expandafter{\beamer@partname}
+\makeatother
+\label{bar}
+
+\begin{frame}
+\nameref{bar}
+\end{frame}
+
+\end{document}

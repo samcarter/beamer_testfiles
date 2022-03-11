@@ -1,0 +1,33 @@
+% https://topanswers.xyz/tex?q=1373#a1623
+\documentclass{beamer}
+\beamertemplatenavigationsymbolsempty
+
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+
+\begin{document}
+
+\begin{frame}{}
+	\small
+\begin{tabular}{|l|l|l|}
+\hline
+\large Subject: & \large Topics & \large Reference \\
+\hline
+one & two & three \\
+one & two & three \\
+one & two & three \\
+one & two & three \\
+\tikzmark{aaa}four & five & six \tikzmark{bbb} \\
+one & two & three \\
+one & two & three \\
+one & two & three \\
+\hline
+\end{tabular}
+
+\begin{tikzpicture}[remember picture,overlay]
+\draw ([yshift=0.8ex]pic cs:aaa) -- ([yshift=0.8ex]pic cs:bbb);
+\end{tikzpicture}
+
+\end{frame}
+
+\end{document}

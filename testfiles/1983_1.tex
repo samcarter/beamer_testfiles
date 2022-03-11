@@ -1,0 +1,20 @@
+% https://topanswers.xyz/tex?q=1752#a1983
+\documentclass{beamer}
+
+\usepackage[beamer,customcolors]{hf-tikz}
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{frame}[fragile]
+text $\tikzmarkin<1>{a} text \tikzmarkend{a}$ text 
+\begin{tikzpicture}[remember picture, overlay]
+\fill[red] (a.north) circle (0.05);
+\fill[red] (a.south) circle (0.05);
+\fill[red] (a.east) circle (0.05);
+\fill[red] (a.west) circle (0.05);
+\fill[red] (a) circle (0.05);
+\end{tikzpicture}
+\end{frame}
+
+\end{document}

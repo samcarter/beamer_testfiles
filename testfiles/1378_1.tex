@@ -1,0 +1,40 @@
+% https://topanswers.xyz/tex?q=1171#a1378
+\documentclass{beamer}
+
+\usepackage[theorems]{tcolorbox}
+
+\newtcbtheorem[number within=section]{theo_beamer}{Theorem}{colframe=blue}{thm}
+\newtcbtheorem[number within=section,use counter from=theo_beamer]{prop_beamer}{Proposition}{colframe=red}{prop}
+
+\resetcounteronoverlays{tcb@cnt@theo_beamer}
+
+\newenvironment<>{mytheo}[2]{
+  \begin{actionenv}#3
+  \begin{theo_beamer}{#1}{#2}
+}{
+  \end{theo_beamer}
+  \end{actionenv}
+}
+
+\newenvironment<>{myprop}[2]{
+  \begin{actionenv}#3
+  \begin{prop_beamer}{#1}{#2}
+}{
+  \end{prop_beamer}
+  \end{actionenv}
+}
+
+
+\begin{document}
+\begin{frame}
+
+\begin{mytheo}{Title}{label1}
+main result
+\end{mytheo}
+
+\begin{myprop}<2->{Title}{label2}
+Let's call Theorem \ref{thm:label1}
+\end{myprop}
+
+\end{frame}
+\end{document}

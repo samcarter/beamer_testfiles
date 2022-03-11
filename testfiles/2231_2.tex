@@ -1,0 +1,26 @@
+% https://topanswers.xyz/tex?q=1989#a2231
+\documentclass{beamer}
+\usepackage{tikz}
+
+\tikzset{
+    use page relative coordinates/.style={
+        shift={(current page.south west)},
+        x={(current page.south east)},
+        y={(current page.north west)}
+    },
+}
+
+\begin{document}
+    
+    \begin{frame}
+    \frametitle{title}
+    \framesubtitle{subtitle}
+    \begin{block}{Block title}
+        Some content
+    \end{block}
+    \includegraphics[width=0.5\textwidth]{example-image-a}
+    \begin{tikzpicture}[remember picture,overlay,use page relative coordinates]
+    \fill[opacity=0.5,black] (0,0) rectangle (1,1) (0.2,0.15) rectangle (0.15,0.20);
+    \end{tikzpicture}
+\end{frame}
+\end{document}

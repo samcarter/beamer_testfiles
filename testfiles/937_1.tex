@@ -1,0 +1,31 @@
+% https://topanswers.xyz/tex?q=798#a937
+\documentclass{beamer}
+
+\usepackage{csquotes}
+\usepackage[sorting=ydnt,style=verbose,autocite=footnote,doi=false,isbn=false,url=false,maxnames=1,giveninits=true]{biblatex}
+
+\usepackage{filecontents}
+\begin{filecontents*}{bib.bib}
+	@article{greenwade93,
+		author  = "George D. Greenwade",
+		title   = "The {C}omprehensive {T}ex {A}rchive {N}etwork ({CTAN})",
+		year    = "1993",
+		journal = "TUGBoat",
+		volume  = "14",
+		number  = "3",
+		pages   = "342--351"
+	}
+\end{filecontents*}
+
+\addbibresource{bib.bib}
+
+\begin{document}
+	\begin{frame}
+		blabla \pause
+		blubblub\footnotemark{} \pause
+		asdasd
+		\only<2->{\footcitetext{greenwade93}}
+	\end{frame}
+	
+	
+\end{document}

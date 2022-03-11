@@ -1,0 +1,33 @@
+% https://topanswers.xyz/tex?q=1631#a1871
+\documentclass[11pt]{beamer}
+\usetheme{Antibes}
+\usecolortheme{Beetle}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{pgffor}
+
+
+\definecolor{escppurple}{RGB}{59, 33, 130}
+
+%	\setbeamercolor*{palette secondary}{fg=white,bg=gray} %subsection
+%	\setbeamercolor*{palette tertiary}{fg=white,bg=escppurple} 
+	
+\setbeamercolor{title in head/foot}{bg=green,fg=orange}
+\setbeamercolor{section in head/foot}{bg=red,fg=cyan}
+\setbeamercolor{subsection in head/foot}{bg=blue,fg=yellow}
+  
+  
+\begin{document}
+
+\foreach \s in {First,Second, Third}{
+\foreach \ss in {1,2, 3}{
+  \section{\s{} section}
+   \subsection{sub-\ss}
+    \begin{frame}
+     \frametitle{\s{} slide}
+    \end{frame}
+  }
+}
+
+\end{document}

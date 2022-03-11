@@ -1,0 +1,96 @@
+% https://texnique.fr/osqa/questions/10803/style-de-numerotation-different-dans-la-table-des-matieres-de-celles-des-sections/10804
+ \documentclass{beamer}
+
+\usetheme[progressbar=frametitle]{metropolis}
+\setbeamertemplate{frame numbering}[fraction]
+\useoutertheme{metropolis}
+\useinnertheme{metropolis}
+%\usefonttheme{Berlin}
+\usecolortheme{orchid}
+\setbeamercolor{background canvas}{bg=white}
+
+\renewcommand{\thesection}{\Roman{section}.}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\alpha{subsubsection}}
+
+\usepackage{romannum}
+
+\makeatletter
+
+\setbeamertemplate{section in toc}{%
+  \leavevmode%
+  % prevents the period to be printed with the first/last section option
+  \ifnum\beamer@tempcount>\beamer@toclastsection
+  \else
+  \ifnum\beamer@tempcount>0 
+    \Romannum{\inserttocsectionnumber}
+  \fi\fi%
+  \inserttocsection\par%
+}
+
+\setbeamertemplate{subsection in toc}{\leavevmode\leftskip=2em\rlap{\hskip-2em\Romannum{\inserttocsectionnumber}.\inserttocsubsectionnumber}\inserttocsubsection\par}
+
+\setbeamertemplate{subsubsection in toc}
+{\leavevmode\leftskip=3em%
+ \rlap{\hskip-3em\Romannum{\inserttocsectionnumber}.\inserttocsubsectionnumber.\@alph{\inserttocsubsubsectionnumber}}%
+ \inserttocsubsubsection\par}
+
+\makeatother
+
+\makeatletter
+\setbeamertemplate{section page}{%
+  \centering
+  \begin{minipage}{22em}
+    \raggedright
+    \usebeamercolor[fg]{section title}
+    \usebeamerfont{section title}
+    \thesection~\insertsectionhead\\[-1ex]
+    \usebeamertemplate*{progress bar in section page}
+    \par
+    \ifx\insertsubsectionhead\@empty\else%
+      \usebeamercolor[fg]{subsection title}%
+      \usebeamerfont{subsection title}%
+      \insertsubsectionhead
+    \fi
+  \end{minipage}
+  \par
+  \vspace{\baselineskip}
+}
+\makeatother
+
+\begin{document}
+\begin{frame}{Titre}
+\tableofcontents
+\end{frame}
+\section{Rappels}
+\subsection{Fondements}
+\begin{frame}{Titre}
+Bla bla.
+\end{frame}
+\subsubsection{Hypoth\`eses}
+\begin{frame}{Titre}
+Bla bla.
+\end{frame}
+\subsubsection{Causes}
+\begin{frame}{Titre}
+Bla bla.
+\end{frame}
+\subsection{Implications}
+\begin{frame}{Titre}
+Bla bla.
+\end{frame}
+\subsection{Critiques}
+\begin{frame}{Titre}
+Bla bla.
+\end{frame}
+\section{Th\'eorie}
+\subsection{Plan}
+\begin{frame}{Titre}
+Bla bla.
+\end{frame}
+\subsection{\'Equilibre}
+\begin{frame}{Titre}
+Bla bla.
+\end{frame}
+
+\end{document}

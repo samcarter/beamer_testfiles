@@ -1,0 +1,57 @@
+% https://texnique.fr/osqa/questions/6602/beamer-titres-des-diapositives-avec-des-degrades-de-couleurs/6603
+\documentclass{beamer}
+
+\usepackage{tikz}
+\usetikzlibrary{shadings}
+\usetikzlibrary{fadings}
+
+\colorlet{frametitleleft}{red}
+\colorlet{frametitleright}{blue}
+
+\makeatletter
+\pgfdeclarehorizontalshading{titlefont}{\paperheight}{%
+    color(0cm)=(frametitleleft); 
+    color(2cm)=(frametitleright)
+}
+
+% from https://tex.stackexchange.com/questions/45744/how-to-put-color-gradient-to-desired-text-only
+\newcommand\shadetext[1]{%
+  \begin{tikzfadingfrompicture}[name=tikzsection]
+    \node[text=white,inner sep=0pt,outer sep=0pt,text width=.9\linewidth] {#1};
+  \end{tikzfadingfrompicture}%
+  \begin{tikzpicture}%
+    \node[text=white,inner sep=0pt,outer sep=0pt,text width=.9\linewidth,opacity=0] (textnode) {#1};
+    \shade[path fading=tikzsection,fit fading=false,shading=titlefont,text width=.9\linewidth,inner sep=0pt,outer sep=0pt]
+    (textnode.south west) rectangle (textnode.north east);
+  \end{tikzpicture}%
+}
+
+\setbeamertemplate{frametitle}{%
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \begin{beamercolorbox}[sep=0.3cm,left,wd=\the\@tempdima]{frametitle}
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-1ex%
+    \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+    \shadetext{\strut\insertframetitle}\par%
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\strut\insertframesubtitle\par}%
+      \fi
+    }%
+    \vskip-1ex%
+    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  \end{beamercolorbox}%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Very very long frame title reaching the end of the line and continuing in the next line}
+\end{frame}
+
+\end{document}

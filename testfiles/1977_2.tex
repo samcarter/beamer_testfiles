@@ -1,0 +1,63 @@
+% https://topanswers.xyz/tex?q=1747#a1977
+\documentclass{beamer}
+\beamertemplatenavigationsymbolsempty
+\setbeamersize{text margin left=10mm,text margin right=5mm} 
+\setbeamertemplate{frametitle}[default][center]
+\usepackage[many]{tcolorbox}
+
+\usepackage{listings}
+
+\tcbuselibrary{skins}
+\tcbset{
+%	arc=0pt,
+%	outer arc=0pt,
+	colback=white,
+}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,
+	shapes,
+	tikzmark, shapes.geometric}
+\usetikzmarklibrary{listings}
+
+
+\newtcolorbox{mytheorem}[2][]{%
+	text width=7.5cm, text height=1.5cm, enhanced,colback=white,colframe=framecolour, coltitle=comcolor,
+	sharp corners,boxrule=0.8mm,
+	attach boxed title to top left={yshift=-0.3\baselineskip-0.4pt,xshift=2mm},
+	boxed title style={tile,size=minimal,left=0.5mm,right=0.5mm,
+		colback=white,before upper=\strut},
+	title=#2,#1
+}
+
+
+\definecolor{comcolor}{RGB}{10,161,119}
+\definecolor{framecolour}{HTML}{009980}
+
+
+\begin{document}
+
+\begin{frame}[t]
+\frametitle{Summary}
+{\nointerlineskip%
+\begin{tikzpicture}[remember picture,overlay, scale=0.9, transform shape]
+\node[draw, overlay, very thick, rounded corners, fill=green!30, anchor=north west, xshift=12cm, yshift=-0.5cm] at (current page.north west) {hello};
+\end{tikzpicture}%
+}%
+\begin{mytheorem}[colframe=red, text width=10cm]{}
+
+\end{mytheorem}
+
+\pause
+\begin{enumerate}[<+->] 
+\setlength\itemsep{5pt plus 1fill}
+\item one
+\item two
+\item three
+\item four
+\item five
+\item six
+\end{enumerate}
+
+\end{frame}
+
+\end{document}

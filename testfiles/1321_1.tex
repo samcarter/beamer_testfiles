@@ -1,0 +1,60 @@
+% https://topanswers.xyz/tex?q=1093#a1321
+\documentclass[11pt]{article}
+%\documentclass{beamer}
+
+\usepackage[envcountsect]{beamerarticle}
+
+
+\makeatletter
+\mode
+<article>
+{
+  \long\def\beamer@@@@frame<#1>[#2]{%
+    \global\let\insertframetitle=\@empty%
+    \global\let\insertframesubtitle=\@empty%
+    \beamer@slideinframe=1\relax%
+    \refstepcounter{framenumber}%
+    \beamer@slideinframe=0\relax%
+    \beamer@anotherslidefalse%
+    \beamer@masterdecode{beamer,#1}%
+    \ifbeamer@anotherslide%
+      \let\beamer@howtotreatframe\beamer@dosingleframe%
+    \else% no slides in frame
+      \let\beamer@howtotreatframe\beamer@donoframe%
+    \fi%
+    \beamer@slideinframe=1\relax%
+    \beamer@howtotreatframe}
+}
+
+
+\makeatother
+
+\begin{document}
+
+test
+
+\begin{frame}
+    \frametitle{Title of the frame}
+    \framesubtitle{Subtitle of the frame}
+
+    \begin{itemize}[<+->]
+        \item first
+        \item Second
+        \item third
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}<beamer>
+    \frametitle{Title of the frame}
+    \framesubtitle{Subtitle of the frame}
+
+    \begin{itemize}[<+->]
+        \item first
+        \item Second
+        \item third
+    \end{itemize}
+
+\end{frame}
+
+\end{document}

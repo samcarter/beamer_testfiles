@@ -1,0 +1,26 @@
+% https://topanswers.xyz/tex?q=1424#a1666
+\documentclass{beamer}
+\usepackage[many]{tcolorbox}
+\usepackage{listings}
+\lstdefinestyle{duckstyle}{%
+    moredelim=[is][\color{red}]{|}{|},
+    mathescape=true,
+    escapechar=@,
+    basicstyle=\ttfamily,
+    columns=fullflexible
+}
+\lstset{style=duckstyle}
+\tcbuselibrary{skins}
+\tcbset{
+	colback=white
+}
+\begin{document}
+\begin{frame}[fragile]
+\begin{tcolorbox}[top=0pt, left=5pt,right=5pt, colback=blue!5!white, text height=0.5cm]
+\vskip-0.1cm
+\begin{lstlisting}[ mathescape, name=countsketchshort, basewidth = {.3em}]
+return $\hat{f}_{a_i} =$ median{$g_j(a_i) C[j, h_j(a_i)]$}
+\end{lstlisting}
+\end{tcolorbox}
+\end{frame}
+\end{document}

@@ -1,0 +1,27 @@
+% https://topanswers.xyz/tex?q=625#a688
+\documentclass{beamer}
+
+\usepackage{lipsum}
+\usepackage{shapepar}
+\setlength{\cutoutsep}{5cm} 
+
+\setbeamertemplate{logo}{\parbox{\paperwidth}{\includegraphics[width=4cm,height=3cm]{example-image-duck}}}
+
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\webcam}{\cutout{l}(-1cm,.9\paperheight)\shapepar{\squareshape}\textcolor{bg}{.}\par}
+
+\begin{document}
+
+\begin{frame}
+\webcam
+\lipsum*[1-2]
+\end{frame}
+
+\begin{frame}
+\frametitle{title}
+\webcam
+\lipsum*[1-2]
+\end{frame}
+
+\end{document}

@@ -1,0 +1,17 @@
+% https://texnique.fr/osqa/questions/6059/chiffres-romains-majuscules-avec-latin-modern/6060
+% !TeX TS-program = lualatex
+
+\documentclass[noamsmath]{beamer}
+\usepackage{polyglossia}
+\setdefaultlanguage{french}
+\setsansfont{Latin Modern Sans}
+\usepackage{romanbar}
+
+\begin{document}
+\begin{frame}
+ Henri~II est mort de manière aussi subite que malchanceuse.
+%solution peu esthétique
+Henri~{\Romanbar{2}} est mort de manière aussi subite que malchanceuse.
+Louis~{\Romanbar{14}}
+\end{frame}
+\end{document}

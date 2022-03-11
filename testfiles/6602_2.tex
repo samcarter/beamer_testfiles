@@ -1,0 +1,90 @@
+% https://texnique.fr/osqa/questions/6602/beamer-titres-des-diapositives-avec-des-degrades-de-couleurs/6603
+\documentclass{beamer}
+
+\useoutertheme{shadow}
+\usepackage{tikz}
+\usetikzlibrary{shadings}
+\usetikzlibrary{fadings}
+
+\colorlet{titleleft}{yellow!30!white}
+\colorlet{titleright}{blue!20!black}
+
+\makeatletter
+\pgfdeclarehorizontalshading[titleleft,titleright]
+    {beamer@frametitleshade}
+  {\paperheight}{%
+    color(0pt)=(titleleft);
+    color(\paperwidth)=(titleright)
+  }
+
+\pgfdeclarehorizontalshading{titlefont}
+    {\paperheight}
+    {%
+        color(0cm)=(titleright); 
+        color(0.8cm)=(titleright); 
+        color(1.15cm)=(blue);
+        color(1.65cm)=(blue!50!cyan);
+        color(2cm)=(blue!10!cyan)
+    }
+
+% from https://tex.stackexchange.com/questions/45744/how-to-put-color-gradient-to-desired-text-only
+\newcommand\shadetext[1]{%
+  \begin{tikzfadingfrompicture}[name=tikzsection]
+    \node [text=white,inner sep=0pt,outer sep=0pt,text width=.9\linewidth] {#1};
+  \end{tikzfadingfrompicture}%
+  \begin{tikzpicture}%
+    \node [text=white,inner sep=0pt,outer sep=0pt,text width=.9\linewidth,opacity=0] (textnode) {#1};
+    \shade[path fading=tikzsection,fit fading=false,shading=titlefont,text width=.9\linewidth,inner sep=0pt,outer sep=0pt]
+    (textnode.south west) rectangle (textnode.north east);
+  \end{tikzpicture}%
+}
+
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip%
+  \vskip-2pt%
+  \hbox{\leavevmode
+    \advance\beamer@leftmargin by -12bp%
+    \advance\beamer@rightmargin by -12bp%
+    \beamer@tempdim=\textwidth%
+    \advance\beamer@tempdim by \beamer@leftmargin%
+    \advance\beamer@tempdim by \beamer@rightmargin%
+    \hskip-\Gm@lmargin\hbox{%
+      \setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{\paperwidth}%
+          \vbox{}
+          \vskip-0.0ex%
+          \leftskip0.3cm%
+          \rightskip0.3cm plus1fil\leavevmode
+          \usebeamercolor[fg]{frametitle}\shadetext{\usebeamerfont{frametitle}\strut\insertframetitle\strut}\par%
+          \ifx\insertframesubtitle\@empty\else%
+            {\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+          \fi%
+          \nointerlineskip
+          \vbox{}%
+          \end{minipage}}%
+      \beamer@tempdim=\ht\beamer@tempbox%
+      \advance\beamer@tempdim by 4pt%
+      \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
+        \usebeamercolor{frametitle right}
+        \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+        \pgfusepath{clip}
+        \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+      \end{pgfpicture}
+      \hskip-\paperwidth%
+      \box\beamer@tempbox%
+    }%
+    \hskip-\Gm@rmargin%
+  }%
+  \nointerlineskip
+    \vskip-0.2pt
+    \hbox to\textwidth{\hskip-\Gm@lmargin\pgfuseshading{beamer@topshade}\hskip-\Gm@rmargin}
+    \vskip-2pt
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Very very long frame title reaching the end of the line and continuing in the next line}
+\end{frame}
+
+\end{document}

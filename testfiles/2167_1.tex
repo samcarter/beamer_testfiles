@@ -1,0 +1,20 @@
+% https://topanswers.xyz/tex?q=1933#a2167
+\documentclass{beamer}
+
+\newenvironment{myalertenv}{\only{\setbeamercolor{itemize \beameritemnestingprefix item}{fg=alerted text.fg}\color{alerted text.fg}}}{}
+
+\begin{document}
+	
+\begin{frame}
+	\begin{itemize}
+  \item<myalert@1> test
+  	\begin{itemize}
+    \item test
+      \begin{itemize}
+      \item<myalert@1> test
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}  
+\end{frame}	
+	
+\end{document}

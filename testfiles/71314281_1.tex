@@ -1,0 +1,97 @@
+% https://stackoverflow.com/a/71314281
+\documentclass{beamer}
+
+\usetheme{Warsaw}
+
+\usepackage{pgffor}
+
+\newcounter{totalsubsub}
+
+\AtBeginSubsubsection[]{\label{subsubsec:\thesection:\thesubsection:\thesubsubsection}}
+
+
+\makeatletter
+
+\setbeamertemplate{headline}{%
+  \leavevmode%
+  \@tempdimb=2.4375ex%
+  \ifnum\beamer@subsectionmax<\beamer@sectionmax%
+    \multiply\@tempdimb by\beamer@sectionmax%
+  \else%
+    \multiply\@tempdimb by\beamer@subsectionmax%
+  \fi%
+  \ifdim\@tempdimb>0pt%
+    \advance\@tempdimb by 1.825ex%
+    \begin{beamercolorbox}[wd=.33\paperwidth,ht=\@tempdimb]{section in head/foot}%
+      \vbox to\@tempdimb{\vfil\insertsectionnavigation{.33\paperwidth}\vfil}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.34\paperwidth,ht=\@tempdimb]{subsection in head/foot}%
+      \vbox to\@tempdimb{\vfil\insertsubsectionnavigation{.33\paperwidth}\vfil}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[leftskip=3.3ex,wd=.33\paperwidth,ht=\@tempdimb]{section in head/foot}%
+    \begin{minipage}[b][\@tempdimb][c]{.9\linewidth}%
+      \ifnum\thetotalsubsub>0
+          \foreach \i in {1,...,\thetotalsubsub}{% 
+                  \ifnum\i=\thesubsubsection
+                      \usebeamercolor[fg]{subsubsection in sidebar}
+                  \else
+                      \usebeamercolor[fg]{subsubsection in sidebar shaded}
+                  \fi
+                  \hyperlink{subsubsec:\thesection:\thesubsection:\i}{\nameref{subsubsec:\thesection:\thesubsection:\i}}\par
+              }
+      \fi
+        \end{minipage}%
+    \end{beamercolorbox}%    
+  \fi%
+}
+
+\makeatother
+
+
+\begin{document}
+
+\section{section}
+\subsection{sub 1}
+\setcounter{totalsubsub}{3}
+
+\subsubsection{subsub 1}
+\begin{frame}
+    subsub 1
+\end{frame} 
+
+\subsubsection{subsub 2}
+\begin{frame}
+    subsub 2
+\end{frame} 
+
+\subsubsection{subsub 3}
+\begin{frame}
+    subsub 3
+\end{frame} 
+
+\subsection{sub 2}
+\setcounter{totalsubsub}{0}
+
+\begin{frame}
+    abc
+\end{frame} 
+
+\subsection{sub 3}
+\setcounter{totalsubsub}{2}
+
+\begin{frame}
+content...
+\end{frame}
+
+\subsubsection{subsub 1}
+\begin{frame}
+    subsub 1
+\end{frame} 
+
+\subsubsection{subsub 2}
+\begin{frame}
+    subsub 2
+\end{frame} 
+
+\end{document}
+

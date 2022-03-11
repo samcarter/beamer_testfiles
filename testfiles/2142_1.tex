@@ -1,0 +1,47 @@
+% https://topanswers.xyz/tex?q=1906#a2142
+%\documentclass{beamer}
+
+\documentclass{article}
+\usepackage{beamerarticle}
+\mode<article>{\usepackage{enumitem}}
+
+\newcommand{\boldflatitem}{%
+	\mode<article>{
+		\setlist[enumerate,1]{%
+			label = \textcolor{red}{\arabic*.},
+			font  = \bfseries,
+			before = \bfseries
+		}
+		\setlist[itemize,1]{%
+			font = \normalfont,
+			before = \normalfont,
+		}
+	}
+		
+	\mode<beamer>{
+		\setbeamerfont{itemize/enumerate body}{series=\bfseries}
+        %\setbeamertemplate{itemize/enumerate subbody}{}
+		\setbeamerfont{itemize/enumerate subbody}{series=\normalfont}
+	}
+			
+}
+
+\begin{document}
+
+\begin{frame}
+		\boldflatitem{}	
+		\begin{enumerate}
+			\item level 1
+          \begin{itemize}[<beamer:only@0>]
+              	\item level 2
+              	\item level 2
+          \end{itemize}	
+			\item level 1
+          \begin{itemize}[<beamer:only@0>]
+              	\item level 2
+              	\item level 2
+          \end{itemize}	
+		\end{enumerate}
+\end{frame}    
+
+\end{document}

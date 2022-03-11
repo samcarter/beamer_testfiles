@@ -1,0 +1,29 @@
+% https://topanswers.xyz/tex?q=1397#a1642
+\documentclass{beamer}
+\usepackage{lipsum}
+
+\setbeamertemplate{footline}[text line]{%
+\begin{beamercolorbox}[wd=\paperwidth,ht=30ex,dp=1ex]{}% Set
+FirstFoot
+\end{beamercolorbox}}
+
+\begin{document}
+
+\begin{frame}[allowframebreaks]{FirstSlide}
+\lipsum[3-8]
+\end{frame}
+
+\setbeamertemplate{footline}[text line]{%
+\begin{beamercolorbox}[wd=\paperwidth,ht=3ex,dp=1ex]{}% Ignored
+SecondFoot
+\end{beamercolorbox}}
+
+\makeatletter
+\beamer@calculateheadfoot
+\makeatother
+
+\begin{frame}[allowframebreaks]{SecondSlide}
+\lipsum[3-8]
+\end{frame}
+
+\end{document}

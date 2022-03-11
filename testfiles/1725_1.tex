@@ -1,0 +1,39 @@
+% https://topanswers.xyz/tex?q=1495#a1725
+\documentclass{beamer}
+
+\usepackage{xpatch}
+
+\makeatletter
+\newif\ifbeamer@hide
+\define@key{beamerframe}{hide}[true]{\beamer@hidetrue}
+\BeforeBeginEnvironment{frame}{\beamer@hidefalse}
+\xpatchcmd{\beamer@@@@frame}{%
+  \gdef\beamer@whichframes{#1}%
+}{
+  \ifbeamer@hide
+    \gdef\beamer@whichframes{beamer:0}%
+  \else
+    \gdef\beamer@whichframes{#1}%
+  \fi
+}{}{}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+content...
+\end{frame}
+
+\begin{frame}[hide] %<-- has now overlay specification beamer:0
+
+example text
+
+\end{frame}
+
+
+
+\begin{frame}
+content...s
+\end{frame}
+
+\end{document}

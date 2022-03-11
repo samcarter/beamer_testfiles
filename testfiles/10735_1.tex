@@ -1,0 +1,78 @@
+% https://texnique.fr/osqa/questions/10735/comment-numeroter-les-sections-dans-beamer/10736
+\documentclass{beamer}
+
+\usetheme[progressbar=frametitle]{metropolis}
+\setbeamertemplate{frame numbering}[fraction]
+\useoutertheme{metropolis}
+\useinnertheme{metropolis}
+%\usefonttheme{Berlin}
+\usecolortheme{orchid}
+\setbeamercolor{background canvas}{bg=white}
+
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+
+\defbeamertemplate{subsubsection in toc}{subsubsections numbered}
+{\leavevmode\leftskip=3em%
+ \rlap{\hskip-3em\inserttocsectionnumber.\inserttocsubsectionnumber.\inserttocsubsubsectionnumber}%
+ \inserttocsubsubsection\par}
+
+\setbeamertemplate{subsubsection in toc}[subsubsections numbered]
+
+\makeatletter
+\setbeamertemplate{section page}{%
+  \centering
+  \begin{minipage}{22em}
+    \raggedright
+    \usebeamercolor[fg]{section title}
+    \usebeamerfont{section title}
+    \thesection~\insertsectionhead\\[-1ex]
+    \usebeamertemplate*{progress bar in section page}
+    \par
+    \ifx\insertsubsectionhead\@empty\else%
+      \usebeamercolor[fg]{subsection title}%
+      \usebeamerfont{subsection title}%
+      \insertsubsectionhead
+    \fi
+  \end{minipage}
+  \par
+  \vspace{\baselineskip}
+}
+\makeatother
+
+\begin{document}
+\begin{frame}{Titre}
+\tableofcontents
+\end{frame}
+\section{Rappels}
+\subsection{Fondements}
+\begin{frame}{Titre}
+Bla bla.
+\end{frame}
+\subsubsection{Hypoth\`eses}
+\begin{frame}{Titre}
+Bla bla.
+\end{frame}
+\subsubsection{Causes}
+\begin{frame}{Titre}
+Bla bla.
+\end{frame}
+\subsection{Implications}
+\begin{frame}{Titre}
+Bla bla.
+\end{frame}
+\subsection{Critiques}
+\begin{frame}{Titre}
+Bla bla.
+\end{frame}
+\section{Th\'eorie}
+\subsection{Plan}
+\begin{frame}{Titre}
+Bla bla.
+\end{frame}
+\subsection{\'Equilibre}
+\begin{frame}{Titre}
+Bla bla.
+\end{frame}
+
+\end{document}

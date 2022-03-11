@@ -1,0 +1,44 @@
+% https://topanswers.xyz/tex?q=1039#a1254
+\documentclass[Palatino, hyperref={pdfpagelabels=false}]{beamer}
+
+%\documentclass[12pt]{article}
+%\usepackage[noxcolor]{beamerarticle}
+
+\usepackage[utf8]{inputenc} % usually not needed (loaded by default)
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+
+\usepackage{lipsum,wrapfig,xcolor}
+
+\setbeamercovered{dynamic}
+
+\useoutertheme{infolines}
+
+\usetheme{Singapore} % NO
+
+\xdefinecolor{oiB}{rgb}{0.22,0.52,0.72}
+
+\setbeamercolor{disc ques body}{fg=oiB}
+
+\newcommand{\dq}[1]{
+  \begingroup
+    \setbeamercolor{block body}{parent=disc ques body}
+    \begin{block}{}%
+        #1
+    \end{block}
+  \endgroup
+}
+
+\begin{document}
+
+\begin{frame}
+
+\dq{\lipsum[1]} 
+
+\begin{block}{title}
+content...
+\end{block}
+
+\end{frame} 
+
+\end{document}

@@ -1,0 +1,20 @@
+% https://topanswers.xyz/tex?q=1626#a1866
+\documentclass{beamer}
+
+\makeatletter
+\AtBeginLecture{
+  \phantomsection
+  \protected@edef\@currentlabelname{\beamer@lecturename}
+  \label{\beamer@currentlecturelabel}
+}
+\makeatother
+
+\begin{document}
+
+\lecture{lecture 1}{weeka}
+
+\begin{frame}
+see Lecture \nameref{weeka}
+\end{frame}
+
+\end{document}

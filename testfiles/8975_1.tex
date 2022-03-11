@@ -1,0 +1,81 @@
+% https://texnique.fr/osqa/questions/8975/desactiver-ponctuellement-beamerdefaultoverlayspecification/8977
+\documentclass{beamer}
+
+\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+  \frametitle{Titre}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}<.->{.23\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{example-image-duck}
+
+      Spaghettis
+    \end{column}
+    \begin{column}<.->{.23\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{example-image-duck}
+
+      Doigts crochus
+    \end{column}
+    \begin{column}<.->{.23\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{example-image-duck}
+
+      Ramener à soi un mot dont on a besoin
+    \end{column}
+    \begin{column}<.->{.23\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{example-image-duck}
+
+      Confiance, joie, énergie, force
+    \end{column}
+\end{columns}
+
+\begin{itemize}
+\item test
+\item test
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Titre}
+  {
+  \beamerdefaultoverlayspecification{<.->}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{.23\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{example-image-duck}
+
+      Spaghettis
+    \end{column}
+    \begin{column}{.23\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{example-image-duck}
+
+      Doigts crochus
+    \end{column}
+    \begin{column}{.23\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{example-image-duck}
+
+      Ramener à soi un mot dont on a besoin
+    \end{column}
+    \begin{column}{.23\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{example-image-duck}
+
+      Confiance, joie, énergie, force
+    \end{column}
+\end{columns}
+}
+
+\begin{itemize}
+\item test
+\item test
+\end{itemize}
+\end{frame}
+
+\end{document}

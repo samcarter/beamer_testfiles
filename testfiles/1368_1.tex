@@ -1,0 +1,25 @@
+% https://topanswers.xyz/tex?q=1161#a1368
+\documentclass[t]{beamer}
+
+\usepackage{tikz}
+
+
+\makeatletter
+\setbeamertemplate{frametitle}{%
+\begin{tikzpicture}[remember picture, overlay]%
+\node[anchor=north west,fill=red,inner sep=0pt,outer sep=0pt, xshift=\Gm@lmargin] at (current page.north west) {\insertframetitle};%
+\end{tikzpicture}%
+}
+\makeatother
+
+\begin{document}
+\begin{frame}
+\frametitle{This is the title}
+Test
+\end{frame}
+
+\begin{frame}
+%\frametitle{This slide has no title}
+Test
+\end{frame}
+\end{document}

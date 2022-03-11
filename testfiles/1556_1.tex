@@ -1,0 +1,64 @@
+% https://topanswers.xyz/tex?q=1318#a1556
+\documentclass[xcolor={rgb}]{beamer}
+\beamertemplatenavigationsymbolsempty
+\setbeamersize{text margin left=10mm,text margin right=5mm} 
+\setbeamertemplate{frametitle}[default][center]
+\usepackage[many]{tcolorbox}
+\newcommand{\ubar}[1]{\alt<+>{\underaccent{\bar}{#1}}{#1}}
+\tcbuselibrary{skins}
+\tcbset{
+	arc=0pt,
+	outer arc=0pt,
+	colback=white,
+}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,
+	shapes,
+	tikzmark}
+\usetikzlibrary{tikzmark,shapes.geometric, patterns,decorations.pathreplacing, calligraphy}
+%\usetikzlibrary{overlay-beamer-styles}
+
+\usepackage[beamer,customcolors]{hf-tikz}
+\hfsetfillcolor{structure.fg!20}
+\hfsetbordercolor{structure.fg!20}
+
+\begin{document}
+
+\begin{frame}[t, fragile]{}
+	\tikzset{baseline,
+	E/.style={ellipse, fill=blue!20, inner sep=2pt, anchor=base},
+	N/.style={draw, very thick, rounded corners, fill=green!30,
+		font=\scriptsize, rotate=90, anchor=east}
+}
+
+
+\begin{itemize}[<+(1)->]
+\setlength\itemsep{0.2cm}
+\item[] line
+\item[] line
+\item[] line 
+\item[] $
+\tikzmarkin<7>{a}(0.2,-0.25)(-0.2,0.5)
+  \tikzmark{bar}
+  \mathbb{E}(Z_iC_i)=
+\tikzmarkin<8>{b}(0.2,-0.25)(-0.2,0.5)
+\mathbb{E}(\mathbb{E}(Z_iC_i\mid C_i))\tikzmarkend{a}
+=\mathbb{E}\left(C_i\mathbb{E}[Z_i\mid C_i]\right)\tikzmarkend{b}
+$
+\begin{tikzpicture}[remember picture, overlay]
+\node<7>[xshift=-12.2cm, yshift=4.5cm] (b) [N]
+				at (current page.east)
+				{Law one};
+				\draw<7>[-Stealth, shorten <=1mm, shorten >=1mm, dashed]
+								(pic cs:bar) to [bend left] (b.south);
+\end{tikzpicture}
+\begin{tikzpicture}[remember picture, overlay]
+					\node<8>[xshift=-1cm] (b) [N]
+					at (current page.east)
+					{law two};
+					\draw<8>[-Stealth, shorten <=-1mm, shorten >=1mm, dashed]
+					(pic cs:foo) to [bend left] (b.north); 
+					\end{tikzpicture}
+\end{itemize}
+\end{frame}
+\end{document}

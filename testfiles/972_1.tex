@@ -1,0 +1,41 @@
+% https://topanswers.xyz/tex?q=825#a972
+\documentclass{beamer}
+
+\setbeamertemplate{subsection page}{
+  \begin{frame}[noframenumbering]
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\makeatletter
+\renewcommand<>{\subsection}{\AtBeginSubsection[]{\subsectionpage}\alt#1{\@ifnextchar[\beamer@subsection\beamer@@subsection}{\beamer@secgobble}}
+\newcommand<>{\modsubsection}{\AtBeginSubsection[]{}\alt#1{\@ifnextchar[\beamer@subsection\beamer@@subsection}{\beamer@secgobble}}
+\newcommand<>{\othermodsubsection}{\AtBeginSubsection[\subsectionpage]{}\alt#1{\@ifnextchar[\beamer@subsection\beamer@@subsection}{\beamer@secgobble}}
+\makeatother
+
+\begin{document}
+
+\section{section}
+
+\subsection{triggers both: ToC frame and entry in toc}
+  \begin{frame}
+    \insertsubsectionhead
+  \end{frame}
+  
+\modsubsection{no ToC frame trigger, but entry in toc}
+  \begin{frame}
+    \insertsubsectionhead
+  \end{frame}
+
+\othermodsubsection*{ToC frame trigger, but no entry in toc}
+  \begin{frame}
+    \insertsubsectionhead
+  \end{frame}
+  
+\subsection*{neither toc frame, nor entry in toc}
+  \begin{frame}
+    \insertsubsectionhead
+  \end{frame}
+  
+\end{document}

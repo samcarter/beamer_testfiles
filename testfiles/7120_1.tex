@@ -1,0 +1,30 @@
+% https://texnique.fr/osqa/questions/7120/comment-gerer-la-taille-dun-graphique-et-dun-tableau-dans-une-frame-sous-beamer/7121
+\documentclass[french]{beamer}
+%\usetheme{default}
+\usepackage{babel}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\begin{document}
+\begin{frame}
+\centering
+\includegraphics[width=.3\textwidth]{example-image-duck}
+\bigskip
+
+\tiny
+\begin{tabular}{@{}l>{\raggedright}p{1.1cm}>{\raggedright}p{2.4cm}>{\raggedright}p{3cm}>{\raggedright}p{0.9cm}>{\raggedright\arraybackslash}p{1.1cm}@{}}
+\toprule
+&$\delta$ (ppm) publication     &$\delta$ (ppm) expérimental            &proton                                     &int. théorique &intégration. exp\\
+\midrule        
+a&1.135-1.143                    &1.120; 1.129; 1.135; 1.144                        &$[O-CH_{2}-CH(C\mathbf{H_{3}})O)]_{n}$                                 &186    &186.00\\
+b   &2.450                          &2.443                          &$Ts-C\mathbf{H_{3}}$                                                           &6  &5.82\\
+c   &3.37 - 3.42                        &3.370; 3.383; 3.395; 3.406; 3.416                      &$[O-CH\mathbf{H}-CH(CH_{3})O)]_{n}$                                    &62 &55.93\\
+d   &3.50 - 3.57                            &3.637                      &$O-C\mathbf{H}H-C\mathbf{H}(CH_{3})]_{n}O$                 &124    &136.96\\
+e   &3.58 - 3.64                            &3,58-3,64                          &$[O-C\mathbf{H_{2}}-C\mathbf{H_{2}}]_{n}$                  &752    &851.83\\
+f   &3.685                          &3.692                          &$-C\mathbf{H_{2}}-CH_{2}-OTs$                                          &4      &3.15\\
+g   &4.159                          &4.140; 4.152; 4.164                          &$-CH_{2}-C\mathbf{H_{2}}-OTs$                                          &4  &3.79\\
+h   &7.344                                  &7.328; 7.348                    &$\text{Méta}-Ts-\mathbf{H}$                                           &4  &4.65\\
+i   &7.799                              &7.782; 7.803                    &$\text{Ortho}-Ts-\mathbf{H}$                                                              &4  &4.26\\
+\bottomrule     
+\end{tabular}
+\end{frame}
+\end{document}

@@ -1,0 +1,90 @@
+% https://texnique.fr/osqa/questions/7258/recreer-le-poster-de-mike-morrison-avec-latex/7259
+\documentclass{beamer}
+
+\usepackage{beamerposter}
+\usepackage{lmodern}
+\usepackage{qrcode}
+\usepackage{lipsum}
+
+\setbeamertemplate{background canvas}{%
+    \color{white}\rule{.25\paperwidth}{\paperheight}%
+    \color{red!50!black}\rule{.5\paperwidth}{\paperheight}%
+    \color{white}\rule{.25\paperwidth}{\paperheight}%
+}
+\setbeamerfont{title}{size=\fontsize{92pt}{120pt}\selectfont}
+\setbeamerfont{author}{size=\fontsize{48pt}{56pt}\selectfont}
+\setbeamercolor{author}{fg=gray}
+\setbeamerfont{institute}{size=\fontsize{32pt}{36pt}\selectfont}
+\setbeamercolor{institute}{fg=gray}
+\setbeamercolor{structure}{fg=black}
+\setbeamerfont{structure}{size=\fontsize{48pt}{56pt}\selectfont,series=\bfseries}
+\setbeamerfont{normal text}{size=\fontsize{32pt}{38pt}}
+\renewcommand<>{\emph}[1]{{\only#2{\bfseries}#1}}
+\setbeamertemplate{navigation symbols}{}
+
+\author{Pauliono van Duck}
+\institute{Tikzlings academy}
+\title{Le Titre}
+
+\begin{document}
+
+\begin{frame}[plain]
+\begin{columns}[onlytextwidth,T]
+\begin{column}{0.23\textwidth}
+\usebeamerfont{title}%
+\usebeamercolor{title}%
+\inserttitle%
+
+\vskip1cm
+\usebeamerfont{author}%
+\usebeamercolor[fg]{author}%
+\insertauthor%
+
+\usebeamerfont{institute}%
+\usebeamercolor[fg]{institute}%
+\insertinstitute%
+
+\usebeamerfont{normal text}
+
+\vskip2cm
+\structure{Introduction}
+\vskip1cm
+
+\lipsum[2]
+
+\vskip2cm
+\structure{Un diagramme}
+\vskip1cm
+
+\includegraphics[width=\textwidth]{example-image-duck}
+
+\end{column}
+\begin{column}{0.5\textwidth}
+\centering
+\begin{minipage}[c][.93\textheight][c]{.9\textwidth}
+\vfill
+
+\color{white}\fontsize{92pt}{120pt}\selectfont%
+
+La découverte \emph{principale}.
+
+Quelques mots sont \emph{en gras}
+
+\vfill
+{\setlength{\fboxsep}{1cm}
+\fcolorbox{white}{white}{\color{black}\qrcode[hyperlink,height=10cm]{https://texnique.fr/osqa/}}}
+\end{minipage}
+\end{column}
+\begin{column}{0.23\textwidth}
+\usebeamerfont{normal text}
+
+\structure{Un autre diagramme}
+\vskip1cm
+
+\includegraphics[width=\textwidth,page=2]{example-image-duck}
+\end{column}
+\end{columns}
+
+\end{frame}
+
+\end{document}

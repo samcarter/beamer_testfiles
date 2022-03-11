@@ -1,0 +1,41 @@
+% https://texnique.fr/osqa/questions/9233/reinitialisation-de-compteurs/9235
+\documentclass{beamer}
+\usetheme{Madrid}
+
+\makeatletter
+\setbeamertemplate{section in toc}{\leavevmode\@Alph\inserttocsectionnumber.\inserttocsection\par}
+\makeatother
+
+% Table des matières qui apparaît au début de chaque division :
+\AtBeginSection{%
+\begin{frame}
+    %   \frametitle{Plan}
+\tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide,subsubsectionstyle=hide]
+\end{frame}}
+
+\begin{document}
+
+\begin{frame}
+\begin{center}
+    {\large \textbf{Gros titre A}}
+\end{center}
+\end{frame}
+
+\section{Section 1}
+\section{Section 2}
+\section{Section 3}
+
+\makeatletter
+\beamer@tocsectionnumber=0
+\makeatother
+\begin{frame}
+\begin{center}
+    {\large \textbf{Gros titre B}}
+\end{center}
+\end{frame}
+
+\section{Nouvelle section 1}
+\section{Nouvelle section 2}
+\section{Nouvelle section 3}
+
+\end{document}

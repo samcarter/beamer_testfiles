@@ -1,0 +1,44 @@
+% https://topanswers.xyz/tex?q=1004#a1198
+\documentclass{beamer}
+
+\defbeamertemplate{footline}{special footline}{%
+  special footline
+}
+
+\setbeamertemplate{footline}{%
+  normal footline
+}
+
+
+\makeatletter
+\def\ps@navigation@titlepage{%
+  \setbeamertemplate{footline}{special footline}
+  \@nameuse{ps@navigation}
+}
+\addtobeamertemplate{title page}{\thispagestyle{navigation@titlepage}}{}
+\makeatother
+
+\AtBeginSection[]{%
+\begingroup
+\setbeamertemplate{footline}{special footline}
+\begin{frame}
+  \sectionpage
+\end{frame}
+\endgroup
+}
+
+\pretocmd{\tableofcontents}{\thispagestyle{navigation@titlepage}}{}{}
+
+\begin{document}
+\maketitle
+
+\begin{frame}
+\tableofcontents
+\end{frame}
+
+\section{abc}
+\begin{frame}
+\frametitle{abc}
+cde
+\end{frame} 
+\end{document}

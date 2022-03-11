@@ -1,0 +1,109 @@
+% https://topanswers.xyz/tex?q=1417#a1659
+\documentclass{beamer}
+\beamertemplatenavigationsymbolsempty
+\setbeamersize{text margin left=10mm,text margin right=5mm} 
+\setbeamertemplate{frametitle}[default][center]
+\usepackage{circledsteps}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\newcommand{\mycircle}[1][1]{%
+\Circled[fill color={foo!![#1]},outer color=blue!60]{\phantom{\mbox{o}}}}%
+\def\numcolors{4}
+\pgfmathparse{1/\numcolors}%
+\definecolorseries{foo}{hsb}{step}{red!90!black}{\pgfmathresult,0,0} 
+\resetcolorseries[\numcolors]{foo}%
+\makeatletter
+\newcommand{\UncoverList}[2][]{\c@pgf@counta0\relax
+\pgfutil@for\my@item:={#2}\do{%
+\advance\c@pgf@counta by1%
+\only<\c@pgf@counta->{\my@item}%
+}}
+\makeatother
+
+\begin{document}
+
+
+
+\begin{frame}
+\frametitle{}
+
+{\centering
+\begin{tikzpicture}
+
+\node (crow) {\vphantom{\raisebox{1ex}{\mycircle[1]}}\def\numdots{12}%
+\def\cols{1,2,1,4,1,2,3,1,1,2,3,4}
+\foreach \x [count=\y from 2] in {1,...,\numdots}{%
+  \pgfmathtruncatemacro{\mycf}{{\cols}[\x-1]}%
+  \ifnum\y>1\relax\;\fi\alt<\y>{%
+  	\raisebox{1ex}{\mycircle[\mycf]}}{%
+	\mycircle[\mycf]}%
+}%
+};
+
+
+\path ([yshift=-1cm,xshift=-1cm]crow.south) 
+    [cond/.code={%
+		\ifnum\pgfmatrixcurrentrow=1\relax
+		\else
+		  \ifnum\pgfmatrixcurrentcolumn=1\relax
+			  \else
+ 			  \tikzset{fill=blue!10,draw=white,text width=3.2em,align=left}%
+		  \fi
+		\fi}]
+	node[below right,matrix of nodes,
+	ampersand replacement=\&,nodes in empty cells,
+	nodes={text height=1.6em,text depth=0.2ex,cond},
+		red,font=\boldmath,
+		column 1/.style={black,font=\normalfont}
+	] (mat1) {%
+		\& $1$ \& $2$ \& $3$\\
+	$h_1$ \& $\begin{array}[b]{l}
+		\scriptstyle\vphantom{1}\UncoverList{,,,,,,,+,,,,+}\\ % \column 1
+		\scriptstyle\vphantom{1}\end{array}$  \&  
+	$\begin{array}[b]{l}
+		\scriptstyle\vphantom{1}\UncoverList{,+,,+,-,+,,,+}\\ % \column 2
+		\scriptstyle\vphantom{1}\UncoverList{,,,,,,,,,+,,,-}\end{array}$	
+		\& 
+	$\begin{array}[b]{l}
+		\scriptstyle\vphantom{1}\UncoverList{,,-,,,,-,,,,-}\\ % \column 3
+		\scriptstyle\vphantom{1}\UncoverList{,,,,,,,+,,,,}\end{array}$\\
+	$h_2$ \& $\begin{array}[b]{l}
+		\scriptstyle\vphantom{1}\UncoverList{,+,,+,,+,,,+,+}\\ % \column 1
+		\scriptstyle\vphantom{1}\end{array}$ \&  
+		$\begin{array}[b]{l}
+			\scriptstyle\vphantom{1}\UncoverList{,,+,,,,+,,,,+}\\ % \column 2
+			\scriptstyle\vphantom{1}\UncoverList{,,,,,,,,,,,,}\end{array}$	
+		\& 
+	$\begin{array}[b]{l}
+		\scriptstyle\vphantom{1}\UncoverList{,,,,+,,,-,,,,-,+}\\ % \column 3
+		\scriptstyle\vphantom{1}\UncoverList{,,,,,,,,,,,,}\end{array}$\\
+};
+
+
+\path ([xshift=0.8cm]mat1.south east) 
+    [cond/.code={%
+		\ifnum\pgfmatrixcurrentrow=1\relax
+ 		  \tikzset{fill=blue!50,text=white}%
+		\else
+		  \ifodd\pgfmatrixcurrentrow
+		    \tikzset{fill=blue!10}%
+		  \else
+		    \tikzset{fill=blue!20}%
+		  \fi
+		\fi}]
+ node[above right,matrix of math nodes,
+ ampersand replacement=\&,nodes in empty cells,
+	cells={nodes={draw=white,minimum width=3em,
+		text height=0.8em,text depth=0.25ex,cond}}] (mat1) {%
+	 \& h_1,g_1 \& h_2,g_2\\[0.2ex]
+	\mycircle[1] \& 2,+\& 1,+\\
+	\mycircle[2] \& 3,-\& 2,+\\
+	\mycircle[3] \& 1,+\& 3,-\\
+	\mycircle[4] \& 2,-\& 3,+\\
+};
+\end{tikzpicture}
+}
+
+\end{frame}
+
+\end{document}

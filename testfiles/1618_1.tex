@@ -1,0 +1,61 @@
+% https://topanswers.xyz/tex?q=1369#a1618
+\documentclass{beamer}
+\beamertemplatenavigationsymbolsempty
+\setbeamersize{text margin left=10mm,text margin right=5mm} 
+\setbeamertemplate{frametitle}[default][center]
+\usepackage{calc}
+\usepackage[many]{tcolorbox}
+\usepackage{listings}
+\lstdefinestyle{duckstyle}{%
+    moredelim=[is][\color{red}]{|}{|},
+    mathescape=true,
+    escapechar=@,
+    basicstyle=\ttfamily,
+    columns=fullflexible
+}
+\lstset{style=duckstyle}
+
+\newcommand{\Var}[1]{\ensuremath{\textcolor{varcolor}{#1}}}
+\definecolor{varcolor}{RGB}{15,122,183}
+
+\tcbset{
+	colback=white,
+}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark,calc}
+\usepackage[beamer,customcolors]{hf-tikz}
+
+\begin{document}
+\begin{frame}[t, fragile]{}
+	\tikzset{baseline,
+	N/.style={draw, very thick, rounded corners, fill=green!30,
+		font=\scriptsize}
+}
+\begin{columns}
+\begin{column}{5.2cm} %
+    \begin{tcolorbox}[top=0pt, left=5pt,right=5pt, colback=blue!5!white, text width=5.2cm, text height=7cm]
+\begin{lstlisting}[mathescape, name=code, basewidth = {.3em}]
+
+set $\Var{A}$ = $\emptyset$
+For each $\Var{i}$
+  if $\Var{a_i} \in \Var{A}$
+    @$
+      \tikzmarkin<2>{a}
+        \Var{\tilde{f}_{a_i}}
+      \tikzmarkend{a}
+      = \Var{\tilde{f}_{a_i}} + 1$@
+\end{lstlisting}
+\end{tcolorbox}
+\end{column}
+   
+\begin{column}{\textwidth-5cm} %
+
+ \begin{tikzpicture}[remember picture, overlay]
+     \draw<2>[->, overlay, dashed] (2,0) to [bend right]([yshift=0.4cm]pic cs:a);
+     \node<2>[draw,N] at (2,0) {text};
+   \end{tikzpicture}
+\end{column}
+\end{columns}
+\end{frame}
+
+\end{document}

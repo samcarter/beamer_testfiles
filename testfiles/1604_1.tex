@@ -1,0 +1,49 @@
+% https://topanswers.xyz/tex?q=1356#a1604
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+
+
+\begin{document}
+\begin{frame}{Title}
+\tikzset{
+  vertex/.style={
+    very thick,
+    draw=black, 
+    circle,
+    minimum size=18pt,
+    inner sep=0pt
+  },
+  edge/.style={
+    draw,
+    thick
+  }
+}
+
+
+\begin{figure}
+\begin{tikzpicture}[scale=1.8, auto,swap]
+    % First we draw the vertices
+    \foreach \pos/\name in {{(0,2)/a}, {(2,1)/b}, {(4,1)/c},
+                            {(0,0)/d}, {(3,0)/e}, {(2,-1)/f}, {(4,-1)/g}}
+        \node[vertex] (\name) at \pos {$\name$};
+    % Connect vertices with edges and draw weights
+    \foreach \source/ \dest / \myoverlay  in {
+      b/a/1-2, 
+      c/b/3,
+      d/a/4,
+      d/b/5,
+      e/b/6, 
+      e/c/7,
+      e/d/8-,
+      f/d/9,
+      f/e/10,
+      g/e/11,
+      g/f/12
+    }{
+        \path<\myoverlay>[edge] (\source) -- node {} (\dest);
+    }
+\end{tikzpicture}
+\end{figure}
+\end{frame}
+\end{document}

@@ -1,0 +1,91 @@
+% https://topanswers.xyz/tex?q=1768#a1994
+\documentclass[xcolor={rgb}]{beamer}
+\usepackage[beamer,customcolors]{hf-tikz}
+\hfsetfillcolor{structure.fg!20}
+\hfsetbordercolor{structure.fg!20}
+\beamertemplatenavigationsymbolsempty
+\setbeamersize{text margin left=10mm,text margin right=5mm} 
+\setbeamertemplate{frametitle}[default][center]
+\usepackage[T1]{fontenc}
+
+\usepackage{circledsteps}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\newcommand{\mycircle}[1][1]{%
+\Circled[fill color={foo!![#1]},outer color=blue!60]{\phantom{\mbox{o}}}}%
+\def\numcolors{4}
+\pgfmathparse{1/\numcolors}%
+\definecolorseries{foo}{hsb}{step}{red!90!black}{\pgfmathresult,0,0} 
+\resetcolorseries[\numcolors]{foo}%
+\makeatletter
+\newcommand{\UncoverList}[2][]{\c@pgf@counta0\relax
+\pgfutil@for\my@item:={#2}\do{%
+\advance\c@pgf@counta by1%
+\only<\c@pgf@counta->{\my@item}%
+}}
+\makeatother
+
+\definecolor{titlecolor}{RGB}{29, 110, 174}
+
+\newcommand{\tikzcircle}[3][red]{\tikz[baseline=-0.5ex]{\node[draw={#1}, fill={#1}, circle,text width=#2,minimum width=1.4em,text=black,align=center] at (0,0) {#3};}\hspace{0pt}}%
+
+\usepackage{eqparbox}
+\usetikzlibrary{overlay-beamer-styles}
+\newcommand{\tikzcircletwo}[2][red]{\begin{tikzpicture}[baseline={(X.base)}]%
+\node [draw,fill,#1,circle,text height={height("1")},inner sep=1.3pt,
+text=black,align=center] (X) 
+{\eqmakebox[circletext][c]{#2}};
+\end{tikzpicture}\hspace{0pt}}%
+
+
+\pgfmathsetseed{2}
+
+\title{\bfseries Frequency estimation via sketching}
+\setbeamertemplate{title page}
+{
+	\centering
+	\textcolor{titlecolor}{\large\bfseries DSDP}\par
+	\vskip 1cm
+	\textcolor{titlecolor}{\rule{\linewidth}{1pt}}\par
+	\bigskip
+	\small\inserttitle\par
+	\insertsubtitle\par
+	\bigskip
+	\textcolor{titlecolor}{\rule{\linewidth}{1pt}}\par
+	\bigskip
+	\textcolor{titlecolor}{\small \insertauthor}\par
+	\insertinstitute\par
+	\insertdate\par
+}
+
+\setbeamertemplate{itemize items}{}
+
+
+\begin{document}
+
+
+\begin{frame}[fragile]
+\frametitle{Frame title}
+\begin{tikzpicture}[remember picture, overlay,xshift=3cm,yshift=4cm]
+\foreach \x [count=\y from 1] in {green,cyan,purple,red}{%
+  \node[anchor=north west,xshift=-3cm,yshift=-0.5*\y cm] at (current page.north east){\mycircle[\y]: \x};
+}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+
+\node (crow) {\vphantom{\raisebox{1ex}{\mycircle[1]}}\def\numdots{12}%
+\def\cols{1,2,1,4,1,2,3,1,1,2,3,4}
+\foreach \x [count=\y from 2] in {1,...,\numdots}{%
+  \pgfmathtruncatemacro{\mycf}{{\cols}[\x-1]}%
+  \ifnum\y>1\relax\;\fi\alt<\y>{%
+  	\raisebox{1ex}{\mycircle[\mycf]}}{%
+	\mycircle[\mycf]}%
+}%
+};
+
+\end{tikzpicture}
+
+
+\end{frame}
+\end{document}

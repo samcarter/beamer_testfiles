@@ -1,0 +1,67 @@
+% https://topanswers.xyz/tex?q=1752#a1983
+\documentclass{beamer}
+\usepackage[beamer,customcolors]{hf-tikz}
+\hfsetfillcolor{structure.fg!20}
+\hfsetbordercolor{structure.fg!20}
+\beamertemplatenavigationsymbolsempty
+\setbeamersize{text margin left=10mm,text margin right=5mm} 
+\setbeamertemplate{frametitle}[default][center]
+\usepackage[many]{tcolorbox}
+\usepackage{bm}
+\usepackage{listings}
+
+\tcbuselibrary{skins}
+\tcbset{
+%	arc=0pt,
+%	outer arc=0pt,
+	colback=white,
+}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,
+	shapes,
+	tikzmark, shapes.geometric,
+  calc}
+\usetikzmarklibrary{listings}
+
+
+\newtcolorbox{mytheorem}[2][]{%
+	text width=7.5cm, text height=1.5cm, enhanced,colback=white,colframe=framecolour, coltitle=comcolor,
+	sharp corners,boxrule=0.8mm,
+	attach boxed title to top left={yshift=-0.3\baselineskip-0.4pt,xshift=2mm},
+	boxed title style={tile,size=minimal,left=0.5mm,right=0.5mm,
+		colback=white,before upper=\strut},
+	title=#2,#1
+}
+
+
+\definecolor{comcolor}{RGB}{10,161,119}
+\definecolor{framecolour}{HTML}{009980}
+
+
+\begin{document}
+
+\begin{frame}[fragile]
+	\tikzset{baseline, 
+	E/.style={ellipse, fill=blue!20, inner sep=2pt, anchor=base},
+	N/.style={draw, very thick, rounded corners, fill=green!30,
+		font=\scriptsize, rotate=0, anchor=east}
+}
+\frametitle{}
+\addtolength{\leftmargini}{-0.7cm}
+\begin{itemize}[<+->]
+\setlength\itemsep{5pt plus 1fill}
+\item one
+\item two
+\item three 
+\item The space usage is lots and lots and lots of bits.
+\item  Assuming we set something, for an arbitrary something, the probability that something's estimate is further than  $\epsilon \tikzmarkin<6>{a}(0.05,-0.2)(-0.01,0.4)||\bm{f}_{-a}||_2\tikzmarkend{a}$ from the correct something is at most something.
+\begin{tikzpicture}[remember picture, overlay]
+\node<6>[xshift=-0.5cm, yshift=0.6cm, text width=5.9cm] (b) [N]
+				at (current page.east)
+				{$\bm{f_{-a}}$ is the really really really important\\$||\bm{f}_{-a}||_2$ is even more important };
+				\draw<6>[-Stealth, shorten <=1mm, shorten >=1mm, dashed]
+								($(a.north east)+(0.5cm,0)$) to [bend left] (b.south);
+\end{tikzpicture}
+\end{itemize}
+\end{frame}
+\end{document}

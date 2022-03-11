@@ -1,0 +1,69 @@
+% https://topanswers.xyz/tex?q=1639#a1883
+%\documentclass{beamer}
+\documentclass{article}
+\usepackage{beamerarticle}
+
+\newcommand{\JeTPeriod}{\mode<article>{.}}
+\newcommand{\JeTSemicolon}{\mode<article>{;}}
+\newcommand{\JeTColon}{\mode<article>{,}}
+
+\begin{document}
+
+\section{enumerate}
+
+\begin{frame}
+
+First letter uppercase 
+
+\begin{enumerate}
+\item Windows est familial \JeTSemicolon	%<- semicolon
+\item Linux est gratuit \JeTSemicolon 		%<- semicolon
+\item Mac OS est intuitif\JeTPeriod		%<- point
+\end{enumerate}
+
+\end{frame}
+
+\section{itemize}
+
+\begin{frame}
+First letter NOT in uppercase 
+
+Vous devez à présent maîtriser :
+\begin{itemize}
+\item l'emploi des capitales \JeTSemicolon 	%<- semicolon
+\item la ponctuation \JeTSemicolon			%<- semicolon
+\item les listes\JeTPeriod				%<- point
+\end{itemize}
+\end{frame}
+
+\section{Nested lists}
+
+\begin{frame}
+À n'en pas douter, les séminaires des étudiants seront :
+\begin{itemize}
+
+\item foncièrement intéressants \JeTSemicolon 	%<- semicolon
+\item respectueux des règles typographiques :
+\begin{itemize}
+\item fontes\JeTColon						%<- coma
+\item ponctuation\JeTColon					%<- coma
+\item et tout le reste \JeTSemicolon			%<- semicolon
+\end{itemize}
+\item originaux et constructifs\JeTPeriod	%<- point
+
+\end{itemize}
+\end{frame}
+
+\section{But when we switch to presentation}
+
+\begin{frame}
+First letter still in uppercase but no other ponctuation needed.
+
+\begin{itemize}
+\item Une première idée
+\item Une deuxième idée
+\item Une dernière idée
+\end{itemize}
+\end{frame}
+
+\end{document}

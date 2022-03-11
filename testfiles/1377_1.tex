@@ -1,0 +1,33 @@
+% https://topanswers.xyz/tex?q=1169#a1377
+\documentclass{beamer}
+
+\setbeameroption{show notes on second screen}
+
+
+\makeatletter
+\renewcommand{\insertslideintonotes}[1]{{%
+  \makebox[0pt][l]{\scalebox{#1}{\usebeamertemplate***{background canvas}}}%
+  \begin{pgfpicture}{0cm}{0cm}{#1\paperwidth}{#1\paperheight}
+    \begin{pgflowlevelscope}{\pgftransformscale{#1}}%
+      \color{normal text.fg}
+      {\pgftransformshift{\pgfpoint{\beamer@origlmargin}{\footheight}}\pgftext[left,bottom]{\copy\beamer@frameboxcopy}}
+    \end{pgflowlevelscope}
+  \end{pgfpicture}%
+  }}
+\makeatother
+
+\begin{document}
+
+{
+\setbeamertemplate{background canvas}{\includegraphics[height=\paperheight]{example-image-duck}}
+\begin{frame}
+foo
+\note{note text}
+\end{frame}
+}
+
+\begin{frame}
+foo
+\note{note text}
+\end{frame}
+\end{document}

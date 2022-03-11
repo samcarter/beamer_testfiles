@@ -1,0 +1,30 @@
+% https://topanswers.xyz/tex?q=1342#a1586
+\documentclass{beamer}
+\setbeamersize{text margin left=10mm,text margin right=5mm} 
+\setbeamertemplate{frametitle}[default][center]
+
+\makeatletter
+\newenvironment{grayenv}{\only{\setbeamercolor{item}{fg=beamer@blendedblue}}}{}
+\makeatother
+
+\newenvironment{myitem}[1][]{%
+  \setbeamertemplate{itemize items}[circle]
+  \addtolength{\leftmargini}{-0.7cm}
+  \beamerdefaultoverlayspecification{<+-|gray@+>}
+  \setbeamercolor{item}{fg=black!15}
+  \begin{itemize}[#1]
+  \setlength\itemsep{5pt plus 1fill}
+}{
+  \end{itemize}
+}
+
+
+\begin{document}
+\begin{frame}{Frame Title}
+\begin{myitem}
+\item line one
+\item line two
+\item line three
+\end{myitem}
+\end{frame}
+\end{document}

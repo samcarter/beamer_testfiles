@@ -1,0 +1,45 @@
+% https://texnique.fr/osqa/questions/6563/beamer-legende-sur-le-cote-dune-figure/6564
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}
+    \begin{figure}
+        \begin{columns}
+            \begin{column}{.7\textwidth}
+                \includegraphics[width=\textwidth]{example-image-duck}
+            \end{column}
+            \begin{column}{.25\textwidth}
+                \caption{text text text text}
+            \end{column}
+        \end{columns}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \begin{figure}
+        \begin{columns}[T]
+            \begin{column}{.7\textwidth}
+                \includegraphics[width=\textwidth]{example-image-duck}
+            \end{column}
+            \begin{column}{.25\textwidth}
+                \caption{text text text text}
+            \end{column}
+        \end{columns}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \begin{figure}
+        \begin{columns}[b]
+            \begin{column}{.7\textwidth}
+                \includegraphics[width=\textwidth]{example-image-duck}
+            \end{column}
+            \begin{column}{.25\textwidth}
+                \caption{text text text text}
+            \end{column}
+        \end{columns}
+    \end{figure}
+\end{frame}
+
+\end{document}

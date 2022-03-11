@@ -1,0 +1,50 @@
+% https://topanswers.xyz/tex?q=1112#a1346
+\documentclass{beamer}
+
+\usepackage{tikz}
+
+\colorlet{MidnightBlue}{blue!50!black}
+\colorlet{SkyBlue}{blue!20!white}
+
+% Frame title
+
+\makeatletter
+\defbeamertemplate*{frametitle}{texsx}[1][]
+{
+
+\vskip0.4cm
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0cm]{frametitle} 
+  \usebeamerfont{navigation symbols}
+  \begin{tikzpicture}
+  \useasboundingbox[fill=white](0,0) rectangle(\the\paperwidth,1.2);
+  \fill[MidnightBlue] (0,-9) rectangle(2.5,-8);
+  \fill[MidnightBlue!70] (2.5,-9) rectangle(9.3,-8);
+  \fill[SkyBlue] (9.3,-9) rectangle(\the\paperwidth,-8);
+  \fill[MidnightBlue] (0,0.3455) rectangle (2.5, 1.2);
+  \fill[SkyBlue] (0,-0.1) rectangle(\the\paperwidth,0.35);
+  \fill[MidnightBlue!70] (2.5,0.35) rectangle(\the\paperwidth,1.2);
+  \node[anchor= west, white] at (0.3,0.15){\tiny\insertsectionnavigationhorizontal{.85\paperwidth}{}{\hskip0pt plus1filll}};%
+   \ifx\insertframesubtitle\@empty%
+      {\node[anchor=west, white,font=\large] at (2.5,0.61){\insertframetitle};}
+  \end{tikzpicture}
+  \end{beamercolorbox}
+}
+\makeatother
+
+\setbeamertemplate{frametitle}[texse]
+
+\begin{document}
+	
+\section{title}
+\begin{frame}
+\frametitle{title}
+	abc
+\end{frame}	
+
+\section{title}
+\begin{frame}
+\frametitle{title}
+	abc
+\end{frame}	
+	
+\end{document}

@@ -1,0 +1,86 @@
+% https://texnique.fr/osqa/questions/8995/beamer-insertion-dun-graphique-a-gauche-et-de-quatre-images-a-droite/8997
+\documentclass[french,9pt,t]{beamer}
+\usetheme{JuanLesPins}
+\setbeamercovered{transparent}
+\definecolor{bleuturquoise}{cmyk}{1.0,0.3,0.0,0.15}
+\definecolor{Firebrick3}{rgb}{0.804,0.150,0.150}
+\usecolortheme[named=bleuturquoise]{structure}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+\setbeamersize{text margin left = 2mm, % normalement c'est 1 cm
+    text margin right = 2mm, % normalement c'est 1 cm
+}
+
+%\usepackage{color}
+%\usepackage{xcolor}
+% \usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{pgf}
+\usepackage{tikz}
+%\usepackage{graphicx}
+%\DeclareGraphicsExtensions{.jpg,.pdf,.png}
+\usepackage{caption}
+%\usepackage{amssymb}
+%\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{url}
+%\usepackage{setspace}
+\usepackage{gensymb}
+\usepackage{mathrsfs}
+\usepackage{chemfig}
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+% \usepackage{ragged2e, makecell, mhchem}
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\pagestyle{empty}
+\usepackage{chemformula} % pour les formules chimiques
+\pgfplotsset{compat=newest} % pour bénéficier des dernières fonctionnalités de pgfplots
+%\usepackage{caption}
+
+\makeatletter
+\newcommand\fcaption{\captionsetup{font=small}\def\@captype{figure}\caption}
+\newcommand\tcaption{\captionsetup{font=small}\def\@captype{table}\caption}
+\makeatother
+
+\setbeamertemplate{headline}{}
+
+\begin{document}
+
+\begin{frame}%[shrink=20]
+  \frametitle{R. $\kappa$ en fonction de la durée de SVA pour 0206 et 0206-Au}
+  \begin{columns}[onlytextwidth,c]
+    \begin{column}{.55\textwidth}
+      \begin{tikzpicture}
+        \begin{axis}[
+          xlabel={durée de SVA (min)},
+          ylabel={longueur de corrélation $\kappa$ (nm)},
+          axis lines=left,grid=major,xmin=0,xmax=1050,ymin=0,ymax=1170,
+          log ticks with fixed point,
+          width=\textwidth,
+          legend style={at={(0.2,1.00)},anchor=north,legend columns=1}
+        ]
+          \addplot +[bleuturquoise,mark size=2pt,mark=*,thick,smooth,mark options={fill=bleuturquoise},error bars/.cd,y dir=both,y explicit,error bar style={thick}] coordinates {(0,68)+-(0,30)(100,125)+-(0,30)(300,164)+-(0,30)(400,148)+-(0,30)(1000,545)+-(0,30)};
+          \addplot +[Firebrick3,mark size=3pt,mark=*,mark options={fill=Firebrick3},thick,smooth,error bars/.cd,y dir=both,y explicit,error bar style={thick}] coordinates {(120,148)+-(0,43)(300,203)+-(0,31)(400,194)+-(0,38)(1000,1035)+-(0,107)};
+          \legend{20200206,20200206-Au};
+        \end{axis}
+      \end{tikzpicture}
+    \end{column}
+    \begin{column}{.4\textwidth}
+      \includegraphics[clip,scale=0.14]{example-image-duck}
+      \fcaption{0206-Au - SVA120}
+      \includegraphics[clip,scale=0.25]{example-image-duck}
+      \fcaption{0206-Au - SVA300}
+      \includegraphics[clip,scale=0.05]{example-image-duck}
+      \fcaption{0206-Au - SVA400}
+      \includegraphics[clip,scale=0.05]{example-image-duck}
+      \fcaption{0206-Au - SVA1000}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\end{document}

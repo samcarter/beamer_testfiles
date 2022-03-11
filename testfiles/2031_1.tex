@@ -1,0 +1,56 @@
+% https://topanswers.xyz/tex?q=1799#a2031
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{overlay-beamer-styles}
+
+\makeatletter
+\newcommand*{\slideinframe}{\number\beamer@slideinframe}
+\makeatother
+
+\def\mylistE{{"$\infty/$null", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0}}
+\def\mylistD{{"$\infty/$null", "$\infty/$null", "3/E", "3/E", "3/E", "3/E", "3/E", "3/E", "3/E", "3/E","3/E", "3/E","3/E", "3/E","3/E", "3/E", "3/E"}}
+\def\mylistB{{"$\infty/$null", "$\infty/$null", "$\infty/$null", "6/E", "6/F", "6/F", "6/F", "5/F", "5/F", "5/F","2/D", "2/D","2/D", "2/D","2/D","2/D"}}
+\def\mylistF{{"$\infty/$null", "$\infty/$null", "$\infty/$null", "$\infty/$null", "2/E", "2/E", "2/E", "2/E", "2/E", "2/E","2/E","2/E", "2/E","2/E", "2/E","2/E","2/E"}}
+\def\mylistC{{"$\infty/$null", "$\infty/$null", "$\infty/$null", "$\infty/$null", "$\infty/$null", "4/E",  "4/E","4/E", "4/E", "4/E", "4/E", "4/E","4/E", "3/B","3/B", "3/B", "3/B"}}
+\def\mylistA{{"$\infty/$null", "$\infty/$null", "$\infty/$null", "$\infty/$null", "$\infty/$null", "$\infty/$null",  "$\infty/$null", "$\infty/$null", "$\infty/$null", "3/D", "3/D", "3/D", "1/B", "1/B", "1/B", "1/B"}}
+
+
+
+
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Demonstration}
+\begin{tikzpicture}[remember picture, overlay,yshift=-3cm]
+\begin{scope}[
+  every node/.style={fill=black, text=white, circle,thick,draw, minimum size=1.2cm},
+  labels/.style={text=black,rectangle,minimum size=0.7cm}
+]
+    \node[label={[labels]  \pgfmathparse{\mylistA[\slideinframe-1]}\pgfmathresult},alt=<15->{red}{black},text=white]  (A) at (0,5) {A};
+    \node[label={[labels] \pgfmathparse{\mylistB[\slideinframe-1]}\pgfmathresult},alt=<12->{red}{black},text=white]  (B) at (5,5) {B};
+    \node[label={[labels, alt=<3>{fill=green,draw=teal}{}] \pgfmathparse{\mylistC[\slideinframe-1]}\pgfmathresult},alt=<16->{red}{black},text=white]  (C) at (10,5) {C};
+    \node[label={[yshift=-5em, labels] \pgfmathparse{\mylistD[\slideinframe-1]}\pgfmathresult},alt=<9->{red}{black},text=white]  (D) at (0,0) {D};
+    \node[label={[yshift=-5em, labels] \pgfmathparse{\mylistE[\slideinframe-1]}\pgfmathresult},alt=<2->{red}{black},text=white]  (E) at (5,0) {E};
+    \node[label={[yshift=-5em, labels]  \pgfmathparse{\mylistF[\slideinframe-1]}\pgfmathresult},alt=<7->{red}{black},text=white]  (F) at (10,0) {F} ;
+\end{scope}
+
+\begin{scope}[>={Stealth[black]},
+              every node/.style={fill=white,circle},
+              every edge/.style={draw=red}]
+    \path [-] (A) edge node {$1$} (B);
+    \path [-] (D) edge node {$2$} (B);
+    \path [-] (A) edge node {$3$} (D);
+    \path [-] (D) edge node {$3$} (E);
+    \path [-] (E) edge node {$2$} (F);
+    \path [-] (E) edge node {$6$} (B);
+    \path [-, pos=0.25] (E) edge node {$4$} (C);
+    \path [-] (B) edge node {$3$} (C);
+    \path [-, pos=0.25] (B) edge node {$5$} (F);
+    \path [-] (F) edge node {$4$} (C);
+\end{scope}
+\end{tikzpicture}
+\pause[16]
+\end{frame}
+\end{document}  

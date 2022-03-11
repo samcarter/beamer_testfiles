@@ -1,0 +1,43 @@
+% https://topanswers.xyz/tex?q=1163#a1370
+\documentclass[aspectratio=169]{beamer}
+
+\defbeamertemplate*{frametitle}{regular}{Regular Frametitle}
+\defbeamertemplate{frametitle}{special}{Special Frametitle}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{footline}{}
+
+\makeatletter
+\providebool{specialframe}
+\define@key{beamerframe}{special}[true]{
+  \booltrue{specialframe}
+  \begingroup
+  \setbeamertemplate{headline}{Special Headline}
+  \setbeamertemplate{frametitle}[special]
+  \setbeamertemplate{footline}{Special Footline}
+}
+
+\apptocmd{\beamer@reseteecodes}{%
+  \ifbool{specialframe}{%
+    \endgroup
+    \boolfalse{specialframe}
+  }{}
+}{}{}
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+\frametitle{~}
+This page shall have the regular frametitle
+\end{frame}
+
+\begin{frame}[special]
+\frametitle{~}
+This page shall have the special headline, frametitle and footline
+\end{frame}
+
+\begin{frame}
+\frametitle{~}
+This page shall have the regular frametitle
+\end{frame}
+\end{document}

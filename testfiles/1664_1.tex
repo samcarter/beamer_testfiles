@@ -1,0 +1,31 @@
+% https://topanswers.xyz/tex?q=1422#a1664
+\documentclass{beamer}
+\beamertemplatenavigationsymbolsempty
+\setbeamersize{text margin left=10mm,text margin right=5mm} 
+\setbeamertemplate{frametitle}[default][center]
+\usepackage[many]{tcolorbox}
+\usepackage{listings}
+\lstdefinestyle{duckstyle}{%
+    moredelim=[is][\color{red}]{|}{|},
+    mathescape=true,
+    escapechar=@,
+    basicstyle=\ttfamily,
+    columns=fullflexible
+}
+\lstset{style=duckstyle}
+
+\begin{document}
+
+
+\begin{frame}[fragile]
+A line
+\begin{visibleenv}<2->
+\begin{tcolorbox}[top=0pt, left=5pt,right=5pt, colback=blue!5!white, text height=4.8cm]
+\begin{lstlisting}[ mathescape, name=foo, basewidth = {.3em}]
+stream $\langle a_1, \dots, a_m \rangle$,$a_i \in [n]$
+\end{lstlisting}
+\end{tcolorbox}
+\end{visibleenv}%
+\end{frame}
+
+\end{document}

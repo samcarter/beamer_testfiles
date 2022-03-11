@@ -1,0 +1,22 @@
+% https://topanswers.xyz/tex?q=1875#a2106
+\documentclass{beamer}
+
+\setbeamercolor{background canvas}{bg=red}
+
+\usepackage{pdfpages}
+\usepackage{xpatch}
+\xpatchcmd{\includepdf}{\begingroup}{\begingroup\setbeamercolor{background canvas}{bg=}}{\typeout{success}}{\typeout{failure}}
+
+\begin{document}
+	
+\begin{frame}
+	abc
+\end{frame}	
+
+\includepdf[pages=1-1]{example-image-duck.pdf}
+
+\begin{frame}
+  abc
+\end{frame}
+	
+\end{document}

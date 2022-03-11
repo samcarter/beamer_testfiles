@@ -1,0 +1,20 @@
+% https://topanswers.xyz/tex?q=1330#a1566
+\documentclass[xcolor={rgb}]{beamer}
+\setbeamercovered{transparent}
+\beamertemplatenavigationsymbolsempty
+\setbeamersize{text margin left=10mm,text margin right=5mm}
+\setbeamertemplate{frametitle}[default][center]
+\usepackage{mathtools}
+\usepackage{bm}
+\newcommand{\var}[1]{\operatorname{var}{#1}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\begin{document}
+\begin{frame}[t]
+\begin{align*}
+\onslide<1->{&= \E\Bigl( g(a)^2 \smashoperator{\sum_{j\in[n]\backslash\{a\}}} f^2_j Y^2_j + \smashoperator{\sum_{\substack{j\in[n]\setminus\{a\}\\i\ne j}}} f_i f_j g(i) g(j) Y_i B_j\Bigr) -{}\\}
+\onslide<2->{&\qquad\qquad\qquad\qquad \Bigl(\smashoperator{\sum_{\alt<2->{}{\color{.!85!bg}}j\in[n]\backslash\{a\}}} f_j \mathbb{E}[g(a)g(j)Y_j]\Bigr)^2\\[\jot]}
+\onslide<3->{&= \sum_{j\in[n]\backslash\{a\}} \frac{f^2_j}{k} + 0 - 0\\[\jot]}
+\end{align*}
+\end{frame}
+\end{document}

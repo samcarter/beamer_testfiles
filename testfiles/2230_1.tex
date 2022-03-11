@@ -1,0 +1,97 @@
+% https://topanswers.xyz/tex?q=1987#a2230
+\documentclass{beamer}
+
+
+\usepackage{tikz}
+\usetikzlibrary{mindmap,trees,shadows}
+
+% total number of sections %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{totcount}
+\newcounter{totalsection}
+\regtotcounter{totalsection}
+
+\AtBeginDocument{%
+  \pretocmd{\section}{\refstepcounter{totalsection}}{}{}%
+}%
+
+% number of subsections per section %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ExplSyntaxOn % fix xcntperchap
+\cs_set_eq:NN \c_zero \c_zero_int
+\ExplSyntaxOff
+\usepackage{xcntperchap}
+\RegisterCounters{section}{subsection}
+\newcounter{totalsubsection}
+\setcounter{totalsubsection}{0}
+
+% creating automatic label %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% based on https://tex.stackexchange.com/a/386557/36296
+\AtBeginSection[]{\label{sec:\thesection}}
+\AtBeginSubsection[]{\label{subsec:\thesection:\thesubsection}}
+\newcounter{currentsub}
+\newcounter{totsection}
+
+\newcommand{\mindtoc}{%
+    \centering
+    \setcounter{totsection}{\number\totvalue{totalsection}}
+  \begin{tikzpicture}[
+    grow cyclic,
+    concept color=blue!50!black, 
+    text=white,
+    every node/.style={concept, scale=0.8},
+    level 1/.style={%
+        sibling angle=360/\thetotsection,
+        level distance = 25mm,
+        concept color=lime,
+        text=black,
+    },
+    level 2/.style={%
+        level distance = 25mm,
+        concept color=yellow,
+        text=black,
+    },      
+    ]
+        \node {\inserttitle}    [clockwise from=135] child 
+        foreach \i in {1,...,\thetotsection}{%
+            node{\hyperlink{sec:\i}{\nameref{sec:\i}}
+                \setcounter{currentsub}{\ObtainTrackedValueExp[\i]{section}{subsection}}
+            }%
+            \ifnum\thecurrentsub>0%
+                child foreach \j in {1,...,\thecurrentsub}{%
+                    node {\hyperlink{subsec:\i:\j}{\nameref{subsec:\i:\j}}} 
+                }
+            \fi%
+        }; 
+  \end{tikzpicture}
+}
+\title{Some Title}
+
+\begin{document}
+
+% \tracingall
+\begin{frame}
+    \frametitle{"Table" of Contents}
+    \mindtoc    
+\end{frame}
+
+\section{Section One}
+\frame{abc}
+
+\section{Section Two}
+\frame{abc}
+
+\subsection{subsection a}
+\frame{abc}
+
+\subsection{subsection b}
+\frame{abc}
+
+\subsection{subsection c}
+\frame{abc}
+
+\section{Section Three}
+\frame{abc}
+
+\section{Section Three}
+\frame{abc}
+
+\end{document}

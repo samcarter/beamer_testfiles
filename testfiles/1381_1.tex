@@ -1,0 +1,52 @@
+% https://topanswers.xyz/tex?q=1173#a1381
+\documentclass{beamer}
+
+\makeatletter
+\setbeamertemplate{title page}%
+{%
+\begin{minipage}[t][.9\textheight][t]{\textwidth}%
+    \begin{tabular}{l|c|r}%
+        \begin{beamercolorbox}[wd=0.29\textwidth]{normal text}%
+            \centering%
+            \usebeamerfont{author}\insertauthor%
+        \end{beamercolorbox}&%
+        \begin{beamercolorbox}[wd=0.29\textwidth]{normal text}%
+            \centering%
+            \usebeamerfont{institute}\insertinstitute%
+        \end{beamercolorbox}&%
+        \begin{beamercolorbox}[wd=0.29\textwidth]{normal text}%
+            \centering%
+            \usebeamerfont{date}\insertdate%
+        \end{beamercolorbox}%
+    \end{tabular}
+    
+    \begin{beamercolorbox}[wd=\textwidth]{normal text}%
+        \centering%
+        \usebeamerfont{title}\inserttitle\par%
+    \end{beamercolorbox}%
+    \ifx\insertsubtitle\@empty\else%
+    \begin{beamercolorbox}[wd=\textwidth]{accent text}%
+        \centering%
+        \begin{tikzpicture}%
+        \node[draw, ellipse, minimum width=1cm, minimum height=1cm, line width=2pt, inner sep=2pt] at (2,0) {%
+                                                                                        \begin{minipage}{0.25\textwidth}%
+                                                                                            \centering%
+                                                                                            \usebeamerfont{subtitle}\color{WhiteSmoke}\insertsubtitle\par%
+                                                                                        \end{minipage}};%
+        \end{tikzpicture}%
+    \end{beamercolorbox}%
+    \fi%
+\end{minipage}%
+}
+\makeatother
+
+\title{text}
+\author{names}
+
+\begin{document}
+	
+\begin{frame}
+	\titlepage
+\end{frame}	
+	
+\end{document}

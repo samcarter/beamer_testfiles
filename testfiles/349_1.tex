@@ -1,0 +1,51 @@
+% https://topanswers.xyz/tex?q=362#a349
+\documentclass{beamer}
+
+\useoutertheme[%
+width=3cm,
+height=1cm,
+hideothersubsections,
+]{sidebar}
+
+\makeatletter
+\newcommand{\hidesidebar}{%
+	\setbeamertemplate{sidebar \beamer@sidebarside}{}
+	\hoffset=-\beamer@leftsidebar
+	\advance\textwidth\beamer@sidebarwidth
+	\hsize\textwidth
+	\columnwidth\textwidth	
+	}
+\makeatother
+
+\AtBeginSection[]{%
+	\begingroup
+		\hidesidebar
+	  \begin{frame}
+	    {\thesection\\[.4ex]\insertsectionhead}
+	  \end{frame}
+  \endgroup
+}
+
+\begin{document}
+
+\section{First section}
+
+\begin{frame}{Title}
+  Some content
+\end{frame}
+
+\begin{frame}{Title}
+  Some content
+\end{frame}
+
+\section{Second section}
+
+\begin{frame}{Title}
+  Some content
+\end{frame}
+
+\begin{frame}{Title}
+  Some content
+\end{frame}
+
+\end{document}

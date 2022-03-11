@@ -1,0 +1,50 @@
+% https://topanswers.xyz/tex?q=1447#a1681
+\documentclass{beamer}
+%\documentclass{article}
+%\usepackage{beamerarticle}
+
+\usepackage{lipsum}
+%\usepackage{sidenotes}
+%\usepackage{marginnote}
+%\DeclareCaptionType[fileext=eqn]{equa}[Formule][Formules à retenir]
+
+
+  \geometry{
+  a4paper,
+  top=2cm,
+  bottom=2cm,
+  left=15.00mm,   
+  textwidth=130mm, 
+  marginparsep=8.2mm, 
+  marginparwidth=50.0mm 
+  }
+
+\newcommand{\hackEq}[2]{
+\mode<article>{%Sidenote with equation
+\marginpar{\captionof{equa}{#2} \[#1\] }  
+} 
+\mode<beamer>{%slide with one centered big equation
+\begin{frame}
+\frametitle{#2}%
+ \begin{equation*}
+  \resizebox{.9\textwidth}{!}{$\displaystyle #1 $}
+ \end{equation*}  
+\end{frame}
+}
+}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Title}
+\lipsum[1]
+\end{frame}
+
+\hackEq
+{%
+\displaystyle R=\frac{\sum_{i=1}^{m}\left(F_{i}+s\right) t_{i} D_{i}}{\sum_{i=1}^{m} \tau_{i} D_{i}}
+}%
+{Equation Name or very short sentence.}
+
+
+\end{document} 

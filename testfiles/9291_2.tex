@@ -1,0 +1,20 @@
+% https://texnique.fr/osqa/questions/9291/beamer-combiner-une-liste-et-des-images/9292
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}<1>[label=test]
+\frametitle{Titre}
+\beamerdefaultoverlayspecification{<+->} 
+\begin{itemize}
+     \item Et de un
+     \item Et de deux
+     \item Et de trois
+     \item Et de quatre
+     \item Et de cinq
+\end{itemize}
+\end{frame}
+
+\againframe<2>{test}
+
+\end{document}

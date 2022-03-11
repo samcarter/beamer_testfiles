@@ -1,0 +1,38 @@
+% https://texnique.fr/osqa/questions/1802/numerotation-discontinue-de-frametitle/6104
+\documentclass{beamer}
+
+\usepackage{pgffor}
+
+\newcounter{qcount}
+\newcounter{acount}
+\setcounter{qcount}{0}
+
+\newenvironment{question}{%
+    \begin{frame}<1>[environment=question,label=q\theqcount]
+    \frametitle<1>{\refstepcounter{qcount}Question~\theqcount}
+  \frametitle<2>{\refstepcounter{acount}Réponse~\theacount}
+}{
+    \end{frame}
+}
+
+\begin{document}
+
+\begin{question}
+    Quelle heure est-il ?
+
+    \pause
+    Il est quatre heures dix . 
+\end{question}
+
+\begin{question}
+    Quelle couleur a le chat ?
+
+    \pause
+    Le chat est noir .
+\end{question}
+
+\foreach \x in {0,...,\numexpr\value{qcount}-1}{
+    \againframe<2>{q\x}
+}
+
+\end{document}

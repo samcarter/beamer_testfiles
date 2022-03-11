@@ -1,0 +1,198 @@
+% https://topanswers.xyz/tex?q=414#a417
+\documentclass{beamer}
+
+\usetheme{metropolis}
+
+\setbeamercolor{section in head/foot}{bg=structure.fg,fg=white}
+
+\makeatletter
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\textwidth, sep=3ex]{footline}%
+    \usebeamerfont{page number in head/foot}%
+    \usebeamertemplate*{frame footer}
+    \hfill%
+    \usebeamertemplate*{frame numbering}
+  \end{beamercolorbox}%
+
+  \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}{section in head/foot}
+    \vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+  \end{beamercolorbox}
+}
+
+% based on the original definitions in beamerbasenavigation.sty
+\def\sectionentry#1#2#3#4#5{% section number, section title, page
+%
+\newcount\mymin%
+\mymin=3
+\ifnum\c@section=1%
+    \mymin=5
+\fi%
+\ifnum\c@section=2%
+    \mymin=4
+\fi%
+%
+\newcount\mymax%
+\mymax=3
+\ifnum\c@section=\beamer@sectionmax%
+    \mymax=5
+\fi%
+\ifnum\c@section=\numexpr\beamer@sectionmax-1%
+    \mymax=4
+\fi%
+%
+    \ifnum\numexpr\c@section-#1<\mymax%
+        \ifnum\numexpr#1-\c@section<\mymin%
+            \ifnum#5=\c@part%
+                \beamer@section@set@min@width
+                \box\beamer@sectionbox\hskip1.875ex plus 1fill%
+                \beamer@xpos=0\relax%
+                \beamer@ypos=1\relax%
+                \setbox\beamer@sectionbox=
+                \hbox{
+                    \def\insertsectionhead{#2}%
+                    \def\insertsectionheadnumber{#1}%
+                    \def\insertpartheadnumber{#5}%
+
+                    {%
+                        \usebeamerfont{section in head/foot}\usebeamercolor[fg]{section in head/foot}%
+                        \ifnum\c@section=#1%
+                            \hyperlink{Navigation#3}{{\usebeamertemplate{section in head/foot}}}%
+                        \else%
+                            \hyperlink{Navigation#3}{{\usebeamertemplate{section in head/foot shaded}}}%
+                        \fi%    
+                    }%
+                }%
+                \ht\beamer@sectionbox=1.875ex%
+                \dp\beamer@sectionbox=0.75ex%
+            \fi%
+        \fi%
+    \fi%
+    \ignorespaces%
+}
+
+\def\slideentry#1#2#3#4#5#6{%
+    %section number, subsection number, slide number, first/last frame, page number, part number
+    %
+    \newcount\mymin%
+    \mymin=3
+    \ifnum\c@section=1%
+        \mymin=5
+    \fi%
+    \ifnum\c@section=2%
+        \mymin=4
+    \fi%
+        %
+    \newcount\mymax%
+    \mymax=3
+    \ifnum\c@section=\beamer@sectionmax%
+        \mymax=5
+    \fi%
+    \ifnum\c@section=\numexpr\beamer@sectionmax-1%
+        \mymax=4
+    \fi%
+    %
+    \ifnum\numexpr\c@section-#1<\mymax%
+        \ifnum\numexpr#1-\c@section<\mymin%
+          \ifnum#6=\c@part\ifnum#2>0\ifnum#3>0%
+            \ifbeamer@compress%
+              \advance\beamer@xpos by1\relax%
+            \else%
+              \beamer@xpos=#3\relax%
+              \beamer@ypos=#2\relax%
+            \fi%
+          \hbox to 0pt{%
+            \beamer@tempdim=-\beamer@vboxoffset%
+            \advance\beamer@tempdim by-\beamer@boxsize%
+            \multiply\beamer@tempdim by\beamer@ypos%
+            \advance\beamer@tempdim by -.05cm%
+            \raise\beamer@tempdim\hbox{%
+              \beamer@tempdim=\beamer@boxsize%
+              \multiply\beamer@tempdim by\beamer@xpos%
+              \advance\beamer@tempdim by -\beamer@boxsize%
+              \advance\beamer@tempdim by 1pt%
+              \kern\beamer@tempdim
+              \global\beamer@section@min@dim\beamer@tempdim
+              \hbox{\beamer@link(#4){%
+                  \usebeamerfont{mini frame}%
+                  \ifnum\c@section=#1%
+                    \ifnum\c@subsection=#2%
+                      \usebeamercolor[fg]{mini frame}%
+                      \ifnum\c@subsectionslide=#3%
+                        \usebeamertemplate{mini frame}%\beamer@minislidehilight%
+                      \else%
+                        \usebeamertemplate{mini frame in current subsection}%\beamer@minisliderowhilight%
+                      \fi%
+                    \else%
+                      \usebeamercolor{mini frame}%
+                      %\color{fg!50!bg}%
+                      \usebeamertemplate{mini frame in other subsection}%\beamer@minislide%
+                    \fi%
+                  \else%
+                    \usebeamercolor{mini frame}%
+                    %\color{fg!50!bg}%
+                    \usebeamertemplate{mini frame in other subsection}%\beamer@minislide%
+                  \fi%
+                }}}\hskip-10cm plus 1fil%
+          }\fi\fi%
+          \else%
+          \fakeslideentry{#1}{#2}{#3}{#4}{#5}{#6}%
+         \fi%
+        \fi%
+    \fi%
+    \ignorespaces%
+}
+\makeatother
+
+\begin{document}
+	
+\section{section 1}
+\begin{frame}
+	abc
+\end{frame}	
+	
+\section{section 2}
+\begin{frame}
+	abc
+\end{frame}	
+
+\section{section 3}
+\begin{frame}
+	abc
+\end{frame}	
+
+\section{section 4}
+\begin{frame}
+	abc
+\end{frame}	
+
+\section{section 5}
+\begin{frame}
+	abc
+\end{frame}	
+
+\section{section 6}
+\begin{frame}
+	abc
+\end{frame}	
+
+\section{section 7}
+\begin{frame}
+	abc
+\end{frame}	
+
+\section{section 8}
+\begin{frame}
+	abc
+\end{frame}	
+
+\section{section 9}
+\begin{frame}
+	abc
+\end{frame}	
+	
+	
+\end{document}

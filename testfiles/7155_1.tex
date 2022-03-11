@@ -1,0 +1,74 @@
+% https://texnique.fr/osqa/questions/7155/beamer-la-taille-des-blocs-est-elle-modulable/7156
+\documentclass[english,10pt]{beamer}
+\usetheme{JuanLesPins}
+\setbeamercovered{transparent}
+% \definecolor{vertmoyen}{rgb}{0.20,0.43,0.09}
+\definecolor{bleuklein}{rgb}{0.30,0.10,0.95}
+\usecolortheme[named=bleuklein]{structure}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+\setbeamersize{text margin left = 2mm, % normalement c'est 1 cm
+    text margin right = 2mm % normalement c'est 1 cm
+}
+% \usepackage[left=10mm,right=10mm,top=20mm,bottom=20mm]{geometry}
+\usepackage{color}
+\usepackage{xcolor}
+% \usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{graphicx}
+% \usepackage{picins}
+\DeclareGraphicsExtensions{.jpg,.pdf,.png}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{gensymb}
+\usepackage{mathrsfs}
+\usepackage{chemfig}
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{ragged2e, makecell, mhchem}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\pagestyle{empty}
+% \usepackage{caption}
+% \usepackage{columns}
+
+\begin{document}
+
+\begin{frame}[shrink=60]
+\frametitle{Amination reaction}
+\framesubtitle{Quantitative analysis of amine fonctions II : conductimetry}
+\begin{block}{chemical equation}
+    \begin{center}
+    \vspace{1cm}
+\begin{tikzpicture}
+\draw[->,thick,>=stealth] (4,0.5) -- (8,0.5);
+\draw (0.5,0.5) node {$NH_{3}^{+} - R - NH_{3}^{+}\, (aq) +\, 2\, HO^{-}\, (aq)$};
+\draw (11,0.5) node {$NH_{2} - R - NH_{2}\, (aq) +\, 2\, H_{2}O$};
+\end{tikzpicture}
+\vspace{1cm}
+    \end{center}
+\end{block}
+
+\begin{block}{chemical equation}
+\begin{minipage}[c][4cm][c]{\linewidth}
+\centering
+\begin{tikzpicture}
+\draw[->,thick,>=stealth] (4,0.5) -- (8,0.5);
+\draw (0.5,0.5) node {$NH_{3}^{+} - R - NH_{3}^{+}\, (aq) +\, 2\, HO^{-}\, (aq)$};
+\draw (11,0.5) node {$NH_{2} - R - NH_{2}\, (aq) +\, 2\, H_{2}O$};
+\end{tikzpicture}
+\end{minipage}
+\end{block}
+
+\end{frame}
+\end{document}

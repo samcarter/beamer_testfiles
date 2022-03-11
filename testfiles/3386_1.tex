@@ -1,0 +1,73 @@
+% https://texnique.fr/osqa/questions/3386/diapositive-de-titre-plain-non-centree-dans-un-diaporama/6105
+\documentclass[french,t,11pt,hyperref={colorlinks=true}]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{kpfonts}
+\usepackage{babel}
+\usetheme{PaloAlto}
+
+\author{Sébastien}
+\title{Moodle}
+\institute{Faculté des Sciences}
+\date{\today}
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage{xifthen}
+\setbeamercolor{background canvas}{bg=yellow!50}
+
+\makeatletter
+\newenvironment{myplainframe}[1][]{%
+  \ifthenelse{\isnamedefined{beamer@sidebarwidth}}{%
+    % Customize frametitle (changes from \defbeamertemplate*{frametitle}{sidebar
+    % theme} in `beamerouterthemesidebar.sty' flagged with `% <- !') 
+    \setbeamertemplate{frametitle}
+    {%
+      \nointerlineskip%
+      \ifbeamer@plainframe%
+      \hbox{\usebeamercolor[bg]{frametitle}%
+        \@tempdima\paperwidth%\advance\@tempdima-\beamer@sidebarwidth % <- !
+        \hskip-\beamer@leftmargin\vrule height\beamer@headheight width\@tempdima\hskip-\beamer@rightmargin}%
+      \nointerlineskip%
+      \fi%
+      \vskip-\beamer@headheight%
+      \vbox to \beamer@headheight{%
+        \vfil
+        \leftskip=-\beamer@leftmargin%
+        \advance\leftskip by0.3cm%
+        \rightskip=-\beamer@rightmargin%
+        \advance\rightskip by0.3cm plus1fil%
+        {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle\par}%
+        {\usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle\par}%
+        \vbox{}%
+        \vskip-1em%
+        \vfil
+      }%
+    }%
+    \setbeamertemplate{background canvas}
+    {%
+      \ifbeamercolorempty[bg]{background canvas}{}{\color{bg}\vrule width\dimexpr\paperwidth+\beamer@leftsidebar\relax height\paperheight}%
+    }
+    % Customize the geometry (changes from options of geometry package in
+    % `beamer.cls' flagged with `% <- !')
+    \hoffset=-\beamer@leftsidebar
+    \advance\textwidth\beamer@sidebarwidth
+    \hsize\textwidth
+    \columnwidth\textwidth
+  }{%
+  }%
+  %
+  \begin{frame}[plain,environment=myplainframe,#1]%
+  }{%
+  \end{frame}%
+
+}
+\makeatother
+
+\begin{document}
+
+\begin{myplainframe}
+\frametitle{Really long frame title that stretches the complete width of page}
+\titlepage
+\end{myplainframe}
+
+\end{document}

@@ -1,0 +1,173 @@
+% https://texnique.fr/osqa/questions/6460/beamer-comment-modifier-la-couleur-des-blocs/6461
+\documentclass{beamer}
+
+% block
+\setbeamercolor{block title}{fg=black,bg=green!50!black}
+\setbeamercolor{block body}{fg=green!50!black,bg=green!50!black!30!white}
+
+% alertblock
+\setbeamercolor{block title alerted}{fg=black,bg=green!50!white}
+\setbeamercolor{block body alerted}{fg=green,bg=green!30!white}
+
+% exampleblock
+\setbeamercolor{block title example}{fg=black,bg=lime!50!white}
+\setbeamercolor{block body example}{fg=lime,bg=lime!30!white}
+
+% theorem
+\BeforeBeginEnvironment{theorem}{
+  \setbeamercolor{block title}{fg=black,bg=yellow!50!white}
+  \setbeamercolor{block body}{fg=yellow,bg=yellow!30!white}
+}
+\AfterEndEnvironment{theorem}{
+    \setbeamercolor{block title}{fg=blocktitlefgsave,bg=blocktitlebgsave}
+    \setbeamercolor{block body}{fg=blockbodyfgsave,bg=blockbodybgsave}
+}
+
+% corollary
+\BeforeBeginEnvironment{corollary}{
+  \setbeamercolor{block title}{fg=black,bg=orange!50!white}
+  \setbeamercolor{block body}{fg=orange, bg=orange!30!white}
+}
+\AfterEndEnvironment{corollary}{
+    \setbeamercolor{block title}{fg=blocktitlefgsave,bg=blocktitlebgsave}
+    \setbeamercolor{block body}{fg=blockbodyfgsave,bg=blockbodybgsave}
+}
+
+% definition
+\BeforeBeginEnvironment{definition}{
+  \setbeamercolor{block title}{fg=black,bg=red!50!white}
+  \setbeamercolor{block body}{fg=red, bg=red!30!white}
+}
+\AfterEndEnvironment{definition}{
+    \setbeamercolor{block title}{fg=blocktitlefgsave,bg=blocktitlebgsave}
+    \setbeamercolor{block body}{fg=blockbodyfgsave,bg=blockbodybgsave}
+}
+
+% definitions
+\BeforeBeginEnvironment{definitions}{
+  \setbeamercolor{block title}{fg=black,bg=violet!50!white}
+  \setbeamercolor{block body}{fg=violet, bg=violet!30!white}
+}
+\AfterEndEnvironment{definitions}{
+    \setbeamercolor{block title}{fg=blocktitlefgsave,bg=blocktitlebgsave}
+    \setbeamercolor{block body}{fg=blockbodyfgsave,bg=blockbodybgsave}
+}
+
+% fact
+\BeforeBeginEnvironment{fact}{
+  \setbeamercolor{block title}{fg=black,bg=blue!50!white}
+  \setbeamercolor{block body}{fg=blue, bg=blue!30!white}
+}
+\AfterEndEnvironment{fact}{
+    \setbeamercolor{block title}{fg=blocktitlefgsave,bg=blocktitlebgsave}
+    \setbeamercolor{block body}{fg=blockbodyfgsave,bg=blockbodybgsave}
+}
+
+% example
+\BeforeBeginEnvironment{example}{
+  \setbeamercolor{block title example}{fg=black,bg=cyan!50!white}
+  \setbeamercolor{block body example}{fg=cyan, bg=cyan!30!white}
+}
+\AfterEndEnvironment{example}{
+    \setbeamercolor{block title example}{fg=exblocktitlefgsave,bg=exblocktitlebgsave}
+    \setbeamercolor{block body example}{fg=exblockbodyfgsave,bg=exblockbodybgsave}
+}
+
+% examples
+\BeforeBeginEnvironment{examples}{
+  \setbeamercolor{block title example}{fg=black,bg=teal!50!white}
+  \setbeamercolor{block body example}{fg=teal, bg=teal!30!white}
+}
+\AfterEndEnvironment{examples}{
+    \setbeamercolor{block title example}{fg=exblocktitlefgsave,bg=exblocktitlebgsave}
+    \setbeamercolor{block body example}{fg=exblockbodyfgsave,bg=exblockbodybgsave}
+}
+
+% proof
+\addtobeamertemplate{proof begin}{%
+    \setbeamercolor{block title}{fg=black,bg=gray!50!white}
+    \setbeamercolor{block body}{fg=gray, bg=gray!30!white}
+}{}
+
+\begin{document}
+
+\usebeamercolor{block title}
+\colorlet{blocktitlefgsave}{block title.fg} 
+\colorlet{blocktitlebgsave}{block title.bg}
+\usebeamercolor{normal text}
+\usebeamercolor{block body}
+\colorlet{blockbodyfgsave}{block body.fg}
+\colorlet{blockbodybgsave}{block body.bg}   
+\usebeamercolor{normal text}
+
+\usebeamercolor{block title example}
+\colorlet{exblocktitlefgsave}{block title example.fg}   
+\colorlet{exblocktitlebgsave}{block title example.bg}
+\usebeamercolor{normal text}
+\usebeamercolor{block body example}
+\colorlet{exblockbodyfgsave}{block body example.fg}
+\colorlet{exblockbodybgsave}{block body example.bg} 
+\usebeamercolor{normal text}
+
+\begin{frame}[allowframebreaks]
+
+% normal blocks %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{block}{My block}
+        A block.
+    \end{block}
+
+    \begin{alertblock}{my alertblock}
+            An alertblock
+    \end{alertblock}
+
+    \begin{exampleblock}{my exampleblock}
+            An exampleblock
+    \end{exampleblock}
+
+% theorem blocks %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{theorem}[My theorem]
+        A theorem.
+    \end{theorem}
+
+    \begin{corollary}[My corollary]
+        A corollary.
+    \end{corollary}
+
+    \begin{definition}[My definition]
+        A definition.
+    \end{definition}
+
+    \begin{definitions}[My definitions]
+        Some definitions.
+    \end{definitions}
+
+    \begin{fact}[My fact]
+        A fact.
+    \end{fact}
+
+    \begin{example}[My example]
+        An example.
+    \end{example}
+
+    \begin{examples}[My examples]
+        Some examples.
+    \end{examples}
+
+    \begin{proof}[My proof]
+        A proof.
+    \end{proof}
+
+% testing normal blocks again
+
+    \begin{block}{My block}
+        A block.
+    \end{block}
+
+    \begin{exampleblock}{my exampleblock}
+            An exampleblock
+    \end{exampleblock}
+
+\end{frame}
+\end{document}

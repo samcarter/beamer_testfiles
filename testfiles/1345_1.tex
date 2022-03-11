@@ -1,0 +1,33 @@
+% https://topanswers.xyz/tex?q=1111#a1345
+\documentclass[ aspectratio = 1610 ]{beamer}
+
+\usetheme{Frankfurt} 
+
+\makeatletter
+
+\setbeamertemplate{theorem begin}{%
+  \begin{\inserttheoremblockenv}%
+  {\inserttheoremheadfont\ifx\inserttheoremaddition\@empty\else\inserttheoremaddition\fi}%
+}
+\setbeamertemplate{theorem end}
+{\end{\inserttheoremblockenv}}
+
+\makeatother
+
+\begin{document}
+
+\begin{frame}
+
+\begin{definition}[ Is it possible to produce this heading without the white bar below?]
+\end{definition}
+
+{
+\setbeamercolor{block body}{bg=structure.fg!75!black,fg=white}
+\begin{block}{}
+\inserttheoremheadfont Is it possible to produce this heading without the white bar below?
+\end{block}
+}
+
+\end{frame}
+
+\end{document}

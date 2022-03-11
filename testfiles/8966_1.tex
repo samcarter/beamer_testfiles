@@ -1,0 +1,26 @@
+% https://texnique.fr/osqa/questions/8966/replacer-la-numerotations-de-titres-section-par-une-indication/8984
+\documentclass{beamer}
+
+\renewcommand{\sectionname}{Étape}
+
+\setbeamertemplate{section in toc}{\leavevmode \sectionname\  \inserttocsectionnumber. \inserttocsection\par}
+
+\AtBeginSection{
+  \begin{frame}
+  \sectionpage
+  \end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+\tableofcontents
+\end{frame}
+
+\section{title}
+
+\begin{frame}
+ aaa
+\end{frame}
+
+\end{document}

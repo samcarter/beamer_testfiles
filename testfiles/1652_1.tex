@@ -1,0 +1,55 @@
+% https://topanswers.xyz/tex?q=1411#a1652
+\documentclass[11pt]{article}
+%\documentclass{beamer}
+
+
+\usepackage[envcountsect]{beamerarticle}
+\usepackage{tcolorbox}
+
+\usepackage{xparse}
+
+\mode<article>{
+\newtcolorbox[blend into=figures]{myfigure}[2][]{float=htbp,capture=hbox,
+     title={#2},every float=\centering,#1}
+}
+
+\usepackage{environ}
+
+\mode<beamer>{%
+\NewEnviron{myfigure}[1]{%
+    \begin{figure}%
+    \BODY
+    \caption{#1}%
+    \end{figure}%
+  }
+}
+
+
+\begin{document}
+\begin{frame}{Title of the frame}
+ {Subtitle of the frame}
+
+
+\begin{myfigure}{My caption}
+ \includegraphics[width=0.50\textwidth]{example-image}
+\end{myfigure}
+
+
+
+ \begin{block}{My block}
+  My long definition that can take multiple lines, 
+ \end{block}
+  
+ \begin{itemize}
+  \item first
+  \item Second
+  \item third
+ \end{itemize}
+  
+ \begin{example}[My example]
+  My long example that can take multiple lines, 
+ \end{example}
+  
+\end{frame}
+
+\end{document}  

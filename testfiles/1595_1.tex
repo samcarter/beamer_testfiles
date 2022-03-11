@@ -1,0 +1,111 @@
+% https://topanswers.xyz/tex?q=1348#a1595
+\documentclass{beamer}
+\usetheme{Copenhagen}
+
+%CourseOne
+\includeonlylecture{lec1,lec2}
+
+%CourseTwo
+%\includeonlylecture{lec2,lec3}
+
+%CourseThree
+%\includeonlylecture{lec3}
+
+\setbeamercolor{lecture in toc}{parent=structure}
+
+\usepackage{pgffor}
+\usepackage{totcount}
+\regtotcounter{part}
+
+\begin{filecontents}[overwrite]{Lecture4.tex}
+\lecture{Lecture1}{lec1}
+\section{Section 1}
+\subsection{Subsection 1a}
+\frame{}
+\subsection{Subsection 1b}
+\frame{}
+\subsection{Subsection 1c}
+\frame{}
+
+\section{Section 2}
+\frame{}
+\end{filecontents}
+
+\begin{filecontents}[overwrite]{Lecture2.tex}
+\lecture{Lecture2}{lec2}
+\section{Section 3}
+\subsection{Subsection 3a}
+\frame{}
+\subsection{Subsection 3b}
+\frame{}
+\subsection{Subsection 3c}
+\frame{}
+\end{filecontents}
+
+\begin{filecontents}[overwrite]{Lecture3.tex}
+\lecture{Lecture3}{lec3}
+\section{Section 4}
+\subsection{Subsection 4a}
+\frame{}
+\subsection{Subsection 4b}
+\frame{}
+\subsection{Subsection 4c}
+\frame{}
+\section{Section 5}
+\subsection{Subsection 5a}
+\frame{}
+\subsection{Subsection 5b}
+\frame{}
+\subsection{Subsection 5c}
+\frame{}
+\end{filecontents}
+
+
+\makeatletter
+\AtBeginLecture{%
+  \mode<beamer>{
+    \part{\beamer@lecturename}
+    \expandafter\NR@gettitle\expandafter{\beamer@lecturename}
+    \label{part:\thelecture}
+    \begin{frame}
+        \begin{beamercolorbox}[sep=16pt,center]{part title}
+          {\Large\textsc{Lecture}\par}
+          {\large\insertpart\par}
+        \end{beamercolorbox}
+        \tableofcontents
+    \end{frame}
+  }
+  \beamer@tocsectionnumber=0
+}
+\makeatother
+
+%% I have a problem to conditionnally input the Lecture file
+\newcommand{\Cinput}[2]{
+\if\course =#2  % "one of the string in #2"
+\input{#1}
+\fi
+}
+
+
+\title{Some Title}
+
+\begin{document}
+
+\begin{frame}
+	\tableofcontents
+	\foreach\x in {1,...,\totvalue{part}}{%
+		\vskip-0.4cm
+		\protect\usebeamercolor[fg]{lecture in toc}%
+		\vfill%
+		\hyperlink{part:\x}{\nameref{part:\x}}%
+		
+		\tiny\tableofcontents[part=\x]%
+	}%
+\end{frame}
+
+\input{Lecture4}
+\input{Lecture2}
+\input{Lecture3}
+
+%After compilation only Lecture1 and Lecture2 would be compiled for CourseOne
+\end{document}

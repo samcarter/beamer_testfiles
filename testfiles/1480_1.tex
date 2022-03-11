@@ -1,0 +1,35 @@
+% https://topanswers.xyz/tex?q=1252#a1480
+\documentclass{beamer}
+
+\newcommand<>{\makered}[1]{{\color#2{red}#1}}
+
+\renewenvironment<>{makegreen}{%
+  \color#1{green}%
+}{}
+
+\usepackage{xparse}
+\NewDocumentCommand{\makeblue}{D<>{1-} m}{{\color<#1>{blue}#2}}
+
+\NewDocumentEnvironment{makeyellow}{ D<>{1-} }{
+  \color<#1>{yellow}%
+}{}
+
+\begin{document}
+	
+\begin{frame}
+
+  \makered<2>{test}
+
+	\makeblue<2>{test}
+  
+  \begin{makegreen}<2>
+    content...
+  \end{makegreen}
+  
+  \begin{makeyellow}<2>
+    content...
+  \end{makeyellow}  
+  
+\end{frame}	
+	
+\end{document}

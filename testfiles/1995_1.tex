@@ -1,0 +1,47 @@
+% https://topanswers.xyz/tex?q=1769#a1995
+\documentclass{beamer}
+
+\usepackage{tikz,tcolorbox}
+\usetikzlibrary{shapes,calc}
+\usepackage{fontawesome}
+\tcbuselibrary{skins}
+\usecolortheme{crane}
+
+  
+  \newtcolorbox{important}[1][]{
+    before upper={\setbeamercolor{item}{fg=red}},
+  	enhanced,
+  	arc=5mm,
+  	drop lifted shadow=red!50,
+  	colback=red!5,
+  	colframe=white,
+  	leftrule=0mm,%
+  	detach title,
+  	overlay unbroken and first ={
+  	\node[red,anchor=north east,scale=1.3] 
+  	at (frame.north west) {\faInfoCircle};
+  	}        
+  }
+
+
+\begin{document}
+
+\begin{frame}
+
+\begin{important}
+L'assurance vie a en réalité deux principes
+	\begin{enumerate}
+		\item quand elle est une assurance
+		      \begin{itemize}
+		      	\item son but est de constituer une épargne générant des intérêts, et servant au moment du dénouement, la retraite par exemple, à financer une rente viagère ou à percevoir un capital pour un projet
+		      \end{itemize}
+		\item quand elle est une assurance décès
+		      \begin{itemize}
+		      	\item elle permet de léguer une partie de son patrimoine à un bénéficiaire désigné dans le contrat.   	      
+		      \end{itemize}				      		
+	\end{enumerate}
+\end{important}	 
+
+\end{frame}
+
+\end{document}

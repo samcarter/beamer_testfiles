@@ -1,0 +1,101 @@
+% https://texnique.fr/osqa/questions/7715/simplifier-les-notes-beamer-pour-impression/7717
+\documentclass[french,12pt,]{beamer}
+\setbeameroption{show notes}
+\usepackage{pgfpages} 
+\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usecolortheme[RGB={0,120,0}]{structure}
+\useoutertheme{default}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\usepackage[french]{babel}
+\title{Le titre de la présentation}
+\subtitle{Avec un sous-titre}
+\author{Joseph Tux}
+\date{ECM du \today}
+
+\setbeamertemplate{note page}{\insertnote}
+
+\begin{document}
+%\insertslideintonotes{0}
+\setbeamertemplate{frametitle}[default][center]
+\setbeamertemplate{navigation symbols}{}    % Pas de symboles de navigation
+
+\begin{frame}[plain]
+  \titlepage{}
+\note{\large 
+\vspace{-1\baselineskip}
+\textcolor{blue}{Commandes de dspdfviewer}
+\vspace{-0.5\baselineskip}
+\begin{itemize}
+    \setlength{\itemsep}{-1ex} 
+  \item «F1»,«?»    Affiche l'aide,
+  \item «H»         (Home) (tout repart à 0),
+  \item «G \emph{p}» (Go) Va à la page \no{} \emph{p};
+  \item «S», «F12»  (Switch) Intervertir les écrans public/conférencier,
+  \item «T»         (Toggle) Affiche soit la diapos, soit le commentaire,
+  \item «D»         (Duo) Affiche      la diapos  et   le commentaire,
+  \item «B»         (Blanck) Éteint l'écran public 
+\end{itemize}
+}
+\end{frame}
+
+\begin{frame}{\fbox{Plan}}
+\note{\large Chaque diapo peut-elle être l'occasion de dialoguer\\n'hésitez
+pas à demander le micro pour intervenir après chaque diapositive}
+  \begin{center}
+    \begin{tcolorbox}[size=normal,fontupper=\small,width=0.68\textwidth,colframe=gray!40,colback=yellow!10,skin=beamer,beamer]
+      \tableofcontents
+    \end{tcolorbox}
+  \end{center}
+\end{frame}
+
+\section{Section 1}
+\subsection{Subsection 1}
+\begin{frame}{Préliminaire} %N° 3
+  \begin{block}{De quoi parle-t-on?}
+    \begin{center}
+      Du blabla pour l'exemple.
+      \begin{itemize}
+        \item Du blabla pour l'exemple.
+          \note{Du texte dans la note.}
+        \item Du blabla pour l'exemple.
+          \note{Du texte dans la note.}
+      \end{itemize}
+        \end{center}
+  \end{block}
+\end{frame}
+
+\subsection{Subsection 2}
+\begin{frame}{Suite}
+  \begin{block}{Subsection 2}
+    \begin{center}
+      Du blabla pour l'exemple.
+      \begin{itemize}
+        \item Du blabla pour l'exemple.
+          \note{Du texte dans la note.}
+        \item Du blabla pour l'exemple.
+          \note{Du texte dans la note.}
+      \end{itemize}
+        \end{center}
+  \end{block}
+\end{frame}
+
+\section{Section 2}
+\subsection{Subsection 1}
+\begin{frame}{Suite}
+  \begin{block}{Subsection 2}
+    \begin{center}
+      Du blabla pour l'exemple.
+      \begin{itemize}
+        \item Du blabla pour l'exemple.
+          \note{Du texte dans la note.}
+        \item Du blabla pour l'exemple.
+          \note{Du texte dans la note.}
+      \end{itemize}
+        \end{center}
+  \end{block}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,30 @@
+% https://topanswers.xyz/tex?q=1733#a1961
+\documentclass{beamer}
+
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{page number in head/foot}[framenumber]
+
+\setbeamertemplate{footline}{
+    \hspace*{0.2cm}
+    Author
+    \hfill
+    {\usebeamertemplate{page number in head/foot}}
+    \hspace*{0.2cm}
+    \vspace{0.3cm}
+}
+
+\begin{document}
+
+{
+\addtobeamertemplate{page number in head/foot}{\raisebox{-0.5ex}{\beamerbutton{Button}}\quad}{}
+\begin{frame}
+    \frametitle{Header}
+\end{frame} 
+}
+
+\begin{frame}
+content...
+\end{frame}
+
+\end{document}

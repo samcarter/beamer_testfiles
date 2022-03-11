@@ -1,0 +1,47 @@
+% https://topanswers.xyz/tex?q=1338#a1583
+\documentclass{beamer}
+\usetheme{Copenhagen}
+
+\setbeamercolor{lecture in toc}{parent=structure}
+
+\makeatletter
+\AtBeginLecture{%
+  \addtocontents{toc}{%
+    \protect\usebeamercolor[fg]{lecture in toc}%
+    \vfill%
+    \beamer@lecturename%
+  }
+  \beamer@tocsectionnumber=0
+}
+\makeatother
+
+\title{Some Title}
+
+\begin{document}
+
+\begin{frame}
+  \tableofcontents
+\end{frame}
+
+\lecture{Lecture1}{lec1}
+\section{Section 1}
+\subsection{Subsection 1a}
+\frame{}
+\subsection{Subsection 1b}
+\frame{}
+\subsection{Subsection 1c}
+\frame{}
+
+\section{Section 2}
+\frame{}
+
+\lecture{Lecture2}{lec2}
+\section{Section 1}
+\subsection{Subsection 1a}
+\frame{}
+\subsection{Subsection 1b}
+\frame{}
+\subsection{Subsection 1c}
+\frame{}
+
+\end{document}

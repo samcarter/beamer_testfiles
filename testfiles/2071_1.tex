@@ -1,0 +1,22 @@
+% https://topanswers.xyz/tex?q=832#a2071
+\documentclass{beamer}
+
+\makeatletter
+\define@key{beamerframe}{s}[true]{% stretch
+  \beamer@frametopskip=0pt\relax%
+  \beamer@framebottomskip=0pt\relax%
+  \beamer@frametopskipautobreak=\beamer@frametopskip\relax%
+  \beamer@framebottomskipautobreak=\beamer@framebottomskip\relax%
+}
+\makeatother
+
+\begin{document}
+
+\begin{frame}[s]
+\begin{itemize}
+\item text
+\item text
+\end{itemize}
+\end{frame}	
+
+\end{document}

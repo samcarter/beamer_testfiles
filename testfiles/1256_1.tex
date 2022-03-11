@@ -1,0 +1,35 @@
+% https://topanswers.xyz/tex?q=1041#a1256
+\documentclass{beamer}
+
+\usetheme{metropolis}
+
+\makeatletter
+\setbeamertemplate{section page}{
+  \centering
+  \begin{minipage}{\linewidth}
+    \raggedright
+    \usebeamercolor[fg]{section title}
+    \usebeamerfont{section title}
+    \insertsectionhead\\[-1ex]
+    \usebeamertemplate*{progress bar in section page}
+    \par
+    \ifx\insertsubsectionhead\@empty\else%
+      \usebeamercolor[fg]{subsection title}%
+      \usebeamerfont{subsection title}%
+      \insertsubsectionhead
+    \fi
+  \end{minipage}
+  \par
+  \vspace{\baselineskip}
+}
+\makeatother
+
+\begin{document}
+
+\section{blablablablablablablablablablablablablabla}
+
+\begin{frame}
+test
+\end{frame} 
+
+\end{document}

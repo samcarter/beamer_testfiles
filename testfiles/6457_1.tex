@@ -1,0 +1,33 @@
+% https://texnique.fr/osqa/questions/6457/tikz-taille-de-caracteres/6458
+\documentclass{beamer}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{csquotes}
+
+\begin{document}
+
+\begin{frame}[fragile]
+\begin{tikzpicture}[scale=.68,every node/.style={scale=.68}]
+\tikzset{quadri/.style={rectangle,draw,fill=white}}
+\tikzset{case-g/.style={text width=6cm,align=left}}
+\tikzset{case-c/.style={text width=6cm,align=center}}
+\tikzset{case-d/.style={text width=6cm,align=right}}
+
+\node[case-c] (Metr) at (0,6) {\Huge\textbf{Métropole}};
+\node[case-c,scale=2] (Colo) at (0,-4) {\textbf{Colonies}};
+\draw[-stealth,ultra thick,red] (Metr.west) to [bend right](Colo.west); 
+\draw[-stealth,ultra thick,red] (Colo.east) to [bend right](Metr.east);
+
+\node[case-g](Conq) at (-5,5) {\textbf{Conquête militaire}};
+\node[case-g](Dom) at (-5,3) {\textbf{Domination politique et économique}};
+\node[case-g](I) at (-5,0.5) {\textbf{Investissements financiers et matériels }: transports, exploitation des ressources, commerce\ldots};
+\node[case-g](Arr) at (-5,-2.5) {\textbf{Arrivée de métropolitains}: religieux, administrateurs, commerçants, agriculteurs, \enquote{exclus}, aventuriers\ldots};
+
+\node[case-d](B) at (5,5) {\textbf{Biens matériels}: minerais, produits agricoles\ldots};
+\node[case-d](Div) at (5,3) {\textbf{Dividendes financiers}};
+\node[case-d](I) at (5,0.5) {\textbf{« Réservoir humain »}: main-d’\oe uvre, soldats\ldots};
+\node[case-d](Arr) at (5,-2.5) {\textbf{Positions symboliques}: puissance};
+\end{tikzpicture}
+\end{frame}
+
+\end{document}

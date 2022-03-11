@@ -1,0 +1,117 @@
+% https://topanswers.xyz/tex?q=1364#a1613
+\documentclass{beamer}
+\beamertemplatenavigationsymbolsempty
+\setbeamersize{text margin left=10mm,text margin right=5mm} 
+\setbeamertemplate{frametitle}[default][center]
+\usepackage[many]{tcolorbox}
+\usepackage{listings}
+\lstdefinestyle{duckstyle}{%
+    moredelim=[is][\color{red}]{|}{|},
+    mathescape=true,
+    escapechar=@,
+    basicstyle=\ttfamily,
+    columns=fullflexible
+}
+\lstset{style=duckstyle}
+\def\HiLi{\leavevmode\rlap{\hbox to \hsize{\color{yellow!50}\leaders\hrule height .55\baselineskip depth .4ex\hfill}}}
+
+
+\usepackage{listings, pgffor}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %
+  % \btIfInRange{number}{range list}{TRUE}{FALSE}
+  %
+  % Test if int number <number> is element of a (comma separated) list of ranges
+  % (such as: {1,3-5,7,10-12,14}) and processes <TRUE> or <FALSE> respectively
+
+\newcount\bt@rangea
+\newcount\bt@rangeb
+
+\newcommand\btIfInRange[2]{%
+    \global\let\bt@inrange\@secondoftwo%
+    \edef\bt@rangelist{#2}%
+    \foreach \range in \bt@rangelist {%
+        \afterassignment\bt@getrangeb%
+        \bt@rangea=0\range\relax%
+        \pgfmathtruncatemacro\result{ ( #1 >= \bt@rangea) && (#1 <= \bt@rangeb) }%
+        \ifnum\result=1\relax%
+            \breakforeach%
+            \global\let\bt@inrange\@firstoftwo%
+        \fi%
+    }%
+    \bt@inrange%
+}%
+\newcommand\bt@getrangeb{%
+    \@ifnextchar\relax%
+        {\bt@rangeb=\bt@rangea}%
+        {\@getrangeb}%
+}%
+\def\@getrangeb-#1\relax{%
+    \ifx\relax#1\relax%
+        \bt@rangeb=100000%   \maxdimen is too large for pgfmath
+    \else%
+        \bt@rangeb=#1\relax%
+    \fi%
+}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %
+  % \btLstHL<overlay spec>{range list}
+  %
+\newcommand<>{\btLstHL}[1]{%
+    \only#2{\btIfInRange{\value{lstnumber}}{#1}{\color{yellow!30}}{\color{blue!5!white}}}%
+}%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %
+  % \btInputEmph<overlay spec>[listing options]{range list}{file name}
+  %
+\newcommand<>{\btLstInputEmph}[3][\empty]{%                                                    
+    \only#4{%
+        \lstset{linebackgroundcolor=\btLstHL{#2}}%
+        \lstinputlisting{#3}%
+    }% \only
+}%
+\makeatletter
+    \let\old@lstKV@SwitchCases\lstKV@SwitchCases
+    \def\lstKV@SwitchCases#1#2#3{}
+\makeatother
+\usepackage{lstlinebgrd}
+\makeatletter
+    \let\lstKV@SwitchCases\old@lstKV@SwitchCases
+    \lst@Key{numbers}{none}{%
+    \def\lst@PlaceNumber{\lst@linebgrd}%
+    \lstKV@SwitchCases{#1}%
+        {none:\\%
+        left:\def\lst@PlaceNumber{\llap{\normalfont
+            \lst@numberstyle{\thelstnumber}\kern\lst@numbersep} \lst@linebgrd}\\%
+        right:\def\lst@PlaceNumber{\rlap{\normalfont
+            \kern\linewidth \kern\lst@numbersep
+            \lst@numberstyle{\thelstnumber}}\lst@linebgrd}%
+    }{\PackageError{Listings}{Numbers #1 unknown}\@ehc}}
+\makeatother
+
+
+
+\begin{document}
+\begin{frame}[fragile]{}
+\begin{tcolorbox}[colback=blue!5!white, text width=4.5cm,  left=7pt, right=10pt]
+\begin{lstlisting}[basicstyle=\linespread{0.9}\ttfamily, mathescape,
+   linebackgroundcolor={%
+       \color{blue!5!white}\btLstHL<2>{6}%
+   },
+]
+line one
+line two
+line three
+line four
+	if $x=0$
+	do work
+\end{lstlisting}
+\end{tcolorbox}
+\end{frame}
+
+\end{document}

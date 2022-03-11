@@ -1,0 +1,25 @@
+% https://topanswers.xyz/tex?q=1357#a1606
+\documentclass{beamer}
+
+\usepackage{tikz}
+\setbeamertemplate{navigation symbols}{}
+
+\begin{document}
+
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay]
+	
+% Background image
+\node[at=(current page.center)]{%
+	\includegraphics[height=\paperheight]{example-image-duck}
+};	
+
+% Text
+\node[at=(current page.south),yshift=0.2cm]{
+  \color{gray}Some text
+};
+
+\end{tikzpicture}
+\end{frame}
+
+\end{document}

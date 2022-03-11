@@ -1,0 +1,29 @@
+% https://topanswers.xyz/tex?q=1350#a1597
+\documentclass{beamer}
+\newenvironment{myitem}[1][]{%
+  \setbeamertemplate{itemize items}[circle]
+  \addtolength{\leftmargini}{-0.7cm}
+  \beamerdefaultoverlayspecification{<+-|gray@+>}
+  \setbeamercolor{item}{fg=black!15}
+  \begin{itemize}[#1]
+  \setlength\itemsep{5pt plus 1fill}
+}{
+  \end{itemize}
+}
+
+\makeatletter
+\newenvironment{grayenv}{\only{\setbeamercolor{item}{fg=beamer@blendedblue}}}{}
+\makeatother
+
+\begin{document}
+\begin{frame}{Title}
+\begin{myitem}
+\item line one
+\item line two
+\item $\begin{aligned}[t]
+\mathbb{E}(X\mid Y=y) &= \sum_x x\Pr(X=x\mid Y=y)\\
+&= \sum_x x\frac{\Pr(X=x, Y=y)}{\Pr(Y=y)}
+\end{aligned}$
+\end{myitem}
+\end{frame}
+\end{document}

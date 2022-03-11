@@ -1,0 +1,40 @@
+% https://topanswers.xyz/tex?q=1322#a1560
+\documentclass[xcolor={rgb}]{beamer}
+
+\beamertemplatenavigationsymbolsempty
+\setbeamersize{text margin left=10mm,text margin right=5mm}
+\setbeamertemplate{frametitle}[default][center]
+\usepackage{tikz}
+
+\newcommand{\tikzcircle}[3][red]{\tikz[baseline=-0.5ex]{\node[draw={#1}, fill={#1}, circle,text width=#2,minimum width=2.5em,text=black,align=center] at (0,0) {#3};}\hspace{0pt}}%
+
+
+\def\numcolors{4}
+\pgfmathparse{1/\numcolors}%
+\definecolorseries{foo}{hsb}{step}{red!90!black}{\pgfmathresult,0,0}
+\resetcolorseries[\numcolors]{foo}%
+\pgfmathsetseed{2}
+
+\usepackage{booktabs}
+
+\begin{document}
+\begin{frame}
+\foreach \x in {1,2,3,4,1,2,3,4}{%
+  \tikzcircle[{foo!![\x]}]{12pt}{}% 
+}%
+
+\bigskip
+
+\begin{tabular}{lll}
+\toprule
+& something & something\\
+\midrule
+\tikzcircle[{foo!![1]}]{12pt}{} & circle 1 & something\\
+\tikzcircle[{foo!![2]}]{12pt}{} & circle 2 & something\\
+\tikzcircle[{foo!![3]}]{12pt}{} & circle 3 & something\\
+\tikzcircle[{foo!![4]}]{12pt}{} & circle 4 & something\\
+\bottomrule
+\end{tabular}
+
+\end{frame}
+\end{document}

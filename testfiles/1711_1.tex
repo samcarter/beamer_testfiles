@@ -1,0 +1,26 @@
+% https://topanswers.xyz/tex?q=1480#a1711
+\documentclass{beamer}
+\begin{document}
+\begin{frame}[t]
+\frametitle{Side by side}
+\begin{columns}[onlytextwidth]
+\begin{column}{3cm}
+\begin{itemize}
+ \item Some text about ducks, marmots, squirrels, penguins, koalas 
+ and other Ti\emph{k}Zlings.
+\end{itemize}
+\end{column}
+\begin{column}{\the\dimexpr\textwidth-3cm}%<- is there an alternative to compute
+%	the rest more automatically
+\includegraphics{example-image-duck}
+\end{column}
+\end{columns}
+\begin{itemize}
+ \item Blah blah blah blah blah blah blah blah blah blah blah.
+ \item Pft pft pft pft pft pft pft pft pft pft pft pft pft pft.
+\end{itemize}
+
+\end{frame}
+
+
+\end{document}

@@ -1,0 +1,163 @@
+% https://topanswers.xyz/tex?q=1176#a1384
+\documentclass[compress]{beamer}
+
+\usetheme{Warsaw}
+
+\makeatletter
+
+\newbox\mysectionbox
+\newbox\mysubsectionbox
+\newlength{\myheight}
+\setlength{\myheight}{0.8cm}
+
+\setbeamertemplate{headline}{%
+  \leavevmode%
+   \setbox\mysectionbox=\hbox{\insertsectionnavigationhorizontal{.5\paperwidth}{\hskip0pt plus1filll}{}}%
+   \setbox\mysubsectionbox=\hbox{\insertsubsectionnavigationhorizontal{.5\paperwidth}{}{\hskip0pt plus1filll}}%
+   \begin{beamercolorbox}[wd=.5\paperwidth,dp=0cm,ht=\myheight]{section in head/foot}%
+      \vfil\box\mysectionbox\vfil
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,dp=0cm,ht=\myheight]{subsection in head/foot}%
+      \vfil\box\mysubsectionbox\vfil%
+    \end{beamercolorbox}%
+}
+
+\def\insertsectionnavigationhorizontal#1#2#3{%
+  \hbox to #1{{%
+     \def\slideentry##1##2##3##4##5##6{}%
+     #2\hskip.3cm%
+     \parbox{.45\paperwidth}{\usebeamerfont{section in head/foot}\usebeamercolor[fg]{section in head/foot}%
+     \setbox\beamer@sectionbox=\hbox{}%
+     \ht\beamer@sectionbox=1.875ex%
+     \dp\beamer@sectionbox=0.75ex%
+     \hskip-1.875ex plus-1fill\dohead%
+     \box\beamer@sectionbox}\hfil\hskip.3cm%
+     #3}}}
+
+\def\insertsubsectionnavigationhorizontal#1#2#3{%
+  \hbox to #1{{%
+    \usebeamerfont{subsection in head/foot}\usebeamercolor[fg]{subsection in head/foot}%
+    \beamer@currentsubsection=0%
+    \def\sectionentry##1##2##3##4##5{}%
+    \def\slideentry##1##2##3##4##5##6{\ifnum##6=\c@part\ifnum##1=\c@section%
+      \ifnum##2>\beamer@currentsubsection%
+      \beamer@currentsubsection=##2%
+      \box\beamer@sectionbox\hskip1.875ex plus1fill%
+      \setbox\beamer@sectionbox=
+      \hbox{\def\insertsubsectionhead{##5}%
+         \def\insertsectionheadnumber{##1}%
+         \def\insertsubsectionheadnumber{##2}%
+         \def\insertpartheadnumber{##6}%
+         \ifnum\c@subsection=##2%
+        \beamer@link(##4){{\usebeamertemplate{subsection in head/foot}}}\else%
+        \beamer@link(##4){{\usebeamertemplate{subsection in head/foot shaded}}}\fi}%
+      \ht\beamer@sectionbox=1.875ex%
+      \dp\beamer@sectionbox=0.75ex%
+      \fi\fi\fi\ignorespaces}%
+    \hskip.3cm\parbox{.45\paperwidth}{ #2\setbox\beamer@sectionbox=\hbox{}%
+    \hskip-1.875ex plus-1fill\dohead%
+    \box\beamer@sectionbox\hfil%
+    #3}}}}
+
+\makeatother
+
+
+
+
+\begin{document}
+
+\section{title}
+\section{titlea}
+\section{titlea}
+\section{titlea}
+\section{titlea}
+\section{titlea}
+\section{titlea}
+\section{titlea}
+\section{titlea}
+\section{titlea}
+\section{titlea}
+\section{titlea}
+\section{titlea}
+\section{titlea}
+
+\subsection{title}
+\begin{frame}
+    abc
+\end{frame} 
+\subsection{titlea}
+
+\begin{frame}
+    abc
+\end{frame} 
+\subsection{titlea}
+\begin{frame}
+    abc
+\end{frame} 
+\subsection{titlea}
+\begin{frame}
+    abc
+\end{frame} 
+\subsection{titlea}
+\begin{frame}
+    abc
+\end{frame} 
+\subsection{titlea}
+
+\begin{frame}
+    abc
+\end{frame} 
+\subsection{titlea}
+\begin{frame}
+    abc
+\end{frame} 
+\subsection{titlea}
+\begin{frame}
+    abc
+\end{frame} 
+\subsection{titlea}
+\begin{frame}
+    abc
+\end{frame} 
+\subsection{titlea}
+\begin{frame}
+    abc
+\end{frame} 
+\subsection{titlea}
+\begin{frame}
+    abc
+\end{frame} \subsection{titlea}
+\begin{frame}
+    abc
+\end{frame} 
+\subsection{titlea}
+\begin{frame}
+    abc
+\end{frame} 
+\subsection{titlea}
+
+\begin{frame}
+    abc
+\end{frame} 
+\subsection{titlea}
+\begin{frame}
+    abc
+\end{frame} 
+\subsection{titlea}
+\begin{frame}
+    abc
+\end{frame} 
+\subsection{titlea}
+\begin{frame}
+    abc
+\end{frame} 
+\subsection{titlea}
+\begin{frame}
+    abc
+\end{frame} 
+\subsection{titlea}
+\begin{frame}
+    abc
+\end{frame} 
+
+\end{document}

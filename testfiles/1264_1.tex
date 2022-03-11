@@ -1,0 +1,93 @@
+% https://topanswers.xyz/tex?q=1049#a1264
+\documentclass[11pt]{beamer}
+
+\usepackage[gen]{eurosym}
+\setbeamerfont{caption}{size=\scriptsize}
+
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\renewcommand*\footnoterule{}
+\setbeamerfont{footnote}{size=\tiny}
+
+\setbeamersize{text margin left=7mm,text margin right=7mm}
+
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen=right}
+
+\makeatletter
+\defbeamertemplate*{note page}{center}
+{%
+  {%
+    \scriptsize
+    \usebeamerfont{note title}\usebeamercolor[fg]{note title}%
+    \ifbeamercolorempty[bg]{note title}{}{%
+      \insertvrule{.25\paperheight}{note title.bg}%
+      \vskip-.25\paperheight%
+      \nointerlineskip%
+    }%
+    \vbox{
+      \hfill\insertslideintonotes{0.25}\hskip-\Gm@rmargin\hskip0pt%
+      \vskip-0.25\paperheight%
+      \nointerlineskip
+      \begin{pgfpicture}{0cm}{0cm}{0cm}{0cm}
+        \begin{pgflowlevelscope}{\pgftransformrotate{90}}
+          {\pgftransformshift{\pgfpoint{-2cm}{0.2cm}}%
+          \pgftext[base,left]{\usebeamerfont{note date}\usebeamercolor[fg]{note date}\the\year-\ifnum\month<10\relax0\fi\the\month-\ifnum\day<10\relax0\fi\the\day}}
+        \end{pgflowlevelscope}
+      \end{pgfpicture}}
+    \nointerlineskip
+    \vbox to .25\paperheight{\vskip0.5em
+      \hbox{\insertshorttitle[width=0.75\textwidth]}%
+      \setbox\beamer@tempbox=\hbox{\insertsection}%
+      \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip4pt\raise3pt\hbox{\vrule
+            width0.4pt height7pt\vrule width 9pt
+            height0.4pt}}\hskip1pt\hbox{\begin{minipage}[t]{0.71\textwidth}\def\breakhere{}\insertsection\end{minipage}}\fi%
+      }%
+      \setbox\beamer@tempbox=\hbox{\insertsubsection}%
+      \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip17.4pt\raise3pt\hbox{\vrule
+            width0.4pt height7pt\vrule width 9pt
+            height0.4pt}}\hskip1pt\hbox{\begin{minipage}[t]{0.71\textwidth}\def\breakhere{}\insertsubsection\end{minipage}}\fi%
+      }%
+      \setbox\beamer@tempbox=\hbox{\insertshortframetitle}%
+      \hbox{\ifdim\wd\beamer@tempbox>1pt{\hskip30.8pt\raise3pt\hbox{\vrule
+            width0.4pt height7pt\vrule width 9pt
+            height0.4pt}}\hskip1pt\hbox{\insertshortframetitle[width=0.67\textwidth]}\fi%
+      }%
+      \vfil}%
+  }%
+  \ifbeamercolorempty[bg]{note page}{}{%
+    \nointerlineskip%
+    \insertvrule{.75\paperheight}{note page.bg}%
+    \vskip-.75\paperheight%
+  }%
+  \vskip.25em
+  \nointerlineskip
+  \begin{minipage}[c][.7\paperheight][c]{\linewidth}
+    \centering
+    \insertnote
+  \end{minipage}
+}
+\makeatother
+
+
+
+\begin{document}
+
+\begin{frame}{Slide Title}
+    Some text in the main slides
+\end{frame}
+
+\note{
+   Center this horizontally and vertically
+}
+
+\begin{frame}{Slide Title}
+    Some text in the main slides
+\end{frame}
+
+\setbeamertemplate{note page}[default]
+\note{
+   switch back to default note
+}
+%------------------------------------------------
+
+\end{document}

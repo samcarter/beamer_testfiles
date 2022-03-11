@@ -1,0 +1,59 @@
+% https://topanswers.xyz/tex?q=1625#a1861
+\documentclass[
+  handout
+]{beamer}
+
+\begin{document}
+
+
+\begin{frame}
+
+  \frametitle{Happy Without Overlays Here}
+
+  \begin{block}{First Block}<+->
+    Foo bar.
+  \end{block}
+
+  \begin{block}{Second Block}<+->
+    Foo bar.
+  \end{block}
+
+\end{frame}
+
+{
+
+\makeatletter
+  \def\beamer@currentmode{beamer}
+\makeatother
+
+\begin{frame}
+
+  \frametitle{I Want Overlays Here}
+
+  \begin{block}{First Block}<+->
+    Foo \pause bar.
+  \end{block}
+
+  \begin{block}{Second Block}<+->
+    Spam \pause eggs.
+  \end{block}
+
+\end{frame}
+}
+
+\begin{frame}
+
+  \frametitle{Also Happy Without Overlays Here}
+  
+  \begin{block}{First Block}<+->
+    Foo bar.
+  \end{block}
+
+  \begin{block}{Second Block}<+->
+    Foo bar.
+  \end{block}
+
+\end{frame}
+
+
+\end{document}

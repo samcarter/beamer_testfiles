@@ -1,0 +1,24 @@
+% https://topanswers.xyz/tex?q=1807#a2036
+\documentclass{beamer}
+
+\defbeamertemplate{section in toc}{square unnumbered}
+{\leavevmode\raise0.1ex\hbox{\vrule width 1ex height 1ex}\kern1.25ex\inserttocsection\par}
+
+\defbeamertemplate{subsection in toc}{square unnumbered}
+{\leavevmode\leftskip=1.5em\raise0.2ex\hbox{\vrule width 0.9ex height 0.9ex}\kern1.25ex\inserttocsubsection\par}
+
+\defbeamertemplate{subsubsection in toc}{square unnumbered}
+{\leavevmode\leftskip=3em\raise0.3ex\hbox{\vrule width 0.8ex height 0.8ex}\kern0.75ex\inserttocsubsubsection\par}
+
+\setbeamertemplate{sections/subsections in toc}[square unnumbered]
+
+\begin{document}
+
+\section{section name}  
+\subsection{section name}
+\subsubsection{section name}
+\begin{frame}
+ \tableofcontents
+\end{frame}
+
+\end{document}

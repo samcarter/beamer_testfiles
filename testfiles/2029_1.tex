@@ -1,0 +1,52 @@
+% https://topanswers.xyz/tex?q=1797#a2029
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{overlay-beamer-styles}
+
+
+\makeatletter
+\newcommand*{\slideinframe}{\number\beamer@slideinframe}
+\makeatother
+
+\def\mylistE{{"$\infty/$null", 0, 0, 0, 0, 0, 0}}
+\def\mylistD{{"$\infty/$null", "$\infty/$null", "3/E", "3/E", "3/E", "3/E", "3/E"}}
+\def\mylistB{{"$\infty/$null", "$\infty/$null", "$\infty/$null", "6/E", "5/F", "5/F", "5/F"}}
+\def\mylistF{{"$\infty/$null", "$\infty/$null", "$\infty/$null", "$\infty/$null", "2/E", "2/E", "2/E"}}
+\def\mylistC{{"$\infty/$null", "$\infty/$null", "$\infty/$null", "$\infty/$null", "$\infty/$null", "4/E", "4/E"}}
+\def\mylistA{{"$\infty/$null", "$\infty/$null", "$\infty/$null", "$\infty/$null", "$\infty/$null", "3/D"}}
+
+
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Demonstration}
+\begin{tikzpicture}
+\begin{scope}[every node/.style={fill=black, text=white, circle,thick,draw, minimum size=1.2cm}]
+    \node[label={[xshift=0em, yshift=-1em, text=black,minimum height=1.7cm]  \pgfmathparse{\mylistA[\slideinframe-1]}\pgfmathresult}]  (A) at (0,5) {A};
+    \node[label={[xshift=0em, yshift=-1em, text=black,minimum height=1.7cm] \pgfmathparse{\mylistB[\slideinframe-1]}\pgfmathresult}]  (B) at (5,5) {B};
+    \node[label={[xshift=0em, yshift=-1em, text=black,minimum height=1.7cm] \pgfmathparse{\mylistC[\slideinframe-1]}\pgfmathresult}]  (C) at (10,5) {C};
+    \node[label={[xshift=0em, yshift=-6em, text=black,minimum height=1.7cm] \pgfmathparse{\mylistD[\slideinframe-1]}\pgfmathresult},alt=<6->{red}{black},text=white]  (D) at (0,0) {D};
+    \node[label={[xshift=0em, yshift=-6em, text=black,minimum height=1.7cm] \pgfmathparse{\mylistE[\slideinframe-1]}\pgfmathresult},alt=<2->{red}{black},text=white]  (E) at (5,0) {E};
+    \node[label={[xshift=0em, yshift=-6em, text=black,minimum height=1.7cm]  \pgfmathparse{\mylistF[\slideinframe-1]}\pgfmathresult},alt=<5->{red}{black},text=white]  (F) at (10,0) {F} ;
+\end{scope}
+
+\begin{scope}[>={Stealth[black]},
+              every node/.style={fill=white,circle},
+              every edge/.style={draw=red,very thick}]
+    \path [-] (A) edge node {$1$} (B);
+    \path [-] (D) edge node {$2$} (B);
+    \path [-] (A) edge node {$3$} (D);
+    \path [-] (D) edge node {$3$} (E);
+    \path [-] (E) edge node {$2$} (F);
+    \path [-] (E) edge node {$6$} (B);
+    \path [-, pos=0.25] (E) edge node {$4$} (C);
+    \path [-] (B) edge node {$3$} (C);
+    \path [-, pos=0.25] (B) edge node {$5$} (F);
+    \path [-] (F) edge node {$4$} (C);
+\end{scope}
+\end{tikzpicture}
+\pause[6]
+\end{frame}
+\end{document}

@@ -1,0 +1,35 @@
+% https://texnique.fr/osqa/questions/7365/beamer-allowframebreak-et-temporisation/7367
+\documentclass[14pt,c]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+\begin{frame}
+    \frametitle{Titre de frame}
+
+    \begin{onlyenv}<-6>
+        \begin{itemize}
+            \item blabla 1; 
+            \item  blabla 2 ;
+            \item blabla 3;
+            \item blabla 4; 
+            \item  blabla 5 ;
+            \item blabla 6;
+         \end{itemize}
+     \end{onlyenv}
+
+     \begin{onlyenv}<.(1)->
+         \begin{itemize}
+            \item blabla 7; 
+            \item  blabla 8 ;
+            \item blabla 9;
+            \item blabla 10; 
+            \item  blabla 11 ;
+            \item blabla 12;
+        \end{itemize}
+    \end{onlyenv}
+
+\end{frame}
+\end{document}

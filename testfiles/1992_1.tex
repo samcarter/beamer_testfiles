@@ -1,0 +1,64 @@
+% https://topanswers.xyz/tex?q=1767#a1992
+\documentclass{beamer}
+
+\usepackage{tikz,tcolorbox}
+\usetikzlibrary{shapes,calc}
+\usepackage{fontawesome}
+\tcbuselibrary{skins}
+\usecolortheme{crane}
+
+\newcommand{\inserticon}[1]{%
+  \ifstrequal{#1}{formula}{\faFlask}{}%
+  \ifstrequal{#1}{net}{\faLink}{}%
+  \ifstrequal{#1}{question}{\faQuestionCircle}{}%
+  \ifstrequal{#1}{idea}{\faLightbulbO}{}%
+  \ifstrequal{#1}{information}{\faInfoCircle}{}%    
+}
+
+  \newtcolorbox{information}[1][information]{
+  	enhanced,
+  	arc=5mm,
+  	drop lifted shadow=blue!50,
+  	colback=blue!5,
+  	colframe=white,
+  	leftrule=0mm,%
+  	detach title,
+  	overlay unbroken and first ={
+  	\node[blue,anchor=north east,scale=1.3] 
+  	at (frame.north west) {\inserticon{#1}};
+  	}        
+  }
+ 
+  \newtcolorbox{important}[1][information]{
+  	enhanced,
+  	arc=5mm,
+  	drop lifted shadow=red!50,
+  	colback=red!5,
+  	colframe=white,
+  	leftrule=0mm,%
+  	detach title,
+  	overlay unbroken and first ={
+  	\node[red,anchor=north east,scale=1.3] 
+  	at (frame.north west) {\inserticon{#1}};
+  	}        
+  }
+
+\begin{document}
+
+\begin{frame}
+
+	\begin{important}[information]
+  \textit{If $_{\chi PP}(M)=2$ a haplotype matrix M we can find an optimal pp-partition in polynomial time}
+	\end{important}  
+
+	\begin{information}[formula]
+  \textit{If $_{\chi PP}(M)=2$ a haplotype matrix M we can find an optimal pp-partition in polynomial time}
+	\end{information}
+  
+ 	\begin{information}[net]
+  \textit{If $_{\chi PP}(M)=2$ a haplotype matrix M we can find an optimal pp-partition in polynomial time}
+ 	\end{information}
+\end{frame}
+
+
+\end{document}

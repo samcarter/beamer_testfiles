@@ -1,0 +1,32 @@
+% https://topanswers.xyz/tex?q=1175#a1383
+\documentclass{beamer}
+
+\usetheme{metropolis}
+
+\makeatletter
+\setbeamertemplate{frametitle}{%
+    \nointerlineskip%
+    \hskip-\beamer@leftmargin%
+    \begin{beamercolorbox}[%
+            wd=.25\paperwidth,%
+            sep=0pt,%
+            leftskip=\metropolis@frametitle@padding,%
+            rightskip=\metropolis@frametitle@padding,%
+            ]{frametitle}%
+            \metropolis@frametitlestrut@start%
+            \insertframetitle%
+            \nolinebreak%
+            \metropolis@frametitlestrut@end%
+    \end{beamercolorbox}
+}
+\makeatother
+
+\begin{document}
+	
+\begin{frame}
+	\frametitle{test}
+  
+  test
+\end{frame}	
+	
+\end{document}

@@ -1,0 +1,21 @@
+% https://texnique.fr/osqa/questions/10124/beamer-image-en-arriere-plan-dune-frame/10125
+\documentclass{beamer}
+
+\begin{document}
+
+\begin{frame}
+    abc
+\end{frame}
+
+{
+\setbeamertemplate{background}{\includegraphics[height=\paperheight]{example-image-duck}}
+\begin{frame}
+    abc
+\end{frame} 
+}
+
+\begin{frame}
+    abc
+\end{frame}
+
+\end{document}

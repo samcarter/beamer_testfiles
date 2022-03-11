@@ -1,0 +1,67 @@
+% https://topanswers.xyz/tex?q=1341#a1585
+\documentclass{beamer}
+\usetheme{Copenhagen}
+
+\setbeamercolor{lecture in toc}{parent=structure}
+
+\usepackage{pgffor}
+\usepackage{totcount}
+\regtotcounter{part}
+
+\makeatletter
+\AtBeginLecture{%
+  \mode<beamer>{
+    \part{\beamer@lecturename}
+    \expandafter\NR@gettitle\expandafter{\beamer@lecturename}
+    \label{part:\thelecture}
+    \begin{frame}
+        \begin{beamercolorbox}[sep=16pt,center]{part title}
+          {\Large\textsc{Lecture}\par}
+          {\large\insertpart\par}
+        \end{beamercolorbox}
+        \tableofcontents
+    \end{frame}
+  }
+  \beamer@tocsectionnumber=0
+}
+\makeatother
+
+\title{Some Title}
+
+\begin{document}
+
+\begin{frame}
+  \tableofcontents
+  \foreach\x in {1,...,\totvalue{part}}{%
+      \vskip-0.4cm
+      \protect\usebeamercolor[fg]{lecture in toc}%
+      \vfill%
+      \hyperlink{part:\x}{\nameref{part:\x}}%
+      \tableofcontents[part=\x]%
+  }%
+\end{frame}
+
+\lecture{Lecture1}{lec1}
+\section{Section 1}
+\subsection{Subsection 1a}
+\frame{}
+\subsection{Subsection 1b}
+\frame{}
+\subsection{Subsection 1c}
+\frame{}
+
+\mode<article>{\part{part for your book with beamerarticle}}
+
+\section{Section 2}
+\frame{}
+
+\lecture{Lecture2}{lec2}
+\section{Section 1}
+\subsection{Subsection 1a}
+\frame{}
+\subsection{Subsection 1b}
+\frame{}
+\subsection{Subsection 1c}
+\frame{}
+
+\end{document}

@@ -1,0 +1,39 @@
+% https://topanswers.xyz/tex?q=1956#a2180
+\documentclass{beamer}
+
+\makeatletter
+\def\insertnavigation#1{%
+  \vbox{{%
+    \usebeamerfont{section in head/foot}\usebeamercolor[fg]{section in head/foot}%
+    \beamer@xpos=0\relax%
+    \beamer@ypos=1\relax%
+    \beamer@ypos@offset=0\relax%
+    \hbox to #1{\hskip-.3cm\setbox\beamer@sectionbox=\hbox{\kern1sp}%
+      \ht\beamer@sectionbox=1.875ex%
+      \dp\beamer@sectionbox=0.75ex%
+        \hfil%
+        \global\beamer@section@min@dim\z@
+        \dohead%
+        \beamer@section@set@min@width
+      \box\beamer@sectionbox\hfill}%
+  }}}
+\makeatother
+
+\usetheme{Singapore}
+
+
+
+\begin{document}
+\section{foo}
+\begin{frame}{foo}
+  quack
+\end{frame}
+
+\begin{frame}{bar}
+  quack
+\end{frame}
+
+\begin{frame}{foobar}
+  quack
+\end{frame}
+\end{document}

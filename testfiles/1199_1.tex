@@ -1,0 +1,27 @@
+% https://topanswers.xyz/tex?q=1005#a1199
+\documentclass[
+second
+]{beamer}
+\usepackage{pgfpages}
+
+\makeatletter
+\DeclareOptionBeamer{second}{\gdef\beamer@currentmode{second}}
+\ProcessOptionsBeamer
+\makeatother
+
+\mode<second>{\setbeameroption{show notes on second screen=right}}
+
+\begin{document}
+    \begin{frame}
+        \note{
+            \begin{itemize}
+                \item Note 1
+            \end{itemize}
+        }
+
+        \begin{itemize}
+          \item Frame Bullet 1
+        \end{itemize}
+
+    \end{frame}
+\end{document}

@@ -1,0 +1,94 @@
+% https://topanswers.xyz/tex?q=1423#a1665
+\documentclass[xcolor={rgb}]{beamer}
+\beamertemplatenavigationsymbolsempty
+\setbeamersize{text margin left=10mm,text margin right=5mm} 
+\setbeamertemplate{frametitle}[default][center]
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage[many]{tcolorbox}
+\usepackage{adjustbox}
+\usepackage{listings}
+\lstdefinestyle{duckstyle}{%
+    moredelim=[is][\color{red}]{|}{|},
+    mathescape=true,
+    escapechar=@,
+    basicstyle=\ttfamily,
+    columns=fullflexible
+}
+\lstset{style=duckstyle}
+\newcommand{\ubar}[1]{\alt<+>{\underaccent{\bar}{#1}}{#1}}
+\tcbuselibrary{skins}
+\tcbset{
+	arc=0pt,
+	outer arc=0pt,
+	colback=white,
+}
+
+\usepackage{circledsteps}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\newcommand{\mycircle}[1][1]{%
+\Circled[fill color={foo!![#1]},outer color=blue!60]{\phantom{\mbox{o}}}}%
+\def\numcolors{4}
+\pgfmathparse{1/\numcolors}%
+\definecolorseries{foo}{hsb}{step}{red!90!black}{\pgfmathresult,0,0} 
+\resetcolorseries[\numcolors]{foo}%
+\makeatletter
+\newcommand{\UncoverList}[2][]{\c@pgf@counta0\relax
+\pgfutil@for\my@item:={#2}\do{%
+\advance\c@pgf@counta by1%
+\only<\c@pgf@counta->{\my@item}%
+}}
+\makeatother
+
+\usetikzlibrary{arrows.meta,
+	shapes,
+	tikzmark}
+\usetikzlibrary{tikzmark,shapes.geometric, patterns,decorations.pathreplacing, calligraphy}
+
+\usetikzmarklibrary{listings} 
+
+
+\newcommand{\var}[1]{\operatorname{var}{\!#1}} 
+
+
+\newcommand{\tikzcircle}[3][red]{\tikz[baseline=-0.5ex]{\node[draw={#1}, fill={#1}, circle,text width=#2,minimum width=1.4em,text=black,align=center] at (0,0) {#3};}\hspace{0pt}}%
+
+\pgfmathsetseed{2}
+
+\setbeamertemplate{itemize items}{}
+
+\begin{document}
+
+
+\begin{frame}[fragile]
+\frametitle{frame}
+{\centering
+\begin{tikzpicture}
+
+\node (crow) {\vphantom{\raisebox{1ex}{\mycircle[1]}}\def\numdots{12}%
+\def\cols{1,2,1,4,1,2,3,1,1,2,3,4}
+\foreach \x [count=\y from 2] in {1,...,\numdots}{%
+  \pgfmathtruncatemacro{\mycf}{{\cols}[\x-1]}%
+  \ifnum\y>1\relax\;\fi\alt<\y>{%
+  	\raisebox{1ex}{\mycircle[\mycf]}}{%
+	\mycircle[\mycf]}%
+}%
+};
+
+\end{tikzpicture}
+}
+
+\begin{visibleenv}<2->
+\begin{tcolorbox}[top=0pt, left=5pt,right=5pt, colback=blue!5!white, text height=4.8cm]
+\begin{lstlisting}[ mathescape, name=foo, basewidth = {.3em}]
+stream $\langle a_1, \dots, a_m \rangle$,$a_i \in [n]$
+\end{lstlisting}
+\end{tcolorbox}
+\end{visibleenv}%
+
+\end{frame}
+
+\end{document}  

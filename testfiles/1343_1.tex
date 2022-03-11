@@ -1,0 +1,38 @@
+% https://topanswers.xyz/tex?q=1109#a1343
+\documentclass[handout]{beamer}
+
+\usepackage{pgfpages}
+\pgfpagesuselayout{4 on 1}[a4paper,border shrink=5mm]
+
+\setbeameroption{show notes}
+\makeatletter 
+\def\beamer@framenotesbegin{%	at beginning of slide 	
+	\gdef\beamer@noteitems{}% 	
+	\gdef\beamer@notes{{}}%	used to be totally	empty. 
+}
+\makeatother
+
+\usepackage{pgffor}
+
+\setbeamertemplate{note page}{
+\begin{minipage}[c][\textheight][c]{\textwidth}
+  Notes:\vfill
+  
+  \foreach \x in {1,...,8}{
+    \hrulefill\vfill\par
+  }
+     
+\end{minipage}
+}
+
+\begin{document}
+\begin{frame}
+My first slide
+\end{frame}
+\begin{frame}
+Second one
+\end{frame}
+\begin{frame}
+Third
+\end{frame}
+\end{document}

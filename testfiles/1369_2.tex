@@ -1,0 +1,42 @@
+% https://topanswers.xyz/tex?q=1162#a1369
+\documentclass[aspectratio=169]{beamer}
+\usepackage{tikz}
+
+\makeatletter
+\defbeamertemplate{background canvas}{color}[1][red]{%
+  \begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle (\the\paperwidth,\the\paperheight);
+  \fill[fill=#1] (0,0) rectangle (\the\paperwidth,\the\paperheight);
+  \node[anchor=north west,inner sep=0pt,outer sep=0pt] at (0,\the\paperheight) {This text should be in the upper left corner};
+  \end{tikzpicture}
+}
+
+\BeforeBeginEnvironment{frame}{%
+  \setbeamertemplate{background canvas}[color][red]%
+}
+\makeatletter
+\define@key{beamerframe}{mycolor}[true]{
+  \setbeamertemplate{background canvas}[color][#1]%
+}
+\makeatother
+
+\begin{document}
+
+\title{This shall be a green title}
+\begin{frame}[mycolor=green]
+\titlepage
+\end{frame}
+
+\begin{frame}
+This shall be a regular red content page
+\end{frame}
+
+\title{This shall be a blue title}
+\begin{frame}[mycolor=blue]
+\titlepage
+\end{frame}
+
+\begin{frame}
+This shall be a regular red content page
+\end{frame}
+\end{document}

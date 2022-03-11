@@ -1,0 +1,33 @@
+% https://topanswers.xyz/tex?q=1163#a1370
+\documentclass{beamer}
+
+\defbeamertemplate*{frametitle}{regular}{Regular Frametitle}
+\defbeamertemplate{frametitle}{special}{Special Frametitle}
+
+\begin{document}
+\begin{frame}
+\frametitle{~}
+This page shall have the regular frametitle
+\end{frame}
+
+{
+\setbeamertemplate{frametitle}[special]
+\begin{frame}
+\frametitle{~}
+This page shall have the special frametitle
+\end{frame}
+}
+
+{
+\begin{frame}
+\setbeamertemplate{frametitle}[special]
+\frametitle{~}
+This page shall have the special frametitle
+\end{frame}
+}
+
+\begin{frame}
+\frametitle{~}
+This page shall have the regular frametitle
+\end{frame}
+\end{document}

@@ -1,0 +1,19 @@
+% https://texnique.fr/osqa/questions/7113/comment-modifier-les-marges-sous-beamer/7114
+\documentclass{beamer}
+
+\setbeamersize{
+  text margin left = 2cm, % normalement c'est 1 cm
+  text margin right = 2cm % normalement c'est 1 cm
+}
+
+\addtobeamertemplate{headline}{}{\vskip1cm} % <- en haut du frametitle
+\addtobeamertemplate{frametitle}{}{\vskip1cm} % <- en bas du frametitle
+
+\begin{document}
+
+\begin{frame}[t]
+    \frametitle{title}
+    abc
+\end{frame}
+
+\end{document}

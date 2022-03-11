@@ -1,0 +1,44 @@
+% https://topanswers.xyz/tex?q=1371#a1619
+\documentclass{beamer}
+\beamertemplatenavigationsymbolsempty
+\setbeamersize{text margin left=10mm,text margin right=5mm} 
+\setbeamertemplate{frametitle}[default][center]
+\usepackage[many]{tcolorbox}
+\usepackage{adjustbox}
+\usepackage{blindtext}
+\usepackage{accents}
+\usepackage{listings}
+\lstdefinestyle{duckstyle}{%
+    moredelim=[is][\color{red}]{|}{|},
+    mathescape=true,
+    escapechar=@,
+    basicstyle=\ttfamily,
+    columns=fullflexible
+}
+\lstset{style=duckstyle}
+
+\usepackage[beamer,customcolors]{hf-tikz}
+\tcbuselibrary{skins}
+\tcbset{
+%	arc=0pt,
+%	outer arc=0pt,
+	colback=white,
+}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,
+	shapes,
+	tikzmark}
+\usetikzmarklibrary{listings} 
+
+\begin{document}
+
+\begin{frame}[fragile]
+\frametitle{Majority algorithm}
+\begin{tcolorbox}[colback=blue!5!white, text width=4.5cm,  left=7pt, right=10pt]
+\begin{lstlisting}[basicstyle=\linespread{0.9}\ttfamily, mathescape]
+test
+\end{lstlisting}
+\end{tcolorbox}
+\end{frame}
+
+\end{document}

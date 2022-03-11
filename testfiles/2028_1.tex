@@ -1,0 +1,46 @@
+% https://topanswers.xyz/tex?q=1795#a2028
+\documentclass{beamer}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+
+\makeatletter
+\newcommand*{\slideinframe}{\number\beamer@slideinframe}
+\makeatother
+
+\def\mylist{{"foo","bar","baz"}}
+
+\begin{document}
+
+
+
+\begin{frame}
+\frametitle{Demonstration}
+\begin{tikzpicture}
+\begin{scope}[every node/.style={fill=blue, circle,thick,draw, minimum size=1.3cm}]
+    \node[label={[xshift=0em, yshift=-1em] \pgfmathparse{\mylist[\slideinframe-1]}\pgfmathresult}]  (A) at (0,5) {A};
+    \node[label={[xshift=0em, yshift=-1em] \pgfmathparse{\mylist[\slideinframe-1]}\pgfmathresult}] (B) at (5,5) {B};
+    \node[label={[xshift=0em, yshift=-1em] \pgfmathparse{\mylist[\slideinframe-1]}\pgfmathresult}] (C) at (10,5) {C};
+    \node[label={[xshift=-1em, yshift=-6em] \pgfmathparse{\mylist[\slideinframe-1]}\pgfmathresult}] (D) at (0,0) {D};
+    \node[label={[xshift=-1em, yshift=-6em] \pgfmathparse{\mylist[\slideinframe-1]}\pgfmathresult}] (E) at (5,0) {E};
+    \node[label={[xshift=-1em, yshift=-6em]  \pgfmathparse{\mylist[\slideinframe-1]}\pgfmathresult}] (F) at (10,0) {F} ;
+\end{scope}
+
+\begin{scope}[>={Stealth[black]},
+              every node/.style={fill=white,circle},
+              every edge/.style={draw=red,very thick}]
+    \path [-] (A) edge node {$1$} (B);
+    \path [-] (D) edge node {$2$} (B);
+    \path [-] (A) edge node {$3$} (D);
+    \path [-] (D) edge node {$3$} (E);
+    \path [-] (E) edge node {$2$} (F);
+    \path [-] (E) edge node {$6$} (B);
+    \path [-] (E) edge node {$4$} (C);
+    \path [-] (B) edge node {$3$} (C);
+    \path [-] (B) edge node {$5$} (F);
+    \path [-] (F) edge node {$4$} (C);
+\end{scope}
+\end{tikzpicture}
+\pause[3]
+\end{frame}
+\end{document}  

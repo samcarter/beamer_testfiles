@@ -1,0 +1,28 @@
+% https://topanswers.xyz/tex?q=1351#a1596
+\documentclass{beamer}
+\begin{document}
+\begin{frame}<1-3>[label=foo]
+\frametitle{Title}
+    \begin{enumerate}[<+->] 
+        \setlength\itemsep{5pt plus 1fill}
+    \item one
+    \item two
+    \item three
+    \item four
+    \item five
+    \item six
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Explanation of point three}
+\begin{enumerate}[<+->] 
+        \setlength\itemsep{5pt plus 1fill}
+    \item Some explanation
+    \item More explanation
+    \end{enumerate}
+Some explanation
+\end{frame}
+
+\againframe<4->{foo}
+
+\end{document}

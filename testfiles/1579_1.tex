@@ -1,0 +1,24 @@
+% https://topanswers.xyz/tex?q=1334#a1579
+\documentclass{beamer}
+
+
+\beamertemplatenavigationsymbolsempty
+\setbeamersize{text margin left=10mm,text margin right=5mm} 
+\setbeamertemplate{frametitle}[default][center]
+\setbeamertemplate{itemize items}{}
+
+\begin{document}
+{
+\setbeamertemplate{itemize items}[circle]
+\setbeamercovered{invisible}
+\setbeamercovered{again covered={\opaqueness<1->{15}}}
+\begin{frame}[t]
+\begin{itemize}[<+>]
+\item line one
+\item line two
+\item line three
+\item line four
+\end{itemize}
+\end{frame}
+}
+\end{document}

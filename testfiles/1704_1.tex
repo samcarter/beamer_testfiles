@@ -1,0 +1,44 @@
+% https://topanswers.xyz/tex?q=1473#a1704
+\documentclass{beamer}
+
+\beamertemplatenavigationsymbolsempty
+\setbeamersize{text margin left=10mm,text margin right=5mm} 
+\setbeamertemplate{frametitle}[default][center]
+\usepackage[many]{tcolorbox}
+\usepackage{mathrsfs}
+\usepackage{adjustbox}
+\usepackage{accents}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,bending,tikzmark,overlay-beamer-styles}
+% if you wish to annotate listings without modifying their source:
+% \usetikzmarklibrary{listings} 
+\tikzset{show on/.style={inner sep=1pt,draw=purple,rounded
+corners,fill=red!20,visible on=<#1>,text opacity=1}}
+\usetikzlibrary{shapes.geometric, patterns,decorations.pathreplacing, calligraphy}
+
+\newenvironment{grayenv}{\only{\setbeamercolor{local structure}{fg=black!15}}}{}
+\DeclareMathOperator{\supp}{supp}
+\begin{document}
+
+\begin{frame}[t, fragile]
+\frametitle{frame title}
+\setbeamertemplate{itemize items}[circle]
+\addtolength{\leftmargini}{-0.7cm}
+\begin{itemize}[<+-|gray@+(1)->]
+\setlength\itemsep{5pt plus 1fill}
+\item Some text
+\item $\begin{aligned}[t]
+\MoveEqLeft[1]\Pr(\text{vector fed to some more text-sparse}) \\
+\visible<+->{&\tikzmarknode[show on={2-3}]{fai}{= \Pr(\text{Some text is selected and no other text is})}\\}
+\visible<+->{&=\smashoperator{\sum_{j \in \supp \bm{f}}}\;\;\Pr(X=\bm{0})\cdot \Pr(\text{no other text is selected}\mid X = \bm{0} )\\}
+\visible<+->{&=\smashoperator{\sum_{j \in \supp \bm{f}}} \;\;\Pr(j\text{ is selected and no other text is})}
+\end{aligned}$
+\end{itemize}
+\begin{tikzpicture}[remember picture, overlay,visible on=<5>]
+     \draw[dashed,{Stealth[bend]}-] (fai.south) to [out=-90,in=90]++ (-1.5,-2) node[align=left, below, rectangle,draw, rounded corners, solid, fill=green!30]{explanatory text};
+   \end{tikzpicture}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,45 @@
+% https://topanswers.xyz/tex?q=1310#a1549
+\documentclass{beamer}
+
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{frametitle}[default][center]
+\usepackage[many]{tcolorbox}
+\usepackage{listings}
+\lstdefinestyle{duckstyle}{%
+    moredelim=[is][\color{red}]{|}{|},
+    mathescape=true,
+    escapechar=@,
+    basicstyle=\ttfamily,
+    columns=fullflexible
+}
+\lstset{style=duckstyle}
+
+\usepackage{scontents}
+\Scontents*{%
+    \begin{tcolorbox}[top=0pt, left=5pt,right=5pt, colback=blue!5!white, text height=5.5cm]
+\begin{lstlisting}[ mathescape, name=tidemark, basewidth = {.3em}]
+stream $\langle a_1, \dots, a_m \rangle$,$a_i \in [n]$
+@\Proc{Initialise}@
+Choose random $h:[n] \rightarrow [n]$
+
+@\Proc{Simple-Count}@
+Set $M = h(a_1)$
+For each $i \geq 2$
+    if $h(a_i) < M$
+	    set $M = h(a_i)$
+	   
+return $\hat{d} = n/M$
+\end{lstlisting}
+\end{tcolorbox}
+}
+
+\newcommand{\Proc}[1]{\textsc{#1}}
+
+
+\begin{document}
+\begin{frame}[fragile, t]{First randomised algorithm}
+\getstored[1]{contents}
+\end{frame}
+
+
+\end{document}

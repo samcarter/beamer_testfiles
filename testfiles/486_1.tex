@@ -1,0 +1,104 @@
+% https://topanswers.xyz/tex?q=453#a486
+\documentclass[11pt]{beamer}
+%\documentclass[handout,11pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usetheme{Madrid}
+
+\begin{filecontents}[overwrite]{\jobname.bib}
+@article{Harshman1970,
+    author = {Harshman, Richard A and others},
+    doi = {10.1134/S0036023613040165},
+    file = {:C$\backslash$:/Users/Isi/Documents/Research/Tensors/TensorsDocumentation/Literature/Harshman{\_}CPD.pdf:pdf},
+    issn = {00360236},
+    journal = {UCLA Working Papers in Phonetics},
+    pages = {1--84},
+    title = {{Foundations of the PARAFAC procedure: Models and conditions for an" explanatory" multimodal factor analysis}},
+    volume = {16},
+    year = {1970}
+}
+@article{Hitchcock1927,
+    author = {Hitchcock, Frank L.},
+    doi = {10.1002/sapm192761164},
+    file = {:C$\backslash$:/Users/Isi/Documents/Research/Tensors/TensorsDocumentation/Literature/Hitchcock{\_}cpd.pdf:pdf},
+    issn = {0097-1421},
+    journal = {Journal of Mathematics and Physics},
+    number = {1-4},
+    pages = {164--189},
+    title = {{The Expression of a Tensor or a Polyadic as a Sum of Products}},
+    volume = {6},
+    year = {1927}
+}
+@article{Carroll1970,
+    doi = {10.1007/BF02310791},
+    file = {:C$\backslash$:/Users/Isi/Documents/Research/Tensors/TensorsDocumentation/Literature/Carrol{\_}Chang{\_}CPD.pdf:pdf},
+    issn = {00333123},
+    journal = {Psychometrika},
+    number = {3},
+    pages = {283--319},
+    title = {{Analysis of individual differences in multidimensional scaling via an n-way generalization of "Eckart-Young" decomposition}},
+    volume = {35},
+    year = {1970}
+}
+
+
+
+\end{filecontents}
+
+\usepackage[style=numeric,sorting=none]{biblatex}
+
+\addbibresource{\jobname.bib}
+
+\setbeamertemplate{bibliography item}[text]
+
+\makeatletter
+\DeclareCiteCommand{\cite}[\mkbibsuperscript]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\renewbibmacro*{cite}{%
+  \printtext[bibhyperref]{%
+    \printfield{labelprefix}%
+    \printfield{labelnumber}%
+    \ifbool{bbx:subentry}{%
+        \printfield{entrysetcount}
+    }{}%
+  }%
+  \footnotetext[\thefield{labelnumber}]{%
+    \usedriver{\DeclareNameAlias{sortname}{default}}{\thefield{entrytype}}
+  }%
+}
+
+\DeclareBibliographyDriver{article}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/translator+others}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \newunit
+  \printlist{language}%
+  \newunit\newblock
+  \usebibmacro{byauthor}%
+  \newunit\newblock
+  \usebibmacro{date}%
+  \usebibmacro{finentry}}
+\makeatother
+
+\begin{document}
+
+    \begin{frame}{Slide 1\cite{Harshman1970}\cite{Hitchcock1927}\cite{Carroll1970}}
+        some text
+    \end{frame}
+
+    \begin{frame}{Slide 2\cite{Hitchcock1927}\cite{Carroll1970}}
+    some figure
+    \end{frame}
+    
+    \begin{frame}
+    \printbibliography
+    \end{frame}
+
+\end{document}

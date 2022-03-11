@@ -1,0 +1,18 @@
+% https://topanswers.xyz/tex?q=730#a979
+\documentclass{beamer}
+
+\makeatletter
+\csappto{blx@filehook@postload@numeric.bbx}{%
+  \mode<presentation>{\setbeamercolor{background canvas}{bg=red}}%
+}
+\makeatother
+
+\usepackage[style=numeric]{biblatex}
+
+\begin{document}
+
+\begin{frame}
+test
+\end{frame}
+
+\end{document}

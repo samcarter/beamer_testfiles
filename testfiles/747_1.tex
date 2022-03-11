@@ -1,0 +1,52 @@
+% https://topanswers.xyz/tex?q=675#a747
+\documentclass{beamer}
+
+\mode<presentation>
+{ 
+\usetheme{AnnArbor}
+\usecolortheme[named=green]{structure}
+\useinnertheme{circles}
+\usefonttheme[onlymath]{serif}
+\setbeamercovered{transparent}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+}
+
+\newcommand{\yannis}{}
+
+\setbeamertemplate{headline}{%
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.65ex,dp=1.5ex,right]{section in head/foot}%
+    \usebeamerfont{section in head/foot}\insertsectionhead\hspace*{2ex}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.65ex,dp=1.5ex,right]{subsection in head/foot}%
+    \usebeamerfont{subsection in head/foot}\hspace*{2ex}\yannis\hspace*{2ex}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\begin{document}
+
+
+{
+\renewcommand{\yannis}{Mr. Duck, 2019}
+\begin{frame}
+\frametitle{title}
+content...
+\end{frame}
+}
+
+\begin{frame}
+\frametitle{title}
+content...
+\end{frame}
+
+{
+\renewcommand{\yannis}{Clever Marmot, 2012}
+\begin{frame}
+\frametitle{title}
+content...
+\end{frame}
+}
+
+\end{document}

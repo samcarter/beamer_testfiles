@@ -1,0 +1,18 @@
+% https://topanswers.xyz/tex?q=1342#a1586
+\documentclass{beamer}
+\setbeamersize{text margin left=10mm,text margin right=5mm} 
+\setbeamertemplate{frametitle}[default][center]
+\newenvironment{grayenv}{\only{\setbeamercolor{item}{fg=structure.fg}}}{}
+\begin{document}
+\begin{frame}{Frame Title}
+\setbeamertemplate{itemize items}[circle]
+\addtolength{\leftmargini}{-0.7cm}
+\setbeamercolor{item}{fg=black!15}
+\begin{itemize}[<+-|gray@+>]
+\setlength\itemsep{5pt plus 1fill}
+\item line one
+\item line two
+\item line three
+\end{itemize}
+\end{frame}
+\end{document}

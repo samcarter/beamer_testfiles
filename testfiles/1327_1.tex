@@ -1,0 +1,51 @@
+% https://topanswers.xyz/tex?q=1096#a1327
+\documentclass[12pt]{beamer}
+
+\usetheme{Boadilla}
+%\usepackage{float}
+%\usepackage{amsmath}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{resize to}[a4paper,landscape]
+\usefonttheme{professionalfonts} %To get the accents aligned correctly, albeit in Computer Modern Roman
+
+\usepackage[
+size=a4,
+scale=4.0
+]{beamerposter}
+
+%\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    %linkcolor=blue,
+    %filecolor=magenta,      
+    %urlcolor=cyan,
+    urlcolor=blue,
+}
+
+\setbeamertemplate{footline}
+{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+            \usebeamerfont{author in head/foot}\insertdate
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+            \usebeamerfont{author in head/foot}\insertshorttitle
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+            \insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+    \end{beamercolorbox}}%
+    \vskip0pt%
+}
+
+\title{Test}                % used by \maketitle    
+\author{John Doe }
+\date{Spring 2020}                  % used by \maketitle
+\institute{John Doe University}
+\begin{document} 
+    \setcounter{section}{5}
+    \maketitle                  % automatic title!
+    \begin{frame}
+        Click on this link: \href{https://ocw.mit.edu/courses/aeronautics-and-astronautics/16-323-principles-of-optimal-control-spring-2008/lecture-notes/lec5.pdf}{MIT OpenCourseWare, Page 5-18}
+    \end{frame}
+\end{document}

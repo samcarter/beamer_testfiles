@@ -1,0 +1,54 @@
+% https://topanswers.xyz/tex?q=1358#a1607
+\documentclass{beamer}
+\usepackage{tikz}
+\setbeamertemplate{navigation symbols}{}
+
+\usetikzlibrary{overlay-beamer-styles}
+
+\begin{document}
+\begin{frame}
+\tikzset{
+  vertex/.style={
+    very thick,
+    draw=black, 
+    circle,
+    minimum size=18pt,
+    inner sep=0pt
+  },
+  edge/.style={
+    draw,
+    thick
+  }
+}
+
+
+\begin{figure}
+\begin{tikzpicture}[scale=1.8, auto,swap]
+        
+    % First we draw the vertices
+    \foreach \pos/\name in {{(0,2)/s}, {(2,1)/b}, {(4,1)/c},
+                            {(0,0)/d}, {(3,0)/e}, {(2,-1)/f}, {(4,-1)/t}}
+        \node[vertex] (\name) at \pos {$\name$};
+    % Connect vertices with edges and draw weights
+    \foreach \source/ \dest / \myoverlay  in {
+      b/s/2-6, 
+      c/b/3-,
+      f/e/4-8,
+      e/t/5-,
+      f/d/6-, 
+      s/c/8-,
+      d/b/10-,
+      e/c/11-,
+      e/f/12
+    }{
+        \path<\myoverlay>[edge] (\source) -- node {} (\dest);
+    }
+    
+\node<2-10> at (0.6,3) {\Large Two words};
+\node[visible on=<11->] at (0.6,3) {\Large More words words words words};
+
+\end{tikzpicture}
+\end{figure}
+\end{frame}
+
+\end{document}

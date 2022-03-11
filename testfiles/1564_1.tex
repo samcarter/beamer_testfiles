@@ -1,0 +1,22 @@
+% https://topanswers.xyz/tex?q=1325#a1564
+\documentclass[xcolor={rgb}]{beamer}
+\beamertemplatenavigationsymbolsempty
+\setbeamersize{text margin left=10mm,text margin right=5mm} 
+\setbeamertemplate{frametitle}[default][center]
+\newcommand{\var}[1]{\operatorname{var}{\!#1}}
+\begin{document}
+\begin{frame}[t]
+{\small\begin{align*}
+\var(X) &= 0 + \var{\left(g(a) \sum_{j\in[n]\backslash\{a\}} f_j\cdot g(j) Y_j\right)}\\ 
+&= \mathbb{E}\left( g(a)^2 \sum_{j\in[n]\backslash\{a\}} f^2_j Y^2_j + g(a)^2 \sum_{j\in[n]\backslash\{a\}} \right) - \left(\sum_{j\in[n]\backslash\{a\}} f_j \mathbb{E}[g(a)g(j)Y_j]\right)
+\end{align*}}
+\end{frame}
+
+\begin{frame}[t]
+\begin{align*}
+\var(X) = & 0 + \var{\left(g(a) \sum_{j\in[n]\backslash\{a\}} f_j\cdot g(j) Y_j\right)}\\ 
+= & \mathbb{E}\left( g(a)^2 \sum_{j\in[n]\backslash\{a\}} f^2_j Y^2_j + g(a)^2 \sum_{j\in[n]\backslash\{a\}} \right) -\\
+&- \left(\sum_{j\in[n]\backslash\{a\}} f_j \mathbb{E}[g(a)g(j)Y_j]\right)
+\end{align*}
+\end{frame}
+\end{document}
