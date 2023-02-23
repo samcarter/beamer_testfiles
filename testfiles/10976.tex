@@ -1,0 +1,18 @@
+% https://texnique.fr/osqa/questions/10976/biblatex-beamer-et-tcolorbox-equivalent-footnotetext-a-footfullcite
+\documentclass{beamer}
+
+\usepackage{biblatex}
+\addbibresource{biblatex-examples.bib}
+
+\usepackage{tcolorbox}
+
+\begin{document}
+
+\begin{frame}
+  \frametitle{Test}
+  \begin{tcolorbox}
+    test\footnote[frame]{\fullcite{knuth:ct}}
+  \end{tcolorbox}
+\end{frame}
+
+\end{document}

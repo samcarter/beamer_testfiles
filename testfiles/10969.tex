@@ -1,0 +1,15 @@
+% https://texnique.fr/osqa/questions/10969/sous-titre-dans-une-frame-de-section-pour-un-beamer-dans-le-theme-metropolis
+\documentclass[10pt]{beamer}
+\usetheme[progressbar=frametitle]{metropolis}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{Table of content}
+\setbeamertemplate{section in toc}[sections numbered]
+\tableofcontents
+\end{frame}
+\section[Recherche arborescente de Monte Carlo \newline
+{\footnotesize Monte Carlo Tree Search ou MCTS}]{Recherche arborescente de Monte Carlo}
+
+\end{document}

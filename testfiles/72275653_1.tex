@@ -1,0 +1,33 @@
+% https://stackoverflow.com/a/72275653/2777074
+\documentclass{beamer}
+
+\newcommand{\mytitle}{
+  \thesection \, - \secname \,:
+  \alph{subsection}) \subsecname
+}
+
+\begin{document}
+
+\begin{frame}
+  \frametitle{Table of Contents}
+  \tableofcontents
+\end{frame}
+
+\section{Analyse de l'article}
+\subsection{Principes fondamentales}
+
+\begin{frame}
+  \frametitle{\mytitle}
+  blabla
+\end{frame}
+
+%\section{Création de modèles prédictifs}
+
+\subsection{Mise en forme des données}
+
+\begin{frame}
+  \frametitle{\mytitle}
+  blabla
+\end{frame}
+
+\end{document}

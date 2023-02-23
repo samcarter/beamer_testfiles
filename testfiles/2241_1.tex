@@ -1,0 +1,23 @@
+% https://topanswers.xyz/tex?q=2000#a2241
+\documentclass{beamer}
+\usepackage{tabularray}
+
+\makeatletter
+\newcommand{\slideinframe}{\beamer@slideinframe}
+\makeatother
+
+\begin{document}
+\begin{frame}
+\frametitle{With tblr doesn't work}
+\begin{tblr}{
+  vlines = {1-\slideinframe}{solid},
+  colspec={cc}
+}
+    first & tblr \\   
+   \visible<\value{rownum}->{second} & \visible<\value{rownum}->{tblr}\\ 
+   \visible<\value{rownum}->{second} & \visible<\value{rownum}->{tblr}\\ 
+   \visible<\value{rownum}->{second} & \visible<\value{rownum}->{tblr}\\ 
+   \visible<\value{rownum}->{second} & \visible<\value{rownum}->{tblr}\\          
+\end{tblr}
+\end{frame}
+\end{document}

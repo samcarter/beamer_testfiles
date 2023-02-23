@@ -1,0 +1,126 @@
+% https://topanswers.xyz/tex?q=2004#a2250
+\documentclass{beamer}
+
+\usetheme[
+	background = dark
+]{metropolis}
+
+\usepackage{noto}
+
+% @samcarter: \makeatletter does not seem to be needed.
+%\makeatletter
+\setbeamertemplate{headline}{%
+  \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}{section in head/foot}
+    \vskip1pt\strut \insertsectionnavigationhorizontal{\paperwidth}{}{} \vskip1pt % @samcarter: I inserted \strut to reserve the space for a fill line width
+    \vskip1pt\strut \insertsubsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll} \vskip3pt
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+  \end{beamercolorbox}
+}
+%\makeatother
+
+
+
+\makeatletter
+\def\sectionentry#1#2#3#4#5{% section number, section title, page
+  \beamer@xpos=0\relax%
+  \beamer@ypos=1\relax%
+  \beamer@ypos@offset=0\relax%
+  \ifnum#5=\c@part%
+  \beamer@section@set@min@width%
+  \box\beamer@sectionbox\hskip1.875ex plus 1fill%
+  \setbox\beamer@sectionbox=
+  \hbox{\def\insertsectionhead{#2}%
+    \def\insertsectionheadnumber{#1}%
+    \def\insertpartheadnumber{#5}%
+    {%
+%      \usebeamerfont{section in head/foot}
+      \usebeamercolor[fg]{section in head/foot}%
+      \ifnum\c@section=#1%
+        \usebeamerfont{section in head/foot}%
+        \hyperlink{Navigation#3}{{\usebeamertemplate{section in head/foot}}}%
+      \else%
+        \usebeamerfont{section in head/foot shaded}%
+        \hyperlink{Navigation#3}{{\usebeamertemplate{section in head/foot shaded}}}%
+      \fi}%
+  }%
+  \ht\beamer@sectionbox=1.875ex%
+  \dp\beamer@sectionbox=0.75ex%
+  \fi\ignorespaces}
+  
+\def\insertsubsectionnavigationhorizontal#1#2#3{%
+  \hbox to #1{{%
+%    \usebeamerfont{subsection in head/foot}
+    \usebeamercolor[fg]{subsection in head/foot}%
+    \beamer@currentsubsection=0%
+    \def\sectionentry##1##2##3##4##5{}%
+    \def\slideentry##1##2##3##4##5##6{\ifnum##6=\c@part\ifnum##1=\c@section%
+      \ifnum##2>\beamer@currentsubsection%
+      \beamer@currentsubsection=##2%
+      \box\beamer@sectionbox\hskip1.875ex plus1fill%
+      \setbox\beamer@sectionbox=
+      \hbox{\def\insertsubsectionhead{##5}%
+         \def\insertsectionheadnumber{##1}%
+         \def\insertsubsectionheadnumber{##2}%
+         \def\insertpartheadnumber{##6}%
+         \ifnum\c@subsection=##2%
+        \beamer@link(##4){{\usebeamerfont{subsection in head/foot}\usebeamertemplate{subsection in head/foot}}}\else%
+        \beamer@link(##4){{\usebeamerfont{subsection in head/foot shaded}\usebeamertemplate{subsection in head/foot shaded}}}\fi}%
+      \ht\beamer@sectionbox=1.875ex%
+      \dp\beamer@sectionbox=0.75ex%
+      \fi\fi\fi\ignorespaces}%
+    #2\hskip.3cm\setbox\beamer@sectionbox=\hbox{}%
+    \hskip-1.875ex plus-1fill\dohead%
+    \box\beamer@sectionbox\hfil\hskip.3cm%
+    #3}}}
+
+
+\makeatother
+
+% My attempts to make it happen
+% ---
+\setbeamerfont{section in head/foot}{series=\bfseries}
+\setbeamerfont{section in head/foot shaded}{series=\normalfont}
+
+\setbeamerfont{subsection in head/foot}{series=\bfseries}
+\setbeamerfont{subsection in head/foot shaded}{series=\normalfont}
+
+\setbeamercolor{section in head/foot}{bg=normal text.bg, fg=structure.fg}
+\setbeamercolor{subsection in head/foot}{bg=normal text.bg, fg=structure.fg}
+ % ---
+
+\begin{document}
+
+\section{section 1}
+\subsection{subsection}
+\begin{frame}
+\frametitle{blub}
+    abc
+\end{frame} 
+\begin{frame}
+\frametitle{blub}
+    abc
+\end{frame} 
+
+\section{section 2}
+\subsection{subsection 1}
+\begin{frame}
+\frametitle{blub}
+    abc
+\end{frame} 
+
+\subsection{subsection 2}
+\begin{frame}
+\frametitle{blub}
+    abc test
+\end{frame} 
+
+\section{section 3}
+\begin{frame}
+\frametitle{blub}
+    abc
+\end{frame}     
+
+\end{document}

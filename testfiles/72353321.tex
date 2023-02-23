@@ -1,0 +1,26 @@
+% https://stackoverflow.com/a/72353321/2777074
+\documentclass{beamer}
+
+\usepackage{tikz}
+
+\begin{document}
+    
+\begin{frame}
+
+% alignment is correct without using itemize
+\begin{tikzpicture}
+\node[text width=\textwidth, text centered,fill=red, fill opacity=0.4,text opacity=1, rounded corners, inner sep= 0em, outer sep=0em]{test};
+\end{tikzpicture}
+
+\bigskip
+
+% alignment is shifted vertically
+\begin{tikzpicture}[baseline]
+\node[text width=\textwidth, text centered,fill=red, fill opacity=0.4,text opacity=1, rounded corners, inner sep= 0em, outer sep=0em]{\begin{minipage}{\textwidth}\begin{itemize}
+\item test
+\end{itemize}\end{minipage}};
+\end{tikzpicture}
+
+\end{frame}
+ 
+\end{document}
